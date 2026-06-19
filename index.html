@@ -10,58 +10,68 @@
   :root{--orange:#D97706;--brown:#7C3F16;--cream:#FFF7ED;--ink:#2B160B;--muted:#6b5b50;--lens:#2563EB;--app:#15803D;--bg:#fbf7f2}
   /* --app = Akzentfarbe für das App-Kürzel „MR". Grün (#15803D). Für Blau auf #2563EB ändern. */
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;padding:30px 20px 44px;max-width:1080px;margin:0 auto}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;padding:30px 20px 44px;max-width:860px;margin:0 auto}
   a{color:var(--orange);text-decoration:none}
   a:hover{text-decoration:underline}
 
-  /* HERO: Marke mittig, darunter großzügig Abstand */
+  .wm{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:800;fill:var(--brown);letter-spacing:-.5px}
+  .wm .mr{fill:var(--app);font-weight:900}
+
+  /* HERO */
   .hero{text-align:center;margin-bottom:40px}
   .hero .brandmark{width:min(360px,88vw);height:auto;display:block;margin:0 auto 22px;filter:drop-shadow(0 8px 18px rgba(124,63,22,.16))}
-  .hero .brandmark .wm{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:800;fill:var(--brown);letter-spacing:-.5px}
   .hero .tag{color:var(--muted);font-size:1rem;max-width:560px;margin:0 auto}
 
   nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin:0 0 34px;font-size:.92rem}
 
-  /* INTRO – linksbündig */
-  .intro{max-width:800px;margin:0 0 38px}
+  /* INTRO */
+  .intro{max-width:760px;margin:0 0 40px}
   .intro h2{font-size:1.4rem;color:var(--brown);margin:0 0 12px}
-  .intro h2 .mr{color:var(--app)}
-  .intro p{margin:0 0 12px;max-width:760px}
+  .intro p{margin:0 0 12px}
   .intro .lead{font-size:1.06rem;color:var(--ink)}
   .sign{color:var(--muted);font-size:.92rem;margin-top:4px}
 
-  /* APP-BEREICH – drei Spalten (Platz für drei Apps) */
-  .apps-h{font-size:1.25rem;color:var(--brown);margin:0 0 4px}
-  .apps-sub{color:var(--muted);font-size:.9rem;margin:0 0 18px}
-  .apps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start;margin-bottom:36px}
-  @media(max-width:920px){.apps{grid-template-columns:1fr}}
+  /* APP-BEREICH – horizontal, untereinander, aufklappbar */
+  .apps-h{font-size:1.3rem;color:var(--brown);margin:0 0 4px}
+  .apps-sub{color:var(--muted);font-size:.92rem;margin:0 0 18px}
+  .apps2{display:flex;flex-direction:column;gap:14px;margin-bottom:38px}
 
-  .app{background:#fff;border:1px solid #ecdfd2;border-radius:16px;padding:20px 22px;box-shadow:0 6px 16px rgba(124,63,22,.05)}
-  .apphead{display:flex;align-items:center;gap:11px;margin-bottom:4px}
-  .apphead .nm{font-size:1.2rem;font-weight:800;color:var(--brown);letter-spacing:-.01em}
-  .apphead .nm .mr{color:var(--app)}
-  .badge{display:inline-block;font-size:.7rem;font-weight:700;background:#e7f3df;color:#2f6d12;border:1px solid #cde7b6;border-radius:20px;padding:2px 9px;vertical-align:middle}
-  .app h3{font-size:.96rem;color:var(--brown);margin:18px 0 6px}
-  .app h3.first{margin-top:12px}
-  .app p, .app li{font-size:.9rem}
-  .app ul{margin:6px 0 2px 18px}
-  .app li{margin:3px 0}
-  ol.howto{margin:6px 0 2px 20px}
+  .app-acc{background:#fff;border:1px solid #ecdfd2;border-radius:16px;box-shadow:0 6px 16px rgba(124,63,22,.05);overflow:hidden}
+  .app-acc>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:14px 20px}
+  .app-acc>summary::-webkit-details-marker{display:none}
+  .app-acc>summary:hover{background:#fcf8f3}
+  .lockup{height:50px;width:auto;display:block}
+  .sumright{display:inline-flex;align-items:center;gap:12px}
+  .badge{display:inline-block;font-size:.7rem;font-weight:700;background:#e7f3df;color:#2f6d12;border:1px solid #cde7b6;border-radius:20px;padding:2px 9px;white-space:nowrap}
+  .more{display:inline-flex;align-items:center;gap:7px;color:var(--orange);font-weight:600;font-size:.9rem;white-space:nowrap}
+  .chev{width:16px;height:16px;transition:transform .2s ease}
+  .app-acc[open] .chev{transform:rotate(180deg)}
+  .more .lbl-open{display:none}
+  .app-acc[open] .more .lbl-closed{display:none}
+  .app-acc[open] .more .lbl-open{display:inline}
+
+  .app-body{padding:6px 22px 24px;border-top:1px solid #f0e6da}
+  .app-body h3{font-size:1rem;color:var(--brown);margin:18px 0 6px}
+  .app-body h3.first{margin-top:14px}
+  .app-body p{margin:0 0 4px}
+  .app-body ul{margin:6px 0 2px 20px}
+  .app-body li{margin:3px 0}
+  ol.howto{margin:6px 0 2px 22px}
   ol.howto li{margin:6px 0;padding-left:2px}
   ol.howto li strong{color:var(--brown)}
-  .pill{display:inline-block;background:var(--cream);color:var(--brown);border:1px solid #f0e0cf;border-radius:20px;padding:3px 10px;font-size:.76rem;margin:3px 5px 3px 0}
-
+  .pill{display:inline-block;background:var(--cream);color:var(--brown);border:1px solid #f0e0cf;border-radius:20px;padding:3px 10px;font-size:.78rem;margin:3px 5px 3px 0}
   .cta{display:inline-block;background:var(--orange);color:#fff;font-weight:600;padding:11px 18px;border-radius:12px;margin-top:16px;font-size:.92rem}
   .cta:hover{background:#b45309;text-decoration:none}
   .cta.soon{background:#e7d6c4;color:#7a6650;cursor:default}
 
-  /* Platzhalter-Kacheln */
-  .app.coming{border-style:dashed;background:#fcf8f3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:280px}
-  .app.coming .slot{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#b89a82;margin-bottom:10px}
-  .app.coming .ph-t{font-size:1.05rem;font-weight:800;color:var(--brown);margin-top:12px}
-  .app.coming .ph-s{font-size:.85rem;color:var(--muted);margin-top:4px;max-width:200px}
+  /* Platzhalter-Zeilen */
+  .placeholder{display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px dashed #e3d3c2;border-radius:16px;background:#fcf8f3}
+  .placeholder .pl-fox{opacity:.26;flex:none}
+  .placeholder .slot{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#b89a82}
+  .placeholder .pl-t{font-weight:800;color:var(--brown)}
+  .placeholder .pl-s{font-size:.85rem;color:var(--muted)}
 
-  .contact{max-width:800px;margin:0 0 8px}
+  .contact{max-width:760px;margin:0 0 8px}
   .contact h2{font-size:1.1rem;color:var(--brown);margin:0 0 6px}
   footer{margin-top:30px;color:var(--muted);font-size:.82rem;border-top:1px solid #ecdfd2;padding-top:16px}
 </style>
@@ -103,85 +113,96 @@
     <p class="lead">Hinter FehlerFuchs steckt kein Unternehmen und kein großes Team – nur ich, Matthias. Mich hat es schon immer gereizt, Abläufe einfacher zu machen: Dinge, die im Alltag umständlich sind, so lange zu drehen, bis sie rund laufen.</p>
     <p>Die Apps entstehen komplett in meiner Freizeit – einfach, weil mir genau dieses Tüfteln Spaß macht. Mein Anspruch dabei: kleine, ehrliche Werkzeuge, die ein konkretes Problem lösen und sonst nichts. Datensparsam, ohne Cloud, ohne Tracking, ohne Konto – die Daten bleiben dort, wo sie hingehören: bei dir.</p>
     <p>FehlerFuchs ist der Rahmen, unter dem nach und nach mehrere solcher Helfer entstehen sollen. <strong>Mobile Report</strong> ist die erste App – weitere sind in Planung. Wenn dir etwas auffällt oder fehlt, freue ich mich über jede Rückmeldung.</p>
-    <p class="sign">— Matthias Schacht</p>
+    <p class="sign">— Matthias (Matze) von FehlerFuchs</p>
   </section>
 
-  <h2 class="apps-h">Die Apps von FehlerFuchs</h2>
-  <p class="apps-sub">Eine App ist da, zwei Plätze sind für die Zukunft reserviert.</p>
+  <h2 class="apps-h">Apps, die es dir leichter machen</h2>
+  <p class="apps-sub">Eine App ist da, wer weiß was da noch so kommt?</p>
 
-  <div class="apps">
+  <div class="apps2">
 
-    <!-- App 1: FehlerFuchsMR -->
-    <div class="app">
-      <div class="apphead">
-        <svg viewBox="80 80 356 376" width="38" height="38" aria-hidden="true"><use href="#fox"/></svg>
-        <span class="nm">FehlerFuchs<span class="mr">MR</span></span>
+    <!-- App 1: FehlerFuchsMR (aufklappbar) -->
+    <details class="app-acc">
+      <summary>
+        <svg class="lockup" viewBox="0 0 624 150" role="img" aria-label="FehlerFuchsMR">
+          <use href="#fox" transform="translate(8,-14) scale(0.34)"/>
+          <text class="wm" x="150" y="92" font-size="62">FehlerFuchs<tspan class="mr">MR</tspan></text>
+        </svg>
+        <span class="sumright">
+          <span class="badge">Beta · Android</span>
+          <span class="more">
+            <span class="lbl-closed">Mehr erfahren</span>
+            <span class="lbl-open">Weniger anzeigen</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </span>
+      </summary>
+
+      <div class="app-body">
+        <h3 class="first">Was ist FehlerFuchs<span style="color:var(--app);font-weight:900">MR</span>?</h3>
+        <p>Ein kleines, lokales Melde-Logbuch für Geräte („Mobile Report"). Erfasse schnell einen Defekt, eine Auffälligkeit oder eine Rückfrage, füge Fotos hinzu, erstelle ein PDF und bereite es als E-Mail vor – alles bleibt auf deinem Gerät.</p>
+
+        <h3>Funktionen</h3>
+        <ul>
+          <li>Meldung erfassen: Gerät, Bereich, Kategorie, Priorität, Beschreibung</li>
+          <li>Fotos per Kamera oder Galerie (EXIF-/Standortdaten werden vorher entfernt)</li>
+          <li>PDF lokal erzeugen – mit fortlaufender Logbuch-Nummer</li>
+          <li>PDF per E-Mail-App vorbereiten (Empfänger, Betreff, Anhang vorausgefüllt)</li>
+          <li>Mehrere Empfänger lokal verwalten</li>
+          <li>Lokales Logbuch aller auf diesem Gerät erstellten Meldungen</li>
+          <li>Alle Daten jederzeit lokal löschbar</li>
+        </ul>
+
+        <h3>Kurzanleitung</h3>
+        <ol class="howto">
+          <li><strong>Meldung erfassen:</strong> Gerät, Bereich, Kategorie, Priorität und Beschreibung eintragen.</li>
+          <li><strong>Foto hinzufügen (optional):</strong> per Kamera oder Galerie – keine personenbezogenen oder sensiblen Inhalte.</li>
+          <li><strong>PDF erstellen:</strong> antippen und die Vorschau prüfen.</li>
+          <li><strong>E-Mail vorbereiten:</strong> öffnet die Mail-App mit Empfänger, Betreff und PDF-Anhang.</li>
+          <li><strong>Selbst senden &amp; bestätigen:</strong> in der Mail-App prüfen und senden – danach im Logbuch als „versendet" markieren.</li>
+        </ol>
+
+        <h3>Datenschutz zuerst</h3>
+        <p>
+          <span class="pill">Keine Cloud</span>
+          <span class="pill">Kein Tracking</span>
+          <span class="pill">Keine Telemetrie</span>
+          <span class="pill">Keine Werbung</span>
+          <span class="pill">Kein Konto</span>
+          <span class="pill">Nur lokal</span>
+        </p>
+        <p style="margin-top:8px">Die App erfasst keine Daten und überträgt nichts an den Entwickler oder Dritte. Sie versendet nicht selbst – du prüfst und sendest die E-Mail manuell über deine Mail-App.</p>
+
+        <h3>Was es nicht ist</h3>
+        <p>Kein rechtssicheres Nachweissystem, kein zentrales Ticketsystem, keine Cloud-App, keine Bewertungs-, Freigabe- oder Diagnosesoftware. Bitte keine personenbezogenen oder sensiblen Inhalte erfassen oder fotografieren.</p>
+
+        <!--
+          Play-Store-Button: sobald die App im Play Store ist, hier class="cta" (statt "cta soon"),
+          href auf die Store-URL setzen, Text "▶ Get it on Google Play".
+          Store-URL-Schema: https://play.google.com/store/apps/details?id=de.fehlerfuchs.mobilereport
+        -->
+        <div><a class="cta soon">▶ Bald im Google Play Store</a></div>
       </div>
-      <span class="badge">Beta · Android</span>
-
-      <h3 class="first">Was ist FehlerFuchs<span class="mr" style="color:var(--app)">MR</span>?</h3>
-      <p>Ein kleines, lokales Melde-Logbuch für Geräte („Mobile Report"). Erfasse schnell einen Defekt, eine Auffälligkeit oder eine Rückfrage, füge Fotos hinzu, erstelle ein PDF und bereite es als E-Mail vor – alles bleibt auf deinem Gerät.</p>
-
-      <h3>Funktionen</h3>
-      <ul>
-        <li>Meldung erfassen: Gerät, Bereich, Kategorie, Priorität, Beschreibung</li>
-        <li>Fotos per Kamera oder Galerie (EXIF-/Standortdaten werden vorher entfernt)</li>
-        <li>PDF lokal erzeugen – mit fortlaufender Logbuch-Nummer</li>
-        <li>PDF per E-Mail-App vorbereiten (Empfänger, Betreff, Anhang vorausgefüllt)</li>
-        <li>Mehrere Empfänger lokal verwalten</li>
-        <li>Lokales Logbuch aller auf diesem Gerät erstellten Meldungen</li>
-        <li>Alle Daten jederzeit lokal löschbar</li>
-      </ul>
-
-      <h3>Kurzanleitung</h3>
-      <ol class="howto">
-        <li><strong>Meldung erfassen:</strong> Gerät, Bereich, Kategorie, Priorität und Beschreibung eintragen.</li>
-        <li><strong>Foto hinzufügen (optional):</strong> per Kamera oder Galerie – keine personenbezogenen oder sensiblen Inhalte.</li>
-        <li><strong>PDF erstellen:</strong> antippen und die Vorschau prüfen.</li>
-        <li><strong>E-Mail vorbereiten:</strong> öffnet die Mail-App mit Empfänger, Betreff und PDF-Anhang.</li>
-        <li><strong>Selbst senden &amp; bestätigen:</strong> in der Mail-App prüfen und senden – danach im Logbuch als „versendet" markieren.</li>
-      </ol>
-
-      <h3>Datenschutz zuerst</h3>
-      <p>
-        <span class="pill">Keine Cloud</span>
-        <span class="pill">Kein Tracking</span>
-        <span class="pill">Keine Telemetrie</span>
-        <span class="pill">Keine Werbung</span>
-        <span class="pill">Kein Konto</span>
-        <span class="pill">Nur lokal</span>
-      </p>
-      <p style="margin-top:8px">Die App erfasst keine Daten und überträgt nichts an den Entwickler oder Dritte. Sie versendet nicht selbst – du prüfst und sendest die E-Mail manuell über deine Mail-App.</p>
-
-      <h3>Was es nicht ist</h3>
-      <p>Kein rechtssicheres Nachweissystem, kein zentrales Ticketsystem, keine Cloud-App, keine Bewertungs-, Freigabe- oder Diagnosesoftware. Bitte keine personenbezogenen oder sensiblen Inhalte erfassen oder fotografieren.</p>
-
-      <!--
-        Play-Store-Button: sobald die App im Play Store ist, hier class="cta" (statt "cta soon"),
-        href auf die Store-URL setzen, Text "▶ Get it on Google Play".
-        Store-URL-Schema: https://play.google.com/store/apps/details?id=de.fehlerfuchs.mobilereport
-      -->
-      <div><a class="cta soon">▶ Bald im Google Play Store</a></div>
-    </div>
+    </details>
 
     <!-- App 2: Platzhalter -->
-    <div class="app coming">
-      <span class="slot">App 2</span>
-      <svg viewBox="80 80 356 376" width="64" aria-hidden="true">
-        <path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="#7C3F16" opacity=".16"/>
-      </svg>
-      <p class="ph-t">Da kommt noch was</p>
-      <p class="ph-s">Weitere FehlerFuchs-App in Planung.</p>
+    <div class="placeholder">
+      <svg class="pl-fox" viewBox="78 80 356 376" width="44" aria-hidden="true"><use href="#fox"/></svg>
+      <div>
+        <div class="slot">App 2</div>
+        <div class="pl-t">Da kommt noch was</div>
+        <div class="pl-s">Weitere FehlerFuchs-App in Planung.</div>
+      </div>
     </div>
 
     <!-- App 3: Platzhalter -->
-    <div class="app coming">
-      <span class="slot">App 3</span>
-      <svg viewBox="80 80 356 376" width="64" aria-hidden="true">
-        <path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="#7C3F16" opacity=".16"/>
-      </svg>
-      <p class="ph-t">Da kommt noch was</p>
-      <p class="ph-s">Weitere FehlerFuchs-App in Planung.</p>
+    <div class="placeholder">
+      <svg class="pl-fox" viewBox="78 80 356 376" width="44" aria-hidden="true"><use href="#fox"/></svg>
+      <div>
+        <div class="slot">App 3</div>
+        <div class="pl-t">Da kommt noch was</div>
+        <div class="pl-s">Weitere FehlerFuchs-App in Planung.</div>
+      </div>
     </div>
 
   </div>
