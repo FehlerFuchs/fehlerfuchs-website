@@ -52,6 +52,7 @@
   .sumright{display:inline-flex;align-items:center;gap:12px}
   .badge{display:inline-block;font-size:.7rem;font-weight:700;background:#e7f3df;color:#2f6d12;border:1px solid #cde7b6;border-radius:20px;padding:2px 9px;white-space:nowrap}
   .badge.future{background:#fcebeb;color:#a32d2d;border-color:#f3caca}
+  .badge.vita{background:#e7efe8;color:#3f6b50;border-color:#cfe0d2}
   .more{display:inline-flex;align-items:center;gap:7px;color:var(--orange);font-weight:600;font-size:.9rem;white-space:nowrap}
   .chev{width:16px;height:16px;transition:transform .2s ease}
   .app-acc[open] .chev{transform:rotate(180deg)}
@@ -150,6 +151,10 @@
         <path d="M-118,-32 L118,-32 L96,0 L118,32 L-118,32 L-96,0 Z" fill="#DC2626"/>
         <text x="0" y="2" font-family="Poppins, Arial, sans-serif" font-weight="700" font-size="48" fill="#fff" text-anchor="middle" dominant-baseline="middle">Pro</text>
       </g>
+    </g>
+    <g id="fox-vita">
+      <use href="#fox"/>
+      <polyline points="150,468 224,468 245,442 268,492 289,468 362,468" fill="none" stroke="#5B8A72" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
   </defs></svg>
 
@@ -307,6 +312,31 @@
       <div class="app-body">
         <p>So stelle ich mir das vor: <strong>FehlerFuchs Kleingewerbe Pro</strong> – die spätere Vollversion mit <strong>allen Funktionen (stabil)</strong>, ohne den „Erstellt mit"-Hinweis, mit anpassbarem Branding (dein Firmenlogo auf Rechnung, Bericht &amp; Dashboard) und mehr Komfort. Bleibt selbstverständlich <strong>lokal &amp; datensparsam</strong>.</p>
         <p>Das ist ausdrücklich <strong>Zukunftsmusik</strong> – sie entsteht, wenn die freie Version rund läuft und es echten Bedarf gibt. Interesse? <a href="mailto:info@fehlerfuchs.eu?subject=FehlerFuchs%20Kleingewerbe%20Pro">info@fehlerfuchs.eu</a>.</p>
+      </div>
+    </details>
+
+    <!-- CheckIn Vita (von FehlerFuchs) – kommende App + Windows-Programm -->
+    <details class="app-acc">
+      <summary>
+        <svg class="lockup" viewBox="0 0 760 150" role="img" aria-label="CheckIn Vita von FehlerFuchs">
+          <use href="#fox-vita" transform="translate(8,-14) scale(0.34)"/>
+          <text class="wm" x="150" y="92" font-size="62">CheckIn <tspan fill="#5B8A72">Vita</tspan></text>
+        </svg>
+        <span class="sumright">
+          <span class="badge vita">Bald · Android &amp; Windows</span>
+          <span class="more">
+            <span class="lbl-closed">Mehr erfahren</span>
+            <span class="lbl-open">Weniger anzeigen</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </span>
+      </summary>
+      <div class="app-body">
+        <h3 class="first">CheckIn Vita von FehlerFuchs</h3>
+        <p>Dein persönliches <strong>Gesundheits-Tagebuch</strong>: Werte und Beobachtungen erfassen, Verläufe verstehen – und, wenn du möchtest, sauber aufbereitet mit deiner Ärztin oder deinem Arzt teilen.</p>
+        <p><strong>100 % lokal</strong> – ohne Konto, ohne Cloud, ohne Tracking. Die App greift nicht einmal aufs Internet zu. <em>Deine Daten. Deine Entscheidung.</em></p>
+        <p>Kommt für <strong>Android und Windows</strong>, kostenlos. Status: in Entwicklung – der Download erscheint hier, sobald die erste Version steht.</p>
+        <p style="margin-top:8px">Ausdrücklich <strong>kein Medizinprodukt</strong> – ein Tagebuch zum Verstehen und Dokumentieren, nicht zum Diagnostizieren oder Bewerten. Interesse? <a href="mailto:info@fehlerfuchs.eu?subject=CheckIn%20Vita">info@fehlerfuchs.eu</a></p>
       </div>
     </details>
 
