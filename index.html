@@ -182,6 +182,21 @@
       <use href="#fox"/>
       <polyline points="150,468 224,468 245,442 268,492 289,468 362,468" fill="none" stroke="#5B8A72" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
+    <g id="fox-insight">
+      <path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="#D97706"/>
+      <path d="M132,120 L186,150 L158,182 Z" fill="#7C3F16"/>
+      <path d="M380,120 L326,150 L354,182 Z" fill="#7C3F16"/>
+      <path d="M198,250 L314,250 L256,430 Z" fill="#FFF7ED"/>
+      <path d="M192,228 L232,222 L214,250 Z" fill="#2B160B"/>
+      <path d="M243,372 L269,372 L256,392 Z" fill="#2B160B"/>
+      <ellipse cx="308" cy="233" rx="15" ry="11" fill="#2B160B" transform="rotate(16 308 233)"/>
+      <circle cx="308" cy="231" r="29" fill="#2563EB" opacity="0.16"/>
+      <path d="M289,217 A29,29 0 0 1 311,205" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
+      <line x1="330" y1="253" x2="373" y2="296" stroke="#2B160B" stroke-width="18" stroke-linecap="round"/>
+      <line x1="332" y1="255" x2="369" y2="292" stroke="#C2410C" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="308" cy="231" r="29" fill="none" stroke="#2B160B" stroke-width="11"/>
+      <circle cx="308" cy="231" r="23" fill="none" stroke="#FFF7ED" stroke-width="2" opacity="0.45"/>
+    </g>
   </defs></svg>
 
   <section class="hero">
@@ -390,6 +405,56 @@
         <p>Die Idee kam mir, als ich selbst plötzlich eine Therapie bekam, bei der ich ständig Infos aus einer Health-App, meiner Smartwatch, der Waage und meinem Medikamentenplan zusammensuchen musste. Ich wollte das einfach übersichtlich haben – und nun sind wir hier.</p>
         <p>Kommt für <strong>Android und Windows</strong>. Und das Beste: <strong>komplett kostenlos – immer und ohne Kompromiss</strong>. Status: in Entwicklung – der Download erscheint hier, sobald die erste Version steht.</p>
         <p style="margin-top:8px">Ausdrücklich <strong>kein Medizinprodukt</strong> – ein Tagebuch zum Verstehen und Dokumentieren, nicht zum Diagnostizieren oder Bewerten. Interesse? <a href="mailto:info@fehlerfuchs.eu?subject=CheckIn%20Vita">info@fehlerfuchs.eu</a></p>
+      </div>
+    </details>
+
+    <!-- FehlerFuchs AppInsight – Android, in Entwicklung -->
+    <details class="app-acc">
+      <summary>
+        <svg class="lockup" viewBox="0 0 900 150" role="img" aria-label="FehlerFuchs AppInsight">
+          <use href="#fox-insight" transform="translate(8,-14) scale(0.34)"/>
+          <text class="wm" x="150" y="92" font-size="62">FehlerFuchs <tspan>App</tspan><tspan fill="#2563EB">Insight</tspan></text>
+        </svg>
+        <span class="sumright">
+          <span class="badge">in Entwicklung · Android</span>
+          <span class="more">
+            <span class="lbl-closed">Mehr erfahren</span>
+            <span class="lbl-open">Weniger anzeigen</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </span>
+      </summary>
+      <div class="app-body">
+        <h3 class="first">Was ist FehlerFuchs <span style="color:var(--app);font-weight:900">AppInsight</span>?</h3>
+        <p>Ein lokales Transparenz-Werkzeug fürs eigene Smartphone. AppInsight zeigt verständlich, <strong>was installierte Apps wirklich tun</strong> – welche Berechtigungen sie anfordern, welche Tracker stecken könnten, wie viel Speicher und Daten sie verbrauchen und mit welchen Servern sie sprechen. Mit klarer <strong>Ampel-Einordnung</strong> statt pauschaler Urteile.</p>
+
+        <h3>Funktionen</h3>
+        <ul>
+          <li>App-Liste mit Ampel-Bewertung, Suche und Schnellfiltern (Kamera, Mikrofon, Standort, Internet)</li>
+          <li>Drei Detail-Ebenen je App: <strong>Überblick</strong>, <strong>Verständlich</strong> (Alltagssprache) und <strong>Experten</strong> (technische Rohdaten)</li>
+          <li>Berechtigungen in Alltagssprache erklärt</li>
+          <li>Tracker- und Datenschutz-Einordnung je App</li>
+          <li>Speicher- und Datenverbrauch je App</li>
+          <li>Optionaler lokaler Netzwerk-Monitor (Domains/IPs) – später, nur mit deiner Einwilligung</li>
+        </ul>
+
+        <h3>Datenschutz zuerst</h3>
+        <p>
+          <span class="pill">Keine Cloud</span>
+          <span class="pill">Kein Tracking</span>
+          <span class="pill">Keine Telemetrie</span>
+          <span class="pill">Keine Werbung</span>
+          <span class="pill">Kein Konto</span>
+          <span class="pill">Nur lokal</span>
+        </p>
+        <p style="margin-top:8px">Alle Analysen laufen lokal auf deinem Gerät – nichts wird an den Entwickler oder Dritte übertragen.</p>
+
+        <h3>Was es nicht ist</h3>
+        <p>Kein Virenscanner, kein Medizinprodukt, keine Cloud-App und kein pauschales „gut/böse"-Urteil. AppInsight erklärt und ordnet ein – die Entscheidung bleibt bei dir.</p>
+
+        <h3>Status</h3>
+        <p><strong>In Entwicklung</strong> – das Grundgerüst (Übersicht, App-Liste, Detail-Ebenen) steht bereits; die echte Geräte-Analyse folgt schrittweise. Der Download erscheint hier, sobald die erste Version steht.</p>
+        <div><a class="cta soon">▶ Bald für Android</a></div>
       </div>
     </details>
 
