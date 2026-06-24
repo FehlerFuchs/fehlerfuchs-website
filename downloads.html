@@ -13,45 +13,48 @@
   @font-face{font-family:'Poppins';src:url('fonts/Poppins-Bold.woff') format('woff');font-weight:700;font-display:swap}
   @font-face{font-family:'Inter';src:url('fonts/Inter-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
   @font-face{font-family:'Inter';src:url('fonts/Inter-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+  @font-face{font-family:'Inter';src:url('fonts/Inter-SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;padding:24px 20px 48px;max-width:880px;margin:0 auto}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;padding:24px 20px 48px;max-width:880px;margin:0 auto}
   h1,h2,h3{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
   a{color:var(--action);text-decoration:none}a:hover{text-decoration:underline}
   header.site{display:flex;align-items:center;gap:14px;margin-bottom:4px}
   header.site h1{font-size:1.5rem;color:var(--brown)}
-  nav{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 22px;font-size:.92rem}
-  .intro{max-width:680px;margin-bottom:18px}
+  nav{display:flex;gap:18px;flex-wrap:wrap;margin:12px 0 22px;font-size:.92rem}
+  .intro{max-width:700px;margin-bottom:20px}
+  h2.grp{font-size:1.15rem;color:var(--brown);margin:24px 0 10px}
 
-  .fam{background:#fff;border:1px solid #ecdfd2;border-radius:16px;padding:14px 18px;margin-bottom:16px;box-shadow:0 6px 16px rgba(124,63,22,.05)}
-  .fam-head{display:flex;align-items:center;gap:10px;border-bottom:2px solid #f0e0cf;padding-bottom:10px;margin-bottom:4px}
+  .fam{background:#fff;border:1px solid #ecdfd2;border-radius:16px;padding:16px 18px;margin-bottom:16px;box-shadow:0 6px 16px rgba(124,63,22,.05)}
+  .fam-head{display:flex;align-items:center;gap:9px;border-bottom:2px solid #f0e0cf;padding-bottom:9px;margin-bottom:4px}
   .fam-head .mk{width:30px;height:30px;flex:none}
-  .fam-head .nm{font-family:'Poppins';font-weight:700;color:var(--brown);font-size:19px}
-  .fam-head .plat{margin-left:auto;font-size:11px;font-weight:700;background:#e7f3df;color:#2f6d12;border:1px solid #cde7b6;border-radius:20px;padding:2px 10px;white-space:nowrap}
+  .fam-head .fn{font-family:'Poppins';font-weight:700;color:var(--brown);font-size:1.12rem}
+  .fam-head .plat{margin-left:auto;font-size:.68rem;font-weight:700;background:#e7f3df;color:#2f6d12;border:1px solid #cde7b6;border-radius:20px;padding:2px 9px;white-space:nowrap}
   .fam-head .plat.soon{background:#f1ece4;color:#7a6650;border-color:#e3d6c6}
 
-  .item{display:flex;gap:14px;align-items:center;padding:12px 0;border-top:1px solid #f6efe7}
-  .item:first-of-type{border-top:none}
-  .item .info{flex:1;min-width:0}
-  .item .ednm{font-weight:700;font-size:14px}
-  .item .ednm .ff{color:var(--brown)}
-  .item .ednm .kg{color:#C2410C}.item .ednm .free{color:#15803D}.item .ednm .pro{color:#B91C1C}
-  .item .ednm .rep{color:#B91C1C}.item .ednm .vita{color:#5B8A72}.item .ednm .ins{color:#2563EB}.item .ednm .bau{color:#4F46E5}.item .ednm .desk{color:#0E7490}
-  .item .desc{font-size:12px;color:var(--muted);margin-top:2px}
-  .item .act{display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex:none}
-  .item .btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-  .item .prod{font-size:11px;color:var(--action)}
-  .dlbtn{position:relative;display:inline-flex;align-items:center;gap:6px;border-radius:11px;padding:9px 14px;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap}
-  .dlbtn.free,.dlbtn.pro{background:var(--orange);color:#fff}
-  .dlbtn.free{border-left:6px solid #15803D}
-  .dlbtn.pro{border-left:6px solid #B91C1C}
-  .dlbtn.free:hover,.dlbtn.pro:hover{background:#b45309;text-decoration:none}
-  .dlbtn.pdf{background:#fff;color:var(--action);border:1px solid #f0d6c4;font-weight:600}
-  .dlbtn.soon{background:#f1ece4;color:#7a6650;border:1px solid #e3d6c6;cursor:default;font-weight:600}
+  .edrow{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-top:1px solid #f6efe7}
+  .edrow:first-of-type{border-top:none}
+  .edrow .ei{flex:1}
+  .edrow .en{font-weight:700;font-size:.95rem}
+  .edrow .en .br{color:var(--brown)}.edrow .en .kg{color:#C2410C}.edrow .en .fr{color:#15803D}.edrow .en .pr{color:#B91C1C}
+  .edrow .en .rd{color:#B91C1C}.edrow .en .vi{color:#5B8A72}.edrow .en .bl{color:#2563EB}.edrow .en .in{color:#4F46E5}.edrow .en .pt{color:#0E7490}
+  .edrow .ed{font-size:.86rem;color:var(--muted);margin-top:2px}
+  .edrow .el{display:flex;flex-direction:column;gap:1px;text-align:right;min-width:108px}
+  .edrow .el a{font-size:.73rem;color:var(--action);text-decoration:none;line-height:1.35}
+
+  .sep{border-top:1px solid #ecdfd2;margin:10px 0 0}
+  .dls{margin-top:11px}
+  .dls .lab{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:#9c8c80;margin-bottom:8px}
+  .dls .btns{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-block;background:var(--orange);color:#fff;font-weight:600;font-size:.86rem;padding:9px 14px;border-radius:11px;text-decoration:none;position:relative}
+  .btn:hover{background:#b45309;text-decoration:none}
+  .btn.free{border-left:6px solid #15803D}
+  .btn.pro{border-left:6px solid #B91C1C}
+  .btn.ghost{background:#fff;color:var(--action);border:1px solid #f0d6c4}
+  .btn.soon{background:#e7d6c4;color:#7a6650;cursor:default}
   .beta{position:absolute;top:-8px;right:-6px;background:#2B160B;color:#FCE08A;font-family:'Poppins',Arial,sans-serif;font-size:9px;font-weight:700;letter-spacing:.06em;padding:1px 6px;border-radius:4px;transform:rotate(16deg);box-shadow:0 1px 3px rgba(0,0,0,.28);pointer-events:none}
 
-  .note{background:var(--cream);border:1px solid #f0e0cf;border-radius:12px;padding:13px 16px;font-size:.9rem;line-height:1.55;margin-top:8px}
+  .note{background:var(--cream);border:1px solid #f0e0cf;border-radius:12px;padding:13px 16px;font-size:.9rem;line-height:1.55;margin-top:14px}
   footer{margin-top:30px;color:var(--muted);font-size:.82rem;border-top:1px solid #ecdfd2;padding-top:16px}
-  @media (max-width:560px){.item{flex-direction:column;align-items:flex-start}.item .act{align-items:flex-start}.item .btns{justify-content:flex-start}}
 </style>
 </head>
 <body>
@@ -59,8 +62,10 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
   <g id="fox">
     <path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="#D97706"/>
+    <path d="M132,120 L186,150 L158,182 Z" fill="#7C3F16"/><path d="M380,120 L326,150 L354,182 Z" fill="#7C3F16"/>
     <path d="M198,250 L314,250 L256,430 Z" fill="#FFF7ED"/><path d="M192,228 L232,222 L214,250 Z" fill="#2B160B"/>
-    <circle cx="306" cy="236" r="26" fill="#7C3F16"/><circle cx="306" cy="236" r="18" fill="#0E2540"/><circle cx="306" cy="236" r="10" fill="#2563EB"/>
+    <circle cx="306" cy="236" r="30" fill="#7C3F16"/><circle cx="306" cy="236" r="22" fill="#0E2540"/>
+    <circle cx="306" cy="236" r="13" fill="#2563EB"/><circle cx="306" cy="236" r="6" fill="#7DD3FC"/>
     <path d="M243,372 L269,372 L256,392 Z" fill="#2B160B"/>
   </g>
   <g id="badge"><circle cx="120" cy="120" r="116" fill="#FFF7ED" stroke="#F0E0CE" stroke-width="3"/>
@@ -72,132 +77,164 @@
   <h1>Downloads</h1>
 </header>
 <nav>
-  <a href="index.html">Start</a>
-  <a href="downloads.html">Downloads</a>
-  <a href="datenschutz.html">Datenschutz</a>
-  <a href="impressum.html">Impressum</a>
+  <a href="index.html">Start</a><a href="downloads.html">Downloads</a><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a>
 </nav>
 
-<p class="intro">Alles zum Herunterladen an einem Ort. <strong>Programme für Windows</strong> über GitHub-Releases, <strong>Apps für Android</strong> über den Google Play Store. Die Seite selbst lädt nichts nach und trackt nicht – erst beim Klick auf einen Download geht es zur jeweiligen Quelle.</p>
+<p class="intro">Alles zum Herunterladen an einem Ort. <strong>Programme für Windows</strong> über GitHub-Releases, <strong>Apps für Android</strong> über den Play Store. Die Seite trackt nicht – erst beim Klick auf einen Download geht es zur Quelle.</p>
 
-<!-- KLEINGEWERBE -->
+<h2 class="grp">Jetzt verfügbar</h2>
+
+<!-- Kleingewerbe -->
 <div class="fam">
-  <div class="fam-head"><svg class="mk" viewBox="0 0 240 240"><use href="#badge"/></svg><span class="nm">Kleingewerbe</span><span class="plat">Windows</span></div>
-  <div class="item">
-    <div class="info">
-      <div class="ednm"><span class="ff">FehlerFuchs</span> <span class="kg">Kleingewerbe</span> <span class="free">(Free)</span></div>
-      <div class="desc">Kostenlose Grundversion: Kunden, Aufträge, Rechnungen, EÜR-Vorbereitung.</div>
+  <div class="fam-head">
+    <svg class="mk" viewBox="0 0 240 240" aria-hidden="true"><use href="#badge"/></svg>
+    <span class="fn">Kleingewerbe</span>
+    <span class="plat">Beta · Windows</span>
+  </div>
+  <div class="edrow">
+    <div class="ei">
+      <div class="en"><span class="br">FehlerFuchs</span> <span class="kg">Kleingewerbe</span> <span class="fr">(Free)</span></div>
+      <div class="ed">Kostenlose Grundversion: Kunden, Rechnungen, EÜR-Vorbereitung.</div>
     </div>
-    <div class="act">
-      <div class="btns">
-        <a class="dlbtn free" href="https://github.com/Magnum91-jen/fehlerfuchs-website/releases/latest/download/FehlerFuchs-Kleingewerbe-Free.zip">⬇ Free-Version (ZIP)<span class="beta">BETA</span></a>
-        <a class="dlbtn pdf" href="downloads/FehlerFuchs-Kleingewerbe-Free-Infoblatt.pdf">📄 Infoblatt</a>
-      </div>
-      <a class="prod" href="apps/kleingewerbe.html">Zur Produktseite →</a>
+    <div class="el">
+      <a href="apps/kleingewerbe.html">Zur Produktseite →</a>
+      <a href="https://github.com/Magnum91-jen/fehlerfuchs-website/releases/latest/download/FehlerFuchs-Kleingewerbe-Free-Infoblatt.pdf">📄 Infoblatt</a>
     </div>
   </div>
-  <div class="item">
-    <div class="info">
-      <div class="ednm"><span class="ff">FehlerFuchs</span> <span class="kg">Kleingewerbe</span><span class="pro">-Pro</span></div>
-      <div class="desc">Vollversion: Branding, Sync, Aufgaben &amp; Fristen, Export.</div>
+  <div class="edrow">
+    <div class="ei">
+      <div class="en"><span class="br">FehlerFuchs</span> <span class="kg">Kleingewerbe</span><span class="pr">-Pro</span></div>
+      <div class="ed">Vollversion mit Branding, Sync, Aufgaben &amp; Fristen.</div>
     </div>
-    <div class="act">
-      <div class="btns">
-        <a class="dlbtn pro" href="https://github.com/Magnum91-jen/fehlerfuchs-website/releases/latest/download/FehlerFuchs-Kleingewerbe-Pro.zip">⬇ Pro-Version (ZIP)<span class="beta">BETA</span></a>
-        <a class="dlbtn pdf" href="downloads/FehlerFuchs-Kleingewerbe-Pro-Infoblatt.pdf">📄 Infoblatt</a>
-      </div>
-      <a class="prod" href="apps/kleingewerbe.html">Zur Produktseite →</a>
+    <div class="el">
+      <a href="apps/kleingewerbe.html">Zur Produktseite →</a>
+      <a href="https://github.com/Magnum91-jen/fehlerfuchs-website/releases/latest/download/FehlerFuchs-Kleingewerbe-Pro-Infoblatt.pdf">📄 Infoblatt</a>
+    </div>
+  </div>
+  <div class="sep"></div>
+  <div class="dls">
+    <div class="lab">Download</div>
+    <div class="btns">
+      <a class="btn free" href="https://github.com/Magnum91-jen/fehlerfuchs-website/releases/latest/download/FehlerFuchs-Kleingewerbe-Free.zip">⬇ Free · Windows (ZIP)<span class="beta">BETA</span></a>
+      <a class="btn pro" href="https://github.com/Magnum91-jen/fehlerfuchs-website/releases/latest/download/FehlerFuchs-Kleingewerbe-Pro.zip">⬇ Pro · Windows (ZIP)<span class="beta">BETA</span></a>
     </div>
   </div>
 </div>
 
-<!-- MOBILEREPORT -->
+<h2 class="grp">In Kürze</h2>
+
+<!-- MobileReport -->
 <div class="fam">
-  <div class="fam-head"><svg class="mk" viewBox="0 0 240 240"><use href="#badge"/></svg><span class="nm">MobileReport</span><span class="plat soon">Android · bald</span></div>
-  <div class="item">
-    <div class="info">
-      <div class="ednm"><span class="ff">FehlerFuchs</span> Mobile<span class="rep">Report</span></div>
-      <div class="desc">Lokales Melde-Logbuch. Editionen: Free · Pro · Custom · White-Label.</div>
-    </div>
-    <div class="act">
-      <div class="btns"><span class="dlbtn soon">▶ Bald im Play Store</span></div>
-      <a class="prod" href="apps/mobilereport.html">Zur Produktseite →</a>
-    </div>
+  <div class="fam-head">
+    <svg class="mk" viewBox="0 0 240 240" aria-hidden="true"><use href="#badge"/></svg>
+    <span class="fn">MobileReport</span>
+    <span class="plat soon">Android · bald</span>
   </div>
-  <div class="item">
-    <div class="info">
-      <div class="ednm">Excel-Import-Vorlage</div>
-      <div class="desc">Bereiche, Standorte und Empfänger (inkl. Zuständigkeiten) bequem importieren.</div>
+  <div class="edrow">
+    <div class="ei">
+      <div class="en"><span class="br">FehlerFuchs</span> Mobile<span class="rd">Report</span></div>
+      <div class="ed">Lokales Melde-Logbuch. Editionen: <span style="color:#15803D">Free</span> · <span style="color:#B91C1C">Pro</span> · <span style="color:#C2410C">Custom</span> · <span style="color:#2563EB">White-Label</span>.</div>
     </div>
-    <div class="act"><div class="btns"><span class="dlbtn soon">⬇ Vorlage folgt</span></div></div>
+    <div class="el"><a href="apps/mobilereport.html">Zur Produktseite →</a></div>
   </div>
+  <div class="sep"></div>
+  <div class="dls"><div class="lab">Download</div><div class="btns"><span class="btn soon">▶ Bald im Play Store</span></div></div>
 </div>
 
-<!-- CHECKIN VITA -->
+<!-- CheckIn Vita -->
 <div class="fam">
-  <div class="fam-head"><svg class="mk" viewBox="0 0 240 240"><use href="#badge"/></svg><span class="nm">CheckIn Vita</span><span class="plat soon">Android &amp; Windows · bald</span></div>
-  <div class="item">
-    <div class="info">
-      <div class="ednm"><span class="ff">FehlerFuchs</span> CheckIn <span class="vita">Vita</span></div>
-      <div class="desc">Persönliches Gesundheits-Tagebuch – 100 % lokal, kostenlos.</div>
-    </div>
-    <div class="act">
-      <div class="btns"><span class="dlbtn soon">Bald verfügbar</span></div>
-      <a class="prod" href="apps/checkin-vita.html">Zur Produktseite →</a>
-    </div>
+  <div class="fam-head">
+    <svg class="mk" viewBox="0 0 240 240" aria-hidden="true"><use href="#badge"/></svg>
+    <span class="fn">CheckIn Vita</span>
+    <span class="plat soon">Android &amp; Windows · bald</span>
   </div>
+  <div class="edrow">
+    <div class="ei">
+      <div class="en"><span class="br">FehlerFuchs</span> CheckIn <span class="vi">Vita</span></div>
+      <div class="ed">Persönliches Gesundheits-Tagebuch – 100 % lokal, komplett kostenlos.</div>
+    </div>
+    <div class="el"><a href="apps/checkin-vita.html">Zur Produktseite →</a></div>
+  </div>
+  <div class="sep"></div>
+  <div class="dls"><div class="lab">Download</div><div class="btns"><span class="btn soon">Bald verfügbar</span></div></div>
 </div>
 
-<!-- APPINSIGHT -->
+<!-- AppInsight -->
 <div class="fam">
-  <div class="fam-head"><svg class="mk" viewBox="0 0 240 240"><use href="#badge"/></svg><span class="nm">AppInsight</span><span class="plat soon">Android · bald</span></div>
-  <div class="item">
-    <div class="info">
-      <div class="ednm"><span class="ff">FehlerFuchs</span> App<span class="ins">Insight</span></div>
-      <div class="desc">Zeigt verständlich, was installierte Apps wirklich tun.</div>
-    </div>
-    <div class="act">
-      <div class="btns"><span class="dlbtn soon">▶ Bald für Android</span></div>
-      <a class="prod" href="apps/appinsight.html">Zur Produktseite →</a>
-    </div>
+  <div class="fam-head">
+    <svg class="mk" viewBox="0 0 240 240" aria-hidden="true"><use href="#badge"/></svg>
+    <span class="fn">AppInsight</span>
+    <span class="plat soon">Android · bald</span>
   </div>
+  <div class="edrow">
+    <div class="ei">
+      <div class="en"><span class="br">FehlerFuchs</span> App<span class="bl">Insight</span></div>
+      <div class="ed">Zeigt verständlich, was installierte Apps wirklich tun.</div>
+    </div>
+    <div class="el"><a href="apps/appinsight.html">Zur Produktseite →</a></div>
+  </div>
+  <div class="sep"></div>
+  <div class="dls"><div class="lab">Download</div><div class="btns"><span class="btn soon">▶ Bald für Android</span></div></div>
 </div>
 
-<!-- FUCHSBAU -->
+<!-- FuchsBau -->
 <div class="fam">
-  <div class="fam-head"><svg class="mk" viewBox="0 0 240 240"><use href="#badge"/></svg><span class="nm">FuchsBau</span><span class="plat soon">Android · bald</span></div>
-  <div class="item">
-    <div class="info">
-      <div class="ednm"><span class="ff">FehlerFuchs</span> Fuchs<span class="bau">Bau</span></div>
-      <div class="desc">Passwort-Generator mit einfachem Tresor – 100 % lokal.</div>
-    </div>
-    <div class="act">
-      <div class="btns"><span class="dlbtn soon">▶ Bald für Android</span></div>
-      <a class="prod" href="apps/fuchsbau.html">Zur Produktseite →</a>
-    </div>
+  <div class="fam-head">
+    <svg class="mk" viewBox="0 0 240 240" aria-hidden="true"><use href="#badge"/></svg>
+    <span class="fn">FuchsBau</span>
+    <span class="plat soon">Android · bald</span>
   </div>
+  <div class="edrow">
+    <div class="ei">
+      <div class="en"><span class="br">FehlerFuchs</span> Fuchs<span class="in">Bau</span></div>
+      <div class="ed">Passwort-Generator mit einfachem Tresor – 100 % lokal.</div>
+    </div>
+    <div class="el"><a href="apps/fuchsbau.html">Zur Produktseite →</a></div>
+  </div>
+  <div class="sep"></div>
+  <div class="dls"><div class="lab">Download</div><div class="btns"><span class="btn soon">▶ Bald für Android</span></div></div>
 </div>
 
-<!-- CLEANDESK -->
+<!-- CleanDesk -->
 <div class="fam">
-  <div class="fam-head"><svg class="mk" viewBox="0 0 240 240"><use href="#badge"/></svg><span class="nm">CleanDesk</span><span class="plat soon">Windows · bald</span></div>
-  <div class="item">
-    <div class="info">
-      <div class="ednm"><span class="ff">FehlerFuchs</span> Clean<span class="desk">Desk</span></div>
-      <div class="desc">Sicherer Ordnungshelfer – Duplikate, große &amp; alte Dateien.</div>
-    </div>
-    <div class="act">
-      <div class="btns"><span class="dlbtn soon">⬇ Bald als Download</span></div>
-      <a class="prod" href="apps/cleandesk.html">Zur Produktseite →</a>
-    </div>
+  <div class="fam-head">
+    <svg class="mk" viewBox="0 0 240 240" aria-hidden="true"><use href="#badge"/></svg>
+    <span class="fn">CleanDesk</span>
+    <span class="plat soon">Windows · bald</span>
   </div>
+  <div class="edrow">
+    <div class="ei">
+      <div class="en"><span class="br">FehlerFuchs</span> Clean<span class="pt">Desk</span></div>
+      <div class="ed">Sicherer Ordnungshelfer – findet Duplikate, große &amp; alte Dateien.</div>
+    </div>
+    <div class="el"><a href="apps/cleandesk.html">Zur Produktseite →</a></div>
+  </div>
+  <div class="sep"></div>
+  <div class="dls"><div class="lab">Download</div><div class="btns"><span class="btn soon">⬇ Bald als Download</span></div></div>
 </div>
 
-<div class="note"><strong>Hinweis zur Sicherheit:</strong> Bei unsignierten Windows-Programmen zeigt Windows ggf. eine SmartScreen-Meldung („Weitere Informationen" → „Trotzdem ausführen"). Der erste Start dauert ~30 Sekunden, danach schnell. Lade FehlerFuchs-Programme nur von dieser Seite bzw. dem verlinkten GitHub-Release.</div>
+<h2 class="grp">Vorlagen &amp; Extras</h2>
 
-<footer>
-  © 2026 Matthias Schacht · FehlerFuchs und seine Apps. Alle Apps sind werbefrei; vieles ist kostenlos. Datensparsam, ohne Cloud und ohne Tracking. Bereitstellung „wie besehen", ohne Gewähr.
-</footer>
+<div class="fam">
+  <div class="fam-head">
+    <svg class="mk" viewBox="0 0 240 240" aria-hidden="true"><use href="#badge"/></svg>
+    <span class="fn">MobileReport · Stammdaten-Vorlage</span>
+    <span class="plat">Excel (.xlsx)</span>
+  </div>
+  <div class="edrow">
+    <div class="ei">
+      <div class="en">Bereiche · Standorte · Zuständigkeiten · Personen/E-Mails</div>
+      <div class="ed">Excel-Vorlage, um die Vorkonfiguration für MobileReport (Pro/Custom) bequem zu importieren.</div>
+    </div>
+    <div class="el"><a href="apps/mobilereport.html">Zur Produktseite →</a></div>
+  </div>
+  <div class="sep"></div>
+  <div class="dls"><div class="lab">Download</div><div class="btns"><a class="btn" href="vorlagen/FehlerFuchsMR-Stammdaten-Vorlage.xlsx">⬇ Excel-Vorlage (XLSX)</a></div></div>
+</div>
+
+<div class="note"><strong>Hinweis zur Sicherheit:</strong> Bei unsignierten Windows-Programmen zeigt Windows ggf. eine SmartScreen-Meldung („Weitere Informationen" → „Trotzdem ausführen"). Lade FehlerFuchs-Programme nur von dieser Seite bzw. dem verlinkten GitHub-Release.</div>
+
+<footer>© 2026 Matthias Schacht · FehlerFuchs und seine Apps. Alle Apps sind werbefrei; vieles ist kostenlos. Datensparsam, ohne Cloud und ohne Tracking. Bereitstellung „wie besehen", ohne Gewähr.</footer>
 
 </body>
 </html>

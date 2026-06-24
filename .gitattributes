@@ -19,3 +19,7 @@ CNAME  text eol=lf
 *.webp binary
 *.woff  binary
 *.woff2 binary
+*.xlsx binary
+*.xls  binary
+*.pdf  binary
+*.zip  binary
