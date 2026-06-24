@@ -85,8 +85,10 @@
   .cta{display:inline-block;background:var(--orange);color:#fff;font-weight:600;padding:11px 18px;border-radius:12px;margin-top:16px;font-size:.92rem}
   .cta:hover{background:#b45309;text-decoration:none}
   .cta.soon{background:#e7d6c4;color:#7a6650;cursor:default}
-  .cta.free{background:#15803D}.cta.free:hover{background:#11652f}
-  .cta.pro{background:#B91C1C}.cta.pro:hover{background:#991616}
+  .cta.free,.cta.pro{position:relative}
+  .cta.free{border-left:6px solid #15803D}
+  .cta.pro{border-left:6px solid #B91C1C}
+  .beta{position:absolute;top:-8px;right:-6px;background:#2B160B;color:#FCE08A;font-family:'Poppins',Arial,sans-serif;font-size:9px;font-weight:700;letter-spacing:.06em;padding:1px 6px;border-radius:4px;transform:rotate(16deg);box-shadow:0 1px 3px rgba(0,0,0,.28);pointer-events:none}
   /* Versionen / Editionen (Unter-Akkordeon) */
   .versions{margin-top:6px}
   .versions .vh{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:1rem;color:var(--brown);margin:18px 0 8px}
@@ -474,8 +476,8 @@
         <p style="margin-top:6px"><strong>Erster Start:</strong> dauert ~30 Sekunden (Windows prüft die neue Datei einmalig), danach schnell. Bei „Unbekannter Herausgeber": „Weitere Informationen" → „Trotzdem ausführen".</p>
         <p style="margin-top:6px">Unterstützt &amp; dokumentiert, ersetzt aber <strong>keine Steuerberatung</strong>; die EÜR-Ansicht dient der Vorbereitung und Übersicht.</p>
         <div style="margin-top:14px">
-          <a class="cta free" href="https://github.com/Magnum91-jen/fehlerfuchs-website/releases/latest/download/FehlerFuchs-Kleingewerbe-Free.zip">⬇ Download für Windows (ZIP)</a>
-          <a class="cta" style="background:#fff;color:var(--action);border:1px solid #f0d6c4" href="https://github.com/Magnum91-jen/fehlerfuchs-website/releases/latest/download/FehlerFuchs-Kleingewerbe-Free-Infoblatt.pdf">📄 Infoblatt (PDF)</a>
+          <a class="cta free" href="https://github.com/Magnum91-jen/fehlerfuchs-website/releases/latest/download/FehlerFuchs-Kleingewerbe-Free.zip">⬇ Download für Windows (ZIP)<span class="beta">BETA</span></a>
+          <a class="cta" style="background:#fff;color:var(--action);border:1px solid #f0d6c4" href="downloads/FehlerFuchs-Kleingewerbe-Free-Infoblatt.pdf">📄 Infoblatt (PDF)</a>
         </div>
       </div>
     </details>
@@ -516,8 +518,8 @@
         <p style="margin-top:8px"><strong>Status:</strong> öffentliche Beta für <strong>Windows</strong> – über Rückmeldungen an <a href="mailto:support@fehlerfuchs.eu?subject=Kleingewerbe%20Pro%20Beta">support@fehlerfuchs.eu</a> freue ich mich. Zusätzlich entsteht eine <strong>Android-Begleit-App</strong> (Entwicklung folgt). Unterstützt &amp; dokumentiert, ersetzt aber <strong>keine Steuerberatung</strong>; die EÜR-Ansicht dient der Vorbereitung und Übersicht.</p>
 
         <div style="margin-top:16px">
-          <a class="cta pro" href="https://github.com/Magnum91-jen/fehlerfuchs-website/releases/latest/download/FehlerFuchs-Kleingewerbe-Pro.zip">⬇ Download für Windows (ZIP)</a>
-          <a class="cta" style="background:#fff;color:var(--action);border:1px solid #f0d6c4" href="https://github.com/Magnum91-jen/fehlerfuchs-website/releases/latest/download/FehlerFuchs-Kleingewerbe-Pro-Infoblatt.pdf">📄 Infoblatt (PDF)</a>
+          <a class="cta pro" href="https://github.com/Magnum91-jen/fehlerfuchs-website/releases/latest/download/FehlerFuchs-Kleingewerbe-Pro.zip">⬇ Download für Windows (ZIP)<span class="beta">BETA</span></a>
+          <a class="cta" style="background:#fff;color:var(--action);border:1px solid #f0d6c4" href="downloads/FehlerFuchs-Kleingewerbe-Pro-Infoblatt.pdf">📄 Infoblatt (PDF)</a>
         </div>
       </div>
     </details>
