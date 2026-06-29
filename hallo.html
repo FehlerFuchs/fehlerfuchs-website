@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Hallo von FehlerFuchs</title>
+<meta name="description" content="Eine kurze persönliche Vorstellung von FehlerFuchs: kleine lokale Software-Helfer für Alltag, Büro und Selbstständigkeit.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hallo von FehlerFuchs">
+<meta property="og:description" content="Kleine lokale Software-Helfer für Alltag, Büro und Selbstständigkeit.">
+<meta property="og:image" content="https://fehlerfuchs.eu/og-image.png">
+<meta property="og:url" content="https://fehlerfuchs.eu/hallo.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://fehlerfuchs.eu/og-image.png">
+<style>
+  :root{--orange:#D97706;--brown:#7C3F16;--cream:#FFF7ED;--ink:#2B160B;--muted:#6b5b50;--action:#C2410C;--bg:#fbf7f2;--green:#3B6B4E;--blue:#2563EB;--petrol:#0E7490}
+  @font-face{font-family:'Poppins';src:url('fonts/Poppins-Regular.woff') format('woff');font-weight:400;font-display:swap}
+  @font-face{font-family:'Poppins';src:url('fonts/Poppins-Medium.woff') format('woff');font-weight:500;font-display:swap}
+  @font-face{font-family:'Poppins';src:url('fonts/Poppins-Bold.woff') format('woff');font-weight:700;font-display:swap}
+  @font-face{font-family:'Inter';src:url('fonts/Inter-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+  @font-face{font-family:'Inter';src:url('fonts/Inter-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+  @font-face{font-family:'Inter';src:url('fonts/Inter-SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;padding:26px 20px 46px;max-width:980px;margin:0 auto}
+  h1,h2,h3{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+  a{color:var(--action);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .brand{display:flex;justify-content:center;margin:4px 0 28px}
+  .brand img{width:min(430px,88vw);height:auto;display:block;filter:drop-shadow(0 10px 22px rgba(124,63,22,.14))}
+  .hero{text-align:center;max-width:790px;margin:0 auto 36px}
+  .warning{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #ecdfd2;border-radius:999px;padding:7px 13px;color:var(--brown);font-weight:700;font-size:.84rem;margin-bottom:18px}
+  .warning span{width:9px;height:9px;border-radius:3px;background:var(--orange);display:inline-block}
+  h1{font-size:clamp(2.15rem,7vw,4.5rem);line-height:1.02;color:var(--brown);letter-spacing:0;margin-bottom:12px}
+  .sub{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:clamp(1.05rem,2.8vw,1.45rem);font-weight:600;color:var(--orange);margin-bottom:16px}
+  .lead{font-size:1.08rem;max-width:680px;margin:0 auto;color:var(--ink)}
+  .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+  .cta{display:inline-flex;align-items:center;justify-content:center;background:var(--orange);color:#fff;font-weight:800;padding:12px 20px;border-radius:12px;font-size:.95rem}
+  .cta:hover{background:#b45309;text-decoration:none}
+  .cta.ghost{background:#fff;color:var(--action);border:1px solid #f0d6c4}
+  .cta.ghost:hover{background:#fcf8f3}
+  section{margin-top:38px}
+  .section-head{max-width:760px;margin:0 0 15px}
+  h2{font-size:1.45rem;color:var(--brown);line-height:1.2;margin-bottom:7px}
+  .muted{color:var(--muted)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+  .tile{background:#fff;border:1px solid #ecdfd2;border-radius:14px;padding:17px 18px;box-shadow:0 6px 16px rgba(124,63,22,.045)}
+  .tile h3{font-size:1.02rem;color:var(--brown);margin-bottom:5px}
+  .tile p{font-size:.94rem;margin:0}
+  .pill{display:inline-block;background:var(--cream);color:var(--brown);border:1px solid #f0e0cf;border-radius:999px;padding:4px 11px;font-size:.82rem;font-weight:700;margin:4px 5px 0 0}
+  .spotlight{background:#fff;border:1px solid #ecdfd2;border-radius:18px;padding:24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(170px,240px);gap:22px;align-items:center;box-shadow:0 8px 22px rgba(124,63,22,.055)}
+  .spotlight img{width:100%;max-width:230px;justify-self:center;height:auto}
+  .spotlight h2{font-size:1.6rem}
+  .steps{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:14px}
+  .steps li{position:relative;background:#fff;border:1px solid #ecdfd2;border-radius:14px;padding:15px 16px 15px 42px;min-height:88px}
+  .steps li::before{content:attr(data-step);position:absolute;left:14px;top:16px;width:20px;height:20px;border-radius:7px;background:var(--green);color:#fff;font-family:'Poppins';font-size:.75rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .steps strong{display:block;color:var(--brown);font-family:'Poppins';line-height:1.25;margin-bottom:3px}
+  .ask{background:var(--cream);border:1px solid #f0e0cf;border-radius:18px;padding:24px;text-align:center}
+  .ask p{max-width:680px;margin:0 auto 10px}
+  .final{background:#2B160B;color:#fff;border-radius:18px;padding:26px 24px;text-align:center}
+  .final h2{color:#FCE08A}
+  .final p{max-width:690px;margin:0 auto;color:#fff7ed}
+  .final .ctas{margin-top:18px}
+  footer{margin-top:34px;color:var(--muted);font-size:.82rem;border-top:1px solid #ecdfd2;padding-top:16px;text-align:center}
+  @media(max-width:700px){
+    body{padding:22px 16px 40px}
+    .spotlight{grid-template-columns:1fr}
+    .spotlight img{max-width:190px;order:-1}
+  }
+</style>
+</head>
+<body>
+
+<div class="brand" aria-label="FehlerFuchs">
+  <img src="img/fehlerfuchs-dachmarke-logo.png" alt="FehlerFuchs - kleine lokale Helfer" width="2048" height="736">
+</div>
+
+<main>
+  <header class="hero">
+    <div class="warning"><span aria-hidden="true"></span> Kleine Werbewarnung, aber charmant gemeint</div>
+    <h1>Hallo du.</h1>
+    <p class="sub">Ich bin mit FehlerFuchs ganz am Start.</p>
+    <p class="lead">Unter FehlerFuchs entstehen kleine, praktische Software-Helfer für Alltag, Büro und Selbstständigkeit: lokal, datensparsam, ohne Cloud-Zwang und ohne Tracking.</p>
+    <div class="ctas">
+      <a class="cta" href="#kleingewerbe">Was entsteht da?</a>
+      <a class="cta ghost" href="index.html">Zur echten Webseite</a>
+    </div>
+  </header>
+
+  <section aria-labelledby="was-title">
+    <div class="section-head">
+      <h2 id="was-title">Was ich da eigentlich baue</h2>
+      <p class="muted">FehlerFuchs soll Software machen, die nicht komplizierter ist als das Problem, das sie lösen soll.</p>
+    </div>
+    <div class="grid">
+      <article class="tile"><h3>Lokale Helfer</h3><p>Programme und Apps, die auf deinem Gerät arbeiten, statt alles irgendwohin zu schicken.</p></article>
+      <article class="tile"><h3>Weniger Büro-Nerv</h3><p>Werkzeuge für Kunden, Termine, Dokumente, E-Mails, Rechnungen, Berichte und Ordnung.</p></article>
+      <article class="tile"><h3>Fairer Gedanke</h3><p>Kein Monopol-Gehabe, kein künstlicher Druck. Nützliche Software, ehrlich erklärt und bezahlbar gedacht.</p></article>
+    </div>
+  </section>
+
+  <section id="kleingewerbe" class="spotlight" aria-labelledby="kg-title">
+    <div>
+      <h2 id="kg-title">Ganz vorne: FehlerFuchs KleinGewerbe</h2>
+      <p>Mein eigenes Büroprogramm für Selbstständige ist inzwischen nahezu veröffentlichungsreif. Es soll den kompletten Ablauf mitdenken: vom ersten Kundenkontakt über Hausbesuch, Angebot, Termin, Auftrag und Dokumentation bis hin zu Rechnung, E-Rechnung, Versand, Mahnung, Auswertung und Bericht.</p>
+      <p><span class="pill">Kunden</span><span class="pill">Termine</span><span class="pill">Angebote</span><span class="pill">Rechnungen</span><span class="pill">E-Mail</span><span class="pill">Berichte</span><span class="pill">Belege</span></p>
+    </div>
+    <img src="img/kleingewerbe-pro.png" alt="FehlerFuchs KleinGewerbe Pro" width="320" height="320" loading="lazy">
+  </section>
+
+  <section aria-labelledby="ziel-title">
+    <div class="section-head">
+      <h2 id="ziel-title">Das Zielbild</h2>
+      <p class="muted">Ein Grundgerüst, das schlank bleibt. Erweiterungen, die du nur installierst, wenn du sie wirklich brauchst.</p>
+    </div>
+    <ol class="steps">
+      <li data-step="1"><strong>Grundprogramm</strong>Kunden, Aufträge, Termine, Angebote, Rechnungen, Aufgaben, Belege und Berichte.</li>
+      <li data-step="2"><strong>Optionale Pakete</strong>PDF/OCR, E-Rechnung, Postfach, Paperless-Brücke und weitere Werkzeuge nach Bedarf.</li>
+      <li data-step="3"><strong>Ruhige Oberfläche</strong>Alles kann da sein, aber nichts muss unnötig auf deinem Bildschirm stehen.</li>
+      <li data-step="4"><strong>Du entscheidest</strong>Nicht mehr, nicht weniger: installiert wird nur, was zum eigenen Arbeitsalltag passt.</li>
+    </ol>
+  </section>
+
+  <section class="ask" aria-labelledby="ask-title">
+    <h2 id="ask-title">Warum ich dir das schicke</h2>
+    <p>Ich bin mit dem Gewerbe noch ganz am Anfang und brauche Akquise. Wenn dir jemand einfällt, der so ein Tool gebrauchen könnte, freue ich mich riesig über eine Empfehlung.</p>
+    <p class="muted">Auch kleine Hinweise helfen: „Kennst du eigentlich FehlerFuchs?“ reicht manchmal schon.</p>
+  </section>
+
+  <section class="final" aria-labelledby="weiter-title">
+    <h2 id="weiter-title">Neugierig geworden?</h2>
+    <p>Dann geht es hier zur normalen FehlerFuchs-Webseite mit Produktseiten, Downloads und Kontaktmöglichkeiten.</p>
+    <div class="ctas">
+      <a class="cta" href="index.html">Und hier geht's zur echten Webseite</a>
+      <a class="cta ghost" href="mailto:info@fehlerfuchs.eu?subject=FehlerFuchs%20Empfehlung">Kontakt aufnehmen</a>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 FehlerFuchs. Alle Rechte vorbehalten. Diese Seite ist nur für direkte Empfehlungen gedacht.</footer>
+</body>
+</html>
