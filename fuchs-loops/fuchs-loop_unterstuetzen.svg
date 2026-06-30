@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" role="img" aria-label="FehlerFuchs Header-Loop Unterstuetzen (24s): Kaffee ziehen, Zeitung lesen, Lupe, Huepfer, Zwinkern">
+<title>FehlerFuchs Header-Loop – Unterstuetzen</title>
+<style>
+  text{font-family:'Poppins','Arial',sans-serif}
+  .u-head{transform-box:fill-box;transform-origin:50% 50%;animation:u-head 24s ease-in-out infinite}
+  .u-lens{transform-box:fill-box;transform-origin:50% 50%;animation:u-eye 24s ease-in-out infinite}
+  .u-coffee{animation:u-coffee 24s ease-in-out infinite;opacity:0}
+  .u-fill{transform-box:fill-box;transform-origin:50% 100%;animation:u-fill 24s ease-in-out infinite;transform:scaleY(0)}
+  .u-steam{animation:u-steam 24s ease-in-out infinite;opacity:0}
+  .u-drip{animation:u-drip 24s linear infinite;opacity:0}
+  .u-news{transform-box:fill-box;transform-origin:50% 100%;animation:u-news 24s ease-in-out infinite;opacity:0;transform:scaleY(0)}
+  .u-lupe{transform-box:fill-box;transform-origin:50% 50%;animation:u-lupe 24s ease-in-out infinite;opacity:0}
+  @keyframes u-head{
+    0%,11%{transform:translate(0,0) rotate(0deg)}
+    13%{transform:translate(7px,3px) rotate(3deg)}15%{transform:translate(0,0) rotate(0deg)}
+    18%{transform:translate(250px,8px) rotate(0deg)}
+    21%,27%{transform:translate(452px,10px) rotate(0deg)}
+    24%{transform:translate(452px,18px) rotate(0deg)}
+    31%{transform:translate(0,0) rotate(0deg)}
+    33%{transform:translate(0,9px) rotate(0deg)}35%{transform:translate(0,0) rotate(0deg)}
+    40%{transform:translate(0,15px) rotate(6deg)}52%{transform:translate(0,15px) rotate(6deg)}
+    56%{transform:translate(0,0) rotate(0deg)}
+    79%{transform:translate(0,0) rotate(0deg)}
+    81%{transform:translate(0,16px) rotate(0deg)}83%{transform:translate(0,-12px) rotate(0deg)}85%{transform:translate(0,0) rotate(0deg)}
+    100%{transform:translate(0,0) rotate(0deg)}
+  }
+  @keyframes u-eye{
+    0%,5%{transform:scaleY(1)}6%,7%{transform:scaleY(.08)}8%,33%{transform:scaleY(1)}
+    34%,35%{transform:scaleY(.08)}36%,45%{transform:scaleY(1)}46%,53%{transform:scaleY(.5)}54%,90%{transform:scaleY(1)}
+    91%,92%{transform:scaleY(.08)}93%,100%{transform:scaleY(1)}
+  }
+  @keyframes u-coffee{0%,15%{opacity:0}17%,30%{opacity:1}33%,100%{opacity:0}}
+  @keyframes u-fill{0%,17%{transform:scaleY(0)}28%{transform:scaleY(1)}30%,100%{transform:scaleY(1)}}
+  @keyframes u-steam{0%,21%{opacity:0}24%{opacity:.55}29%{opacity:.55}31%,100%{opacity:0}}
+  @keyframes u-drip{0%,17%{opacity:0}18%{opacity:.9}27%{opacity:.9}28%,100%{opacity:0}}
+  @keyframes u-news{0%,37%{opacity:0;transform:scaleY(0)}40%{opacity:1;transform:scaleY(1)}54%{opacity:1;transform:scaleY(1)}57%{opacity:0;transform:scaleY(0)}100%{opacity:0;transform:scaleY(0)}}
+  @keyframes u-lupe{
+    0%,59%{opacity:0;transform:translate(170px,-12px)}62%{opacity:1;transform:translate(110px,0)}
+    66%{opacity:1;transform:translate(40px,4px)}70%{opacity:1;transform:translate(-40px,2px)}
+    73%{opacity:0;transform:translate(-110px,0)}74%,100%{opacity:0;transform:translate(170px,-12px)}
+  }
+  @media (prefers-reduced-motion: reduce){.u-head,.u-lens,.u-coffee,.u-fill,.u-steam,.u-drip,.u-news,.u-lupe{animation:none}.u-coffee,.u-steam,.u-drip,.u-news,.u-lupe{opacity:0}}
+</style>
+
+  <text x="248" y="150" font-weight="700" font-size="56" fill="#7C3F16">FehlerFuchs</text>
+
+  <!-- Kaffeemaschine + Tasse (rechts), nur waehrend Kaffee-Phase sichtbar -->
+  <g class="u-coffee">
+    <g transform="translate(600,40)">
+      <rect x="0" y="0" width="96" height="116" rx="16" fill="#6B4310"/>
+      <rect x="0" y="0" width="96" height="20" rx="10" fill="#7C3F16"/>
+      <circle cx="74" cy="40" r="7" fill="#FCE08A"/>
+      <rect x="18" y="64" width="60" height="14" rx="5" fill="#3A2113"/>
+      <rect x="42" y="78" width="12" height="12" fill="#3A2113"/>
+      <line class="u-drip" x1="48" y1="90" x2="48" y2="118" stroke="#3A2113" stroke-width="4" stroke-linecap="round"/>
+      <!-- Tasse -->
+      <path d="M24,118 L72,118 L66,150 Q48,160 30,150 Z" fill="#FFF7ED" stroke="#7C3F16" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M70,122 c16,1 16,20 -2,20" fill="none" stroke="#7C3F16" stroke-width="5" stroke-linecap="round"/>
+      <clipPath id="cupclip"><path d="M27,120 L69,120 L64,148 Q48,157 32,148 Z"/></clipPath>
+      <g clip-path="url(#cupclip)"><rect class="u-fill" x="27" y="120" width="42" height="38" fill="#3A2113"/></g>
+      <g class="u-steam" fill="none" stroke="#7C3F16" stroke-width="4" stroke-linecap="round">
+        <path d="M40,116 q-8,-12 0,-22 q8,-9 0,-20"/>
+        <path d="M56,116 q8,-12 0,-22 q-8,-9 0,-20"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Fuchskopf -->
+  <g class="u-head">
+    <g transform="translate(28,8) scale(0.42)">
+      <path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="#D97706"/>
+      <path d="M132,120 L186,150 L158,182 Z" fill="#7C3F16"/>
+      <path d="M380,120 L326,150 L354,182 Z" fill="#7C3F16"/>
+      <path d="M198,250 L314,250 L256,430 Z" fill="#FFF7ED"/>
+      <path d="M192,228 L232,222 L214,250 Z" fill="#2B160B"/>
+      <g class="u-lens">
+        <circle cx="306" cy="236" r="30" fill="#7C3F16"/>
+        <circle cx="306" cy="236" r="22" fill="#0E2540"/>
+        <circle cx="306" cy="236" r="13" fill="#2563EB"/>
+        <circle cx="306" cy="236" r="6" fill="#7DD3FC"/>
+      </g>
+      <path d="M243,372 L269,372 L256,392 Z" fill="#2B160B"/>
+    </g>
+  </g>
+
+  <!-- Zeitung (vor dem Kopf), klappt auf beim Lesen -->
+  <g class="u-news">
+    <g transform="translate(40,150)">
+      <rect x="0" y="0" width="150" height="74" rx="6" fill="#FFF1DF" stroke="#e7d8c8" stroke-width="2"/>
+      <line x1="75" y1="4" x2="75" y2="70" stroke="#e7d8c8" stroke-width="2"/>
+      <g stroke="#c9b8a4" stroke-width="3" stroke-linecap="round">
+        <line x1="10" y1="14" x2="66" y2="14"/><line x1="10" y1="26" x2="66" y2="26"/><line x1="10" y1="38" x2="66" y2="38"/><line x1="10" y1="50" x2="66" y2="50"/><line x1="10" y1="62" x2="50" y2="62"/>
+        <line x1="84" y1="14" x2="140" y2="14"/><line x1="84" y1="26" x2="140" y2="26"/><line x1="84" y1="38" x2="140" y2="38"/><line x1="84" y1="50" x2="140" y2="50"/><line x1="84" y1="62" x2="120" y2="62"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Lupe-Cameo (Bruecke zu den anderen Seiten) -->
+  <g class="u-lupe">
+    <g transform="translate(470,116)">
+      <circle cx="0" cy="0" r="30" fill="#7DD3FC" opacity="0.30"/>
+      <circle cx="0" cy="0" r="30" fill="none" stroke="#7C3F16" stroke-width="8"/>
+      <circle cx="0" cy="0" r="30" fill="none" stroke="#2563EB" stroke-width="2"/>
+      <line x1="22" y1="22" x2="48" y2="48" stroke="#7C3F16" stroke-width="11" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

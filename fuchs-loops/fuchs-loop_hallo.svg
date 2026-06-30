@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" role="img" aria-label="FehlerFuchs Header-Loop Hallo (20s): Fuchs gruesst mit Sprechblase und zwinkert">
+<title>FehlerFuchs Header-Loop – Hallo</title>
+<style>
+  text{font-family:'Poppins','Arial',sans-serif}
+  .h-head{transform-box:fill-box;transform-origin:50% 80%;animation:h-head 20s ease-in-out infinite}
+  .h-lens{transform-box:fill-box;transform-origin:50% 50%;animation:h-eye 20s ease-in-out infinite}
+  .h-bub{transform-box:fill-box;transform-origin:0% 60%;animation:h-bub 20s ease-in-out infinite;opacity:0}
+  .h-g1{animation:h-g1 20s ease-in-out infinite;opacity:0}
+  .h-g2{animation:h-g2 20s ease-in-out infinite;opacity:0}
+  .h-g3{animation:h-g3 20s ease-in-out infinite;opacity:0}
+  @keyframes h-head{
+    0%,5%{transform:translate(0,0) rotate(0deg)}
+    8%{transform:translate(4px,0) rotate(-5deg)}
+    16%{transform:translate(0,0) rotate(0deg)}
+    30%{transform:translate(0,0) rotate(0deg)}
+    33%{transform:translate(0,5px) rotate(3deg)}36%{transform:translate(0,0) rotate(0deg)}
+    62%{transform:translate(0,0) rotate(0deg)}
+    65%{transform:translate(3px,0) rotate(-4deg)}69%{transform:translate(0,0) rotate(0deg)}
+    100%{transform:translate(0,0) rotate(0deg)}
+  }
+  @keyframes h-eye{
+    0%,9%{transform:scaleY(1)}10%,11%{transform:scaleY(.08)}12%,23%{transform:scaleY(1)}
+    24%,26%{transform:scaleY(.06)}27%,49%{transform:scaleY(1)}
+    50%,52%{transform:scaleY(.06)}53%,73%{transform:scaleY(1)}74%,75%{transform:scaleY(.08)}76%,100%{transform:scaleY(1)}
+  }
+  @keyframes h-bub{0%,3%{opacity:0;transform:scale(.4)}7%{opacity:1;transform:scale(1)}93%{opacity:1;transform:scale(1)}97%{opacity:0;transform:scale(.4)}100%{opacity:0;transform:scale(.4)}}
+  @keyframes h-g1{0%,7%{opacity:0}10%,30%{opacity:1}33%,100%{opacity:0}}
+  @keyframes h-g2{0%,35%{opacity:0}38%,60%{opacity:1}63%,100%{opacity:0}}
+  @keyframes h-g3{0%,65%{opacity:0}68%,90%{opacity:1}93%,100%{opacity:0}}
+  @media (prefers-reduced-motion: reduce){.h-head,.h-lens,.h-bub,.h-g1,.h-g2,.h-g3{animation:none}.h-bub,.h-g2,.h-g3{opacity:0}.h-g1{opacity:1}}
+</style>
+
+  <!-- Sprechblase -->
+  <g class="h-bub">
+    <polygon points="250,84 250,116 214,100" fill="#ffffff"/>
+    <rect x="250" y="44" width="392" height="92" rx="20" fill="#ffffff" stroke="#ecdfd2" stroke-width="2"/>
+    <text class="h-g1" x="446" y="100" font-weight="700" font-size="34" fill="#D97706" text-anchor="middle">Hallo!</text>
+    <text class="h-g2" x="446" y="98" font-weight="700" font-size="25" fill="#7C3F16" text-anchor="middle">Schön, dass du da bist</text>
+    <text class="h-g3" x="446" y="100" font-weight="700" font-size="31" fill="#3B6B4E" text-anchor="middle">Willkommen!</text>
+  </g>
+
+  <!-- Fuchskopf -->
+  <g class="h-head">
+    <g transform="translate(28,8) scale(0.42)">
+      <path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="#D97706"/>
+      <path d="M132,120 L186,150 L158,182 Z" fill="#7C3F16"/>
+      <path d="M380,120 L326,150 L354,182 Z" fill="#7C3F16"/>
+      <path d="M198,250 L314,250 L256,430 Z" fill="#FFF7ED"/>
+      <path d="M192,228 L232,222 L214,250 Z" fill="#2B160B"/>
+      <g class="h-lens">
+        <circle cx="306" cy="236" r="30" fill="#7C3F16"/>
+        <circle cx="306" cy="236" r="22" fill="#0E2540"/>
+        <circle cx="306" cy="236" r="13" fill="#2563EB"/>
+        <circle cx="306" cy="236" r="6" fill="#7DD3FC"/>
+      </g>
+      <path d="M243,372 L269,372 L256,392 Z" fill="#2B160B"/>
+    </g>
+  </g>
+</svg>
