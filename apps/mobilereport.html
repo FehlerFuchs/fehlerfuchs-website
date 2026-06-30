@@ -68,6 +68,11 @@
   .shots{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:14px}
   .shots img{width:208px;max-width:46vw;height:auto;border-radius:18px;border:1px solid #ecdfd2;box-shadow:0 10px 28px rgba(0,0,0,.14);background:#fff}
   .shots-note{text-align:center;color:var(--muted);font-size:.8rem;margin-top:12px}
+  /* Farbschema-Swatches (gespaltene Fuchskopf-Silhouette) */
+  .schemes{display:flex;flex-wrap:wrap;gap:14px 16px;margin-top:12px}
+  .scheme{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px;width:84px;text-align:center}
+  .scheme svg{width:46px;height:46px;display:block}
+  .scheme figcaption{font-size:.72rem;color:var(--ink);line-height:1.25}
 
   /* Editionen-Tabelle */
   .tablewrap{overflow-x:auto;margin-top:8px;border:1px solid #ecdfd2;border-radius:14px}
@@ -218,7 +223,7 @@
         <tr><td>Erweiterte Filter &amp; Suche im Logbuch</td><td>Basis</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         <tr><td>Eigene Vorlagen &amp; Branding</td><td class="no">–</td><td>Firmen-Logo</td><td class="yes">✓</td><td>komplett eure Marke</td></tr>
         <tr><td title="Zählweise frei wählbar (fortlaufend, jährlich/monatlich zurücksetzend, je Bereich/Standort, Startwert &amp; Stellenanzahl). Dateiname per Vorlage aus Bausteinen (Datum, Zähler, Bereich, Standort, Kategorie, Freitext) — Standard JJJJ_MM_TT-FehlerFuchsMR_&lt;Nr&gt;.pdf oder komplett eigenes Schema.">Eigene Logbuch-Zählweise &amp; Dateinamen-Generator</td><td>Standard (fest)</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td title="Pro: feste Auswahl harmonischer Farbschemata. Custom/White-Label: Farben frei und von Grund auf festlegbar.">Änderbares Farbschema</td><td class="no">–</td><td>5 Farbvorlagen ²</td><td>frei wählbar</td><td>frei wählbar</td></tr>
+        <tr><td title="Pro: feste Auswahl harmonischer Farbschemata. Custom/White-Label: Farben frei und von Grund auf festlegbar.">Änderbares Farbschema</td><td class="no">–</td><td>7 Farbvorlagen ²</td><td>frei wählbar</td><td>frei wählbar</td></tr>
         <tr><td>Geräteübergreifend synchronisiertes Logbuch</td><td class="no">–</td><td class="no">–</td><td>nur auf Wunsch ¹</td><td>nur auf Wunsch ¹</td></tr>
         <tr><td>Anbindung an firmeneigene Systeme/Server</td><td class="no">–</td><td class="no">–</td><td>nur auf Wunsch ¹</td><td>nur auf Wunsch ¹</td></tr>
         <tr><td>App unter eigenem Namen/Logo (im Store)</td><td class="no">–</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
@@ -227,43 +232,10 @@
     </table>
   </div>
   <p style="margin-top:10px;font-size:.82rem;color:var(--muted)">¹ Nur auf ausdrücklichen Kundenwunsch (Custom/White-Label). Damit ist es keine reine Offline-Lösung mehr — Daten verlassen dann das Gerät (eigener Server bzw. Geräte-Sync).</p>
-  <p style="margin-top:6px;font-size:.82rem;color:var(--muted)">² Pro bietet eine feste Auswahl harmonischer Farbschemata: <strong>Neutral</strong> (ohne Farbe), <strong>FehlerFuchs</strong> (Orange/Braun), <strong>Petrol &amp; Sand</strong>, <strong>Waldgrün &amp; Stein</strong> und <strong>Bordeaux &amp; Creme</strong>. Bei <strong>Custom</strong> und <strong>White-Label</strong> sind die Farben frei und von Grund auf festlegbar.</p>
-  <p style="margin-top:10px;font-size:.92rem">Interesse an <strong>Pro</strong>, <strong>Custom</strong> oder <strong>White-Label</strong>? Schreib mir: <a href="../kontakt.html?app=MobileReport&topic=interesse">info@fehlerfuchs.eu</a></p>
-</section>
-
-<!-- DATENSCHUTZ -->
-<section>
-  <h2 class="sec">Datenschutz &amp; Sicherheit</h2>
-  <p>
-    <span class="pill">Keine Cloud</span><span class="pill">Kein Tracking</span><span class="pill">Keine Telemetrie</span><span class="pill">Keine Werbung</span><span class="pill">Kein Konto</span><span class="pill">Nur lokal</span>
-  </p>
-  <p>Die App erfasst keine Daten und überträgt nichts an den Entwickler oder Dritte. Sie versendet auch nicht selbst – du prüfst und sendest die E-Mail manuell über deine Mail-App. <strong>Was es nicht ist:</strong> kein rechtssicheres Nachweissystem, kein zentrales Ticketsystem, keine Cloud-App. Bitte keine personenbezogenen oder sensiblen Inhalte erfassen oder fotografieren.</p>
-</section>
-
-<!-- FAQ -->
-<section>
-  <h2 class="sec">Häufige Fragen</h2>
-  <div class="faq">
-    <details><summary>Wann ist MobileReport verfügbar?</summary><div class="a">Die <strong>Free</strong>-Edition ist bei <strong>Google Play</strong> eingereicht und wird gerade geprüft. Sobald Google sie freigibt – bei einer ersten App meist wenige Tage, bei einem neuen Konto auch mal etwas länger – erscheint sie im Play Store und ist für alle installierbar; ab dann wird der Play-Store-Button auf dieser Seite aktiv. Wenn du zum Start eine kurze Nachricht möchtest: <a href="../kontakt.html?app=MobileReport&topic=beta">support@fehlerfuchs.eu</a>.</div></details>
-    <details><summary>Was kostet MobileReport?</summary><div class="a">Die <strong>Free</strong>-Edition ist kostenlos und werbefrei. <strong>Pro</strong> wird später optional kostenpflichtig sein; <strong>Custom</strong> und <strong>White-Label</strong> nach Aufwand/Angebot. Das Grundlegende bleibt immer kostenlos.</div></details>
-    <details><summary>Wo werden meine Daten gespeichert?</summary><div class="a">Ausschließlich lokal auf deinem Gerät. Es gibt keine Cloud, kein Konto und keine Übertragung an uns oder Dritte.</div></details>
-    <details><summary>Verschickt die App automatisch E-Mails?</summary><div class="a">Nein. MobileReport bereitet die E-Mail mit Empfänger, Betreff und PDF nur vor – senden tust du selbst in deiner Mail-App.</div></details>
-    <details><summary>Für welche Plattform gibt es die App?</summary><div class="a">Zunächst für <strong>Android</strong>. Eine iOS-Variante ist nicht ausgeschlossen, aktuell aber nicht geplant.</div></details>
-    <details><summary>Was ist der Unterschied zwischen Pro und Custom?</summary><div class="a"><strong>Pro</strong> ist die konfigurierbare Firmenversion (Pflichtfelder, eigene Zählweise/Dateinamen, Farbschema, Branding) und bleibt strikt lokal. <strong>Custom</strong> geht darüber hinaus und wird individuell auf eure Abläufe und Schnittstellen zugeschnitten – inkl. optionaler Sync/Serveranbindung auf Wunsch.</div></details>
-    <details><summary>Kann ich die App unter eigener Marke bekommen?</summary><div class="a">Ja – das ist die <strong>White-Label</strong>-Edition: eure App mit eurem Namen, Logo und euren Farben, auf Wunsch im Store.</div></details>
-  </div>
-</section>
-
-<!-- CTA -->
-<div class="cta-band">
-  <h2>Mitmachen oder mehr erfahren</h2>
-  <p>Allgemeine Anfragen: <a href="../kontakt.html?app=MobileReport&topic=interesse">info@fehlerfuchs.eu</a> · Beta-Feedback: <a href="../kontakt.html?app=MobileReport&topic=beta">support@fehlerfuchs.eu</a></p>
-  <div style="margin-top:12px"><a class="cta" href="../index.html">← Zurück zur App-Übersicht</a></div>
-</div>
-
-<footer>
-  © 2026 FehlerFuchs. Alle Rechte vorbehalten. MobileReport ist eine App von FehlerFuchs. Datensparsam, ohne Cloud und ohne Tracking. Bereitstellung „wie besehen", ohne Gewähr.
-</footer>
-
-</body>
-</html>
+  <p style="margin-top:8px;font-size:.82rem;color:var(--muted)">² Pro: feste Auswahl harmonischer Farbschemata (bei <strong>Custom</strong>/<strong>White-Label</strong> frei und von Grund auf festlegbar):</p>
+  <div class="schemes" role="group" aria-label="Farbschemata für Pro">
+    <figure class="scheme"><svg viewBox="0 0 512 512" role="img" aria-label="Schwarz und Weiss"><g clip-path="url(#foxsil)"><rect x="0" y="0" width="256" height="512" fill="#111111"/><rect x="256" y="0" width="256" height="512" fill="#FFFFFF"/></g><path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="none" stroke="#2B160B" stroke-opacity=".3" stroke-width="6"/></svg><figcaption>Schwarz / Weiß</figcaption></figure>
+    <figure class="scheme"><svg viewBox="0 0 512 512" role="img" aria-label="FehlerFuchs Orange und Braun"><g clip-path="url(#foxsil)"><rect x="0" y="0" width="256" height="512" fill="#D97706"/><rect x="256" y="0" width="256" height="512" fill="#7C3F16"/></g><path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="none" stroke="#2B160B" stroke-opacity=".3" stroke-width="6"/></svg><figcaption>FehlerFuchs · Orange / Braun</figcaption></figure>
+    <figure class="scheme"><svg viewBox="0 0 512 512" role="img" aria-label="Petrol und Sand"><g clip-path="url(#foxsil)"><rect x="0" y="0" width="256" height="512" fill="#0E7490"/><rect x="256" y="0" width="256" height="512" fill="#E8D5B5"/></g><path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="none" stroke="#2B160B" stroke-opacity=".3" stroke-width="6"/></svg><figcaption>Petrol / Sand</figcaption></figure>
+    <figure class="scheme"><svg viewBox="0 0 512 512" role="img" aria-label="Waldgrün und Creme"><g clip-path="url(#foxsil)"><rect x="0" y="0" width="256" height="512" fill="#2F6D4F"/><rect x="256" y="0" width="256" height="512" fill="#ECE0C8"/></g><path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="none" stroke="#2B160B" stroke-opacity=".3" stroke-width="6"/></svg><figcaption>Waldgrün / Creme</figcaption></figure>
+    <figure class="scheme"><svg viewBox="0 0 512 512" role="img" aria-label="Bordeaux und Rosé"><g clip-path="url(#foxsi
