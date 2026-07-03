@@ -55,6 +55,17 @@
   .tile .ico{width:34px;height:34px;border-radius:10px;background:var(--cream);border:1px solid #f0e0cf;color:var(--action);display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;font-size:.78rem;margin-bottom:10px}
   .tile h3{font-size:1.02rem;color:var(--brown);margin-bottom:5px}
   .tile p{font-size:.94rem;margin:0}
+  .wl-legend{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.84rem;color:var(--muted);margin:2px 0 14px}
+  .wishlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:14px}
+  .wish{background:#fff;border:1px solid #ecdfd2;border-radius:14px;padding:15px 17px;box-shadow:0 6px 16px rgba(124,63,22,.045);display:flex;flex-direction:column;gap:7px}
+  .wish .cat{font-family:'Poppins',-apple-system,sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--action)}
+  .wish h3{font-size:1.02rem;color:var(--brown);margin:0}
+  .wish p{font-size:.92rem;margin:0;color:var(--ink)}
+  .wl-chip{align-self:flex-start;display:inline-block;font-family:'Poppins',-apple-system,sans-serif;font-size:.74rem;font-weight:700;border-radius:20px;padding:2px 10px;border:1px solid}
+  .wl-chip.offen{background:#FEF3E2;color:#9A5B0E;border-color:#F3D9B0}
+  .wl-chip.arbeit{background:#E7EEF6;color:#1E4E8C;border-color:#C3D6EC}
+  .wl-chip.erfuellt{background:#E7F3DF;color:#2f6d12;border-color:#cde7b6}
+  .wish.done{opacity:.85}
   .goal-band{background:#fff;border:1px solid #ecdfd2;border-radius:16px;padding:20px 22px}
   .goal-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 18px;list-style:none;margin-top:14px}
   .goal-list li{position:relative;padding-left:24px;color:var(--muted)}
@@ -112,7 +123,7 @@
   <img src="fuchs-loops/fuchs-loop_unterstuetzen.svg" alt="FehlerFuchs" width="720" height="240" style="width:min(600px,100%);height:auto;display:block">
 </header>
 <nav>
-  <a href="index.html">Start</a><a href="downloads.html">Downloads</a><a href="produkte.html">Produktseiten</a><a href="unterstuetzen.html">Unterstützen</a><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a>
+  <a href="index.html">Start</a><a href="downloads.html">Downloads</a><a href="produkte.html">Produktseiten</a><a href="unterstuetzen.html">Unterstützen</a><a href="wunschliste.html">Wunschliste</a><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a>
 </nav>
 
 <main>
@@ -154,6 +165,31 @@
       <article class="tile"><div class="ico">WEB</div><h3>Website &amp; Infrastruktur</h3><p>Domains, Speicherplatz, sichere Ablage und laufende Bereitstellung kosten Geld – auch bei einem kleinen Projekt.</p></article>
       <article class="tile"><div class="ico">SEC</div><h3>Backups &amp; Sicherheit</h3><p>Quellcode, Entwürfe, Dokumente und Downloads müssen sauber gesichert werden, damit Arbeit nicht verloren geht.</p></article>
       <article class="tile"><div class="ico">KA</div><h3>Die berühmte Tasse Kaffee</h3><p>Manchmal ist genau sie der Unterschied zwischen „ich höre für heute auf“ und „okay, ich mache den Fehler noch fertig“.</p></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="wunsch-title">
+    <div class="sec-head">
+      <h2 class="sec" id="wunsch-title">Wunschliste</h2>
+      <p class="muted">Ganz konkret: Dinge, die FehlerFuchs gerade wirklich voranbringen würden – von Hard- und Software über Büro und Akquise bis zu Werbematerial und lokalem Sponsoring. Ohne Preise, dafür ehrlich mit Status. Erledigtes bleibt als Dankeschön sichtbar.</p>
+    </div>
+    <p class="wl-legend">Status: <span class="wl-chip offen">offen</span> <span class="wl-chip arbeit">in Arbeit</span> <span class="wl-chip erfuellt">erfüllt ✓</span></p>
+    <!-- Status pflegen: class "offen" -> "arbeit" -> "erfuellt" aendern und Chip-Text anpassen; erfuellte Karte zusaetzlich class "done" geben. -->
+    <div class="wishlist">
+      <article class="wish"><span class="cat">Hardware</span><h3>Android-Testgeräte</h3><p>Verschiedene Geräte und Android-Versionen, damit die Apps überall zuverlässig laufen.</p><span class="wl-chip offen">offen</span></article>
+      <article class="wish"><span class="cat">Hardware</span><h3>Zweiter Monitor &amp; Dockingstation</h3><p>Mehr Überblick beim Entwickeln, Testen und Dokumentieren.</p><span class="wl-chip offen">offen</span></article>
+      <article class="wish"><span class="cat">Hardware</span><h3>Externe Datensicherung</h3><p>Zuverlässige Backups für Quellcode, Entwürfe und Downloads.</p><span class="wl-chip offen">offen</span></article>
+      <article class="wish"><span class="cat">Software</span><h3>Code-Signing-Zertifikat</h3><p>Damit Windows-Downloads ohne Warnhinweise sauber signiert sind.</p><span class="wl-chip offen">offen</span></article>
+      <article class="wish"><span class="cat">Software</span><h3>Entwickler- &amp; Werkzeug-Lizenzen</h3><p>Gute Werkzeuge sparen Zeit und vermeiden Fehler.</p><span class="wl-chip offen">offen</span></article>
+      <article class="wish done"><span class="cat">Software</span><h3>Play-Store-Entwicklerkonto</h3><p>Einmalige Gebühr fürs Veröffentlichen der Android-Apps.</p><span class="wl-chip erfuellt">erfüllt ✓</span></article>
+      <article class="wish"><span class="cat">Büroausstattung</span><h3>Solider Arbeitsplatz</h3><p>Schreibtisch, Stuhl und gutes Licht für lange Entwicklungsabende.</p><span class="wl-chip offen">offen</span></article>
+      <article class="wish"><span class="cat">Material</span><h3>Kabel, Adapter &amp; Verbrauchsmaterial</h3><p>Der unglamouröse Kleinkram, der trotzdem ständig gebraucht wird.</p><span class="wl-chip offen">offen</span></article>
+      <article class="wish"><span class="cat">Werbematerial</span><h3>Visitenkarten &amp; Flyer</h3><p>Im FehlerFuchs-Design, für den ersten Eindruck vor Ort.</p><span class="wl-chip offen">offen</span></article>
+      <article class="wish"><span class="cat">Werbematerial</span><h3>Aufkleber &amp; kleine Give-aways</h3><p>Sympathische Kleinigkeiten, die im Gedächtnis bleiben.</p><span class="wl-chip offen">offen</span></article>
+      <article class="wish"><span class="cat">Werbematerial</span><h3>Roll-up / Display</h3><p>Für lokale Termine, Märkte und Vereinsabende.</p><span class="wl-chip offen">offen</span></article>
+      <article class="wish"><span class="cat">Akquise</span><h3>Info-Mappen</h3><p>Verständliche Unterlagen für Betriebe, Vereine und Ehrenamt.</p><span class="wl-chip offen">offen</span></article>
+      <article class="wish"><span class="cat">Lokales Sponsoring</span><h3>Kleine lokale Unterstützung</h3><p>Sichtbarkeit durch faires Sponsoring bei Vereinen und Veranstaltungen vor Ort.</p><span class="wl-chip offen">offen</span></article>
+      <article class="wish"><span class="cat">Kaffee</span><h3>Kaffee-Nachschub</h3><p>Der bewährte Treibstoff für „einen Fehler mache ich noch fertig".</p><span class="wl-chip offen">immer offen</span></article>
     </div>
   </section>
 
