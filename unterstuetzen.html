@@ -55,17 +55,38 @@
   .tile .ico{width:34px;height:34px;border-radius:10px;background:var(--cream);border:1px solid #f0e0cf;color:var(--action);display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;font-size:.78rem;margin-bottom:10px}
   .tile h3{font-size:1.02rem;color:var(--brown);margin-bottom:5px}
   .tile p{font-size:.94rem;margin:0}
-  .wl-legend{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.84rem;color:var(--muted);margin:2px 0 14px}
-  .wishlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:14px}
-  .wish{background:#fff;border:1px solid #ecdfd2;border-radius:14px;padding:15px 17px;box-shadow:0 6px 16px rgba(124,63,22,.045);display:flex;flex-direction:column;gap:7px}
-  .wish .cat{font-family:'Poppins',-apple-system,sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--action)}
-  .wish h3{font-size:1.02rem;color:var(--brown);margin:0}
-  .wish p{font-size:.92rem;margin:0;color:var(--ink)}
-  .wl-chip{align-self:flex-start;display:inline-block;font-family:'Poppins',-apple-system,sans-serif;font-size:.74rem;font-weight:700;border-radius:20px;padding:2px 10px;border:1px solid}
+  .wl-legend{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.86rem;color:var(--muted);margin:2px 0 12px}
+  .wl-amazon{font-weight:700}
+  .wl-table{border:1px solid #ecdfd2;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 6px 16px rgba(124,63,22,.045)}
+  .wl-row{border-top:1px solid #f2e9de}
+  .wl-row:first-child{border-top:none}
+  .wl-row>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:11px 14px;font-family:'Poppins',-apple-system,sans-serif;font-weight:600;color:var(--brown);font-size:.95rem}
+  .wl-row>summary::-webkit-details-marker{display:none}
+  .wl-row>summary:hover{background:#fcf8f3}
+  .wl-row .num{color:#b9a892;min-width:20px;text-align:right}
+  .wl-row .ttl{flex:1}
+  .wl-row .caret{color:#c9b7a5;font-size:1.15rem;line-height:1;transition:transform .15s}
+  .wl-row[open] .caret{transform:rotate(90deg)}
+  .wl-detail{padding:0 14px 14px 44px;font-size:.92rem;color:var(--ink)}
+  .wl-detail>p{margin:0 0 10px}
+  .wl-actions{display:flex;flex-wrap:wrap;gap:8px}
+  .wl-act{display:inline-block;font-family:'Poppins',-apple-system,sans-serif;font-size:.82rem;font-weight:700;border-radius:10px;padding:7px 12px;border:1px solid;text-decoration:none}
+  .wl-act.pay{background:var(--orange);color:#fff;border-color:var(--orange)}
+  .wl-act.pay:hover{background:#b45309;text-decoration:none}
+  .wl-act.ghost{background:#fff;color:var(--action);border-color:#f0d6c4}
+  .wl-act.ghost:hover{background:#fcf8f3;text-decoration:none}
+  .wl-addr{background:var(--cream);border:1px solid #f0e0cf;border-radius:10px;padding:8px 11px;font-size:.85rem;color:var(--muted);margin:0 0 10px}
+  .wl-chip{display:inline-block;font-family:'Poppins',-apple-system,sans-serif;font-size:.72rem;font-weight:700;border-radius:20px;padding:2px 9px;border:1px solid}
   .wl-chip.offen{background:#FEF3E2;color:#9A5B0E;border-color:#F3D9B0}
   .wl-chip.arbeit{background:#E7EEF6;color:#1E4E8C;border-color:#C3D6EC}
   .wl-chip.erfuellt{background:#E7F3DF;color:#2f6d12;border-color:#cde7b6}
-  .wish.done{opacity:.85}
+  .wl-row.done>summary{opacity:.7}
+  .goalbar{margin:4px 0 14px}
+  .goalbar-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:.92rem;color:var(--brown)}
+  .goalbar-head strong{font-family:'Poppins',-apple-system,sans-serif}
+  .goalbar-track{height:12px;background:#f1e6d9;border:1px solid #ecdfd2;border-radius:20px;overflow:hidden;margin-top:6px}
+  .goalbar-fill{height:100%;background:#D97706;border-radius:20px}
+  .goalbar-note{font-size:.82rem;color:var(--muted);margin-top:6px}
   .goal-band{background:#fff;border:1px solid #ecdfd2;border-radius:16px;padding:20px 22px}
   .goal-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 18px;list-style:none;margin-top:14px}
   .goal-list li{position:relative;padding-left:24px;color:var(--muted)}
@@ -153,6 +174,35 @@
     <p class="muted">Das Ziel bleibt dabei bodenständig: FehlerFuchs soll bezahlbar bleiben und nicht zur nächsten komplizierten, cloudlastigen Abo-Falle werden.</p>
   </section>
 
+  <section id="paypal" aria-labelledby="paypal-title" class="support-band">
+    <div>
+      <h2 id="paypal-title">FehlerFuchs unterstützen</h2>
+      <p>Wenn du FehlerFuchs unterstützen möchtest, kannst du das freiwillig über PayPal tun. Jede Unterstützung hilft dabei, Entwicklung, Testgeräte, Infrastruktur, Werkzeuge und die berühmte Tasse Kaffee auf dem Schreibtisch mitzufinanzieren.</p>
+      <div class="goalbar" aria-label="Unterst&uuml;tzungsziel">
+        <div class="goalbar-head"><span>Unterst&uuml;tzung gesamt</span><strong>0 &euro; von 3.000 &euro;</strong></div>
+        <div class="goalbar-track"><div class="goalbar-fill" style="width:1%"></div></div>
+        <p class="goalbar-note">Richtwert f&uuml;r die aktuelle Wunschliste &ndash; w&auml;chst mit jeder Unterst&uuml;tzung. <!-- Betraege und width:XX% hier anpassen --></p>
+      </div>
+      <p class="legal-note">Die Unterstützung ist freiwillig. Sie ist keine Voraussetzung, um FehlerFuchs zu nutzen. Es wird keine Spendenbescheinigung ausgestellt und es handelt sich nicht um eine steuerlich absetzbare Spende.</p>
+    </div>
+    <div>
+      <div class="paypal-slot">
+        <img class="support-logo" src="img/fehlerfuchs-dachmarke-logo.png" alt="FehlerFuchs - kleine lokale Helfer" loading="eager" decoding="async" width="2048" height="736">
+        <div class="paypal-sdk-note">PayPal wird geladen<span>Falls der Button nicht erscheint, bitte die Seite neu laden oder Scriptblocker prüfen.</span></div>
+        <div id="paypal-container-ARHM75WKUT5AU"></div>
+      </div>
+      <script>
+        if (window.paypal && typeof paypal.HostedButtons === "function") {
+          var paypalNote = document.querySelector(".paypal-sdk-note")
+          if (paypalNote) paypalNote.hidden = true
+          paypal.HostedButtons({
+            hostedButtonId: "ARHM75WKUT5AU",
+          }).render("#paypal-container-ARHM75WKUT5AU")
+        }
+      </script>
+    </div>
+  </section>
+
   <section aria-labelledby="wofuer-title">
     <div class="sec-head">
       <h2 class="sec" id="wofuer-title">Wofür Unterstützung genutzt wird</h2>
@@ -171,25 +221,94 @@
   <section aria-labelledby="wunsch-title">
     <div class="sec-head">
       <h2 class="sec" id="wunsch-title">Wunschliste</h2>
-      <p class="muted">Ganz konkret: Dinge, die FehlerFuchs gerade wirklich voranbringen würden – von Hard- und Software über Büro und Akquise bis zu Werbematerial und lokalem Sponsoring. Ohne Preise, dafür ehrlich mit Status. Erledigtes bleibt als Dankeschön sichtbar.</p>
+      <p class="muted">Ganz konkret, was FehlerFuchs gerade voranbringt. Tippe auf einen Punkt &ndash; dann siehst du Details und wie du helfen kannst.</p>
     </div>
-    <p class="wl-legend">Status: <span class="wl-chip offen">offen</span> <span class="wl-chip arbeit">in Arbeit</span> <span class="wl-chip erfuellt">erfüllt ✓</span></p>
-    <!-- Status pflegen: class "offen" -> "arbeit" -> "erfuellt" aendern und Chip-Text anpassen; erfuellte Karte zusaetzlich class "done" geben. -->
-    <div class="wishlist">
-      <article class="wish"><span class="cat">Hardware</span><h3>Android-Testgeräte</h3><p>Verschiedene Geräte und Android-Versionen, damit die Apps überall zuverlässig laufen.</p><span class="wl-chip offen">offen</span></article>
-      <article class="wish"><span class="cat">Hardware</span><h3>Zweiter Monitor &amp; Dockingstation</h3><p>Mehr Überblick beim Entwickeln, Testen und Dokumentieren.</p><span class="wl-chip offen">offen</span></article>
-      <article class="wish"><span class="cat">Hardware</span><h3>Externe Datensicherung</h3><p>Zuverlässige Backups für Quellcode, Entwürfe und Downloads.</p><span class="wl-chip offen">offen</span></article>
-      <article class="wish"><span class="cat">Software</span><h3>Code-Signing-Zertifikat</h3><p>Damit Windows-Downloads ohne Warnhinweise sauber signiert sind.</p><span class="wl-chip offen">offen</span></article>
-      <article class="wish"><span class="cat">Software</span><h3>Entwickler- &amp; Werkzeug-Lizenzen</h3><p>Gute Werkzeuge sparen Zeit und vermeiden Fehler.</p><span class="wl-chip offen">offen</span></article>
-      <article class="wish done"><span class="cat">Software</span><h3>Play-Store-Entwicklerkonto</h3><p>Einmalige Gebühr fürs Veröffentlichen der Android-Apps.</p><span class="wl-chip erfuellt">erfüllt ✓</span></article>
-      <article class="wish"><span class="cat">Büroausstattung</span><h3>Solider Arbeitsplatz</h3><p>Schreibtisch, Stuhl und gutes Licht für lange Entwicklungsabende.</p><span class="wl-chip offen">offen</span></article>
-      <article class="wish"><span class="cat">Material</span><h3>Kabel, Adapter &amp; Verbrauchsmaterial</h3><p>Der unglamouröse Kleinkram, der trotzdem ständig gebraucht wird.</p><span class="wl-chip offen">offen</span></article>
-      <article class="wish"><span class="cat">Werbematerial</span><h3>Visitenkarten &amp; Flyer</h3><p>Im FehlerFuchs-Design, für den ersten Eindruck vor Ort.</p><span class="wl-chip offen">offen</span></article>
-      <article class="wish"><span class="cat">Werbematerial</span><h3>Aufkleber &amp; kleine Give-aways</h3><p>Sympathische Kleinigkeiten, die im Gedächtnis bleiben.</p><span class="wl-chip offen">offen</span></article>
-      <article class="wish"><span class="cat">Werbematerial</span><h3>Roll-up / Display</h3><p>Für lokale Termine, Märkte und Vereinsabende.</p><span class="wl-chip offen">offen</span></article>
-      <article class="wish"><span class="cat">Akquise</span><h3>Info-Mappen</h3><p>Verständliche Unterlagen für Betriebe, Vereine und Ehrenamt.</p><span class="wl-chip offen">offen</span></article>
-      <article class="wish"><span class="cat">Lokales Sponsoring</span><h3>Kleine lokale Unterstützung</h3><p>Sichtbarkeit durch faires Sponsoring bei Vereinen und Veranstaltungen vor Ort.</p><span class="wl-chip offen">offen</span></article>
-      <article class="wish"><span class="cat">Kaffee</span><h3>Kaffee-Nachschub</h3><p>Der bewährte Treibstoff für „einen Fehler mache ich noch fertig".</p><span class="wl-chip offen">immer offen</span></article>
+    <p class="wl-legend">So kannst du helfen: per PayPal, direkt an meine Adresse oder als Sponsor. <a class="wl-amazon" href="#" title="Link folgt">Amazon-Wunschliste (bald)</a></p>
+    <!-- Amazon: echte Wunschlisten-URL ins href eintragen und Text auf "Amazon-Wunschliste" setzen. -->
+    <!-- Neuer Punkt: <details class="wl-row"> kopieren. Status: wl-chip offen/arbeit/erfuellt. Erledigt: <details class="wl-row done"> + chip erfuellt. -->
+    <div class="wl-table">
+      <details class="wl-row">
+        <summary><span class="num">1</span><span class="ttl">Code-Signing-Zertifikat</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <div class="wl-detail">
+          <p>Signiert die Windows-Downloads, damit sie ohne SmartScreen-Warnung starten (OV- oder EV-Zertifikat, meist j&auml;hrlich).</p>
+          <div class="wl-actions"><a class="wl-act pay" href="#paypal">Per PayPal helfen</a><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">Als Sponsor melden</a></div>
+        </div>
+      </details>
+      <details class="wl-row">
+        <summary><span class="num">2</span><span class="ttl">NAS-System (2&times;10&nbsp;TB, erweiterbar)</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <div class="wl-detail">
+          <p>Zentrale, ausfallsichere Ablage und Backups f&uuml;r Quellcode, Releases und Dokumente. Mindestens 2&times;10&nbsp;TB, sp&auml;ter erweiterbar &ndash; z.&nbsp;B. Ugreen NASync DXP4800 Pro.</p>
+          <p class="wl-addr">Zusenden an: Matthias Schacht &middot; Susanne-Bohl-Str.&nbsp;8 &middot; 07747&nbsp;Jena &ndash; bitte <a href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">vorher kurz abstimmen</a>.</p>
+          <div class="wl-actions"><a class="wl-act pay" href="#paypal">Per PayPal helfen</a><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">Direkt zusenden / abstimmen</a></div>
+        </div>
+      </details>
+      <details class="wl-row">
+        <summary><span class="num">3</span><span class="ttl">USV-Systeme (PC &amp; NAS)</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <div class="wl-detail">
+          <p>Sch&uuml;tzt Rechner und NAS bei Stromausfall &ndash; keine kaputten Builds und keine verlorenen Daten.</p>
+          <p class="wl-addr">Zusenden an: Matthias Schacht &middot; Susanne-Bohl-Str.&nbsp;8 &middot; 07747&nbsp;Jena &ndash; bitte <a href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">vorher kurz abstimmen</a>.</p>
+          <div class="wl-actions"><a class="wl-act pay" href="#paypal">Per PayPal helfen</a><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">Direkt zusenden / abstimmen</a></div>
+        </div>
+      </details>
+      <details class="wl-row">
+        <summary><span class="num">4</span><span class="ttl">Leistungsstarker Office-Rechner (&ge;&nbsp;64&nbsp;GB RAM)</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <div class="wl-detail">
+          <p>F&uuml;r z&uuml;giges Bauen, Testen, virtuelle Maschinen und mehrere Apps parallel. Mindestens 64&nbsp;GB RAM.</p>
+          <p class="wl-addr">Zusenden an: Matthias Schacht &middot; Susanne-Bohl-Str.&nbsp;8 &middot; 07747&nbsp;Jena &ndash; bitte <a href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">vorher kurz abstimmen</a>.</p>
+          <div class="wl-actions"><a class="wl-act pay" href="#paypal">Per PayPal helfen</a><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">Direkt zusenden / abstimmen</a></div>
+        </div>
+      </details>
+      <details class="wl-row">
+        <summary><span class="num">5</span><span class="ttl">2 neue Monitore</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <div class="wl-detail">
+          <p>Mehr Fl&auml;che f&uuml;r Code, Vorschau und Dokumentation nebeneinander.</p>
+          <p class="wl-addr">Zusenden an: Matthias Schacht &middot; Susanne-Bohl-Str.&nbsp;8 &middot; 07747&nbsp;Jena &ndash; bitte <a href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">vorher kurz abstimmen</a>.</p>
+          <div class="wl-actions"><a class="wl-act pay" href="#paypal">Per PayPal helfen</a><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">Direkt zusenden / abstimmen</a></div>
+        </div>
+      </details>
+      <details class="wl-row">
+        <summary><span class="num">6</span><span class="ttl">Code-Signing-Sponsor</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <div class="wl-detail">
+          <p>Ein Zertifikats-Anbieter oder Unternehmen, das die Signierung dauerhaft tr&auml;gt &ndash; gern mit Nennung als Unterst&uuml;tzer.</p>
+          <div class="wl-actions"><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">Als Sponsor melden</a><a class="wl-act pay" href="#paypal">Per PayPal helfen</a></div>
+        </div>
+      </details>
+      <details class="wl-row">
+        <summary><span class="num">7</span><span class="ttl">Lokale Unterst&uuml;tzung</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <div class="wl-detail">
+          <p>Mithilfe aus der Region (Raum Jena): Testen, Weiterempfehlen, Kontakte kn&uuml;pfen, ehrenamtliche Unterst&uuml;tzung.</p>
+          <div class="wl-actions"><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">Bei mir melden</a><a class="wl-act pay" href="#paypal">Per PayPal helfen</a></div>
+        </div>
+      </details>
+      <details class="wl-row">
+        <summary><span class="num">8</span><span class="ttl">Kabel, Adapter &amp; Verbrauchsmaterial</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <div class="wl-detail">
+          <p>Der st&auml;ndige Kleinkram: Kabel, Adapter, Datentr&auml;ger, Druck- und B&uuml;romaterial.</p>
+          <p class="wl-addr">Zusenden an: Matthias Schacht &middot; Susanne-Bohl-Str.&nbsp;8 &middot; 07747&nbsp;Jena &ndash; bitte <a href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">vorher kurz abstimmen</a>.</p>
+          <div class="wl-actions"><a class="wl-act pay" href="#paypal">Per PayPal helfen</a><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">Direkt zusenden / abstimmen</a></div>
+        </div>
+      </details>
+      <details class="wl-row">
+        <summary><span class="num">9</span><span class="ttl">Entwickler- &amp; Werkzeug-Lizenzen</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <div class="wl-detail">
+          <p>Z.&nbsp;B. JetBrains-IDEs (PyCharm/IntelliJ), Affinity Designer &amp; Photo (Grafik), Snagit (Screenshots) oder ein guter Installer-/Build-Baukasten.</p>
+          <div class="wl-actions"><a class="wl-act pay" href="#paypal">Per PayPal helfen</a><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">Als Sponsor melden</a></div>
+        </div>
+      </details>
+      <details class="wl-row">
+        <summary><span class="num">10</span><span class="ttl">Claude Max (20&times;) &ndash; Abo-Sponsoring</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <div class="wl-detail">
+          <p>KI-Unterst&uuml;tzung bei Entwicklung, Dokumentation und Tests &ndash; das gro&szlig;e 20&times;-Kontingent.</p>
+          <div class="wl-actions"><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">Als Sponsor melden</a><a class="wl-act pay" href="#paypal">Per PayPal helfen</a></div>
+        </div>
+      </details>
+      <details class="wl-row">
+        <summary><span class="num">11</span><span class="ttl">ChatGPT Pro (20&times;) &ndash; Abo-Sponsoring</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <div class="wl-detail">
+          <p>Zus&auml;tzliche KI-Unterst&uuml;tzung im Entwicklungsalltag.</p>
+          <div class="wl-actions"><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">Als Sponsor melden</a><a class="wl-act pay" href="#paypal">Per PayPal helfen</a></div>
+        </div>
+      </details>
     </div>
   </section>
 
@@ -213,30 +332,6 @@
       <p>Ich baue FehlerFuchs Stück für Stück weiter. Neben Alltag, Familie und Beruf. Manches dauert dadurch länger, als ich es gern hätte, aber genau deshalb ist mir wichtig, ehrlich zu bleiben.</p>
       <p>Ich will keine aufgeblasenen Versprechen machen. Ich will kleine, stabile Helfer bauen, die für echte Menschen nützlich sind. Der Weg ist lang, aber ich werde nicht aufgeben.</p>
       <p class="muted">Danke an alle, die mitlesen, testen, Rückmeldung geben oder FehlerFuchs weiterempfehlen. Das ist mehr wert, als es von außen manchmal aussieht.</p>
-    </div>
-  </section>
-
-  <section id="paypal" aria-labelledby="paypal-title" class="support-band">
-    <div>
-      <h2 id="paypal-title">FehlerFuchs unterstützen</h2>
-      <p>Wenn du FehlerFuchs unterstützen möchtest, kannst du das freiwillig über PayPal tun. Jede Unterstützung hilft dabei, Entwicklung, Testgeräte, Infrastruktur, Werkzeuge und die berühmte Tasse Kaffee auf dem Schreibtisch mitzufinanzieren.</p>
-      <p class="legal-note">Die Unterstützung ist freiwillig. Sie ist keine Voraussetzung, um FehlerFuchs zu nutzen. Es wird keine Spendenbescheinigung ausgestellt und es handelt sich nicht um eine steuerlich absetzbare Spende.</p>
-    </div>
-    <div>
-      <div class="paypal-slot">
-        <img class="support-logo" src="img/fehlerfuchs-dachmarke-logo.png" alt="FehlerFuchs - kleine lokale Helfer" loading="eager" decoding="async" width="2048" height="736">
-        <div class="paypal-sdk-note">PayPal wird geladen<span>Falls der Button nicht erscheint, bitte die Seite neu laden oder Scriptblocker prüfen.</span></div>
-        <div id="paypal-container-ARHM75WKUT5AU"></div>
-      </div>
-      <script>
-        if (window.paypal && typeof paypal.HostedButtons === "function") {
-          var paypalNote = document.querySelector(".paypal-sdk-note")
-          if (paypalNote) paypalNote.hidden = true
-          paypal.HostedButtons({
-            hostedButtonId: "ARHM75WKUT5AU",
-          }).render("#paypal-container-ARHM75WKUT5AU")
-        }
-      </script>
     </div>
   </section>
 

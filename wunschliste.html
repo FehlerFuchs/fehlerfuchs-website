@@ -4,16 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wunschliste – FehlerFuchs</title>
-<meta name="description" content="Die FehlerFuchs-Wunschliste: Ideen und Wünsche der Nutzer für die Apps – öffentlich mit Status von Idee bis umgesetzt. Eigene Wünsche kannst du einreichen.">
+<meta name="description" content="Die FehlerFuchs-Wunschliste: Ideen und Wünsche der Nutzer für die Apps – kompakt mit Status von Idee bis umgesetzt, plus Fahrplan bis zum nächsten Release.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
   :root{--orange:#D97706;--brown:#7C3F16;--cream:#FFF7ED;--ink:#2B160B;--muted:#6b5b50;--action:#C2410C;--bg:#fbf7f2}
   @font-face{font-family:'Poppins';src:url('fonts/Poppins-Regular.woff') format('woff');font-weight:400;font-display:swap}
-  @font-face{font-family:'Poppins';src:url('fonts/Poppins-Medium.woff') format('woff');font-weight:500;font-display:swap}
   @font-face{font-family:'Poppins';src:url('fonts/Poppins-Bold.woff') format('woff');font-weight:700;font-display:swap}
   @font-face{font-family:'Inter';src:url('fonts/Inter-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
-  @font-face{font-family:'Inter';src:url('fonts/Inter-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
   @font-face{font-family:'Inter';src:url('fonts/Inter-SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;padding:24px 20px 48px;max-width:960px;margin:0 auto}
@@ -24,40 +22,53 @@
   header.site .logo{font-size:2rem}
   header.site h1{font-size:1.5rem;color:var(--brown)}
   nav{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0 24px;font-size:.92rem}
-
   .intro{background:linear-gradient(135deg,#fff 0%,var(--cream) 100%);border:1px solid #ecdfd2;border-radius:20px;padding:26px 28px;box-shadow:0 8px 22px rgba(124,63,22,.06)}
   .intro h2{font-size:clamp(1.7rem,4vw,2.4rem);color:var(--brown);line-height:1.1;margin-bottom:8px}
   .intro p{max-width:680px;margin:0 0 10px}
-  .intro .cta{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-weight:700;padding:11px 18px;border-radius:12px;font-size:.94rem;margin-top:8px;font-family:'Poppins',sans-serif}
+  .intro .cta{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-weight:700;padding:11px 18px;border-radius:12px;font-size:.94rem;margin-top:8px;font-family:'Poppins',-apple-system,sans-serif}
   .intro .cta:hover{background:#b45309;text-decoration:none}
-
   section{margin-top:34px}
   h2.sec{font-size:1.4rem;color:var(--brown);margin-bottom:8px}
   .muted{color:var(--muted)}
-  .legend{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.84rem;color:var(--muted);margin:6px 0 16px}
-  .chip{display:inline-block;font-family:'Poppins',-apple-system,sans-serif;font-size:.74rem;font-weight:700;border-radius:20px;padding:2px 10px;border:1px solid}
+  .legend{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.84rem;color:var(--muted);margin:6px 0 14px}
+  .chip{display:inline-block;font-family:'Poppins',-apple-system,sans-serif;font-size:.72rem;font-weight:700;border-radius:20px;padding:2px 9px;border:1px solid}
   .chip.idee{background:#F1ECE6;color:#6b5b50;border-color:#e2d6c8}
   .chip.geplant{background:#FEF3E2;color:#9A5B0E;border-color:#F3D9B0}
   .chip.arbeit{background:#E7EEF6;color:#1E4E8C;border-color:#C3D6EC}
   .chip.umgesetzt{background:#E7F3DF;color:#2f6d12;border-color:#cde7b6}
-
-  .wishes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
-  .wish{background:#fff;border:1px solid #ecdfd2;border-radius:14px;padding:15px 17px;box-shadow:0 6px 16px rgba(124,63,22,.045);display:flex;flex-direction:column;gap:7px}
-  .wish .app{font-family:'Poppins',-apple-system,sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-  .wish h3{font-size:1.02rem;color:var(--brown);margin:0}
-  .wish p{font-size:.92rem;margin:0;color:var(--ink)}
-  .wish .chip{align-self:flex-start}
-  .wish.done{opacity:.85}
-
+  .wl-table{border:1px solid #ecdfd2;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 6px 16px rgba(124,63,22,.045)}
+  .wl-row{border-top:1px solid #f2e9de}
+  .wl-row:first-child{border-top:none}
+  .wl-row>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:11px 14px;font-family:'Poppins',-apple-system,sans-serif;font-weight:600;color:var(--brown);font-size:.95rem}
+  .wl-row>summary::-webkit-details-marker{display:none}
+  .wl-row>summary:hover{background:#fcf8f3}
+  .wl-row .app{font-family:'Poppins',-apple-system,sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;min-width:88px}
+  .wl-row .ttl{flex:1}
+  .wl-row .caret{color:#c9b7a5;font-size:1.15rem;line-height:1;transition:transform .15s}
+  .wl-row[open] .caret{transform:rotate(90deg)}
+  .wl-detail{padding:0 14px 14px 14px;font-size:.92rem;color:var(--ink)}
+  .wl-detail>p{margin:0}
+  .wl-row.done>summary{opacity:.7}
+  .timeline{list-style:none;margin:10px 0 0;padding:0}
+  .timeline li{position:relative;padding:0 0 16px 26px;border-left:2px solid #ecdfd2;margin-left:6px}
+  .timeline li:last-child{border-left-color:transparent;padding-bottom:0}
+  .timeline li::before{content:"";position:absolute;left:-8px;top:3px;width:13px;height:13px;border-radius:50%;background:#fff;border:2px solid #c9b7a5}
+  .timeline li.done::before{background:#2f6d12;border-color:#2f6d12}
+  .timeline li.now::before{background:#D97706;border-color:#D97706;box-shadow:0 0 0 4px rgba(217,119,6,.18)}
+  .timeline .tl-t{font-family:'Poppins',-apple-system,sans-serif;font-weight:600;color:var(--brown);font-size:.98rem}
+  .timeline .tl-d{font-size:.9rem;color:var(--muted);margin-top:1px}
+  .tl-badge{display:inline-block;font-family:'Poppins',-apple-system,sans-serif;font-size:.66rem;font-weight:700;border-radius:20px;padding:1px 8px;border:1px solid;margin-left:6px;vertical-align:middle}
+  .tl-badge.done{background:#E7F3DF;color:#2f6d12;border-color:#cde7b6}
+  .tl-badge.now{background:#FEF3E2;color:#9A5B0E;border-color:#F3D9B0}
+  .tl-badge.next{background:#F1ECE6;color:#6b5b50;border-color:#e2d6c8}
   .cta-band{background:var(--cream);border:1px solid #f0e0cf;border-radius:16px;padding:22px 24px;margin-top:34px;text-align:center}
   .cta-band h2{font-size:1.25rem;color:var(--brown);margin-bottom:6px}
-  .cta-band .cta{display:inline-block;background:var(--orange);color:#fff;font-weight:700;padding:11px 18px;border-radius:12px;font-size:.94rem;margin-top:10px;font-family:'Poppins',sans-serif}
+  .cta-band .cta{display:inline-block;background:var(--orange);color:#fff;font-weight:700;padding:11px 18px;border-radius:12px;font-size:.94rem;margin-top:10px;font-family:'Poppins',-apple-system,sans-serif}
   .cta-band .cta:hover{background:#b45309;text-decoration:none}
   footer{margin-top:34px;color:var(--muted);font-size:.82rem;border-top:1px solid #ecdfd2;padding-top:16px}
 </style>
 </head>
 <body>
-
 <header class="site">
   <span class="logo"><svg viewBox="0 0 512 512" width="40" height="40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FehlerFuchs"><path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="#D97706"/><path d="M132,120 L186,150 L158,182 Z" fill="#7C3F16"/><path d="M380,120 L326,150 L354,182 Z" fill="#7C3F16"/><path d="M198,250 L314,250 L256,430 Z" fill="#FFF7ED"/><path d="M192,228 L232,222 L214,250 Z" fill="#2B160B"/><circle cx="306" cy="236" r="30" fill="#7C3F16"/><circle cx="306" cy="236" r="22" fill="#0E2540"/><circle cx="306" cy="236" r="13" fill="#2563EB"/><circle cx="306" cy="236" r="6" fill="#7DD3FC"/><path d="M243,372 L269,372 L256,392 Z" fill="#2B160B"/></svg></span>
   <h1>Wunschliste</h1>
@@ -71,33 +82,43 @@
   <a href="datenschutz.html">Datenschutz</a>
   <a href="impressum.html">Impressum</a>
 </nav>
-
 <main>
   <section class="intro" aria-labelledby="titel">
     <h2 id="titel">Was ihr euch wünscht</h2>
-    <p>Hier sammle ich Ideen und Wünsche für die FehlerFuchs-Apps – offen und nachvollziehbar. Jeder Eintrag zeigt, wo er gerade steht: von der ersten <strong>Idee</strong> über <strong>geplant</strong> und <strong>in Arbeit</strong> bis <strong>umgesetzt</strong>.</p>
-    <p class="muted">Das ist bewusst kein Versprechen mit Termin. Es hilft mir, Prioritäten zu setzen – und dir zu sehen, dass dein Wunsch angekommen ist.</p>
+    <p>Ideen und Wünsche für die FehlerFuchs-Apps – offen und nachvollziehbar. Tippe auf einen Eintrag für Details; der Status zeigt, wo er steht: von der ersten <strong>Idee</strong> über <strong>geplant</strong> und <strong>in Arbeit</strong> bis <strong>umgesetzt</strong>.</p>
+    <p class="muted">Bewusst kein Versprechen mit Termin. Es hilft mir, Prioritäten zu setzen – und dir zu sehen, dass dein Wunsch angekommen ist.</p>
     <a class="cta" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">Wunsch einreichen</a>
   </section>
-
   <section aria-labelledby="liste-title">
     <h2 class="sec" id="liste-title">Aktuelle Wünsche</h2>
     <p class="legend">Status: <span class="chip idee">Idee</span> <span class="chip geplant">geplant</span> <span class="chip arbeit">in Arbeit</span> <span class="chip umgesetzt">umgesetzt ✓</span></p>
-    <!-- Pflege: Wunsch als <article class="wish"> kopieren; App-Farbe im style der .app setzen; Status ueber chip-Klasse (idee/geplant/arbeit/umgesetzt) + Text; umgesetzte zusaetzlich class "done". -->
-    <div class="wishes">
-      <article class="wish"><span class="app" style="color:#B45309">KleinGewerbe</span><h3>E-Rechnung (ZUGFeRD / XRechnung)</h3><p>Rechnungen im geforderten E-Rechnungs-Format erzeugen und lesen.</p><span class="chip arbeit">in Arbeit</span></article>
-      <article class="wish"><span class="app" style="color:#9F1239">PDFuchs</span><h3>OCR – Text aus Scans</h3><p>Gescannte PDFs durchsuchbar machen.</p><span class="chip geplant">geplant</span></article>
-      <article class="wish"><span class="app" style="color:#B45309">KleinGewerbe</span><h3>Etiketten-Druck</h3><p>Adress- und Produktetiketten direkt aus den Stammdaten.</p><span class="chip geplant">geplant</span></article>
-      <article class="wish"><span class="app" style="color:#0F5132">CoppiceMail</span><h3>Regeln mit UND/ODER</h3><p>Feinere Sortier-Regeln für den Posteingang.</p><span class="chip idee">Idee</span></article>
-      <article class="wish"><span class="app" style="color:#2563EB">AppInsight</span><h3>Bericht als PDF exportieren</h3><p>Ergebnisse übersichtlich zum Weitergeben.</p><span class="chip idee">Idee</span></article>
-      <article class="wish"><span class="app" style="color:#5B8A72">CheckInVita</span><h3>Erinnerungen</h3><p>Sanfte Reminder für regelmäßige Einträge.</p><span class="chip idee">Idee</span></article>
-      <article class="wish"><span class="app" style="color:#3B6B4E">FuchsBau</span><h3>Import aus dem Browser</h3><p>Bestehende Passwörter bequem übernehmen.</p><span class="chip idee">Idee</span></article>
-      <article class="wish"><span class="app" style="color:#7C3F16">Alle Apps</span><h3>Englische Übersetzung</h3><p>Oberflächen zusätzlich auf Englisch.</p><span class="chip idee">Idee</span></article>
-      <article class="wish done"><span class="app" style="color:#2E7D46">MobileReport</span><h3>Mehrere Fotos pro Meldung</h3><p>Mehrere Bilder je Vorgang anhängen.</p><span class="chip umgesetzt">umgesetzt ✓</span></article>
+    <div class="wl-table">
+      <details class="wl-row"><summary><span class="app" style="color:#B45309">KleinGewerbe</span><span class="ttl">E-Rechnung (ZUGFeRD / XRechnung)</span><span class="chip arbeit">in Arbeit</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Rechnungen im geforderten E-Rechnungs-Format erzeugen und lesen.</p></div></details>
+      <details class="wl-row"><summary><span class="app" style="color:#9F1239">PDFuchs</span><span class="ttl">OCR – Text aus Scans</span><span class="chip geplant">geplant</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Gescannte PDFs durchsuchbar machen und Text extrahieren.</p></div></details>
+      <details class="wl-row"><summary><span class="app" style="color:#B45309">KleinGewerbe</span><span class="ttl">Etiketten-Druck</span><span class="chip geplant">geplant</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Adress- und Produktetiketten direkt aus den Stammdaten drucken.</p></div></details>
+      <details class="wl-row"><summary><span class="app" style="color:#0F5132">CoppiceMail</span><span class="ttl">Regeln mit UND/ODER</span><span class="chip idee">Idee</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Feinere Sortier-Regeln für den Posteingang (verknüpfte Bedingungen).</p></div></details>
+      <details class="wl-row"><summary><span class="app" style="color:#2563EB">AppInsight</span><span class="ttl">Bericht als PDF exportieren</span><span class="chip idee">Idee</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Ergebnisse übersichtlich als PDF zum Weitergeben.</p></div></details>
+      <details class="wl-row"><summary><span class="app" style="color:#5B8A72">CheckInVita</span><span class="ttl">Erinnerungen</span><span class="chip idee">Idee</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Sanfte Reminder für regelmäßige Einträge.</p></div></details>
+      <details class="wl-row"><summary><span class="app" style="color:#3B6B4E">FuchsBau</span><span class="ttl">Import aus dem Browser</span><span class="chip idee">Idee</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Bestehende Passwörter bequem übernehmen.</p></div></details>
+      <details class="wl-row"><summary><span class="app" style="color:#7C3F16">Alle Apps</span><span class="ttl">Englische Übersetzung</span><span class="chip idee">Idee</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Oberflächen zusätzlich auf Englisch anbieten.</p></div></details>
+      <details class="wl-row done"><summary><span class="app" style="color:#2E7D46">MobileReport</span><span class="ttl">Mehrere Fotos pro Meldung</span><span class="chip umgesetzt">umgesetzt ✓</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Mehrere Bilder je Vorgang anhängen – bereits umgesetzt.</p></div></details>
     </div>
-    <p class="muted" style="margin-top:14px;font-size:.9rem">Die Liste ist ein lebendiger Überblick und wird nach und nach gepflegt. Umgesetzte Wünsche bleiben als Verlauf sichtbar.</p>
+    <p class="muted" style="margin-top:14px;font-size:.9rem">Ein lebendiger Überblick, der nach und nach gepflegt wird. Umgesetzte Wünsche bleiben als Verlauf sichtbar.</p>
   </section>
-
+  <section aria-labelledby="fahrplan-title">
+    <h2 class="sec" id="fahrplan-title">Fahrplan bis zum nächsten Release</h2>
+    <p class="muted">Woran gerade gearbeitet wird und was als Nächstes ansteht. <span class="tl-badge done">erledigt</span> <span class="tl-badge now">aktuell</span> <span class="tl-badge next">geplant</span></p>
+    <ul class="timeline">
+      <li class="done"><div class="tl-t">Website, Marken-Set &amp; alle App-Seiten <span class="tl-badge done">erledigt</span></div><div class="tl-d">Einheitliche Logos, Produktseiten und Wunschlisten stehen.</div></li>
+      <li class="done"><div class="tl-t">Play-Store-Entwicklerkonto bestätigt <span class="tl-badge done">erledigt</span></div></li>
+      <li class="done"><div class="tl-t">MobileReport bei Google Play eingereicht <span class="tl-badge done">erledigt</span></div></li>
+      <li class="now"><div class="tl-t">MobileReport: Store-Freigabe &amp; Feinschliff <span class="tl-badge now">aktuell</span></div><div class="tl-d">Warten auf Prüfung, letzte Korrekturen, dann Veröffentlichung.</div></li>
+      <li class="next"><div class="tl-t">KleinGewerbe-Beta wieder aufnehmen <span class="tl-badge next">geplant</span></div></li>
+      <li class="next"><div class="tl-t">PDFuchs: erste Version <span class="tl-badge next">geplant</span></div></li>
+      <li class="next"><div class="tl-t">CoppiceMail: erste Version <span class="tl-badge next">geplant</span></div></li>
+      <li class="next"><div class="tl-t">CheckInVita &amp; AppInsight: Beta <span class="tl-badge next">geplant</span></div></li>
+    </ul>
+  </section>
   <div class="cta-band">
     <h2>Dir fehlt etwas?</h2>
     <p>Schreib mir deinen Wunsch – kurz genügt. Ich lese jede Zuschrift.</p>
@@ -105,8 +126,6 @@
     <p class="muted" style="margin-top:10px;font-size:.88rem">Kleines Formular, landet bei <a href="mailto:info@fehlerfuchs.eu">info@fehlerfuchs.eu</a>.</p>
   </div>
 </main>
-
 <footer>© 2026 FehlerFuchs. Alle Rechte vorbehalten. Datensparsam, ohne Cloud und ohne Tracking.</footer>
-
 </body>
 </html>
