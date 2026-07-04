@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wunschliste – FehlerFuchs</title>
-<meta name="description" content="Die FehlerFuchs-Wunschliste: Ideen und Wünsche der Nutzer für die Apps – kompakt mit Status von Idee bis umgesetzt, plus Fahrplan bis zum nächsten Release.">
+<meta name="description" content="FehlerFuchs App-Timelines: der Weg jeder App bis zum Release – die wichtigsten Meilensteine je App, offen und nachvollziehbar. Wünsche und Ideen kannst du einreichen.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
@@ -30,37 +30,29 @@
   section{margin-top:34px}
   h2.sec{font-size:1.4rem;color:var(--brown);margin-bottom:8px}
   .muted{color:var(--muted)}
-  .legend{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.84rem;color:var(--muted);margin:6px 0 14px}
-  .chip{display:inline-block;font-family:'Poppins',-apple-system,sans-serif;font-size:.72rem;font-weight:700;border-radius:20px;padding:2px 9px;border:1px solid}
-  .chip.idee{background:#F1ECE6;color:#6b5b50;border-color:#e2d6c8}
-  .chip.geplant{background:#FEF3E2;color:#9A5B0E;border-color:#F3D9B0}
-  .chip.arbeit{background:#E7EEF6;color:#1E4E8C;border-color:#C3D6EC}
-  .chip.umgesetzt{background:#E7F3DF;color:#2f6d12;border-color:#cde7b6}
-  .wl-table{border:1px solid #ecdfd2;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 6px 16px rgba(124,63,22,.045)}
-  .wl-row{border-top:1px solid #f2e9de}
-  .wl-row:first-child{border-top:none}
-  .wl-row>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:11px 14px;font-family:'Poppins',-apple-system,sans-serif;font-weight:600;color:var(--brown);font-size:.95rem}
-  .wl-row>summary::-webkit-details-marker{display:none}
-  .wl-row>summary:hover{background:#fcf8f3}
-  .wl-row .app{font-family:'Poppins',-apple-system,sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;min-width:88px}
-  .wl-row .ttl{flex:1}
-  .wl-row .caret{color:#c9b7a5;font-size:1.15rem;line-height:1;transition:transform .15s}
-  .wl-row[open] .caret{transform:rotate(90deg)}
-  .wl-detail{padding:0 14px 14px 14px;font-size:.92rem;color:var(--ink)}
-  .wl-detail>p{margin:0}
-  .wl-row.done>summary{opacity:.7}
-  .timeline{list-style:none;margin:10px 0 0;padding:0}
-  .timeline li{position:relative;padding:0 0 16px 26px;border-left:2px solid #ecdfd2;margin-left:6px}
-  .timeline li:last-child{border-left-color:transparent;padding-bottom:0}
-  .timeline li::before{content:"";position:absolute;left:-8px;top:3px;width:13px;height:13px;border-radius:50%;background:#fff;border:2px solid #c9b7a5}
-  .timeline li.done::before{background:#2f6d12;border-color:#2f6d12}
-  .timeline li.now::before{background:#D97706;border-color:#D97706;box-shadow:0 0 0 4px rgba(217,119,6,.18)}
-  .timeline .tl-t{font-family:'Poppins',-apple-system,sans-serif;font-weight:600;color:var(--brown);font-size:.98rem}
-  .timeline .tl-d{font-size:.9rem;color:var(--muted);margin-top:1px}
-  .tl-badge{display:inline-block;font-family:'Poppins',-apple-system,sans-serif;font-size:.66rem;font-weight:700;border-radius:20px;padding:1px 8px;border:1px solid;margin-left:6px;vertical-align:middle}
+  .legend{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.84rem;color:var(--muted);margin:6px 0 16px}
+  .tl-badge{display:inline-block;font-family:'Poppins',-apple-system,sans-serif;font-size:.68rem;font-weight:700;border-radius:20px;padding:1px 8px;border:1px solid}
   .tl-badge.done{background:#E7F3DF;color:#2f6d12;border-color:#cde7b6}
   .tl-badge.now{background:#FEF3E2;color:#9A5B0E;border-color:#F3D9B0}
   .tl-badge.next{background:#F1ECE6;color:#6b5b50;border-color:#e2d6c8}
+  .app-tl{background:#fff;border:1px solid #ecdfd2;border-radius:14px;padding:14px 16px 12px;margin-bottom:12px;box-shadow:0 6px 16px rgba(124,63,22,.045)}
+  .app-tl-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .app-name{font-family:'Poppins',-apple-system,sans-serif;font-weight:700;font-size:1rem}
+  .app-goal{font-size:.76rem;color:var(--muted)}
+  .rail{overflow-x:auto;padding-bottom:2px}
+  .htl{list-style:none;display:flex;min-width:300px;margin:0;padding:10px 0 0}
+  .htl li{position:relative;flex:1;min-width:58px;text-align:center;padding-top:22px}
+  .htl li::before{content:"";position:absolute;top:6px;left:-50%;width:100%;height:3px;background:#e7dccb}
+  .htl li:first-child::before{display:none}
+  .htl li.done::before,.htl li.now::before{background:#3f8a52}
+  .htl .dot{position:absolute;top:0;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid #c9b7a5;z-index:1}
+  .htl li.done .dot{background:#2f6d12;border-color:#2f6d12}
+  .htl li.now .dot{background:#D97706;border-color:#D97706;box-shadow:0 0 0 4px rgba(217,119,6,.18)}
+  .htl li.goal .dot{width:16px;height:16px;background:#FFF7ED;border-color:#7C3F16}
+  .htl .ms{display:block;font-size:.76rem;color:var(--muted);line-height:1.2;padding:0 2px}
+  .htl li.done .ms{color:#2f6d12}
+  .htl li.now .ms{color:#9A5B0E;font-weight:700}
+  .htl li.goal .ms{color:#7C3F16;font-weight:700}
   .cta-band{background:var(--cream);border:1px solid #f0e0cf;border-radius:16px;padding:22px 24px;margin-top:34px;text-align:center}
   .cta-band h2{font-size:1.25rem;color:var(--brown);margin-bottom:6px}
   .cta-band .cta{display:inline-block;background:var(--orange);color:#fff;font-weight:700;padding:11px 18px;border-radius:12px;font-size:.94rem;margin-top:10px;font-family:'Poppins',-apple-system,sans-serif}
@@ -84,41 +76,102 @@
 </nav>
 <main>
   <section class="intro" aria-labelledby="titel">
-    <h2 id="titel">Was ihr euch wünscht</h2>
-    <p>Ideen und Wünsche für die FehlerFuchs-Apps – offen und nachvollziehbar. Tippe auf einen Eintrag für Details; der Status zeigt, wo er steht: von der ersten <strong>Idee</strong> über <strong>geplant</strong> und <strong>in Arbeit</strong> bis <strong>umgesetzt</strong>.</p>
-    <p class="muted">Bewusst kein Versprechen mit Termin. Es hilft mir, Prioritäten zu setzen – und dir zu sehen, dass dein Wunsch angekommen ist.</p>
+    <h2 id="titel">Der Weg zum Release</h2>
+    <p>Jede FehlerFuchs-App hat ihre eigene kleine <strong>Timeline</strong> mit den wichtigsten Meilensteinen – offen und nachvollziehbar. Das Ziel ist immer dasselbe: die fertige, veröffentlichte Version.</p>
+    <p class="muted">Bewusst kein Versprechen mit Termin, aber ein ehrlicher Überblick, wo es gerade steht. Deine Wünsche und Ideen fließen dabei mit ein.</p>
     <a class="cta" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">Wunsch einreichen</a>
   </section>
-  <section aria-labelledby="liste-title">
-    <h2 class="sec" id="liste-title">Aktuelle Wünsche</h2>
-    <p class="legend">Status: <span class="chip idee">Idee</span> <span class="chip geplant">geplant</span> <span class="chip arbeit">in Arbeit</span> <span class="chip umgesetzt">umgesetzt ✓</span></p>
-    <div class="wl-table">
-      <details class="wl-row"><summary><span class="app" style="color:#B45309">KleinGewerbe</span><span class="ttl">E-Rechnung (ZUGFeRD / XRechnung)</span><span class="chip arbeit">in Arbeit</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Rechnungen im geforderten E-Rechnungs-Format erzeugen und lesen.</p></div></details>
-      <details class="wl-row"><summary><span class="app" style="color:#9F1239">PDFuchs</span><span class="ttl">OCR – Text aus Scans</span><span class="chip geplant">geplant</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Gescannte PDFs durchsuchbar machen und Text extrahieren.</p></div></details>
-      <details class="wl-row"><summary><span class="app" style="color:#B45309">KleinGewerbe</span><span class="ttl">Etiketten-Druck</span><span class="chip geplant">geplant</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Adress- und Produktetiketten direkt aus den Stammdaten drucken.</p></div></details>
-      <details class="wl-row"><summary><span class="app" style="color:#0F5132">CoppiceMail</span><span class="ttl">Regeln mit UND/ODER</span><span class="chip idee">Idee</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Feinere Sortier-Regeln für den Posteingang (verknüpfte Bedingungen).</p></div></details>
-      <details class="wl-row"><summary><span class="app" style="color:#2563EB">AppInsight</span><span class="ttl">Bericht als PDF exportieren</span><span class="chip idee">Idee</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Ergebnisse übersichtlich als PDF zum Weitergeben.</p></div></details>
-      <details class="wl-row"><summary><span class="app" style="color:#5B8A72">CheckInVita</span><span class="ttl">Erinnerungen</span><span class="chip idee">Idee</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Sanfte Reminder für regelmäßige Einträge.</p></div></details>
-      <details class="wl-row"><summary><span class="app" style="color:#3B6B4E">FuchsBau</span><span class="ttl">Import aus dem Browser</span><span class="chip idee">Idee</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Bestehende Passwörter bequem übernehmen.</p></div></details>
-      <details class="wl-row"><summary><span class="app" style="color:#7C3F16">Alle Apps</span><span class="ttl">Englische Übersetzung</span><span class="chip idee">Idee</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Oberflächen zusätzlich auf Englisch anbieten.</p></div></details>
-      <details class="wl-row done"><summary><span class="app" style="color:#2E7D46">MobileReport</span><span class="ttl">Mehrere Fotos pro Meldung</span><span class="chip umgesetzt">umgesetzt ✓</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary><div class="wl-detail"><p>Mehrere Bilder je Vorgang anhängen – bereits umgesetzt.</p></div></details>
+
+  <section aria-labelledby="tl-title">
+    <h2 class="sec" id="tl-title">App-Timelines</h2>
+    <p class="legend">Meilensteine: <span class="tl-badge done">erledigt</span> <span class="tl-badge now">aktuell</span> <span class="tl-badge next">geplant</span> · Ziel: <strong style="color:#7C3F16">Release</strong></p>
+    <!-- Pflege: pro App ein <div class="app-tl">. Meilenstein = <li class="done|now|next|goal">. Status anpassen, Ziel-Knoten bleibt class="goal". -->
+
+    <div class="app-tl">
+      <div class="app-tl-head"><span class="app-name" style="color:#2E7D46">MobileReport</span><span class="app-goal">Ziel: Release (im Launch)</span></div>
+      <div class="rail"><ol class="htl">
+        <li class="done"><span class="dot"></span><span class="ms">Konzept</span></li>
+        <li class="done"><span class="dot"></span><span class="ms">Privat-Beta</span></li>
+        <li class="done"><span class="dot"></span><span class="ms">bei Google Play eingereicht</span></li>
+        <li class="now"><span class="dot"></span><span class="ms">Freigabe &amp; Feinschliff</span></li>
+        <li class="goal"><span class="dot"></span><span class="ms">Release</span></li>
+      </ol></div>
     </div>
-    <p class="muted" style="margin-top:14px;font-size:.9rem">Ein lebendiger Überblick, der nach und nach gepflegt wird. Umgesetzte Wünsche bleiben als Verlauf sichtbar.</p>
+
+    <div class="app-tl">
+      <div class="app-tl-head"><span class="app-name" style="color:#B45309">KleinGewerbe</span><span class="app-goal">Ziel: Release &middot; Beta pausiert</span></div>
+      <div class="rail"><ol class="htl">
+        <li class="done"><span class="dot"></span><span class="ms">Konzept</span></li>
+        <li class="done"><span class="dot"></span><span class="ms">Free-Beta</span></li>
+        <li class="next"><span class="dot"></span><span class="ms">Beta-Neustart</span></li>
+        <li class="next"><span class="dot"></span><span class="ms">Pro-Funktionen</span></li>
+        <li class="goal"><span class="dot"></span><span class="ms">Release</span></li>
+      </ol></div>
+    </div>
+
+    <div class="app-tl">
+      <div class="app-tl-head"><span class="app-name" style="color:#0F5132">CoppiceMail</span><span class="app-goal">Ziel: Release</span></div>
+      <div class="rail"><ol class="htl">
+        <li class="done"><span class="dot"></span><span class="ms">Konzept &amp; Architektur</span></li>
+        <li class="now"><span class="dot"></span><span class="ms">Prototyp</span></li>
+        <li class="next"><span class="dot"></span><span class="ms">Beta</span></li>
+        <li class="goal"><span class="dot"></span><span class="ms">Release</span></li>
+      </ol></div>
+    </div>
+
+    <div class="app-tl">
+      <div class="app-tl-head"><span class="app-name" style="color:#5B8A72">CheckInVita</span><span class="app-goal">Ziel: Release</span></div>
+      <div class="rail"><ol class="htl">
+        <li class="done"><span class="dot"></span><span class="ms">Konzept</span></li>
+        <li class="now"><span class="dot"></span><span class="ms">Prototyp</span></li>
+        <li class="next"><span class="dot"></span><span class="ms">Beta</span></li>
+        <li class="goal"><span class="dot"></span><span class="ms">Release</span></li>
+      </ol></div>
+    </div>
+
+    <div class="app-tl">
+      <div class="app-tl-head"><span class="app-name" style="color:#2563EB">AppInsight</span><span class="app-goal">Ziel: Release</span></div>
+      <div class="rail"><ol class="htl">
+        <li class="done"><span class="dot"></span><span class="ms">Machbarkeit</span></li>
+        <li class="now"><span class="dot"></span><span class="ms">Grundgerüst</span></li>
+        <li class="next"><span class="dot"></span><span class="ms">Beta</span></li>
+        <li class="goal"><span class="dot"></span><span class="ms">Release</span></li>
+      </ol></div>
+    </div>
+
+    <div class="app-tl">
+      <div class="app-tl-head"><span class="app-name" style="color:#9F1239">PDFuchs</span><span class="app-goal">Ziel: Release</span></div>
+      <div class="rail"><ol class="htl">
+        <li class="done"><span class="dot"></span><span class="ms">Konzept</span></li>
+        <li class="next"><span class="dot"></span><span class="ms">Prototyp</span></li>
+        <li class="next"><span class="dot"></span><span class="ms">Beta</span></li>
+        <li class="goal"><span class="dot"></span><span class="ms">Release</span></li>
+      </ol></div>
+    </div>
+
+    <div class="app-tl">
+      <div class="app-tl-head"><span class="app-name" style="color:#0E7490">CleanDesk</span><span class="app-goal">Ziel: Release</span></div>
+      <div class="rail"><ol class="htl">
+        <li class="done"><span class="dot"></span><span class="ms">Konzept</span></li>
+        <li class="next"><span class="dot"></span><span class="ms">Prototyp</span></li>
+        <li class="next"><span class="dot"></span><span class="ms">Beta</span></li>
+        <li class="goal"><span class="dot"></span><span class="ms">Release</span></li>
+      </ol></div>
+    </div>
+
+    <div class="app-tl">
+      <div class="app-tl-head"><span class="app-name" style="color:#3B6B4E">FuchsBau</span><span class="app-goal">Ziel: Release</span></div>
+      <div class="rail"><ol class="htl">
+        <li class="done"><span class="dot"></span><span class="ms">Konzept</span></li>
+        <li class="next"><span class="dot"></span><span class="ms">Prototyp</span></li>
+        <li class="next"><span class="dot"></span><span class="ms">Beta</span></li>
+        <li class="goal"><span class="dot"></span><span class="ms">Release</span></li>
+      </ol></div>
+    </div>
+
+    <p class="muted" style="margin-top:14px;font-size:.9rem">Ein lebendiger Überblick, der nach und nach gepflegt wird.</p>
   </section>
-  <section aria-labelledby="fahrplan-title">
-    <h2 class="sec" id="fahrplan-title">Fahrplan bis zum nächsten Release</h2>
-    <p class="muted">Woran gerade gearbeitet wird und was als Nächstes ansteht. <span class="tl-badge done">erledigt</span> <span class="tl-badge now">aktuell</span> <span class="tl-badge next">geplant</span></p>
-    <ul class="timeline">
-      <li class="done"><div class="tl-t">Website, Marken-Set &amp; alle App-Seiten <span class="tl-badge done">erledigt</span></div><div class="tl-d">Einheitliche Logos, Produktseiten und Wunschlisten stehen.</div></li>
-      <li class="done"><div class="tl-t">Play-Store-Entwicklerkonto bestätigt <span class="tl-badge done">erledigt</span></div></li>
-      <li class="done"><div class="tl-t">MobileReport bei Google Play eingereicht <span class="tl-badge done">erledigt</span></div></li>
-      <li class="now"><div class="tl-t">MobileReport: Store-Freigabe &amp; Feinschliff <span class="tl-badge now">aktuell</span></div><div class="tl-d">Warten auf Prüfung, letzte Korrekturen, dann Veröffentlichung.</div></li>
-      <li class="next"><div class="tl-t">KleinGewerbe-Beta wieder aufnehmen <span class="tl-badge next">geplant</span></div></li>
-      <li class="next"><div class="tl-t">PDFuchs: erste Version <span class="tl-badge next">geplant</span></div></li>
-      <li class="next"><div class="tl-t">CoppiceMail: erste Version <span class="tl-badge next">geplant</span></div></li>
-      <li class="next"><div class="tl-t">CheckInVita &amp; AppInsight: Beta <span class="tl-badge next">geplant</span></div></li>
-    </ul>
-  </section>
+
   <div class="cta-band">
     <h2>Dir fehlt etwas?</h2>
     <p>Schreib mir deinen Wunsch – kurz genügt. Ich lese jede Zuschrift.</p>
