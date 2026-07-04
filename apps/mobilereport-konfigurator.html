@@ -4,11 +4,100 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Branding-Konfigurator – MobileReport Enterprise</title>
-<meta name="description" content="Branding-Konfigurator für MobileReport Enterprise: Logo & Farben im Browser zusammenstellen, live ansehen, als .mrbrand-Datei laden. Lokal, kostenlos, ohne Server. In Vorbereitung.">
+<meta name="description" content="Branding-Konfigurator für MobileReport Enterprise: Name, Logo & Farben im Browser zusammenstellen, live ansehen und als .mrbrand-Datei laden, die die App 1:1 importiert. Läuft komplett lokal, ohne Server, ohne Tracking, kostenlos.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="app.css">
-<style>.badge.launch{background:#FEF3E2;color:#9A5B0E;border-color:#F3D9B0}.mono{font-family:ui-monospace,Consolas,monospace;background:#f6efe6;border:1px solid #ecdfd2;border-radius:6px;padding:1px 6px;font-size:.9em}</style>
+<style>
+.mono{font-family:ui-monospace,Consolas,monospace;background:#f6efe6;border:1px solid #ecdfd2;border-radius:6px;padding:1px 6px;font-size:.9em}
+/* Werkstatt-Layout */
+.kfg{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:24px;align-items:start}
+@media (max-width:860px){.kfg{grid-template-columns:1fr}}
+.panel{background:#fff;border:1px solid #ecdfd2;border-radius:16px;padding:18px 18px 20px}
+.panel h3{font-size:1.05rem;color:var(--brown);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.panel h3 .n{width:24px;height:24px;flex:none;background:var(--accent);color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;font-size:.85rem}
+.fld{margin:12px 0}
+.fld label.lbl{display:block;font-weight:600;color:var(--brown);font-size:.9rem;margin-bottom:5px}
+.fld input[type=text]{width:100%;padding:10px 12px;border:1px solid #e2d3c3;border-radius:10px;font:inherit;font-size:.95rem;background:#fdfaf6}
+.fld input[type=text]:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+.hint{font-size:.8rem;color:var(--muted);margin-top:4px}
+/* Modus-Tabs */
+.modes{display:flex;gap:6px;background:#f4ece2;border:1px solid #ecdfd2;border-radius:12px;padding:4px;margin:6px 0 4px}
+.modes button{flex:1;border:0;background:transparent;font:inherit;font-weight:600;font-size:.85rem;color:var(--brown);padding:8px 6px;border-radius:9px;cursor:pointer;transition:background .15s}
+.modes button.on{background:#fff;color:var(--action);box-shadow:0 1px 3px rgba(124,63,22,.12)}
+/* Logo-Ablage */
+.drop{border:2px dashed #e0cdb8;border-radius:12px;padding:16px;text-align:center;cursor:pointer;background:#fdfaf6;transition:border-color .15s,background .15s}
+.drop:hover,.drop.hot{border-color:var(--accent);background:#fdf3ea}
+.drop .lg{max-width:120px;max-height:80px;margin:0 auto 8px;display:block}
+.drop small{color:var(--muted);font-size:.8rem}
+.rm{background:none;border:0;color:var(--action);font:inherit;font-size:.82rem;cursor:pointer;margin-top:6px;text-decoration:underline}
+/* Farbfeld-Zeile */
+.crow{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #f3ece2}
+.crow:last-child{border-bottom:0}
+.crow .cl{flex:1;font-size:.86rem;color:var(--ink)}
+.crow .cl b{display:block;color:var(--brown);font-family:'Poppins';font-weight:600;font-size:.86rem}
+.crow .cl span{color:var(--muted);font-size:.76rem}
+.crow input[type=color]{width:34px;height:30px;border:1px solid #e2d3c3;border-radius:7px;background:#fff;padding:2px;cursor:pointer}
+.crow input[type=color]:disabled{opacity:.35;cursor:not-allowed}
+.autobox{display:inline-flex;align-items:center;gap:4px;font-size:.76rem;color:var(--muted);cursor:pointer;user-select:none}
+.accentbig input[type=color]{width:44px;height:38px}
+.grp-h{font-family:'Poppins';font-weight:600;color:var(--brown);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;margin:14px 0 2px}
+.flagrow{display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--ink);padding:5px 0}
+.flagrow input{width:16px;height:16px;accent-color:var(--accent)}
+/* Presets */
+.presets{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.preset{border:1px solid #e2d3c3;border-radius:20px;background:#fff;cursor:pointer;padding:4px 10px 4px 6px;display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:.76rem;color:var(--brown)}
+.preset:hover{border-color:var(--accent);background:#fdf3ea}
+.preset .sw{display:inline-flex;gap:0}
+.preset .sw i{width:13px;height:13px;border-radius:3px;display:inline-block;border:1px solid rgba(0,0,0,.12)}
+.preset .sw i:last-child{margin-left:-4px}
+.pgroup{font-size:.74rem;color:var(--muted);margin:10px 0 2px;font-weight:600}
+.radio-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.radio-row label{display:inline-flex;align-items:center;gap:6px;border:1px solid #e2d3c3;border-radius:10px;padding:7px 12px;cursor:pointer;font-size:.86rem;background:#fdfaf6}
+.radio-row label.on{border-color:var(--accent);background:#fdf3ea;color:var(--action);font-weight:600}
+.radio-row input{accent-color:var(--accent)}
+/* Vorschau */
+.previewwrap{position:sticky;top:14px}
+.pv-tabs{display:flex;gap:6px;margin-bottom:12px}
+.pv-tabs button{border:1px solid #e2d3c3;background:#fff;font:inherit;font-weight:600;font-size:.82rem;color:var(--brown);padding:7px 14px;border-radius:10px;cursor:pointer}
+.pv-tabs button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* App-Mock */
+.phone{width:250px;max-width:100%;margin:0 auto;border:9px solid #241a12;border-radius:30px;overflow:hidden;box-shadow:0 10px 28px rgba(43,22,11,.22);background:#fff}
+.ph-bar{display:flex;align-items:center;gap:8px;padding:12px 12px 11px}
+.ph-bar img{width:26px;height:26px;object-fit:contain;border-radius:6px;background:rgba(255,255,255,.16)}
+.ph-bar .nm{font-family:'Poppins';font-weight:600;font-size:.9rem;line-height:1.1}
+.ph-body{padding:12px 12px 16px;min-height:210px}
+.ph-card{border-radius:12px;padding:12px 13px;margin-bottom:11px}
+.ph-card .t{font-family:'Poppins';font-weight:600;font-size:.82rem;margin-bottom:3px}
+.ph-card .s{font-size:.72rem;opacity:.85}
+.ph-btn{display:block;text-align:center;font-family:'Poppins';font-weight:600;font-size:.82rem;padding:10px;border-radius:11px;margin-bottom:10px}
+.ph-li{display:flex;align-items:center;gap:9px;padding:9px 4px;font-size:.76rem;border-bottom:1px solid rgba(0,0,0,.06)}
+.ph-li .dot{width:9px;height:9px;border-radius:50%;flex:none}
+/* PDF-Mock */
+.paper{max-width:340px;margin:0 auto;background:#fff;border:1px solid #e6dccf;border-radius:8px;overflow:hidden;box-shadow:0 8px 22px rgba(43,22,11,.14);font-size:.72rem}
+.pdf-head{padding:14px 15px;display:flex;align-items:center;gap:11px}
+.pdf-head img{width:34px;height:34px;object-fit:contain;border-radius:6px;background:rgba(255,255,255,.14)}
+.pdf-head .ti{font-family:'Poppins';font-weight:700;font-size:.98rem;line-height:1.1}
+.pdf-head .su{font-size:.72rem;margin-top:2px}
+.pdf-inner{padding:13px 15px 15px}
+.pdf-line{display:flex;gap:8px;margin-bottom:9px;align-items:flex-start}
+.pdf-badge{font-family:'Poppins';font-weight:700;font-size:.7rem;padding:4px 9px;border-radius:6px;white-space:nowrap}
+.pdf-art{font-weight:600;font-size:.7rem;padding:4px 9px;border-radius:6px}
+.pdf-txt{line-height:1.5}
+.pdf-foot{padding:9px 15px;font-size:.66rem;display:flex;justify-content:space-between;gap:8px}
+/* Kontrast-Ampel */
+.contrast{margin-top:14px;background:#fdfaf6;border:1px solid #ecdfd2;border-radius:12px;padding:12px 14px}
+.contrast h4{font-family:'Poppins';font-size:.86rem;color:var(--brown);margin-bottom:7px}
+.cr{display:flex;align-items:center;gap:8px;font-size:.8rem;padding:3px 0}
+.cr .d{width:10px;height:10px;border-radius:50%;flex:none}
+.cr .r{margin-left:auto;font-variant-numeric:tabular-nums;color:var(--muted);font-size:.76rem}
+.ok{background:#15803D}.warn{background:#C2410C}.bad{background:#B91C1C}
+/* Export */
+.exportbar{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.warnmsg{background:#FEF3E2;border:1px solid #F3D9B0;color:#8a5310;border-radius:10px;padding:8px 12px;font-size:.82rem;margin-top:8px}
+.okmsg{background:#e7f3df;border:1px solid #cde7b6;color:#2f6d12;border-radius:10px;padding:8px 12px;font-size:.82rem;margin-top:8px}
+.cta.mini{padding:9px 15px;font-size:.86rem}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -21,20 +110,6 @@
 <symbol id="ic-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></symbol>
 <symbol id="ic-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
 <symbol id="ic-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></symbol>
-</defs></svg>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <clipPath id="foxsil"><path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z"/></clipPath>
-  <g id="fox">
-    <path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="#D97706"/>
-    <path d="M132,120 L186,150 L158,182 Z" fill="#7C3F16"/><path d="M380,120 L326,150 L354,182 Z" fill="#7C3F16"/>
-    <path d="M198,250 L314,250 L256,430 Z" fill="#FFF7ED"/><path d="M192,228 L232,222 L214,250 Z" fill="#2B160B"/>
-    <circle cx="306" cy="236" r="30" fill="#7C3F16"/><circle cx="306" cy="236" r="22" fill="#0E2540"/>
-    <circle cx="306" cy="236" r="13" fill="#2563EB"/><circle cx="306" cy="236" r="6" fill="#7DD3FC"/>
-    <path d="M243,372 L269,372 L256,392 Z" fill="#2B160B"/>
-  </g>
-  <g id="badge"><circle cx="120" cy="120" r="116" fill="#FFF7ED" stroke="#F0E0CE" stroke-width="3"/>
-    <g transform="translate(120,122) scale(0.42) translate(-256,-268)"><use href="#fox"/></g></g>
 </defs></svg>
 
   <nav class="mainnav" aria-label="Hauptnavigation">
@@ -50,21 +125,146 @@
 <header class="hero">
   <div>
     <h1>Branding-<span class="ac">Konfigurator</span></h1>
-    <p class="tag">Für <strong>MobileReport Enterprise</strong>: euer Logo und eure Farben im Browser zusammenstellen, live ansehen und als Datei laden – die ihr direkt in der App importiert. Läuft komplett lokal, ohne Server, kostenlos.</p>
-    <div class="badges"><span class="badge launch">Werkzeug in Vorbereitung</span><span class="badge">100 % lokal</span><span class="badge">kostenlos</span></div>
+    <p class="tag">Für <strong>MobileReport Enterprise</strong>: Name, Logo und Farben zusammenstellen, live ansehen und als <span class="mono">.mrbrand</span>-Datei laden – die ihr direkt in der App importiert. Alles im Browser, ohne Server, ohne Upload, kostenlos.</p>
+    <div class="badges"><span class="badge">100 % lokal</span><span class="badge">kein Upload</span><span class="badge">kostenlos</span></div>
     <div class="cta-row"><a class="cta ghost" href="mobilereport.html#enterprise">← Zur Enterprise-Übersicht</a></div>
   </div>
 </header>
 
-<section>
-  <h2 class="sec">Was der Konfigurator können wird</h2>
-  <p>Ein rein statisches Web-Werkzeug (kein Login, kein Tracking). Ihr wählt Name, Logo und Farben – und ladet eine <span class="mono">.mrbrand</span>-Datei herunter, die MobileReport Enterprise 1:1 importiert.</p>
-  <div class="grid">
-    <div class="card"><h3>1 · Akzent</h3><p>Nur <strong>Logo + eine Akzentfarbe</strong> wählen – alle übrigen Farben werden automatisch passend abgeleitet. Der schnellste Weg.</p></div>
-    <div class="card"><h3>2 · Aus Logo ableiten</h3><p>Farben werden <strong>automatisch aus eurem Logo</strong> vorgeschlagen. Ein Klick, stimmiges Ergebnis.</p></div>
-    <div class="card"><h3>3 · Voll editierbar</h3><p><strong>Jede Farbrolle</strong> einzeln festlegen (App &amp; PDF), PDF-Standardlayout wählen, mit Live-Vorschau und Kontrast-Warnung.</p></div>
+<div class="kfg">
+  <!-- ======================= STEUERUNG ======================= -->
+  <div>
+    <div class="panel">
+      <h3><span class="n">1</span> Grunddaten</h3>
+      <div class="fld">
+        <label class="lbl" for="f-name">Firmen-/App-Name</label>
+        <input type="text" id="f-name" placeholder="z. B. Muster Klinik Betriebstechnik" maxlength="60" autocomplete="off">
+        <div class="hint">Erscheint in der App-Leiste und im PDF-Kopf.</div>
+      </div>
+      <div class="fld">
+        <label class="lbl">Logo <span style="font-weight:400;color:var(--muted)">(PNG/JPG, ≤ 512 KB, ≤ 1024 px)</span></label>
+        <label class="drop" id="drop">
+          <img class="lg" id="logoPrev" alt="" style="display:none">
+          <div id="dropTxt"><strong style="color:var(--action)">Logo wählen</strong> oder hierher ziehen<br><small>bleibt im Browser – wird nirgends hochgeladen</small></div>
+          <input type="file" id="f-logo" accept="image/png,image/jpeg" hidden>
+        </label>
+        <button class="rm" id="logoRm" style="display:none">Logo entfernen</button>
+        <div class="hint" id="logoInfo"></div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:16px">
+      <h3><span class="n">2</span> Farben</h3>
+      <div class="modes" role="tablist">
+        <button data-mode="accent" class="on">Akzent</button>
+        <button data-mode="logo">Aus Logo ableiten</button>
+        <button data-mode="full">Voll editierbar</button>
+      </div>
+      <p class="hint" id="modeHint">Nur eine Akzentfarbe wählen – alle übrigen Farbrollen leitet die App automatisch passend ab.</p>
+
+      <div class="crow accentbig" style="border-bottom:0">
+        <div class="cl"><b>Akzentfarbe</b><span>Pflichtfarbe · Basis für alle „auto"-Rollen</span></div>
+        <input type="color" id="c-accent" value="#0E7490">
+      </div>
+
+      <div id="logoBox" style="display:none">
+        <button class="cta ghost mini" id="deriveBtn" type="button">Farbe aus Logo vorschlagen</button>
+        <div class="hint" id="deriveHint">Lädt zuerst ein Logo hoch, dann schlägt der Konfigurator die kräftigste Farbe als Akzent vor.</div>
+      </div>
+
+      <div id="fullBox" style="display:none">
+        <div class="pgroup">Startpunkt wählen (15 Pro-Schemata)</div>
+        <div id="presets"></div>
+
+        <div class="grp-h">PDF-Standardlayout</div>
+        <div class="radio-row" id="pdfLayout">
+          <label class="on"><input type="radio" name="lay" value="dark" checked> Dunkel</label>
+          <label><input type="radio" name="lay" value="light"> Hell</label>
+          <label><input type="radio" name="lay" value="plain"> Schlicht</label>
+        </div>
+
+        <div class="grp-h">App-Farbrollen</div>
+        <div id="appColors"></div>
+        <div class="grp-h">PDF-Farbrollen</div>
+        <div id="pdfColors"></div>
+        <div class="grp-h">Rahmen im PDF</div>
+        <div id="flags"></div>
+      </div>
+    </div>
   </div>
-  <p style="margin-top:12px;color:var(--muted)">Der Konfigurator entsteht als eigenes Projekt und erscheint hier, sobald er fertig ist. Bei Interesse an Enterprise/White-Label: <a href="../kontakt.html?app=MobileReport&topic=interesse">info@fehlerfuchs.eu</a></p>
+
+  <!-- ======================= VORSCHAU ======================= -->
+  <div>
+    <div class="previewwrap">
+      <div class="pv-tabs">
+        <button data-pv="app" class="on">App-Vorschau</button>
+        <button data-pv="pdf">PDF-Vorschau</button>
+      </div>
+
+      <div id="pvApp">
+        <div class="phone">
+          <div class="ph-bar" id="mAppBar">
+            <img id="mAppLogo" alt="" style="display:none">
+            <div class="nm" id="mAppName">MobileReport</div>
+          </div>
+          <div class="ph-body" id="mScaffold">
+            <div class="ph-card" id="mHero">
+              <div class="t" id="mHeroT">Guten Tag 👋</div>
+              <div class="s">3 offene Meldungen · 12 heute erledigt</div>
+            </div>
+            <div class="ph-btn" id="mBtn">Meldung erfassen</div>
+            <div class="ph-li"><span class="dot" id="mDot1"></span>Heizung Halle 2 – Störung</div>
+            <div class="ph-li"><span class="dot" id="mDot2"></span>Türsensor Eingang West</div>
+            <div class="ph-li" style="border-bottom:0"><span class="dot" id="mDot3"></span>Beleuchtung Lager</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="pvPdf" style="display:none">
+        <div class="paper">
+          <div class="pdf-head" id="pHead">
+            <img id="pLogo" alt="" style="display:none">
+            <div>
+              <div class="ti" id="pTitle">MobileReport</div>
+              <div class="su" id="pSub">Störungsmeldung · Nr. 2026-0184</div>
+            </div>
+          </div>
+          <div class="pdf-inner">
+            <div class="pdf-line">
+              <span class="pdf-badge" id="pBadge">PRIORITÄT HOCH</span>
+              <span class="pdf-art" id="pArt">Meldeart: Störung</span>
+            </div>
+            <div class="pdf-txt" id="pTxt">Heizungsanlage in Halle 2 fällt sporadisch aus. Fehlercode E-14 am Display. Betrieb eingeschränkt möglich, Rückmeldung erbeten.</div>
+          </div>
+          <div class="pdf-foot" id="pFoot">
+            <span>Erstellt mit MobileReport</span><span>Seite 1/1</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contrast">
+        <h4>Lesbarkeit (WCAG-AA)</h4>
+        <div id="contrastList"></div>
+      </div>
+
+      <div class="exportbar">
+        <button class="cta" id="exportBtn" type="button">.mrbrand herunterladen</button>
+        <button class="cta ghost mini" id="resetBtn" type="button">Zurücksetzen</button>
+      </div>
+      <div id="exportMsg"></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <h2 class="sec">So funktioniert's</h2>
+  <ol class="steps">
+    <li><strong>Name & Logo</strong> eingeben – das Logo bleibt komplett im Browser.</li>
+    <li><strong>Farben</strong> festlegen: nur eine Akzentfarbe, automatisch aus dem Logo, oder jede Rolle einzeln.</li>
+    <li><strong>Vorschau</strong> prüfen (App & PDF) und auf die Kontrast-Ampel achten.</li>
+    <li><strong>.mrbrand laden</strong> und in MobileReport Enterprise unter „Branding importieren" auswählen.</li>
+  </ol>
+  <p style="margin-top:12px;color:var(--muted)">Fragen zu Enterprise/White-Label? <a href="../kontakt.html?app=MobileReport&topic=interesse">info@fehlerfuchs.eu</a></p>
 </section>
 
 <footer>
@@ -86,5 +286,360 @@
   <a href="../unterstuetzen.html"><svg viewBox="0 0 24 24"><use href="#ic-heart"/></svg>Support</a>
   <label for="tabmore"><svg viewBox="0 0 24 24"><use href="#ic-more"/></svg>Mehr</label>
 </nav>
+
+<script>
+"use strict";
+/* ================= Farb-Helfer ================= */
+function clampHex(h){ h=(h||'').trim(); if(/^#?[0-9a-fA-F]{6}$/.test(h)){ return '#'+h.replace('#','').toUpperCase(); } return null; }
+function hx2rgb(h){ h=h.replace('#',''); return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]; }
+function rgb2hx(r){ return '#'+r.map(function(v){ v=Math.max(0,Math.min(255,Math.round(v))); return ('0'+v.toString(16)).slice(-2); }).join('').toUpperCase(); }
+function mix(a,b,t){ var x=hx2rgb(a),y=hx2rgb(b); return rgb2hx([x[0]+(y[0]-x[0])*t, x[1]+(y[1]-x[1])*t, x[2]+(y[2]-x[2])*t]); }
+function lum(h){ var c=hx2rgb(h).map(function(v){ v/=255; return v<=0.03928? v/12.92 : Math.pow((v+0.055)/1.055,2.4); }); return 0.2126*c[0]+0.7152*c[1]+0.0722*c[2]; }
+function contrast(a,b){ var L1=lum(a),L2=lum(b); var hi=Math.max(L1,L2),lo=Math.min(L1,L2); return (hi+0.05)/(lo+0.05); }
+function bestText(bg){ return contrast(bg,'#FFFFFF') >= contrast(bg,'#1A1208') ? '#FFFFFF' : '#1A1208'; }
+
+/* ================= Zustand ================= */
+var LAYOUT='dark';
+var manual={};                 // role -> #RRGGBB (nur „voll editierbar" gesetzte Rollen)
+var flags={ pdfBadgeBorder:true, pdfArtBorder:false, pdfFooterBorder:true, pdfHeaderBorder:false };
+var logo=null;                 // { base64, ext, w, h, dataUrl }
+var mode='accent';
+
+var APP_ROLES=[
+  ['appPrimary','App-Primärfarbe','Buttons, Aktionen'],
+  ['appBarBg','App-Leiste Hintergrund','Kopfleiste'],
+  ['appBarText','App-Leiste Text','Text/Icons in der Leiste'],
+  ['scaffoldBgLight','Hintergrund hell','Heller App-Hintergrund'],
+  ['scaffoldBgDark','Hintergrund dunkel','Dark-Mode-Hintergrund'],
+  ['heroCardBg','Begrüßungskarte','Karte auf dem Startbildschirm']
+];
+var PDF_ROLES=[
+  ['pdfHeaderBg','Kopf Hintergrund','PDF-Kopfband'],
+  ['pdfHeaderText','Kopf Text','Titel im Kopf'],
+  ['pdfHeaderSubText','Kopf Unterzeile','Untertitel im Kopf'],
+  ['pdfBadgeBg','Badge Hintergrund','Prioritäts-Badge'],
+  ['pdfBadgeText','Badge Text',''],
+  ['pdfArtBg','Meldeart Hintergrund','Chip „Meldeart"'],
+  ['pdfArtText','Meldeart Text',''],
+  ['pdfFooterBg','Fuß Hintergrund','Fußzeile'],
+  ['pdfFooterText','Fuß Text',''],
+  ['pdfAccent','PDF-Akzent','Linien/Hervorhebungen'],
+  ['pdfInk','Textfarbe','Fließtext im PDF']
+];
+var PRESETS=[
+  ['Standard',[
+    ['FehlerFuchs','#D97706','#7C3F16'],['Schwarz/Weiß','#111111','#FFFFFF'],
+    ['Petrol/Sand','#0E7490','#E8D5B5'],['Waldgrün/Creme','#2F6D4F','#ECE0C8'],
+    ['Schiefer/Bernstein','#334155','#E9A23B']]],
+  ['Warm',[
+    ['Terrakotta','#C2410C','#FBE3D0'],['Bordeaux','#9F1239','#F4CBD3'],
+    ['Senf/Sand','#A16207','#F1E0B5'],['Rost/Karamell','#9A3412','#E9C9A3'],
+    ['Koralle','#E2553B','#FBD8C2']]],
+  ['Pastell',[
+    ['Mint/Rosé','#A7D8C4','#F6C9D2'],['Lavendel','#C7BFEA','#FAD9C4'],
+    ['Himmel/Sand','#BBD7F0','#EFE2C5'],['Pistazie','#C7E0A6','#FBD8C2'],
+    ['Altrosa/Salbei','#EBC4CB','#C9D8BE']]]
+];
+
+/* ================= Auto-Ableitung ================= */
+function accent(){ return manual.accent || document.getElementById('c-accent').value.toUpperCase(); }
+function auto(role){
+  var a=accent();
+  switch(role){
+    case 'appPrimary': return a;
+    case 'appBarBg': return a;
+    case 'appBarText': return bestText(conc('appBarBg'));
+    case 'scaffoldBgLight': return mix(a,'#FFFFFF',0.94);
+    case 'scaffoldBgDark': return mix(a,'#0E1116',0.86);
+    case 'heroCardBg': return mix(a,'#FFFFFF',0.87);
+    case 'pdfHeaderBg':
+      if(LAYOUT==='light') return mix(a,'#FFFFFF',0.84);
+      if(LAYOUT==='plain') return '#FFFFFF';
+      return a;
+    case 'pdfHeaderText': return bestText(conc('pdfHeaderBg'));
+    case 'pdfHeaderSubText': return mix(conc('pdfHeaderText'),conc('pdfHeaderBg'),0.30);
+    case 'pdfBadgeBg': return '#FFFFFF';
+    case 'pdfBadgeText': return contrast(a,'#FFFFFF')>=3 ? a : mix(a,'#000000',0.4);
+    case 'pdfArtBg': return mix(a,'#FFFFFF',0.90);
+    case 'pdfArtText': return bestText(conc('pdfArtBg'));
+    case 'pdfFooterBg': return LAYOUT==='plain' ? '#FFFFFF' : mix(a,'#FFFFFF',0.93);
+    case 'pdfFooterText': return mix('#2B160B',conc('pdfFooterBg'),0.30);
+    case 'pdfAccent': return a;
+    case 'pdfInk': return '#2B160B';
+  }
+  return a;
+}
+function conc(role){ if(role==='accent') return accent(); return manual[role] || auto(role); }
+
+/* ================= Vorschau rendern ================= */
+function render(){
+  var name=document.getElementById('f-name').value.trim() || 'MobileReport';
+  // App
+  var appBar=conc('appBarBg'), appBarT=conc('appBarText'), prim=conc('appPrimary');
+  var el=document.getElementById('mAppBar'); el.style.background=appBar; el.style.color=appBarT;
+  document.getElementById('mAppName').textContent=name;
+  document.getElementById('mScaffold').style.background=conc('scaffoldBgLight');
+  var hero=document.getElementById('mHero'); hero.style.background=conc('heroCardBg'); hero.style.color=bestText(conc('heroCardBg'));
+  var btn=document.getElementById('mBtn'); btn.style.background=prim; btn.style.color=bestText(prim);
+  document.getElementById('mDot1').style.background=prim;
+  document.getElementById('mDot2').style.background=mix(prim,'#FFFFFF',0.35);
+  document.getElementById('mDot3').style.background=mix(prim,'#FFFFFF',0.6);
+  // PDF
+  var hbg=conc('pdfHeaderBg');
+  var ph=document.getElementById('pHead'); ph.style.background=hbg; ph.style.color=conc('pdfHeaderText');
+  ph.style.borderBottom=flags.pdfHeaderBorder? ('2px solid '+conc('pdfAccent')) : 'none';
+  document.getElementById('pTitle').textContent=name;
+  document.getElementById('pSub').style.color=conc('pdfHeaderSubText');
+  var bd=document.getElementById('pBadge'); bd.style.background=conc('pdfBadgeBg'); bd.style.color=conc('pdfBadgeText');
+  bd.style.border=flags.pdfBadgeBorder? ('1px solid '+mix(conc('pdfBadgeText'),conc('pdfBadgeBg'),0.5)) : '1px solid transparent';
+  var art=document.getElementById('pArt'); art.style.background=conc('pdfArtBg'); art.style.color=conc('pdfArtText');
+  art.style.border=flags.pdfArtBorder? ('1px solid '+mix(conc('pdfArtText'),conc('pdfArtBg'),0.5)) : '1px solid transparent';
+  document.getElementById('pTxt').style.color=conc('pdfInk');
+  var ft=document.getElementById('pFoot'); ft.style.background=conc('pdfFooterBg'); ft.style.color=conc('pdfFooterText');
+  ft.style.borderTop=flags.pdfFooterBorder? ('1px solid '+mix(conc('pdfFooterText'),conc('pdfFooterBg'),0.55)) : 'none';
+  renderContrast();
+}
+function renderContrast(){
+  var pairs=[
+    ['App-Leiste', conc('appBarText'), conc('appBarBg')],
+    ['App-Button', bestText(conc('appPrimary')), conc('appPrimary')],
+    ['PDF-Kopf', conc('pdfHeaderText'), conc('pdfHeaderBg')],
+    ['PDF-Badge', conc('pdfBadgeText'), conc('pdfBadgeBg')],
+    ['PDF-Meldeart', conc('pdfArtText'), conc('pdfArtBg')],
+    ['PDF-Text', conc('pdfInk'), conc('pdfFooterBg')==='#FFFFFF'?'#FFFFFF':'#FFFFFF']
+  ];
+  var out='';
+  pairs.forEach(function(p){
+    var r=contrast(p[1],p[2]);
+    var cls=r>=4.5?'ok':(r>=3?'warn':'bad');
+    var lbl=r>=4.5?'gut':(r>=3?'grenzwertig':'zu schwach');
+    out+='<div class="cr"><span class="d '+cls+'"></span>'+p[0]+' – '+lbl+'<span class="r">'+r.toFixed(1)+':1</span></div>';
+  });
+  document.getElementById('contrastList').innerHTML=out;
+}
+
+/* ================= „Voll editierbar" UI ================= */
+function colorRow(role,label,desc){
+  var isAuto = !manual[role];
+  var val = manual[role] || auto(role);
+  return '<div class="crow" data-role="'+role+'">'+
+    '<div class="cl"><b>'+label+'</b>'+(desc?'<span>'+desc+'</span>':'')+'</div>'+
+    '<label class="autobox"><input type="checkbox" class="autochk" '+(isAuto?'checked':'')+'>auto</label>'+
+    '<input type="color" class="rolecol" value="'+val+'" '+(isAuto?'disabled':'')+'></div>';
+}
+function buildFull(){
+  document.getElementById('appColors').innerHTML=APP_ROLES.map(function(r){return colorRow(r[0],r[1],r[2]);}).join('');
+  document.getElementById('pdfColors').innerHTML=PDF_ROLES.map(function(r){return colorRow(r[0],r[1],r[2]);}).join('');
+  var fl=[['pdfHeaderBorder','Rahmen/Linie unter dem Kopf'],['pdfBadgeBorder','Rahmen um das Badge'],['pdfArtBorder','Rahmen um die Meldeart'],['pdfFooterBorder','Linie über der Fußzeile']];
+  document.getElementById('flags').innerHTML=fl.map(function(f){return '<label class="flagrow"><input type="checkbox" class="flagchk" data-flag="'+f[0]+'" '+(flags[f[0]]?'checked':'')+'>'+f[1]+'</label>';}).join('');
+  var ph='';
+  PRESETS.forEach(function(g){
+    ph+='<div class="pgroup" style="width:100%">'+g[0]+'</div><div class="presets">';
+    g[1].forEach(function(p){
+      ph+='<button class="preset" type="button" data-c1="'+p[1]+'" data-c2="'+p[2]+'"><span class="sw"><i style="background:'+p[1]+'"></i><i style="background:'+p[2]+'"></i></span>'+p[0]+'</button>';
+    });
+    ph+='</div>';
+  });
+  document.getElementById('presets').innerHTML=ph;
+  wireFull();
+}
+function wireFull(){
+  document.querySelectorAll('#fullBox .crow').forEach(function(row){
+    var role=row.getAttribute('data-role');
+    var chk=row.querySelector('.autochk'), col=row.querySelector('.rolecol');
+    chk.addEventListener('change',function(){
+      if(chk.checked){ delete manual[role]; col.disabled=true; col.value=auto(role); }
+      else{ manual[role]=col.value.toUpperCase(); col.disabled=false; }
+      render();
+    });
+    col.addEventListener('input',function(){ manual[role]=col.value.toUpperCase(); render(); });
+  });
+  document.querySelectorAll('.flagchk').forEach(function(f){
+    f.addEventListener('change',function(){ flags[f.getAttribute('data-flag')]=f.checked; render(); });
+  });
+  document.querySelectorAll('.preset').forEach(function(b){
+    b.addEventListener('click',function(){
+      var c1=b.getAttribute('data-c1'), c2=b.getAttribute('data-c2');
+      document.getElementById('c-accent').value=c1; manual.accent=c1;
+      manual.scaffoldBgLight=c2; // color2 als heller Hintergrund
+      refreshAutoInputs(); render();
+    });
+  });
+}
+// Farbfelder, die auf „auto" stehen, nach Akzent-Änderung optisch nachziehen
+function refreshAutoInputs(){
+  document.querySelectorAll('#fullBox .crow').forEach(function(row){
+    var role=row.getAttribute('data-role');
+    var col=row.querySelector('.rolecol');
+    if(!manual[role]){ col.value=auto(role); }
+    else{ col.value=manual[role]; row.querySelector('.autochk').checked=false; col.disabled=false; }
+  });
+}
+
+/* ================= Modus-Umschaltung ================= */
+function setMode(m){
+  mode=m;
+  document.querySelectorAll('.modes button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-mode')===m); });
+  document.getElementById('logoBox').style.display = m==='logo'?'block':'none';
+  document.getElementById('fullBox').style.display = m==='full'?'block':'none';
+  var hints={ accent:'Nur eine Akzentfarbe wählen – alle übrigen Farbrollen leitet die App automatisch passend ab.',
+    logo:'Der Konfigurator liest die kräftigste Farbe aus dem Logo und schlägt sie als Akzent vor.',
+    full:'Jede Farbrolle einzeln festlegen oder auf „auto" lassen. Presets als Startpunkt, Kontrast-Ampel beachten.' };
+  document.getElementById('modeHint').textContent=hints[m];
+  if(m!=='full'){ manual={accent:manual.accent}; } // beim Verlassen zurück auf reine Akzent-Ableitung
+  if(m==='full'){ refreshAutoInputs(); }
+  render();
+}
+
+/* ================= Logo ================= */
+function handleLogo(file){
+  var info=document.getElementById('logoInfo');
+  if(!file){ return; }
+  if(!/image\/(png|jpeg)/.test(file.type)){ info.innerHTML='<span style="color:#B91C1C">Bitte PNG oder JPG wählen.</span>'; return; }
+  var sizeKB=Math.round(file.size/1024);
+  var ext=file.type==='image/png'?'png':'jpg';
+  var rd=new FileReader();
+  rd.onload=function(){
+    var dataUrl=rd.result;
+    var img=new Image();
+    img.onload=function(){
+      var over=[];
+      if(sizeKB>512) over.push(sizeKB+' KB (max. 512)');
+      if(img.naturalWidth>1024||img.naturalHeight>1024) over.push(img.naturalWidth+'×'+img.naturalHeight+' px (max. 1024)');
+      logo={ base64:String(dataUrl).split(',')[1], ext:ext, w:img.naturalWidth, h:img.naturalHeight, dataUrl:dataUrl };
+      document.getElementById('logoPrev').src=dataUrl;
+      document.getElementById('logoPrev').style.display='block';
+      document.getElementById('dropTxt').style.display='none';
+      document.getElementById('logoRm').style.display='inline-block';
+      ['mAppLogo','pLogo'].forEach(function(id){ var e=document.getElementById(id); e.src=dataUrl; e.style.display='block'; });
+      info.innerHTML = over.length ? '<span style="color:#B91C1C">Zu groß: '+over.join(', ')+'. Bitte kleiner exportieren.</span>'
+        : '<span style="color:#2f6d12">'+img.naturalWidth+'×'+img.naturalHeight+' px · '+sizeKB+' KB · '+ext.toUpperCase()+'</span>';
+      logo.oversize = over.length>0;
+      render();
+    };
+    img.src=dataUrl;
+  };
+  rd.readAsDataURL(file);
+}
+function removeLogo(){
+  logo=null;
+  document.getElementById('logoPrev').style.display='none';
+  document.getElementById('dropTxt').style.display='block';
+  document.getElementById('logoRm').style.display='none';
+  document.getElementById('logoInfo').textContent='';
+  document.getElementById('f-logo').value='';
+  ['mAppLogo','pLogo'].forEach(function(id){ var e=document.getElementById(id); e.style.display='none'; e.removeAttribute('src'); });
+  render();
+}
+function deriveFromLogo(){
+  var h=document.getElementById('deriveHint');
+  if(!logo){ h.innerHTML='<span style="color:#B91C1C">Zuerst ein Logo hochladen.</span>'; return; }
+  var img=new Image();
+  img.onload=function(){
+    var s=48, cv=document.createElement('canvas'); cv.width=s; cv.height=s;
+    var ctx=cv.getContext('2d'); ctx.drawImage(img,0,0,s,s);
+    var d;
+    try{ d=ctx.getImageData(0,0,s,s).data; }
+    catch(e){ h.innerHTML='<span style="color:#B91C1C">Logo konnte nicht gelesen werden.</span>'; return; }
+    var best=null, bestScore=-1;
+    for(var i=0;i<d.length;i+=4){
+      var r=d[i],g=d[i+1],b=d[i+2],a=d[i+3];
+      if(a<128) continue;
+      var mx=Math.max(r,g,b),mn=Math.min(r,g,b);
+      var sat=mx===0?0:(mx-mn)/mx;
+      var val=mx/255;
+      // kräftige, nicht zu helle/dunkle Farben bevorzugen
+      var score=sat*1.6 + (1-Math.abs(val-0.55))*0.6;
+      if(sat<0.12) continue;
+      if(score>bestScore){ bestScore=score; best=[r,g,b]; }
+    }
+    if(!best){ // Fallback: dunkelste kräftige Fläche
+      for(var j=0;j<d.length;j+=4){ if(d[j+3]<128) continue; if(!best||(d[j]+d[j+1]+d[j+2])<(best[0]+best[1]+best[2])) best=[d[j],d[j+1],d[j+2]]; }
+    }
+    if(best){
+      var hex=rgb2hx(best);
+      document.getElementById('c-accent').value=hex; manual.accent=hex;
+      if(mode==='full') refreshAutoInputs();
+      h.innerHTML='<span style="color:#2f6d12">Vorschlag übernommen: '+hex+'. Du kannst ihn oben weiter anpassen.</span>';
+      render();
+    }
+  };
+  img.src=logo.dataUrl;
+}
+
+/* ================= Export ================= */
+function pad(n){ return (n<10?'0':'')+n; }
+function isoNow(){ var d=new Date(); return d.getUTCFullYear()+'-'+pad(d.getUTCMonth()+1)+'-'+pad(d.getUTCDate())+'T'+pad(d.getUTCHours())+':'+pad(d.getUTCMinutes())+':'+pad(d.getUTCSeconds())+'Z'; }
+function colorsObj(){
+  var o={ accent: accent() };
+  APP_ROLES.concat(PDF_ROLES).forEach(function(r){ o[r[0]] = manual[r[0]] || 'auto'; });
+  return o;
+}
+function buildBrand(){
+  var name=document.getElementById('f-name').value.trim();
+  return {
+    app:'MobileReport', type:'brand-theme', version:1, exportedAt:isoNow(),
+    brand:{
+      name: name || 'MobileReport',
+      pdfLayoutDefault: LAYOUT,
+      logo: logo ? { base64:logo.base64, ext:logo.ext, w:logo.w, h:logo.h } : null,
+      colors: colorsObj(),
+      flags: { pdfBadgeBorder:!!flags.pdfBadgeBorder, pdfArtBorder:!!flags.pdfArtBorder, pdfFooterBorder:!!flags.pdfFooterBorder, pdfHeaderBorder:!!flags.pdfHeaderBorder }
+    }
+  };
+}
+function slug(s){ return (s||'branding').toLowerCase().replace(/[äöü]/g,function(c){return{'ä':'ae','ö':'oe','ü':'ue'}[c];}).replace(/ß/g,'ss').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40)||'branding'; }
+function doExport(){
+  var msg=document.getElementById('exportMsg');
+  var name=document.getElementById('f-name').value.trim();
+  if(!name){ msg.innerHTML='<div class="warnmsg">Bitte zuerst einen Namen eingeben.</div>'; document.getElementById('f-name').focus(); return; }
+  if(logo && logo.oversize){ msg.innerHTML='<div class="warnmsg">Logo ist zu groß (max. 512 KB / 1024 px). Bitte ein kleineres Logo verwenden.</div>'; return; }
+  var data=buildBrand();
+  var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a'); a.href=url; a.download=slug(name)+'.mrbrand';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(function(){ URL.revokeObjectURL(url); },1500);
+  msg.innerHTML='<div class="okmsg">Datei <span class="mono">'+slug(name)+'.mrbrand</span> erstellt. In MobileReport Enterprise unter „Branding importieren" öffnen.</div>';
+}
+
+/* ================= Verdrahtung ================= */
+function init(){
+  buildFull();
+  render();
+  document.getElementById('f-name').addEventListener('input',render);
+  document.getElementById('c-accent').addEventListener('input',function(){ manual.accent=this.value.toUpperCase(); if(mode==='full') refreshAutoInputs(); render(); });
+  document.querySelectorAll('.modes button').forEach(function(b){ b.addEventListener('click',function(){ setMode(b.getAttribute('data-mode')); }); });
+  document.querySelectorAll('.pv-tabs button').forEach(function(b){ b.addEventListener('click',function(){
+    document.querySelectorAll('.pv-tabs button').forEach(function(x){x.classList.remove('on');}); b.classList.add('on');
+    var pv=b.getAttribute('data-pv');
+    document.getElementById('pvApp').style.display=pv==='app'?'block':'none';
+    document.getElementById('pvPdf').style.display=pv==='pdf'?'block':'none';
+  }); });
+  document.querySelectorAll('#pdfLayout label').forEach(function(l){
+    l.addEventListener('click',function(){
+      document.querySelectorAll('#pdfLayout label').forEach(function(x){x.classList.remove('on');}); l.classList.add('on');
+      LAYOUT=l.querySelector('input').value; if(mode==='full') refreshAutoInputs(); render();
+    });
+  });
+  var drop=document.getElementById('drop'), fi=document.getElementById('f-logo');
+  fi.addEventListener('change',function(){ if(fi.files[0]) handleLogo(fi.files[0]); });
+  ['dragover','dragenter'].forEach(function(ev){ drop.addEventListener(ev,function(e){ e.preventDefault(); drop.classList.add('hot'); }); });
+  ['dragleave','drop'].forEach(function(ev){ drop.addEventListener(ev,function(e){ e.preventDefault(); drop.classList.remove('hot'); }); });
+  drop.addEventListener('drop',function(e){ var f=e.dataTransfer.files[0]; if(f) handleLogo(f); });
+  document.getElementById('logoRm').addEventListener('click',function(e){ e.preventDefault(); removeLogo(); });
+  document.getElementById('deriveBtn').addEventListener('click',deriveFromLogo);
+  document.getElementById('exportBtn').addEventListener('click',doExport);
+  document.getElementById('resetBtn').addEventListener('click',function(){
+    manual={}; flags={ pdfBadgeBorder:true, pdfArtBorder:false, pdfFooterBorder:true, pdfHeaderBorder:false };
+    LAYOUT='dark'; removeLogo();
+    document.getElementById('f-name').value=''; document.getElementById('c-accent').value='#0E7490';
+    document.querySelectorAll('#pdfLayout label').forEach(function(x,i){ x.classList.toggle('on',i===0); });
+    buildFull(); setMode('accent'); document.getElementById('exportMsg').innerHTML='';
+  });
+  setMode('accent');
+}
+document.addEventListener('DOMContentLoaded',init);
+</script>
 </body>
 </html>
