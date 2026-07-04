@@ -80,6 +80,8 @@
   .wl-chip.offen{background:#FEF3E2;color:#9A5B0E;border-color:#F3D9B0}
   .wl-chip.arbeit{background:#E7EEF6;color:#1E4E8C;border-color:#C3D6EC}
   .wl-chip.erfuellt{background:#E7F3DF;color:#2f6d12;border-color:#cde7b6}
+  .wl-cost{font-family:'Poppins',-apple-system,sans-serif;font-size:.74rem;font-weight:700;color:#9A5B0E;white-space:nowrap}
+  .wl-costnote{font-size:.86rem;color:#9A5B0E;font-weight:700;margin:0 0 10px}
   .wl-row.done>summary{opacity:.7}
   .goalbar{margin:4px 0 14px}
   .goalbar-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:.92rem;color:var(--brown)}
@@ -179,7 +181,7 @@
       <h2 id="paypal-title">FehlerFuchs unterstützen</h2>
       <p>Wenn du FehlerFuchs unterstützen möchtest, kannst du das freiwillig über PayPal tun. Jede Unterstützung hilft dabei, Entwicklung, Testgeräte, Infrastruktur, Werkzeuge und die berühmte Tasse Kaffee auf dem Schreibtisch mitzufinanzieren.</p>
       <div class="goalbar" aria-label="Unterst&uuml;tzungsziel">
-        <div class="goalbar-head"><span>Unterst&uuml;tzung gesamt</span><strong>0 &euro; von 3.000 &euro;</strong></div>
+        <div class="goalbar-head"><span>Unterst&uuml;tzung gesamt</span><strong>0 &euro; von 5.000 &euro;</strong></div>
         <div class="goalbar-track"><div class="goalbar-fill" style="width:1%"></div></div>
         <p class="goalbar-note">Richtwert f&uuml;r die aktuelle Wunschliste &ndash; w&auml;chst mit jeder Unterst&uuml;tzung. <!-- Betraege und width:XX% hier anpassen --></p>
       </div>
@@ -222,79 +224,90 @@
     <!-- Neuer Punkt: <details class="wl-row"> kopieren. Status: wl-chip offen/arbeit/erfuellt. Erledigt: <details class="wl-row done"> + chip erfuellt. -->
     <div class="wl-table">
       <details class="wl-row">
-        <summary><span class="num">1</span><span class="ttl">Code-Signing-Zertifikat</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <summary><span class="num">1</span><span class="ttl">Code-Signing-Zertifikat</span><span class="wl-cost">~200&ndash;400 &euro;/J.</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
         <div class="wl-detail">
           <p>Signiert die Windows-Downloads, damit sie ohne SmartScreen-Warnung starten (OV- oder EV-Zertifikat, meist j&auml;hrlich).</p>
+          <p class="wl-costnote">Sch&auml;tzkosten: ~200&ndash;400 &euro; / Jahr (OV-Zertifikat).</p>
           <div class="wl-actions"><a class="wl-act pay" href="#paypal">Per PayPal helfen</a><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=wunschliste&text=Hallo%2C%20ich%20m%C3%B6chte%20%E2%80%9ECode-Signing-Zertifikat%E2%80%9C%20als%20Sponsor%20unterst%C3%BCtzen.%20Bitte%20melde%20dich%20mit%20den%20n%C3%A4chsten%20Schritten.">Als Sponsor melden</a></div>
         </div>
       </details>
       <details class="wl-row">
-        <summary><span class="num">2</span><span class="ttl">NAS-System (2&times;10&nbsp;TB, erweiterbar)</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <summary><span class="num">2</span><span class="ttl">NAS-System (2&times;10&nbsp;TB, erweiterbar)</span><span class="wl-cost">~1.500 &euro;</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
         <div class="wl-detail">
-          <p>Zentrale, ausfallsichere Ablage und Backups f&uuml;r Quellcode, Releases und Dokumente. Mindestens 2&times;10&nbsp;TB, sp&auml;ter erweiterbar &ndash; z.&nbsp;B. Ugreen NASync DXP4800 Pro.</p>
+          <p>Zentrale, ausfallsichere Ablage und Backups f&uuml;r Quellcode, Releases und Dokumente. Sp&auml;ter erweiterbar &ndash; z.&nbsp;B. Ugreen NASync DXP4800 Pro.</p>
+          <p class="wl-costnote">Sch&auml;tzkosten: ~1.500 &euro; (NAS mit 2&times;10&nbsp;TB, erweiterbar &ndash; z.&nbsp;B. Ugreen DXP4800 Pro plus Platten).</p>
           <div class="wl-actions"><a class="wl-act pay" href="#paypal">Per PayPal helfen</a><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=wunschliste&text=Hallo%2C%20ich%20m%C3%B6chte%20von%20der%20Wunschliste%20beisteuern%3A%20%E2%80%9ENAS-System%20%282x10%20TB%29%E2%80%9C.%20Bitte%20sende%20mir%20die%20Versandadresse%20oder%20lass%20uns%20kurz%20abstimmen.">Direkt zusenden / abstimmen</a></div>
         </div>
       </details>
       <details class="wl-row">
-        <summary><span class="num">3</span><span class="ttl">USV-Systeme (PC &amp; NAS)</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <summary><span class="num">3</span><span class="ttl">USV-Systeme (PC &amp; NAS)</span><span class="wl-cost">~500 &euro;</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
         <div class="wl-detail">
           <p>Sch&uuml;tzt Rechner und NAS bei Stromausfall &ndash; keine kaputten Builds und keine verlorenen Daten.</p>
+          <p class="wl-costnote">Sch&auml;tzkosten: ~500 &euro; (USV f&uuml;r PC und NAS).</p>
           <div class="wl-actions"><a class="wl-act pay" href="#paypal">Per PayPal helfen</a><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=wunschliste&text=Hallo%2C%20ich%20m%C3%B6chte%20von%20der%20Wunschliste%20beisteuern%3A%20%E2%80%9EUSV-Systeme%20%28PC%20%26%20NAS%29%E2%80%9C.%20Bitte%20sende%20mir%20die%20Versandadresse%20oder%20lass%20uns%20kurz%20abstimmen.">Direkt zusenden / abstimmen</a></div>
         </div>
       </details>
       <details class="wl-row">
-        <summary><span class="num">4</span><span class="ttl">Leistungsstarker Office-Rechner (&ge;&nbsp;64&nbsp;GB RAM)</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <summary><span class="num">4</span><span class="ttl">Leistungsstarker Office-Rechner (&ge;&nbsp;64&nbsp;GB RAM)</span><span class="wl-cost">~2.000&ndash;2.500 &euro;</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
         <div class="wl-detail">
-          <p>F&uuml;r z&uuml;giges Bauen, Testen, virtuelle Maschinen und mehrere Apps parallel. Mindestens 64&nbsp;GB RAM.</p>
+          <p>F&uuml;r z&uuml;giges Bauen, Testen, virtuelle Maschinen und mehrere Apps parallel.</p>
+          <p class="wl-costnote">Sch&auml;tzkosten: ~2.000&ndash;2.500 &euro; (leistungsstarke Workstation, &ge;&nbsp;64&nbsp;GB RAM).</p>
           <div class="wl-actions"><a class="wl-act pay" href="#paypal">Per PayPal helfen</a><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=wunschliste&text=Hallo%2C%20ich%20m%C3%B6chte%20von%20der%20Wunschliste%20beisteuern%3A%20%E2%80%9EOffice-Rechner%20%28%3E%3D64%20GB%20RAM%29%E2%80%9C.%20Bitte%20sende%20mir%20die%20Versandadresse%20oder%20lass%20uns%20kurz%20abstimmen.">Direkt zusenden / abstimmen</a></div>
         </div>
       </details>
       <details class="wl-row">
-        <summary><span class="num">5</span><span class="ttl">2 neue Monitore</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <summary><span class="num">5</span><span class="ttl">2 neue Monitore</span><span class="wl-cost">~300&ndash;500 &euro;</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
         <div class="wl-detail">
           <p>Mehr Fl&auml;che f&uuml;r Code, Vorschau und Dokumentation nebeneinander.</p>
+          <p class="wl-costnote">Sch&auml;tzkosten: ~300&ndash;500 &euro; (zwei Monitore).</p>
           <div class="wl-actions"><a class="wl-act pay" href="#paypal">Per PayPal helfen</a><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=wunschliste&text=Hallo%2C%20ich%20m%C3%B6chte%20von%20der%20Wunschliste%20beisteuern%3A%20%E2%80%9E2%20neue%20Monitore%E2%80%9C.%20Bitte%20sende%20mir%20die%20Versandadresse%20oder%20lass%20uns%20kurz%20abstimmen.">Direkt zusenden / abstimmen</a></div>
         </div>
       </details>
       <details class="wl-row">
-        <summary><span class="num">6</span><span class="ttl">Code-Signing-Sponsor</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <summary><span class="num">6</span><span class="ttl">Code-Signing-Sponsor</span><span class="wl-cost">Sponsoring</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
         <div class="wl-detail">
           <p>Ein Zertifikats-Anbieter oder Unternehmen, das die Signierung dauerhaft tr&auml;gt &ndash; gern mit Nennung als Unterst&uuml;tzer.</p>
+          <p class="wl-costnote">Sch&auml;tzkosten: laufende Zertifikatskosten (~200&ndash;400 &euro;/Jahr) &ndash; ideal als Sponsoring.</p>
           <div class="wl-actions"><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=wunschliste&text=Hallo%2C%20ich%20m%C3%B6chte%20%E2%80%9ECode-Signing-Sponsor%E2%80%9C%20als%20Sponsor%20unterst%C3%BCtzen.%20Bitte%20melde%20dich%20mit%20den%20n%C3%A4chsten%20Schritten.">Als Sponsor melden</a><a class="wl-act pay" href="#paypal">Per PayPal helfen</a></div>
         </div>
       </details>
       <details class="wl-row">
-        <summary><span class="num">7</span><span class="ttl">Lokale Unterst&uuml;tzung</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <summary><span class="num">7</span><span class="ttl">Lokale Unterst&uuml;tzung</span><span class="wl-cost">Zeit</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
         <div class="wl-detail">
           <p>Mithilfe aus der Region (Raum Jena): Testen, Weiterempfehlen, Kontakte kn&uuml;pfen, ehrenamtliche Unterst&uuml;tzung.</p>
+          <p class="wl-costnote">Kein Geldbetrag &ndash; Zeit, Mithilfe und Weiterempfehlung z&auml;hlen.</p>
           <div class="wl-actions"><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=wunschliste&text=Hallo%2C%20ich%20m%C3%B6chte%20mich%20zu%20%E2%80%9ELokale%20Unterst%C3%BCtzung%E2%80%9C%20%28lokale%20Unterst%C3%BCtzung%29%20melden.">Bei mir melden</a><a class="wl-act pay" href="#paypal">Per PayPal helfen</a></div>
         </div>
       </details>
       <details class="wl-row">
-        <summary><span class="num">8</span><span class="ttl">Kabel, Adapter &amp; Verbrauchsmaterial</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <summary><span class="num">8</span><span class="ttl">Kabel, Adapter &amp; Verbrauchsmaterial</span><span class="wl-cost">~30&ndash;80 &euro;</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
         <div class="wl-detail">
           <p>Der st&auml;ndige Kleinkram: Kabel, Adapter, Datentr&auml;ger, Druck- und B&uuml;romaterial.</p>
+          <p class="wl-costnote">Sch&auml;tzkosten: ~30&ndash;80 &euro; nach Bedarf.</p>
           <div class="wl-actions"><a class="wl-act pay" href="#paypal">Per PayPal helfen</a><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=wunschliste&text=Hallo%2C%20ich%20m%C3%B6chte%20von%20der%20Wunschliste%20beisteuern%3A%20%E2%80%9EKabel%2C%20Adapter%20%26%20Verbrauchsmaterial%E2%80%9C.%20Bitte%20sende%20mir%20die%20Versandadresse%20oder%20lass%20uns%20kurz%20abstimmen.">Direkt zusenden / abstimmen</a></div>
         </div>
       </details>
       <details class="wl-row">
-        <summary><span class="num">9</span><span class="ttl">Entwickler- &amp; Werkzeug-Lizenzen</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <summary><span class="num">9</span><span class="ttl">Entwickler- &amp; Werkzeug-Lizenzen</span><span class="wl-cost">~150&ndash;500 &euro;/J.</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
         <div class="wl-detail">
           <p>Z.&nbsp;B. JetBrains-IDEs (PyCharm/IntelliJ), Affinity Designer &amp; Photo (Grafik), Snagit (Screenshots) oder ein guter Installer-/Build-Baukasten.</p>
+          <p class="wl-costnote">Sch&auml;tzkosten: ~150&ndash;500 &euro; / Jahr, je nach Auswahl.</p>
           <div class="wl-actions"><a class="wl-act pay" href="#paypal">Per PayPal helfen</a><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=wunschliste&text=Hallo%2C%20ich%20m%C3%B6chte%20%E2%80%9EEntwickler-%20%26%20Werkzeug-Lizenzen%E2%80%9C%20als%20Sponsor%20unterst%C3%BCtzen.%20Bitte%20melde%20dich%20mit%20den%20n%C3%A4chsten%20Schritten.">Als Sponsor melden</a></div>
         </div>
       </details>
       <details class="wl-row">
-        <summary><span class="num">10</span><span class="ttl">Claude Max (20&times;) &ndash; Abo-Sponsoring</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <summary><span class="num">10</span><span class="ttl">Claude Max (20&times;) &ndash; Abo-Sponsoring</span><span class="wl-cost">~185 &euro;/Mon.</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
         <div class="wl-detail">
           <p>KI-Unterst&uuml;tzung bei Entwicklung, Dokumentation und Tests &ndash; das gro&szlig;e 20&times;-Kontingent.</p>
+          <p class="wl-costnote">Sch&auml;tzkosten: ~185 &euro;/Monat (Claude Max 20&times;, 200&nbsp;$).</p>
           <div class="wl-actions"><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=wunschliste&text=Hallo%2C%20ich%20m%C3%B6chte%20%E2%80%9EClaude%20Max%20%2820x%29%E2%80%9C%20als%20Sponsor%20unterst%C3%BCtzen.%20Bitte%20melde%20dich%20mit%20den%20n%C3%A4chsten%20Schritten.">Als Sponsor melden</a><a class="wl-act pay" href="#paypal">Per PayPal helfen</a></div>
         </div>
       </details>
       <details class="wl-row">
-        <summary><span class="num">11</span><span class="ttl">ChatGPT Pro (20&times;) &ndash; Abo-Sponsoring</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
+        <summary><span class="num">11</span><span class="ttl">ChatGPT Pro (20&times;) &ndash; Abo-Sponsoring</span><span class="wl-cost">~185 &euro;/Mon.</span><span class="wl-chip offen">offen</span><span class="caret" aria-hidden="true">&rsaquo;</span></summary>
         <div class="wl-detail">
           <p>Zus&auml;tzliche KI-Unterst&uuml;tzung im Entwicklungsalltag.</p>
+          <p class="wl-costnote">Sch&auml;tzkosten: ~185 &euro;/Monat (ChatGPT Pro, 200&nbsp;$).</p>
           <div class="wl-actions"><a class="wl-act ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=wunschliste&text=Hallo%2C%20ich%20m%C3%B6chte%20%E2%80%9EChatGPT%20Pro%20%2820x%29%E2%80%9C%20als%20Sponsor%20unterst%C3%BCtzen.%20Bitte%20melde%20dich%20mit%20den%20n%C3%A4chsten%20Schritten.">Als Sponsor melden</a><a class="wl-act pay" href="#paypal">Per PayPal helfen</a></div>
         </div>
       </details>
