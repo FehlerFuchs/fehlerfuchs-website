@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Branding-Konfigurator – MobileReport Enterprise</title>
-<meta name="description" content="Branding-Konfigurator für MobileReport Enterprise: Name, Logo & Farben im Browser zusammenstellen, live ansehen und als .mrbrand-Datei laden, die die App 1:1 importiert. Läuft komplett lokal, ohne Server, ohne Tracking, kostenlos.">
+<meta name="description" content="Branding-Konfigurator für MobileReport Enterprise: Name, Logo & Farben im Browser zusammenstellen, live in App- und PDF-Vorschau ansehen und als .mrbrand-Datei laden, die die App 1:1 importiert. Läuft komplett lokal, ohne Server, ohne Tracking, kostenlos.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="app.css">
 <style>
 .mono{font-family:ui-monospace,Consolas,monospace;background:#f6efe6;border:1px solid #ecdfd2;border-radius:6px;padding:1px 6px;font-size:.9em}
-/* Werkstatt-Layout */
 .kfg{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:24px;align-items:start}
-@media (max-width:860px){.kfg{grid-template-columns:1fr}}
+@media (max-width:900px){.kfg{grid-template-columns:1fr}}
 .panel{background:#fff;border:1px solid #ecdfd2;border-radius:16px;padding:18px 18px 20px}
+.panel+.panel{margin-top:16px}
 .panel h3{font-size:1.05rem;color:var(--brown);margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .panel h3 .n{width:24px;height:24px;flex:none;background:var(--accent);color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;font-size:.85rem}
 .fld{margin:12px 0}
@@ -21,17 +21,23 @@
 .fld input[type=text]{width:100%;padding:10px 12px;border:1px solid #e2d3c3;border-radius:10px;font:inherit;font-size:.95rem;background:#fdfaf6}
 .fld input[type=text]:focus{outline:2px solid var(--accent);border-color:var(--accent)}
 .hint{font-size:.8rem;color:var(--muted);margin-top:4px}
-/* Modus-Tabs */
+/* Logo */
+.logo-area{display:flex;gap:14px;align-items:stretch}
+.drop{flex:1;min-height:104px;border:2px dashed #e0cdb8;border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;background:#fdfaf6;transition:border-color .15s,background .15s}
+.drop:hover,.drop.hot{border-color:var(--accent);background:#fdf3ea}
+.drop .ic{width:26px;height:26px;stroke:var(--action);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-bottom:6px}
+.drop small{color:var(--muted);font-size:.78rem;margin-top:3px}
+.logo-box{width:104px;flex:none;border:1px solid #ecdfd2;border-radius:12px;background:#faf4ec;display:none;flex-direction:column;align-items:center;justify-content:center;padding:8px;gap:6px}
+.logo-box img{max-width:84px;max-height:60px;object-fit:contain}
+.rm{background:none;border:0;color:var(--action);font:inherit;font-size:.78rem;cursor:pointer;text-decoration:underline}
+.reqs{margin-top:10px;background:#fbf6ef;border:1px solid #efe4d6;border-radius:10px;padding:10px 12px;font-size:.8rem;color:var(--ink)}
+.reqs b{color:var(--brown)}
+.reqs ul{margin:4px 0 0;padding-left:16px}
+.reqs li{margin:2px 0}
+/* Modus */
 .modes{display:flex;gap:6px;background:#f4ece2;border:1px solid #ecdfd2;border-radius:12px;padding:4px;margin:6px 0 4px}
 .modes button{flex:1;border:0;background:transparent;font:inherit;font-weight:600;font-size:.85rem;color:var(--brown);padding:8px 6px;border-radius:9px;cursor:pointer;transition:background .15s}
 .modes button.on{background:#fff;color:var(--action);box-shadow:0 1px 3px rgba(124,63,22,.12)}
-/* Logo-Ablage */
-.drop{border:2px dashed #e0cdb8;border-radius:12px;padding:16px;text-align:center;cursor:pointer;background:#fdfaf6;transition:border-color .15s,background .15s}
-.drop:hover,.drop.hot{border-color:var(--accent);background:#fdf3ea}
-.drop .lg{max-width:120px;max-height:80px;margin:0 auto 8px;display:block}
-.drop small{color:var(--muted);font-size:.8rem}
-.rm{background:none;border:0;color:var(--action);font:inherit;font-size:.82rem;cursor:pointer;margin-top:6px;text-decoration:underline}
-/* Farbfeld-Zeile */
 .crow{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #f3ece2}
 .crow:last-child{border-bottom:0}
 .crow .cl{flex:1;font-size:.86rem;color:var(--ink)}
@@ -40,60 +46,74 @@
 .crow input[type=color]{width:34px;height:30px;border:1px solid #e2d3c3;border-radius:7px;background:#fff;padding:2px;cursor:pointer}
 .crow input[type=color]:disabled{opacity:.35;cursor:not-allowed}
 .autobox{display:inline-flex;align-items:center;gap:4px;font-size:.76rem;color:var(--muted);cursor:pointer;user-select:none}
-.accentbig input[type=color]{width:44px;height:38px}
+.accentbig input[type=color]{width:46px;height:40px}
 .grp-h{font-family:'Poppins';font-weight:600;color:var(--brown);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;margin:14px 0 2px}
 .flagrow{display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--ink);padding:5px 0}
 .flagrow input{width:16px;height:16px;accent-color:var(--accent)}
-/* Presets */
-.presets{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.pgroup{font-size:.74rem;color:var(--muted);margin:10px 0 2px;font-weight:600;width:100%}
+.presets{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
 .preset{border:1px solid #e2d3c3;border-radius:20px;background:#fff;cursor:pointer;padding:4px 10px 4px 6px;display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:.76rem;color:var(--brown)}
 .preset:hover{border-color:var(--accent);background:#fdf3ea}
-.preset .sw{display:inline-flex;gap:0}
+.preset .sw{display:inline-flex}
 .preset .sw i{width:13px;height:13px;border-radius:3px;display:inline-block;border:1px solid rgba(0,0,0,.12)}
 .preset .sw i:last-child{margin-left:-4px}
-.pgroup{font-size:.74rem;color:var(--muted);margin:10px 0 2px;font-weight:600}
 .radio-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
 .radio-row label{display:inline-flex;align-items:center;gap:6px;border:1px solid #e2d3c3;border-radius:10px;padding:7px 12px;cursor:pointer;font-size:.86rem;background:#fdfaf6}
 .radio-row label.on{border-color:var(--accent);background:#fdf3ea;color:var(--action);font-weight:600}
 .radio-row input{accent-color:var(--accent)}
 /* Vorschau */
-.previewwrap{position:sticky;top:14px}
+.previewwrap{position:sticky;top:12px}
 .pv-tabs{display:flex;gap:6px;margin-bottom:12px}
 .pv-tabs button{border:1px solid #e2d3c3;background:#fff;font:inherit;font-weight:600;font-size:.82rem;color:var(--brown);padding:7px 14px;border-radius:10px;cursor:pointer}
 .pv-tabs button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
-/* App-Mock */
-.phone{width:250px;max-width:100%;margin:0 auto;border:9px solid #241a12;border-radius:30px;overflow:hidden;box-shadow:0 10px 28px rgba(43,22,11,.22);background:#fff}
-.ph-bar{display:flex;align-items:center;gap:8px;padding:12px 12px 11px}
-.ph-bar img{width:26px;height:26px;object-fit:contain;border-radius:6px;background:rgba(255,255,255,.16)}
-.ph-bar .nm{font-family:'Poppins';font-weight:600;font-size:.9rem;line-height:1.1}
-.ph-body{padding:12px 12px 16px;min-height:210px}
-.ph-card{border-radius:12px;padding:12px 13px;margin-bottom:11px}
-.ph-card .t{font-family:'Poppins';font-weight:600;font-size:.82rem;margin-bottom:3px}
-.ph-card .s{font-size:.72rem;opacity:.85}
-.ph-btn{display:block;text-align:center;font-family:'Poppins';font-weight:600;font-size:.82rem;padding:10px;border-radius:11px;margin-bottom:10px}
-.ph-li{display:flex;align-items:center;gap:9px;padding:9px 4px;font-size:.76rem;border-bottom:1px solid rgba(0,0,0,.06)}
-.ph-li .dot{width:9px;height:9px;border-radius:50%;flex:none}
-/* PDF-Mock */
-.paper{max-width:340px;margin:0 auto;background:#fff;border:1px solid #e6dccf;border-radius:8px;overflow:hidden;box-shadow:0 8px 22px rgba(43,22,11,.14);font-size:.72rem}
-.pdf-head{padding:14px 15px;display:flex;align-items:center;gap:11px}
-.pdf-head img{width:34px;height:34px;object-fit:contain;border-radius:6px;background:rgba(255,255,255,.14)}
-.pdf-head .ti{font-family:'Poppins';font-weight:700;font-size:.98rem;line-height:1.1}
-.pdf-head .su{font-size:.72rem;margin-top:2px}
-.pdf-inner{padding:13px 15px 15px}
-.pdf-line{display:flex;gap:8px;margin-bottom:9px;align-items:flex-start}
-.pdf-badge{font-family:'Poppins';font-weight:700;font-size:.7rem;padding:4px 9px;border-radius:6px;white-space:nowrap}
-.pdf-art{font-weight:600;font-size:.7rem;padding:4px 9px;border-radius:6px}
-.pdf-txt{line-height:1.5}
-.pdf-foot{padding:9px 15px;font-size:.66rem;display:flex;justify-content:space-between;gap:8px}
-/* Kontrast-Ampel */
+.phones{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.pcol{display:flex;flex-direction:column;align-items:center;gap:6px}
+.pcap{font-size:.74rem;font-weight:600;color:var(--muted)}
+.phone{width:188px;border:8px solid #241a12;border-radius:26px;overflow:hidden;box-shadow:0 10px 26px rgba(43,22,11,.22)}
+.ph-bar{display:flex;align-items:center;gap:7px;padding:11px 11px 10px}
+.ph-bar .bk{font-size:15px;line-height:1;opacity:.9}
+.ph-bar .nm{flex:1;font-family:'Poppins';font-weight:600;font-size:.82rem;line-height:1.1;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ph-bar .em{width:20px;height:20px;flex:none;object-fit:contain}
+.ph-body{padding:10px 11px 12px}
+.ph-primary{border-radius:13px;padding:11px 12px;display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.ph-primary .plus{width:30px;height:30px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:700}
+.ph-primary .pt{flex:1}
+.ph-primary .pt b{display:block;font-family:'Poppins';font-weight:700;font-size:.86rem;line-height:1.15}
+.ph-primary .pt s{display:block;text-decoration:none;font-size:.68rem;line-height:1.25;margin-top:1px}
+.ph-primary .chev{font-size:14px;opacity:.7}
+.ph-card{border-radius:12px;padding:10px 11px;display:flex;align-items:center;gap:9px;margin-bottom:9px}
+.ph-card .ci{width:20px;height:20px;flex:none;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ph-card .ct{flex:1}
+.ph-card .ct b{display:block;font-family:'Poppins';font-weight:600;font-size:.78rem}
+.ph-card .ct s{display:block;text-decoration:none;font-size:.66rem;margin-top:1px}
+.ph-tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ph-tile{border-radius:11px;padding:9px 10px;min-height:52px;display:flex;flex-direction:column;justify-content:space-between}
+.ph-tile .ci{width:17px;height:17px;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ph-tile b{font-family:'Poppins';font-weight:600;font-size:.68rem;line-height:1.15}
+.ph-note{margin-top:9px;border-radius:9px;padding:8px 9px;font-size:.6rem;line-height:1.35;text-align:center}
+/* PDF */
+.paper{max-width:340px;margin:0 auto;background:#fff;border:1px solid #e6dccf;border-radius:6px;overflow:hidden;box-shadow:0 8px 22px rgba(43,22,11,.14);font-size:.72rem}
+.pdf-head{padding:13px 15px;display:flex;align-items:center;gap:11px}
+.pdf-head .em{width:34px;height:34px;flex:none;object-fit:contain}
+.pdf-head .ti{font-family:'Poppins';font-weight:700;font-size:.96rem;line-height:1.1}
+.pdf-head .su{font-size:.7rem;margin-top:2px}
+.pdf-accentbar{height:5px}
+.pdf-inner{padding:12px 15px 6px}
+.pdf-meta{width:100%;border-collapse:collapse;margin-bottom:10px}
+.pdf-meta td{padding:2px 0;font-size:.68rem;vertical-align:top}
+.pdf-meta td.k{color:#8a7a6c;width:96px;white-space:nowrap}
+.pdf-chips{display:flex;gap:7px;margin-bottom:9px;flex-wrap:wrap}
+.pdf-badge{font-family:'Poppins';font-weight:700;font-size:.66rem;padding:4px 9px;border-radius:5px;white-space:nowrap}
+.pdf-art{font-weight:600;font-size:.66rem;padding:4px 9px;border-radius:5px}
+.pdf-txt{line-height:1.5;padding-bottom:12px}
+.pdf-foot{padding:8px 15px;font-size:.64rem;display:flex;justify-content:space-between;gap:8px}
 .contrast{margin-top:14px;background:#fdfaf6;border:1px solid #ecdfd2;border-radius:12px;padding:12px 14px}
 .contrast h4{font-family:'Poppins';font-size:.86rem;color:var(--brown);margin-bottom:7px}
 .cr{display:flex;align-items:center;gap:8px;font-size:.8rem;padding:3px 0}
 .cr .d{width:10px;height:10px;border-radius:50%;flex:none}
 .cr .r{margin-left:auto;font-variant-numeric:tabular-nums;color:var(--muted);font-size:.76rem}
 .ok{background:#15803D}.warn{background:#C2410C}.bad{background:#B91C1C}
-/* Export */
-.exportbar{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.exportbar{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .warnmsg{background:#FEF3E2;border:1px solid #F3D9B0;color:#8a5310;border-radius:10px;padding:8px 12px;font-size:.82rem;margin-top:8px}
 .okmsg{background:#e7f3df;border:1px solid #cde7b6;color:#2f6d12;border-radius:10px;padding:8px 12px;font-size:.82rem;margin-top:8px}
 .cta.mini{padding:9px 15px;font-size:.86rem}
@@ -110,6 +130,20 @@
 <symbol id="ic-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></symbol>
 <symbol id="ic-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
 <symbol id="ic-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></symbol>
+<symbol id="ic-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3 1a7 7 0 0 0-2-1.2L16.2 2h-4l-.4 2.5a7 7 0 0 0-2 1.2l-2.3-1-2 3.4 2 1.5A7 7 0 0 0 5 12a7 7 0 0 0 .1 1.2l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 2 1.2l.4 2.5h4l.4-2.5a7 7 0 0 0 2-1.2l2.3 1 2-3.4-2-1.5A7 7 0 0 0 19 12Z"/></symbol>
+<symbol id="ic-alert" viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/><path d="M12 8v3"/><path d="M12 13h.01"/></symbol>
+<symbol id="ic-copy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.3a3 3 0 1 0 0 5.4"/></symbol>
+<symbol id="ic-upload" viewBox="0 0 24 24"><path d="M12 16V4"/><path d="M8 8l4-4 4 4"/><path d="M4 20h16"/></symbol>
+</defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <g id="fox">
+    <path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="#D97706"/>
+    <path d="M132,120 L186,150 L158,182 Z" fill="#7C3F16"/><path d="M380,120 L326,150 L354,182 Z" fill="#7C3F16"/>
+    <path d="M198,250 L314,250 L256,430 Z" fill="#FFF7ED"/><path d="M192,228 L232,222 L214,250 Z" fill="#2B160B"/>
+    <circle cx="306" cy="236" r="30" fill="#7C3F16"/><circle cx="306" cy="236" r="22" fill="#0E2540"/>
+    <circle cx="306" cy="236" r="13" fill="#2563EB"/><circle cx="306" cy="236" r="6" fill="#7DD3FC"/>
+    <path d="M243,372 L269,372 L256,392 Z" fill="#2B160B"/>
+  </g>
 </defs></svg>
 
   <nav class="mainnav" aria-label="Hauptnavigation">
@@ -125,14 +159,14 @@
 <header class="hero">
   <div>
     <h1>Branding-<span class="ac">Konfigurator</span></h1>
-    <p class="tag">Für <strong>MobileReport Enterprise</strong>: Name, Logo und Farben zusammenstellen, live ansehen und als <span class="mono">.mrbrand</span>-Datei laden – die ihr direkt in der App importiert. Alles im Browser, ohne Server, ohne Upload, kostenlos.</p>
+    <p class="tag">Für <strong>MobileReport Enterprise</strong>: Name, Logo und Farben zusammenstellen, live in App- und PDF-Vorschau ansehen und als <span class="mono">.mrbrand</span>-Datei laden – die ihr direkt in der App importiert. Alles im Browser, ohne Server, ohne Upload, kostenlos.</p>
     <div class="badges"><span class="badge">100 % lokal</span><span class="badge">kein Upload</span><span class="badge">kostenlos</span></div>
     <div class="cta-row"><a class="cta ghost" href="mobilereport.html#enterprise">← Zur Enterprise-Übersicht</a></div>
   </div>
 </header>
 
 <div class="kfg">
-  <!-- ======================= STEUERUNG ======================= -->
+  <!-- STEUERUNG -->
   <div>
     <div class="panel">
       <h3><span class="n">1</span> Grunddaten</h3>
@@ -142,25 +176,40 @@
         <div class="hint">Erscheint in der App-Leiste und im PDF-Kopf.</div>
       </div>
       <div class="fld">
-        <label class="lbl">Logo <span style="font-weight:400;color:var(--muted)">(PNG/JPG, ≤ 512 KB, ≤ 1024 px)</span></label>
-        <label class="drop" id="drop">
-          <img class="lg" id="logoPrev" alt="" style="display:none">
-          <div id="dropTxt"><strong style="color:var(--action)">Logo wählen</strong> oder hierher ziehen<br><small>bleibt im Browser – wird nirgends hochgeladen</small></div>
-          <input type="file" id="f-logo" accept="image/png,image/jpeg" hidden>
-        </label>
-        <button class="rm" id="logoRm" style="display:none">Logo entfernen</button>
+        <label class="lbl">Logo / Bildmarke</label>
+        <div class="logo-area">
+          <label class="drop" id="drop">
+            <svg class="ic" viewBox="0 0 24 24"><use href="#ic-upload"/></svg>
+            <div id="dropTxt"><strong style="color:var(--action)">Logo wählen</strong> oder hierher ziehen</div>
+            <small>bleibt im Browser – kein Upload</small>
+            <input type="file" id="f-logo" accept="image/png,image/jpeg" hidden>
+          </label>
+          <div class="logo-box" id="logoBoxPrev">
+            <img id="logoPrev" alt="Logo-Vorschau">
+            <button class="rm" id="logoRm" type="button">entfernen</button>
+          </div>
+        </div>
+        <div class="reqs">
+          <b>Empfehlung für ein sauberes Ergebnis:</b>
+          <ul>
+            <li>Quadratische <b>Bildmarke</b> (Symbol ohne Text) – wirkt in App-Leiste &amp; PDF-Kopf am besten.</li>
+            <li>Format <b>PNG mit transparentem Hintergrund</b> (JPG möglich, aber ohne Transparenz).</li>
+            <li>Größe idealerweise <b>512×512 px</b>, maximal <b>1024 px</b> Kantenlänge und <b>512 KB</b>.</li>
+            <li>Breite Wortmarken werden in der App-Leiste sehr klein – lieber die Bildmarke nehmen.</li>
+          </ul>
+        </div>
         <div class="hint" id="logoInfo"></div>
       </div>
     </div>
 
-    <div class="panel" style="margin-top:16px">
+    <div class="panel">
       <h3><span class="n">2</span> Farben</h3>
       <div class="modes" role="tablist">
         <button data-mode="accent" class="on">Akzent</button>
         <button data-mode="logo">Aus Logo ableiten</button>
         <button data-mode="full">Voll editierbar</button>
       </div>
-      <p class="hint" id="modeHint">Nur eine Akzentfarbe wählen – alle übrigen Farbrollen leitet die App automatisch passend ab.</p>
+      <p class="hint" id="modeHint"></p>
 
       <div class="crow accentbig" style="border-bottom:0">
         <div class="cl"><b>Akzentfarbe</b><span>Pflichtfarbe · Basis für alle „auto"-Rollen</span></div>
@@ -173,16 +222,14 @@
       </div>
 
       <div id="fullBox" style="display:none">
-        <div class="pgroup">Startpunkt wählen (15 Pro-Schemata)</div>
-        <div id="presets"></div>
-
         <div class="grp-h">PDF-Standardlayout</div>
         <div class="radio-row" id="pdfLayout">
-          <label class="on"><input type="radio" name="lay" value="dark" checked> Dunkel</label>
-          <label><input type="radio" name="lay" value="light"> Hell</label>
-          <label><input type="radio" name="lay" value="plain"> Schlicht</label>
+          <label class="on"><input type="radio" name="lay" value="dark" checked> Dunkel (Marke)</label>
+          <label><input type="radio" name="lay" value="light"> Hell (tintensparend)</label>
+          <label><input type="radio" name="lay" value="plain"> Schlicht (S/W)</label>
         </div>
-
+        <div class="grp-h">Startpunkt (15 Pro-Schemata)</div>
+        <div id="presets"></div>
         <div class="grp-h">App-Farbrollen</div>
         <div id="appColors"></div>
         <div class="grp-h">PDF-Farbrollen</div>
@@ -193,60 +240,20 @@
     </div>
   </div>
 
-  <!-- ======================= VORSCHAU ======================= -->
+  <!-- VORSCHAU -->
   <div>
     <div class="previewwrap">
       <div class="pv-tabs">
         <button data-pv="app" class="on">App-Vorschau</button>
         <button data-pv="pdf">PDF-Vorschau</button>
       </div>
-
-      <div id="pvApp">
-        <div class="phone">
-          <div class="ph-bar" id="mAppBar">
-            <img id="mAppLogo" alt="" style="display:none">
-            <div class="nm" id="mAppName">MobileReport</div>
-          </div>
-          <div class="ph-body" id="mScaffold">
-            <div class="ph-card" id="mHero">
-              <div class="t" id="mHeroT">Guten Tag 👋</div>
-              <div class="s">3 offene Meldungen · 12 heute erledigt</div>
-            </div>
-            <div class="ph-btn" id="mBtn">Meldung erfassen</div>
-            <div class="ph-li"><span class="dot" id="mDot1"></span>Heizung Halle 2 – Störung</div>
-            <div class="ph-li"><span class="dot" id="mDot2"></span>Türsensor Eingang West</div>
-            <div class="ph-li" style="border-bottom:0"><span class="dot" id="mDot3"></span>Beleuchtung Lager</div>
-          </div>
-        </div>
-      </div>
-
-      <div id="pvPdf" style="display:none">
-        <div class="paper">
-          <div class="pdf-head" id="pHead">
-            <img id="pLogo" alt="" style="display:none">
-            <div>
-              <div class="ti" id="pTitle">MobileReport</div>
-              <div class="su" id="pSub">Störungsmeldung · Nr. 2026-0184</div>
-            </div>
-          </div>
-          <div class="pdf-inner">
-            <div class="pdf-line">
-              <span class="pdf-badge" id="pBadge">PRIORITÄT HOCH</span>
-              <span class="pdf-art" id="pArt">Meldeart: Störung</span>
-            </div>
-            <div class="pdf-txt" id="pTxt">Heizungsanlage in Halle 2 fällt sporadisch aus. Fehlercode E-14 am Display. Betrieb eingeschränkt möglich, Rückmeldung erbeten.</div>
-          </div>
-          <div class="pdf-foot" id="pFoot">
-            <span>Erstellt mit MobileReport</span><span>Seite 1/1</span>
-          </div>
-        </div>
-      </div>
+      <div id="pvApp"><div class="phones" id="phones"></div></div>
+      <div id="pvPdf" style="display:none"></div>
 
       <div class="contrast">
         <h4>Lesbarkeit (WCAG-AA)</h4>
         <div id="contrastList"></div>
       </div>
-
       <div class="exportbar">
         <button class="cta" id="exportBtn" type="button">.mrbrand herunterladen</button>
         <button class="cta ghost mini" id="resetBtn" type="button">Zurücksetzen</button>
@@ -259,9 +266,9 @@
 <section>
   <h2 class="sec">So funktioniert's</h2>
   <ol class="steps">
-    <li><strong>Name & Logo</strong> eingeben – das Logo bleibt komplett im Browser.</li>
+    <li><strong>Name &amp; Logo</strong> eingeben – das Logo bleibt komplett im Browser.</li>
     <li><strong>Farben</strong> festlegen: nur eine Akzentfarbe, automatisch aus dem Logo, oder jede Rolle einzeln.</li>
-    <li><strong>Vorschau</strong> prüfen (App & PDF) und auf die Kontrast-Ampel achten.</li>
+    <li><strong>Vorschau</strong> prüfen (App hell/dunkel &amp; PDF) und auf die Kontrast-Ampel achten.</li>
     <li><strong>.mrbrand laden</strong> und in MobileReport Enterprise unter „Branding importieren" auswählen.</li>
   </ol>
   <p style="margin-top:12px;color:var(--muted)">Fragen zu Enterprise/White-Label? <a href="../kontakt.html?app=MobileReport&topic=interesse">info@fehlerfuchs.eu</a></p>
@@ -289,29 +296,33 @@
 
 <script>
 "use strict";
-/* ================= Farb-Helfer ================= */
-function clampHex(h){ h=(h||'').trim(); if(/^#?[0-9a-fA-F]{6}$/.test(h)){ return '#'+h.replace('#','').toUpperCase(); } return null; }
-function hx2rgb(h){ h=h.replace('#',''); return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]; }
-function rgb2hx(r){ return '#'+r.map(function(v){ v=Math.max(0,Math.min(255,Math.round(v))); return ('0'+v.toString(16)).slice(-2); }).join('').toUpperCase(); }
-function mix(a,b,t){ var x=hx2rgb(a),y=hx2rgb(b); return rgb2hx([x[0]+(y[0]-x[0])*t, x[1]+(y[1]-x[1])*t, x[2]+(y[2]-x[2])*t]); }
-function lum(h){ var c=hx2rgb(h).map(function(v){ v/=255; return v<=0.03928? v/12.92 : Math.pow((v+0.055)/1.055,2.4); }); return 0.2126*c[0]+0.7152*c[1]+0.0722*c[2]; }
-function contrast(a,b){ var L1=lum(a),L2=lum(b); var hi=Math.max(L1,L2),lo=Math.min(L1,L2); return (hi+0.05)/(lo+0.05); }
-function bestText(bg){ return contrast(bg,'#FFFFFF') >= contrast(bg,'#1A1208') ? '#FFFFFF' : '#1A1208'; }
+/* ===== Farb-Helfer ===== */
+function hx2rgb(h){h=h.replace('#','');return[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
+function rgb2hx(r){return '#'+r.map(function(v){v=Math.max(0,Math.min(255,Math.round(v)));return ('0'+v.toString(16)).slice(-2);}).join('').toUpperCase();}
+function mix(a,b,t){var x=hx2rgb(a),y=hx2rgb(b);return rgb2hx([x[0]+(y[0]-x[0])*t,x[1]+(y[1]-x[1])*t,x[2]+(y[2]-x[2])*t]);}
+function lum(h){var c=hx2rgb(h).map(function(v){v/=255;return v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4);});return 0.2126*c[0]+0.7152*c[1]+0.0722*c[2];}
+function contrast(a,b){var L1=lum(a),L2=lum(b);var hi=Math.max(L1,L2),lo=Math.min(L1,L2);return (hi+0.05)/(lo+0.05);}
+function bestText(bg){return contrast(bg,'#FFFFFF')>=contrast(bg,'#1A1208')?'#FFFFFF':'#1A1208';}
+// wie in der App: dunkler Grund -> heller Text (Schwelle Helligkeit < 0.6)
+function isDarkC(h){var c=hx2rgb(h);return (0.299*c[0]+0.587*c[1]+0.114*c[2])/255 < 0.6;}
+function onAccent(h){return isDarkC(h)?'#FFF7ED':'#2B160B';}
+function onAccentSub(h){return isDarkC(h)?'#CDBBA6':'#5A4632';}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 
-/* ================= Zustand ================= */
+/* ===== Zustand ===== */
 var LAYOUT='dark';
-var manual={};                 // role -> #RRGGBB (nur „voll editierbar" gesetzte Rollen)
-var flags={ pdfBadgeBorder:true, pdfArtBorder:false, pdfFooterBorder:true, pdfHeaderBorder:false };
-var logo=null;                 // { base64, ext, w, h, dataUrl }
+var manual={};
+var flags={pdfBadgeBorder:true,pdfArtBorder:false,pdfFooterBorder:true,pdfHeaderBorder:false};
+var logo=null;
 var mode='accent';
 
 var APP_ROLES=[
-  ['appPrimary','App-Primärfarbe','Buttons, Aktionen'],
-  ['appBarBg','App-Leiste Hintergrund','Kopfleiste'],
-  ['appBarText','App-Leiste Text','Text/Icons in der Leiste'],
+  ['appPrimary','App-Primärfarbe','Aktions-Karte, Buttons'],
+  ['appBarBg','App-Leiste Hintergrund','Kopfleiste (leer = wie Hintergrund)'],
+  ['appBarText','App-Leiste Text','Titel/Icons in der Leiste'],
   ['scaffoldBgLight','Hintergrund hell','Heller App-Hintergrund'],
   ['scaffoldBgDark','Hintergrund dunkel','Dark-Mode-Hintergrund'],
-  ['heroCardBg','Begrüßungskarte','Karte auf dem Startbildschirm']
+  ['heroCardBg','Karten-Fläche','Logbuch-/Kachel-Karten (hell)']
 ];
 var PDF_ROLES=[
   ['pdfHeaderBg','Kopf Hintergrund','PDF-Kopfband'],
@@ -323,90 +334,136 @@ var PDF_ROLES=[
   ['pdfArtText','Meldeart Text',''],
   ['pdfFooterBg','Fuß Hintergrund','Fußzeile'],
   ['pdfFooterText','Fuß Text',''],
-  ['pdfAccent','PDF-Akzent','Linien/Hervorhebungen'],
+  ['pdfAccent','PDF-Akzent','Linie unter dem Kopf'],
   ['pdfInk','Textfarbe','Fließtext im PDF']
 ];
 var PRESETS=[
-  ['Standard',[
-    ['FehlerFuchs','#D97706','#7C3F16'],['Schwarz/Weiß','#111111','#FFFFFF'],
-    ['Petrol/Sand','#0E7490','#E8D5B5'],['Waldgrün/Creme','#2F6D4F','#ECE0C8'],
-    ['Schiefer/Bernstein','#334155','#E9A23B']]],
-  ['Warm',[
-    ['Terrakotta','#C2410C','#FBE3D0'],['Bordeaux','#9F1239','#F4CBD3'],
-    ['Senf/Sand','#A16207','#F1E0B5'],['Rost/Karamell','#9A3412','#E9C9A3'],
-    ['Koralle','#E2553B','#FBD8C2']]],
-  ['Pastell',[
-    ['Mint/Rosé','#A7D8C4','#F6C9D2'],['Lavendel','#C7BFEA','#FAD9C4'],
-    ['Himmel/Sand','#BBD7F0','#EFE2C5'],['Pistazie','#C7E0A6','#FBD8C2'],
-    ['Altrosa/Salbei','#EBC4CB','#C9D8BE']]]
+  ['Standard',[['FehlerFuchs','#D97706','#7C3F16'],['Schwarz/Weiß','#111111','#FFFFFF'],['Petrol/Sand','#0E7490','#E8D5B5'],['Waldgrün/Creme','#2F6D4F','#ECE0C8'],['Schiefer/Bernstein','#334155','#E9A23B']]],
+  ['Warm',[['Terrakotta','#C2410C','#FBE3D0'],['Bordeaux','#9F1239','#F4CBD3'],['Senf/Sand','#A16207','#F1E0B5'],['Rost/Karamell','#9A3412','#E9C9A3'],['Koralle','#E2553B','#FBD8C2']]],
+  ['Pastell',[['Mint/Rosé','#A7D8C4','#F6C9D2'],['Lavendel','#C7BFEA','#FAD9C4'],['Himmel/Sand','#BBD7F0','#EFE2C5'],['Pistazie','#C7E0A6','#FBD8C2'],['Altrosa/Salbei','#EBC4CB','#C9D8BE']]]
 ];
 
-/* ================= Auto-Ableitung ================= */
-function accent(){ return manual.accent || document.getElementById('c-accent').value.toUpperCase(); }
+/* ===== Ableitung (App-Rollen fürs .mrbrand) ===== */
+function accent(){return manual.accent||document.getElementById('c-accent').value.toUpperCase();}
 function auto(role){
   var a=accent();
   switch(role){
     case 'appPrimary': return a;
-    case 'appBarBg': return a;
-    case 'appBarText': return bestText(conc('appBarBg'));
-    case 'scaffoldBgLight': return mix(a,'#FFFFFF',0.94);
-    case 'scaffoldBgDark': return mix(a,'#0E1116',0.86);
-    case 'heroCardBg': return mix(a,'#FFFFFF',0.87);
-    case 'pdfHeaderBg':
-      if(LAYOUT==='light') return mix(a,'#FFFFFF',0.84);
-      if(LAYOUT==='plain') return '#FFFFFF';
-      return a;
-    case 'pdfHeaderText': return bestText(conc('pdfHeaderBg'));
-    case 'pdfHeaderSubText': return mix(conc('pdfHeaderText'),conc('pdfHeaderBg'),0.30);
+    case 'appBarBg': return conc('scaffoldBgLight');
+    case 'appBarText': return '#2B160B';
+    case 'scaffoldBgLight': return mix(a,'#FFF7ED',0.90);
+    case 'scaffoldBgDark': return mix(a,'#1A0F08',0.88);
+    case 'heroCardBg': return mix(a,'#FFFFFF',0.86);
+    case 'pdfHeaderBg': return LAYOUT==='dark'?a:(LAYOUT==='light'?'#FFFFFF':'#FFFFFF');
+    case 'pdfHeaderText': return LAYOUT==='dark'?onAccent(a):'#2B160B';
+    case 'pdfHeaderSubText': return LAYOUT==='dark'?onAccentSub(a):'#616161';
     case 'pdfBadgeBg': return '#FFFFFF';
-    case 'pdfBadgeText': return contrast(a,'#FFFFFF')>=3 ? a : mix(a,'#000000',0.4);
-    case 'pdfArtBg': return mix(a,'#FFFFFF',0.90);
-    case 'pdfArtText': return bestText(conc('pdfArtBg'));
-    case 'pdfFooterBg': return LAYOUT==='plain' ? '#FFFFFF' : mix(a,'#FFFFFF',0.93);
-    case 'pdfFooterText': return mix('#2B160B',conc('pdfFooterBg'),0.30);
+    case 'pdfBadgeText': return a;
+    case 'pdfArtBg': return LAYOUT==='dark'?'#FBE7D4':'#FFFFFF';
+    case 'pdfArtText': return '#7C3F16';
+    case 'pdfFooterBg': return LAYOUT==='dark'?'#241B11':'#FFFFFF';
+    case 'pdfFooterText': return LAYOUT==='dark'?'#CDBBA6':'#616161';
     case 'pdfAccent': return a;
     case 'pdfInk': return '#2B160B';
   }
   return a;
 }
-function conc(role){ if(role==='accent') return accent(); return manual[role] || auto(role); }
+function conc(role){if(role==='accent')return accent();return manual[role]||auto(role);}
 
-/* ================= Vorschau rendern ================= */
-function render(){
-  var name=document.getElementById('f-name').value.trim() || 'MobileReport';
-  // App
-  var appBar=conc('appBarBg'), appBarT=conc('appBarText'), prim=conc('appPrimary');
-  var el=document.getElementById('mAppBar'); el.style.background=appBar; el.style.color=appBarT;
-  document.getElementById('mAppName').textContent=name;
-  document.getElementById('mScaffold').style.background=conc('scaffoldBgLight');
-  var hero=document.getElementById('mHero'); hero.style.background=conc('heroCardBg'); hero.style.color=bestText(conc('heroCardBg'));
-  var btn=document.getElementById('mBtn'); btn.style.background=prim; btn.style.color=bestText(prim);
-  document.getElementById('mDot1').style.background=prim;
-  document.getElementById('mDot2').style.background=mix(prim,'#FFFFFF',0.35);
-  document.getElementById('mDot3').style.background=mix(prim,'#FFFFFF',0.6);
-  // PDF
-  var hbg=conc('pdfHeaderBg');
-  var ph=document.getElementById('pHead'); ph.style.background=hbg; ph.style.color=conc('pdfHeaderText');
-  ph.style.borderBottom=flags.pdfHeaderBorder? ('2px solid '+conc('pdfAccent')) : 'none';
-  document.getElementById('pTitle').textContent=name;
-  document.getElementById('pSub').style.color=conc('pdfHeaderSubText');
-  var bd=document.getElementById('pBadge'); bd.style.background=conc('pdfBadgeBg'); bd.style.color=conc('pdfBadgeText');
-  bd.style.border=flags.pdfBadgeBorder? ('1px solid '+mix(conc('pdfBadgeText'),conc('pdfBadgeBg'),0.5)) : '1px solid transparent';
-  var art=document.getElementById('pArt'); art.style.background=conc('pdfArtBg'); art.style.color=conc('pdfArtText');
-  art.style.border=flags.pdfArtBorder? ('1px solid '+mix(conc('pdfArtText'),conc('pdfArtBg'),0.5)) : '1px solid transparent';
-  document.getElementById('pTxt').style.color=conc('pdfInk');
-  var ft=document.getElementById('pFoot'); ft.style.background=conc('pdfFooterBg'); ft.style.color=conc('pdfFooterText');
-  ft.style.borderTop=flags.pdfFooterBorder? ('1px solid '+mix(conc('pdfFooterText'),conc('pdfFooterBg'),0.55)) : 'none';
-  renderContrast();
+/* ===== App-Vorschau (Home-Screen, hell + dunkel) ===== */
+function emblemHTML(size){
+  if(logo) return '<img class="em" style="width:'+size+'px;height:'+size+'px" src="'+logo.dataUrl+'" alt="">';
+  return '<svg class="em" style="width:'+size+'px;height:'+size+'px" viewBox="80 80 352 380"><use href="#fox"/></svg>';
 }
+function iconSVG(id,color){return '<svg class="ci" style="stroke:'+color+'" viewBox="0 0 24 24"><use href="#'+id+'"/></svg>';}
+function buildPhone(theme,name){
+  var a=accent(), prim=conc('appPrimary');
+  var scaffold = theme==='dark'?conc('scaffoldBgDark'):conc('scaffoldBgLight');
+  var ink = theme==='dark'?'#FFF7ED':'#2B160B';
+  var muted = theme==='dark'?'#CDBBA6':'#6b5b50';
+  var card = theme==='dark'?mix(scaffold,'#FFFFFF',0.09):conc('heroCardBg');
+  var barBg = manual.appBarBg || scaffold;
+  var barTx = manual.appBarBg ? (manual.appBarText||bestText(barBg)) : ink;
+  // App wählt Text auf der Aktionsfläche nach echtem Kontrast (wie Flutter onPrimary)
+  var pTx = bestText(prim), pSub = mix(pTx,prim,0.28);
+  var plusBg = pTx, plusFg = bestText(pTx);
+  var note = theme==='dark'?mix(scaffold,'#FFFFFF',0.05):mix(scaffold,'#000000',0.035);
+  var h='';
+  h+='<div class="phone" style="background:'+scaffold+'">';
+  h+='<div class="ph-bar" style="background:'+barBg+';color:'+barTx+'"><span class="bk">&#8592;</span><div class="nm">'+esc(name)+'</div>'+emblemHTML(20)+'</div>';
+  h+='<div class="ph-body">';
+  // Primär-Karte
+  h+='<div class="ph-primary" style="background:'+prim+';color:'+pTx+'">'+
+     '<div class="plus" style="background:'+plusBg+';color:'+plusFg+'">+</div>'+
+     '<div class="pt"><b>Neue Meldung</b><s style="color:'+pSub+'">Defekt, Auffälligkeit oder Rückfrage erfassen</s></div>'+
+     '<span class="chev">&#8250;</span></div>';
+  // Logbuch-Karte
+  h+='<div class="ph-card" style="background:'+card+';color:'+ink+'">'+iconSVG('ic-list',a)+
+     '<div class="ct"><b>Logbuch</b><s style="color:'+muted+'">Auf diesem Gerät erstellte Meldungen</s></div><span class="chev" style="color:'+muted+'">&#8250;</span></div>';
+  // Kacheln
+  var tiles=[['ic-gear','Einstellungen'],['ic-shield','Hinweise &amp; Datenschutz'],['ic-alert','Feedback (Beta)'],['ic-copy','Impressum']];
+  h+='<div class="ph-tiles">';
+  tiles.forEach(function(t){h+='<div class="ph-tile" style="background:'+card+';color:'+ink+'">'+iconSVG(t[0],a)+'<b>'+t[1]+'</b></div>';});
+  h+='</div>';
+  h+='<div class="ph-note" style="background:'+note+';color:'+muted+'">Lokale App – keine Cloud, kein automatischer Versand.</div>';
+  h+='</div></div>';
+  return h;
+}
+function renderApp(name){
+  document.getElementById('phones').innerHTML=
+    '<div class="pcol"><span class="pcap">Hell</span>'+buildPhone('light',name)+'</div>'+
+    '<div class="pcol"><span class="pcap">Dunkel</span>'+buildPhone('dark',name)+'</div>';
+}
+
+/* ===== PDF-Vorschau (nach pdf_service _PdfStyle.forLayout) ===== */
+function pdfStyle(){
+  var a=accent();
+  var s;
+  if(LAYOUT==='light'){
+    s={headerBg:'#FFFFFF',headerText:'#2B160B',headerSubText:'#616161',footerBg:'#FFFFFF',footerText:'#616161',accent:a,artBg:'#FFFFFF',artText:'#7C3F16',badgeBg:'#FFFFFF',badgeText:a,ink:'#2B160B'};
+  }else if(LAYOUT==='plain'){
+    s={headerBg:'#FFFFFF',headerText:'#111111',headerSubText:'#555555',footerBg:'#FFFFFF',footerText:'#555555',accent:'#888888',artBg:'#FFFFFF',artText:'#333333',badgeBg:'#FFFFFF',badgeText:'#111111',ink:'#111111'};
+  }else{ // dark / Marke
+    s={headerBg:a,headerText:onAccent(a),headerSubText:onAccentSub(a),footerBg:'#241B11',footerText:'#CDBBA6',accent:a,artBg:'#FBE7D4',artText:'#7C3F16',badgeBg:'#FFFFFF',badgeText:a,ink:'#2B160B'};
+  }
+  // manuelle Übersteuerungen
+  var map={pdfHeaderBg:'headerBg',pdfHeaderText:'headerText',pdfHeaderSubText:'headerSubText',pdfFooterBg:'footerBg',pdfFooterText:'footerText',pdfAccent:'accent',pdfArtBg:'artBg',pdfArtText:'artText',pdfBadgeBg:'badgeBg',pdfBadgeText:'badgeText',pdfInk:'ink'};
+  Object.keys(map).forEach(function(r){if(manual[r])s[map[r]]=manual[r];});
+  return s;
+}
+function renderPdf(name){
+  var s=pdfStyle();
+  var bB=flags.pdfBadgeBorder?('1px solid '+mix(s.badgeText,s.badgeBg,0.55)):'1px solid transparent';
+  var aB=flags.pdfArtBorder?('1px solid '+mix(s.artText,s.artBg,0.55)):'1px solid transparent';
+  var hB=flags.pdfHeaderBorder?('2px solid '+s.accent):'none';
+  var fB=flags.pdfFooterBorder?('1px solid '+mix(s.footerText,s.footerBg,0.6)):'none';
+  var meta=[['Datum / Uhrzeit','05.07.2026 · 08:14'],['Priorität','Hoch'],['Bereich','Halle 2'],['Standort','Heizzentrale'],['Meldende Person','M. Schulz']];
+  var rows=meta.map(function(m){return '<tr><td class="k">'+m[0]+'</td><td style="color:'+s.ink+'">'+m[1]+'</td></tr>';}).join('');
+  var h='<div class="paper">';
+  h+='<div class="pdf-head" style="background:'+s.headerBg+';color:'+s.headerText+';border-bottom:'+hB+'">'+emblemHTML(34)+
+     '<div><div class="ti">'+esc(name)+'</div><div class="su" style="color:'+s.headerSubText+'">Störungsmeldung · Nr. 2026-0184</div></div></div>';
+  h+='<div class="pdf-accentbar" style="background:'+s.accent+'"></div>';
+  h+='<div class="pdf-inner">';
+  h+='<table class="pdf-meta">'+rows+'</table>';
+  h+='<div class="pdf-chips">'+
+     '<span class="pdf-badge" style="background:'+s.badgeBg+';color:'+s.badgeText+';border:'+bB+'">PRIORITÄT HOCH</span>'+
+     '<span class="pdf-art" style="background:'+s.artBg+';color:'+s.artText+';border:'+aB+'">Meldeart: Störung</span></div>';
+  h+='<div class="pdf-txt" style="color:'+s.ink+'">Heizungsanlage in Halle 2 fällt sporadisch aus. Fehlercode E-14 am Display. Betrieb eingeschränkt möglich, Rückmeldung erbeten.</div>';
+  h+='</div>';
+  h+='<div class="pdf-foot" style="background:'+s.footerBg+';color:'+s.footerText+';border-top:'+fB+'"><span>Erstellt mit MobileReport · '+esc(name)+'</span><span>Seite 1/1</span></div>';
+  h+='</div>';
+  document.getElementById('pvPdf').innerHTML=h;
+}
+
+/* ===== Kontrast-Ampel ===== */
 function renderContrast(){
+  var s=pdfStyle(), prim=conc('appPrimary');
   var pairs=[
-    ['App-Leiste', conc('appBarText'), conc('appBarBg')],
-    ['App-Button', bestText(conc('appPrimary')), conc('appPrimary')],
-    ['PDF-Kopf', conc('pdfHeaderText'), conc('pdfHeaderBg')],
-    ['PDF-Badge', conc('pdfBadgeText'), conc('pdfBadgeBg')],
-    ['PDF-Meldeart', conc('pdfArtText'), conc('pdfArtBg')],
-    ['PDF-Text', conc('pdfInk'), conc('pdfFooterBg')==='#FFFFFF'?'#FFFFFF':'#FFFFFF']
+    ['App-Aktionskarte', bestText(prim), prim],
+    ['PDF-Kopf', s.headerText, s.headerBg],
+    ['PDF-Badge', s.badgeText, s.badgeBg],
+    ['PDF-Meldeart', s.artText, s.artBg],
+    ['PDF-Fuß', s.footerText, s.footerBg]
   ];
   var out='';
   pairs.forEach(function(p){
@@ -418,103 +475,80 @@ function renderContrast(){
   document.getElementById('contrastList').innerHTML=out;
 }
 
-/* ================= „Voll editierbar" UI ================= */
+function render(){
+  var name=document.getElementById('f-name').value.trim()||'MobileReport';
+  renderApp(name); renderPdf(name); renderContrast();
+}
+
+/* ===== „Voll editierbar" ===== */
 function colorRow(role,label,desc){
-  var isAuto = !manual[role];
-  var val = manual[role] || auto(role);
-  return '<div class="crow" data-role="'+role+'">'+
-    '<div class="cl"><b>'+label+'</b>'+(desc?'<span>'+desc+'</span>':'')+'</div>'+
+  var isAuto=!manual[role], val=manual[role]||auto(role);
+  return '<div class="crow" data-role="'+role+'"><div class="cl"><b>'+label+'</b>'+(desc?'<span>'+desc+'</span>':'')+'</div>'+
     '<label class="autobox"><input type="checkbox" class="autochk" '+(isAuto?'checked':'')+'>auto</label>'+
     '<input type="color" class="rolecol" value="'+val+'" '+(isAuto?'disabled':'')+'></div>';
 }
 function buildFull(){
   document.getElementById('appColors').innerHTML=APP_ROLES.map(function(r){return colorRow(r[0],r[1],r[2]);}).join('');
   document.getElementById('pdfColors').innerHTML=PDF_ROLES.map(function(r){return colorRow(r[0],r[1],r[2]);}).join('');
-  var fl=[['pdfHeaderBorder','Rahmen/Linie unter dem Kopf'],['pdfBadgeBorder','Rahmen um das Badge'],['pdfArtBorder','Rahmen um die Meldeart'],['pdfFooterBorder','Linie über der Fußzeile']];
+  var fl=[['pdfHeaderBorder','Linie unter dem Kopf'],['pdfBadgeBorder','Rahmen um das Badge'],['pdfArtBorder','Rahmen um die Meldeart'],['pdfFooterBorder','Linie über der Fußzeile']];
   document.getElementById('flags').innerHTML=fl.map(function(f){return '<label class="flagrow"><input type="checkbox" class="flagchk" data-flag="'+f[0]+'" '+(flags[f[0]]?'checked':'')+'>'+f[1]+'</label>';}).join('');
   var ph='';
-  PRESETS.forEach(function(g){
-    ph+='<div class="pgroup" style="width:100%">'+g[0]+'</div><div class="presets">';
-    g[1].forEach(function(p){
-      ph+='<button class="preset" type="button" data-c1="'+p[1]+'" data-c2="'+p[2]+'"><span class="sw"><i style="background:'+p[1]+'"></i><i style="background:'+p[2]+'"></i></span>'+p[0]+'</button>';
-    });
-    ph+='</div>';
-  });
+  PRESETS.forEach(function(g){ph+='<div class="pgroup">'+g[0]+'</div><div class="presets">';
+    g[1].forEach(function(p){ph+='<button class="preset" type="button" data-c1="'+p[1]+'" data-c2="'+p[2]+'"><span class="sw"><i style="background:'+p[1]+'"></i><i style="background:'+p[2]+'"></i></span>'+p[0]+'</button>';});
+    ph+='</div>';});
   document.getElementById('presets').innerHTML=ph;
   wireFull();
 }
 function wireFull(){
   document.querySelectorAll('#fullBox .crow').forEach(function(row){
-    var role=row.getAttribute('data-role');
-    var chk=row.querySelector('.autochk'), col=row.querySelector('.rolecol');
-    chk.addEventListener('change',function(){
-      if(chk.checked){ delete manual[role]; col.disabled=true; col.value=auto(role); }
-      else{ manual[role]=col.value.toUpperCase(); col.disabled=false; }
-      render();
-    });
-    col.addEventListener('input',function(){ manual[role]=col.value.toUpperCase(); render(); });
+    var role=row.getAttribute('data-role'), chk=row.querySelector('.autochk'), col=row.querySelector('.rolecol');
+    chk.addEventListener('change',function(){if(chk.checked){delete manual[role];col.disabled=true;col.value=auto(role);}else{manual[role]=col.value.toUpperCase();col.disabled=false;}render();});
+    col.addEventListener('input',function(){manual[role]=col.value.toUpperCase();render();});
   });
-  document.querySelectorAll('.flagchk').forEach(function(f){
-    f.addEventListener('change',function(){ flags[f.getAttribute('data-flag')]=f.checked; render(); });
-  });
-  document.querySelectorAll('.preset').forEach(function(b){
-    b.addEventListener('click',function(){
-      var c1=b.getAttribute('data-c1'), c2=b.getAttribute('data-c2');
-      document.getElementById('c-accent').value=c1; manual.accent=c1;
-      manual.scaffoldBgLight=c2; // color2 als heller Hintergrund
-      refreshAutoInputs(); render();
-    });
-  });
+  document.querySelectorAll('.flagchk').forEach(function(f){f.addEventListener('change',function(){flags[f.getAttribute('data-flag')]=f.checked;render();});});
+  document.querySelectorAll('.preset').forEach(function(b){b.addEventListener('click',function(){
+    var c1=b.getAttribute('data-c1'),c2=b.getAttribute('data-c2');
+    document.getElementById('c-accent').value=c1;manual.accent=c1;manual.scaffoldBgLight=c2;
+    refreshAutoInputs();render();
+  });});
 }
-// Farbfelder, die auf „auto" stehen, nach Akzent-Änderung optisch nachziehen
 function refreshAutoInputs(){
   document.querySelectorAll('#fullBox .crow').forEach(function(row){
-    var role=row.getAttribute('data-role');
-    var col=row.querySelector('.rolecol');
-    if(!manual[role]){ col.value=auto(role); }
-    else{ col.value=manual[role]; row.querySelector('.autochk').checked=false; col.disabled=false; }
+    var role=row.getAttribute('data-role'),col=row.querySelector('.rolecol'),chk=row.querySelector('.autochk');
+    if(!manual[role]){col.value=auto(role);col.disabled=true;chk.checked=true;}else{col.value=manual[role];col.disabled=false;chk.checked=false;}
   });
 }
 
-/* ================= Modus-Umschaltung ================= */
+/* ===== Modus ===== */
 function setMode(m){
   mode=m;
-  document.querySelectorAll('.modes button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-mode')===m); });
-  document.getElementById('logoBox').style.display = m==='logo'?'block':'none';
-  document.getElementById('fullBox').style.display = m==='full'?'block':'none';
-  var hints={ accent:'Nur eine Akzentfarbe wählen – alle übrigen Farbrollen leitet die App automatisch passend ab.',
-    logo:'Der Konfigurator liest die kräftigste Farbe aus dem Logo und schlägt sie als Akzent vor.',
-    full:'Jede Farbrolle einzeln festlegen oder auf „auto" lassen. Presets als Startpunkt, Kontrast-Ampel beachten.' };
+  document.querySelectorAll('.modes button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-mode')===m);});
+  document.getElementById('logoBox').style.display=m==='logo'?'block':'none';
+  document.getElementById('fullBox').style.display=m==='full'?'block':'none';
+  var hints={accent:'Nur eine Akzentfarbe wählen – alle übrigen Farbrollen leitet die App automatisch passend ab.',logo:'Der Konfigurator liest die kräftigste Farbe aus dem Logo und schlägt sie als Akzent vor.',full:'Jede Farbrolle einzeln festlegen oder auf „auto" lassen. Presets als Startpunkt, Kontrast-Ampel beachten.'};
   document.getElementById('modeHint').textContent=hints[m];
-  if(m!=='full'){ manual={accent:manual.accent}; } // beim Verlassen zurück auf reine Akzent-Ableitung
-  if(m==='full'){ refreshAutoInputs(); }
+  if(m!=='full'){manual={accent:manual.accent};}
+  if(m==='full'){refreshAutoInputs();}
   render();
 }
 
-/* ================= Logo ================= */
+/* ===== Logo ===== */
 function handleLogo(file){
   var info=document.getElementById('logoInfo');
-  if(!file){ return; }
-  if(!/image\/(png|jpeg)/.test(file.type)){ info.innerHTML='<span style="color:#B91C1C">Bitte PNG oder JPG wählen.</span>'; return; }
-  var sizeKB=Math.round(file.size/1024);
-  var ext=file.type==='image/png'?'png':'jpg';
+  if(!file)return;
+  if(!/image\/(png|jpeg)/.test(file.type)){info.innerHTML='<span style="color:#B91C1C">Bitte PNG oder JPG wählen.</span>';return;}
+  var sizeKB=Math.round(file.size/1024), ext=file.type==='image/png'?'png':'jpg';
   var rd=new FileReader();
   rd.onload=function(){
-    var dataUrl=rd.result;
-    var img=new Image();
+    var dataUrl=rd.result, img=new Image();
     img.onload=function(){
       var over=[];
-      if(sizeKB>512) over.push(sizeKB+' KB (max. 512)');
-      if(img.naturalWidth>1024||img.naturalHeight>1024) over.push(img.naturalWidth+'×'+img.naturalHeight+' px (max. 1024)');
-      logo={ base64:String(dataUrl).split(',')[1], ext:ext, w:img.naturalWidth, h:img.naturalHeight, dataUrl:dataUrl };
+      if(sizeKB>512)over.push(sizeKB+' KB (max. 512)');
+      if(img.naturalWidth>1024||img.naturalHeight>1024)over.push(img.naturalWidth+'×'+img.naturalHeight+' px (max. 1024)');
+      logo={base64:String(dataUrl).split(',')[1],ext:ext,w:img.naturalWidth,h:img.naturalHeight,dataUrl:dataUrl,oversize:over.length>0};
       document.getElementById('logoPrev').src=dataUrl;
-      document.getElementById('logoPrev').style.display='block';
-      document.getElementById('dropTxt').style.display='none';
-      document.getElementById('logoRm').style.display='inline-block';
-      ['mAppLogo','pLogo'].forEach(function(id){ var e=document.getElementById(id); e.src=dataUrl; e.style.display='block'; });
-      info.innerHTML = over.length ? '<span style="color:#B91C1C">Zu groß: '+over.join(', ')+'. Bitte kleiner exportieren.</span>'
-        : '<span style="color:#2f6d12">'+img.naturalWidth+'×'+img.naturalHeight+' px · '+sizeKB+' KB · '+ext.toUpperCase()+'</span>';
-      logo.oversize = over.length>0;
+      document.getElementById('logoBoxPrev').style.display='flex';
+      info.innerHTML=over.length?'<span style="color:#B91C1C">Zu groß: '+over.join(', ')+'. Bitte kleiner exportieren.</span>':'<span style="color:#2f6d12">'+img.naturalWidth+'×'+img.naturalHeight+' px · '+sizeKB+' KB · '+ext.toUpperCase()+'</span>';
       render();
     };
     img.src=dataUrl;
@@ -523,119 +557,83 @@ function handleLogo(file){
 }
 function removeLogo(){
   logo=null;
-  document.getElementById('logoPrev').style.display='none';
-  document.getElementById('dropTxt').style.display='block';
-  document.getElementById('logoRm').style.display='none';
+  document.getElementById('logoBoxPrev').style.display='none';
   document.getElementById('logoInfo').textContent='';
   document.getElementById('f-logo').value='';
-  ['mAppLogo','pLogo'].forEach(function(id){ var e=document.getElementById(id); e.style.display='none'; e.removeAttribute('src'); });
   render();
 }
 function deriveFromLogo(){
-  var h=document.getElementById('deriveHint');
-  if(!logo){ h.innerHTML='<span style="color:#B91C1C">Zuerst ein Logo hochladen.</span>'; return; }
+  var hint=document.getElementById('deriveHint');
+  if(!logo){hint.innerHTML='<span style="color:#B91C1C">Zuerst ein Logo hochladen.</span>';return;}
   var img=new Image();
   img.onload=function(){
-    var s=48, cv=document.createElement('canvas'); cv.width=s; cv.height=s;
-    var ctx=cv.getContext('2d'); ctx.drawImage(img,0,0,s,s);
-    var d;
-    try{ d=ctx.getImageData(0,0,s,s).data; }
-    catch(e){ h.innerHTML='<span style="color:#B91C1C">Logo konnte nicht gelesen werden.</span>'; return; }
-    var best=null, bestScore=-1;
+    var s=48,cv=document.createElement('canvas');cv.width=s;cv.height=s;
+    var ctx=cv.getContext('2d');ctx.drawImage(img,0,0,s,s);
+    var d;try{d=ctx.getImageData(0,0,s,s).data;}catch(e){hint.innerHTML='<span style="color:#B91C1C">Logo konnte nicht gelesen werden.</span>';return;}
+    var best=null,bestScore=-1;
     for(var i=0;i<d.length;i+=4){
-      var r=d[i],g=d[i+1],b=d[i+2],a=d[i+3];
-      if(a<128) continue;
-      var mx=Math.max(r,g,b),mn=Math.min(r,g,b);
-      var sat=mx===0?0:(mx-mn)/mx;
-      var val=mx/255;
-      // kräftige, nicht zu helle/dunkle Farben bevorzugen
-      var score=sat*1.6 + (1-Math.abs(val-0.55))*0.6;
-      if(sat<0.12) continue;
-      if(score>bestScore){ bestScore=score; best=[r,g,b]; }
+      var r=d[i],g=d[i+1],b=d[i+2],al=d[i+3];if(al<128)continue;
+      var mx=Math.max(r,g,b),mn=Math.min(r,g,b),sat=mx===0?0:(mx-mn)/mx,val=mx/255;
+      if(sat<0.12)continue;
+      var score=sat*1.6+(1-Math.abs(val-0.55))*0.6;
+      if(score>bestScore){bestScore=score;best=[r,g,b];}
     }
-    if(!best){ // Fallback: dunkelste kräftige Fläche
-      for(var j=0;j<d.length;j+=4){ if(d[j+3]<128) continue; if(!best||(d[j]+d[j+1]+d[j+2])<(best[0]+best[1]+best[2])) best=[d[j],d[j+1],d[j+2]]; }
-    }
-    if(best){
-      var hex=rgb2hx(best);
-      document.getElementById('c-accent').value=hex; manual.accent=hex;
-      if(mode==='full') refreshAutoInputs();
-      h.innerHTML='<span style="color:#2f6d12">Vorschlag übernommen: '+hex+'. Du kannst ihn oben weiter anpassen.</span>';
-      render();
-    }
+    if(!best){for(var j=0;j<d.length;j+=4){if(d[j+3]<128)continue;if(!best||(d[j]+d[j+1]+d[j+2])<(best[0]+best[1]+best[2]))best=[d[j],d[j+1],d[j+2]];}}
+    if(best){var hex=rgb2hx(best);document.getElementById('c-accent').value=hex;manual.accent=hex;if(mode==='full')refreshAutoInputs();hint.innerHTML='<span style="color:#2f6d12">Vorschlag übernommen: '+hex+'. Oben weiter anpassbar.</span>';render();}
   };
   img.src=logo.dataUrl;
 }
 
-/* ================= Export ================= */
-function pad(n){ return (n<10?'0':'')+n; }
-function isoNow(){ var d=new Date(); return d.getUTCFullYear()+'-'+pad(d.getUTCMonth()+1)+'-'+pad(d.getUTCDate())+'T'+pad(d.getUTCHours())+':'+pad(d.getUTCMinutes())+':'+pad(d.getUTCSeconds())+'Z'; }
-function colorsObj(){
-  var o={ accent: accent() };
-  APP_ROLES.concat(PDF_ROLES).forEach(function(r){ o[r[0]] = manual[r[0]] || 'auto'; });
-  return o;
-}
+/* ===== Export ===== */
+function pad(n){return (n<10?'0':'')+n;}
+function isoNow(){var d=new Date();return d.getUTCFullYear()+'-'+pad(d.getUTCMonth()+1)+'-'+pad(d.getUTCDate())+'T'+pad(d.getUTCHours())+':'+pad(d.getUTCMinutes())+':'+pad(d.getUTCSeconds())+'Z';}
+function colorsObj(){var o={accent:accent()};APP_ROLES.concat(PDF_ROLES).forEach(function(r){o[r[0]]=manual[r[0]]||'auto';});return o;}
 function buildBrand(){
   var name=document.getElementById('f-name').value.trim();
-  return {
-    app:'MobileReport', type:'brand-theme', version:1, exportedAt:isoNow(),
-    brand:{
-      name: name || 'MobileReport',
-      pdfLayoutDefault: LAYOUT,
-      logo: logo ? { base64:logo.base64, ext:logo.ext, w:logo.w, h:logo.h } : null,
-      colors: colorsObj(),
-      flags: { pdfBadgeBorder:!!flags.pdfBadgeBorder, pdfArtBorder:!!flags.pdfArtBorder, pdfFooterBorder:!!flags.pdfFooterBorder, pdfHeaderBorder:!!flags.pdfHeaderBorder }
-    }
-  };
+  return {app:'MobileReport',type:'brand-theme',version:1,exportedAt:isoNow(),
+    brand:{name:name||'MobileReport',pdfLayoutDefault:LAYOUT,logo:logo?{base64:logo.base64,ext:logo.ext,w:logo.w,h:logo.h}:null,colors:colorsObj(),
+      flags:{pdfBadgeBorder:!!flags.pdfBadgeBorder,pdfArtBorder:!!flags.pdfArtBorder,pdfFooterBorder:!!flags.pdfFooterBorder,pdfHeaderBorder:!!flags.pdfHeaderBorder}}};
 }
-function slug(s){ return (s||'branding').toLowerCase().replace(/[äöü]/g,function(c){return{'ä':'ae','ö':'oe','ü':'ue'}[c];}).replace(/ß/g,'ss').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40)||'branding'; }
+function slug(s){return (s||'branding').toLowerCase().replace(/[äöü]/g,function(c){return {'ä':'ae','ö':'oe','ü':'ue'}[c];}).replace(/ß/g,'ss').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40)||'branding';}
 function doExport(){
-  var msg=document.getElementById('exportMsg');
-  var name=document.getElementById('f-name').value.trim();
-  if(!name){ msg.innerHTML='<div class="warnmsg">Bitte zuerst einen Namen eingeben.</div>'; document.getElementById('f-name').focus(); return; }
-  if(logo && logo.oversize){ msg.innerHTML='<div class="warnmsg">Logo ist zu groß (max. 512 KB / 1024 px). Bitte ein kleineres Logo verwenden.</div>'; return; }
-  var data=buildBrand();
-  var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
-  var url=URL.createObjectURL(blob);
-  var a=document.createElement('a'); a.href=url; a.download=slug(name)+'.mrbrand';
-  document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(function(){ URL.revokeObjectURL(url); },1500);
+  var msg=document.getElementById('exportMsg'), name=document.getElementById('f-name').value.trim();
+  if(!name){msg.innerHTML='<div class="warnmsg">Bitte zuerst einen Namen eingeben.</div>';document.getElementById('f-name').focus();return;}
+  if(logo&&logo.oversize){msg.innerHTML='<div class="warnmsg">Logo ist zu groß (max. 512 KB / 1024 px). Bitte ein kleineres Logo verwenden.</div>';return;}
+  var blob=new Blob([JSON.stringify(buildBrand(),null,2)],{type:'application/json'});
+  var url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=slug(name)+'.mrbrand';
+  document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},1500);
   msg.innerHTML='<div class="okmsg">Datei <span class="mono">'+slug(name)+'.mrbrand</span> erstellt. In MobileReport Enterprise unter „Branding importieren" öffnen.</div>';
 }
 
-/* ================= Verdrahtung ================= */
+/* ===== Verdrahtung ===== */
 function init(){
-  buildFull();
-  render();
+  buildFull();render();
   document.getElementById('f-name').addEventListener('input',render);
-  document.getElementById('c-accent').addEventListener('input',function(){ manual.accent=this.value.toUpperCase(); if(mode==='full') refreshAutoInputs(); render(); });
-  document.querySelectorAll('.modes button').forEach(function(b){ b.addEventListener('click',function(){ setMode(b.getAttribute('data-mode')); }); });
-  document.querySelectorAll('.pv-tabs button').forEach(function(b){ b.addEventListener('click',function(){
-    document.querySelectorAll('.pv-tabs button').forEach(function(x){x.classList.remove('on');}); b.classList.add('on');
+  document.getElementById('c-accent').addEventListener('input',function(){manual.accent=this.value.toUpperCase();if(mode==='full')refreshAutoInputs();render();});
+  document.querySelectorAll('.modes button').forEach(function(b){b.addEventListener('click',function(){setMode(b.getAttribute('data-mode'));});});
+  document.querySelectorAll('.pv-tabs button').forEach(function(b){b.addEventListener('click',function(){
+    document.querySelectorAll('.pv-tabs button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');
     var pv=b.getAttribute('data-pv');
     document.getElementById('pvApp').style.display=pv==='app'?'block':'none';
     document.getElementById('pvPdf').style.display=pv==='pdf'?'block':'none';
-  }); });
-  document.querySelectorAll('#pdfLayout label').forEach(function(l){
-    l.addEventListener('click',function(){
-      document.querySelectorAll('#pdfLayout label').forEach(function(x){x.classList.remove('on');}); l.classList.add('on');
-      LAYOUT=l.querySelector('input').value; if(mode==='full') refreshAutoInputs(); render();
-    });
-  });
-  var drop=document.getElementById('drop'), fi=document.getElementById('f-logo');
-  fi.addEventListener('change',function(){ if(fi.files[0]) handleLogo(fi.files[0]); });
-  ['dragover','dragenter'].forEach(function(ev){ drop.addEventListener(ev,function(e){ e.preventDefault(); drop.classList.add('hot'); }); });
-  ['dragleave','drop'].forEach(function(ev){ drop.addEventListener(ev,function(e){ e.preventDefault(); drop.classList.remove('hot'); }); });
-  drop.addEventListener('drop',function(e){ var f=e.dataTransfer.files[0]; if(f) handleLogo(f); });
-  document.getElementById('logoRm').addEventListener('click',function(e){ e.preventDefault(); removeLogo(); });
+  });});
+  document.querySelectorAll('#pdfLayout label').forEach(function(l){l.addEventListener('click',function(){
+    document.querySelectorAll('#pdfLayout label').forEach(function(x){x.classList.remove('on');});l.classList.add('on');
+    LAYOUT=l.querySelector('input').value;if(mode==='full')refreshAutoInputs();render();
+  });});
+  var drop=document.getElementById('drop'),fi=document.getElementById('f-logo');
+  fi.addEventListener('change',function(){if(fi.files[0])handleLogo(fi.files[0]);});
+  ['dragover','dragenter'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.add('hot');});});
+  ['dragleave','drop'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.remove('hot');});});
+  drop.addEventListener('drop',function(e){var f=e.dataTransfer.files[0];if(f)handleLogo(f);});
+  document.getElementById('logoRm').addEventListener('click',function(e){e.preventDefault();removeLogo();});
   document.getElementById('deriveBtn').addEventListener('click',deriveFromLogo);
   document.getElementById('exportBtn').addEventListener('click',doExport);
   document.getElementById('resetBtn').addEventListener('click',function(){
-    manual={}; flags={ pdfBadgeBorder:true, pdfArtBorder:false, pdfFooterBorder:true, pdfHeaderBorder:false };
-    LAYOUT='dark'; removeLogo();
-    document.getElementById('f-name').value=''; document.getElementById('c-accent').value='#0E7490';
-    document.querySelectorAll('#pdfLayout label').forEach(function(x,i){ x.classList.toggle('on',i===0); });
-    buildFull(); setMode('accent'); document.getElementById('exportMsg').innerHTML='';
+    manual={};flags={pdfBadgeBorder:true,pdfArtBorder:false,pdfFooterBorder:true,pdfHeaderBorder:false};LAYOUT='dark';removeLogo();
+    document.getElementById('f-name').value='';document.getElementById('c-accent').value='#0E7490';
+    document.querySelectorAll('#pdfLayout label').forEach(function(x,i){x.classList.toggle('on',i===0);});
+    buildFull();setMode('accent');document.getElementById('exportMsg').innerHTML='';
   });
   setMode('accent');
 }
