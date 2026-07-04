@@ -89,6 +89,14 @@
   .goalbar-track{height:12px;background:#f1e6d9;border:1px solid #ecdfd2;border-radius:20px;overflow:hidden;margin-top:6px}
   .goalbar-fill{height:100%;background:#D97706;border-radius:20px}
   .goalbar-note{font-size:.82rem;color:var(--muted);margin-top:6px}
+  .bank-box{background:var(--cream);border:1px solid #f0e0cf;border-radius:14px;padding:14px 16px;margin:6px 0 12px}
+  .bank-box h3{font-size:1rem;color:var(--brown);margin-bottom:4px}
+  .bank-box>p{font-size:.9rem;margin:0 0 8px}
+  .bank-dl{display:grid;gap:4px;margin:0 0 6px}
+  .bank-dl div{display:flex;gap:10px;font-size:.92rem}
+  .bank-dl dt{min-width:98px;color:var(--muted)}
+  .bank-dl dd{margin:0;font-weight:600;color:var(--brown);font-family:'Poppins',-apple-system,sans-serif}
+  .bank-hint{font-size:.82rem;color:var(--muted);margin:0}
   .goal-band{background:#fff;border:1px solid #ecdfd2;border-radius:16px;padding:20px 22px}
   .goal-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 18px;list-style:none;margin-top:14px}
   .goal-list li{position:relative;padding-left:24px;color:var(--muted)}
@@ -184,6 +192,17 @@
         <div class="goalbar-head"><span>Unterst&uuml;tzung gesamt</span><strong>0 &euro; von 5.000 &euro;</strong></div>
         <div class="goalbar-track"><div class="goalbar-fill" style="width:1%"></div></div>
         <p class="goalbar-note">Richtwert f&uuml;r die aktuelle Wunschliste &ndash; w&auml;chst mit jeder Unterst&uuml;tzung. <!-- Betraege und width:XX% hier anpassen --></p>
+      </div>
+      <div class="bank-box">
+        <h3>Per Überweisung</h3>
+        <p>Lieber direkt und ohne Gebühren? Du kannst auch klassisch überweisen – auf das reine Firmenkonto von FehlerFuchs:</p>
+        <dl class="bank-dl">
+          <div><dt>Kontoinhaber</dt><dd>Matthias Schacht (FehlerFuchs)</dd></div>
+          <div><dt>IBAN</dt><dd>DE13 1001 1001 2272 4154 76</dd></div>
+          <div><dt>BIC</dt><dd>NTSBDEB1XXX</dd></div>
+          <div><dt>Bank</dt><dd>N26</dd></div>
+        </dl>
+        <p class="bank-hint">Verwendungszweck z. B. „Unterstützung FehlerFuchs“.</p>
       </div>
       <p class="legal-note">Die Unterstützung ist freiwillig. Sie ist keine Voraussetzung, um FehlerFuchs zu nutzen. Es wird keine Spendenbescheinigung ausgestellt und es handelt sich nicht um eine steuerlich absetzbare Spende.</p>
     </div>
