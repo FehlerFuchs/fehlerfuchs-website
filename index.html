@@ -196,6 +196,11 @@
     .tab-backdrop{position:fixed;inset:0;bottom:68px;z-index:48;background:rgba(43,22,11,.18);display:none}
     .tab-more-cb:checked ~ .tab-backdrop{display:block}
   }
+  .app-card.paused{opacity:.6;filter:grayscale(.75)}
+  .app-card.paused .cgo{background:#7d827b}
+  .app-card.paused .cgo:hover{filter:none;text-decoration:none}
+  .app-card .cbadge.paused{background:#ECEAE6;color:#5f5e5a;border-color:#d7d5cd}
+  .badge.paused{background:#eceae6;color:#5f5e5a;border-color:#d7d5cd}
 </style>
 </head>
 <body>
@@ -493,13 +498,13 @@
       <div class="cfoot"><span class="cbadge">lokal · kein Tracking</span><a class="cgo" style="background:#9F1239" href="apps/pdfuchs.html">Zur Produktseite</a></div>
     </article>
 
-    <article class="app-card">
+    <article class="app-card paused" title="Entwicklung vorerst eingestellt">
       <div class="lk">
         <img src="img/coppicemail-bildmarke.svg" alt="CoppiceMail" width="54" height="54">
-        <div><div class="cw"><span style="color:#0F5132">Coppice</span>Mail</div><div class="von">von FehlerFuchs · neu</div></div>
+        <div><div class="cw"><span style="color:#0F5132">Coppice</span>Mail</div><div class="von">von FehlerFuchs · pausiert</div></div>
       </div>
       <p class="ctag">Lokales E-Mail- &amp; Belegwerkzeug: Mail → Anhang → Beleg → Archiv.</p>
-      <div class="cfoot"><span class="cbadge">lokal · kein Tracking</span><a class="cgo" style="background:#0F5132" href="apps/coppicemail.html">Zur Produktseite</a></div>
+      <div class="cfoot"><span class="cbadge paused">Entwicklung pausiert</span><a class="cgo" href="apps/coppicemail.html" title="Entwicklung vorerst eingestellt">Mehr erfahren</a></div>
     </article>
 
   </div>
@@ -868,7 +873,7 @@
           <text class="wm" x="156" y="92" font-size="60">FehlerFuchs <tspan fill="#0F5132">Coppice</tspan>Mail</text>
         </svg>
         <span class="sumright">
-          <span class="badge">In Entwicklung · Windows</span>
+          <span class="badge paused">Entwicklung pausiert · Windows</span>
           <span class="more">
             <span class="lbl-closed">Mehr erfahren</span>
             <span class="lbl-open">Weniger anzeigen</span>
@@ -877,6 +882,7 @@
         </span>
       </summary>
       <div class="app-body">
+        <div role="note" style="background:#f1efe9;border:1px solid #ddd9cf;border-radius:12px;padding:11px 15px;color:#4a4740;font-size:.92rem;margin:0 0 12px"><strong>Entwicklung pausiert.</strong> CoppiceMail wird derzeit nicht aktiv weiterentwickelt. Das Vorhaben bleibt bestehen und kann später wieder aufgenommen werden – es gehen keine Daten oder Arbeitsstände verloren.</div>
         <h3 class="first">Was ist <span style="color:#0F5132;font-weight:900">Coppice</span>Mail?</h3>
         <p style="margin:2px 0 8px"><a class="cta" href="apps/coppicemail.html" style="margin-top:0;padding:8px 15px;font-size:.88rem">Zur Produktseite →</a></p>
         <p>Ein lokales, datensparsames <strong>E-Mail-Programm</strong> für Kleingewerbe, Handwerk und kleine Büros. Es macht den Weg <strong>Mail → Anhang → Beleg → Archiv</strong> kurz und sicher und sitzt bewusst zwischen Mailclient und Dokumentenmanagement – <strong>100 % lokal</strong>, ohne Cloud-Zwang, ohne Konto bei uns.</p>

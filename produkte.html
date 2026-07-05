@@ -54,6 +54,9 @@
     .tab-backdrop{position:fixed;inset:0;bottom:68px;z-index:48;background:rgba(43,22,11,.18);display:none}
     .tab-more-cb:checked ~ .tab-backdrop{display:block}
   }
+  ul.prod li.paused a.row{opacity:.55;filter:grayscale(.7)}
+  ul.prod li.paused a.row:hover{background:transparent}
+  .ptag{font-size:.7rem;font-weight:700;color:#5f5e5a;background:#eceae6;border:1px solid #d7d5cd;border-radius:20px;padding:2px 8px;margin-left:6px;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -106,7 +109,7 @@
   <li><a class="row" href="apps/fuchsbau.html"><span class="nm">FehlerFuchs Fuchs<span class="in">Bau</span></span><span class="desc">– Passwortmanager</span><span class="arrow">→</span></a></li>
   <li><a class="row" href="apps/cleandesk.html"><span class="nm">FehlerFuchs Clean<span class="pt">Desk</span></span><span class="desc">– Ordnungshelfer für Windows</span><span class="arrow">→</span></a></li>
   <li><a class="row" href="apps/pdfuchs.html"><span class="nm">FehlerFuchs <span class="pf">PDF</span>uchs</span><span class="desc">– lokale PDF-Vollsuite</span><span class="arrow">→</span></a></li>
-  <li><a class="row" href="apps/coppicemail.html"><span class="nm">FehlerFuchs <span style="color:#0F5132">Coppice</span>Mail</span><span class="desc">– lokales E-Mail- &amp; Belegwerkzeug</span><span class="arrow">→</span></a></li>
+  <li class="paused"><a class="row" href="apps/coppicemail.html" title="Entwicklung vorerst eingestellt"><span class="nm">FehlerFuchs <span style="color:#0F5132">Coppice</span>Mail</span><span class="desc">– lokales E-Mail- &amp; Belegwerkzeug</span><span class="ptag">pausiert</span><span class="arrow">→</span></a></li>
 </ul>
 
 <footer>© 2026 FehlerFuchs. Alle Rechte vorbehalten. Datensparsam, ohne Cloud und ohne Tracking.</footer>
