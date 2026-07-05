@@ -104,6 +104,7 @@
       <select id="thema" name="thema">
         <option>Allgemeine Frage</option>
         <option>Interesse / Vormerken</option>
+        <option>PlayStore / Lemon – Veröffentlichung / Benachrichtigung</option>
         <option>Unterstützung / Wunschliste</option>
         <option>Beta-Test</option>
         <option>Feedback</option>
@@ -174,7 +175,7 @@
     for(var i=0;i<sel.options.length;i++){ if(sel.options[i].value.toLowerCase()===val.toLowerCase()){ sel.selectedIndex=i; return; } }
   }
   preselect(appSel, qs.get("app"));
-  var topicMap = {interesse:"Interesse / Vormerken", wunschliste:"Unterstützung / Wunschliste", beta:"Beta-Test", feedback:"Feedback", fehler:"Fehler melden", idee:"Idee / Vorschlag", empfehlung:"Empfehlung", kooperation:"Kooperation / Presse", impressum:"Impressum / Rechtliches", frage:"Allgemeine Frage"};
+  var topicMap = {interesse:"Interesse / Vormerken", launch:"PlayStore / Lemon – Veröffentlichung / Benachrichtigung", wunschliste:"Unterstützung / Wunschliste", beta:"Beta-Test", feedback:"Feedback", fehler:"Fehler melden", idee:"Idee / Vorschlag", empfehlung:"Empfehlung", kooperation:"Kooperation / Presse", impressum:"Impressum / Rechtliches", frage:"Allgemeine Frage"};
   var t = qs.get("topic"); if(t && topicMap[t.toLowerCase()]) preselect(themaSel, topicMap[t.toLowerCase()]);
   var pre = qs.get("text"); if(pre){ var nm = document.getElementById("nachricht"); if(nm) nm.value = pre; }
 

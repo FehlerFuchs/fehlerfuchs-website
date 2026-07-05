@@ -40,6 +40,14 @@
   .cta:hover{background:#b45309;text-decoration:none}
   .cta.ghost{background:#fff;color:var(--action);border:1px solid #f0d6c4}
   .badge.launch{background:#FEF3E2;color:#9A5B0E;border-color:#F3D9B0}
+  .badge.ent{background:#e7e9f4;color:#3b3a86;border-color:#c9cdea}
+  .cta.buy-disabled{background:#eceae6;color:#6b6a66;border:1px solid #d7d5cd;cursor:not-allowed;pointer-events:none}
+  .cta.buy-disabled small{font-weight:600;opacity:.85}
+  .tbtn{display:inline-block;margin-top:6px;font-size:.8rem;font-weight:600;background:#fff;color:var(--action);border:1px solid #f0d6c4;border-radius:9px;padding:5px 10px;line-height:1}
+  .tbtn:hover{background:#fff7f1;text-decoration:none}
+  .wl-guide h3{margin-bottom:4px}
+  .wl-steps{margin:12px 0 0;padding-left:22px;display:grid;gap:10px}
+  .wl-steps li{line-height:1.55}
   .store-soon{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid #e4d4c4;border-radius:12px;padding:8px 14px;color:var(--brown);font-family:'Poppins',-apple-system,sans-serif;line-height:1.15;cursor:default;user-select:none}
   .store-soon svg{color:#2E7D46;flex:none}
   .store-soon small{display:block;font-size:.6rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
@@ -150,14 +158,16 @@
       <span class="badge">Android</span>
       <span class="badge">100 % lokal</span>
       <span class="badge">werbefrei</span>
+      <span class="badge ent" title="Nur als Direkt-Download für Firmen – nicht im Google Play Store">Enterprise · nur off-Play (Firmen)</span>
     </div>
     <div class="cta-row">
       <span class="store-soon" role="img" aria-label="MobileReport erscheint demnächst bei Google Play">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
         <span><small>Demnächst bei</small><b>Google Play</b></span>
       </span>
-      <a class="cta" href="../kontakt.html?app=MobileReport&topic=beta">Zum Start benachrichtigen</a>
+      <a class="cta" href="../kontakt.html?app=MobileReport&topic=launch">Zum Start benachrichtigen</a>
       <a class="cta ghost" href="#editionen">Editionen ansehen</a>
+      <a class="cta ghost" href="mobilereport-konfigurator.html">Branding-Konfigurator <small style="opacity:.7">· nur Enterprise</small></a>
     </div>
     <p class="hero-note">Der Play-Store-Link wird hier aktiv, sobald Google die App freigegeben hat.</p>
   </div>
@@ -236,8 +246,8 @@
         <tr><td>Vorkonfiguration (Bereiche/Standorte/Empfänger) per CSV-Import</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         <tr><td>Erweiterte Filter &amp; Suche im Logbuch</td><td>Basis</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         <tr><td title="Zählweise frei wählbar (fortlaufend, jährlich/monatlich zurücksetzend, je Bereich/Standort, Startwert &amp; Stellenanzahl); Dateiname per Vorlage aus Bausteinen.">Eigene Logbuch-Zählweise &amp; Dateinamen-Generator</td><td>Standard (fest)</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td title="Pro: 15 fertige Farbschemata. Enterprise: Logo, Farben und Name komplett frei – im Branding-Konfigurator zusammengestellt.">Branding &amp; Farbschema</td><td class="no">–</td><td>Firmen-Logo · 15 Vorlagen ²</td><td>voll-custom (Logo, Farben, Name)</td></tr>
-        <tr><td>App unter eigenem Namen/Logo</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
+        <tr><td title="Pro: 15 fertige Farbschemata. Enterprise: Logo, Farben und Name komplett frei – im Branding-Konfigurator zusammengestellt.">Branding &amp; Farbschema</td><td class="no">–</td><td>Firmen-Logo · 15 Vorlagen ²</td><td>voll-custom (Logo, Farben, Name)<br><a class="tbtn" href="mobilereport-konfigurator.html">Branding-Konfigurator öffnen →</a></td></tr>
+        <tr><td>App unter eigenem Namen/Logo</td><td class="no">–</td><td class="no">–</td><td class="yes" title="Eigener App-Name/-Icon im Launcher: Bestandteil von Custom (wir branden)">nur Custom</td></tr>
         <tr><td>Geräte-Sync / Anbindung an eigene Systeme</td><td class="no">–</td><td class="no">–</td><td>nur auf Wunsch ¹</td></tr>
         <tr><td>Vertrieb</td><td>Google Play · gratis</td><td>Google Play · ~5 €</td><td>Direkt-Download (off-Play)</td></tr>
         <tr><td>Freischaltung</td><td class="no">–</td><td>Play-Kauf (kontogebunden)</td><td>Lizenzschlüssel je Arbeitsplatz</td></tr>
@@ -284,12 +294,27 @@
   <h2 class="sec">Enterprise – für Firmen <span class="badge launch" style="vertical-align:middle">in Vorbereitung</span></h2>
   <p><strong>Enterprise</strong> ist die Firmen-Stufe von MobileReport: <strong>Direkt-Download außerhalb von Google Play</strong>, <strong>voll-custom Branding</strong> (eigenes Logo, eigene Farben, eigener App-Name) und Freischaltung per <strong>Lizenzschlüssel je Arbeitsplatz</strong>. Weiterhin strikt lokal – Sync/Server nur auf ausdrücklichen Wunsch. Es ist <strong>ein Produkt</strong> (dieselbe App) mit zwei Service-Leveln:</p>
   <div class="grid">
-    <div class="card"><h3>White-Label <span class="badge">selbst branden</span></h3><p>Ihr stellt euer Branding <strong>selbst</strong> zusammen – im kostenlosen <a href="mobilereport-konfigurator.html">Branding-Konfigurator</a> (Logo &amp; Farben, Live-Vorschau) – und importiert die erzeugte <code>.mrbrand</code>-Datei in die App.</p></div>
+    <div class="card"><h3>White-Label <span class="badge">selbst branden</span></h3><p>Ihr stellt euer Branding <strong>selbst</strong> zusammen – im kostenlosen <a href="mobilereport-konfigurator.html">Branding-Konfigurator</a> (Logo &amp; Farben, Live-Vorschau) – und importiert die erzeugte <code>.mrbrand</code>-Datei in die App.</p><p style="margin-top:10px"><a class="cta buy-disabled" role="button" aria-disabled="true" title="Kauf über die Website – Checkout folgt">White-Label kaufen <small>· Checkout folgt</small></a></p><p style="margin-top:8px;font-size:.9rem"><a href="#wl-anleitung">So funktioniert White-Label – Schritt-für-Schritt-Anleitung ↓</a></p></div>
     <div class="card"><h3>Custom <span class="badge">wir branden</span></h3><p>Kein Aufwand für euch: <strong>wir</strong> richten das Branding für euch ein. Gleiche App, gleiche Technik – nur als Dienstleistung.</p><p style="margin-top:6px;font-size:.9rem;color:var(--muted)">Aufpreis je nach Aufwand – wird separat in Rechnung gestellt. <a href="../kontakt.html?app=MobileReport&topic=interesse">Unverbindliches Angebot anfragen</a>.</p></div>
     <div class="card"><h3>Lizenzen je Arbeitsplatz</h3><p>Freischaltung per Lizenzschlüssel. Staffelpakete (geplant, Beispielpreise):</p><ul style="margin:6px 0 0;padding-left:18px"><li>10 Lizenzen – 50 €</li><li>25 Lizenzen – 100 €</li><li>50 Lizenzen – 150 €</li><li>100 Lizenzen – 200 €</li></ul></div>
     <div class="card"><h3>Bezug &amp; Installation</h3><p><strong>Direkt-Download (APK)</strong> außerhalb des Play Stores, mit kurzer Installationsanleitung. Kauf/Lizenzausgabe künftig über die Website (Checkout folgt). <a href="mobilereport-enterprise.html">Zur Enterprise-Download-Seite →</a></p></div>
   </div>
-  <div class="card" id="konfigurator" style="margin-top:14px"><h3>Branding-Konfigurator <span class="badge launch">bald</span></h3><p>Ein Werkzeug direkt im Browser: Logo hochladen, <strong>Farben frei</strong> wählen (Akzent, „aus Logo ableiten" oder voll editierbar), <strong>Live-Vorschau</strong> ansehen – und eine <strong>Branding-Datei</strong> (<code>.mrbrand</code>) herunterladen, die ihr in eurer Enterprise-App importiert. Läuft <strong>vollständig lokal im Browser</strong>, ohne Server, kostenlos. <a href="mobilereport-konfigurator.html">Mehr &amp; ausprobieren →</a></p></div>
+  <div class="card" id="konfigurator" style="margin-top:14px"><h3>Branding-Konfigurator <span class="badge">live</span></h3><p>Ein Werkzeug direkt im Browser: Logo hochladen, <strong>Farben frei</strong> wählen (Akzent, „aus Logo ableiten" oder voll editierbar), <strong>Live-Vorschau</strong> ansehen – und eine <strong>Branding-Datei</strong> (<code>.mrbrand</code>) herunterladen, die ihr in eurer Enterprise-App importiert. Läuft <strong>vollständig lokal im Browser</strong>, ohne Server, kostenlos. <a href="mobilereport-konfigurator.html">Jetzt öffnen &amp; ausprobieren →</a></p></div>
+  <div class="card wl-guide" id="wl-anleitung" style="margin-top:14px">
+    <h3>White-Label – so läuft's ab (Schritt für Schritt)</h3>
+    <p style="color:var(--muted)">Für Firmen, die ihr Branding <strong>selbst</strong> übernehmen: Ihr kauft Lizenzen, brandet die App im Konfigurator, richtet sie einmal für alle ein und verteilt sie an eure Mitarbeitenden – alles bleibt strikt lokal, ohne Cloud-Zwang.</p>
+    <ol class="wl-steps">
+      <li><strong>Lizenzpaket kaufen.</strong> Ihr erwerbt White-Label-Lizenzen (Staffelpaket je Arbeitsplatz) über die Website und erhaltet die gekauften <strong>Lizenzschlüssel</strong> sowie den <strong>Direkt-Downloadlink</strong> zur App (außerhalb von Google Play). <em>(Kauf-Button ist noch ein Platzhalter – Checkout folgt.)</em></li>
+      <li><strong>Branding zusammenstellen.</strong> Im kostenlosen <a href="mobilereport-konfigurator.html">Branding-Konfigurator</a> wählt ihr Logo, Farben und App-Namen, seht die Live-Vorschau und ladet die <strong><code>.mrbrand</code>-Datei</strong> herunter. Läuft komplett im Browser – nichts wird hochgeladen.</li>
+      <li><strong>Branding auf eure App anwenden.</strong> Ihr installiert die App einmal (siehe Installationshinweis unten) und <strong>importiert die <code>.mrbrand</code>-Datei</strong> – die App trägt jetzt eure Marke: Name, Logo und Farben.</li>
+      <li><strong>App vorkonfigurieren &amp; exportieren.</strong> Ihr legt eure <strong>Berechtigungen, Standorte, Bereiche, Kategorien, Pflichtfelder und Empfänger</strong> fest (CSV-Import möglich) und <strong>exportiert diese Einstellungen als Datei</strong> – z. B. in eure firmeneigene Cloud/Ablage. So richtet ihr alle Geräte einheitlich ein.</li>
+      <li><strong>Lizenzen an Mitarbeitende verteilen.</strong> Jede/r bekommt einen <strong>Lizenzschlüssel</strong> und den <strong>Direkt-Downloadlink</strong> – dazu die Branding- und Einstellungsdatei. <em>Geplant (Umsetzung noch in Klärung): ein personalisierter Direktlink, der App-Download, Branding und Einstellungen in einem Schritt mitbringt.</em></li>
+      <li><strong>Mitarbeitende installieren.</strong> Über den Link laden sie die <strong>APK</strong> herunter, geben ihren <strong>Lizenzschlüssel</strong> ein und übernehmen Branding + Einstellungen.</li>
+      <li><strong>Installation aus „unbekannter Quelle" erlauben.</strong> Weil die App bewusst <strong>außerhalb des Play Stores</strong> läuft, fragt Android einmalig nach: <em>„Installation aus dieser Quelle zulassen".</em> Kurz: <em>Einstellungen → Apps → Spezieller App-Zugriff → Unbekannte Apps installieren</em> → für den genutzten Browser bzw. Dateimanager <strong>erlauben</strong>. Danach ganz normal installieren.</li>
+      <li><strong>Fertig.</strong> Jede/r hat die App unter <strong>eurer Marke</strong>, mit euren Bereichen und Empfängern – strikt lokal, ohne Cloud-Zwang.</li>
+    </ol>
+    <p style="margin-top:10px;font-size:.9rem;color:var(--muted)">Hinweis: Ein eigener <strong>App-Name/-Icon im Launcher</strong> (System-Startbildschirm) ist Bestandteil von <strong>Custom</strong> (wir branden). Bei White-Label brandet ihr die App-Inhalte selbst über die <code>.mrbrand</code>-Datei.</p>
+  </div>
   <p style="margin-top:12px">Interesse an Enterprise (White-Label/Custom)? <a href="../kontakt.html?app=MobileReport&topic=interesse">info@fehlerfuchs.eu</a></p>
   <p style="margin-top:6px;font-size:.82rem;color:var(--muted)">Preise und Pakete sind vorläufig geplant und dienen als Beispiel; verbindliche Konditionen nach Anfrage. Die Konfiguration ist kostenlos – bezahlt wird nur die Lizenz.</p>
 </section>
