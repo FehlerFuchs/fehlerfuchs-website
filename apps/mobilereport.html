@@ -41,6 +41,21 @@
   .cta.ghost{background:#fff;color:var(--action);border:1px solid #f0d6c4}
   .badge.launch{background:#FEF3E2;color:#9A5B0E;border-color:#F3D9B0}
   .badge.ent{background:#e7e9f4;color:#3b3a86;border-color:#c9cdea}
+  .ed-chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 2px}
+  .ed-chip{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:12px;border:1px solid #ecdfd2;background:#fff;text-decoration:none;line-height:1.2}
+  .ed-chip:hover{border-color:var(--orange);background:#fff7f1;text-decoration:none}
+  .ed-chip .txt{display:flex;flex-direction:column;gap:2px}
+  .ed-chip .txt b{font-size:.92rem;color:var(--brown)}
+  .ed-chip .txt span{font-size:.72rem;color:var(--muted)}
+  .ed-chip.free .txt b{color:#2E7D46}
+  .ed-chip.ent .txt b{color:#3b3a86}
+  .ed-chip .go{margin-left:auto;font-size:1rem;color:var(--orange);font-weight:700}
+  .schemes-toggle summary,.wl-toggle summary{cursor:pointer;font-weight:600;color:var(--action);margin:6px 0}
+  .schemes-toggle[open] summary,.wl-toggle[open] summary{margin-bottom:10px}
+  details.schemes-toggle,details.wl-toggle{margin-top:6px}
+  .wl-flow{margin:14px 0 6px}
+  .wl-flow svg{width:100%;height:auto;display:block}
+  .wl-flow figcaption{font-size:.82rem;color:var(--muted);margin-top:6px;text-align:center}
   .cta.buy-disabled{background:#eceae6;color:#6b6a66;border:1px solid #d7d5cd;cursor:not-allowed;pointer-events:none}
   .cta.buy-disabled small{font-weight:600;opacity:.85}
   .tbtn{display:inline-block;margin-top:6px;font-size:.8rem;font-weight:600;background:#fff;color:var(--action);border:1px solid #f0d6c4;border-radius:9px;padding:5px 10px;line-height:1}
@@ -163,12 +178,14 @@
     <h1>FehlerFuchs Mobile<span class="r">Report</span></h1>
     <p class="tag">Das kleine, lokale Melde-Logbuch für Geräte – schnell erfasst, sauber als PDF, direkt per Mail vorbereitet. Alles bleibt auf deinem Gerät.</p>
     <div class="badges">
-      <span class="badge launch">Im Launch · bei Google Play in Prüfung</span>
-      <span class="badge launch">Pro eingereicht · einmalig ~5 €</span>
       <span class="badge">Android</span>
       <span class="badge">100 % lokal</span>
       <span class="badge">werbefrei</span>
-      <span class="badge ent" title="Nur als Direkt-Download für Firmen – nicht im Google Play Store">Enterprise · nur off-Play (Firmen)</span>
+    </div>
+    <div class="ed-chips" role="group" aria-label="Editionen – zum jeweiligen Abschnitt springen">
+      <a class="ed-chip free" href="#editionen"><span class="txt"><b>Free</b><span>im Launch · Google Play in Prüfung · kostenlos</span></span><span class="go" aria-hidden="true">↓</span></a>
+      <a class="ed-chip pro" href="#editionen"><span class="txt"><b>Pro</b><span>im Launch · Google Play in Prüfung · einmalig ~5 €</span></span><span class="go" aria-hidden="true">↓</span></a>
+      <a class="ed-chip ent" href="#enterprise"><span class="txt"><b>Enterprise</b><span>off-Play (Firmen) · ab 50 € / 10 Plätze</span></span><span class="go" aria-hidden="true">↓</span></a>
     </div>
     <div class="cta-row">
       <span class="store-soon" role="img" aria-label="MobileReport erscheint demnächst bei Google Play">
@@ -185,42 +202,26 @@
 
 <div class="launch-band">
   <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#2E7D46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-  <div>
-    <h3>Im Launch – jetzt bei Google Play</h3>
-    <p>MobileReport (Free) ist bei Google Play eingereicht und wird gerade geprüft. Sobald Google die App freigibt – bei einer ersten App meist wenige Tage, bei einem neuen Entwicklerkonto auch mal etwas länger – erscheint sie im Play Store und lässt sich für alle installieren. Ab dann wird der Play-Store-Button auf dieser Seite aktiv.</p>
-  </div>
+  <div><p><strong>Im Launch:</strong> MobileReport (Free &amp; Pro) ist bei Google Play in Prüfung – sobald Google freigibt, wird der Play-Store-Button hier aktiv. Mehr dazu unten in den häufigen Fragen.</p></div>
 </div>
 
 <!-- ÜBERBLICK -->
 <section>
   <h2 class="sec">Worum es geht</h2>
   <p class="lead">Im Alltag geht ständig etwas kaputt, fällt auf oder muss weitergegeben werden – und am Ende sucht man Zettel, Fotos und Mailadressen zusammen. <strong>MobileReport</strong> macht daraus einen geraden Weg: Meldung eintippen, Foto dazu, PDF erzeugen, fertig vorbereitete E-Mail öffnen, senden.</p>
-  <p>Entstanden ist MobileReport als erste FehlerFuchs-App – bewusst klein und ehrlich: es löst genau dieses eine Problem und sonst nichts. Ohne Cloud, ohne Konto, ohne Tracking. Auf dieser Grundlage gibt es heute vier <a href="#editionen">Editionen</a> – von kostenlos-privat bis maßgeschneidert für Firmen.</p>
-</section>
-
-<!-- FUNKTIONEN -->
-<section>
-  <h2 class="sec">Funktionen im Detail</h2>
-  <div class="grid">
-    <div class="card"><h3>Schnell erfassen</h3><p>Gerät, Bereich, Kategorie, Priorität und Beschreibung – in wenigen Sekunden eingetragen.</p></div>
-    <div class="card"><h3>Fotos sicher dabei</h3><p>Per Kamera oder Galerie. EXIF-/Standortdaten werden vor dem Speichern entfernt.</p></div>
-    <div class="card"><h3>PDF auf Knopfdruck</h3><p>Sauberes PDF mit fortlaufender Logbuch-Nummer – lokal erzeugt.</p></div>
-    <div class="card"><h3>E-Mail vorbereitet</h3><p>Öffnet die Mail-App mit Empfänger, Betreff und PDF-Anhang. Senden tust du selbst.</p></div>
-    <div class="card"><h3>Empfänger verwalten</h3><p>Mehrere Empfänger lokal hinterlegen und schnell auswählen.</p></div>
-    <div class="card"><h3>Lokales Logbuch</h3><p>Alle auf dem Gerät erstellten Meldungen im Überblick – jederzeit löschbar.</p></div>
-    <div class="card"><h3>Vorkonfiguration &amp; Excel-Import</h3><p>Bereiche, Standorte und Empfänger mit Zuständigkeiten einmal bei der Einrichtung festlegen – auch bequem per Excel-Import. Die <a href="../vorlagen/FehlerFuchsMR-Stammdaten-Vorlage.xlsx">Excel-Vorlage</a> liegt im Downloadbereich.</p></div>
-  </div>
+  <p>Entstanden ist MobileReport als erste FehlerFuchs-App – bewusst klein und ehrlich: es löst genau dieses eine Problem und sonst nichts. Ohne Cloud, ohne Konto, ohne Tracking. Auf dieser Grundlage gibt es heute drei <a href="#editionen">Editionen</a> – von kostenlos-privat bis maßgeschneidert für Firmen.</p>
 </section>
 
 <!-- SO FUNKTIONIERT'S + MOCKUPS -->
 <section>
-  <h2 class="sec">So funktioniert's</h2>
+  <h2 class="sec">Funktionen &amp; Ablauf</h2>
+  <p class="lead">Ein gerader Weg von der Meldung zur fertig vorbereiteten E-Mail – alles lokal auf dem Gerät:</p>
   <ol class="steps">
-    <li><strong>Meldung erfassen:</strong> Gerät, Bereich, Kategorie, Priorität und Beschreibung eintragen. <em>Bereich, Standort und Empfänger (inkl. Zuständigkeiten) lassen sich bei der Ersteinrichtung vorkonfigurieren – auf Wunsch per Excel-Import (<a href="../vorlagen/FehlerFuchsMR-Stammdaten-Vorlage.xlsx">Excel-Vorlage</a> im Downloadbereich).</em></li>
-    <li><strong>Foto hinzufügen (optional):</strong> per Kamera oder Galerie – keine sensiblen Inhalte.</li>
-    <li><strong>PDF erstellen:</strong> antippen und die Vorschau prüfen.</li>
-    <li><strong>E-Mail vorbereiten:</strong> Mail-App öffnet mit Empfänger, Betreff und Anhang.</li>
-    <li><strong>Senden &amp; bestätigen:</strong> selbst senden und im Logbuch als „versendet" markieren.</li>
+    <li><strong>Meldung erfassen:</strong> Gerät, Bereich, Kategorie, Priorität und Beschreibung – in wenigen Sekunden. <em>Bereiche, Standorte und Empfänger (inkl. Zuständigkeiten) lassen sich bei der Ersteinrichtung vorkonfigurieren – auf Wunsch per Excel-Import (<a href="../vorlagen/FehlerFuchsMR-Stammdaten-Vorlage.xlsx">Excel-Vorlage</a> im Downloadbereich).</em></li>
+    <li><strong>Foto hinzufügen (optional):</strong> per Kamera oder Galerie – <strong>EXIF-/Standortdaten werden vor dem Speichern entfernt</strong>.</li>
+    <li><strong>PDF erstellen:</strong> sauberes PDF mit fortlaufender Logbuch-Nummer, lokal erzeugt – Vorschau prüfen.</li>
+    <li><strong>E-Mail vorbereiten:</strong> Mail-App öffnet mit Empfänger (mehrere lokal hinterlegbar), Betreff und PDF-Anhang.</li>
+    <li><strong>Senden &amp; bestätigen:</strong> du sendest selbst; im lokalen Logbuch als „versendet" markieren – jederzeit löschbar.</li>
   </ol>
 
   <div class="shots" role="group" aria-label="App-Ansichten von MobileReport">
@@ -258,7 +259,7 @@
         <tr><td title="Zählweise frei wählbar (fortlaufend, jährlich/monatlich zurücksetzend, je Bereich/Standort, Startwert &amp; Stellenanzahl); Dateiname per Vorlage aus Bausteinen.">Eigene Logbuch-Zählweise &amp; Dateinamen-Generator</td><td>Standard (fest)</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         <tr><td title="Pro: 15 fertige Farbschemata. Enterprise: Logo, Farben und Name komplett frei – im Branding-Konfigurator zusammengestellt.">Branding &amp; Farbschema</td><td class="no">–</td><td>Firmen-Logo · 15 Vorlagen ²</td><td>voll-custom (Logo, Farben, Name)<br><a class="tbtn" href="mobilereport-konfigurator.html">Branding-Konfigurator öffnen →</a></td></tr>
         <tr><td>App unter eigenem Namen/Logo</td><td class="no">–</td><td class="no">–</td><td class="yes" title="Eigener App-Name/-Icon im Launcher: Bestandteil von Custom (wir branden)">nur Custom</td></tr>
-        <tr><td>Geräte-Sync / Anbindung an eigene Systeme</td><td class="no">–</td><td class="no">–</td><td>nur auf Wunsch ¹</td></tr>
+        <tr><td>Geräte-Sync / Anbindung an eigene Systeme</td><td class="no">–</td><td class="no">–</td><td class="yes" title="Nur als Custom-Dienstleistung und nur auf ausdrücklichen Wunsch – siehe ¹">nur Custom ¹</td></tr>
         <tr><td>Vertrieb</td><td>Google Play · gratis</td><td>Google Play · ~5 €</td><td>Direkt-Download (off-Play)</td></tr>
         <tr><td>Freischaltung</td><td class="no">–</td><td>Play-Kauf (kontogebunden)</td><td>Lizenzschlüssel je Arbeitsplatz</td></tr>
         <tr><td>Status</td><td>Im Launch (Google Play)</td><td>Im Launch · ~5 € (eingereicht)</td><td>in Vorbereitung</td></tr>
@@ -267,6 +268,7 @@
   </div>
   <p style="margin-top:10px;font-size:.82rem;color:var(--muted)">¹ Nur auf ausdrücklichen Kundenwunsch (Enterprise). Damit ist es keine reine Offline-Lösung mehr — Daten verlassen dann das Gerät (eigener Server bzw. Geräte-Sync).</p>
   <p style="margin-top:8px;font-size:.82rem;color:var(--muted)">² Pro: drei Farbschema-Sets à 5 Vorlagen (bei <strong>Enterprise</strong> komplett frei – im Branding-Konfigurator):</p>
+  <details class="schemes-toggle"><summary>Alle 15 Pro-Farbschemata ansehen</summary>
   <div class="scheme-set">
     <div class="scheme-set-h">Standard</div>
     <div class="schemes" role="group" aria-label="Farbschema-Set Standard">
@@ -297,6 +299,7 @@
     <figure class="scheme"><svg viewBox="0 0 512 512" role="img" aria-label="Altrosa / Salbei"><g clip-path="url(#foxsil)"><rect x="0" y="0" width="256" height="512" fill="#EBC4CB"/><rect x="256" y="0" width="256" height="512" fill="#C9D8BE"/></g><path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="none" stroke="#2B160B" stroke-opacity=".3" stroke-width="6"/></svg><figcaption>Altrosa / Salbei</figcaption></figure>
     </div>
   </div>
+  </details>
 </section>
 
 <!-- WHITE-LABEL / ENTERPRISE -->
@@ -335,6 +338,8 @@
   <div class="card wl-guide" id="wl-anleitung" style="margin-top:14px">
     <h3>White-Label – so läuft's ab (Schritt für Schritt)</h3>
     <p style="color:var(--muted)">Für Firmen, die ihr Branding <strong>selbst</strong> übernehmen: Ihr kauft Lizenzen, brandet die App im Konfigurator, richtet sie einmal für alle ein und verteilt sie an eure Mitarbeitenden – alles bleibt strikt lokal, ohne Cloud-Zwang.</p>
+    <figure class="wl-flow"><svg viewBox="0 0 960 292" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="White-Label-Prozess in acht Schritten"><defs><marker id="ar" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#D97706"/></marker></defs><line x1="224" y1="82.0" x2="250" y2="82.0" stroke="#D97706" stroke-width="3" marker-end="url(#ar)"/><line x1="464" y1="82.0" x2="490" y2="82.0" stroke="#D97706" stroke-width="3" marker-end="url(#ar)"/><line x1="704" y1="82.0" x2="730" y2="82.0" stroke="#D97706" stroke-width="3" marker-end="url(#ar)"/><line x1="840.0" y1="128" x2="840.0" y2="170" stroke="#D97706" stroke-width="3" marker-end="url(#ar)"/><line x1="736" y1="222.0" x2="710" y2="222.0" stroke="#D97706" stroke-width="3" marker-end="url(#ar)"/><line x1="496" y1="222.0" x2="470" y2="222.0" stroke="#D97706" stroke-width="3" marker-end="url(#ar)"/><line x1="256" y1="222.0" x2="230" y2="222.0" stroke="#D97706" stroke-width="3" marker-end="url(#ar)"/><rect x="20" y="40" width="200" height="84" rx="14" fill="#FFF7ED" stroke="#F0E0CE" stroke-width="2"/><circle cx="46" cy="66" r="16" fill="#D97706"/><text x="46" y="71" text-anchor="middle" font-family="system-ui,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">1</text><text x="72" y="74" font-family="system-ui,Arial,sans-serif" font-size="16" font-weight="700" fill="#7C3F16">Lizenz</text><text x="72" y="96" font-family="system-ui,Arial,sans-serif" font-size="16" font-weight="700" fill="#7C3F16">kaufen</text><rect x="260" y="40" width="200" height="84" rx="14" fill="#FFF7ED" stroke="#F0E0CE" stroke-width="2"/><circle cx="286" cy="66" r="16" fill="#D97706"/><text x="286" y="71" text-anchor="middle" font-family="system-ui,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">2</text><text x="312" y="74" font-family="system-ui,Arial,sans-serif" font-size="16" font-weight="700" fill="#7C3F16">Branding</text><text x="312" y="96" font-family="system-ui,Arial,sans-serif" font-size="16" font-weight="700" fill="#7C3F16">erstellen</text><rect x="500" y="40" width="200" height="84" rx="14" fill="#FFF7ED" stroke="#F0E0CE" stroke-width="2"/><circle cx="526" cy="66" r="16" fill="#D97706"/><text x="526" y="71" text-anchor="middle" font-family="system-ui,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">3</text><text x="552" y="74" font-family="system-ui,Arial,sans-serif" font-size="16" font-weight="700" fill="#7C3F16">Branding</text><text x="552" y="96" font-family="system-ui,Arial,sans-serif" font-size="16" font-weight="700" fill="#7C3F16">anwenden</text><rect x="740" y="40" width="200" height="84" rx="14" fill="#FFF7ED" stroke="#F0E0CE" stroke-width="2"/><circle cx="766" cy="66" r="16" fill="#D97706"/><text x="766" y="71" text-anchor="middle" font-family="system-ui,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">4</text><text x="792" y="74" font-family="system-ui,Arial,sans-serif" font-size="16" font-weight="700" fill="#7C3F16">Vorkonfig.</text><text x="792" y="96" font-family="system-ui,Arial,sans-serif" font-size="16" font-weight="700" fill="#7C3F16">& Export</text><rect x="740" y="180" width="200" height="84" rx="14" fill="#FFF7ED" stroke="#F0E0CE" stroke-width="2"/><circle cx="766" cy="206" r="16" fill="#D97706"/><text x="766" y="211" text-anchor="middle" font-family="system-ui,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">5</text><text x="792" y="214" font-family="system-ui,Arial,sans-serif" font-size="16" font-weight="700" fill="#7C3F16">Lizenzen</text><text x="792" y="236" font-family="system-ui,Arial,sans-serif" font-size="16" font-weight="700" fill="#7C3F16">verteilen</text><rect x="500" y="180" width="200" height="84" rx="14" fill="#FFF7ED" stroke="#F0E0CE" stroke-width="2"/><circle cx="526" cy="206" r="16" fill="#D97706"/><text x="526" y="211" text-anchor="middle" font-family="system-ui,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">6</text><text x="552" y="214" font-family="system-ui,Arial,sans-serif" font-size="16" font-weight="700" fill="#7C3F16">Mitarbeiter</text><text x="552" y="236" font-family="system-ui,Arial,sans-serif" font-size="16" font-weight="700" fill="#7C3F16">installieren</text><rect x="260" y="180" width="200" height="84" rx="14" fill="#FFF7ED" stroke="#F0E0CE" stroke-width="2"/><circle cx="286" cy="206" r="16" fill="#D97706"/><text x="286" y="211" text-anchor="middle" font-family="system-ui,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">7</text><text x="312" y="214" font-family="system-ui,Arial,sans-serif" font-size="16" font-weight="700" fill="#7C3F16">Unbek. Quelle</text><text x="312" y="236" font-family="system-ui,Arial,sans-serif" font-size="16" font-weight="700" fill="#7C3F16">erlauben</text><rect x="20" y="180" width="200" height="84" rx="14" fill="#EAF4EC" stroke="#BfDcC4" stroke-width="2"/><circle cx="46" cy="206" r="16" fill="#D97706"/><text x="46" y="211" text-anchor="middle" font-family="system-ui,Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">8</text><text x="72" y="214" font-family="system-ui,Arial,sans-serif" font-size="16" font-weight="700" fill="#7C3F16">Fertig –</text><text x="72" y="236" font-family="system-ui,Arial,sans-serif" font-size="16" font-weight="700" fill="#7C3F16">eigene Marke</text></svg><figcaption>Der White-Label-Prozess in 8 Schritten – Details unten oder als PDF.</figcaption></figure>
+    <details class="wl-toggle"><summary>Anleitung in 8 Schritten anzeigen</summary>
     <ol class="wl-steps">
       <li><strong>Lizenzpaket kaufen.</strong> Ihr erwerbt White-Label-Lizenzen (Staffelpaket je Arbeitsplatz) über die Website und erhaltet die gekauften <strong>Lizenzschlüssel</strong> sowie den <strong>Direkt-Downloadlink</strong> zur App (außerhalb von Google Play). Bezahlt wird über die <strong>sichere Lemon-Squeezy-Kasse</strong> (PayPal oder Karte).</li>
       <li><strong>Branding zusammenstellen.</strong> Im kostenlosen <a href="mobilereport-konfigurator.html">Branding-Konfigurator</a> wählt ihr Logo, Farben und App-Namen, seht die Live-Vorschau und ladet die <strong><code>.mrbrand</code>-Datei</strong> herunter. Läuft komplett im Browser – nichts wird hochgeladen.</li>
@@ -345,6 +350,8 @@
       <li><strong>Installation aus „unbekannter Quelle" erlauben.</strong> Weil die App bewusst <strong>außerhalb des Play Stores</strong> läuft, fragt Android einmalig nach: <em>„Installation aus dieser Quelle zulassen".</em> Kurz: <em>Einstellungen → Apps → Spezieller App-Zugriff → Unbekannte Apps installieren</em> → für den genutzten Browser bzw. Dateimanager <strong>erlauben</strong>. Danach ganz normal installieren.</li>
       <li><strong>Fertig.</strong> Jede/r hat die App unter <strong>eurer Marke</strong>, mit euren Bereichen und Empfängern – strikt lokal, ohne Cloud-Zwang.</li>
     </ol>
+    </details>
+    <p style="margin-top:12px"><a class="cta" href="../vorlagen/FehlerFuchs-MobileReport-WhiteLabel-Anleitung.pdf" target="_blank" rel="noopener">Anleitung als PDF herunterladen ↧</a></p>
     <p style="margin-top:10px;font-size:.9rem;color:var(--muted)">Hinweis: Ein eigener <strong>App-Name/-Icon im Launcher</strong> (System-Startbildschirm) ist Bestandteil von <strong>Custom</strong> (wir branden). Bei White-Label brandet ihr die App-Inhalte selbst über die <code>.mrbrand</code>-Datei.</p>
   </div>
   <p style="margin-top:12px">Interesse an Enterprise (White-Label/Custom)? <a href="../kontakt.html?app=MobileReport&topic=interesse">info@fehlerfuchs.eu</a></p>
