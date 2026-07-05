@@ -35,9 +35,13 @@
 .reqs ul{margin:4px 0 0;padding-left:16px}
 .reqs li{margin:2px 0}
 /* Modus */
-.modes{display:flex;gap:6px;background:#f4ece2;border:1px solid #ecdfd2;border-radius:12px;padding:4px;margin:6px 0 4px}
-.modes button{flex:1;border:0;background:transparent;font:inherit;font-weight:600;font-size:.85rem;color:var(--brown);padding:8px 6px;border-radius:9px;cursor:pointer;transition:background .15s}
-.modes button.on{background:#fff;color:var(--action);box-shadow:0 1px 3px rgba(124,63,22,.12)}
+.modes{display:flex;gap:8px;margin:8px 0 4px;flex-wrap:wrap}
+.modes button{flex:1;min-width:112px;border:1px solid #e2d3c3;background:#fff;font:inherit;font-weight:600;font-size:.85rem;color:var(--brown);padding:9px 8px;border-radius:10px;cursor:pointer;transition:border-color .15s,background .15s,color .15s;box-shadow:0 1px 2px rgba(124,63,22,.06)}
+.modes button:hover{border-color:var(--accent);background:#fdf7f1}
+.modes button.on{border-color:var(--accent);background:#fdf3ea;color:var(--action);box-shadow:0 1px 5px rgba(194,65,12,.18)}
+.optrow{display:flex;align-items:flex-start;gap:8px;font-size:.86rem;color:var(--ink);margin-top:12px;cursor:pointer}
+.optrow input{width:16px;height:16px;margin-top:2px;accent-color:var(--accent);flex:none}
+.optrow b{color:var(--brown)}
 .crow{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #f3ece2}
 .crow:last-child{border-bottom:0}
 .crow .cl{flex:1;font-size:.86rem;color:var(--ink)}
@@ -189,25 +193,18 @@
             <button class="rm" id="logoRm" type="button">entfernen</button>
           </div>
         </div>
-        <div class="reqs">
-          <b>Empfehlung für ein sauberes Ergebnis:</b>
-          <ul>
-            <li>Quadratische <b>Bildmarke</b> (Symbol ohne Text) – wirkt in App-Leiste &amp; PDF-Kopf am besten.</li>
-            <li>Format <b>PNG mit transparentem Hintergrund</b> (JPG möglich, aber ohne Transparenz).</li>
-            <li>Größe idealerweise <b>512×512 px</b>, maximal <b>1024 px</b> Kantenlänge und <b>512 KB</b>.</li>
-            <li>Breite Wortmarken werden in der App-Leiste sehr klein – lieber die Bildmarke nehmen.</li>
-          </ul>
-        </div>
+        <div class="reqs" id="reqsBox"></div>
         <div class="hint" id="logoInfo"></div>
+        <label class="optrow"><input type="checkbox" id="f-logotitle"><span><b>Wort-/Bildmarke statt Text-Titel anzeigen</b> – zeigt euer Logo groß in App-Leiste und PDF-Kopf statt des getippten Namens (Logo erforderlich).</span></label>
       </div>
     </div>
 
     <div class="panel">
       <h3><span class="n">2</span> Farben</h3>
       <div class="modes" role="tablist">
-        <button data-mode="accent" class="on">Akzent</button>
-        <button data-mode="logo">Aus Logo ableiten</button>
-        <button data-mode="full">Voll editierbar</button>
+        <button type="button" data-mode="accent" class="on">Nur 1 Akzentfarbe</button>
+        <button type="button" data-mode="logo">Farbe aus Logo</button>
+        <button type="button" data-mode="full">Alle Farben einzeln</button>
       </div>
       <p class="hint" id="modeHint"></p>
 
@@ -217,7 +214,7 @@
       </div>
 
       <div id="logoBox" style="display:none">
-        <button class="cta ghost mini" id="deriveBtn" type="button">Farbe aus Logo vorschlagen</button>
+        <button class="cta ghost mini" id="deriveBtn" type="button">Kräftigste Farbe aus Logo übernehmen</button>
         <div class="hint" id="deriveHint">Lädt zuerst ein Logo hoch, dann schlägt der Konfigurator die kräftigste Farbe als Akzent vor.</div>
       </div>
 
@@ -315,6 +312,7 @@ var manual={};
 var flags={pdfBadgeBorder:true,pdfArtBorder:false,pdfFooterBorder:true,pdfHeaderBorder:false};
 var logo=null;
 var mode='accent';
+var logoAsTitle=false;
 
 var APP_ROLES=[
   ['appPrimary','App-Primärfarbe','Aktions-Karte, Buttons'],
@@ -376,6 +374,22 @@ function emblemHTML(size){
   return '<svg class="em" style="width:'+size+'px;height:'+size+'px" viewBox="80 80 352 380"><use href="#fox"/></svg>';
 }
 function iconSVG(id,color){return '<svg class="ci" style="stroke:'+color+'" viewBox="0 0 24 24"><use href="#'+id+'"/></svg>';}
+// Empfehlungs-Box: passt sich an, ob Bildmarke oder breite Wort-/Bildmarke genutzt wird
+function renderReqs(){
+  var head='<b>Empfehlung für ein sauberes Ergebnis:</b>', li;
+  if(logoAsTitle){
+    li=['Breite <b>Wort-/Bildmarke</b> (Logo mit Text) – wird groß im Kopf statt des Namens angezeigt.',
+        'Format <b>PNG mit transparentem Hintergrund</b>, damit sie auf hellem und dunklem Grund sauber sitzt.',
+        'Querformat, ideal ca. <b>3:1 bis 5:1</b>; Höhe rund 120–200 px, Breite max. <b>1024 px</b>, max. <b>512 KB</b>.',
+        'Auf <b>beide Kopf-Flächen</b> achten: bei „Dunkel (Marke)" liegt sie auf der Akzentfarbe, bei „Hell/Schlicht" auf Weiß – am besten eine Version, die auf beidem lesbar ist (z. B. mit heller Kontur).'];
+  }else{
+    li=['Quadratische <b>Bildmarke</b> (Symbol ohne Text) – wirkt in App-Leiste &amp; PDF-Kopf am besten.',
+        'Format <b>PNG mit transparentem Hintergrund</b> (JPG möglich, aber ohne Transparenz).',
+        'Größe idealerweise <b>512×512 px</b>, maximal <b>1024 px</b> Kantenlänge und <b>512 KB</b>.',
+        'Habt ihr eine breite <b>Wortmarke</b> (Logo mit Text)? Dann unten „statt Titel anzeigen" aktivieren – so wird sie groß im Kopf gezeigt.'];
+  }
+  document.getElementById('reqsBox').innerHTML=head+'<ul>'+li.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';
+}
 function buildPhone(theme,name){
   var a=accent(), prim=conc('appPrimary');
   var scaffold = theme==='dark'?conc('scaffoldBgDark'):conc('scaffoldBgLight');
@@ -390,7 +404,13 @@ function buildPhone(theme,name){
   var note = theme==='dark'?mix(scaffold,'#FFFFFF',0.05):mix(scaffold,'#000000',0.035);
   var h='';
   h+='<div class="phone" style="background:'+scaffold+'">';
-  h+='<div class="ph-bar" style="background:'+barBg+';color:'+barTx+'"><span class="bk">&#8592;</span><div class="nm">'+esc(name)+'</div>'+emblemHTML(20)+'</div>';
+  var barInner;
+  if(logoAsTitle&&logo){
+    barInner='<span class="bk">&#8592;</span><div class="nm" style="display:flex;justify-content:center"><img src="'+logo.dataUrl+'" alt="'+esc(name)+'" style="height:22px;max-width:130px;object-fit:contain"></div><span style="width:20px;flex:none"></span>';
+  }else{
+    barInner='<span class="bk">&#8592;</span><div class="nm">'+esc(name)+'</div>'+emblemHTML(20);
+  }
+  h+='<div class="ph-bar" style="background:'+barBg+';color:'+barTx+'">'+barInner+'</div>';
   h+='<div class="ph-body">';
   // Primär-Karte
   h+='<div class="ph-primary" style="background:'+prim+';color:'+pTx+'">'+
@@ -439,9 +459,14 @@ function renderPdf(name){
   var fB=flags.pdfFooterBorder?('1px solid '+mix(s.footerText,s.footerBg,0.6)):'none';
   var meta=[['Datum / Uhrzeit','05.07.2026 · 08:14'],['Priorität','Hoch'],['Bereich','Halle 2'],['Standort','Heizzentrale'],['Meldende Person','M. Schulz']];
   var rows=meta.map(function(m){return '<tr><td class="k">'+m[0]+'</td><td style="color:'+s.ink+'">'+m[1]+'</td></tr>';}).join('');
+  var headInner;
+  if(logoAsTitle&&logo){
+    headInner='<div style="flex:1;min-width:0"><img src="'+logo.dataUrl+'" alt="'+esc(name)+'" style="height:30px;max-width:210px;object-fit:contain;display:block"><div class="su" style="color:'+s.headerSubText+';margin-top:4px">Störungsmeldung · Nr. 2026-0184</div></div>';
+  }else{
+    headInner=emblemHTML(34)+'<div><div class="ti">'+esc(name)+'</div><div class="su" style="color:'+s.headerSubText+'">Störungsmeldung · Nr. 2026-0184</div></div>';
+  }
   var h='<div class="paper">';
-  h+='<div class="pdf-head" style="background:'+s.headerBg+';color:'+s.headerText+';border-bottom:'+hB+'">'+emblemHTML(34)+
-     '<div><div class="ti">'+esc(name)+'</div><div class="su" style="color:'+s.headerSubText+'">Störungsmeldung · Nr. 2026-0184</div></div></div>';
+  h+='<div class="pdf-head" style="background:'+s.headerBg+';color:'+s.headerText+';border-bottom:'+hB+'">'+headInner+'</div>';
   h+='<div class="pdf-accentbar" style="background:'+s.accent+'"></div>';
   h+='<div class="pdf-inner">';
   h+='<table class="pdf-meta">'+rows+'</table>';
@@ -591,7 +616,7 @@ function colorsObj(){var o={accent:accent()};APP_ROLES.concat(PDF_ROLES).forEach
 function buildBrand(){
   var name=document.getElementById('f-name').value.trim();
   return {app:'MobileReport',type:'brand-theme',version:1,exportedAt:isoNow(),
-    brand:{name:name||'MobileReport',pdfLayoutDefault:LAYOUT,logo:logo?{base64:logo.base64,ext:logo.ext,w:logo.w,h:logo.h}:null,colors:colorsObj(),
+    brand:{name:name||'MobileReport',pdfLayoutDefault:LAYOUT,logoAsTitle:!!(logoAsTitle&&logo),logo:logo?{base64:logo.base64,ext:logo.ext,w:logo.w,h:logo.h}:null,colors:colorsObj(),
       flags:{pdfBadgeBorder:!!flags.pdfBadgeBorder,pdfArtBorder:!!flags.pdfArtBorder,pdfFooterBorder:!!flags.pdfFooterBorder,pdfHeaderBorder:!!flags.pdfHeaderBorder}}};
 }
 function slug(s){return (s||'branding').toLowerCase().replace(/[äöü]/g,function(c){return {'ä':'ae','ö':'oe','ü':'ue'}[c];}).replace(/ß/g,'ss').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40)||'branding';}
@@ -607,8 +632,14 @@ function doExport(){
 
 /* ===== Verdrahtung ===== */
 function init(){
-  buildFull();render();
+  buildFull();renderReqs();render();
   document.getElementById('f-name').addEventListener('input',render);
+  document.getElementById('f-logotitle').addEventListener('change',function(){
+    logoAsTitle=this.checked;renderReqs();
+    var info=document.getElementById('logoInfo');
+    if(logoAsTitle&&!logo){info.innerHTML='<span style="color:#8a5310">Hinweis: Für die Anzeige „statt Titel" noch ein Logo hochladen.</span>';}
+    render();
+  });
   document.getElementById('c-accent').addEventListener('input',function(){manual.accent=this.value.toUpperCase();if(mode==='full')refreshAutoInputs();render();});
   document.querySelectorAll('.modes button').forEach(function(b){b.addEventListener('click',function(){setMode(b.getAttribute('data-mode'));});});
   document.querySelectorAll('.pv-tabs button').forEach(function(b){b.addEventListener('click',function(){
@@ -631,9 +662,10 @@ function init(){
   document.getElementById('exportBtn').addEventListener('click',doExport);
   document.getElementById('resetBtn').addEventListener('click',function(){
     manual={};flags={pdfBadgeBorder:true,pdfArtBorder:false,pdfFooterBorder:true,pdfHeaderBorder:false};LAYOUT='dark';removeLogo();
+    logoAsTitle=false;document.getElementById('f-logotitle').checked=false;
     document.getElementById('f-name').value='';document.getElementById('c-accent').value='#0E7490';
     document.querySelectorAll('#pdfLayout label').forEach(function(x,i){x.classList.toggle('on',i===0);});
-    buildFull();setMode('accent');document.getElementById('exportMsg').innerHTML='';
+    buildFull();renderReqs();setMode('accent');document.getElementById('exportMsg').innerHTML='';
   });
   setMode('accent');
 }
