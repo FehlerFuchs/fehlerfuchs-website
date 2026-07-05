@@ -83,3 +83,9 @@ footer{margin-top:34px;color:var(--muted);font-size:.82rem;border-top:1px solid 
   .tab-backdrop{position:fixed;inset:0;bottom:68px;z-index:48;background:rgba(43,22,11,.18);display:none}
   .tab-more-cb:checked ~ .tab-backdrop{display:block}
 }
+
+/* Lockup-Hero (Bild-Wortmarke als Titel) */
+.hero.lock{display:block}
+.hero.lock .lockup{width:100%;max-width:360px;height:auto;display:block;margin:0}
+.hero.lock .hero-body{margin-top:4px}
+.hr-cut{border:none;border-top:2px solid #f0e0cf;margin:26px 0}
