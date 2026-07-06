@@ -58,6 +58,14 @@
 
 <hr class="hr-cut">
 
+<section id="download">
+  <h2 class="sec">MobileReport Enterprise herunterladen</h2>
+  <p>Direkt-Download der App (APK) außerhalb von Google Play. <strong>Der Button öffnet GitHub</strong> zum Laden der Datei.</p>
+  <p style="margin-top:12px"><a id="apkBtn" class="cta" href="https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/latest" target="_blank" rel="noopener">APK herunterladen ↧</a></p>
+  <p id="apkMeta" style="margin-top:8px;font-size:.9rem;color:var(--muted)">Aktuelle Version wird geladen …</p>
+  <p style="margin-top:6px;font-size:.85rem;color:var(--muted)">Kein Play Store, keine Cloud, kein Tracking. Der Klick führt zum GitHub-Release-Download.</p>
+</section>
+
 <section>
   <h2 class="sec">Zwei Wege zu eurer Marke</h2>
   <div class="grid">
@@ -111,17 +119,21 @@
   </div>
 </section>
 
-<section>
-  <h2 class="sec">Download &amp; Installation (Android, off-Play)</h2>
-  <p><a class="cta soon" aria-disabled="true">APK-Download folgt</a></p>
-  <p style="margin-top:8px">Da Enterprise bewusst <strong>außerhalb</strong> des Play Stores läuft, installiert ihr die App direkt:</p>
+<section id="installation">
+  <h2 class="sec">Installation &amp; Aktivierung (Android, off-Play)</h2>
+  <p>Da Enterprise bewusst <strong>außerhalb</strong> des Play Stores läuft, installiert ihr die App direkt – der Download-Button steht <strong>oben</strong> auf dieser Seite:</p>
   <ol class="steps">
-    <li>APK von dieser Seite herunterladen (Button erscheint mit dem ersten Release).</li>
-    <li>Beim Öffnen fragt Android nach – <strong>Installation aus dieser Quelle erlauben</strong> (Einstellungen → „Unbekannte Apps installieren" für euren Browser/Dateimanager).</li>
-    <li>Installieren, App starten, <strong>Lizenzschlüssel</strong> eingeben – fertig.</li>
-    <li>Branding-Datei (<span class="mono">.mrbrand</span>) in der App importieren (nur White-Label).</li>
+    <li>Die <strong>APK</strong> über den Button oben herunterladen.</li>
+    <li>Beim Öffnen fragt Android nach – <strong>Installation aus dieser Quelle erlauben</strong> (Einstellungen → Apps → Spezieller App-Zugriff → „Unbekannte Apps installieren" für euren Browser bzw. Dateimanager).</li>
+    <li>APK öffnen und <strong>installieren</strong>.</li>
   </ol>
-  <p style="color:var(--muted)">Updates: Die App prüft eine kleine Datei auf der Website (<span class="mono">/enterprise/latest.json</span>) und zeigt bei einer neueren Version einen Hinweis „Update verfügbar".</p>
+  <h3 style="margin-top:14px">Aktivierung in 3 Schritten</h3>
+  <ol class="steps">
+    <li><strong>App installieren</strong> (siehe oben).</li>
+    <li><strong>Lizenzschlüssel eingeben:</strong> den Schlüssel aus der <strong>Kauf-E-Mail</strong> in der App eingeben und aktivieren – gilt für so viele Arbeitsplätze wie euer Paket.</li>
+    <li><strong>Optional – Branding:</strong> im <a href="mobilereport-konfigurator.html">Branding-Konfigurator</a> eine <span class="mono">.mrbrand</span>-Datei bauen und in der App importieren (White-Label).</li>
+  </ol>
+  <p style="margin-top:10px;color:var(--muted)">Updates: Die App prüft <span class="mono">/enterprise/latest.json</span> und zeigt bei einer neueren Version einen Hinweis „Update verfügbar". Kauf/Lizenzpakete: <a href="#lizenzpreise">Staffelpreise ansehen</a> · Fragen: <a href="../kontakt.html?app=MobileReport&topic=interesse">info@fehlerfuchs.eu</a>.</p>
 </section>
 
 
@@ -153,5 +165,21 @@
   <a href="../unterstuetzen.html"><svg viewBox="0 0 24 24"><use href="#ic-heart"/></svg>Support</a>
   <label for="tabmore"><svg viewBox="0 0 24 24"><use href="#ic-more"/></svg>Mehr</label>
 </nav>
+<script>
+(function(){
+  var FALLBACK="https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/latest";
+  var btn=document.getElementById("apkBtn"), meta=document.getElementById("apkMeta");
+  if(!btn) return;
+  fetch("../enterprise/latest.json",{cache:"no-store"})
+    .then(function(r){return r.json();})
+    .then(function(d){
+      var v=d&&d.version?String(d.version):"";
+      if(d&&d.apkUrl){ btn.href=d.apkUrl; } else { btn.href=FALLBACK; }
+      if(v&&v!=="0.0.0"&&d.apkUrl){ meta.textContent="Aktuelle Version: "+v+(d.notes?(" – "+d.notes):""); }
+      else { meta.textContent="Erste Enterprise-Version folgt – der Button führt zur Release-Übersicht."; btn.href=FALLBACK; }
+    })
+    .catch(function(){ btn.href=FALLBACK; meta.textContent="Versionsinfo konnte nicht geladen werden – zur Release-Übersicht."; });
+})();
+</script>
 </body>
 </html>

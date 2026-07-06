@@ -2,6 +2,6 @@
   "app": "MobileReport Enterprise",
   "version": "0.0.0",
   "apkUrl": "",
-  "notes": "Platzhalter – wird bei jedem Enterprise-Release aktualisiert (Version, apkUrl auf das GitHub-Release, Notizen).",
-  "updatedAt": "2026-07-04"
+  "notes": "Erste Enterprise-Version folgt. Sobald der erste Release steht, werden version, apkUrl und notes hier gesetzt.",
+  "updatedAt": "2026-07-06"
 }
