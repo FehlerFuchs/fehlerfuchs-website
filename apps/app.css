@@ -59,7 +59,7 @@ table.ed td:first-child,table.ed th:first-child{font-weight:600;color:var(--brow
 footer{margin-top:34px;color:var(--muted);font-size:.82rem;border-top:1px solid #ecdfd2;padding-top:16px}
 
 /* --- Icon-Navigation (Desktop) + Tab-Leiste (mobil) --- */
-.mainnav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0 0 20px}
+.mainnav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0 0 20px;position:sticky;top:0;z-index:50;background:var(--bg)}
 .mainnav a{display:inline-flex;flex-direction:column;align-items:center;gap:4px;padding:8px 12px;border-radius:12px;font-size:.72rem;font-weight:600;color:var(--brown);text-decoration:none;min-width:66px;transition:background .15s,color .15s}
 .mainnav a:hover{background:var(--cream);color:var(--action);text-decoration:none}
 .mainnav a svg,.tabbar svg,.tab-sheet svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}

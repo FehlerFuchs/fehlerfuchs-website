@@ -173,7 +173,7 @@
   @keyframes ff-stairs{0%,79%{opacity:0}82%,92%{opacity:.9}95%,100%{opacity:0}}
   @media (prefers-reduced-motion: reduce){.hl-head,.hl-lens,.hl-lupe,.hl-stairs{animation:none}.hl-lupe{opacity:0}}
   /* --- Icon-Navigation (Desktop) + Tab-Leiste (mobil) --- */
-  .mainnav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0 0 34px}
+  .mainnav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0 0 34px;position:sticky;top:0;z-index:50;background:var(--bg)}
   .mainnav a{display:inline-flex;flex-direction:column;align-items:center;gap:4px;padding:8px 12px;border-radius:12px;font-size:.72rem;font-weight:600;color:var(--brown);text-decoration:none;min-width:66px;transition:background .15s,color .15s}
   .mainnav a svg,.tabbar svg,.tab-sheet svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
   .mainnav a svg{width:22px;height:22px}
