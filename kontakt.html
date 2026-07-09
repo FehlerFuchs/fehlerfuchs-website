@@ -29,6 +29,11 @@
   .f .hint{color:var(--muted);font-size:.82rem;font-weight:400}
   input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;border:1px solid #e4d3c1;border-radius:10px;background:#fffdf9;color:var(--ink);padding:10px 12px;font:inherit}
   textarea{min-height:104px;resize:vertical}
+  input[type=file]{width:100%;font:inherit;font-size:.9rem;color:var(--ink)}
+  input[type=file]::file-selector-button{font:inherit;font-weight:700;background:var(--cream);color:var(--brown);border:1px solid #e4d3c1;border-radius:8px;padding:8px 12px;margin-right:10px;cursor:pointer}
+  .filelist{font-size:.82rem;color:var(--muted);margin-top:6px;display:flex;flex-direction:column;gap:2px}
+  .filelist .bad{color:#B91C1C}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
   fieldset{border:1px solid #f0e0cf;border-radius:12px;padding:14px 16px;margin-bottom:16px;background:#fcf8f3}
   fieldset legend{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:600;color:var(--brown);font-size:.92rem;padding:0 6px}
   .check{display:flex;gap:10px;align-items:flex-start;margin:4px 0 12px}
@@ -87,7 +92,7 @@
     <a href="produkte.html"><svg viewBox="0 0 24 24"><use href="#ic-apps"/></svg>Produkte</a>
     <a href="unterstuetzen.html"><svg viewBox="0 0 24 24"><use href="#ic-heart"/></svg>Unterstützen</a>
     <a href="wunschliste.html"><svg viewBox="0 0 24 24"><use href="#ic-list"/></svg>Wunschliste</a>
-    <a href="datenschutz.html"><svg viewBox="0 0 24 24"><use href="#ic-shield"/></svg>Datenschutz</a>
+    <a href="support/index.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M14.83 9.17l3.54-3.54M9.17 9.17 5.63 5.63M9.17 14.83l-3.54 3.54M14.83 14.83l3.54 3.54"/></svg>Support</a><a href="datenschutz.html"><svg viewBox="0 0 24 24"><use href="#ic-shield"/></svg>Datenschutz</a>
     <a href="impressum.html"><svg viewBox="0 0 24 24"><use href="#ic-info"/></svg>Impressum</a>
   </nav>
 
@@ -137,6 +142,16 @@
       </select>
     </div>
 
+    <div class="f">
+      <label for="dateien">Anhänge <span class="hint">(optional – PDF, Word, Bilder/Screenshots, TXT, CSV, .mbrand · max. 5 Dateien, je 10 MB)</span></label>
+      <input type="file" id="dateien" name="dateien" multiple accept=".pdf,.doc,.docx,.txt,.csv,.png,.jpg,.jpeg,.webp,.gif,.mbrand">
+      <div id="filelist" class="filelist" aria-live="polite"></div>
+    </div>
+    <div class="hp" aria-hidden="true">
+      <label for="website">Bitte leer lassen</label>
+      <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+    </div>
+
     <fieldset>
       <legend>Wie soll ich dich erreichen?</legend>
       <div class="f">
@@ -157,11 +172,11 @@
       </div>
     </fieldset>
 
-    <button class="btn" type="submit">Anfrage als E-Mail öffnen</button>
+    <button class="btn" type="submit">Anfrage senden</button>
     <p class="status" id="status" aria-live="polite"></p>
   </form>
 
-  <p class="note">Datensparsam: Diese Seite nutzt kein Tracking und sendet nichts an einen Server. Beim Absenden öffnet sich nur deine Mail-App mit den ausgefüllten Angaben – du entscheidest, ob du sendest.</p>
+  <p class="note">Datensparsam: kein Tracking. Deine Anfrage (inkl. optionaler Anhänge) geht verschlüsselt an unseren Server in der EU und wird von dort per E-Mail an uns zugestellt – dauerhaft gespeichert wird nichts. Ist der Server einmal nicht erreichbar, öffnet sich stattdessen deine Mail-App mit den ausgefüllten Angaben.</p>
 
   <footer>© 2026 FehlerFuchs · datensparsam, ohne Cloud und ohne Tracking. <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></footer>
 
@@ -181,49 +196,24 @@
 
   var form = document.getElementById("kf");
   var status = document.getElementById("status");
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-    var d = new FormData(form);
-    var thema = d.get("thema")||"Allgemeine Frage";
-    var app = d.get("app")||"Allgemein / Website";
-    var telpref = d.get("telpref") ? "Telefonischer Rückruf bevorzugt" : "E-Mail bevorzugt";
-    var to = "info@fehlerfuchs.eu";
-    if(thema==="Beta-Test"||thema==="Feedback"||thema==="Fehler melden") to = "support@fehlerfuchs.eu";
-    else if(thema==="Impressum / Rechtliches") to = "admin@fehlerfuchs.eu";
-    var subject = "[FehlerFuchs] " + thema + " – " + app;
-    var lines = [
-      "Hallo FehlerFuchs,","",
-      "Name: " + (d.get("name")||"-"),
-      "Anwendung: " + app,
-      "Thema: " + thema,
-      "","Anliegen:", (d.get("nachricht")||"-"),
-      "","Kontaktwunsch: " + telpref,
-      "E-Mail: " + (d.get("email")||"-"),
-      "Telefon: " + (d.get("tel")||"-"),
-      "Beste Erreichbarkeit: " + (d.get("zeit")||"-"),
-      "","Viele Grüße"
-    ];
-    var href = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
-    status.textContent = "Dein Mailprogramm sollte sich gleich öffnen.";
-    window.location.href = href;
-  });
-}());
-</script>
-<input type="checkbox" id="tabmore" class="tab-more-cb" aria-hidden="true">
-<label for="tabmore" class="tab-backdrop" aria-hidden="true"></label>
-<div class="tab-sheet">
-  <a href="wunschliste.html"><svg viewBox="0 0 24 24"><use href="#ic-list"/></svg>Wunschliste</a>
-  <a href="datenschutz.html"><svg viewBox="0 0 24 24"><use href="#ic-shield"/></svg>Datenschutz</a>
-  <a href="impressum.html"><svg viewBox="0 0 24 24"><use href="#ic-info"/></svg>Impressum</a>
-  <a href="kontakt.html" aria-current="page"><svg viewBox="0 0 24 24"><use href="#ic-mail"/></svg>Kontakt</a>
-</div>
-<nav class="tabbar" aria-label="Navigation (mobil)">
-  <a href="index.html"><svg viewBox="0 0 24 24"><use href="#ic-home"/></svg>Start</a>
-  <a href="downloads.html"><svg viewBox="0 0 24 24"><use href="#ic-download"/></svg>Downloads</a>
-  <a href="produkte.html"><svg viewBox="0 0 24 24"><use href="#ic-apps"/></svg>Produkte</a>
-  <a href="unterstuetzen.html"><svg viewBox="0 0 24 24"><use href="#ic-heart"/></svg>Support</a>
-  <label for="tabmore"><svg viewBox="0 0 24 24"><use href="#ic-more"/></svg>Mehr</label>
-</nav>
-</body>
-</html>
-  
+  var fileEl = document.getElementById("dateien");
+  var fileList = document.getElementById("filelist");
+
+  // Server-Endpoint (Lizenzserver-Adapter). Leer = reiner mailto-Fallback.
+  var ENDPOINT = "https://license.fehlerfuchs.eu/v1/contact";
+  var ALLOW = ["pdf","doc","docx","txt","csv","png","jpg","jpeg","webp","gif","mbrand"];
+  var MAX_FILE = 10*1024*1024, MAX_TOTAL = 25*1024*1024, MAX_COUNT = 5;
+
+  function ext(n){ var p=n.lastIndexOf("."); return p<0?"":n.slice(p+1).toLowerCase(); }
+  function human(b){ return b<1024?b+" B":b<1048576?(b/1024).toFixed(0)+" KB":(b/1048576).toFixed(1)+" MB"; }
+  function checkFiles(){
+    fileList.innerHTML=""; var fs=fileEl.files, total=0, err="";
+    if(fs.length>MAX_COUNT) err="Bitte höchstens "+MAX_COUNT+" Dateien.";
+    for(var i=0;i<fs.length;i++){
+      var fi=fs[i], e=ext(fi.name), ok=ALLOW.indexOf(e)>=0, small=fi.size<=MAX_FILE; total+=fi.size;
+      var row=document.createElement("div");
+      if(!ok){ row.className="bad"; row.textContent="✗ "+fi.name+" – Format ."+(e||"?")+" nicht erlaubt"; err=err||"Nicht erlaubtes Dateiformat dabei."; }
+      else if(!small){ row.className="bad"; row.textContent="✗ "+fi.name+" – zu groß ("+human(fi.size)+", max 10 MB)"; err=err||"Eine Datei ist zu groß."; }
+      else { row.textContent="✓ "+fi.name+" ("+human(fi.size)+")"; }
+      fileList.appendChild(row);
+    }
