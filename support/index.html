@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support &amp; Hilfe – FehlerFuchs</title>
+<meta name="description" content="Support-Anfrage an FehlerFuchs: Name, E-Mail, Betreff, Nachricht und optional ein Fehlercode aus der App. Datensparsam, ohne Tracking.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<style>
+  :root{--orange:#D97706;--brown:#7C3F16;--cream:#FFF7ED;--ink:#2B160B;--muted:#6b5b50;--action:#C2410C;--bg:#fbf7f2}
+  @font-face{font-family:'Poppins';src:url('../fonts/Poppins-Regular.woff') format('woff');font-weight:400;font-display:swap}
+  @font-face{font-family:'Poppins';src:url('../fonts/Poppins-Medium.woff') format('woff');font-weight:500;font-display:swap}
+  @font-face{font-family:'Poppins';src:url('../fonts/Poppins-Bold.woff') format('woff');font-weight:700;font-display:swap}
+  @font-face{font-family:'Inter';src:url('../fonts/Inter-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+  @font-face{font-family:'Inter';src:url('../fonts/Inter-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+  @font-face{font-family:'Inter';src:url('../fonts/Inter-SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;padding:24px 18px 48px;max-width:720px;margin:0 auto}
+  h1,h2{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+  a{color:var(--action)}
+  header.site{display:flex;align-items:center;gap:14px}
+  header.site h1{font-size:1.35rem;color:var(--brown)}
+  .lead{color:var(--muted);font-size:.96rem;margin:0 0 18px;max-width:620px}
+  form{background:#fff;border:1px solid #ecdfd2;border-radius:16px;padding:22px 22px 24px;box-shadow:0 6px 16px rgba(124,63,22,.05)}
+  .f{display:grid;gap:6px;margin-bottom:16px}
+  .f>label{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:600;color:var(--brown);font-size:.92rem}
+  .f .hint{color:var(--muted);font-size:.82rem;font-weight:400}
+  input[type=text],input[type=email],textarea{width:100%;border:1px solid #e4d3c1;border-radius:10px;background:#fffdf9;color:var(--ink);padding:10px 12px;font:inherit}
+  textarea{min-height:120px;resize:vertical}
+  .code-in{font-family:'Poppins',monospace;letter-spacing:.04em}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-weight:700;padding:12px 20px;border:0;border-radius:12px;font:inherit;font-weight:700;cursor:pointer}
+  .btn:hover{background:#b45309}
+  .status{min-height:1.4em;margin-top:10px;color:var(--muted);font-size:.9rem}
+  .status.ok{color:#15803D}
+  .status.err{color:#B91C1C}
+  .note{background:#fcf8f3;border:1px solid #ecdfd2;border-radius:12px;padding:12px 14px;color:var(--muted);font-size:.86rem;margin-top:16px}
+  footer{margin-top:26px;color:var(--muted);font-size:.82rem;border-top:1px solid #ecdfd2;padding-top:14px}
+  .mainnav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:16px 0 30px}
+  .mainnav a{display:inline-flex;flex-direction:column;align-items:center;gap:4px;padding:8px 12px;border-radius:12px;font-size:.72rem;font-weight:600;color:var(--brown);text-decoration:none;min-width:66px}
+  .mainnav a svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .mainnav a:hover{background:var(--cream);color:var(--action)}
+</style>
+</head>
+<body>
+  <header class="site">
+    <svg viewBox="0 0 512 512" width="40" height="40" role="img" aria-label="FehlerFuchs"><path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="#D97706"/><path d="M132,120 L186,150 L158,182 Z" fill="#7C3F16"/><path d="M380,120 L326,150 L354,182 Z" fill="#7C3F16"/><path d="M198,250 L314,250 L256,430 Z" fill="#FFF7ED"/><path d="M192,228 L232,222 L214,250 Z" fill="#2B160B"/><circle cx="306" cy="236" r="30" fill="#7C3F16"/><circle cx="306" cy="236" r="22" fill="#0E2540"/><circle cx="306" cy="236" r="13" fill="#2563EB"/><circle cx="306" cy="236" r="6" fill="#7DD3FC"/><path d="M243,372 L269,372 L256,392 Z" fill="#2B160B"/></svg>
+    <h1>Support &amp; Hilfe</h1>
+  </header>
+
+  <nav class="mainnav" aria-label="Hauptnavigation">
+    <a href="../index.html"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Start</a>
+    <a href="../produkte.html"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>Produkte</a>
+    <a href="../kontakt.html"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Kontakt</a>
+    <a href="../datenschutz.html"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/></svg>Datenschutz</a>
+    <a href="../impressum.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg>Impressum</a>
+  </nav>
+
+  <p class="lead">Etwas hakt oder eine Anwendung zeigt dir einen Fehlercode? Schreib mir kurz – am besten mit dem Fehlercode aus der App, dann kann ich schneller helfen.</p>
+
+  <form id="sf" novalidate>
+    <div class="f">
+      <label for="name">Dein Name</label>
+      <input type="text" id="name" name="name" autocomplete="name" placeholder="Wie darf ich dich ansprechen?">
+    </div>
+    <div class="f">
+      <label for="email">E-Mail <span class="hint">(für die Antwort)</span></label>
+      <input type="email" id="email" name="email" autocomplete="email" placeholder="name@beispiel.de">
+    </div>
+    <div class="f">
+      <label for="betreff">Betreff</label>
+      <input type="text" id="betreff" name="betreff" placeholder="Worum geht's?">
+    </div>
+    <div class="f">
+      <label for="nachricht">Deine Nachricht</label>
+      <textarea id="nachricht" name="nachricht" placeholder="Beschreibe kurz, was passiert ist …"></textarea>
+    </div>
+    <div class="f">
+      <label for="fehlercode">Fehlercode <span class="hint">(optional – falls die App einen anzeigt)</span></label>
+      <input type="text" id="fehlercode" name="fehlercode" class="code-in" placeholder="z. B. FF-1234">
+    </div>
+    <div class="hp" aria-hidden="true">
+      <label for="website">Bitte leer lassen</label>
+      <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+    </div>
+    <button class="btn" type="submit">Support-Anfrage senden</button>
+    <p class="status" id="status" aria-live="polite"></p>
+  </form>
+
+  <p class="note">Datensparsam: keine Cookies, kein Tracking. Solange der Support-Server noch nicht aktiv ist, öffnet sich beim Absenden deine Mail-App mit der vorbereiteten Nachricht – du entscheidest, ob du sie sendest. Support-E-Mail: <a href="mailto:support@fehlerfuchs.eu">support@fehlerfuchs.eu</a></p>
+
+  <footer>© 2026 FehlerFuchs · datensparsam, ohne Cloud und ohne Tracking. <a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html">Datenschutz</a></footer>
+
+<script>
+(function(){
+  // Sobald der Lizenzserver den Endpoint bereitstellt, hier eintragen:
+  // z. B. "https://license.fehlerfuchs.eu/v1/contact". Leer = mailto-Fallback.
+  var ENDPOINT = "";
+  var TO = "support@fehlerfuchs.eu";
+
+  var qs = new URLSearchParams(location.search);
+  // Fehlercode/Betreff aus der App vorbefüllen: /support?code=FF-1234&betreff=...
+  var codeEl = document.getElementById("fehlercode");
+  if(qs.get("code")) codeEl.value = qs.get("code");
+  if(qs.get("betreff")) document.getElementById("betreff").value = qs.get("betreff");
+
+  var form = document.getElementById("sf");
+  var status = document.getElementById("status");
+
+  function fields(){
+    var d = new FormData(form);
+    return {
+      name: (d.get("name")||"").trim(),
+      email: (d.get("email")||"").trim(),
+      betreff: (d.get("betreff")||"").trim(),
+      nachricht: (d.get("nachricht")||"").trim(),
+      fehlercode: (d.get("fehlercode")||"").trim(),
+      website: (d.get("website")||"").trim() // Honeypot
+    };
+  }
+
+  function mailtoFallback(f){
+    var subject = "[FehlerFuchs Support] " + (f.betreff || "Anfrage");
+    var lines = [
+      "Hallo FehlerFuchs,", "",
+      "Name: " + (f.name||"-"),
+      "E-Mail: " + (f.email||"-"),
+      "Fehlercode: " + (f.fehlercode||"-"),
+      "", "Nachricht:", (f.nachricht||"-"),
+      "", "Viele Grüße"
+    ];
+    var href = "mailto:" + TO + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+    status.className = "status";
+    status.textContent = "Deine Mail-App sollte sich gleich öffnen.";
+    window.location.href = href;
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var f = fields();
+    if(f.website){ return; } // Bot erkannt: still verwerfen
+    if(!f.nachricht){ status.className="status err"; status.textContent="Bitte schreib noch eine kurze Nachricht."; return; }
+
+    if(!ENDPOINT){ mailtoFallback(f); return; }
+
+    status.className = "status"; status.textContent = "Wird gesendet …";
+    fetch(ENDPOINT, {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify(f)
+    }).then(function(r){
+      if(!r.ok) throw new Error("http "+r.status);
+      status.className = "status ok";
+      status.textContent = "Danke! Deine Anfrage ist raus – ich melde mich per E-Mail.";
+      form.reset();
+    }).catch(function(){
+      // Server nicht erreichbar -> sauberer mailto-Fallback
+      mailtoFallback(f);
+    });
+  });
+}());
+</script>
+</body>
+</html>
