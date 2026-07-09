@@ -79,7 +79,7 @@
     <a href="produkte.html"><svg viewBox="0 0 24 24"><use href="#ic-apps"/></svg>Produkte</a>
     <a href="unterstuetzen.html"><svg viewBox="0 0 24 24"><use href="#ic-heart"/></svg>Unterstützen</a>
     <a href="wunschliste.html"><svg viewBox="0 0 24 24"><use href="#ic-list"/></svg>Wunschliste</a>
-    <a href="support/index.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M14.83 9.17l3.54-3.54M9.17 9.17 5.63 5.63M9.17 14.83l-3.54 3.54M14.83 14.83l3.54 3.54"/></svg>Support</a><a href="datenschutz.html"><svg viewBox="0 0 24 24"><use href="#ic-shield"/></svg>Datenschutz</a>
+    <a href="datenschutz.html"><svg viewBox="0 0 24 24"><use href="#ic-shield"/></svg>Datenschutz</a>
     <a href="impressum.html" aria-current="page"><svg viewBox="0 0 24 24"><use href="#ic-info"/></svg>Impressum</a>
   </nav>
 
@@ -92,7 +92,6 @@
     07747 Jena<br>
     Deutschland<br>
     E-Mail: <a href="mailto:admin@fehlerfuchs.eu">admin@fehlerfuchs.eu</a></p>
-    <p>Für eine schnelle Kontaktaufnahme nutzen Sie bitte unser <a href="kontakt.html">Kontaktformular</a> oder schreiben Sie an <a href="mailto:info@fehlerfuchs.eu">info@fehlerfuchs.eu</a>. Wir antworten in der Regel innerhalb weniger Werktage.</p>
 
     <h2>Verantwortlich für den Inhalt</h2>
     <p>Matthias Schacht<br>
@@ -112,7 +111,7 @@
     <p><strong>FehlerFuchs</strong> ist die Marke und Website unter <a href="https://fehlerfuchs.eu">fehlerfuchs.eu</a>. Dazu gehören diese Apps und Programme – ein Klick aufs Logo öffnet die Produktseite:</p>
     <ul class="applist">
       <li><a href="apps/mobilereport.html">Mobile<span style="color:#2E7D46">Report</span></a></li>
-      <li><a href="apps/gewerbepro.html"><span style="color:#B45309">Gewerbe</span>Pro</a></li>
+      <li><a href="apps/kleingewerbe.html">Klein<span style="color:#B45309">Gewerbe</span></a></li>
       <li><a href="apps/checkin-vita.html">CheckIn<span style="color:#5B8A72">Vita</span></a></li>
       <li><a href="apps/appinsight.html">App<span style="color:#2563EB">Insight</span></a></li>
       <li><a href="apps/fuchsbau.html">Fuchs<span style="color:#3B6B4E">Bau</span></a></li>
@@ -137,7 +136,7 @@
 <label for="tabmore" class="tab-backdrop" aria-hidden="true"></label>
 <div class="tab-sheet">
   <a href="wunschliste.html"><svg viewBox="0 0 24 24"><use href="#ic-list"/></svg>Wunschliste</a>
-  <a href="support/index.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M14.83 9.17l3.54-3.54M9.17 9.17 5.63 5.63M9.17 14.83l-3.54 3.54M14.83 14.83l3.54 3.54"/></svg>Support</a><a href="datenschutz.html"><svg viewBox="0 0 24 24"><use href="#ic-shield"/></svg>Datenschutz</a>
+  <a href="datenschutz.html"><svg viewBox="0 0 24 24"><use href="#ic-shield"/></svg>Datenschutz</a>
   <a href="impressum.html" aria-current="page"><svg viewBox="0 0 24 24"><use href="#ic-info"/></svg>Impressum</a>
   <a href="kontakt.html"><svg viewBox="0 0 24 24"><use href="#ic-mail"/></svg>Kontakt</a>
 </div>
@@ -145,9 +144,5 @@
   <a href="index.html"><svg viewBox="0 0 24 24"><use href="#ic-home"/></svg>Start</a>
   <a href="downloads.html"><svg viewBox="0 0 24 24"><use href="#ic-download"/></svg>Downloads</a>
   <a href="produkte.html"><svg viewBox="0 0 24 24"><use href="#ic-apps"/></svg>Produkte</a>
-  <a href="unterstuetzen.html"><svg viewBox="0 0 24 24"><use href="#ic-heart"/></svg>Fördern</a>
-  <label for="tabmore"><svg viewBox="0 0 24 24"><use href="#ic-more"/></svg>Mehr</label>
-</nav>
-</body>
-</html>
-    
+  <a href="unterstuetzen.html"><svg viewBox="0 0 24 24"><use href="#ic-heart"/></svg>Support</a>
+  <label for="ta

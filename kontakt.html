@@ -217,3 +217,88 @@
       else { row.textContent="✓ "+fi.name+" ("+human(fi.size)+")"; }
       fileList.appendChild(row);
     }
+    if(total>MAX_TOTAL) err=err||"Anhänge zusammen zu groß (max 25 MB).";
+    return err;
+  }
+  fileEl.addEventListener("change", function(){ var er=checkFiles(); status.className=er?"status err":"status"; status.textContent=er||""; });
+
+  function mailtoFallback(d, hadFiles){
+    var thema = d.get("thema")||"Allgemeine Frage";
+    var app = d.get("app")||"Allgemein / Website";
+    var telpref = d.get("telpref") ? "Telefonischer Rückruf bevorzugt" : "E-Mail bevorzugt";
+    var to = "info@fehlerfuchs.eu";
+    if(thema==="Beta-Test"||thema==="Feedback"||thema==="Fehler melden") to = "support@fehlerfuchs.eu";
+    else if(thema==="Impressum / Rechtliches") to = "admin@fehlerfuchs.eu";
+    var subject = "[FehlerFuchs] " + thema + " – " + app;
+    var lines = [
+      "Hallo FehlerFuchs,","",
+      "Name: " + (d.get("name")||"-"),
+      "Anwendung: " + app,
+      "Thema: " + thema,
+      "","Anliegen:", (d.get("nachricht")||"-"),
+      "","Kontaktwunsch: " + telpref,
+      "E-Mail: " + (d.get("email")||"-"),
+      "Telefon: " + (d.get("tel")||"-"),
+      "Beste Erreichbarkeit: " + (d.get("zeit")||"-"),
+      "","Viele Grüße"
+    ];
+    var href = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+    status.className="status";
+    status.textContent = hadFiles ? "Server nicht erreichbar – Mail-App öffnet sich. Anhänge bitte dort manuell anfügen." : "Dein Mailprogramm sollte sich gleich öffnen.";
+    window.location.href = href;
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var d = new FormData(form);
+    if((d.get("website")||"").trim()){ return; }   // Honeypot
+    if(!(d.get("nachricht")||"").trim()){ status.className="status err"; status.textContent="Bitte beschreib kurz dein Anliegen."; return; }
+    var fileErr = checkFiles();
+    if(fileErr){ status.className="status err"; status.textContent=fileErr; return; }
+    var hadFiles = fileEl.files.length>0;
+
+    if(!ENDPOINT){ mailtoFallback(d, hadFiles); return; }
+
+    var fd = new FormData();
+    fd.append("quelle","kontakt");
+    fd.append("name", d.get("name")||"");
+    fd.append("email", d.get("email")||"");
+    fd.append("betreff", (d.get("thema")||"Allgemeine Frage") + " – " + (d.get("app")||"Allgemein / Website"));
+    fd.append("thema", d.get("thema")||"");
+    fd.append("app", d.get("app")||"");
+    fd.append("telpref", d.get("telpref") ? "ja" : "nein");
+    fd.append("tel", d.get("tel")||"");
+    fd.append("zeit", d.get("zeit")||"");
+    fd.append("nachricht", d.get("nachricht")||"");
+    for(var i=0;i<fileEl.files.length;i++){ fd.append("dateien", fileEl.files[i]); }
+
+    status.className="status"; status.textContent="Wird gesendet …";
+    fetch(ENDPOINT, { method:"POST", body: fd })   // multipart; KEIN Content-Type setzen
+      .then(function(r){
+        if(!r.ok) throw new Error("http "+r.status);
+        status.className="status ok";
+        status.textContent="Danke! Deine Anfrage ist raus – ich melde mich.";
+        form.reset(); fileList.innerHTML="";
+      })
+      .catch(function(){ mailtoFallback(d, hadFiles); });
+  });
+}());
+</script>
+<input type="checkbox" id="tabmore" class="tab-more-cb" aria-hidden="true">
+<label for="tabmore" class="tab-backdrop" aria-hidden="true"></label>
+<div class="tab-sheet">
+  <a href="wunschliste.html"><svg viewBox="0 0 24 24"><use href="#ic-list"/></svg>Wunschliste</a>
+  <a href="support/index.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M14.83 9.17l3.54-3.54M9.17 9.17 5.63 5.63M9.17 14.83l-3.54 3.54M14.83 14.83l3.54 3.54"/></svg>Support</a><a href="datenschutz.html"><svg viewBox="0 0 24 24"><use href="#ic-shield"/></svg>Datenschutz</a>
+  <a href="impressum.html"><svg viewBox="0 0 24 24"><use href="#ic-info"/></svg>Impressum</a>
+  <a href="kontakt.html" aria-current="page"><svg viewBox="0 0 24 24"><use href="#ic-mail"/></svg>Kontakt</a>
+</div>
+<nav class="tabbar" aria-label="Navigation (mobil)">
+  <a href="index.html"><svg viewBox="0 0 24 24"><use href="#ic-home"/></svg>Start</a>
+  <a href="downloads.html"><svg viewBox="0 0 24 24"><use href="#ic-download"/></svg>Downloads</a>
+  <a href="produkte.html"><svg viewBox="0 0 24 24"><use href="#ic-apps"/></svg>Produkte</a>
+  <a href="unterstuetzen.html"><svg viewBox="0 0 24 24"><use href="#ic-heart"/></svg>Fördern</a>
+  <label for="tabmore"><svg viewBox="0 0 24 24"><use href="#ic-more"/></svg>Mehr</label>
+</nav>
+</body>
+</html>
+  

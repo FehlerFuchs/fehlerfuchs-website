@@ -126,4 +126,82 @@
   var fileEl = document.getElementById("dateien");
   var fileList = document.getElementById("filelist");
 
-  functi
+  function ext(name){ var p = name.lastIndexOf("."); return p<0 ? "" : name.slice(p+1).toLowerCase(); }
+  function human(b){ return b<1024?b+" B":b<1048576?(b/1024).toFixed(0)+" KB":(b/1048576).toFixed(1)+" MB"; }
+
+  // Prüft die aktuelle Dateiauswahl, zeigt sie an, gibt Fehlermeldung (oder "") zurück.
+  function checkFiles(){
+    fileList.innerHTML = "";
+    var files = fileEl.files, total = 0, err = "";
+    if(files.length > MAX_COUNT) err = "Bitte höchstens " + MAX_COUNT + " Dateien.";
+    for(var i=0;i<files.length;i++){
+      var fi = files[i], e = ext(fi.name), ok = ALLOW.indexOf(e) >= 0, small = fi.size <= MAX_FILE;
+      total += fi.size;
+      var row = document.createElement("div");
+      if(!ok){ row.className="bad"; row.textContent = "✗ " + fi.name + " – Format ." + (e||"?") + " nicht erlaubt"; err = err || "Nicht erlaubtes Dateiformat dabei."; }
+      else if(!small){ row.className="bad"; row.textContent = "✗ " + fi.name + " – zu groß (" + human(fi.size) + ", max 10 MB)"; err = err || "Eine Datei ist zu groß."; }
+      else { row.textContent = "✓ " + fi.name + " (" + human(fi.size) + ")"; }
+      fileList.appendChild(row);
+    }
+    if(total > MAX_TOTAL) err = err || "Anhänge zusammen zu groß (max 25 MB).";
+    return err;
+  }
+  fileEl.addEventListener("change", function(){
+    var err = checkFiles();
+    status.className = err ? "status err" : "status";
+    status.textContent = err || "";
+  });
+
+  function mailtoFallback(f, hadFiles){
+    var subject = "[FehlerFuchs Support] " + (f.betreff || "Anfrage");
+    var lines = [
+      "Hallo FehlerFuchs,", "",
+      "Name: " + (f.name||"-"),
+      "E-Mail: " + (f.email||"-"),
+      "Fehlercode: " + (f.fehlercode||"-"),
+      "", "Nachricht:", (f.nachricht||"-"),
+      "", "Viele Grüße"
+    ];
+    var href = "mailto:" + TO + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+    status.className = "status";
+    status.textContent = hadFiles
+      ? "Server nicht erreichbar – deine Mail-App öffnet sich. Anhänge bitte dort manuell anfügen."
+      : "Deine Mail-App sollte sich gleich öffnen.";
+    window.location.href = href;
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var f = {
+      name: form.name.value.trim(), email: form.email.value.trim(),
+      betreff: form.betreff.value.trim(), nachricht: form.nachricht.value.trim(),
+      fehlercode: form.fehlercode.value.trim(), website: form.website.value.trim()
+    };
+    if(f.website){ return; }                       // Honeypot -> still verwerfen
+    if(!f.nachricht){ status.className="status err"; status.textContent="Bitte schreib noch eine kurze Nachricht."; return; }
+
+    var fileErr = checkFiles();
+    if(fileErr){ status.className="status err"; status.textContent = fileErr; return; }
+    var hadFiles = fileEl.files.length > 0;
+
+    if(!ENDPOINT){ mailtoFallback(f, hadFiles); return; }
+
+    var fd = new FormData();
+    fd.append("quelle", "support");
+    Object.keys(f).forEach(function(k){ fd.append(k, f[k]); });
+    for(var i=0;i<fileEl.files.length;i++){ fd.append("dateien", fileEl.files[i]); }
+
+    status.className = "status"; status.textContent = "Wird gesendet …";
+    fetch(ENDPOINT, { method: "POST", body: fd })   // multipart; KEIN Content-Type setzen
+      .then(function(r){
+        if(!r.ok) throw new Error("http "+r.status);
+        status.className = "status ok";
+        status.textContent = "Danke! Deine Anfrage ist raus – ich melde mich per E-Mail.";
+        form.reset(); fileList.innerHTML = "";
+      })
+      .catch(function(){ mailtoFallback(f, hadFiles); });  // Server weg -> mailto
+  });
+}());
+</script>
+</body>
+</html>
