@@ -41,7 +41,7 @@
   .status.err{color:#B91C1C}
   .note{background:#fcf8f3;border:1px solid #ecdfd2;border-radius:12px;padding:12px 14px;color:var(--muted);font-size:.86rem;margin-top:16px}
   footer{margin-top:26px;color:var(--muted);font-size:.82rem;border-top:1px solid #ecdfd2;padding-top:14px}
-  .mainnav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:16px 0 30px}
+  .mainnav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0 0 24px;position:sticky;top:0;z-index:40;background:var(--bg);padding:10px 0 8px}
   .mainnav a{display:inline-flex;flex-direction:column;align-items:center;gap:4px;padding:8px 12px;border-radius:12px;font-size:.72rem;font-weight:600;color:var(--brown);text-decoration:none;min-width:66px}
   .mainnav a svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
   .mainnav a:hover{background:var(--cream);color:var(--action)}
@@ -88,10 +88,11 @@
       <input type="text" id="fehlercode" name="fehlercode" class="code-in" placeholder="z. B. FF-1234">
     </div>
     <div class="f">
-      <label for="dateien">Anhänge <span class="hint">(optional – PDF, Word, Bilder/Screenshots, TXT, CSV, .mbrand · max. 5 Dateien, je 10 MB)</span></label>
-      <input type="file" id="dateien" name="dateien" multiple accept=".pdf,.doc,.docx,.txt,.csv,.png,.jpg,.jpeg,.webp,.gif,.mbrand">
+      <label for="dateien">Anhänge <span class="hint">(optional – Bilder, PDF, Word/Office, Text/CSV, ZIP u. v. m. · max. 5 Dateien, zusammen 10 MB)</span></label>
+      <input type="file" id="dateien" name="dateien" multiple accept=".jpg,.jpeg,.png,.gif,.webp,.bmp,.tif,.tiff,.heic,.heif,.svg,.pdf,.doc,.docx,.odt,.rtf,.txt,.md,.csv,.tsv,.xls,.xlsx,.ods,.ppt,.pptx,.odp,.json,.xml,.yaml,.yml,.log,.ics,.vcf,.htm,.html,.css,.mrbrand,.zip,.7z,.rar,.tar,.gz,.mp4,.webm,.mov,.mp3,.wav,.m4a">
       <div id="filelist" class="filelist" aria-live="polite"></div>
     </div>
+    <input type="hidden" name="ziel" value="support">
     <div class="hp" aria-hidden="true">
       <label for="website">Bitte leer lassen</label>
       <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
@@ -110,10 +111,9 @@
   var ENDPOINT = "https://license.fehlerfuchs.eu/v1/contact";
   var TO = "support@fehlerfuchs.eu";
 
-  // Erlaubte Anhänge (Whitelist) + Limits
-  var ALLOW = ["pdf","doc","docx","txt","csv","png","jpg","jpeg","webp","gif","mbrand"];
-  var MAX_FILE = 10 * 1024 * 1024;   // 10 MB je Datei
-  var MAX_TOTAL = 25 * 1024 * 1024;  // 25 MB gesamt
+  // Erlaubte Anhänge (Whitelist LIZ) + Limits – Server prüft verbindlich mit
+  var ALLOW = ["jpg","jpeg","png","gif","webp","bmp","tif","tiff","heic","heif","svg","pdf","doc","docx","odt","rtf","txt","md","csv","tsv","xls","xlsx","ods","ppt","pptx","odp","json","xml","yaml","yml","log","ics","vcf","htm","html","css","mrbrand","zip","7z","rar","tar","gz","mp4","webm","mov","mp3","wav","m4a"];
+  var MAX_TOTAL = 10 * 1024 * 1024;  // 10 MB gesamt
   var MAX_COUNT = 5;
 
   var qs = new URLSearchParams(location.search);
@@ -135,15 +135,14 @@
     var files = fileEl.files, total = 0, err = "";
     if(files.length > MAX_COUNT) err = "Bitte höchstens " + MAX_COUNT + " Dateien.";
     for(var i=0;i<files.length;i++){
-      var fi = files[i], e = ext(fi.name), ok = ALLOW.indexOf(e) >= 0, small = fi.size <= MAX_FILE;
+      var fi = files[i], e = ext(fi.name), ok = ALLOW.indexOf(e) >= 0;
       total += fi.size;
       var row = document.createElement("div");
       if(!ok){ row.className="bad"; row.textContent = "✗ " + fi.name + " – Format ." + (e||"?") + " nicht erlaubt"; err = err || "Nicht erlaubtes Dateiformat dabei."; }
-      else if(!small){ row.className="bad"; row.textContent = "✗ " + fi.name + " – zu groß (" + human(fi.size) + ", max 10 MB)"; err = err || "Eine Datei ist zu groß."; }
       else { row.textContent = "✓ " + fi.name + " (" + human(fi.size) + ")"; }
       fileList.appendChild(row);
     }
-    if(total > MAX_TOTAL) err = err || "Anhänge zusammen zu groß (max 25 MB).";
+    if(total > MAX_TOTAL) err = err || "Anhänge zusammen zu groß (max 10 MB).";
     return err;
   }
   fileEl.addEventListener("change", function(){
@@ -187,19 +186,20 @@
     if(!ENDPOINT){ mailtoFallback(f, hadFiles); return; }
 
     var fd = new FormData();
-    fd.append("quelle", "support");
+    fd.append("ziel", "support");
     Object.keys(f).forEach(function(k){ fd.append(k, f[k]); });
     for(var i=0;i<fileEl.files.length;i++){ fd.append("dateien", fileEl.files[i]); }
 
+    var TXT = {validation:"Bitte schreib noch eine kurze Nachricht.", attach_type:"Dieser Dateityp ist nicht erlaubt.", attach_size:"Die Anhänge sind zu groß (max. 10 MB).", attach_count:"Bitte höchstens 5 Dateien.", rate:"Zu viele Anfragen – bitte etwas später erneut versuchen.", mail:"Senden fehlgeschlagen – ich öffne die Mail-App."};
     status.className = "status"; status.textContent = "Wird gesendet …";
     fetch(ENDPOINT, { method: "POST", body: fd })   // multipart; KEIN Content-Type setzen
-      .then(function(r){
-        if(!r.ok) throw new Error("http "+r.status);
-        status.className = "status ok";
-        status.textContent = "Danke! Deine Anfrage ist raus – ich melde mich per E-Mail.";
-        form.reset(); fileList.innerHTML = "";
+      .then(function(r){ return r.json().catch(function(){ return {ok:false, error:"net"}; }); })
+      .then(function(j){
+        if(j.ok){ status.className="status ok"; status.textContent="Danke! Deine Anfrage ist raus – ich melde mich per E-Mail."; form.reset(); fileList.innerHTML=""; return; }
+        status.className="status err"; status.textContent = TXT[j.error] || "Senden fehlgeschlagen.";
+        if(j.error==="mail" || j.error==="net"){ mailtoFallback(f, hadFiles); }
       })
-      .catch(function(){ mailtoFallback(f, hadFiles); });  // Server weg -> mailto
+      .catch(function(){ mailtoFallback(f, hadFiles); });  // Netzwerkfehler -> mailto
   });
 }());
 </script>

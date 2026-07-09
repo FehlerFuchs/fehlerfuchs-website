@@ -8,7 +8,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-  :root{--orange:#D97706;--brown:#7C3F16;--cream:#FFF7ED;--ink:#2B160B;--muted:#6b5b50;--lens:#2563EB;--bg:#fbf7f2}
+  :root{--orange:#D97706;--brown:#7C3F16;--cream:#FFF7ED;--ink:#2B160B;--muted:#6b5b50;--lens:#2563EB;--action:#C2410C;--bg:#fbf7f2}
   @font-face{font-family:'Poppins';src:url('fonts/Poppins-Regular.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
   @font-face{font-family:'Poppins';src:url('fonts/Poppins-Medium.woff') format('woff');font-weight:500;font-style:normal;font-display:swap}
   @font-face{font-family:'Poppins';src:url('fonts/Poppins-Bold.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
@@ -31,7 +31,7 @@
   .muted{color:var(--muted);font-size:.85rem}
   footer{margin-top:22px;color:var(--muted);font-size:.82rem;border-top:1px solid #ecdfd2;padding-top:14px}
   /* --- Icon-Navigation (Desktop) + Tab-Leiste (mobil) --- */
-  .mainnav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0 0 34px}
+  .mainnav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0 0 24px;position:sticky;top:0;z-index:40;background:var(--bg);padding:10px 0 8px}
   .mainnav a{display:inline-flex;flex-direction:column;align-items:center;gap:4px;padding:8px 12px;border-radius:12px;font-size:.72rem;font-weight:600;color:var(--brown);text-decoration:none;min-width:66px;transition:background .15s,color .15s}
   .mainnav a svg,.tabbar svg,.tab-sheet svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
   .mainnav a svg{width:22px;height:22px}
@@ -143,7 +143,7 @@
     <p class="muted">Hinweis: Die Website fehlerfuchs.eu selbst bleibt statisch, ohne Cookies und ohne Tracking. Die oben beschriebene Verarbeitung entsteht nur beim Kauf (Digistore24), bei der Lizenzaktivierung in der Enterprise-App oder wenn du aktiv das Kontakt-/Supportformular absendest – nicht beim bloßen Besuch der Website.</p>
 
     <h2>Kontakt- und Supportformular</h2>
-    <p>Wenn du unser <a href="kontakt.html">Kontakt-</a> oder <a href="support/index.html">Supportformular</a> absendest, werden die von dir eingegebenen Angaben (z. B. Name, E-Mail-Adresse, Betreff/Thema, Nachricht, optionaler Fehlercode) sowie optional angehängte Dateien (z. B. PDF, Word, TXT, CSV, Bilder/Screenshots, <code>.mbrand</code>) an unseren Server in der EU (license.fehlerfuchs.eu, Serverstandort Deutschland/EU) übertragen und von dort per E-Mail an uns weitergeleitet, damit wir deine Anfrage bearbeiten und dir antworten können. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b und f DSGVO (Bearbeitung deiner Anfrage). Die Inhalte werden nicht dauerhaft in einer Datenbank gespeichert; zur Abwehr von Missbrauch (Spam) wird deine IP-Adresse kurzzeitig verarbeitet. Der E-Mail-Versand erfolgt über unseren Postfachanbieter IONOS. Ist der Server nicht erreichbar, öffnet sich stattdessen deine eigene Mail-App mit den ausgefüllten Angaben – dann entscheidest du selbst über den Versand.</p>
+    <p>Wenn du unser <a href="kontakt.html">Kontakt-</a> oder <a href="support/index.html">Supportformular</a> absendest, werden die von dir eingegebenen Angaben (z. B. Name, E-Mail-Adresse, Betreff/Thema, Nachricht, optionaler Fehlercode) sowie optional angehängte Dateien (z. B. Bilder/Screenshots, PDF, Text-/Log-/CSV-Dateien, <code>.mrbrand</code>, ZIP) an unseren Server in der EU (license.fehlerfuchs.eu, Serverstandort Deutschland/EU) übertragen und von dort per E-Mail an uns weitergeleitet, damit wir deine Anfrage bearbeiten und dir antworten können. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b und f DSGVO (Bearbeitung deiner Anfrage). Die Inhalte werden nicht dauerhaft in einer Datenbank gespeichert; zur Abwehr von Missbrauch (Spam) wird deine IP-Adresse kurzzeitig verarbeitet. Der E-Mail-Versand erfolgt über unseren Postfachanbieter IONOS. Ist der Server nicht erreichbar, öffnet sich stattdessen deine eigene Mail-App mit den ausgefüllten Angaben – dann entscheidest du selbst über den Versand.</p>
 
     <h2>Änderungen dieser Erklärung</h2>
     <p>Diese Erklärung kann angepasst werden, wenn sich die App ändert. Es gilt jeweils die in der veröffentlichten Fassung angegebene Version/Stand.</p>
