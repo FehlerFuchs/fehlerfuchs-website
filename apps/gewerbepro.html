@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FehlerFuchs GewerbePro – lokale Büro-Software für Windows</title>
-<meta name="description" content="FehlerFuchs GewerbePro: offline-first Windows-Desktop-App für Kleingewerbe, Selbstständige und Nebengewerbe – Kunden, Angebote, Aufträge, Rechnungen, Belege/EÜR, Kalender, Vor-Ort-Funktionen. Free-Version „FehlerFuchs Gewerbe" kostenlos, „GewerbePro" als Vollversion. Lokal, ohne Cloud-Zwang.">
+<meta name="description" content="FehlerFuchs GewerbePro: offline-first Windows-Desktop-App für Kleingewerbe, Selbstständige und Nebengewerbe – Kunden, Angebote, Aufträge, Rechnungen, E-Rechnung (ZUGFeRD/XRechnung), Belege/EÜR, Kalender, Vor-Ort-Funktionen. Free-Version „FehlerFuchs Gewerbe" kostenlos, „GewerbePro" als Vollversion. Lokal, ohne Cloud-Zwang.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="app.css">
@@ -36,7 +36,7 @@
   <svg class="lockup" viewBox="0 0 1000 300" role="img" aria-label="FehlerFuchs GewerbePro – von FehlerFuchs"><g transform="translate(10,32.24) scale(0.46)"><polygon points="96,96 186,150 256,185 326,150 416,96 396,250 256,440 116,250" fill="#D97706"/><polygon points="132,120 186,150 158,182" fill="#7C3F16"/><polygon points="380,120 326,150 354,182" fill="#7C3F16"/><polygon points="198,250 314,250 256,430" fill="#FFF7ED"/><polygon points="192,228 232,222 214,250" fill="#2B160B"/><circle cx="306" cy="236" r="30" fill="#7C3F16"/><circle cx="306" cy="236" r="22" fill="#0E2540"/><circle cx="306" cy="236" r="13" fill="#2563EB"/><circle cx="306" cy="236" r="6" fill="#7DD3FC"/><polygon points="243,372 269,372 256,392" fill="#2B160B"/><circle cx="306" cy="236" r="34" fill="none" stroke="#C2410C" stroke-width="4.5"/><path d="M306,272 C332,300 340,332 332,372" fill="none" stroke="#C2410C" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.5 9"/><circle cx="332" cy="375" r="4.5" fill="none" stroke="#C2410C" stroke-width="3"/></g><text x="267.52" y="182.64" font-family="Poppins, 'Segoe UI', Arial, sans-serif" font-weight="800" font-size="96" letter-spacing="-0.5" text-anchor="start"><tspan fill="#B45309">Gewerbe</tspan><tspan fill="#7C3F16">Pro</tspan></text></svg>
   <div class="hero-body">
     <p class="tag">Das Multitool des fuchs-schlauen Selbstständigen – lokal auf deinem Windows-PC, ohne Cloud, ohne Konto und ohne Büro-Ballast.</p>
-    <div class="badges"><span class="badge soon">Beta-Test ab 01.08. geplant</span><span class="badge">100 % lokal</span><span class="badge">Kalender &amp; Postfach</span><span class="badge">modular gedacht</span><span class="badge soon">Android-Konzept</span></div>
+    <div class="badges"><span class="badge soon">Beta-Test ab 01.08. geplant</span><span class="badge">100 % lokal</span><span class="badge">E-Rechnung (EN 16931)</span><span class="badge">Kalender &amp; Postfach</span><span class="badge">modular gedacht</span><span class="badge soon">Android-Konzept</span></div>
     <div class="cta-row"><a class="cta" href="#download-status">Beta-Status ansehen</a><a class="cta ghost" href="../kontakt.html?app=GewerbePro&topic=interesse">Kontakt</a></div>
   </div>
 </header>
@@ -57,7 +57,7 @@
     <li><strong>Hausbesuch, Termin &amp; Aufgabe:</strong> Termine planen, Fristen setzen, Kalenderexport nutzen und E-Mail-Entwürfe mit Anhängen vorbereiten.</li>
     <li><strong>Angebot &amp; Auftrag:</strong> Leistungen aus dem Positions-/Produktkatalog strukturieren, Angebot erzeugen, per Klick in Auftrag und Rechnung umwandeln und alles am Kunden bündeln.</li>
     <li><strong>Durchführung &amp; Dokumentation:</strong> Belege, PDFs, E-Mails, Projektnotizen, Logbuch und Berichte in einem lokalen Verlauf sammeln; vor Ort auch Fotos, Zeiterfassung und Material.</li>
-    <li><strong>Rechnung, E-Rechnung &amp; Versand:</strong> Klassische Rechnung oder Quittungsblock mit Unterschrift auf dem Bildschirm; E-Rechnung ist in Vorbereitung (XRechnung/ZUGFeRD).</li>
+    <li><strong>Rechnung, E-Rechnung &amp; Versand:</strong> Klassische Rechnung oder Quittungsblock mit Unterschrift auf dem Bildschirm; <strong>E-Rechnung nach EN 16931</strong> als ZUGFeRD/XRechnung erzeugen, mit dem KoSIT-Validator prüfen und versenden – GiroCode/Zahlungs-QR auf Rechnung und Mahnung inklusive.</li>
     <li><strong>Nachlauf:</strong> Zahlung, Mahnung, Auswertung, Bericht und Ablage schließen den Vorgang sauber ab.</li>
   </ol>
 </section>
@@ -68,10 +68,13 @@
     <div class="card"><h3>Kunden, Aufträge &amp; Projekte</h3><p>Stammdaten, Kunden (inkl. vCard-Export), Auftragsbuch und Projektakte mit Dateien, Entscheidungen, Notizen und Verlauf.</p></div>
     <div class="card"><h3>Angebote, Rechnungen &amp; Mahnungen</h3><p>Vom Angebot über Auftrag und Rechnung bis Mahnung, Quittung und Lieferschein als sauberer Dokumentfluss – mit PDF-Erzeugung.</p></div>
     <div class="card"><h3>Kalender, Aufgaben &amp; Fristen</h3><p>Termine und Aufgaben im Blick behalten, inklusive PDF-, ICS- und E-Mail-Entwurf für Termine.</p></div>
-    <div class="card"><h3>E-Mail &amp; Postfach</h3><p>Lokales Postfach mit IMAP/SMTP-Basis, Outlook-/EML-Fallback, Anhängen, Suche, Regeln und Kundenbezug.</p></div>
+    <div class="card"><h3>E-Mail &amp; Postfach</h3><p>Lokales Postfach (CoppiceMail-Light) mit IMAP/SMTP-Basis, Outlook-/EML-Fallback, Anhängen, Suche, Regeln und Kundenbezug.</p></div>
     <div class="card"><h3>Auswertungen &amp; Berichte</h3><p>Dashboard, Statistiken, automatische Übersichten, Projektberichte und Exporte für den schnellen Überblick.</p></div>
-    <div class="card"><h3>PDFuchs &amp; Dokumente</h3><p>PDFs prüfen, drehen, zuschneiden, zusammenführen, komprimieren und für OCR oder Belegablage vorbereiten.</p></div>
-    <div class="card"><h3>EÜR, Belege &amp; E-Rechnungen</h3><p>Einnahmen/Ausgaben und EÜR-Vorbereitung, Belegablage; E-Rechnungs-Empfang und -Prüfung vorbereitet, Erstellung in Arbeit.</p></div>
+    <div class="card"><h3>PDFuchs (eingebettet · BETA)</h3><p>PDF öffnen/Reader, Zusammenführen &amp; Teilen, Drehen, Komprimieren und OCR-Vorbereitung – direkt eingebaut. <em>Voller Umfang mit der eigenständigen PDFuchs-Suite; Updates folgen.</em></p></div>
+    <div class="card"><h3>EÜR, Belege &amp; E-Rechnung</h3><p>Einnahmen/Ausgaben und EÜR-Vorbereitung, Belegablage. <strong>E-Rechnung enthalten:</strong> ZUGFeRD/XRechnung (EN 16931) erzeugen, KoSIT-Prüfung, Empfang &amp; Archiv – GiroCode/Zahlungs-QR inklusive.</p></div>
+    <div class="card"><h3>Mahnwesen &amp; Teilzahlungen</h3><p>Zahlungserinnerung plus drei Mahnstufen mit Verzugszinsen; Teil-/Ratenzahlungen sauber verbuchen.</p></div>
+    <div class="card"><h3>Projekte &amp; Gutschriften</h3><p>Projekte als Klammer über Aufträge, Belege und Zeiten; Gutschriften und Stornos sauber abbilden.</p></div>
+    <div class="card"><h3>Fahrtenbuch, Anlagen &amp; AfA</h3><p>Fahrten erfassen und ein Anlagenverzeichnis mit Abschreibungen (AfA) führen – EÜR-tauglich.</p></div>
     <div class="card"><h3>Lokal &amp; sicher</h3><p>SQLite-Datenbank, Backups, Snapshots und Secure Store – keine Cloud, kein Tracking, keine Werbung. Kleinunternehmer-Regelung (§ 19 UStG) berücksichtigt.</p></div>
   </div>
 </section>
@@ -81,20 +84,20 @@
   <p class="lead">GewerbePro soll als schlankes Grundgerüst starten und sich nur dort erweitern, wo du es wirklich brauchst. Alles kann da sein – aber nichts muss unnötig mit auf deinen Bildschirm.</p>
   <div class="grid">
     <div class="card"><h3>Grundgerüst</h3><p>Kunden, Aufträge, Termine, Angebote, Rechnungen, Belege, Aufgaben, Berichte, Backup und lokale Datenhaltung als stabile Basis.</p></div>
-    <div class="card"><h3>Optionale Pakete</h3><p>PDFuchs, OCR, E-Rechnung, Validatoren, Paperless-Brücke, Postfach-Ausbau und weitere Werkzeuge als bewusst wählbare Erweiterungen.</p></div>
+    <div class="card"><h3>Optionale Pakete</h3><p>OCR, eigenständige PDFuchs-Vollsuite, Validatoren, Paperless-Brücke, Postfach-Ausbau und weitere Werkzeuge als bewusst wählbare Erweiterungen. (E-Rechnung ist bereits im Kern enthalten.)</p></div>
     <div class="card"><h3>Installer mit Auswahl</h3><p>Der geplante Installer soll Pakete nach Bedarf installieren, reparieren oder weglassen können: nicht mehr, nicht weniger. Du entscheidest.</p></div>
     <div class="card"><h3>Ruhige Oberfläche</h3><p>Funktionen sollen verfügbar sein, ohne den Alltag zu überladen: sichtbar, wenn gebraucht; im Hintergrund, wenn nicht.</p></div>
   </div>
 </section>
 
 <section>
-  <h2 class="sec">Companion-App für Android in Planung</h2>
-  <p class="lead">Noch nicht Teil der Beta, aber als Konzept-Idee fest im Blick: eine schlanke Android-Begleit-App für alle Momente, in denen der Auftrag nicht am Schreibtisch beginnt.</p>
+  <h2 class="sec">GewerbePro Mobil – Companion-App <span class="badge soon" style="vertical-align:middle">Pro · in Vorbereitung</span></h2>
+  <p class="lead">Die mobile Begleit-App zu GewerbePro – <strong>Teil der Pro-Edition</strong>, aktuell <strong>in Vorbereitung</strong> und noch nicht separat kaufbar. Freischaltung mit <strong>demselben Lizenzschlüssel</strong> wie das Hauptprogramm.</p>
   <div class="grid">
-    <div class="card"><h3>Aufträge unterwegs anlegen</h3><p>Kundenbesuche, spontane Anfragen oder neue Arbeitsaufträge direkt vor Ort erfassen und später am PC sauber weiterverarbeiten.</p></div>
-    <div class="card"><h3>Berichte mit Fotos</h3><p>Notizen, Status, Material und Bilder unterwegs sammeln, daraus einen Bericht vorbereiten und direkt an die eigene Firmenmail senden.</p></div>
-    <div class="card"><h3>Digitaler Quittungsblock</h3><p>Quittungen direkt auf dem Handy erstellen, unterschreiben lassen und für Ablage, Rechnung oder Nachbearbeitung bereithalten.</p></div>
-    <div class="card"><h3>Mehr mobile Helfer</h3><p>Die App bleibt bewusst modular gedacht: nicht alles auf einmal, sondern genau die kleinen Werkzeuge, die unterwegs wirklich Zeit sparen.</p></div>
+    <div class="card"><h3>Vor Ort erfassen</h3><p>Auftrags-Entwürfe, Kunden und den Positions-/Produktkatalog unterwegs anlegen und später am PC sauber weiterverarbeiten.</p></div>
+    <div class="card"><h3>Planung dabei</h3><p>Kalender, Aufgaben und Fristen mobil im Blick behalten.</p></div>
+    <div class="card"><h3>Digitaler Quittungsblock</h3><p>Quittungen direkt auf dem Handy erstellen, unterschreiben lassen und für Ablage/Rechnung bereithalten.</p></div>
+    <div class="card"><h3>Sync ohne Cloud-Zwang</h3><p>Abgleich per <strong>USB</strong> (empfohlener Hauptweg) oder optional über deine <strong>eigene Cloud</strong> – Letzteres nur bewusst nutzen (Datenschutz). Kein FehlerFuchs-Server dazwischen.</p></div>
   </div>
 </section>
 
@@ -105,9 +108,9 @@
     <li><strong>Büro-Grundlage steht:</strong> Kunden, Aufträge, Dokumente, Zahlungen, Belege, Logbuch, Aufgaben, Backups und Branding sind als Kernworkflow vorhanden.</li>
     <li><strong>Kalender &amp; Kommunikation sind angebunden:</strong> Terminexport als PDF/ICS/E-Mail-Entwurf, lokales Postfach mit Entwürfen, Gesendet-Ordnern, Suche, Filtern, Regeln und Anhängen.</li>
     <li><strong>Belegzentrale wächst:</strong> PDFuchs, Paperless-Brücke, OCR-Vorbereitung und E-Rechnungs-Empfang machen aus Anhängen und Dateien verwertbare Unterlagen.</li>
-    <li><strong>E-Rechnung wird zum Prozessbaustein:</strong> Empfang, Prüfung und Archiv sind vorbereitet; Erzeugung, Versand, Sendestatus und sauberer Postfachfluss sind nächste Ausbaustufen.</li>
+    <li><strong>E-Rechnung ist einsatzbereit:</strong> Erzeugung (ZUGFeRD/XRechnung, EN 16931), KoSIT-Prüfung, Empfang, Versand und Archiv sind Teil des aktuellen Stands; GiroCode/Zahlungs-QR inklusive.</li>
     <li><strong>Berichte werden wichtiger:</strong> Dashboard, Statistiken, Projektberichte, Prüfberichte und automatische Zusammenfassungen helfen, den Stand des eigenen Geschäfts schneller zu erfassen.</li>
-    <li><strong>Noch vor dem großen Release:</strong> Modularer Installer, Lizenz-/Release-Sicherheit, E-Rechnungs-Ausgabe, Mehrkonten/OAuth und der sichtbare PDF-Editor werden weiter geglättet.</li>
+    <li><strong>Noch vor dem großen Release:</strong> Modularer Installer, Lizenz-/Release-Sicherheit, Mehrkonten/OAuth, Companion-App „GewerbePro Mobil" und die eigenständige PDFuchs-Vollsuite werden weiter ausgebaut.</li>
   </ol>
 </section>
 
@@ -124,9 +127,13 @@
         <tr><td>Logbuch, Statistik, Auswertungen &amp; Berichte</td><td>Basis</td><td class="yes">erweitert</td><td class="yes">voll</td></tr>
         <tr><td>E-Mail-Entwürfe &amp; lokales Postfach (IMAP/SMTP)</td><td>Basis</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         <tr><td>E-Mail-Versand</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>PDFuchs, Belege &amp; E-Rechnungs-Prüfung</td><td>Basis</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>PDFuchs eingebettet (BETA) &amp; Belegablage</td><td>Basis</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         <tr><td>OCR / Texterkennung für Belege</td><td class="no">–</td><td>optional</td><td class="yes">✓</td></tr>
-        <tr><td>E-Rechnung erstellen &amp; versenden (XRechnung/ZUGFeRD)</td><td class="no">Zielbild</td><td>in Vorbereitung</td><td>in Arbeit</td></tr>
+        <tr><td>E-Rechnung erstellen, prüfen (KoSIT) &amp; versenden (ZUGFeRD/XRechnung, EN 16931)</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>GiroCode/Zahlungs-QR auf Rechnung &amp; Mahnung</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Mahnwesen: Erinnerung + 3 Stufen, Verzugszinsen &amp; Teilzahlungen</td><td>Basis</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Projekte &amp; Gutschriften/Stornos</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Fahrtenbuch, Anlagen &amp; AfA</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         <tr><td>Paperless-ngx-Archiv-Anbindung</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
         <tr><td>Etiketten-/Label-Druck</td><td class="no">–</td><td>optional</td><td class="yes">✓</td></tr>
         <tr><td>Datenimport (Stammdaten &amp; Bestände)</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
@@ -135,7 +142,8 @@
         <tr><td>Modulare Erweiterungspakete per Installer</td><td class="no">Zielbild</td><td>Zielbild</td><td class="yes">alle Module</td></tr>
         <tr><td>Voll editierbar · Entwickler-Werkzeuge &amp; Selbsttest</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
         <tr><td>Hinweis „Erstellt mit FehlerFuchs Gewerbe"</td><td>ja</td><td class="no">entfällt</td><td class="no">entfällt</td></tr>
-        <tr><td>Android-Companion-App</td><td class="no">–</td><td>Konzept / in Planung</td><td>Konzept / in Planung</td></tr>
+        <tr><td>GewerbePro Mobil (Companion-App)</td><td class="no">–</td><td>in Vorbereitung</td><td>in Vorbereitung</td></tr>
+        <tr><td>Eigenständige PDFuchs-Vollsuite (separat)</td><td class="no">–</td><td>später</td><td class="yes">✓</td></tr>
         <tr><td>Verfügbarkeit / Preis</td><td>kostenlos</td><td>später optional</td><td>intern · nicht öffentlich</td></tr>
       </tbody>
     </table>
@@ -146,7 +154,8 @@
   <h2 class="sec">Beta-Downloads pausiert</h2>
   <p>Die bisherigen Free- und Pro-Beta-ZIPs sind vorübergehend deaktiviert, weil sie nicht mehr den aktuellen Entwicklungsstand abbilden. Neue Beta-Pakete sind in Vorbereitung.</p>
   <p style="margin-top:6px"><strong>Geplanter Start:</strong> Der offizielle Beta-Test startet voraussichtlich am <strong>01.08.2026</strong>. Im besten Fall geht es schon früher los – je nachdem, wie schnell sich die letzten Hürden sauber überwinden lassen. Voranmelden ist natürlich schon möglich.</p>
-  <p style="margin-top:6px"><strong>Zielbild:</strong> Später soll ein Installer das Grundprogramm und optionale Pakete getrennt anbieten. Du installierst nur, was du brauchst – etwa PDF/OCR, E-Rechnung, Postfach oder weitere Werkzeuge.</p>
+  <p style="margin-top:6px"><strong>Zielbild:</strong> Später soll ein Installer das Grundprogramm und optionale Pakete getrennt anbieten. Du installierst nur, was du brauchst – etwa OCR, die PDFuchs-Vollsuite, Postfach-Ausbau oder weitere Werkzeuge.</p>
+  <p style="margin-top:6px"><strong>Kauf/Lizenzen:</strong> Der Kauf von GewerbePro Pro läuft über die sichere Kasse (Digistore24) und wird per Lizenzschlüssel freigeschaltet. <strong>Kauf-Buttons werden erst aktiviert, wenn der Lizenzserver live ist</strong> – bis dahin bitte vormerken.</p>
   <div class="cta-row" style="margin-top:14px">
     <span class="cta soon">Free-Beta pausiert</span>
     <span class="cta soon">Pro-Beta pausiert</span>
@@ -158,20 +167,21 @@
 <section>
   <h2 class="sec">Datenschutz</h2>
   <p><span class="pill">Keine Cloud</span><span class="pill">Kein Konto</span><span class="pill">Keine Telemetrie</span><span class="pill">Werbefrei</span><span class="pill">Nur lokal</span></p>
+  <p style="margin-top:8px;font-size:.9rem;color:var(--muted)">Anbieter &amp; Rechtliches: <a href="../impressum.html">Impressum von fehlerfuchs.eu</a> (Matthias Schacht, FehlerFuchs). Die In-App-Kurzfassung „Info &amp; Rechtliches" verweist auf dieselben Angaben.</p>
 </section>
 
 <section>
   <h2 class="sec">Häufige Fragen</h2>
   <div class="faq">
-    <details><summary>Was kostet das Programm?</summary><div class="a">Die Basisversion <strong>FehlerFuchs Gewerbe</strong> ist kostenlos. <strong>GewerbePro</strong> wird später optional kostenpflichtig – das Grundlegende bleibt frei.</div></details>
+    <details><summary>Was kostet das Programm?</summary><div class="a">Die Basisversion <strong>FehlerFuchs Gewerbe</strong> ist kostenlos. <strong>GewerbePro</strong> wird später optional kostenpflichtig – das Grundlegende bleibt frei. Der Kauf läuft künftig über die sichere Kasse, sobald Shop und Lizenzserver live sind; bis dahin gibt es noch keine Kauf-Buttons.</div></details>
     <details><summary>Was ist die „Vather"-Version?</summary><div class="a">Die <strong>interne Entwicklerversion</strong> (früher „Mother"): alle Funktionen frei geschaltet und voll editierbar, inkl. Paperless-ngx-Anbindung, OCR, E-Rechnung, Etiketten und Account-Tresor. Sie dient Entwicklung und Test und wird <strong>nicht öffentlich verteilt</strong>; öffentlich erscheinen nur <strong>Gewerbe</strong> und <strong>GewerbePro</strong>.</div></details>
     <details><summary>Wo liegen meine Daten?</summary><div class="a">Im Programmordner auf deinem PC (Datenbank, Backups, PDFs). Nichts wird in eine Cloud übertragen.</div></details>
     <details><summary>Ersetzt es die Steuerberatung?</summary><div class="a">Nein. Es unterstützt, strukturiert und dokumentiert. Steuerliche, rechtliche oder fachliche Entscheidungen bleiben bei dir bzw. deiner Beratung.</div></details>
-    <details><summary>Was ist mit E-Rechnungen geplant?</summary><div class="a">Der Empfang, die Erkennung und die Prüfung von E-Rechnungen sind vorbereitet. Das Ziel ist der vollständige Ablauf: aus Rechnungsdaten XRechnung/ZUGFeRD erzeugen, prüfen, versenden, Status dokumentieren und alles beim Kunden bzw. Auftrag ablegen.</div></details>
+    <details><summary>Wie funktioniert die E-Rechnung?</summary><div class="a">E-Rechnung ist in GewerbePro <strong>enthalten</strong>: aus den Rechnungsdaten erzeugst du <strong>ZUGFeRD/XRechnung nach EN 16931</strong>, prüfst sie mit dem <strong>KoSIT-Validator</strong>, versendest sie und legst sie beim Auftrag ab; eingehende E-Rechnungen werden erkannt und geprüft. Auf Rechnung und Mahnung lässt sich ein <strong>GiroCode/Zahlungs-QR</strong> drucken.</div></details>
     <details><summary>Warum ein modularer Installer?</summary><div class="a">Nicht jeder braucht OCR, E-Rechnungsvalidatoren, Paperless oder erweiterte PDF-Werkzeuge. Das Ziel ist ein Installer, der Grundgerüst und Erweiterungen trennt: alles verfügbar, aber nur das sichtbar und installiert, was du wirklich nutzen willst.</div></details>
     <details><summary>Synchronisiert der Kalender direkt mit Outlook oder Google?</summary><div class="a">Der stabile Weg ist aktuell der lokale ICS-Export. Das funktioniert mit Outlook, Apple Kalender, Google Kalender und vielen anderen Kalendern, ohne Cloud-Zwang oder Kontoanmeldung in FehlerFuchs.</div></details>
     <details><summary>Wie weit ist das Programm?</summary><div class="a">GewerbePro ist in aktiver Beta-Vorbereitung. Der offizielle Beta-Test startet voraussichtlich am 01.08.2026, im besten Fall auch früher, wenn die letzten Hürden sauber gelöst sind. Die alten Free-/Pro-Pakete sind deaktiviert; voranmelden ist schon möglich.</div></details>
-    <details><summary>Gibt es das auch für Android?</summary><div class="a">Bisher nur als Konzept-Idee: Aufträge von unterwegs anlegen, Berichte inkl. Fotos erstellen, direkt an die eigene Firmenmail senden und einen digitalen Quittungsblock mit Unterschrift auf dem Handy ermöglichen. Die Android-Companion-App ist noch nicht verfügbar.</div></details>
+    <details><summary>Gibt es das auch für Android?</summary><div class="a">Ja, als <strong>GewerbePro Mobil</strong> – die Companion-App gehört zur <strong>Pro-Edition</strong> und ist aktuell <strong>in Vorbereitung</strong> (noch nicht separat kaufbar). Freischaltung mit demselben Lizenzschlüssel; Abgleich per USB (Hauptweg) oder eigener Cloud. Vor Ort: Auftrags-Entwürfe, Kunden, Katalog, Kalender/Aufgaben und Quittungsblock.</div></details>
   </div>
 </section>
 
