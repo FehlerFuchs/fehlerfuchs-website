@@ -3,14 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex,nofollow">
-<title>Hallo von FehlerFuchs</title>
-<meta name="description" content="Eine kurze persönliche Vorstellung von FehlerFuchs: kleine lokale Software-Helfer für Alltag, Büro und Selbstständigkeit.">
+<title>FehlerFuchs – kleine, lokale Software-Helfer</title>
+<meta name="description" content="FehlerFuchs aus Jena macht kleine, lokale Software-Helfer für Alltag, Büro und Selbstständigkeit – ohne Cloud-Zwang, ohne Abo, ohne Tracking. MobileReport, GewerbePro & mehr.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hallo von FehlerFuchs">
-<meta property="og:description" content="Kleine lokale Software-Helfer für Alltag, Büro und Selbstständigkeit.">
+<meta property="og:title" content="FehlerFuchs – kleine, lokale Software-Helfer">
+<meta property="og:description" content="Kleine, lokale Software-Helfer für Alltag, Büro und Selbstständigkeit – ohne Cloud, ohne Abo, ohne Tracking.">
 <meta property="og:image" content="https://fehlerfuchs.eu/og-image.png">
 <meta property="og:url" content="https://fehlerfuchs.eu/hallo.html">
 <meta name="twitter:card" content="summary_large_image">
@@ -28,17 +27,15 @@
   h1,h2,h3{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
   a{color:var(--action);text-decoration:none}
   a:hover{text-decoration:underline}
-  button{font:inherit}
-  .brand{display:flex;justify-content:center;margin:4px 0 28px}
-  .brand img{width:min(430px,88vw);height:auto;display:block;filter:drop-shadow(0 10px 22px rgba(124,63,22,.14))}
-  .hero{text-align:center;max-width:790px;margin:0 auto 36px}
+  .brand{display:flex;justify-content:center;margin:4px 0 24px}
+  .hero{text-align:center;max-width:800px;margin:0 auto 34px}
   .warning{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #ecdfd2;border-radius:999px;padding:7px 13px;color:var(--brown);font-weight:700;font-size:.84rem;margin-bottom:18px}
   .warning span{width:9px;height:9px;border-radius:3px;background:var(--orange);display:inline-block}
-  h1{font-size:clamp(2.15rem,7vw,4.5rem);line-height:1.02;color:var(--brown);letter-spacing:0;margin-bottom:12px}
-  .sub{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:clamp(1.05rem,2.8vw,1.45rem);font-weight:600;color:var(--orange);margin-bottom:16px}
-  .lead{font-size:1.08rem;max-width:680px;margin:0 auto;color:var(--ink)}
+  h1{font-size:clamp(2.05rem,6vw,3.6rem);line-height:1.05;color:var(--brown);margin-bottom:12px}
+  .sub{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:clamp(1.05rem,2.8vw,1.4rem);font-weight:600;color:var(--orange);margin-bottom:16px}
+  .lead{font-size:1.08rem;max-width:700px;margin:0 auto;color:var(--ink)}
   .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
-  .cta{display:inline-flex;align-items:center;justify-content:center;background:var(--orange);color:#fff;font-weight:800;padding:12px 20px;border-radius:12px;font-size:.95rem;border:0;cursor:pointer}
+  .cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--orange);color:#fff;font-weight:800;padding:12px 20px;border-radius:12px;font-size:.95rem;border:0;cursor:pointer}
   .cta:hover{background:#b45309;text-decoration:none}
   .cta.ghost{background:#fff;color:var(--action);border:1px solid #f0d6c4}
   .cta.ghost:hover{background:#fcf8f3}
@@ -50,31 +47,19 @@
   .tile{background:#fff;border:1px solid #ecdfd2;border-radius:14px;padding:17px 18px;box-shadow:0 6px 16px rgba(124,63,22,.045)}
   .tile h3{font-size:1.02rem;color:var(--brown);margin-bottom:5px}
   .tile p{font-size:.94rem;margin:0}
+  a.tile{display:block;color:inherit}
+  a.tile:hover{text-decoration:none;border-color:#e2c8ae;box-shadow:0 10px 24px rgba(124,63,22,.08)}
+  .tile .nm{font-family:'Poppins';font-weight:700;font-size:1.05rem;color:var(--brown)}
+  .tile .st{display:inline-block;font-size:.72rem;font-weight:800;border-radius:999px;padding:2px 9px;margin-top:10px}
+  .st.live{background:#e7f3df;color:#2f6d12;border:1px solid #cde7b6}
+  .st.soon{background:#FEF3E2;color:#9A5B0E;border:1px solid #F3D9B0}
+  .st.plan{background:#F1ECE6;color:#6b5b50;border:1px solid #e2d6c8}
   .pill{display:inline-block;background:var(--cream);color:var(--brown);border:1px solid #f0e0cf;border-radius:999px;padding:4px 11px;font-size:.82rem;font-weight:700;margin:4px 5px 0 0}
   .spotlight{background:#fff;border:1px solid #ecdfd2;border-radius:18px;padding:24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(170px,240px);gap:22px;align-items:center;box-shadow:0 8px 22px rgba(124,63,22,.055)}
   .spotlight img{width:100%;max-width:230px;justify-self:center;height:auto}
-  .spotlight h2{font-size:1.6rem}
-  .steps{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:14px}
-  .steps li{position:relative;background:#fff;border:1px solid #ecdfd2;border-radius:14px;padding:15px 16px 15px 42px;min-height:88px}
-  .steps li::before{content:attr(data-step);position:absolute;left:14px;top:16px;width:20px;height:20px;border-radius:7px;background:var(--green);color:#fff;font-family:'Poppins';font-size:.75rem;font-weight:800;display:flex;align-items:center;justify-content:center}
-  .steps strong{display:block;color:var(--brown);font-family:'Poppins';line-height:1.25;margin-bottom:3px}
+  .spotlight h2{font-size:1.55rem}
   .ask{background:var(--cream);border:1px solid #f0e0cf;border-radius:18px;padding:24px;text-align:center}
   .ask p{max-width:680px;margin:0 auto 10px}
-  .beta-callout{background:#fff;border:1px solid #ecdfd2;border-radius:18px;padding:24px;text-align:center;box-shadow:0 8px 22px rgba(124,63,22,.055)}
-  .beta-callout p{max-width:710px;margin:0 auto 10px}
-  .beta-dialog{border:0;border-radius:18px;padding:0;width:min(560px,calc(100vw - 32px));max-width:560px;box-shadow:0 24px 70px rgba(43,22,11,.34);background:#fff;color:var(--ink)}
-  .beta-dialog::backdrop{background:rgba(43,22,11,.48)}
-  .beta-form{padding:22px}
-  .dialog-head{display:flex;gap:14px;align-items:flex-start;justify-content:space-between;margin-bottom:14px}
-  .dialog-head h2{font-size:1.32rem;margin:0}
-  .dialog-close{background:var(--cream);border:1px solid #f0e0cf;border-radius:10px;color:var(--brown);font-weight:800;padding:7px 10px;cursor:pointer}
-  .fields{display:grid;gap:12px}
-  .fields label{display:grid;gap:5px;font-size:.9rem;font-weight:700;color:var(--brown);text-align:left}
-  .fields input,.fields select,.fields textarea{width:100%;border:1px solid #e4d3c1;border-radius:10px;background:#fffdf9;color:var(--ink);padding:10px 11px;font:inherit;font-weight:400}
-  .fields textarea{min-height:96px;resize:vertical}
-  .form-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-  .form-actions .cta{margin-top:0}
-  .beta-status{min-height:1.4em;margin-top:10px;color:var(--muted);font-size:.9rem}
   .final{background:#2B160B;color:#fff;border-radius:18px;padding:26px 24px;text-align:center}
   .final h2{color:#FCE08A}
   .final p{max-width:690px;margin:0 auto;color:#fff7ed}
@@ -90,186 +75,88 @@
 <body>
 
 <div class="brand" aria-label="FehlerFuchs">
-  <img src="fuchs-loops/fuchs-loop_hallo.svg" alt="FehlerFuchs - Hallo" width="720" height="240" style="width:min(620px,92vw);height:auto">
+  <img src="fuchs-loops/fuchs-loop_hallo.svg" alt="FehlerFuchs" width="720" height="240" style="width:min(560px,92vw);height:auto">
 </div>
 
 <main>
   <header class="hero">
-    <div class="warning"><span aria-hidden="true"></span> Kleine Werbewarnung, aber charmant gemeint</div>
-    <h1>Hallo du.</h1>
-    <p class="sub">Ich bin mit FehlerFuchs ganz am Start.</p>
-    <p class="lead">Unter FehlerFuchs entstehen kleine, praktische Software-Helfer für Alltag, Büro und Selbstständigkeit: lokal, datensparsam, ohne Cloud-Zwang und ohne Tracking.</p>
+    <div class="warning"><span aria-hidden="true"></span> Software, die dir gehört – aus Jena</div>
+    <h1>Kleine, lokale Software-Helfer.</h1>
+    <p class="sub">Ohne Cloud-Zwang. Ohne Abo. Ohne Tracking.</p>
+    <p class="lead">Unter <strong>FehlerFuchs</strong> entstehen kleine, praktische Programme und Apps für Alltag, Büro und Selbstständigkeit. Jedes löst genau ein Problem – läuft lokal auf deinem Gerät, und deine Daten bleiben bei dir.</p>
     <div class="ctas">
-      <a class="cta" href="#gewerbepro">Was entsteht da?</a>
-      <button class="cta ghost" type="button" data-open-beta>Ich will dein Programm testen</button>
-      <a class="cta ghost" href="index.html">Zur echten Webseite</a>
+      <a class="cta" href="#produkte">Produkte ansehen</a>
+      <a class="cta ghost" href="https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport" target="_blank" rel="noopener">MobileReport gratis laden</a>
+      <a class="cta ghost" href="index.html">Zur Website</a>
     </div>
   </header>
 
-  <section aria-labelledby="was-title">
+  <section aria-labelledby="werte-title">
     <div class="section-head">
-      <h2 id="was-title">Was ich da eigentlich baue</h2>
-      <p class="muted">FehlerFuchs soll Software machen, die nicht komplizierter ist als das Problem, das sie lösen soll.</p>
+      <h2 id="werte-title">Wofür FehlerFuchs steht</h2>
+      <p class="muted">Nützliche Software, die nicht komplizierter ist als das Problem, das sie lösen soll.</p>
     </div>
     <div class="grid">
-      <article class="tile"><h3>Lokale Helfer</h3><p>Programme und Apps, die auf deinem Gerät arbeiten, statt alles irgendwohin zu schicken.</p></article>
-      <article class="tile"><h3>Weniger Büro-Nerv</h3><p>Werkzeuge für Kunden, Termine, Dokumente, E-Mails, Rechnungen, Berichte und Ordnung.</p></article>
-      <article class="tile"><h3>Fairer Gedanke</h3><p>Kein Monopol-Gehabe, kein künstlicher Druck. Nützliche Software, ehrlich erklärt und bezahlbar gedacht.</p></article>
+      <article class="tile"><h3>Lokal &amp; datensparsam</h3><p>Alles arbeitet auf deinem Gerät – ohne Cloud, ohne Konto, ohne Tracking. Deine Daten bleiben bei dir.</p></article>
+      <article class="tile"><h3>Fair statt Abo</h3><p>Das Grundlegende bleibt kostenlos; wo etwas kostet, dann einmalig und ehrlich – keine laufenden Kosten, keine Werbung.</p></article>
+      <article class="tile"><h3>Weniger Büro-Nerv</h3><p>Werkzeuge für Meldungen, Kunden, Termine, Dokumente, Rechnungen, Belege und Ordnung.</p></article>
+      <article class="tile"><h3>Aus Jena, mit Ansprechpartner</h3><p>Ein Mensch statt Hotline: ich bin erreichbar, wenn etwas ist – auch für individuelle Lösungen.</p></article>
     </div>
   </section>
 
-  <section id="gewerbepro" class="spotlight" aria-labelledby="kg-title">
+  <section class="spotlight" aria-labelledby="mr-title">
     <div>
-      <h2 id="kg-title">Ganz vorne: FehlerFuchs GewerbePro</h2>
-      <p>Mein eigenes Büroprogramm für Selbstständige ist inzwischen nahezu veröffentlichungsreif. Es soll den kompletten Ablauf mitdenken: vom ersten Kundenkontakt über Hausbesuch, Angebot, Termin, Auftrag und Dokumentation bis hin zu Rechnung, E-Rechnung, Versand, Mahnung, Auswertung und Bericht.</p>
-      <p><span class="pill">Kunden</span><span class="pill">Termine</span><span class="pill">Angebote</span><span class="pill">Rechnungen</span><span class="pill">E-Mail</span><span class="pill">Berichte</span><span class="pill">Belege</span></p>
+      <h2 id="mr-title">Schon da: FehlerFuchs MobileReport</h2>
+      <p>Mängel und Fotos vor Ort erfassen und als sauberen PDF-Bericht verschicken – z. B. für Auftragserstellung, Mängelmeldung oder Bauabnahme. Kostenlos im Google Play Store; <strong>Pro</strong> ist ein einmaliger In-App-Kauf (5,00 €, kein Abo).</p>
+      <p><span class="pill">Android</span><span class="pill">100 % lokal</span><span class="pill">werbefrei</span></p>
+      <div class="ctas" style="justify-content:flex-start">
+        <a class="cta" href="https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M4 3.5v17a1 1 0 0 0 1.5.87l14-8.5a1 1 0 0 0 0-1.74l-14-8.5A1 1 0 0 0 4 3.5z"/></svg>Im Google Play Store</a>
+        <a class="cta ghost" href="apps/mobilereport.html">Zur Produktseite</a>
+      </div>
     </div>
-    <img src="img/kleingewerbe-pro.png" alt="FehlerFuchs GewerbePro" width="320" height="320" loading="lazy">
+    <img src="img/lockups/mobilereport.png" alt="FehlerFuchs MobileReport" width="320" height="320" loading="lazy">
   </section>
 
-  <section class="beta-callout" aria-labelledby="beta-title">
-    <h2 id="beta-title">Beta-Tester gesucht</h2>
-    <p>Ich suche Menschen, die FehlerFuchs GewerbePro im echten Alltag ausprobieren: ehrlich, neugierig und gern mit Rückmeldung, wo es noch hakt oder wo ein kleiner Bürohelfer richtig Zeit sparen würde.</p>
-    <p class="muted">Besonders spannend sind Selbstständige, Kleingewerbe, Nebenberufler und alle, die regelmäßig mit Kunden, Terminen, Angeboten, Rechnungen oder Belegen zu tun haben.</p>
-    <div class="ctas">
-      <button class="cta" type="button" data-open-beta>Ich will dein Programm testen</button>
-    </div>
-  </section>
-
-  <section aria-labelledby="ziel-title">
+  <section id="produkte" aria-labelledby="prod-title">
     <div class="section-head">
-      <h2 id="ziel-title">Das Zielbild</h2>
-      <p class="muted">Ein Grundgerüst, das schlank bleibt. Erweiterungen, die du nur installierst, wenn du sie wirklich brauchst.</p>
+      <h2 id="prod-title">Alle Helfer im Überblick</h2>
+      <p class="muted">Eine wachsende Familie kleiner Werkzeuge – ein Klick führt zur jeweiligen Produktseite.</p>
     </div>
-    <ol class="steps">
-      <li data-step="1"><strong>Grundprogramm</strong>Kunden, Aufträge, Termine, Angebote, Rechnungen, Aufgaben, Belege und Berichte.</li>
-      <li data-step="2"><strong>Optionale Pakete</strong>PDF/OCR, E-Rechnung, Postfach, Paperless-Brücke und weitere Werkzeuge nach Bedarf.</li>
-      <li data-step="3"><strong>Ruhige Oberfläche</strong>Alles kann da sein, aber nichts muss unnötig auf deinem Bildschirm stehen.</li>
-      <li data-step="4"><strong>Du entscheidest</strong>Nicht mehr, nicht weniger: installiert wird nur, was zum eigenen Arbeitsalltag passt.</li>
-    </ol>
+    <div class="grid">
+      <a class="tile" href="apps/mobilereport.html"><div class="nm">Mobile<span style="color:#2E7D46">Report</span></div><p>Mängel &amp; Fotos vor Ort erfassen, als PDF verschicken. Free + Pro (In-App).</p><span class="st live">verfügbar · Play Store</span></a>
+      <a class="tile" href="apps/gewerbepro.html"><div class="nm"><span style="color:#B45309">Gewerbe</span>Pro</div><p>Lokale Büro-Software fürs Kleingewerbe: Kunden, Angebote, Rechnungen, E-Rechnung.</p><span class="st soon">Beta ab 01.08.</span></a>
+      <a class="tile" href="produkte.html"><div class="nm">Snap<span style="color:#2563EB">Fuchs</span></div><p>Lokaler Dokumenten-Scanner für Android – ohne Cloud, ohne Google.</p><span class="st soon">bald verfügbar</span></a>
+      <a class="tile" href="produkte.html"><div class="nm"><span style="color:#0E7490">Beleg</span>Werk</div><p>Belege scannen, ordnen und kontrolliert an Paperless übergeben.</p><span class="st plan">in Arbeit</span></a>
+      <a class="tile" href="apps/checkin-vita.html"><div class="nm">CheckIn<span style="color:#5B8A72">Vita</span></div><p>Persönliches Gesundheits-Tagebuch – 100 % lokal, kostenlos.</p><span class="st plan">in Arbeit</span></a>
+      <a class="tile" href="apps/appinsight.html"><div class="nm">App<span style="color:#2563EB">Insight</span></div><p>Zeigt verständlich, was installierte Apps wirklich tun.</p><span class="st plan">in Arbeit</span></a>
+      <a class="tile" href="apps/pdfuchs.html"><div class="nm"><span style="color:#9F1239">PDF</span>uchs</div><p>Lokale PDF-Werkzeuge: öffnen, zusammenführen, teilen, OCR.</p><span class="st plan">geplant</span></a>
+      <a class="tile" href="apps/fuchsbau.html"><div class="nm">Fuchs<span style="color:#3B6B4E">Bau</span></div><p>Passwortmanager – lokal und sicher.</p><span class="st plan">geplant</span></a>
+      <a class="tile" href="apps/cleandesk.html"><div class="nm">Clean<span style="color:#0E7490">Desk</span></div><p>Ordnungshelfer für Windows – Aufräumen leicht gemacht.</p><span class="st plan">geplant</span></a>
+      <a class="tile" href="apps/coppicemail.html"><div class="nm"><span style="color:#0F5132">Coppice</span>Mail</div><p>Lokales E-Mail- &amp; Belegwerkzeug.</p><span class="st plan">pausiert</span></a>
+    </div>
+    <p class="muted" style="margin-top:12px;font-size:.9rem">Für Firmen: <a href="apps/mobilereport-enterprise.html">MobileReport Enterprise</a> – White-Label &amp; Lizenz je Arbeitsplatz.</p>
   </section>
 
-  <section class="ask" aria-labelledby="ask-title">
-    <h2 id="ask-title">Warum ich dir das schicke</h2>
-    <p>Ich bin mit dem Gewerbe noch ganz am Anfang und brauche Akquise. Wenn dir jemand einfällt, der so ein Tool gebrauchen könnte, freue ich mich riesig über eine Empfehlung.</p>
-    <p class="muted">Auch kleine Hinweise helfen: „Kennst du eigentlich FehlerFuchs?“ reicht manchmal schon.</p>
+  <section class="ask" aria-labelledby="ind-title">
+    <h2 id="ind-title">Du hast ein konkretes Problem?</h2>
+    <p>Ehrlichkeit ganz oben: Wir schauen gemeinsam, ob es sich vielleicht ganz einfach lösen lässt. <strong>In Jena schaue ich mir dein Anliegen kostenlos an</strong> und schätze den Aufwand – abgerechnet wird nach Aufwand, ohne Abo und ohne ausufernde Kosten.</p>
+    <div class="ctas">
+      <a class="cta" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=idee">Anliegen schildern</a>
+      <a class="cta ghost" href="kontakt.html?app=GewerbePro&topic=beta">GewerbePro-Beta vormerken</a>
+    </div>
   </section>
 
   <section class="final" aria-labelledby="weiter-title">
     <h2 id="weiter-title">Neugierig geworden?</h2>
-    <p>Dann geht es hier zur normalen FehlerFuchs-Webseite mit Produktseiten, Downloads und Kontaktmöglichkeiten.</p>
+    <p>Alle Produkte, Downloads und Kontaktmöglichkeiten findest du auf der FehlerFuchs-Website. Empfehlungen sind ausdrücklich erwünscht – erzähl gern weiter.</p>
     <div class="ctas">
-      <a class="cta" href="index.html">Und hier geht's zur echten Webseite</a>
-      <button class="cta ghost" type="button" data-open-beta>Beta-Test anfragen</button>
+      <a class="cta" href="index.html">Zur FehlerFuchs-Website</a>
+      <a class="cta ghost" href="produkte.html">Produktübersicht</a>
       <a class="cta ghost" href="kontakt.html?app=Allgemein%20%2F%20Website&topic=empfehlung">Kontakt aufnehmen</a>
     </div>
   </section>
 </main>
 
-<dialog class="beta-dialog" id="beta-dialog" aria-labelledby="beta-dialog-title">
-  <form class="beta-form" id="beta-form">
-    <div class="dialog-head">
-      <div>
-        <h2 id="beta-dialog-title">Beta-Test kurz vormerken</h2>
-        <p class="muted">Ein paar Angaben reichen. Danach öffnet sich eine vorbereitete E-Mail an FehlerFuchs.</p>
-      </div>
-      <button class="dialog-close" type="button" data-close-beta>Schließen</button>
-    </div>
-    <div class="fields">
-      <label>Dein Name
-        <input name="name" autocomplete="name" placeholder="Wie darf ich dich ansprechen?">
-      </label>
-      <label>Rückmeldung per E-Mail oder Telefon
-        <input name="contact" autocomplete="email" placeholder="Damit ich dir antworten kann" required>
-      </label>
-      <label>Was passt am ehesten zu dir?
-        <select name="role">
-          <option>Selbstständig / Kleingewerbe</option>
-          <option>Nebenberuflich selbstständig</option>
-          <option>Büro / Verwaltung / Organisation</option>
-          <option>Ich kenne jemanden, für den das passen könnte</option>
-          <option>Einfach neugierig</option>
-        </select>
-      </label>
-      <label>Dein System
-        <input name="system" placeholder="z. B. Windows 10/11, PC oder Laptop">
-      </label>
-      <label>Was möchtest du testen oder was wäre für dich wichtig?
-        <textarea name="note" placeholder="Zum Beispiel: Rechnungen, Termine, E-Mail, Belege, Auswertungen, E-Rechnungen ..."></textarea>
-      </label>
-    </div>
-    <div class="form-actions">
-      <button class="cta" type="submit">Abfrage als E-Mail öffnen</button>
-      <button class="cta ghost" type="button" data-close-beta>Abbrechen</button>
-    </div>
-    <p class="beta-status" id="beta-status" aria-live="polite"></p>
-  </form>
-</dialog>
-
-<footer>© 2026 FehlerFuchs. Alle Rechte vorbehalten. Diese Seite ist nur für direkte Empfehlungen gedacht.</footer>
-<script>
-  (function(){
-    var dialog = document.getElementById("beta-dialog");
-    var form = document.getElementById("beta-form");
-    var status = document.getElementById("beta-status");
-    var openButtons = document.querySelectorAll("[data-open-beta]");
-    var closeButtons = document.querySelectorAll("[data-close-beta]");
-
-    function openDialog(){
-      status.textContent = "";
-      if (dialog.showModal) {
-        dialog.showModal();
-      } else {
-        dialog.setAttribute("open", "open");
-      }
-    }
-
-    function closeDialog(){
-      if (dialog.close) {
-        dialog.close();
-      } else {
-        dialog.removeAttribute("open");
-      }
-    }
-
-    openButtons.forEach(function(button){
-      button.addEventListener("click", openDialog);
-    });
-
-    closeButtons.forEach(function(button){
-      button.addEventListener("click", closeDialog);
-    });
-
-    dialog.addEventListener("click", function(event){
-      if (event.target === dialog) {
-        closeDialog();
-      }
-    });
-
-    form.addEventListener("submit", function(event){
-      event.preventDefault();
-      var data = new FormData(form);
-      var lines = [
-        "Hallo FehlerFuchs,",
-        "",
-        "ich möchte FehlerFuchs GewerbePro als Beta-Tester ausprobieren.",
-        "",
-        "Name: " + (data.get("name") || "-"),
-        "Kontakt: " + (data.get("contact") || "-"),
-        "Profil: " + (data.get("role") || "-"),
-        "System: " + (data.get("system") || "-"),
-        "",
-        "Wichtig / interessant für mich:",
-        data.get("note") || "-",
-        "",
-        "Viele Grüße"
-      ];
-      var subject = "Beta-Test FehlerFuchs GewerbePro";
-      var href = "mailto:support@fehlerfuchs.eu?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
-      status.textContent = "Dein Mailprogramm sollte sich gleich öffnen.";
-      window.location.href = href;
-    });
-  }());
-</script>
+<footer>© 2026 FehlerFuchs · Matthias Schacht, Jena · kleine lokale Helfer, ohne Cloud und ohne Tracking. <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></footer>
 </body>
 </html>
