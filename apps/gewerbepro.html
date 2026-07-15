@@ -8,6 +8,22 @@
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="app.css">
+<style>
+  .beta-reg{background:#fff;border:1px solid #ecdfd2;border-radius:16px;padding:18px 18px 16px;box-shadow:0 6px 16px rgba(124,63,22,.06);max-width:540px;margin-top:14px}
+  .beta-reg h3{margin-bottom:4px;color:var(--brown)}
+  .beta-reg .fld{margin-bottom:12px;display:flex;flex-direction:column;gap:5px}
+  .beta-reg label{font-weight:600;font-size:.9rem;color:var(--brown)}
+  .beta-reg input[type=text],.beta-reg input[type=email]{padding:10px 12px;border:1px solid #e0d0c0;border-radius:10px;font:inherit;background:#fdfbf9;width:100%}
+  .beta-reg input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+  .beta-reg .radios{display:flex;gap:18px}
+  .beta-reg .rb{display:flex;align-items:flex-start;gap:8px;font-weight:400;color:var(--ink);cursor:pointer}
+  .beta-reg .cb .rb span{font-size:.86rem;line-height:1.5;color:var(--muted)}
+  .beta-reg button.cta{border:none;cursor:pointer;margin-top:4px}
+  .beta-reg button[disabled]{opacity:.6;cursor:default}
+  .bt-msg{margin-top:10px;font-size:.92rem;min-height:1.2em}
+  .bt-msg.ok{color:#15803D;font-weight:600}
+  .bt-msg.err{color:#B91C1C;font-weight:600}
+</style>
 </head>
 <body style="--accent:#B45309">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -37,7 +53,7 @@
   <div class="hero-body">
     <p class="tag">Das Multitool des fuchs-schlauen Selbstständigen – lokal auf deinem Windows-PC, ohne Cloud, ohne Konto und ohne Büro-Ballast.</p>
     <div class="badges"><span class="badge soon">Beta-Test ab 01.08. geplant</span><span class="badge">100 % lokal</span><span class="badge">E-Rechnung (EN 16931)</span><span class="badge">Kalender &amp; Postfach</span><span class="badge">modular gedacht</span><span class="badge soon">Android-Konzept</span></div>
-    <div class="cta-row"><a class="cta" href="#download-status">Beta-Status ansehen</a><a class="cta ghost" href="../kontakt.html?app=GewerbePro&topic=interesse">Kontakt</a></div>
+    <div class="cta-row"><a class="cta" href="#beta-reg">Beta-Tester werden</a><a class="cta ghost" href="../kontakt.html?app=GewerbePro&topic=interesse">Kontakt</a></div>
   </div>
 </header>
 
@@ -151,17 +167,31 @@
 </section>
 
 <section id="download-status">
-  <h2 class="sec">Beta-Downloads pausiert</h2>
-  <p>Die bisherigen Free- und Pro-Beta-ZIPs sind vorübergehend deaktiviert, weil sie nicht mehr den aktuellen Entwicklungsstand abbilden. Neue Beta-Pakete sind in Vorbereitung.</p>
+  <h2 class="sec">Beta-Test – jetzt als Tester registrieren</h2>
+  <p>Die bisherigen Free- und Pro-Beta-ZIPs sind vorübergehend deaktiviert, weil sie nicht mehr den aktuellen Entwicklungsstand abbilden. Neue Beta-Pakete sind in Vorbereitung. <strong>Neu:</strong> Du kannst dich ab sofort als Beta-Tester registrieren und bekommst automatisch eine befristete Testlizenz.</p>
   <p style="margin-top:6px"><strong>Geplanter Start:</strong> Der offizielle Beta-Test startet voraussichtlich am <strong>01.08.2026</strong>. Im besten Fall geht es schon früher los – je nachdem, wie schnell sich die letzten Hürden sauber überwinden lassen. Voranmelden ist natürlich schon möglich.</p>
   <p style="margin-top:6px"><strong>Zielbild:</strong> Später soll ein Installer das Grundprogramm und optionale Pakete getrennt anbieten. Du installierst nur, was du brauchst – etwa OCR, die PDFuchs-Vollsuite, Postfach-Ausbau oder weitere Werkzeuge.</p>
   <p style="margin-top:6px"><strong>Kauf/Lizenzen:</strong> Der Kauf von GewerbePro Pro läuft über die sichere Kasse (Digistore24) und wird per Lizenzschlüssel freigeschaltet. <strong>Kauf-Buttons werden erst aktiviert, wenn der Lizenzserver live ist</strong> – bis dahin bitte vormerken.</p>
-  <div class="cta-row" style="margin-top:14px">
-    <span class="cta soon">Free-Beta pausiert</span>
-    <span class="cta soon">Pro-Beta pausiert</span>
-    <a class="cta ghost" href="../kontakt.html?app=GewerbePro&topic=beta">Neue Beta vormerken</a>
+  <div class="beta-reg" id="beta-reg">
+    <h3>Registrierung für Beta-Tester</h3>
+    <p style="font-size:.92rem;color:var(--muted);margin-bottom:14px">Trag dich ein – deine <strong>90-Tage-Testlizenz</strong> kommt automatisch per E-Mail. Kostenlos, keine Zahlungsdaten.</p>
+    <form id="betaForm" novalidate>
+      <div class="fld"><label for="bt-name">Name *</label><input id="bt-name" name="name" type="text" autocomplete="name" required></div>
+      <div class="fld"><label for="bt-email">E-Mail *</label><input id="bt-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="fld"><label>Ich teste …</label>
+        <div class="radios">
+          <label class="rb"><input type="radio" name="kundenbereich" value="gewerblich" checked> gewerblich</label>
+          <label class="rb"><input type="radio" name="kundenbereich" value="privat"> privat</label>
+        </div>
+      </div>
+      <div class="fld"><label for="bt-besch">Firma / Branche (optional)</label><input id="bt-besch" name="beschreibung" type="text"></div>
+      <div class="fld cb"><label class="rb"><input id="bt-consent" name="consent" type="checkbox" required> <span>Ich stimme zu, dass FehlerFuchs meine Angaben verarbeitet, um mir eine befristete Testlizenz per E-Mail zuzusenden und mich im Rahmen der Beta zu kontaktieren. Details in der <a href="../datenschutz.html">Datenschutzerklärung</a>. *</span></label></div>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+      <button type="submit" class="cta" id="bt-submit">Registrierung für Beta-Tester</button>
+      <p id="bt-msg" class="bt-msg" role="status" aria-live="polite"></p>
+    </form>
   </div>
-  <p style="margin-top:8px;font-size:.9rem">Unterstützt &amp; dokumentiert, ersetzt aber <strong>keine Steuerberatung</strong>, Rechtsberatung oder fachliche Prüfung.</p>
+  <p style="margin-top:12px;font-size:.9rem">Unterstützt &amp; dokumentiert, ersetzt aber <strong>keine Steuerberatung</strong>, Rechtsberatung oder fachliche Prüfung.</p>
 </section>
 
 <section>
@@ -207,5 +237,41 @@
   <a href="../unterstuetzen.html"><svg viewBox="0 0 24 24"><use href="#ic-heart"/></svg>Fördern</a>
   <label for="tabmore"><svg viewBox="0 0 24 24"><use href="#ic-more"/></svg>Mehr</label>
 </nav>
+<script>
+(function(){
+  var form=document.getElementById('betaForm');
+  if(!form) return;
+  var el=form.elements, msg=document.getElementById('bt-msg'), btn=document.getElementById('bt-submit');
+  function show(cls,text){ msg.className='bt-msg '+cls; msg.textContent=text; }
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var b={
+      name: el['name'].value.trim(),
+      email: el['email'].value.trim(),
+      kundenbereich: el['kundenbereich'].value || 'gewerblich',
+      beschreibung: el['beschreibung'].value.trim(),
+      consent: el['consent'].checked,
+      website: el['website'].value
+    };
+    if(!b.name || !b.email){ show('err','Bitte Name und E-Mail angeben.'); return; }
+    if(!b.consent){ show('err','Bitte der Kontaktaufnahme/Datenspeicherung zustimmen.'); return; }
+    btn.disabled=true; show('','Wird gesendet …');
+    try{
+      var r=await fetch('https://license.fehlerfuchs.eu/v1/providers/tester/gewerbepro',
+        {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(b)});
+      var j=await r.json().catch(function(){return {ok:false};});
+      if(j.ok){ form.reset(); show('ok', j.message || 'Danke! Deine Beta-Lizenz kommt gleich per E-Mail.'); }
+      else{
+        var t={'Pflichtfeld fehlt':'Bitte Name und E-Mail angeben.',
+               'consent fehlt':'Bitte der Datenspeicherung zustimmen.',
+               'Limit erreicht':'Aktuell sind alle Beta-Plätze belegt oder es gab zu viele Anfragen – bitte später erneut.'};
+        show('err', t[j.error] || 'Registrierung gerade nicht möglich – bitte später erneut.');
+      }
+    }catch(_){
+      show('err','Verbindung nicht möglich – bitte später erneut oder per Mail an support@fehlerfuchs.eu.');
+    }finally{ btn.disabled=false; }
+  });
+})();
+</script>
 </body>
 </html>
