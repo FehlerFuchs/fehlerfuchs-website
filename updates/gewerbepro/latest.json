@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
-  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.2.0/FehlerFuchs_GewerbePro_Setup_0.2.0.exe",
-  "notes": "GewerbePro 0.2.0 – frühe Vorab-Version (Beta-Vorbereitung)."
+  "version": "0.3.0",
+  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.0/FehlerFuchs_GewerbePro_Setup_0.3.0.exe",
+  "notes": "GewerbePro 0.3.0 – erste öffentliche Beta. Editionserkennung abgesichert, Engine-Anbindung stabilisiert, Lizenz-/Vather-Aktivierung und Selbsttest funktionsfähig."
 }
