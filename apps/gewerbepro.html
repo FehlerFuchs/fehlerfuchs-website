@@ -134,7 +134,7 @@
 
 <section id="editionen">
   <h2 class="sec">Editionen im Vergleich</h2>
-  <p><strong>FehlerFuchs Gewerbe</strong> (Free) ist der kostenlose Einstieg mit den Kernfunktionen, <strong>FehlerFuchs GewerbePro</strong> (Pro) die Vollversion. Eine gemeinsame Codebasis bedient beide Editionen. <strong style="color:#7C3AED">Vather</strong> ist die <strong>interne Entwicklerversion</strong> (früher „Mother"): alle Funktionen frei geschaltet und voll editierbar. Sie dient Entwicklung, Test und Datenmigration und wird <strong>nicht öffentlich verteilt</strong>. (Genaue Feature-Matrix folgt.)</p>
+  <p><strong>FehlerFuchs Gewerbe</strong> (Free) ist schon jetzt <strong>sehr umfangreich</strong> – inkl. Mahnwesen, Projekte, Fahrtenbuch/Anlagen &amp; AfA, GiroCode und Datenimport. <strong>FehlerFuchs GewerbePro</strong> ergänzt vor allem <strong>E-Rechnung</strong>, den eingebetteten <strong>PDFuchs</strong> (OCR/QR/Scan), <strong>Postfach &amp; E-Mail-Versand</strong> sowie <strong>eigene Programmfarben</strong>. Eine gemeinsame Codebasis bedient beide Editionen. <strong style="color:#7C3AED">Vather</strong> ist die <strong>interne Entwicklerversion</strong> (früher „Mother"): alle Funktionen frei geschaltet und voll editierbar; sie dient Entwicklung, Test und Datenmigration und wird <strong>nicht öffentlich verteilt</strong>.</p>
   <div class="tablewrap">
     <table class="ed">
       <thead><tr><th>Merkmal</th><th style="color:#15803D">Gewerbe (Free)</th><th style="color:#B91C1C">GewerbePro</th><th style="color:#7C3AED">Vather</th></tr></thead>
@@ -142,26 +142,28 @@
         <tr><td>Kunden, Aufträge, Rechnungen, Angebote, Quittungen</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         <tr><td>Kalender, Aufgaben, Fristen &amp; Terminexport (ICS)</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         <tr><td>Einnahmen, Ausgaben &amp; EÜR-Vorbereitung</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Logbuch, Statistik, Auswertungen &amp; Berichte</td><td>Basis</td><td class="yes">erweitert</td><td class="yes">voll</td></tr>
-        <tr><td>E-Mail-Entwürfe &amp; lokales Postfach (IMAP/SMTP)</td><td>Basis</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Steuermodelle (§ 19, Regelbesteuerung Soll/Ist, gemeinnützig, § 24 · USt 0/7/19 %)</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Logbuch, Statistik &amp; Auswertungen</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Berichte: EÜR, Steuerbericht, Offene Posten, Dashboard (PDF/CSV)</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>E-Mail-Entwürfe &amp; lokales Postfach (IMAP/SMTP)</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         <tr><td>E-Mail-Versand</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>PDFuchs eingebettet (BETA) &amp; Belegablage</td><td>Basis</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>OCR / Texterkennung für Belege</td><td class="no">–</td><td>optional</td><td class="yes">✓</td></tr>
+        <tr><td>PDFuchs eingebettet &amp; Belegablage</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>OCR / Texterkennung für Belege (Tesseract)</td><td class="no">–</td><td>optional</td><td class="yes">✓</td></tr>
         <tr><td>E-Rechnung erstellen, prüfen (KoSIT) &amp; versenden (ZUGFeRD/XRechnung, EN 16931)</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>GiroCode/Zahlungs-QR auf Rechnung &amp; Mahnung</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Mahnwesen: Erinnerung + 3 Stufen, Verzugszinsen &amp; Teilzahlungen</td><td>Basis</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Projekte &amp; Gutschriften/Stornos</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Fahrtenbuch, Anlagen &amp; AfA</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Paperless-ngx-Archiv-Anbindung</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
-        <tr><td>Etiketten-/Label-Druck</td><td class="no">–</td><td>optional</td><td class="yes">✓</td></tr>
-        <tr><td>Datenimport (Stammdaten &amp; Bestände)</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Passwort-Tresor &amp; Account-Verwaltung</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Exporte (CSV/EÜR) &amp; anpassbares Branding</td><td>eingeschränkt</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Modulare Erweiterungspakete per Installer</td><td class="no">Zielbild</td><td>Zielbild</td><td class="yes">alle Module</td></tr>
+        <tr><td>GiroCode/Zahlungs-QR auf Rechnung &amp; Mahnung</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Mahnwesen: Erinnerung + 3 Stufen, Verzugszinsen &amp; Teilzahlungen</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Projekte &amp; Gutschriften/Stornos</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Fahrtenbuch, Anlagen &amp; AfA</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Datenimport (Stammdaten &amp; Bestände)</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Exporte (CSV/EÜR) &amp; Branding</td><td>Export + Logo</td><td class="yes">✓ (inkl. Farben)</td><td class="yes">✓</td></tr>
+        <tr><td>Passwort-Tresor &amp; Account-Verwaltung</td><td class="no">–</td><td>teilweise</td><td class="yes">✓</td></tr>
+        <tr><td>Etiketten-/Label-Druck</td><td class="no">–</td><td>geplant</td><td>geplant</td></tr>
+        <tr><td>Paperless-ngx-Archiv-Anbindung</td><td class="no">–</td><td class="no">–</td><td>geplant</td></tr>
+        <tr><td>Modulare Erweiterungspakete per Installer</td><td class="no">–</td><td>in Arbeit</td><td class="yes">alle Module</td></tr>
+        <tr><td>GewerbePro Mobil (Companion-App)</td><td class="no">–</td><td>in Vorbereitung</td><td>in Vorbereitung</td></tr>
+        <tr><td>Eigenständige PDFuchs-Vollsuite (separat)</td><td class="no">–</td><td>später · eigene Lizenz</td><td class="yes">✓</td></tr>
         <tr><td>Voll editierbar · Entwickler-Werkzeuge &amp; Selbsttest</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
         <tr><td>Hinweis „Erstellt mit FehlerFuchs Gewerbe"</td><td>ja</td><td class="no">entfällt</td><td class="no">entfällt</td></tr>
-        <tr><td>GewerbePro Mobil (Companion-App)</td><td class="no">–</td><td>in Vorbereitung</td><td>in Vorbereitung</td></tr>
-        <tr><td>Eigenständige PDFuchs-Vollsuite (separat)</td><td class="no">–</td><td>später</td><td class="yes">✓</td></tr>
         <tr><td>Verfügbarkeit / Preis</td><td>kostenlos</td><td>später optional</td><td>intern · nicht öffentlich</td></tr>
         <tr><td>Download / Kauf</td><td><a href="https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.1/FehlerFuchs_GewerbePro_Setup_0.3.1.exe" style="display:inline-block;background:#15803D;color:#fff;font-weight:700;font-size:.8rem;padding:6px 12px;border-radius:8px;text-decoration:none;white-space:nowrap">⬇ Beta laden</a></td><td><span title="Kauf ist noch nicht freigeschaltet" aria-disabled="true" style="display:inline-block;background:#e7d6c4;color:#9a8a7a;font-weight:700;font-size:.8rem;padding:6px 12px;border-radius:8px;cursor:not-allowed;white-space:nowrap">Kaufen (bald)</span></td><td>intern · nicht öffentlich</td></tr>
       </tbody>
