@@ -15,16 +15,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://fehlerfuchs.eu/og-image.png">
 <script src="https://www.paypal.com/sdk/js?client-id=AXWTUvzFvSEqkgKCws-Q7-FdGgWHoxJjixswmoEsgUs1moz3_8GSzEMt3GyVJ5w2DmI7ZqA4dMYPfDyW&components=hosted-buttons&disable-funding=venmo&currency=EUR"></script>
+<link rel="stylesheet" href="site.css">
 <style>
-  :root{--orange:#D97706;--brown:#7C3F16;--cream:#FFF7ED;--ink:#2B160B;--muted:#6b5b50;--action:#C2410C;--bg:#fbf7f2;--green:#3B6B4E;--blue:#2563EB;--petrol:#0E7490}
-  @font-face{font-family:'Poppins';src:url('fonts/Poppins-Regular.woff') format('woff');font-weight:400;font-display:swap}
-  @font-face{font-family:'Poppins';src:url('fonts/Poppins-Medium.woff') format('woff');font-weight:500;font-display:swap}
-  @font-face{font-family:'Poppins';src:url('fonts/Poppins-Bold.woff') format('woff');font-weight:700;font-display:swap}
-  @font-face{font-family:'Inter';src:url('fonts/Inter-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
-  @font-face{font-family:'Inter';src:url('fonts/Inter-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
-  @font-face{font-family:'Inter';src:url('fonts/Inter-SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;padding:24px 20px 48px;max-width:960px;margin:0 auto}
+  body{max-width:960px}
   h1,h2,h3{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
   a{color:var(--action);text-decoration:none}
   a:hover{text-decoration:underline}
@@ -132,30 +125,6 @@
     .hero-art{border-left:0;border-top:1px solid #ead9c8;padding:22px 0 0;min-height:auto}
     .support-band,.personal{grid-template-columns:1fr}
     .personal img{width:72px;height:72px}
-  }
-  /* --- Icon-Navigation (Desktop) + Tab-Leiste (mobil) --- */
-  .mainnav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0 0 24px;position:sticky;top:0;z-index:40;background:var(--bg);padding:10px 0 8px}
-  .mainnav a{display:inline-flex;flex-direction:column;align-items:center;gap:4px;padding:8px 12px;border-radius:12px;font-size:.72rem;font-weight:600;color:var(--brown);text-decoration:none;min-width:66px;transition:background .15s,color .15s}
-  .mainnav a svg,.tabbar svg,.tab-sheet svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-  .mainnav a svg{width:22px;height:22px}
-  .mainnav a:hover{background:var(--cream);color:var(--action)}
-  .mainnav a[aria-current="page"]{color:var(--action);background:#fbeee2}
-  .tabbar,.tab-sheet{display:none}
-  .tab-more-cb{position:absolute;opacity:0;pointer-events:none}
-  @media (max-width:719px){
-    .mainnav{display:none}
-    body{padding-bottom:78px}
-    .tabbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;background:#fff;border-top:1px solid #ecdfd2;justify-content:space-around;align-items:stretch;padding:4px 2px;box-shadow:0 -2px 10px rgba(124,63,22,.06)}
-    .tabbar a,.tabbar label{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:.64rem;font-weight:600;color:var(--brown);text-decoration:none;padding:6px 2px;cursor:pointer;-webkit-tap-highlight-color:transparent}
-    .tabbar svg{width:23px;height:23px}
-    .tabbar a[aria-current="page"]{color:var(--action)}
-    .tab-sheet{position:fixed;left:0;right:0;bottom:70px;z-index:49;background:#fff;border-top:1px solid #ecdfd2;box-shadow:0 -6px 16px rgba(124,63,22,.10);padding:6px}
-    .tab-more-cb:checked ~ .tab-sheet{display:block}
-    .tab-sheet a{display:flex;align-items:center;gap:12px;padding:12px 14px;font-size:.98rem;color:var(--brown);text-decoration:none;border-radius:10px}
-    .tab-sheet a[aria-current="page"]{color:var(--action);background:#fbeee2}
-    .tab-sheet svg{width:20px;height:20px}
-    .tab-backdrop{position:fixed;inset:0;bottom:68px;z-index:48;background:rgba(43,22,11,.18);display:none}
-    .tab-more-cb:checked ~ .tab-backdrop{display:block}
   }
 </style>
 </head>
