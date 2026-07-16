@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0",
-  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.0/FehlerFuchs_GewerbePro_Setup_0.3.0.exe",
-  "notes": "GewerbePro 0.3.0 (Beta): Editionserkennung abgesichert, Engine-Anbindung stabilisiert, Lizenz- und Vather-Aktivierung sowie Selbsttest arbeiten jetzt stabil."
+  "version": "0.3.1",
+  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.1/FehlerFuchs_GewerbePro_Setup_0.3.1.exe",
+  "notes": "GewerbePro 0.3.1 (Beta): Eigenes Firmenlogo auf allen Belegen und in der Seitenleiste, frei anpassbare Programmfarben (Pro), gemeinsame Beleg-Fußzeile mit hinterlegbarer Unterschrift. PDFuchs neu mit QR-Code-Generator (Pro) und Scannen (Windows-WIA), Ausgabeordner-Einstellung. Werkzeug-Diagnose (OCR/KoSIT/Java), Lizenzschlüssel anzeigen und kopieren. Behoben: Editionserkennung direkt nach dem Update."
 }
