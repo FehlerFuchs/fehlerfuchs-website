@@ -29,6 +29,12 @@ jobs:
       - name: Repository auschecken
         uses: actions/checkout@v4
 
+      - name: Health-/Version-JSON stempeln
+        run: |
+          cat > health.json <<EOF
+          { "ok": true, "service": "website", "version": "${GITHUB_SHA::7}", "deployed_at": "$(date -u +%FT%TZ)" }
+          EOF
+
       - name: Pages konfigurieren
         uses: actions/configure-pages@v5
 
