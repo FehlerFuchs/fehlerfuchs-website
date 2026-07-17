@@ -14,7 +14,6 @@
 <meta property="og:url" content="https://fehlerfuchs.eu/unterstuetzen.html">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://fehlerfuchs.eu/og-image.png">
-<script src="https://www.paypal.com/sdk/js?client-id=AXWTUvzFvSEqkgKCws-Q7-FdGgWHoxJjixswmoEsgUs1moz3_8GSzEMt3GyVJ5w2DmI7ZqA4dMYPfDyW&components=hosted-buttons&disable-funding=venmo&currency=EUR"></script>
 <link rel="stylesheet" href="site.css">
 <style>
   body{max-width:960px}
@@ -103,9 +102,6 @@
   .support-band h2{font-size:1.35rem;color:var(--brown);margin-bottom:8px}
   .paypal-slot{width:100%;border:1px solid #f0d6c4;background:#fffaf5;border-radius:14px;padding:22px;min-height:160px;display:flex;flex-direction:column;gap:14px;align-items:center;justify-content:flex-start;text-align:center;overflow:hidden}
   .support-logo{width:min(420px,100%);height:auto;margin:0 auto 4px;display:block;filter:drop-shadow(0 8px 18px rgba(124,63,22,.12))}
-  #paypal-container-ARHM75WKUT5AU{width:100%;max-width:100%;min-width:0;margin:0 auto}
-  .paypal-sdk-note{color:var(--brown);font-weight:700}
-  .paypal-sdk-note span{display:block;color:var(--muted);font-weight:400;font-size:.88rem;margin-top:6px}
   .legal-note{background:#fcf8f3;border:1px solid #ecdfd2;border-radius:12px;padding:13px 15px;color:var(--muted);font-size:.9rem;margin-top:16px}
   .help-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:12px}
   .help-list li{display:flex}
@@ -221,18 +217,12 @@
     <div>
       <div class="paypal-slot">
         <img class="support-logo" src="img/fehlerfuchs-dachmarke-logo.png" alt="FehlerFuchs - kleine lokale Helfer" loading="eager" decoding="async" width="2048" height="736">
-        <div class="paypal-sdk-note">PayPal wird geladen<span>Falls der Button nicht erscheint, bitte die Seite neu laden oder Scriptblocker prüfen.</span></div>
-        <div id="paypal-container-ARHM75WKUT5AU"></div>
+        <a class="cta" href="https://www.paypal.com/ncp/payment/ARHM75WKUT5AU" target="_blank" rel="noopener" style="font-size:1.02rem;padding:13px 22px"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M4.5 4.5 8.72 7.03 12 8.67 15.28 7.03 19.5 4.5 18.56 11.72 12 20.63 5.44 11.72Z"/></svg> Mit PayPal unterstützen</a>
+        <figure style="margin:12px 0 0;text-align:center">
+          <a href="https://www.paypal.com/ncp/payment/ARHM75WKUT5AU" target="_blank" rel="noopener"><img src="img/paypal-qr.svg" alt="PayPal-QR-Code – FehlerFuchs unterstützen" width="160" height="160" style="width:160px;height:160px;display:block;margin:0 auto;background:#fff;border:1px solid #f0d6c4;border-radius:12px;padding:8px"></a>
+          <figcaption style="font-size:.82rem;color:var(--muted);margin-top:6px">Oder mit dem Handy scannen</figcaption>
+        </figure>
       </div>
-      <script>
-        if (window.paypal && typeof paypal.HostedButtons === "function") {
-          var paypalNote = document.querySelector(".paypal-sdk-note")
-          if (paypalNote) paypalNote.hidden = true
-          paypal.HostedButtons({
-            hostedButtonId: "ARHM75WKUT5AU",
-          }).render("#paypal-container-ARHM75WKUT5AU")
-        }
-      </script>
     </div>
   </section>
 
