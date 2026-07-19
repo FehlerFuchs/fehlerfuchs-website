@@ -67,3 +67,73 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 /* Footer (einheitlich) */
 footer{margin-top:30px;color:var(--muted);font-size:.82rem;border-top:1px solid #ecdfd2;padding-top:16px}
+
+/* ---------------------------------------------------------------------------
+   Sichtbare Rollleisten. Aufbau und Verhalten stehen in /rollleiste.js; hier
+   steht nur, wie sie aussehen. Ein rollendes Element trägt data-rollleiste,
+   alles andere entsteht von selbst.
+   --------------------------------------------------------------------------- */
+.rollrahmen{position:relative;min-width:0}
+.rollbereich{scrollbar-width:none;-ms-overflow-style:none}
+.rollbereich::-webkit-scrollbar{width:0;height:0;display:none}
+.rollbereich.senkrecht{padding-right:12px}
+.rollbereich.waagerecht{padding-bottom:12px}
+
+.rollschiene{position:absolute;border-radius:6px;opacity:0;
+             background:var(--pg-rand,#ecdfd2);transition:opacity .15s}
+.rollschiene.da{opacity:1}
+.rollrahmen:not(.waagerecht) .rollschiene{right:0;top:2px;bottom:2px;width:6px}
+.rollrahmen.waagerecht .rollschiene{left:2px;right:2px;bottom:0;height:6px}
+.rollschieber{position:absolute;border-radius:6px;background:var(--pg-akzent,var(--accent,#E76F51))}
+.rollrahmen:not(.waagerecht) .rollschieber{left:0;width:6px;top:0;height:20px}
+.rollrahmen.waagerecht .rollschieber{top:0;height:6px;left:0;width:20px}
+
+/* Der flache Pfeil sagt dasselbe noch einmal in Worten: die Schiene zeigt,
+   DASS es weitergeht, die Zeile daneben, um wie viel. */
+.rollmehr{display:flex;align-items:center;gap:9px;width:100%;margin-top:7px;
+          border:1px solid var(--pg-rand,#ecdfd2);border-radius:9px;
+          background:var(--pg-flaeche,#fff);color:var(--pg-textleise,var(--muted));
+          font:inherit;font-size:.74rem;font-weight:600;padding:5px 10px;cursor:pointer;
+          transition:border-color .15s,color .15s}
+.rollmehr:hover{border-color:var(--pg-akzent,var(--accent));color:var(--pg-akzent,var(--accent))}
+.rollmehr[hidden]{display:none}
+.rollmehr svg{flex:1;height:8px;min-width:0}
+.rollmehr-text{flex:none;font-variant-numeric:tabular-nums}
+
+/* ---------------------------------------------------------------------------
+   Sprungleiste am linken Rand. Erzeugt von /sprungpunkte.js.
+   --------------------------------------------------------------------------- */
+.sprungleiste{position:fixed;left:10px;top:50%;transform:translateY(-50%);
+              z-index:40;display:flex;flex-direction:column;gap:7px;
+              align-items:flex-start;padding:6px}
+
+/* Der Verweis ist die FLÄCHE, der Punkt darin ein eigenes Element. Beides in
+   einem zu haben ginge auch – aber dann skaliert das Vergrößern beim
+   Überfahren die Beschriftung gleich mit, weil sie ein Kind ist. Nebenbei
+   ergibt die Fläche ein Klickziel, das man auch trifft. */
+.sprungpunkt{position:relative;display:grid;place-items:center;
+             width:22px;height:16px;text-decoration:none;flex:none}
+.sprungpunkt::before{content:'';width:9px;height:9px;border-radius:50%;
+                     background:#d8c6b3;
+                     transition:background .15s,transform .15s,box-shadow .15s}
+.sprungpunkt.klein::before{width:6px;height:6px}
+.sprungpunkt.hier::before{background:var(--accent,#E76F51);transform:scale(1.3)}
+.sprungpunkt:hover::before,.sprungpunkt:focus-visible::before{
+  background:var(--accent,#E76F51);transform:scale(1.45);
+  box-shadow:0 0 0 4px rgba(231,111,81,.16)}
+
+/* Der Name geht nach RECHTS auf – links liegt der Seitenrand, dort wäre er
+   halb abgeschnitten. Er erscheint erst am Zeiger: ständig sichtbar wäre die
+   Leiste ein zweites Inhaltsverzeichnis, das die Seite verengt. */
+.sprungname{position:absolute;left:calc(100% + 4px);top:50%;transform:translateY(-50%);
+            white-space:nowrap;font-family:'Inter',sans-serif;font-size:.74rem;
+            font-weight:600;color:#fff;background:#3B2A1E;border-radius:8px;
+            padding:5px 11px;opacity:0;pointer-events:none;transition:opacity .15s;
+            box-shadow:0 3px 14px rgba(0,0,0,.25)}
+.sprungpunkt:hover .sprungname,.sprungpunkt:focus-visible .sprungname{opacity:1}
+
+/* SCHMAL: Unter 1180 Pixeln stünde die Leiste auf dem Text statt daneben. */
+@media (max-width:1180px){ .sprungleiste{display:none} }
+
+/* Ein Sprungziel darf nicht unter der Kopfleiste landen. */
+.sprungziel,:target{scroll-margin-top:80px}
