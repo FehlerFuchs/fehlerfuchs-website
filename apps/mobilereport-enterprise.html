@@ -190,7 +190,11 @@
     .then(function(d){
       var v=d&&d.version?String(d.version):"";
       if(d&&d.apkUrl){ btn.href=d.apkUrl; } else { btn.href=FALLBACK; }
-      if(v&&v!=="0.0.0"&&d.apkUrl){ meta.textContent="Aktuelle Version: "+v+(d.notes?(" – "+d.notes):""); }
+      if(v&&v!=="0.0.0"&&d.apkUrl){
+        var dt="";
+        if(d.updatedAt&&/^\d{4}-\d{2}-\d{2}$/.test(d.updatedAt)){ var p=d.updatedAt.split("-"); dt=" · "+p[2]+"."+p[1]+"."+p[0]; }
+        meta.textContent="Version "+v+dt+" · .apk für Android"+(d.notes?(" – "+d.notes):"");
+      }
       else { meta.textContent="Erste Enterprise-Version folgt – der Button führt zur Release-Übersicht."; btn.href=FALLBACK; }
     })
     .catch(function(){ btn.href=FALLBACK; meta.textContent="Versionsinfo konnte nicht geladen werden – zur Release-Übersicht."; });
