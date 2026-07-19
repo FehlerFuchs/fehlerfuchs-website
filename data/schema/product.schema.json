@@ -133,6 +133,7 @@
               "play-store",
               "github-release",
               "digistore24",
+              "im-browser",
               "auf-anfrage",
               "keiner"
             ]
@@ -442,6 +443,9 @@
     },
     "notes": {
       "type": "string"
+    },
+    "customPage": {
+      "type": "boolean"
     }
   },
   "$defs": {

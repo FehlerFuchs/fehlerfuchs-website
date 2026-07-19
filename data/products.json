@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-19T10:59:27+02:00",
+  "generiert": "2026-07-19T11:06:04+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -20,7 +20,8 @@
         {
           "os": "web",
           "status": "verfuegbar",
-          "distribution": "keiner"
+          "requirements": "beliebiger moderner Browser",
+          "distribution": "im-browser"
         }
       ],
       "privacy": [
@@ -42,6 +43,7 @@
         }
       ],
       "releases": [],
+      "customPage": true,
       "links": {
         "page": "/apps/mobilereport-konfigurator.html"
       },

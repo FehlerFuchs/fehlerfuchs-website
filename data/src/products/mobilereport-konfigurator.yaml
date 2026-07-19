@@ -12,10 +12,12 @@ audience: [unternehmen]
 accent: "#2E7D46"
 status: verfuegbar
 
+# Ein Browser-Werkzeug hat keinen Download – man öffnet es einfach.
 platforms:
   - os: web
     status: verfuegbar
-    distribution: keiner
+    requirements: beliebiger moderner Browser
+    distribution: im-browser
 
 privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei]
 
@@ -27,6 +29,11 @@ editions:
     price: { model: kostenlos }
 
 releases: []
+
+# Bei einem Online-Werkzeug IST die Seite das Werkzeug. Sie wird deshalb nicht
+# aus der Produktvorlage erzeugt, sondern ist handgebaut – ein Datenblatt davor
+# wäre nur ein zusätzlicher Klick zwischen Nutzer und Werkzeug.
+customPage: true
 
 links:
   page: /apps/mobilereport-konfigurator.html

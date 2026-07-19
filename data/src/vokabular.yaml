@@ -41,6 +41,8 @@ distribution:
     label: Digistore24
   auf-anfrage:
     label: auf Anfrage
+  im-browser:
+    label: läuft im Browser
   keiner:
     label: noch kein Bezugsweg
 
