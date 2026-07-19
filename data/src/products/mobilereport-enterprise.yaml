@@ -60,10 +60,9 @@ releases:
       source: GitHub-Release-Asset (gerundet)
     sha256: "3e990a428ed208be11587e779ce1eba02f8efbc81d192092a928270d75ca30a5"
     signed: false
-    notes: >-
-      Betreff für Meldungen, Fotos per Ziehen sortieren, Name als Pflichtfeld,
-      einstellbare maximale Bildanzahl, Profilfeld Position/Funktion, überarbeitete
-      Einstellungen, Fix für Admin- und Branding-Übernahme.
+    # Wortlaut identisch zu enterprise/latest.json — die App zeigt diesen Text
+    # wörtlich im Update-Banner an. Änderungen hier ändern den Text in der App.
+    notes: '1.0.1: Betreff für Meldungen, Fotos per Ziehen sortieren (erstes Bild = Hauptbild), Name als Pflichtfeld mit optionalem Standard-Speichern, einstellbare maximale Bildanzahl, Profil-Feld Position/Funktion, überarbeitete Einstellungen (Bereich "Verwaltung") und Fix für die Admin-/Branding-Übernahme.'
   - version: "1.0.0"
     date: "2026-07-06"
     channel: stable

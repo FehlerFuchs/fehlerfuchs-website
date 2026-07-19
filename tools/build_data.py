@@ -151,6 +151,15 @@ def pruefe_inhalt(p, statuses, alle_slugs):
         if r["os"] not in [pl["os"] for pl in p["platforms"]]:
             melde(fehler, slug, f"Release {r['version']} ist für '{r['os']}', "
                                 f"diese Plattform ist beim Produkt nicht angelegt")
+        # Version muss in Dateiname und URL wiederauftauchen. Sonst zeigt ein
+        # hochgesetzter Versionseintrag weiter auf die alte Datei – ein Fehler,
+        # den man sonst erst bemerkt, wenn Nutzer das falsche Paket installiert haben.
+        if r["version"] not in r["filename"]:
+            melde(fehler, slug, f"Release {r['version']}: Dateiname '{r['filename']}' "
+                                f"enthält die Versionsnummer nicht")
+        if r["version"] not in r["url"]:
+            melde(fehler, slug, f"Release {r['version']}: die URL zeigt nicht auf diese Version "
+                                f"({r['url'].rsplit('/', 1)[-1]})")
         if r["sha256"] is None:
             melde(warnungen, slug, f"Release {r['version']}: keine SHA-256-Summe – "
                                    f"Nutzer können den Download nicht selbst prüfen")

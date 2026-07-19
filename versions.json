@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-19",
+  "products": [
+    {
+      "slug": "gewerbepro",
+      "name": "FehlerFuchs GewerbePro",
+      "version": "0.3.1",
+      "date": "2026-07-16",
+      "channel": "beta",
+      "os": "windows",
+      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.1/FehlerFuchs_GewerbePro_Setup_0.3.1.exe",
+      "filename": "FehlerFuchs_GewerbePro_Setup_0.3.1.exe",
+      "sizeLabel": "114 MB",
+      "sha256": "3ffd2fb6381549ae75de42d6cbcbbb8dd8541f78f515a6a2072fcbf1f4d2be9c",
+      "signed": false,
+      "page": "https://fehlerfuchs.eu/apps/gewerbepro.html",
+      "notes": "GewerbePro 0.3.1 (Beta): Eigenes Firmenlogo auf allen Belegen und in der Seitenleiste, frei anpassbare Programmfarben (Pro), gemeinsame Beleg-Fußzeile mit hinterlegbarer Unterschrift. PDFuchs neu mit QR-Code-Generator (Pro) und Scannen (Windows-WIA), Ausgabeordner-Einstellung. Werkzeug-Diagnose (OCR/KoSIT/Java), Lizenzschlüssel anzeigen und kopieren. Behoben: Editionserkennung direkt nach dem Update."
+    },
+    {
+      "slug": "mobilereport-enterprise",
+      "name": "FehlerFuchs MobileReport Enterprise",
+      "version": "1.0.1",
+      "date": "2026-07-09",
+      "channel": "stable",
+      "os": "android",
+      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v1.0.1/MobileReport-Enterprise-1.0.1.apk",
+      "filename": "MobileReport-Enterprise-1.0.1.apk",
+      "sizeLabel": "60,3 MB",
+      "sha256": "3e990a428ed208be11587e779ce1eba02f8efbc81d192092a928270d75ca30a5",
+      "signed": false,
+      "page": "https://fehlerfuchs.eu/apps/mobilereport-enterprise.html",
+      "notes": "1.0.1: Betreff für Meldungen, Fotos per Ziehen sortieren (erstes Bild = Hauptbild), Name als Pflichtfeld mit optionalem Standard-Speichern, einstellbare maximale Bildanzahl, Profil-Feld Position/Funktion, überarbeitete Einstellungen (Bereich \"Verwaltung\") und Fix für die Admin-/Branding-Übernahme."
+    },
+    {
+      "slug": "orgafuchs",
+      "name": "FehlerFuchs OrgaFuchs",
+      "version": "1.0.0",
+      "date": "2026-07-18",
+      "channel": "stable",
+      "os": "windows",
+      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.0.0/OrgaFuchs_Setup_1.0.0.exe",
+      "filename": "OrgaFuchs_Setup_1.0.0.exe",
+      "sizeLabel": "15,3 MB",
+      "sha256": "6bdd5322629f8e6053b0d8e92ac6a5cd04b38b536fbacc0355b34769c4ffa991",
+      "signed": false,
+      "page": "https://fehlerfuchs.eu/apps/orgafuchs.html",
+      "notes": "Erstveröffentlichung. Wiederkehrende Serien, PDF als Monat/Jahr/Blanko, Feiertage und Schulferien je Bundesland, Geräte-Sync per QR-Code, Transparenz- und Open-Source-Seite in der App."
+    }
+  ]
+}

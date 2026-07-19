@@ -58,10 +58,9 @@ releases:
       source: GitHub-Release-Asset (gerundet)
     sha256: "3ffd2fb6381549ae75de42d6cbcbbb8dd8541f78f515a6a2072fcbf1f4d2be9c"
     signed: false
-    notes: >-
-      Firmenlogo auf allen Belegen, frei anpassbare Programmfarben (Pro), gemeinsame
-      Beleg-Fußzeile mit Unterschrift, PDFuchs mit QR-Code-Generator und Scannen,
-      Werkzeug-Diagnose, Lizenzschlüssel anzeigen. Behoben: Editionserkennung nach Update.
+    # Wortlaut identisch zu updates/gewerbepro/latest.json — die App zeigt diesen
+    # Text wörtlich im Update-Hinweis an. Änderungen hier ändern den Text in der App.
+    notes: "GewerbePro 0.3.1 (Beta): Eigenes Firmenlogo auf allen Belegen und in der Seitenleiste, frei anpassbare Programmfarben (Pro), gemeinsame Beleg-Fußzeile mit hinterlegbarer Unterschrift. PDFuchs neu mit QR-Code-Generator (Pro) und Scannen (Windows-WIA), Ausgabeordner-Einstellung. Werkzeug-Diagnose (OCR/KoSIT/Java), Lizenzschlüssel anzeigen und kopieren. Behoben: Editionserkennung direkt nach dem Update."
   - version: "0.3.0"
     date: "2026-07-15"
     channel: beta

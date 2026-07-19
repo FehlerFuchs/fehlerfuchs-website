@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-19T09:43:18+02:00",
+  "generiert": "2026-07-19T09:55:22+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -220,7 +220,7 @@
           },
           "sha256": "3e990a428ed208be11587e779ce1eba02f8efbc81d192092a928270d75ca30a5",
           "signed": false,
-          "notes": "Betreff für Meldungen, Fotos per Ziehen sortieren, Name als Pflichtfeld, einstellbare maximale Bildanzahl, Profilfeld Position/Funktion, überarbeitete Einstellungen, Fix für Admin- und Branding-Übernahme."
+          "notes": "1.0.1: Betreff für Meldungen, Fotos per Ziehen sortieren (erstes Bild = Hauptbild), Name als Pflichtfeld mit optionalem Standard-Speichern, einstellbare maximale Bildanzahl, Profil-Feld Position/Funktion, überarbeitete Einstellungen (Bereich \"Verwaltung\") und Fix für die Admin-/Branding-Übernahme."
         },
         {
           "version": "1.0.0",
@@ -499,7 +499,7 @@
           },
           "sha256": "3ffd2fb6381549ae75de42d6cbcbbb8dd8541f78f515a6a2072fcbf1f4d2be9c",
           "signed": false,
-          "notes": "Firmenlogo auf allen Belegen, frei anpassbare Programmfarben (Pro), gemeinsame Beleg-Fußzeile mit Unterschrift, PDFuchs mit QR-Code-Generator und Scannen, Werkzeug-Diagnose, Lizenzschlüssel anzeigen. Behoben: Editionserkennung nach Update."
+          "notes": "GewerbePro 0.3.1 (Beta): Eigenes Firmenlogo auf allen Belegen und in der Seitenleiste, frei anpassbare Programmfarben (Pro), gemeinsame Beleg-Fußzeile mit hinterlegbarer Unterschrift. PDFuchs neu mit QR-Code-Generator (Pro) und Scannen (Windows-WIA), Ausgabeordner-Einstellung. Werkzeug-Diagnose (OCR/KoSIT/Java), Lizenzschlüssel anzeigen und kopieren. Behoben: Editionserkennung direkt nach dem Update."
         },
         {
           "version": "0.3.0",

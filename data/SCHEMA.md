@@ -226,18 +226,30 @@ Merkmal darf nur gesetzt werden, wenn es **uneingeschränkt** zutrifft.
 
 ## 6. Abgeleitete Artefakte
 
-Aus diesen Daten lassen sich erzeugen — heute noch nicht umgesetzt, aber vorbereitet:
+| Artefakt | Quelle | Stand |
+|---|---|---|
+| `updates/<slug>/latest.json` | neuestes Release im passenden Kanal | **erzeugt** |
+| `enterprise/latest.json` | MobileReport-Enterprise-Release | **erzeugt** |
+| `versions.json` (Up2Date) | alle Produkte mit Release | **erzeugt**, Schema noch abzustimmen |
+| Produktseiten, Produktkarten, Filter | `products[]` | vorbereitet |
+| Downloadseite inkl. Version/Datum/Größe/Prüfsumme | `products[].releases` | vorbereitet |
+| `sitemap.xml` | `links.page` | vorbereitet |
+| JSON-LD `SoftwareApplication` | Produkt + Preis + Plattform | vorbereitet |
+| Datenschutz-Produktabschnitte | `privacy` + Plattformangaben | vorbereitet |
 
-| Artefakt | Quelle |
-|---|---|
-| Produktseiten, Produktkarten, Filter | `products[]` |
-| Downloadseite inkl. Version/Datum/Größe/Prüfsumme | `products[].releases` |
-| `updates/<slug>/latest.json` | neuestes Release im passenden Kanal |
-| `enterprise/latest.json` | MobileReport-Enterprise-Release |
-| `versions.json` (Up2Date) | alle Produkte mit Release |
-| `sitemap.xml` | `links.page` |
-| JSON-LD `SoftwareApplication` | Produkt + Preis + Plattform |
-| Datenschutz-Produktabschnitte | `privacy` + Plattformangaben |
+### Manifeste, die ausgelieferte Apps lesen
+
+Drei Dateien werden nicht von der Website gelesen, sondern von installierten Programmen:
+
+| Datei | Leser | Ausgewertete Felder |
+|---|---|---|
+| `updates/gewerbepro/latest.json` | GewerbePro In-App-Updater | `version`, `download_url`, `notes` |
+| `enterprise/latest.json` | MobileReport Enterprise | `version`, `apkUrl`, `notes` |
+| `versions.json` | Up2Date | noch abzustimmen |
+
+Für diese gilt: **Pfad und Feldnamen sind fest verdrahtet und dürfen sich nicht ändern.**
+`notes` erscheint wörtlich im Update-Hinweis der App — eine Änderung dieses Textes im
+YAML ändert unmittelbar, was Nutzer zu sehen bekommen.
 
 ---
 
@@ -245,10 +257,20 @@ Aus diesen Daten lassen sich erzeugen — heute noch nicht umgesetzt, aber vorbe
 
 ```
 1. YAML unter data/src/ bearbeiten
-2. python tools/build_data.py         → prüft und erzeugt die JSON-Dateien
-3. Bei Meldungen: Ursache beheben, nicht die Meldung abschalten
-4. Änderungen committen (Quelle UND erzeugte Dateien)
+2. python tools/build_data.py            → prüft und erzeugt data/*.json
+3. python tools/build_manifests.py       → Trockenlauf: zeigt, was sich an den
+                                           App-Manifesten ändern würde
+4. Abweichungen prüfen, dann:
+   python tools/build_manifests.py --write
+5. Änderungen committen (Quellen UND erzeugte Dateien)
 ```
+
+Der Trockenlauf in Schritt 3 ist Absicht. Diese Dateien erreichen Nutzer ohne Umweg über
+die Website — ein falscher Wert wird sofort ausgeliefert. Deshalb wird jede Abweichung
+erst gezeigt und muss bewusst bestätigt werden.
+
+**Reihenfolge beim Veröffentlichen:** erst den GitHub-Release anlegen, dann die Website
+pushen. Andersherum zeigen die Downloadlinks vorübergehend ins Leere.
 
 Das Skript kennt drei Meldungsarten:
 
