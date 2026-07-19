@@ -30,6 +30,15 @@ editions:
 
 releases: []
 
+# Bild-Wortmarke. Ist sie gesetzt, ist SIE der sichtbare Titel und die
+# Überschrift steht nur für Screenreader da – sonst stünde der Name doppelt.
+media:
+  lockup:
+    src: /img/lockups/checkin-vita.svg
+    alt: CheckInVita – von FehlerFuchs
+    width: 760
+    height: 150
+
 links:
   page: /apps/checkin-vita.html
   contact: /kontakt.html?app=CheckInVita&topic=interesse

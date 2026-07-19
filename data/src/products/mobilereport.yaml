@@ -35,6 +35,15 @@ editions:
 # verwaltet der Store. Eine zweite Angabe hier wäre sofort veraltet.
 releases: []
 
+# Bild-Wortmarke. Ist sie gesetzt, ist SIE der sichtbare Titel und die
+# Überschrift steht nur für Screenreader da – sonst stünde der Name doppelt.
+media:
+  lockup:
+    src: /img/lockups/mobilereport.png
+    alt: MobileReport – von FehlerFuchs
+    width: 1333
+    height: 322
+
 links:
   page: /apps/mobilereport.html
   store: https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport

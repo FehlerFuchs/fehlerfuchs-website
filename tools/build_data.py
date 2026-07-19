@@ -259,7 +259,7 @@ def pruefe_inhalt(p, statuses, alle_slugs):
             melde(warnungen, slug, f"FAQ '{f['question'][:40]}…' enthält das feste Datum {d}. "
                                    f"Feste Daten veralten – besser aus releases[] ableiten")
 
-    # 5d. Bilder müssen tatsächlich existieren
+    # 5d. Bilder müssen existieren – und die Bildmarke muss zum Namen passen
     medien = p.get("media", {})
     for bezeichnung, bild in list(medien.items()):
         bilder = bild if isinstance(bild, list) else [bild]
@@ -267,6 +267,25 @@ def pruefe_inhalt(p, statuses, alle_slugs):
             datei = ROOT / b["src"].lstrip("/")
             if not datei.exists():
                 melde(fehler, slug, f"media.{bezeichnung}: Datei {b['src']} gibt es nicht")
+            if bezeichnung == "lockup":
+                # Bei gesetztem Lockup IST das Bild der sichtbare Titel. Passt sein
+                # Alternativtext nicht zum Produktnamen, driften Bildmarke und Modell
+                # auseinander – und Screenreader lesen einen anderen Namen vor als
+                # sehende Besucher sehen.
+                if p["name"].lower() not in b["alt"].lower():
+                    melde(fehler, slug, f"media.lockup: Alternativtext {b['alt']!r} enthält "
+                                        f"den Produktnamen {p['name']!r} nicht")
+                if b["src"].endswith(".png"):
+                    melde(warnungen, slug, f"media.lockup ist eine PNG-Datei "
+                                           f"({datei.stat().st_size // 1024} KB, sofern vorhanden). "
+                                           f"Eine Wortmarke ist reine Vektorgrafik – als SVG "
+                                           f"wäre sie ein Bruchteil davon und in jeder Größe scharf.")
+
+    # 5e. Ein Titel braucht eine Form: Bildmarke ODER Wortmarke. Ohne beides
+    #     steht dort schlichter Text – zulässig, aber es sollte Absicht sein.
+    if p["kind"] == "produkt" and not medien.get("lockup") and not p.get("wordmark"):
+        melde(warnungen, slug, "weder media.lockup noch wordmark – der Titel erscheint "
+                               "als schlichter Text ohne Markenbezug")
 
     # 6. Preise
     for e in p.get("editions", []):

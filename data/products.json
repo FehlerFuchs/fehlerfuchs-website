@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-19T10:41:17+02:00",
+  "generiert": "2026-07-19T10:48:13+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -102,6 +102,14 @@
         }
       ],
       "releases": [],
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/mobilereport.png",
+          "alt": "MobileReport – von FehlerFuchs",
+          "width": 1333,
+          "height": 322
+        }
+      },
       "links": {
         "page": "/apps/mobilereport.html",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport",
@@ -240,6 +248,14 @@
           "notes": "Erste Enterprise-Version – Branding-Import, Lizenz je Arbeitsplatz, Backup, PDF-Export."
         }
       ],
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/mobilereport-enterprise.png",
+          "alt": "MobileReport Enterprise – von FehlerFuchs",
+          "width": 720,
+          "height": 120
+        }
+      },
       "links": {
         "page": "/apps/mobilereport-enterprise.html",
         "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mr-ent-v1.0.1",
@@ -376,6 +392,14 @@
         }
       ],
       "releases": [],
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/pdfuchsreader.svg",
+          "alt": "PDFuchs Reader – von FehlerFuchs",
+          "width": 1180,
+          "height": 300
+        }
+      },
       "links": {
         "page": "/apps/pdfuchsreader.html",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader",
@@ -395,6 +419,23 @@
         "selbststaendige"
       ],
       "accent": "#2563EB",
+      "wordmark": [
+        {
+          "text": "FehlerFuchs ",
+          "color": "#7C3F16",
+          "weight": "normal"
+        },
+        {
+          "text": "Snap",
+          "color": "#7C3F16",
+          "weight": "bold"
+        },
+        {
+          "text": "Fuchs",
+          "color": "#2563EB",
+          "weight": "bold"
+        }
+      ],
       "status": "pruefung",
       "platforms": [
         {
@@ -842,6 +883,14 @@
           "answer": "Als APK zum Direkt-Download von dieser Website – bewusst nicht über den Google Play Store. Android fragt beim Installieren aus einer anderen Quelle nach: Die Installation muss für den Browser oder die Dateien-App einmalig erlaubt werden. Wer den Play Store vermeiden möchte, bekommt die App damit auch ohne Google-Konto."
         }
       ],
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/gewerbepro.svg",
+          "alt": "GewerbePro – von FehlerFuchs",
+          "width": 1000,
+          "height": 300
+        }
+      },
       "links": {
         "page": "/apps/gewerbepro.html",
         "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/gewerbepro-v0.3.1",
@@ -890,6 +939,14 @@
         }
       ],
       "releases": [],
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/appinsight.png",
+          "alt": "AppInsight – von FehlerFuchs",
+          "width": 1200,
+          "height": 360
+        }
+      },
       "links": {
         "page": "/apps/appinsight.html",
         "contact": "/kontakt.html?app=AppInsight&topic=interesse"
@@ -907,6 +964,23 @@
         "unternehmen"
       ],
       "accent": "#B45309",
+      "wordmark": [
+        {
+          "text": "FehlerFuchs ",
+          "color": "#7C3F16",
+          "weight": "normal"
+        },
+        {
+          "text": "Beleg",
+          "color": "#7C3F16",
+          "weight": "bold"
+        },
+        {
+          "text": "Werk",
+          "color": "#B45309",
+          "weight": "bold"
+        }
+      ],
       "status": "entwicklung",
       "platforms": [
         {
@@ -967,6 +1041,14 @@
         }
       ],
       "releases": [],
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/cleandesk.png",
+          "alt": "CleanDesk – von FehlerFuchs",
+          "width": 770,
+          "height": 210
+        }
+      },
       "links": {
         "page": "/apps/cleandesk.html",
         "contact": "/kontakt.html?app=CleanDesk&topic=interesse"
@@ -1011,6 +1093,14 @@
         }
       ],
       "releases": [],
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/fuchsbau.svg",
+          "alt": "FuchsBau – von FehlerFuchs",
+          "width": 1080,
+          "height": 360
+        }
+      },
       "links": {
         "page": "/apps/fuchsbau.html",
         "contact": "/kontakt.html?app=FuchsBau&topic=interesse"
@@ -1062,6 +1152,14 @@
         }
       ],
       "releases": [],
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/pdfuchs.png",
+          "alt": "PDFuchs – von FehlerFuchs",
+          "width": 907,
+          "height": 300
+        }
+      },
       "links": {
         "page": "/apps/pdfuchs.html",
         "contact": "/kontakt.html?app=PDFuchs&topic=interesse"
@@ -1112,6 +1210,14 @@
         }
       ],
       "releases": [],
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/checkin-vita.svg",
+          "alt": "CheckInVita – von FehlerFuchs",
+          "width": 760,
+          "height": 150
+        }
+      },
       "links": {
         "page": "/apps/checkin-vita.html",
         "contact": "/kontakt.html?app=CheckInVita&topic=interesse"
@@ -1146,6 +1252,14 @@
       ],
       "editions": [],
       "releases": [],
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/coppicemail.png",
+          "alt": "CoppiceMail – von FehlerFuchs",
+          "width": 1160,
+          "height": 300
+        }
+      },
       "links": {
         "page": "/apps/coppicemail.html",
         "contact": "/kontakt.html?app=CoppiceMail&topic=interesse"

@@ -26,6 +26,15 @@ editions:
 
 releases: []
 
+# Bild-Wortmarke. Ist sie gesetzt, ist SIE der sichtbare Titel und die
+# Überschrift steht nur für Screenreader da – sonst stünde der Name doppelt.
+media:
+  lockup:
+    src: /img/lockups/appinsight.png
+    alt: AppInsight – von FehlerFuchs
+    width: 1200
+    height: 360
+
 links:
   page: /apps/appinsight.html
   contact: /kontakt.html?app=AppInsight&topic=interesse

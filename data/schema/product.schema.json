@@ -4,69 +4,199 @@
   "title": "FehlerFuchs Produkt",
   "type": "object",
   "additionalProperties": false,
-  "required": ["slug", "name", "fullName", "kind", "tagline", "description", "audience", "accent", "status", "platforms", "privacy", "links"],
+  "required": [
+    "slug",
+    "name",
+    "fullName",
+    "kind",
+    "tagline",
+    "description",
+    "audience",
+    "accent",
+    "status",
+    "platforms",
+    "privacy",
+    "links"
+  ],
   "properties": {
-    "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
-    "name": { "type": "string", "minLength": 2, "maxLength": 60 },
-    "fullName": { "type": "string", "minLength": 2, "maxLength": 90 },
-    "kind": { "enum": ["produkt", "edition", "werkzeug"] },
-    "standalone": { "type": "boolean" },
-    "parent": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
-    "tagline": { "type": "string", "minLength": 10, "maxLength": 200 },
-    "description": { "type": "string", "minLength": 40, "maxLength": 600 },
-    "audience": {
-      "type": "array", "minItems": 1, "uniqueItems": true,
-      "items": { "enum": ["privat", "selbststaendige", "unternehmen", "vereine"] }
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
     },
-    "accent": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
-    "status": { "enum": ["verfuegbar", "pruefung", "beta", "alpha", "entwicklung", "konzept", "idee", "pausiert", "eingestellt"] },
+    "name": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 60
+    },
+    "fullName": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 90
+    },
+    "kind": {
+      "enum": [
+        "produkt",
+        "edition",
+        "werkzeug"
+      ]
+    },
+    "standalone": {
+      "type": "boolean"
+    },
+    "parent": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "tagline": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 200
+    },
+    "description": {
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 600
+    },
+    "audience": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "privat",
+          "selbststaendige",
+          "unternehmen",
+          "vereine"
+        ]
+      }
+    },
+    "accent": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$"
+    },
+    "wordmark": {
+      "$ref": "#/$defs/wortmarke"
+    },
+    "status": {
+      "enum": [
+        "verfuegbar",
+        "pruefung",
+        "beta",
+        "alpha",
+        "entwicklung",
+        "konzept",
+        "idee",
+        "pausiert",
+        "eingestellt"
+      ]
+    },
     "platforms": {
-      "type": "array", "minItems": 1,
+      "type": "array",
+      "minItems": 1,
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["os", "status", "distribution"],
+        "required": [
+          "os",
+          "status",
+          "distribution"
+        ],
         "properties": {
-          "os": { "enum": ["windows", "android", "ios", "linux", "macos", "web"] },
-          "status": { "enum": ["verfuegbar", "pruefung", "beta", "alpha", "entwicklung", "konzept", "idee", "pausiert", "eingestellt"] },
-          "requirements": { "type": "string" },
-          "distribution": { "enum": ["play-store", "github-release", "digistore24", "auf-anfrage", "keiner"] },
-          "storeId": { "type": "string" },
-          "since": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+          "os": {
+            "enum": [
+              "windows",
+              "android",
+              "ios",
+              "linux",
+              "macos",
+              "web"
+            ]
+          },
+          "status": {
+            "enum": [
+              "verfuegbar",
+              "pruefung",
+              "beta",
+              "alpha",
+              "entwicklung",
+              "konzept",
+              "idee",
+              "pausiert",
+              "eingestellt"
+            ]
+          },
+          "requirements": {
+            "type": "string"
+          },
+          "distribution": {
+            "enum": [
+              "play-store",
+              "github-release",
+              "digistore24",
+              "auf-anfrage",
+              "keiner"
+            ]
+          },
+          "storeId": {
+            "type": "string"
+          },
+          "since": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          }
         }
       }
     },
     "privacy": {
-      "type": "array", "uniqueItems": true,
-      "items": { "enum": ["nur-lokal", "keine-cloud", "kein-konto", "kein-tracking", "werbefrei", "kein-google", "eigener-sync", "offline-faehig"] }
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "nur-lokal",
+          "keine-cloud",
+          "kein-konto",
+          "kein-tracking",
+          "werbefrei",
+          "kein-google",
+          "eigener-sync",
+          "offline-faehig"
+        ]
+      }
     },
     "editions": {
       "type": "array",
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "name", "public", "price"],
+        "required": [
+          "id",
+          "name",
+          "public",
+          "price"
+        ],
         "properties": {
-          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-          "name": { "type": "string" },
-          "public": { "type": "boolean" },
-          "summary": { "type": "string", "maxLength": 300 },
-          "price": { "$ref": "#/$defs/price" },
-          "emphasis": { "type": "boolean" },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "public": {
+            "type": "boolean"
+          },
+          "summary": {
+            "type": "string",
+            "maxLength": 300
+          },
+          "price": {
+            "$ref": "#/$defs/price"
+          },
+          "emphasis": {
+            "type": "boolean"
+          },
           "wordmark": {
-            "type": "array",
-            "minItems": 1,
-            "items": {
-              "type": "object",
-              "additionalProperties": false,
-              "required": ["text"],
-              "properties": {
-                "text": { "type": "string", "minLength": 1, "maxLength": 40 },
-                "color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
-                "weight": { "enum": ["normal", "bold"] },
-                "break": { "type": "boolean" }
-              }
-            }
+            "$ref": "#/$defs/wortmarke"
           }
         }
       }
@@ -76,41 +206,123 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["version", "date", "channel", "os", "url", "filename", "size", "sha256", "signed"],
+        "required": [
+          "version",
+          "date",
+          "channel",
+          "os",
+          "url",
+          "filename",
+          "size",
+          "sha256",
+          "signed"
+        ],
         "properties": {
-          "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
-          "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
-          "channel": { "enum": ["stable", "beta", "alpha"] },
-          "os": { "enum": ["windows", "android", "ios", "linux", "macos", "web"] },
-          "url": { "type": "string", "format": "uri", "pattern": "^https://" },
-          "filename": { "type": "string" },
+          "version": {
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+$"
+          },
+          "date": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "channel": {
+            "enum": [
+              "stable",
+              "beta",
+              "alpha"
+            ]
+          },
+          "os": {
+            "enum": [
+              "windows",
+              "android",
+              "ios",
+              "linux",
+              "macos",
+              "web"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://"
+          },
+          "filename": {
+            "type": "string"
+          },
           "size": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["bytes", "label", "source"],
+            "required": [
+              "bytes",
+              "label",
+              "source"
+            ],
             "properties": {
-              "bytes": { "type": ["integer", "null"], "minimum": 1 },
-              "label": { "type": "string" },
-              "source": { "type": "string" }
+              "bytes": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1
+              },
+              "label": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              }
             }
           },
-          "sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
-          "signed": { "type": "boolean" },
-          "notes": { "type": "string", "maxLength": 600 }
+          "sha256": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "signed": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 600
+          }
         }
       }
     },
     "links": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["page"],
+      "required": [
+        "page"
+      ],
       "properties": {
-        "page": { "type": "string", "pattern": "^/" },
-        "store": { "type": "string", "pattern": "^https://" },
-        "release": { "type": "string", "pattern": "^https://" },
-        "betaSignup": { "type": "string", "pattern": "^https://" },
-        "checkout": { "type": "string", "pattern": "^https://" },
-        "contact": { "type": "string", "pattern": "^/" }
+        "page": {
+          "type": "string",
+          "pattern": "^/"
+        },
+        "store": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "release": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "betaSignup": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "checkout": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "contact": {
+          "type": "string",
+          "pattern": "^/"
+        }
       }
     },
     "features": {
@@ -118,26 +330,57 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["group", "items"],
+        "required": [
+          "group",
+          "items"
+        ],
         "properties": {
-          "group": { "type": "string", "minLength": 2, "maxLength": 60 },
+          "group": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 60
+          },
           "items": {
             "type": "array",
             "minItems": 1,
             "items": {
               "type": "object",
               "additionalProperties": false,
-              "required": ["name", "values"],
+              "required": [
+                "name",
+                "values"
+              ],
               "properties": {
-                "name": { "type": "string", "minLength": 3, "maxLength": 160 },
-                "note": { "type": "string", "maxLength": 300 },
+                "name": {
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 160
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 300
+                },
                 "values": {
                   "type": "object",
                   "minProperties": 1,
                   "additionalProperties": {
                     "oneOf": [
-                      { "enum": ["ja", "nein", "optional", "teilweise", "geplant", "in-arbeit", "in-vorbereitung"] },
-                      { "type": "string", "minLength": 1, "maxLength": 60 }
+                      {
+                        "enum": [
+                          "ja",
+                          "nein",
+                          "optional",
+                          "teilweise",
+                          "geplant",
+                          "in-arbeit",
+                          "in-vorbereitung"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 60
+                      }
                     ]
                   }
                 }
@@ -152,10 +395,21 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["question", "answer"],
+        "required": [
+          "question",
+          "answer"
+        ],
         "properties": {
-          "question": { "type": "string", "minLength": 6, "maxLength": 160 },
-          "answer": { "type": "string", "minLength": 20, "maxLength": 1200 }
+          "question": {
+            "type": "string",
+            "minLength": 6,
+            "maxLength": 160
+          },
+          "answer": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 1200
+          }
         }
       }
     },
@@ -163,55 +417,162 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "lockup": { "$ref": "#/$defs/bild" },
-        "og": { "$ref": "#/$defs/bild" },
-        "screenshots": { "type": "array", "items": { "$ref": "#/$defs/bild" } }
+        "lockup": {
+          "$ref": "#/$defs/bild"
+        },
+        "og": {
+          "$ref": "#/$defs/bild"
+        },
+        "screenshots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bild"
+          }
+        }
       }
     },
     "manifests": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "updateFeed": { "type": "string" }
+        "updateFeed": {
+          "type": "string"
+        }
       }
     },
-    "notes": { "type": "string" }
+    "notes": {
+      "type": "string"
+    }
   },
   "$defs": {
     "bild": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["src", "alt", "width", "height"],
+      "required": [
+        "src",
+        "alt",
+        "width",
+        "height"
+      ],
       "properties": {
-        "src": { "type": "string", "pattern": "^/" },
-        "alt": { "type": "string", "minLength": 5, "maxLength": 300 },
-        "width": { "type": "integer", "minimum": 1 },
-        "height": { "type": "integer", "minimum": 1 },
-        "caption": { "type": "string", "maxLength": 300 }
+        "src": {
+          "type": "string",
+          "pattern": "^/"
+        },
+        "alt": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 300
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "caption": {
+          "type": "string",
+          "maxLength": 300
+        }
       }
     },
     "price": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["model"],
+      "required": [
+        "model"
+      ],
       "properties": {
-        "model": { "enum": ["kostenlos", "einmalig", "iap", "staffel", "auf-anfrage", "offen"] },
-        "amount": { "type": ["number", "null"], "minimum": 0 },
-        "currency": { "enum": ["EUR"] },
-        "vatIncluded": { "type": "boolean" },
-        "recurring": { "type": "boolean" },
+        "model": {
+          "enum": [
+            "kostenlos",
+            "einmalig",
+            "iap",
+            "staffel",
+            "auf-anfrage",
+            "offen"
+          ]
+        },
+        "amount": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "currency": {
+          "enum": [
+            "EUR"
+          ]
+        },
+        "vatIncluded": {
+          "type": "boolean"
+        },
+        "recurring": {
+          "type": "boolean"
+        },
         "tiers": {
           "type": "array",
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["seats", "amount", "perSeat"],
+            "required": [
+              "seats",
+              "amount",
+              "perSeat"
+            ],
             "properties": {
-              "seats": { "type": "integer", "minimum": 1 },
-              "amount": { "type": "number", "minimum": 0 },
-              "perSeat": { "type": "number", "minimum": 0 },
-              "discountPercent": { "type": "integer", "minimum": 0, "maximum": 100 }
+              "seats": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "amount": {
+                "type": "number",
+                "minimum": 0
+              },
+              "perSeat": {
+                "type": "number",
+                "minimum": 0
+              },
+              "discountPercent": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              }
             }
+          }
+        }
+      }
+    },
+    "wortmarke": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ],
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "color": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          },
+          "weight": {
+            "enum": [
+              "normal",
+              "bold"
+            ]
+          },
+          "break": {
+            "type": "boolean"
           }
         }
       }

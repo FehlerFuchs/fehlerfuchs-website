@@ -8,6 +8,13 @@ description: >-
   Gerät. Kein Upload zu einem Scan-Dienst, keine Anmeldung, keine Werbung.
 audience: [privat, selbststaendige]
 accent: "#2563EB"
+# Kein Bild-Lockup vorhanden – der Titel steht als Text und trägt
+# die Markenfarben, damit er trotzdem nach FehlerFuchs aussieht.
+wordmark:
+  - { text: "FehlerFuchs ", color: "#7C3F16", weight: normal }
+  - { text: "Snap", color: "#7C3F16", weight: bold }
+  - { text: "Fuchs", color: "#2563EB", weight: bold }
+
 # „pruefung" statt „beta": eingereicht, aber noch nichts öffentlich testbar.
 status: pruefung
 

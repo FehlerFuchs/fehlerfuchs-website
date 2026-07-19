@@ -25,6 +25,15 @@ editions:
 
 releases: []
 
+# Bild-Wortmarke. Ist sie gesetzt, ist SIE der sichtbare Titel und die
+# Überschrift steht nur für Screenreader da – sonst stünde der Name doppelt.
+media:
+  lockup:
+    src: /img/lockups/fuchsbau.svg
+    alt: FuchsBau – von FehlerFuchs
+    width: 1080
+    height: 360
+
 links:
   page: /apps/fuchsbau.html
   contact: /kontakt.html?app=FuchsBau&topic=interesse

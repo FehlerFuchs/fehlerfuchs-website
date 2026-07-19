@@ -224,6 +224,15 @@ faq:
       Installation muss für den Browser oder die Dateien-App einmalig erlaubt werden.
       Wer den Play Store vermeiden möchte, bekommt die App damit auch ohne Google-Konto.
 
+# Bild-Wortmarke. Ist sie gesetzt, ist SIE der sichtbare Titel und die
+# Überschrift steht nur für Screenreader da – sonst stünde der Name doppelt.
+media:
+  lockup:
+    src: /img/lockups/gewerbepro.svg
+    alt: GewerbePro – von FehlerFuchs
+    width: 1000
+    height: 300
+
 links:
   page: /apps/gewerbepro.html
   release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/gewerbepro-v0.3.1

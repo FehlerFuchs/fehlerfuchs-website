@@ -78,6 +78,15 @@ releases:
     signed: false
     notes: Erste Enterprise-Version – Branding-Import, Lizenz je Arbeitsplatz, Backup, PDF-Export.
 
+# Bild-Wortmarke. Ist sie gesetzt, ist SIE der sichtbare Titel und die
+# Überschrift steht nur für Screenreader da – sonst stünde der Name doppelt.
+media:
+  lockup:
+    src: /img/lockups/mobilereport-enterprise.png
+    alt: MobileReport Enterprise – von FehlerFuchs
+    width: 720
+    height: 120
+
 links:
   page: /apps/mobilereport-enterprise.html
   release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mr-ent-v1.0.1

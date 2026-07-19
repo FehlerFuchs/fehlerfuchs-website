@@ -29,6 +29,15 @@ editions:
 
 releases: []
 
+# Bild-Wortmarke. Ist sie gesetzt, ist SIE der sichtbare Titel und die
+# Überschrift steht nur für Screenreader da – sonst stünde der Name doppelt.
+media:
+  lockup:
+    src: /img/lockups/pdfuchsreader.svg
+    alt: PDFuchs Reader – von FehlerFuchs
+    width: 1180
+    height: 300
+
 links:
   page: /apps/pdfuchsreader.html
   store: https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader

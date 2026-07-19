@@ -21,6 +21,15 @@ privacy: [nur-lokal, keine-cloud, kein-tracking, werbefrei]
 editions: []
 releases: []
 
+# Bild-Wortmarke. Ist sie gesetzt, ist SIE der sichtbare Titel und die
+# Überschrift steht nur für Screenreader da – sonst stünde der Name doppelt.
+media:
+  lockup:
+    src: /img/lockups/coppicemail.png
+    alt: CoppiceMail – von FehlerFuchs
+    width: 1160
+    height: 300
+
 links:
   page: /apps/coppicemail.html
   contact: /kontakt.html?app=CoppiceMail&topic=interesse

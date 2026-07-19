@@ -9,6 +9,13 @@ description: >-
   im Archiv liegt, findet man später nicht wieder.
 audience: [selbststaendige, unternehmen]
 accent: "#B45309"
+# Kein Bild-Lockup vorhanden – der Titel steht als Text und trägt
+# die Markenfarben, damit er trotzdem nach FehlerFuchs aussieht.
+wordmark:
+  - { text: "FehlerFuchs ", color: "#7C3F16", weight: normal }
+  - { text: "Beleg", color: "#7C3F16", weight: bold }
+  - { text: "Werk", color: "#B45309", weight: bold }
+
 status: entwicklung
 
 platforms:
