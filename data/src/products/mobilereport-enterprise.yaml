@@ -37,14 +37,25 @@ editions:
       currency: EUR
       vatIncluded: true
       recurring: false
+      # Jede Staffel hat ihren EIGENEN Kassenlink – bei Digistore24 ist jede
+      # Paketgröße ein eigenes Produkt. Ohne diese Links endet die Preisangabe
+      # auf der Seite in einer Sackgasse: „ab 50 €" ohne Weg zum Kauf.
       tiers:
-        - { seats: 10,   amount: 50.00,   perSeat: 5.00, discountPercent: 0 }
-        - { seats: 25,   amount: 112.50,  perSeat: 4.50, discountPercent: 10 }
-        - { seats: 50,   amount: 200.00,  perSeat: 4.00, discountPercent: 20 }
-        - { seats: 100,  amount: 350.00,  perSeat: 3.50, discountPercent: 30 }
-        - { seats: 250,  amount: 750.00,  perSeat: 3.00, discountPercent: 40 }
-        - { seats: 500,  amount: 1250.00, perSeat: 2.50, discountPercent: 50 }
-        - { seats: 1000, amount: 2000.00, perSeat: 2.00, discountPercent: 60 }
+        - { seats: 10,   amount: 50.00,   perSeat: 5.00, discountPercent: 0,
+            checkout: "https://www.checkout-ds24.com/product/709260" }
+        - { seats: 25,   amount: 112.50,  perSeat: 4.50, discountPercent: 10,
+            checkout: "https://www.checkout-ds24.com/product/709324" }
+        - { seats: 50,   amount: 200.00,  perSeat: 4.00, discountPercent: 20,
+            checkout: "https://www.checkout-ds24.com/product/709326" }
+        - { seats: 100,  amount: 350.00,  perSeat: 3.50, discountPercent: 30,
+            checkout: "https://www.checkout-ds24.com/product/709328" }
+        - { seats: 250,  amount: 750.00,  perSeat: 3.00, discountPercent: 40,
+            checkout: "https://www.checkout-ds24.com/product/709330" }
+        - { seats: 500,  amount: 1250.00, perSeat: 2.50, discountPercent: 50,
+            checkout: "https://www.checkout-ds24.com/product/709331" }
+        - { seats: 1000, amount: 2000.00, perSeat: 2.00, discountPercent: 60,
+            badge: Bestpreis,
+            checkout: "https://www.checkout-ds24.com/product/709333" }
   - id: custom
     name: Custom-Branding
     public: true
@@ -97,5 +108,5 @@ manifests:
 
 notes: >-
   Kauf und Lizenzausgabe laufen über Digistore24 (Reseller/Merchant of Record),
-  Rückgabefrist 30 Tage. Zahllinks stehen nur auf der Produktseite, nicht hier –
-  sie ändern sich unabhängig vom Produkt.
+  Rückgabefrist 30 Tage. Die Kassenlinks stehen bewusst hier im Modell: Ohne sie
+  zeigt die Seite zwar Preise, führt aber nirgendwohin.

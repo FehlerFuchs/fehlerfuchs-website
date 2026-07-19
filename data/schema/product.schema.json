@@ -540,6 +540,14 @@
                 "type": "integer",
                 "minimum": 0,
                 "maximum": 100
+              },
+              "checkout": {
+                "type": "string",
+                "pattern": "^https://"
+              },
+              "badge": {
+                "type": "string",
+                "maxLength": 30
               }
             }
           }

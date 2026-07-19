@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-19T10:48:13+02:00",
+  "generiert": "2026-07-19T10:55:18+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -163,43 +163,51 @@
                 "seats": 10,
                 "amount": 50.0,
                 "perSeat": 5.0,
-                "discountPercent": 0
+                "discountPercent": 0,
+                "checkout": "https://www.checkout-ds24.com/product/709260"
               },
               {
                 "seats": 25,
                 "amount": 112.5,
                 "perSeat": 4.5,
-                "discountPercent": 10
+                "discountPercent": 10,
+                "checkout": "https://www.checkout-ds24.com/product/709324"
               },
               {
                 "seats": 50,
                 "amount": 200.0,
                 "perSeat": 4.0,
-                "discountPercent": 20
+                "discountPercent": 20,
+                "checkout": "https://www.checkout-ds24.com/product/709326"
               },
               {
                 "seats": 100,
                 "amount": 350.0,
                 "perSeat": 3.5,
-                "discountPercent": 30
+                "discountPercent": 30,
+                "checkout": "https://www.checkout-ds24.com/product/709328"
               },
               {
                 "seats": 250,
                 "amount": 750.0,
                 "perSeat": 3.0,
-                "discountPercent": 40
+                "discountPercent": 40,
+                "checkout": "https://www.checkout-ds24.com/product/709330"
               },
               {
                 "seats": 500,
                 "amount": 1250.0,
                 "perSeat": 2.5,
-                "discountPercent": 50
+                "discountPercent": 50,
+                "checkout": "https://www.checkout-ds24.com/product/709331"
               },
               {
                 "seats": 1000,
                 "amount": 2000.0,
                 "perSeat": 2.0,
-                "discountPercent": 60
+                "discountPercent": 60,
+                "badge": "Bestpreis",
+                "checkout": "https://www.checkout-ds24.com/product/709333"
               }
             ]
           }
@@ -264,7 +272,7 @@
       "manifests": {
         "updateFeed": "enterprise/latest.json"
       },
-      "notes": "Kauf und Lizenzausgabe laufen über Digistore24 (Reseller/Merchant of Record), Rückgabefrist 30 Tage. Zahllinks stehen nur auf der Produktseite, nicht hier – sie ändern sich unabhängig vom Produkt."
+      "notes": "Kauf und Lizenzausgabe laufen über Digistore24 (Reseller/Merchant of Record), Rückgabefrist 30 Tage. Die Kassenlinks stehen bewusst hier im Modell: Ohne sie zeigt die Seite zwar Preise, führt aber nirgendwohin."
     },
     {
       "slug": "orgafuchs",

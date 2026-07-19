@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-19T10:48:13+02:00",
+  "generiert": "2026-07-19T10:55:18+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "privacy": {
     "nur-lokal": {

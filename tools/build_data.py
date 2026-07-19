@@ -297,12 +297,39 @@ def pruefe_inhalt(p, statuses, alle_slugs):
         if pr["model"] == "offen" and e["public"] and p["status"] == "verfuegbar":
             melde(warnungen, slug, f"Edition '{e['id']}' ist öffentlich und das Produkt verfügbar, "
                                    f"der Preis ist aber noch offen")
+        letzter_preis = None
         for t in pr.get("tiers", []):
             erwartet = round(t["amount"] / t["seats"], 2)
             if abs(erwartet - t["perSeat"]) > 0.005:
                 melde(fehler, slug, f"Edition '{e['id']}', Staffel {t['seats']}: "
                                     f"perSeat {t['perSeat']} passt nicht zu {t['amount']}/{t['seats']} "
                                     f"= {erwartet}")
+            # Ein Preis ohne Kaufweg ist eine Sackgasse: Die Seite nennt einen
+            # Betrag, aber der Besucher kommt nirgendwohin.
+            if e["public"] and p["status"] == "verfuegbar" and not t.get("checkout"):
+                melde(fehler, slug, f"Edition '{e['id']}', Staffel {t['seats']} Plätze: "
+                                    f"kein Kassenlink hinterlegt – der Preis "
+                                    f"{t['amount']:.2f} € führt ins Leere")
+            # Mengenrabatt heißt: pro Platz wird es günstiger, nie teurer.
+            if letzter_preis is not None and t["perSeat"] > letzter_preis:
+                melde(fehler, slug, f"Edition '{e['id']}': bei {t['seats']} Plätzen kostet "
+                                    f"der Platz {t['perSeat']} € – mehr als in der Staffel "
+                                    f"darunter ({letzter_preis} €). Das ist kein Mengenrabatt.")
+            letzter_preis = t["perSeat"]
+            if t.get("discountPercent") is not None and pr.get("tiers"):
+                basis = pr["tiers"][0]["perSeat"]
+                erw_rabatt = round((1 - t["perSeat"] / basis) * 100)
+                if abs(erw_rabatt - t["discountPercent"]) > 1:
+                    melde(warnungen, slug, f"Edition '{e['id']}', Staffel {t['seats']}: "
+                                           f"angegebener Rabatt {t['discountPercent']} % passt nicht "
+                                           f"zum tatsächlichen ({erw_rabatt} % gegenüber "
+                                           f"{basis} € pro Platz)")
+
+        # Einzelpreis ohne Kaufweg – dieselbe Sackgasse eine Ebene höher
+        if pr["model"] in ("einmalig",) and e["public"] and p["status"] == "verfuegbar" \
+                and not p.get("links", {}).get("checkout"):
+            melde(fehler, slug, f"Edition '{e['id']}' hat einen Festpreis, aber es gibt "
+                                f"keinen links.checkout – der Kauf ist nicht möglich")
 
 
 # --------------------------------------------------------- Abgleich mit der Website
