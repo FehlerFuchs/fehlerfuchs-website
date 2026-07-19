@@ -63,7 +63,8 @@
               "properties": {
                 "text": { "type": "string", "minLength": 1, "maxLength": 40 },
                 "color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
-                "weight": { "enum": ["normal", "bold"] }
+                "weight": { "enum": ["normal", "bold"] },
+                "break": { "type": "boolean" }
               }
             }
           }

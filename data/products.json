@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-19T10:33:06+02:00",
+  "generiert": "2026-07-19T10:35:40+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -470,14 +470,15 @@
           "name": "FehlerFuchs Gewerbe",
           "wordmark": [
             {
-              "text": "FehlerFuchs ",
+              "text": "FehlerFuchs",
               "color": "#7C3F16",
               "weight": "normal"
             },
             {
               "text": "Gewerbe",
               "color": "#B45309",
-              "weight": "bold"
+              "weight": "bold",
+              "break": true
             }
           ],
           "public": true,
@@ -491,14 +492,15 @@
           "name": "FehlerFuchs GewerbePro",
           "wordmark": [
             {
-              "text": "FehlerFuchs ",
+              "text": "FehlerFuchs",
               "color": "#7C3F16",
               "weight": "normal"
             },
             {
               "text": "Gewerbe",
               "color": "#B45309",
-              "weight": "bold"
+              "weight": "bold",
+              "break": true
             },
             {
               "text": "Pro",

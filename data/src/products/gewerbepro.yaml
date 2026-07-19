@@ -30,18 +30,20 @@ editions:
     name: FehlerFuchs Gewerbe
     # Wortmarke in Einzelteilen, damit Überschriften die Markenfarben tragen
     # statt einer grauen Zelle. Farben wie in der Bild-Wortmarke.
+    # 'break: true' beginnt eine neue Zeile – in schmalen Tabellenspalten
+    # bricht der Name sonst an einer beliebigen Stelle um.
     wordmark:
-      - { text: "FehlerFuchs ", color: "#7C3F16", weight: normal }
-      - { text: "Gewerbe",      color: "#B45309", weight: bold }
+      - { text: "FehlerFuchs", color: "#7C3F16", weight: normal }
+      - { text: "Gewerbe",     color: "#B45309", weight: bold, break: true }
     public: true
     summary: Kostenlose Grundversion – Kunden, Rechnungen, EÜR-Vorbereitung.
     price: { model: kostenlos }
   - id: pro
     name: FehlerFuchs GewerbePro
     wordmark:
-      - { text: "FehlerFuchs ", color: "#7C3F16", weight: normal }
-      - { text: "Gewerbe",      color: "#B45309", weight: bold }
-      - { text: "Pro",          color: "#7C3F16", weight: bold }
+      - { text: "FehlerFuchs", color: "#7C3F16", weight: normal }
+      - { text: "Gewerbe",     color: "#B45309", weight: bold, break: true }
+      - { text: "Pro",         color: "#7C3F16", weight: bold }
     public: true
     # Hervorgehobene Spalte in der Merkmalsmatrix.
     emphasis: true
