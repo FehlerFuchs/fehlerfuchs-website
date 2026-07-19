@@ -180,6 +180,9 @@ und bleibt deshalb draußen.
 | `privacy` | string[] | ja | siehe 4.5 |
 | `editions` | object[] | nein | Ausbaustufen innerhalb des Produkts |
 | `releases` | object[] | nein | Veröffentlichte Fassungen, neueste zuerst |
+| `features` | object[] | nein | Merkmalsmatrix, siehe 5.6 |
+| `faq` | object[] | nein | Häufige Fragen, siehe 5.7 |
+| `media` | object | nein | Wortmarke, OG-Bild, Bildschirmfotos, siehe 5.8 |
 | `links` | object | ja | siehe 5.5 |
 | `manifests` | object | nein | Pfade zu Update-Manifesten |
 | `notes` | string | nein | Interne Anmerkung, wird **nicht** ausgegeben |
@@ -232,6 +235,64 @@ und bleibt deshalb draußen.
 | `betaSignup` | nein | Endpunkt der Tester-Registrierung |
 | `checkout` | nein | Kaufweg |
 | `contact` | nein | Vorbelegtes Kontaktformular |
+
+### 5.6 `features[]` — die Merkmalsmatrix
+
+```yaml
+features:
+  - group: Rechnung und Zahlung
+    items:
+      - name: E-Rechnung erstellen, prüfen und versenden
+        values: { free: nein, pro: ja, vather: ja }
+      - name: OCR für Belege
+        values: { free: nein, pro: optional, vather: ja }
+        note: Wird als Zusatzpaket installiert.
+```
+
+Die Schlüssel unter `values` sind **Editions-IDs**. Das Prüfskript vergleicht sie mit
+`editions[].id` und meldet sowohl erfundene Spalten als auch fehlende Werte — eine Lücke
+in der Tabelle ist damit nicht mehr möglich.
+
+**Erlaubte Werte:** `ja` · `nein` · `optional` · `teilweise` · `geplant` · `in-arbeit` ·
+`in-vorbereitung` — oder freier Text (bis 60 Zeichen) für Fälle wie „Export + Logo".
+
+> **Was hier nicht hineingehört:** Die alte HTML-Tabelle hatte zwei Zeilen „Verfügbarkeit /
+> Preis" und „Download / Kauf". Das sind keine Merkmale, sondern ergeben sich aus
+> `editions[].price` und `releases[]`. Als Tabellenzeilen wären es Duplikate, die
+> auseinanderlaufen können — genau das, was dieses Modell verhindern soll.
+
+**Interne Editionen erscheinen nicht.** Die Matrix zeigt nur Spalten mit `public: true`.
+Die Entwicklerfassung „Vather" steht vollständig im Modell, taucht aber auf keiner
+öffentlichen Seite auf.
+
+### 5.7 `faq[]`
+
+| Feld | Pflicht | Regel |
+|---|---|---|
+| `question` | ja | Muss auf ein Fragezeichen enden |
+| `answer` | ja | 20–1200 Zeichen |
+
+FAQ-Antworten veralten schneller als jeder andere Inhalt. Zwei Regeln greifen deshalb:
+
+- Nennt eine Antwort eine **Versionsnummer**, die es in `releases[]` nicht gibt, warnt das
+  Skript.
+- Nennt eine Antwort ein **festes Datum** (`01.08.2026`), warnt es ebenfalls.
+
+Genau dieser Fehler ist schon passiert: Eine FAQ kündigte ein Datum an, das durch ein
+Release längst überholt war, und stand monatelang falsch auf der Seite.
+
+### 5.8 `media`
+
+```yaml
+media:
+  lockup:      { src: /img/lockups/orgafuchs.png, alt: "…", width: 1040, height: 400 }
+  og:          { src: /img/…, alt: "…", width: 1200, height: 630 }
+  screenshots: [ { src: …, alt: …, width: …, height: …, caption: … } ]
+```
+
+`width` und `height` sind Pflicht, damit der Browser den Platz reservieren kann und die
+Seite beim Laden nicht springt. Das Prüfskript stellt sicher, dass jede angegebene Datei
+tatsächlich existiert — ein toter Bildpfad fällt beim Bauen auf, nicht erst beim Besucher.
 
 ---
 

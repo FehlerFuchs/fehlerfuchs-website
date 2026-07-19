@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-19T10:13:57+02:00",
+  "generiert": "2026-07-19T10:19:47+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -318,6 +318,14 @@
           "notes": "Erstveröffentlichung. Wiederkehrende Serien, PDF als Monat/Jahr/Blanko, Feiertage und Schulferien je Bundesland, Geräte-Sync per QR-Code, Transparenz- und Open-Source-Seite in der App."
         }
       ],
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/orgafuchs.png",
+          "alt": "OrgaFuchs – von FehlerFuchs",
+          "width": 1040,
+          "height": 400
+        }
+      },
       "links": {
         "page": "/apps/orgafuchs.html",
         "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.0.0",
@@ -517,6 +525,283 @@
           "sha256": null,
           "signed": false,
           "notes": "Erste öffentlich testbare Version. Editionserkennung abgesichert."
+        }
+      ],
+      "features": [
+        {
+          "group": "Kern",
+          "items": [
+            {
+              "name": "Kunden, Aufträge, Rechnungen, Angebote, Quittungen",
+              "values": {
+                "free": "ja",
+                "pro": "ja",
+                "vather": "ja"
+              }
+            },
+            {
+              "name": "Kalender, Aufgaben, Fristen & Terminexport (ICS)",
+              "values": {
+                "free": "ja",
+                "pro": "ja",
+                "vather": "ja"
+              }
+            },
+            {
+              "name": "Projekte, Gutschriften und Stornos",
+              "values": {
+                "free": "ja",
+                "pro": "ja",
+                "vather": "ja"
+              }
+            },
+            {
+              "name": "Datenimport (Stammdaten und Bestände)",
+              "values": {
+                "free": "ja",
+                "pro": "ja",
+                "vather": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Steuern und Auswertung",
+          "items": [
+            {
+              "name": "Einnahmen, Ausgaben und EÜR-Vorbereitung",
+              "values": {
+                "free": "ja",
+                "pro": "ja",
+                "vather": "ja"
+              }
+            },
+            {
+              "name": "Steuermodelle (§ 19, Regelbesteuerung Soll/Ist, gemeinnützig, § 24 · USt 0/7/19 %)",
+              "values": {
+                "free": "ja",
+                "pro": "ja",
+                "vather": "ja"
+              }
+            },
+            {
+              "name": "Berichte: EÜR, Steuerbericht, Offene Posten, Dashboard (PDF/CSV)",
+              "values": {
+                "free": "ja",
+                "pro": "ja",
+                "vather": "ja"
+              }
+            },
+            {
+              "name": "Logbuch, Statistik und Auswertungen",
+              "values": {
+                "free": "ja",
+                "pro": "ja",
+                "vather": "ja"
+              }
+            },
+            {
+              "name": "Fahrtenbuch, Anlagen und AfA",
+              "values": {
+                "free": "ja",
+                "pro": "ja",
+                "vather": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Rechnung und Zahlung",
+          "items": [
+            {
+              "name": "E-Rechnung erstellen, prüfen (KoSIT) und versenden (ZUGFeRD/XRechnung, EN 16931)",
+              "values": {
+                "free": "nein",
+                "pro": "ja",
+                "vather": "ja"
+              }
+            },
+            {
+              "name": "GiroCode / Zahlungs-QR auf Rechnung und Mahnung",
+              "values": {
+                "free": "ja",
+                "pro": "ja",
+                "vather": "ja"
+              }
+            },
+            {
+              "name": "Mahnwesen: Erinnerung und 3 Stufen, Verzugszinsen, Teilzahlungen",
+              "values": {
+                "free": "ja",
+                "pro": "ja",
+                "vather": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Belege und Dokumente",
+          "items": [
+            {
+              "name": "PDFuchs eingebettet und Belegablage",
+              "values": {
+                "free": "nein",
+                "pro": "ja",
+                "vather": "ja"
+              }
+            },
+            {
+              "name": "OCR / Texterkennung für Belege (Tesseract)",
+              "values": {
+                "free": "nein",
+                "pro": "optional",
+                "vather": "ja"
+              },
+              "note": "Wird als Zusatzpaket installiert, nicht standardmäßig mitgeliefert."
+            },
+            {
+              "name": "Etiketten- und Labeldruck",
+              "values": {
+                "free": "nein",
+                "pro": "geplant",
+                "vather": "geplant"
+              }
+            },
+            {
+              "name": "Paperless-ngx-Archiv-Anbindung",
+              "values": {
+                "free": "nein",
+                "pro": "nein",
+                "vather": "geplant"
+              }
+            },
+            {
+              "name": "Eigenständige PDFuchs-Vollsuite",
+              "values": {
+                "free": "nein",
+                "pro": "später · eigene Lizenz",
+                "vather": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "E-Mail",
+          "items": [
+            {
+              "name": "E-Mail-Entwürfe und lokales Postfach (IMAP/SMTP)",
+              "values": {
+                "free": "nein",
+                "pro": "ja",
+                "vather": "ja"
+              }
+            },
+            {
+              "name": "E-Mail-Versand",
+              "values": {
+                "free": "nein",
+                "pro": "ja",
+                "vather": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Ausgabe und Erscheinungsbild",
+          "items": [
+            {
+              "name": "Exporte (CSV/EÜR) und Branding",
+              "values": {
+                "free": "Export + Logo",
+                "pro": "ja, inkl. Farben",
+                "vather": "ja"
+              }
+            },
+            {
+              "name": "Hinweis „Erstellt mit FehlerFuchs Gewerbe\" auf Belegen",
+              "values": {
+                "free": "ja",
+                "pro": "nein",
+                "vather": "nein"
+              },
+              "note": "In der Free-Edition steht dieser Hinweis auf allen Belegen."
+            }
+          ]
+        },
+        {
+          "group": "Erweiterungen und Zubehör",
+          "items": [
+            {
+              "name": "Modulare Erweiterungspakete per Installer",
+              "values": {
+                "free": "nein",
+                "pro": "in-arbeit",
+                "vather": "alle Module"
+              }
+            },
+            {
+              "name": "GewerbePro Mobil (Companion-App für Android)",
+              "values": {
+                "free": "nein",
+                "pro": "in-vorbereitung",
+                "vather": "in-vorbereitung"
+              }
+            },
+            {
+              "name": "Passwort-Tresor und Account-Verwaltung",
+              "values": {
+                "free": "nein",
+                "pro": "teilweise",
+                "vather": "ja"
+              }
+            },
+            {
+              "name": "Voll editierbar, Entwickler-Werkzeuge und Selbsttest",
+              "values": {
+                "free": "nein",
+                "pro": "nein",
+                "vather": "ja"
+              }
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Was kostet das Programm?",
+          "answer": "Die Basisversion FehlerFuchs Gewerbe ist kostenlos. GewerbePro wird später optional kostenpflichtig – das Grundlegende bleibt frei. Der Kauf läuft künftig über die sichere Kasse, sobald Shop und Lizenzserver live sind; bis dahin gibt es noch keine Kauf-Schaltflächen."
+        },
+        {
+          "question": "Was ist die „Vather\"-Version?",
+          "answer": "Die interne Entwicklerversion: alle Funktionen freigeschaltet und voll editierbar. Sie dient Entwicklung und Test und wird nicht öffentlich verteilt. Öffentlich erscheinen nur Gewerbe und GewerbePro."
+        },
+        {
+          "question": "Wo liegen meine Daten?",
+          "answer": "Im Programmordner auf deinem PC – Datenbank, Sicherungen und PDFs. Nichts wird in eine Cloud übertragen."
+        },
+        {
+          "question": "Ersetzt es die Steuerberatung?",
+          "answer": "Nein. Es unterstützt, strukturiert und dokumentiert. Steuerliche, rechtliche oder fachliche Entscheidungen bleiben bei dir beziehungsweise deiner Beratung."
+        },
+        {
+          "question": "Wie funktioniert die E-Rechnung?",
+          "answer": "E-Rechnung ist in GewerbePro enthalten: Aus den Rechnungsdaten erzeugst du ZUGFeRD oder XRechnung nach EN 16931, prüfst sie mit dem KoSIT-Validator, versendest sie und legst sie beim Auftrag ab. Eingehende E-Rechnungen werden erkannt und geprüft. Auf Rechnung und Mahnung lässt sich ein GiroCode drucken."
+        },
+        {
+          "question": "Warum ein modularer Installer?",
+          "answer": "Nicht jeder braucht OCR, E-Rechnungsvalidatoren, Paperless oder erweiterte PDF-Werkzeuge. Das Ziel ist ein Installer, der Grundgerüst und Erweiterungen trennt: alles verfügbar, aber nur das installiert, was du wirklich nutzen willst."
+        },
+        {
+          "question": "Synchronisiert der Kalender direkt mit Outlook oder Google?",
+          "answer": "Der stabile Weg ist derzeit der lokale ICS-Export. Das funktioniert mit Outlook, Apple Kalender, Google Kalender und vielen anderen – ohne Cloud-Zwang und ohne Kontoanmeldung bei FehlerFuchs."
+        },
+        {
+          "question": "Wie weit ist das Programm?",
+          "answer": "Die offene Beta läuft. Die kostenlose Gewerbe-Edition läuft sofort; für die Pro- und Beta-Funktionen registrierst du dich als Beta-Tester und bekommst eine 90-Tage-Testlizenz per E-Mail. Die alten Free- und Pro-Beta-ZIPs sind ersetzt."
+        },
+        {
+          "question": "Gibt es das auch für Android?",
+          "answer": "Ja, als GewerbePro Mobil. Die Companion-App gehört zur Pro-Edition und ist derzeit in Vorbereitung, noch nicht separat kaufbar. Freischaltung mit demselben Lizenzschlüssel, Abgleich per USB oder eigener Cloud. Vor Ort nutzbar: Auftragsentwürfe, Kunden, Katalog, Kalender, Aufgaben und Quittungsblock."
         }
       ],
       "links": {

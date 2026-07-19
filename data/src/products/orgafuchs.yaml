@@ -52,6 +52,13 @@ releases:
       Feiertage und Schulferien je Bundesland, Geräte-Sync per QR-Code,
       Transparenz- und Open-Source-Seite in der App.
 
+media:
+  lockup:
+    src: /img/lockups/orgafuchs.png
+    alt: OrgaFuchs – von FehlerFuchs
+    width: 1040
+    height: 400
+
 links:
   page: /apps/orgafuchs.html
   release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.0.0

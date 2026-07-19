@@ -195,6 +195,51 @@ def pruefe_inhalt(p, statuses, alle_slugs):
         melde(warnungen, slug, f"Status '{p['status']}' erlaubt keine Download-CTA, "
                                f"es sind aber Releases hinterlegt")
 
+    # 5b. Merkmalsmatrix: Spalten müssen zu den Editionen passen
+    editions_ids = {e["id"] for e in p.get("editions", [])}
+    oeffentliche = {e["id"] for e in p.get("editions", []) if e["public"]}
+    namen_gesehen = set()
+    for gruppe in p.get("features", []):
+        for item in gruppe["items"]:
+            if item["name"] in namen_gesehen:
+                melde(warnungen, slug, f"Merkmal '{item['name']}' kommt mehrfach vor")
+            namen_gesehen.add(item["name"])
+            unbekannt = set(item["values"]) - editions_ids
+            if unbekannt:
+                melde(fehler, slug, f"Merkmal '{item['name'][:40]}…': Spalte(n) "
+                                    f"{', '.join(sorted(unbekannt))} sind keine Editionen")
+            fehlend = oeffentliche - set(item["values"])
+            if fehlend:
+                melde(warnungen, slug, f"Merkmal '{item['name'][:40]}…': für die öffentliche(n) "
+                                       f"Edition(en) {', '.join(sorted(fehlend))} fehlt ein Wert – "
+                                       f"die Tabelle hat dort eine Lücke")
+
+    # 5c. FAQ – Antworten veralten am schnellsten von allen Inhalten.
+    #     Genau dieser Fall ist schon passiert: eine FAQ nannte ein Datum,
+    #     das durch ein Release längst überholt war.
+    bekannte_versionen = {r["version"] for r in p.get("releases", [])}
+    for f in p.get("faq", []):
+        if not f["question"].rstrip().endswith("?"):
+            melde(warnungen, slug, f"FAQ '{f['question'][:40]}…' ist keine Frage")
+        # \d{1,3} am Ende, damit Datumsangaben wie 01.08.2026 nicht als
+        # Versionsnummer durchgehen – die werden gleich darunter eigens gemeldet.
+        for v in re.findall(r"\b\d+\.\d+\.\d{1,3}\b", f["answer"]):
+            if v not in bekannte_versionen:
+                melde(warnungen, slug, f"FAQ '{f['question'][:40]}…' nennt Version {v}, "
+                                       f"die es im Modell nicht gibt – vermutlich veraltet")
+        for d in re.findall(r"\b\d{1,2}\.\d{1,2}\.\d{4}\b", f["answer"]):
+            melde(warnungen, slug, f"FAQ '{f['question'][:40]}…' enthält das feste Datum {d}. "
+                                   f"Feste Daten veralten – besser aus releases[] ableiten")
+
+    # 5d. Bilder müssen tatsächlich existieren
+    medien = p.get("media", {})
+    for bezeichnung, bild in list(medien.items()):
+        bilder = bild if isinstance(bild, list) else [bild]
+        for b in bilder:
+            datei = ROOT / b["src"].lstrip("/")
+            if not datei.exists():
+                melde(fehler, slug, f"media.{bezeichnung}: Datei {b['src']} gibt es nicht")
+
     # 6. Preise
     for e in p.get("editions", []):
         pr = e["price"]
