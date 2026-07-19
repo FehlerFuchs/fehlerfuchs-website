@@ -3,6 +3,10 @@ name: MobileReport Enterprise
 fullName: FehlerFuchs MobileReport Enterprise
 kind: edition
 parent: mobilereport
+# Fachlich eine Ausbaustufe von MobileReport, wirtschaftlich ein eigenes Produkt:
+# eigener Preis, eigener Download, eigener Kaufweg. Gehört deshalb in die
+# Produktübersicht – anders als der Branding-Konfigurator, der reines Zubehör ist.
+standalone: true
 tagline: Die Firmen-Stufe – Direkt-Download außerhalb von Google Play, eigenes Branding und Lizenz je Arbeitsplatz.
 description: >-
   MobileReport für Unternehmen: Verteilung als APK außerhalb des Play Stores, eigenes

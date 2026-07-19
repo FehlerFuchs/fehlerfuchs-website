@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-19T09:55:22+02:00",
+  "generiert": "2026-07-19T10:13:57+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -114,6 +114,7 @@
       "fullName": "FehlerFuchs MobileReport Enterprise",
       "kind": "edition",
       "parent": "mobilereport",
+      "standalone": true,
       "tagline": "Die Firmen-Stufe – Direkt-Download außerhalb von Google Play, eigenes Branding und Lizenz je Arbeitsplatz.",
       "description": "MobileReport für Unternehmen: Verteilung als APK außerhalb des Play Stores, eigenes Branding per .mrbrand-Datei oder als Dienstleistung, Freischaltung über Lizenzschlüssel je Arbeitsplatz mit Offline-Karenz. Strikt lokal, ohne Cloud-Zwang.",
       "audience": [

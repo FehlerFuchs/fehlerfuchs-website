@@ -147,6 +147,16 @@ Merkmal darf nur gesetzt werden, wenn es **uneingeschränkt** zutrifft.
 | `edition` | Eigenständig vermarktete Ausbaustufe eines Produkts (z. B. Enterprise) |
 | `werkzeug` | Kostenloses Zubehör zu einem Produkt (z. B. Branding-Konfigurator) |
 
+Die Produktübersicht zeigt alles mit `kind: produkt` — **und zusätzlich alles mit
+`standalone: true`**. Diese Unterscheidung war nötig, weil MobileReport Enterprise
+fachlich eine Ausbaustufe ist, wirtschaftlich aber ein eigenes Produkt: eigener Preis,
+eigener Download, eigener Kaufweg. Ohne das Kennzeichen wäre es aus der Übersicht
+verschwunden, obwohl es das einzige Produkt mit Lizenzverkauf ist.
+
+Faustregel: **Kann man es einzeln kaufen oder herunterladen, ohne das Hauptprodukt zu
+haben? Dann `standalone: true`.** Der Branding-Konfigurator ist ohne Enterprise nutzlos
+und bleibt deshalb draußen.
+
 ---
 
 ## 5. Feldreferenz
@@ -159,6 +169,7 @@ Merkmal darf nur gesetzt werden, wenn es **uneingeschränkt** zutrifft.
 | `name` | string | ja | Kurzname, wie im Fließtext („GewerbePro") |
 | `fullName` | string | ja | Vollständiger Name mit Marke („FehlerFuchs GewerbePro") |
 | `kind` | enum | ja | siehe 4.6 |
+| `standalone` | bool | nein | Nur bei `edition`/`werkzeug`: erscheint trotzdem in der Produktübersicht |
 | `parent` | slug | nein | Nur bei `edition`/`werkzeug`: zugehöriges Hauptprodukt |
 | `tagline` | string | ja | Ein Satz, max. 200 Zeichen. Die Kernaussage. |
 | `description` | string | ja | 2–4 Sätze für Meta-Description und Produktkarte |

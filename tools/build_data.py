@@ -134,6 +134,16 @@ def pruefe_inhalt(p, statuses, alle_slugs):
             melde(fehler, slug, f"parent '{p['parent']}' gibt es nicht")
     if p["kind"] in ("edition", "werkzeug") and not p.get("parent"):
         melde(fehler, slug, f"kind '{p['kind']}' verlangt ein parent")
+    if p["kind"] == "produkt" and "standalone" in p:
+        melde(warnungen, slug, "'standalone' hat bei kind 'produkt' keine Wirkung – "
+                               "echte Produkte stehen ohnehin in der Übersicht")
+    # Eine Edition mit eigenem Download oder eigenem Kaufweg, die NICHT als
+    # standalone gekennzeichnet ist, verschwindet aus der Produktübersicht.
+    if p["kind"] == "edition" and not p.get("standalone") \
+            and (p.get("releases") or p.get("links", {}).get("checkout")):
+        melde(warnungen, slug, "Edition hat einen eigenen Bezugsweg, ist aber nicht als "
+                               "'standalone: true' gekennzeichnet – sie taucht in der "
+                               "Produktübersicht nicht auf")
 
     # 3. Dateiname muss zum slug passen
     #    (wird von der aufrufenden Schleife geprüft, siehe unten)
