@@ -84,6 +84,9 @@ footer{margin-top:34px;color:var(--muted);font-size:.82rem;border-top:1px solid 
   .tab-more-cb:checked ~ .tab-backdrop{display:block}
 }
 
+/* Nur für Screenreader (z. B. H1 bei Bild-Wortmarke) */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
 /* Lockup-Hero (Bild-Wortmarke als Titel) */
 .hero.lock{display:block}
 .hero.lock .lockup{width:100%;max-width:360px;height:auto;display:block;margin:0}

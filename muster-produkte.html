@@ -3,19 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Produktseiten-Übersicht – FehlerFuchs</title>
-<meta name="description" content="Übersicht aller FehlerFuchs-Produktseiten: MobileReport, PDFuchs Reader, GewerbePro, OrgaFuchs, CheckInVita, AppInsight, FuchsBau, CleanDesk, PDFuchs, CoppiceMail – lokal, datensparsam, ohne Cloud.">
+<title>MUSTER (site.css) – Produktseiten-Übersicht – FehlerFuchs</title>
+<meta name="description" content="Muster-/Vorschauseite: identisch zu produkte.html, aber mit ausgelagertem site.css statt Inline-Duplikaten.">
+<meta name="robots" content="noindex,nofollow">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="canonical" href="https://fehlerfuchs.eu/produkte.html">
 <link rel="stylesheet" href="site.css">
 <style>
+  /* NUR seiten-spezifisch – alles Gemeinsame kommt aus site.css */
   body{max-width:760px}
-  h1{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
-  a{color:var(--action);text-decoration:none}a:hover{text-decoration:underline}
   header.site{display:flex;align-items:center;gap:14px;margin-bottom:4px}
   header.site h1{font-size:1.5rem;color:var(--brown)}
-  nav{display:flex;gap:18px;flex-wrap:wrap;margin:12px 0 22px;font-size:.92rem}
   .intro{color:var(--muted);margin-bottom:14px}
   ul.prod{list-style:none}
   ul.prod li{border-bottom:1px solid #ecdfd2}
@@ -25,7 +23,6 @@
   ul.prod .kg{color:#B45309}.rd{color:#2E7D46}.vi{color:#5B8A72}.bl{color:#2563EB}.in{color:#3B6B4E}.pt{color:#0E7490}.pf{color:#9F1239}
   ul.prod .desc{font-size:.9rem;color:var(--muted)}
   ul.prod .arrow{margin-left:auto;color:var(--action);font-weight:600}
-  footer{margin-top:30px;color:var(--muted);font-size:.82rem;border-top:1px solid #ecdfd2;padding-top:16px}
   ul.prod li.paused a.row{opacity:.55;filter:grayscale(.7)}
   ul.prod li.paused a.row:hover{background:transparent}
   .ptag{font-size:.7rem;font-weight:700;color:#5f5e5a;background:#eceae6;border:1px solid #d7d5cd;border-radius:20px;padding:2px 8px;margin-left:6px;white-space:nowrap}
@@ -60,7 +57,7 @@
 
 <header class="site">
   <span><svg width="44" height="44" viewBox="0 0 240 240" role="img" aria-label="FehlerFuchs"><use href="#badge"/></svg></span>
-  <h1>Produktseiten-Übersicht</h1>
+  <h1>Produktseiten-Übersicht <span style="font-size:.9rem;color:var(--action)">· MUSTER site.css</span></h1>
 </header>
   <nav class="mainnav" aria-label="Hauptnavigation">
     <a href="index.html"><svg viewBox="0 0 24 24"><use href="#ic-home"/></svg>Start</a>
@@ -83,12 +80,8 @@
   <li><a class="row" href="apps/appinsight.html"><span class="nm">FehlerFuchs App<span class="bl">Insight</span></span><span class="desc">– App-Transparenz</span><span class="arrow">→</span></a></li>
   <li><a class="row" href="apps/fuchsbau.html"><span class="nm">FehlerFuchs Fuchs<span class="in">Bau</span></span><span class="desc">– Passwortmanager</span><span class="arrow">→</span></a></li>
   <li><a class="row" href="apps/cleandesk.html"><span class="nm">FehlerFuchs Clean<span class="pt">Desk</span></span><span class="desc">– Ordnungshelfer für Windows</span><span class="arrow">→</span></a></li>
-  <li><a class="row" href="apps/pdfuchs.html"><span class="nm">FehlerFuchs <span class="pf">PDF</span>uchs</span><span class="desc">– lokale PDF-Vollsuite (Windows)</span><span class="arrow">→</span></a></li>
-  <li><a class="row" href="apps/pdfuchsreader.html"><span class="nm">FehlerFuchs <span class="pf">PDF</span>uchs Reader</span><span class="desc">– PDF-Viewer für Android</span><span class="ptag">verfügbar</span><span class="arrow">→</span></a></li>
-  <li><a class="row" href="apps/orgafuchs.html"><span class="nm">FehlerFuchs <span style="color:#E76F51">Orga</span>Fuchs</span><span class="desc">– Familien- &amp; Schichtplaner (Android &amp; Windows)</span><span class="ptag">Windows verfügbar</span><span class="arrow">→</span></a></li>
+  <li><a class="row" href="apps/pdfuchs.html"><span class="nm">FehlerFuchs <span class="pf">PDF</span>uchs</span><span class="desc">– lokale PDF-Vollsuite</span><span class="arrow">→</span></a></li>
   <li class="paused"><a class="row" href="apps/coppicemail.html" title="Entwicklung vorerst eingestellt"><span class="nm">FehlerFuchs <span style="color:#0F5132">Coppice</span>Mail</span><span class="desc">– lokales E-Mail- &amp; Belegwerkzeug</span><span class="ptag">pausiert</span><span class="arrow">→</span></a></li>
-  <li><span class="row" style="cursor:default"><span class="nm">FehlerFuchs <span style="color:#0E7490">Beleg</span>Werk</span><span class="desc">– Belege scannen, ordnen &amp; kontrolliert an Paperless übergeben</span><span class="ptag">in Arbeit</span></span></li>
-  <li><span class="row" style="cursor:default"><span class="nm">FehlerFuchs <span style="color:#2563EB">Snap</span>Fuchs</span><span class="desc">– lokaler Dokumenten-Scanner für Android</span><span class="ptag">bald verfügbar</span></span></li>
 </ul>
 
 <footer>© 2026 FehlerFuchs. Alle Rechte vorbehalten. Datensparsam, ohne Cloud und ohne Tracking.</footer>

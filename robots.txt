@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Arbeits-/Konzeptseiten nicht indexieren
+Disallow: /muster-produkte.html
+
+Sitemap: https://fehlerfuchs.eu/sitemap.xml
