@@ -364,6 +364,25 @@ def abgleich_mit_website(produkte):
         if p.get("accent") and f'--accent:{p["accent"]}' not in html.replace(" ", ""):
             melde(abgleich, slug, f"Akzentfarbe {p['accent']} steht nicht auf der Produktseite")
 
+    # Zubehör und Editionen müssen von ihrem Hauptprodukt aus erreichbar sein.
+    # Sonst steht auf der Elternseite zwar, dass es sie gibt, aber kein Weg dorthin.
+    nach_slug = {p["slug"]: p for p in produkte}
+    for kind in produkte:
+        if not kind.get("parent"):
+            continue
+        elter = nach_slug.get(kind["parent"])
+        if not elter:
+            continue
+        elternseite = ROOT / elter["links"]["page"].lstrip("/")
+        if not elternseite.exists():
+            continue
+        html = elternseite.read_text(encoding="utf-8", errors="replace")
+        ziel = kind["links"]["page"].lstrip("/").split("/")[-1]
+        if ziel not in html:
+            melde(abgleich, kind["slug"],
+                  f"wird von der Seite des Hauptprodukts ({elter['links']['page']}) "
+                  f"nicht verlinkt – Besucher finden es dort nicht")
+
     # Downloadseite: verlinkt sie alle aktuellen Releases?
     dl = (ROOT / "downloads.html").read_text(encoding="utf-8", errors="replace")
     for p in produkte:
