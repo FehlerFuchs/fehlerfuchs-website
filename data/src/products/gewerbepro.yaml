@@ -18,10 +18,13 @@ platforms:
     requirements: Windows 10/11 (64-bit)
     distribution: github-release
     since: "2026-07-15"        # erste öffentliche Beta 0.3.0
-  # Android ist bislang nur ein Konzept, keine begonnene Umsetzung.
+  # Companion-App „GewerbePro Mobil": lauffähig, letzte Details offen.
+  # Bewusst NICHT über Google Play, sondern als APK zum Direkt-Download –
+  # derselbe Weg wie bei MobileReport Enterprise.
   - os: android
-    status: konzept
-    distribution: keiner
+    status: entwicklung
+    requirements: Android, Installation außerhalb des Play Stores
+    distribution: github-release
 
 privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
@@ -157,7 +160,10 @@ features:
       - name: Modulare Erweiterungspakete per Installer
         values: { free: nein, pro: in-arbeit, vather: "alle Module" }
       - name: GewerbePro Mobil (Companion-App für Android)
-        values: { free: nein, pro: in-vorbereitung, vather: in-vorbereitung }
+        values: { free: nein, pro: fast-fertig, vather: fast-fertig }
+        note: >-
+          Lauffähig, es fehlen noch Kleinigkeiten. Erscheint als APK zum
+          Direkt-Download, nicht über den Google Play Store.
       - name: Passwort-Tresor und Account-Verwaltung
         values: { free: nein, pro: teilweise, vather: ja }
       - name: Voll editierbar, Entwickler-Werkzeuge und Selbsttest
@@ -206,10 +212,17 @@ faq:
       90-Tage-Testlizenz per E-Mail. Die alten Free- und Pro-Beta-ZIPs sind ersetzt.
   - question: Gibt es das auch für Android?
     answer: >-
-      Ja, als GewerbePro Mobil. Die Companion-App gehört zur Pro-Edition und ist derzeit
-      in Vorbereitung, noch nicht separat kaufbar. Freischaltung mit demselben
-      Lizenzschlüssel, Abgleich per USB oder eigener Cloud. Vor Ort nutzbar:
-      Auftragsentwürfe, Kunden, Katalog, Kalender, Aufgaben und Quittungsblock.
+      Ja, als GewerbePro Mobil. Die Companion-App ist bereits lauffähig, es fehlen nur
+      noch Kleinigkeiten. Sie gehört zur Pro-Edition und wird nicht separat verkauft:
+      Freischaltung mit demselben Lizenzschlüssel, Abgleich per USB oder eigener Cloud.
+      Vor Ort nutzbar sind Auftragsentwürfe, Kunden, Katalog, Kalender, Aufgaben und
+      Quittungsblock.
+  - question: Wie bekomme ich GewerbePro Mobil auf mein Handy?
+    answer: >-
+      Als APK zum Direkt-Download von dieser Website – bewusst nicht über den Google
+      Play Store. Android fragt beim Installieren aus einer anderen Quelle nach: Die
+      Installation muss für den Browser oder die Dateien-App einmalig erlaubt werden.
+      Wer den Play Store vermeiden möchte, bekommt die App damit auch ohne Google-Konto.
 
 links:
   page: /apps/gewerbepro.html

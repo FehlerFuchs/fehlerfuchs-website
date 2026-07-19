@@ -83,3 +83,7 @@ featureWerte:
     label: in Vorbereitung
     erklaerung: Kommt, Termin noch offen.
     art: spaeter
+  fast-fertig:
+    label: fast fertig
+    erklaerung: Lauffähig, es fehlen nur noch Kleinigkeiten.
+    art: teilweise

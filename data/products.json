@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-19T10:35:40+02:00",
+  "generiert": "2026-07-19T10:38:14+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -452,8 +452,9 @@
         },
         {
           "os": "android",
-          "status": "konzept",
-          "distribution": "keiner"
+          "status": "entwicklung",
+          "requirements": "Android, Installation außerhalb des Play Stores",
+          "distribution": "github-release"
         }
       ],
       "privacy": [
@@ -775,9 +776,10 @@
               "name": "GewerbePro Mobil (Companion-App für Android)",
               "values": {
                 "free": "nein",
-                "pro": "in-vorbereitung",
-                "vather": "in-vorbereitung"
-              }
+                "pro": "fast-fertig",
+                "vather": "fast-fertig"
+              },
+              "note": "Lauffähig, es fehlen noch Kleinigkeiten. Erscheint als APK zum Direkt-Download, nicht über den Google Play Store."
             },
             {
               "name": "Passwort-Tresor und Account-Verwaltung",
@@ -833,7 +835,11 @@
         },
         {
           "question": "Gibt es das auch für Android?",
-          "answer": "Ja, als GewerbePro Mobil. Die Companion-App gehört zur Pro-Edition und ist derzeit in Vorbereitung, noch nicht separat kaufbar. Freischaltung mit demselben Lizenzschlüssel, Abgleich per USB oder eigener Cloud. Vor Ort nutzbar: Auftragsentwürfe, Kunden, Katalog, Kalender, Aufgaben und Quittungsblock."
+          "answer": "Ja, als GewerbePro Mobil. Die Companion-App ist bereits lauffähig, es fehlen nur noch Kleinigkeiten. Sie gehört zur Pro-Edition und wird nicht separat verkauft: Freischaltung mit demselben Lizenzschlüssel, Abgleich per USB oder eigener Cloud. Vor Ort nutzbar sind Auftragsentwürfe, Kunden, Katalog, Kalender, Aufgaben und Quittungsblock."
+        },
+        {
+          "question": "Wie bekomme ich GewerbePro Mobil auf mein Handy?",
+          "answer": "Als APK zum Direkt-Download von dieser Website – bewusst nicht über den Google Play Store. Android fragt beim Installieren aus einer anderen Quelle nach: Die Installation muss für den Browser oder die Dateien-App einmalig erlaubt werden. Wer den Play Store vermeiden möchte, bekommt die App damit auch ohne Google-Konto."
         }
       ],
       "links": {
