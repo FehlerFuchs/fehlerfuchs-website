@@ -9,7 +9,7 @@ description: >-
   Enterprise zusammenstellen, sofort in einer App- und PDF-Vorschau prüfen und als
   .mrbrand-Datei herunterladen. Läuft vollständig im Browser – nichts wird hochgeladen.
 audience: [unternehmen]
-accent: "#2E7D46"
+accent: "#C2410C"   # geerbt von MobileReport – das Werkzeug gehört dazu und hat keinen eigenen Quelltext
 status: verfuegbar
 
 # Ein Browser-Werkzeug hat keinen Download – man öffnet es einfach.

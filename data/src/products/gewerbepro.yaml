@@ -9,7 +9,7 @@ description: >-
   EÜR-Vorbereitung, Kalender und Postfach. Komplett lokal auf dem eigenen Rechner –
   ohne Cloud-Zwang, ohne Konto, ohne Telemetrie.
 audience: [selbststaendige, unternehmen]
-accent: "#B45309"
+accent: "#9F1239"   # Farbe der App
 status: beta
 
 platforms:
@@ -232,6 +232,80 @@ media:
     alt: GewerbePro – von FehlerFuchs
     width: 1000
     height: 300
+  # Aus Marketing_Facebook/Tablet_10Zoll des Projekts übernommen und auf
+  # Webgröße gerechnet. Werbebilder mit Überschrift, keine nackten
+  # Bildschirmabzüge – der Alternativtext sagt das auch so.
+  #
+  # Tablet_10_Beta bleibt draußen: „Pro 90 Tage als Beta-Tester" ist ein
+  # befristetes Angebot. Ein Bild, das eine Frist behauptet, veraltet
+  # still – und die Seite hat ihre eigenen Handlungsknöpfe.
+  screenshots:
+    - src: /img/screenshots/gewerbepro/desktop-01-startseite.png
+      alt: "Werbebild „Dein Büro. Immer startklar.“ mit der Startseite von GewerbePro: Schnellzugriff-Knöpfe, Kurzübersicht mit Kunden, offenen Rechnungen und offenem Betrag, darunter der Tagesüberblick"
+      width: 1200
+      height: 750
+      geraet: desktop
+      titel: "Immer startklar"
+    - src: /img/screenshots/gewerbepro/desktop-02-rechnungen.png
+      alt: "Werbebild „Rechnung raus. Geld rein.“ mit zwei Fenstern: der Rechnungsliste mit Zahlungsstatus und darüber dem Mahnwesen mit fälligen Posten"
+      width: 1200
+      height: 750
+      geraet: desktop
+      titel: "Rechnungen und Mahnwesen"
+    - src: /img/screenshots/gewerbepro/desktop-03-angebote.png
+      alt: "Werbebild „Vom Angebot zur Rechnung.“ mit der Angebotsliste – Nummer, Kunde, Gültigkeit, Betrag und Status offen oder angenommen"
+      width: 1200
+      height: 750
+      geraet: desktop
+      titel: "Angebot, Auftrag, Rechnung"
+    - src: /img/screenshots/gewerbepro/desktop-04-erechnung.png
+      alt: "Werbebild „E-Rechnung? Pflicht erfüllt.“ mit der Prüfansicht: eine Rechnung wird als nicht konform gemeldet, daneben vergrößert der zugehörige Regeltext"
+      width: 1200
+      height: 750
+      geraet: desktop
+      titel: "ZUGFeRD und XRechnung"
+    - src: /img/screenshots/gewerbepro/desktop-05-quittung.png
+      alt: "Werbebild „Quittung. Unterschrift. Fertig.“ mit dem Quittungsformular samt handschriftlicher Unterschrift und darunter dem fertigen PDF-Beleg"
+      width: 1200
+      height: 750
+      geraet: desktop
+      titel: "Quittung mit Unterschrift"
+    - src: /img/screenshots/gewerbepro/desktop-06-steuer.png
+      alt: "Werbebild „Einnahmen. Ausgaben. Steuer-fertig.“ mit der EÜR-Übersicht und dem erzeugten Steuerbericht samt Haftungsausschluss"
+      width: 1200
+      height: 750
+      geraet: desktop
+      titel: "EÜR und Steuerbericht"
+    - src: /img/screenshots/gewerbepro/desktop-07-kalender.png
+      alt: "Werbebild „Termine. Fristen. Nichts vergessen.“ mit der Aufgabenliste und dem farbigen Auftragskalender im Monatsblick"
+      width: 1200
+      height: 750
+      geraet: desktop
+      titel: "Auftragskalender"
+    - src: /img/screenshots/gewerbepro/desktop-08-pdfuchs.png
+      alt: "Werbebild „PDFs? Direkt eingebaut.“ mit dem PDFuchs-Werkzeugkasten in GewerbePro: PDF öffnen, Zusammenführen, Teilen, Drehen, OCR und Formulare anzeigen"
+      width: 1200
+      height: 750
+      geraet: desktop
+      titel: "PDFuchs ist an Bord"
+    - src: /img/screenshots/gewerbepro/desktop-09-offline.png
+      alt: "Werbebild „Deine Daten. Dein Rechner.“ mit den Grundlagen-Einstellungen: Update-Prüfung, Speicherort für Datenbank und Dateien, Sicherung und Datenpflege"
+      width: 1200
+      height: 750
+      geraet: desktop
+      titel: "Offline-first"
+# Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
+# Was dort nicht steht, steht auch hier nicht – dann greift der Standard.
+# Alle Kontraste rechnet das Prüfskript, sie sind nicht geschätzt.
+theme:
+  modus: hell
+  hintergrund: "#FBF7F2"  # paper
+  flaeche: "#FFFBF7"      # panel
+  rand: "#EAD7DC"         # border – rosa Rahmen
+  text: "#2B160B"         # ink
+  textLeise: "#6F4F44"    # textSecondary
+  akzent: "#9F1239"       # primary – Bordeaux
+  quelle: FehlerFuchs_GewerbePro/21_App_Flutter/gewerbepro_desktop/lib/ui/ff_tokens.dart
 
 links:
   page: /apps/gewerbepro.html

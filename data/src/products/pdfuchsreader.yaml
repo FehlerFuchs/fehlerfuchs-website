@@ -87,6 +87,70 @@ media:
     alt: PDFuchs Reader – von FehlerFuchs
     width: 1180
     height: 300
+  # Aus dem Play-Store-Satz des Projekts übernommen und auf Webgröße
+  # gerechnet. Es sind Werbebilder mit Überschrift, keine nackten
+  # Bildschirmabzüge - der Alternativtext sagt das auch so.
+  screenshots:
+    - src: /img/screenshots/pdfuchsreader/handy-01-start.png
+      alt: "Werbebild „Kostenlos, werbefrei, ohne Tracking“ mit dem Startbildschirm: Knopf PDF öffnen und die Liste zuletzt geöffneter Dateien"
+      width: 620
+      height: 1342
+      geraet: handy
+      titel: "Kostenlos, werbefrei, ohne Tracking"
+    - src: /img/screenshots/pdfuchsreader/handy-02-lesen.png
+      alt: "Werbebild „PDFs schnell öffnen und flüssig lesen“ mit einem geöffneten Handbuch und der Seitenanzeige am unteren Rand"
+      width: 620
+      height: 1342
+      geraet: handy
+      titel: "Schnell öffnen, flüssig lesen"
+    - src: /img/screenshots/pdfuchsreader/handy-03-suche.png
+      alt: "Werbebild „Volltextsuche mit Trefferhervorhebung“ – im Suchfeld steht „werbe“, daneben die Trefferzahl, im Text sind die Fundstellen gelb markiert"
+      width: 620
+      height: 1342
+      geraet: handy
+      titel: "Volltextsuche mit Hervorhebung"
+    - src: /img/screenshots/pdfuchsreader/handy-04-seiten.png
+      alt: "Werbebild „Seitenübersicht und Sprung zu jeder Seite“ mit den Seitenminiaturen als aufgezogenem Blatt ueber dem Dokument"
+      width: 620
+      height: 1342
+      geraet: handy
+      titel: "Seitenübersicht"
+    - src: /img/screenshots/pdfuchsreader/handy-05-bearbeiten.png
+      alt: "Werbebild „Drehen, löschen, neu ordnen“ mit der Seitenliste, in der jede Seite Knöpfe zum Drehen, Löschen und Verschieben hat"
+      width: 620
+      height: 1342
+      geraet: handy
+      titel: "Seiten bearbeiten"
+    - src: /img/screenshots/pdfuchsreader/handy-06-datenschutz.png
+      alt: "Werbebild „Datenschutz zuerst“ mit der Datenschutzseite in der App: Abschnitte zu Dateien, Support, Systemfunktionen und Verantwortlichem"
+      width: 620
+      height: 1342
+      geraet: handy
+      titel: "Datenschutz zuerst"
+    - src: /img/screenshots/pdfuchsreader/handy-07-unterstuetzen.png
+      alt: "Werbebild „Von FehlerFuchs“ mit dem Fenster Projekt unterstützen ueber dem Startbildschirm"
+      width: 620
+      height: 1342
+      geraet: handy
+      titel: "Freiwillig unterstützbar"
+    - src: /img/screenshots/pdfuchsreader/tablet10-lesen.png
+      alt: "Dieselbe Leseansicht auf einem 10-Zoll-Tablet im Querformat"
+      width: 1200
+      height: 750
+      geraet: desktop
+      titel: "Auch auf dem Tablet"
+# Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
+# Was dort nicht steht, steht auch hier nicht – dann greift der Standard.
+# Alle Kontraste rechnet das Prüfskript, sie sind nicht geschätzt.
+theme:
+  modus: hell
+  hintergrund: "#FBF7F2"  # paper
+  flaeche: "#FFFBF7"      # panelWarm
+  rand: "#EAD7DC"         # borderSoft
+  text: "#2B160B"         # ink
+  textLeise: "#6F4F44"    # textSecondary
+  akzent: "#9F1239"       # pdfPrimary
+  quelle: FehlerFuchs_PDFuchsReader_Mobile/05_App/pdfuchsreader_mobile/lib/ui/ff_tokens.dart
 
 links:
   page: /apps/pdfuchsreader.html

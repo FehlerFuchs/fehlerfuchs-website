@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-19T14:40:01+02:00",
+  "generiert": "2026-07-19T19:31:55+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "statuses": {
     "verfuegbar": {
@@ -14,6 +14,8 @@
         "download",
         "kauf"
       ],
+      "weg": 5,
+      "wegName": "Veröffentlicht",
       "meaning": "Öffentlich nutzbar, regulär veröffentlicht."
     },
     "pruefung": {
@@ -26,6 +28,8 @@
       "cta": [
         "keine"
       ],
+      "weg": 4,
+      "wegName": "Beim Store zur Prüfung",
       "meaning": "Beim Store eingereicht, Freigabe steht aus. Kein Download möglich."
     },
     "beta": {
@@ -39,6 +43,8 @@
         "download",
         "beta-anmeldung"
       ],
+      "weg": 3,
+      "wegName": "Offene Beta",
       "meaning": "Öffentlich testbar, nicht endgültig. Fehler sind zu erwarten."
     },
     "alpha": {
@@ -51,6 +57,8 @@
       "cta": [
         "beta-anmeldung"
       ],
+      "weg": 3,
+      "wegName": "Geschlossene Alpha",
       "meaning": "Nur ausgewählte Tester."
     },
     "entwicklung": {
@@ -63,6 +71,8 @@
       "cta": [
         "interesse"
       ],
+      "weg": 2,
+      "wegName": "In Entwicklung",
       "meaning": "Wird aktiv gebaut. Kein Termin zugesagt."
     },
     "konzept": {
@@ -75,6 +85,8 @@
       "cta": [
         "interesse"
       ],
+      "weg": 1,
+      "wegName": "Konzept",
       "meaning": "Konzipiert, Umsetzung noch nicht begonnen."
     },
     "idee": {

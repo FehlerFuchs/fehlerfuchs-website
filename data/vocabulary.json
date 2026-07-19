@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-19T14:40:01+02:00",
+  "generiert": "2026-07-19T19:31:55+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "privacy": {
     "nur-lokal": {
@@ -126,6 +126,84 @@
       "label": "nach Absprache",
       "erklaerung": "Möglich, wird im Einzelfall vereinbart.",
       "art": "teilweise"
+    }
+  },
+  "wunschStatus": {
+    "neu": {
+      "label": "Neu",
+      "erklaerung": "Eingegangen, noch nicht bewertet.",
+      "color": "#6B5B50",
+      "bg": "#F1ECE6",
+      "border": "#E2D6C8",
+      "order": 1
+    },
+    "in-bearbeitung": {
+      "label": "In Bearbeitung",
+      "erklaerung": "Aufgenommen – daran wird gearbeitet.",
+      "color": "#B45309",
+      "bg": "#FEF3E2",
+      "border": "#F3D9B0",
+      "order": 2
+    },
+    "umgesetzt": {
+      "label": "Umgesetzt",
+      "erklaerung": "Fertig. Aus dem Wunsch ist etwas geworden.",
+      "color": "#15803D",
+      "bg": "#E7F3DF",
+      "border": "#CDE7B6",
+      "order": 3
+    },
+    "nicht-umsetzbar": {
+      "label": "Nicht umsetzbar",
+      "erklaerung": "Geht leider nicht – die Begründung steht im Kommentar.",
+      "color": "#9C8C80",
+      "bg": "#F1ECE6",
+      "border": "#E2D6C8",
+      "order": 4
+    }
+  },
+  "wunschThema": {
+    "app-idee": {
+      "label": "App-Idee",
+      "erklaerung": "Eine Idee für etwas, das es noch nicht gibt."
+    },
+    "anwendungswunsch": {
+      "label": "Anwendungswunsch",
+      "erklaerung": "Ein konkretes Problem, für das eine Anwendung fehlt."
+    },
+    "wunsch-bestehend": {
+      "label": "Wunsch zu einer FehlerFuchs-Anwendung",
+      "erklaerung": "Etwas, das an einer bestehenden App anders sein sollte."
+    },
+    "sonstiges": {
+      "label": "Sonstiges",
+      "erklaerung": "Alles Übrige."
+    }
+  },
+  "meilensteinStand": {
+    "erledigt": {
+      "label": "erledigt",
+      "color": "#15803D",
+      "bg": "#E7F3DF",
+      "border": "#CDE7B6"
+    },
+    "laufend": {
+      "label": "aktuell",
+      "color": "#B45309",
+      "bg": "#FEF3E2",
+      "border": "#F3D9B0"
+    },
+    "geplant": {
+      "label": "geplant",
+      "color": "#6B5B50",
+      "bg": "#F1ECE6",
+      "border": "#E2D6C8"
+    },
+    "pausiert": {
+      "label": "pausiert",
+      "color": "#9C8C80",
+      "bg": "#F1ECE6",
+      "border": "#E2D6C8"
     }
   }
 }

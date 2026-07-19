@@ -8,7 +8,7 @@ description: >-
   Dateien und leeren Ordnern, und zeigt verständlich, was Platz belegt. Gelöscht wird
   ausschließlich nach ausdrücklicher Bestätigung – nie automatisch.
 audience: [privat, selbststaendige]
-accent: "#0E7490"
+accent: "#13869E"   # Petrol für hellen Grund – Branding-Notizen, Zeile „Petrol (Lampe/Akzent)"
 status: entwicklung
 
 platforms:
@@ -34,6 +34,19 @@ media:
     alt: CleanDesk – von FehlerFuchs
     width: 770
     height: 210
+  # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
+  # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
+  # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.
+  platzhalter: 4
+# Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
+# Was dort nicht steht, steht auch hier nicht – dann greift der Standard.
+# Alle Kontraste rechnet das Prüfskript, sie sind nicht geschätzt.
+theme:
+  modus: dunkel
+  hintergrund: "#0B2A30"  # Petrol-Nachtblau, im Branding als bevorzugt vermerkt
+  text: "#FFF7ED"         # Cremeweiß
+  akzent: "#34B3CE"       # Petrol hell – laut Branding die Fassung für dunklen Grund
+  quelle: FehlerFuchs_CleanDesk/01_Branding/Branding-Notizen.md
 
 links:
   page: /apps/cleandesk.html

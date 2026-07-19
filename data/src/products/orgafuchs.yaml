@@ -9,7 +9,7 @@ description: >-
   Alle Daten bleiben auf den eigenen Geräten; die Synchronisation läuft über das eigene
   Heimnetz oder einen selbst gehosteten Relay – ohne Google, ohne Cloud, ohne Konto.
 audience: [privat, vereine, unternehmen]
-accent: "#E76F51"
+accent: "#B4652A"   # Farbe der App
 # Windows ist verfügbar, Android noch nicht – der Gesamtstatus folgt der
 # weitesten Plattform. Genau dieser Fall war der Grund für Status je Plattform.
 status: verfuegbar
@@ -21,9 +21,35 @@ platforms:
     distribution: github-release
     since: "2026-07-18"
   - os: android
-    status: entwicklung
+    # Am 18.07.2026 bei Google eingereicht und noch am selben Tag abgelehnt.
+    # Der Status bleibt 'pruefung': Die App liegt weiterhin beim Store, der
+    # Widerspruch wird dort bearbeitet. Ein Umweg ist es NICHT – es ging
+    # nichts zurueck in die Entwicklung, es steht still.
+    status: pruefung
+    since: "2026-07-18"
     distribution: play-store
     storeId: eu.fehlerfuchs.orgafuchs
+
+# Ein Umweg, der keiner ist: Es ging nichts zurück in die Entwicklung. Die App
+# liegt weiter beim Store, der Widerspruch läuft. 'von' und 'nach' sind deshalb
+# derselbe Schritt – eine Schleife. Sie kostet nur Zeit, und genau das soll man
+# sehen: Der Weg wird ein zweites Mal gegangen, ohne dass sich am Programm
+# etwas geändert hätte.
+umwege:
+  - datum: "2026-07-18"
+    os: android
+    von: pruefung
+    nach: pruefung
+    grund: Automatisch abgelehnt, kein Mensch beteiligt
+    text: >-
+      Die Prüfsoftware hat die Einstellungsseite für den Gruppen-Sync als
+      Bezahlschranke oder nicht deklarierten Login gewertet. Beides ist sie
+      nicht: Dort trägt man eine Relay-Adresse und ein selbst gewähltes
+      Gruppen-Passwort ein, um die eigenen Geräte zu verbinden. Kein Konto,
+      keine Anmeldung, keine Zahlung. Am Programm wurde nichts geändert – es
+      gab nichts zu ändern. Ärgerlich ist nicht die Prüfung, sondern dass eine
+      unsichere Maschine durchentscheidet, statt einen Menschen hinzuzuziehen.
+      Ein Blick hätte gereicht; so kostet es sieben bis vierzehn Tage.
 
 privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, kein-google, eigener-sync, offline-faehig]
 
@@ -114,6 +140,83 @@ media:
     alt: OrgaFuchs – von FehlerFuchs
     width: 1040
     height: 400
+
+  # Aus dem fertig sortierten Store-Satz des Play-Console-Ordners:
+  # Release_OrgaFuchs_android/02_Grafiken/_STORE-FERTIG/Handy.
+  # Werbebilder mit Überschrift, keine nackten Bildschirmabzüge –
+  # der Alternativtext sagt das auch so.
+  #
+  # Zuletzt dasselbe Motiv im Querformat, damit die Galerie beide
+  # Seitenverhältnisse zeigt.
+  screenshots:
+    - src: /img/screenshots/orgafuchs/handy-01-start.png
+      alt: "Werbebild „Dein Familien-Alltag an einem Ort“ mit dem Startbildschirm: Sync-Stand, die Dienste des Tages, Termine und Notizen sowie die zuletzt erzeugten PDFs"
+      width: 620
+      height: 1342
+      geraet: handy
+      titel: "Alles an einem Ort"
+    - src: /img/screenshots/orgafuchs/handy-02-monat.png
+      alt: "Werbebild „Der ganze Monat auf einen Blick“ mit dem Monatskalender Juli 2026 – je Tag mehrere Personen mit farbigen Dienstkürzeln"
+      width: 620
+      height: 1342
+      geraet: handy
+      titel: "Der ganze Monat auf einen Blick"
+    - src: /img/screenshots/orgafuchs/handy-03-woche.png
+      alt: "Werbebild „Wer wann arbeitet, klar im Blick“ mit der Wochenansicht: je Tag die Personen mit Dienst, Kürzel und Uhrzeit, dazu der Ferienhinweis"
+      width: 620
+      height: 1342
+      geraet: handy
+      titel: "Wochenansicht"
+    - src: /img/screenshots/orgafuchs/handy-04-einstellungen.png
+      alt: "Werbebild „Feiertage und Schulferien je Bundesland“ mit den Einstellungen: Design hell, dunkel oder System, Startansicht, Wochenbeginn, PDF-Stil und Bundesland"
+      width: 620
+      height: 1342
+      geraet: handy
+      titel: "Feiertage und Ferien"
+    - src: /img/screenshots/orgafuchs/handy-05-dunkelmodus.png
+      alt: "Werbebild „Auch elegant im Dunkelmodus“ mit demselben Monatskalender auf dunklem Grund"
+      width: 620
+      height: 1342
+      geraet: handy
+      titel: "Auch im Dunkelmodus"
+    - src: /img/screenshots/orgafuchs/handy-06-sync.png
+      alt: "Werbebild „Sync ohne Cloud, Ende-zu-Ende verschlüsselt“ mit der Geräteseite: Hauptgerät oder Beitreten, QR-Scan, Wahl zwischen eigenem Netz und Relay"
+      width: 620
+      height: 1342
+      geraet: handy
+      titel: "Sync ohne Cloud"
+    - src: /img/screenshots/orgafuchs/handy-07-einrichtung.png
+      alt: "Werbebild „In wenigen Minuten eingerichtet“ mit der Einrichtungshilfe und ihren vier abgehakten Schritten"
+      width: 620
+      height: 1342
+      geraet: handy
+      titel: "Schritt für Schritt startklar"
+    - src: /img/screenshots/orgafuchs/handy-08-windows.png
+      alt: "Werbebild „Auch für Windows-PC, gleiche Daten, gleicher Sync“ mit der Info-Seite der App: Version, Hinweis auf die Windows-Fassung, Unterstützen, Kontakt und Transparenz"
+      width: 620
+      height: 1342
+      geraet: handy
+      titel: "Auch für Windows"
+    - src: /img/screenshots/orgafuchs/tablet10-monat.png
+      alt: "Dasselbe Werbebild im Querformat: links die Zeile „Der ganze Monat auf einen Blick“, rechts der Monatskalender"
+      width: 1200
+      height: 750
+      geraet: desktop
+      titel: "Im Querformat"
+
+
+# Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
+# Die helle Fassung – die Seite bleibt eine Website, kein Bildschirmfoto.
+# Alle Kontraste sind vom Prüfskript gerechnet, nicht geschätzt.
+theme:
+  modus: hell
+  hintergrund: "#F7F3EC"
+  flaeche: "#FFFFFF"
+  rand: "#EDE6DA"
+  text: "#241C14"
+  textLeise: "#6B5D4C"
+  akzent: "#B4652A"
+  quelle: FehlerFuchs_OrgaFuchs/05_App/orgafuchs/lib/core/theme/app_colors.dart
 
 links:
   page: /apps/orgafuchs.html

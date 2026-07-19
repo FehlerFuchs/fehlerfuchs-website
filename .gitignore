@@ -9,6 +9,10 @@
 # und ein Verlauf neben dem Verlauf stiftet nur Verwirrung.
 data/src/_sicherungen/
 
+# Pythons Zwischenspeicher. Entsteht beim Ausfuehren von tools/build_data.py
+# und hat im Repo nichts verloren - dieser Ordner wird ausgeliefert.
+__pycache__/
+
 # Betriebssystem und Editor
 Thumbs.db
 .DS_Store

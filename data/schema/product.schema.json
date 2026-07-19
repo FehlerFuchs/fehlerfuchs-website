@@ -45,6 +45,172 @@
     "standalone": {
       "type": "boolean"
     },
+    "theme": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "modus"
+      ],
+      "description": "Farben der Produktseite, wenn sie die der App aufgreifen soll. Betrifft NUR den Inhaltsbereich – Kopfleiste, Navigation und Fußzeile bleiben FehlerFuchs. Die Seite soll die App zeigen, nicht so tun, als sei sie die App. Fehlt der Block, gilt das helle Standardbild.",
+      "properties": {
+        "modus": {
+          "enum": [
+            "hell",
+            "dunkel"
+          ],
+          "description": "Grundstimmung. Bestimmt auch, wogegen die Prüfung den Kontrast rechnet."
+        },
+        "hintergrund": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "flaeche": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Karten, Tabellen, abgesetzte Blöcke."
+        },
+        "rand": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "text": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "textLeise": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "akzent": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Akzent NUR für diese Seite. Auf dunklem Grund braucht es oft einen helleren Ton als 'accent', der in Listen und Karten auf hellem Grund gilt."
+        },
+        "quelle": {
+          "type": "string",
+          "maxLength": 200,
+          "description": "Woher die Werte stammen, etwa der Pfad zur theme.dart der App. Damit später nachvollziehbar ist, warum genau diese Töne."
+        }
+      }
+    },
+    "statusGrund": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "wenn",
+        "text"
+      ],
+      "description": "Der persönliche Grund für den derzeitigen Stand, in eigenen Worten. Eine Statusstufe sagt WAS, nicht WARUM – und „Pausiert\" allein liest sich, als sei das Projekt tot. Damit dieser Satz nicht veraltet, trägt er unter 'wenn', zu welchem Status er gehört: Passt er nicht mehr, wird er nicht angezeigt und die Prüfung meldet ihn.",
+      "properties": {
+        "wenn": {
+          "enum": [
+            "verfuegbar",
+            "pruefung",
+            "beta",
+            "alpha",
+            "entwicklung",
+            "konzept",
+            "idee",
+            "pausiert",
+            "eingestellt"
+          ],
+          "description": "Der Status, zu dem dieser Satz gehört."
+        },
+        "text": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 400,
+          "description": "Zwei, drei Sätze. Warm und ehrlich, keine langen Reden."
+        }
+      }
+    },
+    "umwege": {
+      "type": "array",
+      "description": "Rückschläge, die den Weg verändert haben. WICHTIG, damit dieses Feld nicht dasselbe Schicksal erleidet wie eine handgepflegte Meilensteinliste: Hier stehen ausschließlich abgeschlossene EREIGNISSE der Vergangenheit, nie der aktuelle Stand. Wo ein Produkt gerade steht, sagt platforms[].status – und nur der.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "datum",
+          "os",
+          "von",
+          "grund"
+        ],
+        "properties": {
+          "datum": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "os": {
+            "enum": [
+              "windows",
+              "android",
+              "ios",
+              "linux",
+              "macos",
+              "web"
+            ],
+            "description": "Welche Plattform es traf. Ein Umweg betrifft selten alle."
+          },
+          "von": {
+            "enum": [
+              "verfuegbar",
+              "pruefung",
+              "beta",
+              "alpha",
+              "entwicklung",
+              "konzept"
+            ],
+            "description": "Wo es stand, als es schiefging."
+          },
+          "nach": {
+            "enum": [
+              "verfuegbar",
+              "pruefung",
+              "beta",
+              "alpha",
+              "entwicklung",
+              "konzept"
+            ],
+            "description": "Wohin es zurückging. Muss früher auf dem Weg liegen als 'von' – sonst wäre es kein Umweg. Gleich 'von' bedeutet eine SCHLEIFE: Es ging nichts zurueck, der Weg wurde nur noch einmal gegangen - typisch bei einer Ablehnung, gegen die Widerspruch laeuft. Entfaellt, wenn ein 'zwischenschritt' angegeben ist - dann fuehrt der Weg dorthin."
+          },
+          "grund": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 60,
+            "description": "In wenigen Worten, etwa „Ablehnung durch Google Play\". Steht als Etikett an der Kehre."
+          },
+          "text": {
+            "type": "string",
+            "maxLength": 600,
+            "description": "Was genau passierte und was daraus wurde. Zwei bis vier Sätze – ein Rückschlag verdient eine Erklärung, keine Stichworte."
+          },
+          "zwischenschritt": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name"
+            ],
+            "description": "Ein Schritt, den es OHNE diesen Umweg nicht gaebe - etwa eine Nachreichung. Er gehoert bewusst NICHT in statuses.yaml: dort stehen die Stufen, die jede Anwendung durchlaeuft. Er sitzt unmittelbar vor dem Schritt, an dem es scheiterte, und der neue Ast der Gabelung fuehrt in ihn hinein.",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 4,
+                "maxLength": 48
+              },
+              "datum": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              },
+              "erledigt": {
+                "type": "boolean",
+                "description": "Ist der Zwischenschritt schon getan? Sonst gilt er als laufend."
+              }
+            }
+          }
+        }
+      }
+    },
     "parent": {
       "type": "string",
       "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
@@ -146,6 +312,35 @@
           "since": {
             "type": "string",
             "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "hinweis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "wenn",
+              "text"
+            ],
+            "description": "Ein Satz zu GENAU DIESER Plattform, in eigenen Worten. Fuer den Fall, dass eine Statusstufe zwar stimmt, aber nicht erklaert, warum es dort haengt. Wie bei statusGrund traegt er unter 'wenn', zu welchem Plattform-Status er gehoert: passt er nicht mehr, verschwindet er und die Pruefung meldet ihn. Ein Satz ohne diese Bindung veraltet still.",
+            "properties": {
+              "wenn": {
+                "enum": [
+                  "verfuegbar",
+                  "pruefung",
+                  "beta",
+                  "alpha",
+                  "entwicklung",
+                  "konzept",
+                  "idee",
+                  "pausiert",
+                  "eingestellt"
+                ]
+              },
+              "text": {
+                "type": "string",
+                "minLength": 30,
+                "maxLength": 700
+              }
+            }
           }
         }
       }
@@ -428,9 +623,60 @@
         },
         "screenshots": {
           "type": "array",
+          "maxItems": 12,
+          "description": "Bilder aus der laufenden Anwendung. Zeigen, was Worte nur behaupten können. Reihenfolge = Reihenfolge auf der Seite; das erste ist zugleich das Vorschaubild.",
           "items": {
-            "$ref": "#/$defs/bild"
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "src",
+              "alt",
+              "width",
+              "height"
+            ],
+            "properties": {
+              "src": {
+                "type": "string",
+                "pattern": "^/img/"
+              },
+              "alt": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 200,
+                "description": "Was auf dem Bild zu sehen ist – für Menschen, die es nicht sehen können, und für Suchmaschinen. 'Screenshot' allein ist keine Beschreibung."
+              },
+              "width": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "height": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "titel": {
+                "type": "string",
+                "maxLength": 80,
+                "description": "Bildunterschrift. Sagt, worauf man achten soll."
+              },
+              "geraet": {
+                "enum": [
+                  "handy",
+                  "tablet",
+                  "desktop"
+                ],
+                "description": "Steuert die Darstellung: Handybilder sind hoch und schmal, Desktopbilder breit."
+              }
+            }
           }
+        },
+        "platzhalter": {
+          "type": [
+            "integer",
+            "boolean"
+          ],
+          "minimum": 1,
+          "maximum": 8,
+          "description": "Statt Bildschirmfotos Platzhalter aus dem Motivsatz zeigen. Zahl = wie viele. Die Auswahl haengt am Produktnamen und ist deshalb bei jedem Bau dieselbe. Wirkt nur, wenn 'screenshots' fehlt oder leer ist - echte Bilder haben immer Vorrang."
         }
       }
     },

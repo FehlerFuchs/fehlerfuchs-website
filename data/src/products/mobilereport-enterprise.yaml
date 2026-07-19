@@ -23,7 +23,7 @@ description: >-
   Branding per .mrbrand-Datei oder als Dienstleistung, Freischaltung über
   Lizenzschlüssel je Arbeitsplatz mit Offline-Karenz. Strikt lokal, ohne Cloud-Zwang.
 audience: [unternehmen]
-accent: "#0B9DC8"
+accent: "#0C5E74"   # Farbe der App
 
 # Der Gesamtstatus folgt der WEITESTEN Plattform. Das Prüfskript rechnet
 # nach und meldet, wenn hier etwas anderes steht.
@@ -106,6 +106,22 @@ media:
     alt: MobileReport Enterprise – von FehlerFuchs
     width: 720
     height: 120
+  # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
+  # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
+  # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.
+  platzhalter: 4
+# Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
+# Die helle Fassung – die Seite bleibt eine Website, kein Bildschirmfoto.
+# Alle Kontraste sind vom Prüfskript gerechnet, nicht geschätzt.
+theme:
+  modus: hell
+  hintergrund: "#F1F5F9"
+  flaeche: "#FFFFFF"
+  rand: "#CBD5E1"
+  text: "#1E293B"
+  textLeise: "#475569"
+  akzent: "#0C5E74"
+  quelle: FehlerFuchs Mobile Report/FehlerFuchsMR_Enterprise/01_App/lib/core/constants/app_colors.dart
 
 links:
   page: /apps/mobilereport-enterprise.html

@@ -8,7 +8,7 @@ description: >-
   Zeitpunkt, daraus ein sauberes PDF und eine vorbereitete E-Mail. Alles bleibt auf dem
   Gerät – kein Konto, keine Cloud, keine Werbung.
 audience: [selbststaendige, unternehmen, vereine]
-accent: "#2E7D46"
+accent: "#C2410C"   # Farbe der App
 status: verfuegbar
 
 platforms:
@@ -29,7 +29,10 @@ editions:
     name: MobileReport Pro
     public: true
     emphasis: true
-    summary: Voller Funktionsumfang, freigeschaltet per einmaligem In-App-Kauf.
+    summary: >-
+      Voller Funktionsumfang, freigeschaltet per einmaligem In-App-Kauf.
+      Pro gab es anfangs als eigene App; sie ist im Einzelkauf innerhalb von
+      MobileReport aufgegangen und wird nicht mehr getrennt weitergebaut.
     price: { model: iap, amount: 5.00, currency: EUR, vatIncluded: true, recurring: false }
 
 # Merkmalsmatrix. Übernommen aus der Vergleichstabelle auf apps/mobilereport.html –
@@ -103,6 +106,50 @@ media:
     alt: MobileReport – von FehlerFuchs
     width: 1333
     height: 322
+  # Aus dem Play-Store-Satz des Projekts übernommen und auf Webgröße
+  # gerechnet. Es sind Werbebilder mit Überschrift, keine nackten
+  # Bildschirmabzüge - der Alternativtext sagt das auch so.
+  screenshots:
+    - src: /img/screenshots/mobilereport/handy-01-start.png
+      alt: "Werbebild „Melden in Sekunden“ mit dem Startbildschirm: die Kacheln Neue Meldung, Logbuch, Einstellungen, Hinweise und Datenschutz"
+      width: 620
+      height: 1102
+      geraet: handy
+      titel: "Melden in Sekunden"
+    - src: /img/screenshots/mobilereport/handy-02-meldearten.png
+      alt: "Werbebild „Klare Meldearten“ mit der aufgeklappten Auswahlliste – Gerätedefekt, Fehlfunktion, Beschädigung, Hygiene und weitere"
+      width: 620
+      height: 1102
+      geraet: handy
+      titel: "Klare Meldearten"
+    - src: /img/screenshots/mobilereport/handy-03-pdf.png
+      alt: "Werbebild „Sauberes PDF“ mit der PDF-Vorschau und dem Hinweisfenster, das vor dem Senden auf personenbezogene Inhalte hinweist"
+      width: 620
+      height: 1102
+      geraet: handy
+      titel: "Sauberes PDF"
+    - src: /img/screenshots/mobilereport/handy-04-logbuch.png
+      alt: "Werbebild „Alles im Logbuch“ mit einer einzelnen Meldung: Nummer, Datum, Bereich, Empfänger, Beschreibung und angehängtem Foto"
+      width: 620
+      height: 1102
+      geraet: handy
+      titel: "Alles im Logbuch"
+    - src: /img/screenshots/mobilereport/handy-05-einstellungen.png
+      alt: "Werbebild „Lokal und datensparsam“ mit den Einstellungen und dem aufgeklappten Bereich Empfänger"
+      width: 620
+      height: 1102
+      geraet: handy
+      titel: "Lokal und datensparsam"
+# Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
+# Was dort nicht steht, steht auch hier nicht – dann greift der Standard.
+# Alle Kontraste rechnet das Prüfskript, sie sind nicht geschätzt.
+theme:
+  modus: hell
+  hintergrund: "#FFF7ED"  # cream
+  flaeche: "#FFFFFF"      # white
+  text: "#2B160B"         # darkBrown
+  akzent: "#C2410C"       # action
+  quelle: FehlerFuchs Mobile Report/FehlerFuchsMR/lib/core/constants/app_colors.dart
 
 links:
   page: /apps/mobilereport.html

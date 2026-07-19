@@ -29,6 +29,22 @@
 
 meldungen:
 
+  - id: orgafuchs-play-ablehnung-2026-07
+    typ: store
+    produkt: orgafuchs
+    datum: "2026-07-18"
+    titel: OrgaFuchs für Android – von der Prüfsoftware abgelehnt, Widerspruch läuft
+    text: >-
+      Eingereicht und noch am selben Tag zurück. Die automatische Prüfung von
+      Google hat die Einstellungsseite für den Gruppen-Sync als Bezahlschranke
+      oder nicht deklarierten Login gewertet. Beides ist sie nicht: Dort trägt
+      man eine Relay-Adresse und ein selbst gewähltes Gruppen-Passwort ein, um
+      die eigenen Geräte zu verbinden. Kein Konto, keine Anmeldung, keine
+      Zahlung. Der Widerspruch läuft; er kostet voraussichtlich sieben bis
+      vierzehn Tage. Was mich dabei ärgert, ist nicht die Prüfung – die ist
+      richtig –, sondern dass eine unsichere Maschine durchentscheidet, statt
+      einen Menschen dazuzuholen. Windows bleibt verfügbar.
+
   - id: orgafuchs-1-0-0
     typ: veroeffentlichung
     produkt: orgafuchs

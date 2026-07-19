@@ -8,7 +8,7 @@ description: >-
   Kontrolle an ein Paperless-Archiv. Der Zwischenschritt ist Absicht: Was einmal falsch
   im Archiv liegt, findet man später nicht wieder.
 audience: [selbststaendige, unternehmen]
-accent: "#B45309"
+accent: "#C2410C"   # Farbe der App
 # Kein Bild-Lockup vorhanden – der Titel steht als Text und trägt
 # die Markenfarben, damit er trotzdem nach FehlerFuchs aussieht.
 wordmark:
@@ -29,6 +29,26 @@ editions: []
 releases: []
 
 # Noch keine eigene Produktseite.
+
+# Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
+# Was dort nicht steht, steht auch hier nicht – dann greift der Standard.
+# Alle Kontraste rechnet das Prüfskript, sie sind nicht geschätzt.
+theme:
+  modus: hell
+  hintergrund: "#FBF7F2"  # paper
+  flaeche: "#FFFBF7"      # panelWarm
+  rand: "#E7D8C6"         # borderSoft
+  text: "#2B160B"         # ink
+  textLeise: "#6F4F44"    # textSecondary
+  akzent: "#C2410C"       # primary – Aktion-Orange
+  quelle: FehlerFuchs_BelegWerk/11_App_Flutter/belegwerk_desktop/lib/ui/ff_tokens.dart
+
+media:
+  # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
+  # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
+  # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.
+  platzhalter: 4
+
 links:
   page: /produkte.html
   contact: /kontakt.html?app=BelegWerk&topic=interesse

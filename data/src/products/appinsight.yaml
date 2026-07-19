@@ -8,7 +8,7 @@ description: >-
   sie enthalten, wie viel sie verbrauchen und mit welchen Servern sie sprechen –
   mit einer Ampel-Einordnung statt pauschaler Urteile.
 audience: [privat]
-accent: "#2563EB"
+accent: "#C2410C"   # Farbe der App
 status: entwicklung
 
 platforms:
@@ -34,6 +34,22 @@ media:
     alt: AppInsight – von FehlerFuchs
     width: 1200
     height: 360
+  # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
+  # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
+  # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.
+  platzhalter: 4
+# Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
+# Die helle Fassung – die Seite bleibt eine Website, kein Bildschirmfoto.
+# Alle Kontraste sind vom Prüfskript gerechnet, nicht geschätzt.
+theme:
+  modus: hell
+  hintergrund: "#FFF7ED"
+  flaeche: "#FFFFFF"
+  rand: "#F0DFC9"
+  text: "#7C3F16"
+  textLeise: "#6B5B50"
+  akzent: "#C2410C"
+  quelle: FehlerFuchs_AppInsight/lib/core/theme/app_colors.dart
 
 links:
   page: /apps/appinsight.html

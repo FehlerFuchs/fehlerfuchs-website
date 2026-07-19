@@ -7,7 +7,28 @@ description: >-
   Dokumente mit der Kamera erfassen, gerade rücken, als PDF ablegen – alles auf dem
   Gerät. Kein Upload zu einem Scan-Dienst, keine Anmeldung, keine Werbung.
 audience: [privat, selbststaendige]
-accent: "#2563EB"
+
+# Akzent für Listen und Karten auf hellem Grund (Produktübersicht, Downloads).
+# Der Ton stammt aus der App, ist für hellen Grund aber abgedunkelt: Das helle
+# #F4A261 der App käme auf Weiß nur auf Kontrast 2,1 und wäre unlesbar.
+# #A85C24 kommt auf 4,97 gegen Weiß und 4,66 gegen den Seitengrund – beides
+# über der Schwelle von 4,5. Nachgerechnet, nicht geschätzt.
+accent: "#F4A261"   # Farbe der App
+
+# Die Produktseite übernimmt die Farben der App. SnapFuchs ist ein
+# Kamerawerkzeug – dunkel zu sein ist dort kein Geschmack, sondern Funktion:
+# Ein heller Bildschirm blendet beim Scannen. Das darf die Seite zeigen.
+#
+# Werte 1:1 aus dem Quelltext der App, nicht nachempfunden.
+theme:
+  modus: dunkel
+  hintergrund: "#1A1A1A"      # hintergrundDunkel
+  flaeche: "#2A2A2A"          # hintergrundKarte
+  rand: "#3D3A36"
+  text: "#F0E8DC"             # textPrimaer
+  textLeise: "#B0A090"        # textSekundaer
+  akzent: "#F4A261"           # akzentOrange
+  quelle: FehlerFuchs_SnapFuchs/05_App/snapfuchs/lib/app/theme.dart
 # Kein Bild-Lockup vorhanden – der Titel steht als Text und trägt
 # die Markenfarben, damit er trotzdem nach FehlerFuchs aussieht.
 wordmark:
@@ -103,9 +124,85 @@ features:
       - name: Dunkles Erscheinungsbild
         values: { free: ja, pro: ja }
 
+# Umwege: Rückschläge, die den Weg verändert haben.
+#
+# Hier steht NUR Vergangenes. Wo SnapFuchs gerade steht, sagt platforms[].status –
+# das wird nicht doppelt aufgeschrieben. Ein Ereignis von gestern kann nicht
+# veralten, ein behaupteter Stand schon; genau daran ist die alte Zeitleiste
+# auf wunschliste.html gescheitert.
+#
+# Inhalt aus dem Arbeitslog des SnapFuchs-Projekts (Eintrag 12.07.2026,
+# „Play-Ablehnung behoben: Medien-Berechtigungen raus, Photo Picker").
+# Das Datum ist der Tag, an dem die Umstellung gemacht wurde – der Tag der
+# Ablehnung selbst steht dort nicht. Bitte gegenlesen.
+umwege:
+  - datum: "2026-07-12"
+    os: android
+    von: pruefung
+    nach: entwicklung
+    grund: Ablehnung durch Google Play
+    text: >-
+      SnapFuchs hatte die Berechtigung, auf alle Bilder des Geräts zuzugreifen.
+      Google verlangt die aber nur dort, wo eine App das ständig braucht – für den
+      seltenen Fall „Bild aus der Galerie holen" ist der Fotoauswahl-Dialog von
+      Android vorgesehen, der ganz ohne Berechtigung auskommt. Zu Recht, ehrlich
+      gesagt: weniger Zugriff ist genau das, wofür FehlerFuchs steht. Also die drei
+      Medien-Berechtigungen entfernt, auf den Android-Fotopicker umgestellt und neu
+      eingereicht.
+
 # Noch keine eigene Produktseite – SnapFuchs erscheint bisher nur auf
 # produkte.html und downloads.html. Sobald die Freigabe da ist, wird eine
 # Seite unter /apps/snapfuchs.html gebraucht.
+
+media:
+  # Bildschirmfotos aus dem Play-Store-Satz (Release_SnapFuchs_android/screenshots).
+  # Für die Website auf 620 Pixel Breite verkleinert – dargestellt werden sie mit
+  # 230 Pixeln, alles darüber wäre übertragene Datenmenge ohne Gegenwert.
+  # Die Beschreibungen stammen aus den Bildern selbst, nicht aus den Dateinamen.
+  screenshots:
+    - src: /img/screenshots/snapfuchs/handy-01.png
+      alt: Startbildschirm von SnapFuchs mit Fuchskopf im Scanrahmen und dem Untertitel „100 % lokaler Dokumentenscanner"
+      width: 620
+      height: 1102
+      geraet: handy
+      titel: Dunkel von Anfang an – ein heller Bildschirm blendet beim Scannen
+    - src: /img/screenshots/snapfuchs/handy-02.png
+      alt: Übersicht mit zuletzt gespeicherten Dokumenten und großer Kamerataste am unteren Rand
+      width: 620
+      height: 1102
+      geraet: handy
+      titel: Tippen zum Scannen – mehr braucht der Anfang nicht
+    - src: /img/screenshots/snapfuchs/handy-03.png
+      alt: Ein schräg fotografiertes Dokument, dessen vier Ecken die App automatisch erkannt hat und die sich einzeln verschieben lassen
+      width: 620
+      height: 1102
+      geraet: handy
+      titel: Ecken werden erkannt und lassen sich nachziehen
+    - src: /img/screenshots/snapfuchs/handy-05.png
+      alt: "Menü mit den Ausgabewegen: durchsuchbares PDF mit unsichtbarer Textebene, Tabelle nach Excel oder CSV"
+      width: 620
+      height: 1102
+      geraet: handy
+      titel: Texterkennung und Tabellen – alles auf dem Gerät
+    - src: /img/screenshots/snapfuchs/handy-06.png
+      alt: Liste der PDF-Werkzeuge – Zusammenführen, Drehen, Seiten löschen, neu ordnen, Aufteilen
+      width: 620
+      height: 1102
+      geraet: handy
+      titel: PDF-Werkzeuge, ohne eine Datei aus der Hand zu geben
+    - src: /img/screenshots/snapfuchs/handy-09.png
+      alt: Einstellungen für das Wasserzeichen mit Schalter, Auswahl des Stils und der Position
+      width: 620
+      height: 1102
+      geraet: handy
+      titel: Das Wasserzeichen ist einstellbar – abschalten kann es Pro
+    - src: /img/screenshots/snapfuchs/tablet10-02.png
+      alt: Dieselbe Ansicht auf einem Zehn-Zoll-Tablet im Hochformat
+      width: 620
+      height: 992
+      geraet: tablet
+      titel: Auf dem Tablet
+
 links:
   page: /produkte.html
   contact: /kontakt.html?app=SnapFuchs&topic=interesse

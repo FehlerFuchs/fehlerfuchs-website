@@ -38,6 +38,22 @@ media:
     alt: CheckInVita – von FehlerFuchs
     width: 760
     height: 150
+  # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
+  # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
+  # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.
+  platzhalter: 4
+# Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
+# Was dort nicht steht, steht auch hier nicht – dann greift der Standard.
+# Alle Kontraste rechnet das Prüfskript, sie sind nicht geschätzt.
+theme:
+  modus: hell
+  hintergrund: "#FFF7ED"  # cream
+  flaeche: "#FFFFFF"      # lightSurface
+  rand: "#EAD9C4"         # lightBorder
+  text: "#2B160B"         # ink
+  textLeise: "#6B5544"    # lightTextSoft
+  akzent: "#5B8A72"       # sage
+  quelle: FehlerFuchs_CheckIn_Vita/src/lib/core/theme/app_colors.dart
 
 links:
   page: /apps/checkin-vita.html

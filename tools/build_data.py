@@ -34,6 +34,8 @@ SCHEMA_FILE = ROOT / "data" / "schema" / "product.schema.json"
 MELDUNG_SCHEMA_FILE = ROOT / "data" / "schema" / "meldung.schema.json"
 OUT_PRODUCTS = ROOT / "data" / "products.json"
 OUT_NEWS = ROOT / "data" / "news.json"
+OUT_WUENSCHE = ROOT / "data" / "wishes.json"
+WUNSCH_SCHEMA_FILE = ROOT / "data" / "schema" / "wunsch.schema.json"
 OUT_STATUSES = ROOT / "data" / "statuses.json"
 OUT_VOKABULAR = ROOT / "data" / "vocabulary.json"
 OUT_MARKE = ROOT / "data" / "brand.json"
@@ -67,6 +69,32 @@ def bildmasse(pfad):
 
 def melde(liste, slug, text):
     liste.append(f"{slug}: {text}")
+
+
+# ------------------------------------------------------------------ Kontrast
+
+def leuchtkraft(hex_farbe):
+    """Relative Helligkeit nach WCAG. Nicht die naive Mittelung der drei Kanäle:
+    Das Auge sieht Grün viel heller als Blau, deshalb die Gewichtung."""
+    r, g, b = (int(hex_farbe[i:i + 2], 16) / 255 for i in (1, 3, 5))
+
+    def linear(k):
+        return k / 12.92 if k <= 0.03928 else ((k + 0.055) / 1.055) ** 2.4
+
+    return 0.2126 * linear(r) + 0.7152 * linear(g) + 0.0722 * linear(b)
+
+
+def kontrast(a, b):
+    """Kontrastverhältnis zweier Farben, 1 (gleich) bis 21 (Schwarz auf Weiß).
+    Ab 4,5 gilt Fließtext als lesbar, ab 3,0 große Schrift.
+
+    Warum das hier steht und nicht im Kopf: Die Werte lassen sich nicht
+    schätzen. #B8912F auf Weiß sieht kräftig aus und liegt trotzdem bei 3,0 –
+    unter der Schwelle. Genau dieser Irrtum wäre uns beim Gold des EinzelStücks
+    fast durchgegangen."""
+    la, lb = leuchtkraft(a), leuchtkraft(b)
+    hell, dunkel = max(la, lb), min(la, lb)
+    return round((hell + 0.05) / (dunkel + 0.05), 2)
 
 
 # ---------------------------------------------------------------- Schemaprüfung
@@ -301,9 +329,27 @@ def pruefe_inhalt(p, statuses, alle_slugs, alle_produkte):
             melde(warnungen, slug, f"FAQ '{f['question'][:40]}…' enthält das feste Datum {d}. "
                                    f"Feste Daten veralten – besser aus releases[] ableiten")
 
+    # 5j-b: Ein Plattform-Hinweis muss zum Status DIESER Plattform passen.
+    # Dieselbe Regel wie beim statusGrund, nur eine Ebene tiefer: Sonst stuende
+    # dort irgendwann ein Satz ueber eine Ablehnung, waehrend die App laengst
+    # im Store liegt.
+    for pl in p.get("platforms", []):
+        h = pl.get("hinweis")
+        if not h:
+            continue
+        if h["wenn"] != pl["status"]:
+            melde(fehler, slug,
+                  f"platforms[{pl['os']}].hinweis.wenn ist '{h['wenn']}', die Plattform steht "
+                  f"aber auf '{pl['status']}' – der Satz wuerde nicht angezeigt. Entweder "
+                  f"anpassen oder loeschen.")
+
     # 5d. Bilder müssen existieren – und die Bildmarke muss zum Namen passen
     medien = p.get("media", {})
     for bezeichnung, bild in list(medien.items()):
+        # 'platzhalter' ist ein Schalter, kein Bild. Ohne diese Zeile faende die
+        # Schleife dort ein src-Feld an einer Zahl - und bricht ab.
+        if not isinstance(bild, (dict, list)):
+            continue
         bilder = bild if isinstance(bild, list) else [bild]
         for b in bilder:
             datei = ROOT / b["src"].lstrip("/")
@@ -390,6 +436,180 @@ def pruefe_inhalt(p, statuses, alle_slugs, alle_produkte):
               "keine features – die Produktseite hätte keine Merkmalstabelle. "
               "Eine Spalte reicht (Funktionsübersicht), mehrere ergeben den "
               "Editionsvergleich.")
+
+    # 5k. Bildschirmfotos: echte Maße, echte Beschreibung.
+    # Regel 5k-b: Platzhalter und echte Bilder schliessen einander aus. Beides
+    # anzugeben ist kein Fehler mit Folgen - die Platzhalter greifen dann eh
+    # nicht -, aber es ist ein vergessener Schalter, und der veraltet still.
+    if medien.get("platzhalter") and medien.get("screenshots"):
+        melde(warnungen, slug,
+              "media.platzhalter steht neben echten screenshots und bleibt wirkungslos - "
+              "echte Bilder haben Vorrang. Die Zeile kann weg.")
+
+    # Regel 5k-c: Eine oeffentlich nutzbare Anwendung ohne jedes Bild laesst den
+    # Besucher raten, wie sie aussieht. Platzhalter sind die Notloesung, kein
+    # Ziel - deshalb bleibt der Hinweis stehen, solange sie im Einsatz sind.
+    if p["kind"] == "produkt" and not p.get("customPage"):
+        if not medien.get("screenshots"):
+            if medien.get("platzhalter"):
+                melde(abgleich, slug,
+                      "zeigt Platzhalter statt Bildschirmfotos - sobald es die Anwendung gibt, "
+                      "gehoeren echte Bilder her")
+            else:
+                melde(warnungen, slug,
+                      "keine Bildschirmfotos und keine Platzhalter - die Produktseite hat "
+                      "keine Galerie. Mit 'media.platzhalter: 4' gibt es wenigstens Motive.")
+
+    for i, b in enumerate(medien.get("screenshots", [])):
+        wo = f"media.screenshots[{i}]"
+        datei = ROOT / b["src"].lstrip("/")
+        if not datei.exists():
+            melde(fehler, slug, f"{wo}: {b['src']} gibt es nicht")
+            continue
+        echt = bildmasse(datei)
+        if echt and echt != (b["width"], b["height"]):
+            melde(fehler, slug, f"{wo}: Datei ist {echt[0]}×{echt[1]}, im Modell steht "
+                                f"{b['width']}×{b['height']} – das verzerrt das Bild "
+                                f"oder lässt die Seite beim Laden springen")
+        # Ein Alternativtext, der nur „Screenshot" sagt, hilft niemandem.
+        if re.fullmatch(r"(?i)\s*(screenshot|bildschirmfoto|bild)\s*\d*\s*", b["alt"]):
+            melde(fehler, slug, f"{wo}: Alternativtext '{b['alt']}' beschreibt nichts. "
+                                f"Was ist auf dem Bild zu sehen?")
+        # Hoch oder quer? Wenn 'geraet' dazu nicht passt, steht das Bild später
+        # in der falschen Spaltenbreite.
+        hoch = b["height"] > b["width"]
+        if b.get("geraet") == "handy" and not hoch:
+            melde(warnungen, slug, f"{wo}: als 'handy' gekennzeichnet, ist aber breiter als hoch")
+        if b.get("geraet") == "desktop" and hoch:
+            melde(warnungen, slug, f"{wo}: als 'desktop' gekennzeichnet, ist aber höher als breit")
+
+    # 5l. Eigene Seitenfarben – der Kontrast wird gerechnet, nicht geschätzt.
+    th = p.get("theme")
+    if th:
+        hg = th.get("hintergrund") or ("#1A1A1A" if th["modus"] == "dunkel" else "#fbf7f2")
+        paare = [
+            ("text", th.get("text") or ("#F0E8DC" if th["modus"] == "dunkel" else "#2B160B"), 4.5,
+             "Fließtext"),
+            ("textLeise", th.get("textLeise") or ("#B0A090" if th["modus"] == "dunkel" else "#6b5b50"), 4.5,
+             "gedämpfter Text"),
+            ("akzent", th.get("akzent") or p["accent"], 3.0,
+             "Akzent (Überschriften, Rahmen – große Schrift)"),
+        ]
+        for feld, farbe, schwelle, wofuer in paare:
+            k = kontrast(farbe, hg)
+            if k < schwelle:
+                melde(fehler, slug, f"theme.{feld} {farbe} auf {hg}: Kontrast {k} – "
+                                    f"nötig sind {schwelle} für {wofuer}. Nicht lesbar.")
+            elif k < schwelle + 0.7:
+                melde(warnungen, slug, f"theme.{feld} {farbe} auf {hg}: Kontrast {k} – "
+                                       f"knapp über der Schwelle von {schwelle}")
+
+        # Der Modus muss zur Farbe passen. Ein 'dunkel' mit hellem Hintergrund
+        # hätte alle Ableitungen gegen sich.
+        dunkel_gemeint = th["modus"] == "dunkel"
+        ist_dunkel = leuchtkraft(hg) < 0.2
+        if dunkel_gemeint != ist_dunkel:
+            melde(fehler, slug, f"theme.modus ist '{th['modus']}', der Hintergrund {hg} "
+                                f"ist aber {'hell' if not ist_dunkel else 'dunkel'}")
+
+        # Die Fläche soll sich vom Hintergrund abheben, sonst sieht man keine Karten.
+        if th.get("flaeche") and kontrast(th["flaeche"], hg) < 1.08:
+            melde(warnungen, slug, f"theme.flaeche {th['flaeche']} hebt sich kaum vom "
+                                   f"Hintergrund ab – Karten wären unsichtbar")
+
+    # 5j. Der persönliche Grund muss zum Status passen.
+    #     Sonst steht auf der Seite „aufgeschoben, aber es kommt", während längst
+    #     wieder gebaut wird – eine warme Erklärung, die zur Ausrede verkommt.
+    grund = p.get("statusGrund")
+    if grund and grund["wenn"] != p["status"]:
+        melde(warnungen, slug,
+              f"statusGrund gehört zu '{statuses[grund['wenn']]['label']}', das Produkt "
+              f"steht aber auf '{statuses[p['status']]['label']}'. Der Text wird nicht "
+              f"angezeigt – bitte neu schreiben oder entfernen.")
+
+    # Wer stillsteht, sollte etwas dazu sagen. Ein nacktes „Pausiert" liest sich,
+    # als sei das Projekt tot.
+    if p["status"] in ("pausiert", "eingestellt") and not grund:
+        melde(warnungen, slug,
+              f"Status '{statuses[p['status']]['label']}' ohne statusGrund. Ein Satz dazu, "
+              f"warum, nimmt der Meldung die Kälte.")
+
+    # 5i. Umwege sind Berichte über Vergangenes – und müssen dazu passen.
+    #     Der Sinn dieses Feldes steht und fällt damit, dass es NICHT den
+    #     aktuellen Stand behauptet. Deshalb wird hier vor allem geprüft, ob
+    #     ein Umweg mit dem abgeleiteten Weg zusammenpasst.
+    plattform_nach_os = {pl["os"]: pl for pl in p["platforms"]}
+    heute_iso = date.today().isoformat()
+    vorher = {}
+    for u in p.get("umwege", []):
+        wo = f"Umweg {u['datum']}"
+        if u["os"] not in plattform_nach_os:
+            melde(fehler, slug, f"{wo}: für '{u['os']}' gibt es gar keine Plattform")
+            continue
+        # Entweder ein Ziel auf dem Weg ODER ein Zwischenschritt. Beides
+        # zugleich hiesse: zwei Antworten auf die Frage, wo es weitergeht.
+        if not u.get("nach") and not u.get("zwischenschritt"):
+            melde(fehler, slug, f"{wo}: weder 'nach' noch 'zwischenschritt' – wo geht der "
+                                f"Weg denn weiter?")
+            continue
+        if u.get("nach") and u.get("zwischenschritt"):
+            melde(fehler, slug, f"{wo}: hat 'nach' UND 'zwischenschritt'. Der Weg kann nur "
+                                f"an einer Stelle weitergehen – bitte eines von beiden.")
+            continue
+
+        if u.get("zwischenschritt"):
+            # Der Name darf keine Statusstufe nachbauen. Wer einen echten
+            # Meilenstein braucht, gehoert nach statuses.yaml - sonst gaebe es
+            # dieselbe Stufe zweimal, einmal fuer alle und einmal versteckt.
+            name = u["zwischenschritt"]["name"].strip().lower()
+            for schluessel, st in statuses.items():
+                if name == st.get("label", "").strip().lower():
+                    melde(fehler, slug, f"{wo}: Zwischenschritt heisst wie die Statusstufe "
+                                        f"'{st['label']}'. Echte Stufen gehoeren nach "
+                                        f"statuses.yaml, nicht in einen einzelnen Umweg.")
+            d = u["zwischenschritt"].get("datum")
+            if d and d < u["datum"]:
+                melde(fehler, slug, f"{wo}: Zwischenschritt datiert vor dem Umweg selbst")
+            if d and d > heute_iso:
+                melde(fehler, slug, f"{wo}: Zwischenschritt liegt in der Zukunft")
+            continue
+
+        von, nach = statuses.get(u["von"]), statuses.get(u["nach"])
+        if von is None or nach is None:
+            continue
+        if "weg" not in von or "weg" not in nach:
+            melde(fehler, slug, f"{wo}: '{u['von']}' oder '{u['nach']}' liegt nicht auf dem "
+                                f"Weg (siehe statuses.yaml → weg)")
+        elif nach["weg"] > von["weg"]:
+            melde(fehler, slug, f"{wo}: geht von '{von['label']}' nach '{nach['label']}' – "
+                                f"das ist kein Umweg, sondern ein Fortschritt")
+        # nach == von ist erlaubt und heisst SCHLEIFE: Es ging nichts zurueck,
+        # der Weg wurde nur noch einmal gegangen. Der haeufigste Fall dafuer ist
+        # eine Ablehnung, gegen die Widerspruch laeuft - inhaltlich aendert sich
+        # nichts, es kostet nur Zeit. Genau das soll man sehen.
+        if u["datum"] > heute_iso:
+            melde(fehler, slug, f"{wo}: liegt in der Zukunft. Umwege sind Ereignisse, "
+                                f"die stattgefunden haben.")
+        # Zwei Umwege am selben Tag für dieselbe Plattform sind fast immer ein
+        # Versehen beim Abtippen.
+        schluessel = (u["os"], u["datum"])
+        if schluessel in vorher:
+            melde(warnungen, slug, f"{wo}: zweiter Umweg am selben Tag für {u['os']}")
+        vorher[schluessel] = True
+
+    # Der jüngste Umweg je Plattform darf nicht weiter sein als der Stand heute:
+    # Wer im Juni auf 'entwicklung' zurückfiel, kann heute nicht bei 'konzept' stehen.
+    for os_name, pl in plattform_nach_os.items():
+        letzte = sorted([u for u in p.get("umwege", []) if u["os"] == os_name and u.get("nach")],
+                        key=lambda u: u["datum"])
+        if not letzte:
+            continue
+        rueck = statuses.get(letzte[-1]["nach"], {})
+        jetzt = statuses.get(pl["status"], {})
+        if "weg" in rueck and "weg" in jetzt and jetzt["weg"] < rueck["weg"]:
+            melde(fehler, slug, f"{os_name}: steht auf '{jetzt['label']}', der letzte Umweg "
+                                f"({letzte[-1]['datum']}) führte aber schon nach "
+                                f"'{rueck['label']}' – eines von beidem ist veraltet")
 
     # 6. Preise
     for e in p.get("editions", []):
@@ -559,6 +779,101 @@ def pruefe_meldungen(meldungen, produkte, schema):
     return sorted(ergebnis, key=lambda m: m["datum"], reverse=True)
 
 
+# -------------------------------------------------------------------- Wünsche
+
+# Muster für Dinge, die in einer veröffentlichten Datei nichts zu suchen haben.
+# Bewusst großzügig: Ein Fehlalarm kostet eine Minute, eine durchgerutschte
+# E-Mail-Adresse kostet das Vertrauen, mit dem die ganze Marke wirbt.
+PERSONENBEZUG = [
+    (re.compile(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"), "eine E-Mail-Adresse"),
+    (re.compile(r"(?<!\d)(?:\+49|0)[\s/-]?\d{2,5}[\s/-]?\d{3,}(?!\d)"), "eine Telefonnummer"),
+    (re.compile(r"\b(?:IBAN|DE\d{20})\b"), "eine Bankverbindung"),
+]
+
+
+def pruefe_wuensche(wuensche, produkte, vokabular, schema):
+    """Prüft die freigegebenen Wünsche.
+
+    Der Kern ist die Suche nach personenbezogenen Daten. Die Datei liegt in
+    einem öffentlichen Repository und wird von GitHub Pages ausgeliefert –
+    was hier hineingerät, ist im Netz, und zwar dauerhaft. Deshalb ist ein
+    Fund hier ein FEHLER und keine Warnung: Der Lauf bricht ab, es wird
+    nichts geschrieben.
+    """
+    slugs = {p["slug"] for p in produkte}
+    gesehen = set()
+    echte = 0
+
+    for w in wuensche:
+        wid = w.get("id", "?")
+        wo = f"wunsch {wid}"
+        pruefe_gegen_schema(w, schema, "", wo)
+
+        if wid in gesehen:
+            melde(fehler, wo, "diese id gibt es schon ein zweites Mal")
+        gesehen.add(wid)
+        if not w.get("platzhalter"):
+            echte += 1
+
+        # --- Kein Personenbezug in veröffentlichten Feldern ---------------
+        for feld in ("titel", "text", "alias"):
+            wert = w.get(feld) or ""
+            for muster, was in PERSONENBEZUG:
+                if muster.search(wert):
+                    melde(fehler, wo, f"{feld} enthält {was}. Diese Datei wird "
+                                      f"veröffentlicht – personenbezogene Angaben gehören "
+                                      f"ausschließlich in die Benachrichtigungs-Mail.")
+        for muster, was in PERSONENBEZUG:
+            if muster.search((w.get("kommentar") or {}).get("text", "")):
+                melde(fehler, wo, f"der Kommentar enthält {was} – siehe oben")
+
+        # --- Vokabular ----------------------------------------------------
+        if w.get("thema") not in vokabular.get("wunschThema", {}):
+            melde(fehler, wo, f"thema '{w.get('thema')}' hat keinen Anzeigetext in "
+                              f"vokabular.yaml → wunschThema")
+        if w.get("status") not in vokabular.get("wunschStatus", {}):
+            melde(fehler, wo, f"status '{w.get('status')}' hat keinen Anzeigetext in "
+                              f"vokabular.yaml → wunschStatus")
+
+        # --- Produktbezüge ------------------------------------------------
+        if w.get("thema") == "wunsch-bestehend" and not w.get("produkt"):
+            melde(warnungen, wo, "Thema ist 'Wunsch zu einer FehlerFuchs-Anwendung', "
+                                 "aber es steht nicht dabei, zu welcher")
+        if w.get("produkt") and w["produkt"] not in slugs:
+            melde(fehler, wo, f"produkt '{w['produkt']}' gibt es im Modell nicht")
+        if w.get("produkt") and w.get("thema") != "wunsch-bestehend":
+            melde(warnungen, wo, "produkt gesetzt, obwohl das Thema kein Wunsch zu einer "
+                                 "bestehenden Anwendung ist")
+        if w.get("ergebnis"):
+            if w["ergebnis"] not in slugs:
+                melde(fehler, wo, f"ergebnis '{w['ergebnis']}' gibt es im Modell nicht")
+            if w.get("status") != "umgesetzt":
+                melde(fehler, wo, "ergebnis gesetzt, aber der Status ist nicht 'umgesetzt' – "
+                                  "das widerspricht sich")
+
+        # --- Ein Status ohne Erklärung lässt den Einreicher raten -----------
+        if w.get("status") in ("umgesetzt", "nicht-umsetzbar") and not w.get("kommentar"):
+            melde(warnungen, wo, f"Status '{w['status']}' ohne Kommentar. Gerade bei einem "
+                                 f"Nein möchte man wissen, warum.")
+        if w.get("status") == "umgesetzt" and not w.get("ergebnis"):
+            melde(warnungen, wo, "als umgesetzt markiert, aber es steht nicht dabei, "
+                                 "woraus – der Kreis bleibt offen")
+
+        # --- Zeitliche Plausibilität ---------------------------------------
+        k = w.get("kommentar")
+        if k and w.get("eingereicht") and k["datum"] < w["eingereicht"]:
+            melde(fehler, wo, f"der Kommentar ({k['datum']}) ist älter als die Einreichung "
+                              f"({w['eingereicht']})")
+
+    # --- Platzhalter sind zum Wegwerfen gedacht ---------------------------
+    platzhalter = [w for w in wuensche if w.get("platzhalter")]
+    if platzhalter and echte:
+        melde(warnungen, "wuensche", f"{len(platzhalter)} Platzhalter stehen neben "
+                                     f"{echte} echten Wünschen – die Beispiele können weg")
+
+    return sorted(wuensche, key=lambda w: (w.get("eingereicht", ""), w.get("id", "")), reverse=True)
+
+
 # --------------------------------------------------------- Abgleich mit der Website
 
 def abgleich_mit_website(produkte):
@@ -626,6 +941,7 @@ def main():
 
     schema = json.loads(SCHEMA_FILE.read_text(encoding="utf-8"))
     meldung_schema = json.loads(MELDUNG_SCHEMA_FILE.read_text(encoding="utf-8"))
+    wunsch_schema = json.loads(WUNSCH_SCHEMA_FILE.read_text(encoding="utf-8"))
     statuses = yaml.safe_load((SRC / "statuses.yaml").read_text(encoding="utf-8"))
     vokabular = yaml.safe_load((SRC / "vokabular.yaml").read_text(encoding="utf-8"))
     marke = yaml.safe_load((SRC / "marke.yaml").read_text(encoding="utf-8"))
@@ -658,7 +974,7 @@ def main():
     if len(slugs) != len(produkte):
         fehler.append("mehrere Produkte teilen sich denselben slug")
 
-    meldungen = []
+    meldungen, wuensche = [], []
     if not fehler:
         for p in produkte:
             pruefe_vokabular(p, vokabular)
@@ -667,6 +983,9 @@ def main():
 
         roh = yaml.safe_load((SRC / "meldungen.yaml").read_text(encoding="utf-8"))
         meldungen = pruefe_meldungen(roh.get("meldungen", []), produkte, meldung_schema)
+
+        rohw = yaml.safe_load((SRC / "wuensche.yaml").read_text(encoding="utf-8"))
+        wuensche = pruefe_wuensche(rohw.get("wuensche", []), produkte, vokabular, wunsch_schema)
 
     # Die Marke verspricht etwas – die Belege dafür stehen bei den Produkten.
     pt = marke.get("person", {}).get("portrait")
@@ -696,6 +1015,7 @@ def main():
         return 1
 
     print(f"\nGeprüft: {len(produkte)} Produkte, {len(meldungen)} Meldungen, "
+          f"{len(wuensche)} Wünsche, "
           f"{len(statuses)} Statusstufen, "
           f"{sum(len(v) for v in vokabular.values())} Vokabeln — keine Fehler.")
 
@@ -720,10 +1040,20 @@ def main():
         {**kopf, **marke}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     OUT_NEWS.write_text(json.dumps(
         {**kopf, "meldungen": meldungen}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    # Zähler gleich mitgeben: Er wird auf der Seite gebraucht und soll nicht
+    # dort noch einmal ausgerechnet werden. Platzhalter zählen nicht mit.
+    echte = [w for w in wuensche if not w.get("platzhalter")]
+    OUT_WUENSCHE.write_text(json.dumps({**kopf, "wuensche": wuensche, "zaehler": {
+        "gesamt": len(echte),
+        "neu": sum(1 for w in echte if w["status"] == "neu"),
+        "inBearbeitung": sum(1 for w in echte if w["status"] == "in-bearbeitung"),
+        "umgesetzt": sum(1 for w in echte if w["status"] == "umgesetzt"),
+        "nichtUmsetzbar": sum(1 for w in echte if w["status"] == "nicht-umsetzbar"),
+    }}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print(f"Geschrieben: {OUT_PRODUCTS.relative_to(ROOT)}, {OUT_STATUSES.relative_to(ROOT)}, "
           f"{OUT_VOKABULAR.relative_to(ROOT)}, {OUT_MARKE.relative_to(ROOT)}, "
-          f"{OUT_NEWS.relative_to(ROOT)}")
+          f"{OUT_NEWS.relative_to(ROOT)}, {OUT_WUENSCHE.relative_to(ROOT)}")
     return 0
 
 

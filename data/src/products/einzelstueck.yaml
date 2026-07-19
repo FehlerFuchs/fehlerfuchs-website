@@ -202,6 +202,18 @@ media:
     alt: EinzelStück – von FehlerFuchs
     width: 1120
     height: 300
+  # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
+  # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
+  # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.
+  platzhalter: 4
+# Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
+# Was dort nicht steht, steht auch hier nicht – dann greift der Standard.
+# Alle Kontraste rechnet das Prüfskript, sie sind nicht geschätzt.
+theme:
+  modus: hell
+  text: "#2B160B"    # Markenschwarz, ausdrücklich nicht #000000
+  akzent: "#8A6A1E"  # verbindlich – Kontrast 5,1:1 gegen Weiß
+  quelle: FehlerFuchs_EinzelStueck/04_Marke/MARKE_EinzelStueck.md
 
 links:
   # Auf der bestehenden Website gibt es dieses Angebot noch nicht; bis dahin

@@ -38,6 +38,22 @@ media:
     alt: PDFuchs – von FehlerFuchs
     width: 907
     height: 300
+  # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
+  # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
+  # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.
+  platzhalter: 4
+# Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
+# Was dort nicht steht, steht auch hier nicht – dann greift der Standard.
+# Alle Kontraste rechnet das Prüfskript, sie sind nicht geschätzt.
+theme:
+  modus: hell
+  hintergrund: "#FBF7F2"  # paper
+  flaeche: "#FFFBF7"      # panelWarm
+  rand: "#EAD7DC"         # borderSoft
+  text: "#2B160B"         # ink
+  textLeise: "#6F4F44"    # textSecondary
+  akzent: "#9F1239"       # pdfPrimary
+  quelle: FehlerFuchs_PDFuchs/11_App_Flutter/pdfuchs_desktop/lib/ui/ff_tokens.dart
 
 links:
   page: /apps/pdfuchs.html

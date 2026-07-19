@@ -29,6 +29,36 @@ media:
     alt: CoppiceMail – von FehlerFuchs
     width: 1160
     height: 300
+  # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
+  # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
+  # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.
+  platzhalter: 4
+# Warum es gerade so steht – in eigenen Worten.
+#
+# „Pausiert" allein liest sich, als sei das Projekt tot. Das ist es nicht, und
+# das darf man sagen. Der Satz hängt unter 'wenn' am Status: Wird die Arbeit
+# wieder aufgenommen, passt er nicht mehr, wird nicht angezeigt und die Prüfung
+# meldet ihn. So kann aus einer warmen Erklärung keine veraltete Ausrede werden.
+statusGrund:
+  wenn: pausiert
+  text: >-
+    Aufgeschoben ist nicht aufgehoben. CoppiceMail ist von allem, was hier steht,
+    das anspruchsvollste Stück – ein E-Mail-Programm, das Belege wirklich versteht,
+    ist kein Wochenendprojekt. Es kommt, aber gerade waren mir andere Babys
+    wichtiger. Ich sage lieber ehrlich „später" als „bald" und halte es dann nicht.
+
+# Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
+# Was dort nicht steht, steht auch hier nicht – dann greift der Standard.
+# Alle Kontraste rechnet das Prüfskript, sie sind nicht geschätzt.
+theme:
+  modus: hell
+  hintergrund: "#FBF7F2"  # bg
+  flaeche: "#FFFFFF"      # surface
+  rand: "#E7DACC"         # line
+  text: "#1A140F"         # ink
+  textLeise: "#6B5B50"    # muted
+  akzent: "#0F5132"       # primary – Tanne
+  quelle: FehlerFuchs_CoppiceMail/app/ui/theme.py
 
 links:
   page: /apps/coppicemail.html

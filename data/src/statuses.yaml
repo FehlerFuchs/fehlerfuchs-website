@@ -1,4 +1,16 @@
 # Statusstufen — verbindlich für Website, Badges und Handlungsaufforderungen.
+#
+# 'weg' und 'wegName' beschreiben zusätzlich den WEG bis zur Veröffentlichung.
+# Damit ist die Zeitleiste auf der Produktseite kein eigenes Feld mehr, das
+# gepflegt werden müsste, sondern eine Ansicht auf platforms[].status:
+# Wo eine Plattform steht, steht der Meilenstein. Sie kann deshalb nicht mehr
+# von der Wirklichkeit abdriften — genau das war auf der alten Wunschliste
+# passiert, wo MobileReport noch bei „Freigabe & Feinschliff" stand, während
+# es längst im Play Store war.
+#
+# Stufen OHNE 'weg' (idee, pausiert, eingestellt) sind keine Wegpunkte,
+# sondern Zustände daneben. Sie unterbrechen die Zeitleiste, statt sie
+# fortzusetzen.
 # order: kleiner = weiter fortgeschritten. Bestimmt, welcher Plattformstatus
 #        den Gesamtstatus eines Produkts gewinnt.
 # cta:   welche Handlungsaufforderung diese Stufe überhaupt zulässt.
@@ -12,6 +24,8 @@ verfuegbar:
   border: "#CDE7B6"
   order: 1
   cta: [download, kauf]
+  weg: 5
+  wegName: Veröffentlicht
   meaning: Öffentlich nutzbar, regulär veröffentlicht.
 
 pruefung:
@@ -22,6 +36,8 @@ pruefung:
   border: "#F3D9B0"
   order: 2
   cta: [keine]
+  weg: 4
+  wegName: Beim Store zur Prüfung
   meaning: Beim Store eingereicht, Freigabe steht aus. Kein Download möglich.
 
 beta:
@@ -32,6 +48,8 @@ beta:
   border: "#F3D9B0"
   order: 3
   cta: [download, beta-anmeldung]
+  weg: 3
+  wegName: Offene Beta
   meaning: Öffentlich testbar, nicht endgültig. Fehler sind zu erwarten.
 
 alpha:
@@ -42,6 +60,8 @@ alpha:
   border: "#F3D9B0"
   order: 4
   cta: [beta-anmeldung]
+  weg: 3
+  wegName: Geschlossene Alpha
   meaning: Nur ausgewählte Tester.
 
 entwicklung:
@@ -52,6 +72,8 @@ entwicklung:
   border: "#E2D6C8"
   order: 5
   cta: [interesse]
+  weg: 2
+  wegName: In Entwicklung
   meaning: Wird aktiv gebaut. Kein Termin zugesagt.
 
 konzept:
@@ -62,6 +84,8 @@ konzept:
   border: "#E2D6C8"
   order: 6
   cta: [interesse]
+  weg: 1
+  wegName: Konzept
   meaning: Konzipiert, Umsetzung noch nicht begonnen.
 
 idee:

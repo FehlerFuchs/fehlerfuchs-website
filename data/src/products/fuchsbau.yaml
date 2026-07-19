@@ -7,7 +7,7 @@ description: >-
   Erzeugt Passwörter, die man sich tatsächlich merken kann, und verwahrt sie in einem
   einfachen lokalen Tresor. Kein Konto, keine Cloud, keine Synchronisation über fremde Server.
 audience: [privat, selbststaendige]
-accent: "#3B6B4E"
+accent: "#2C5740"   # Farbe der App
 status: entwicklung
 
 platforms:
@@ -33,6 +33,22 @@ media:
     alt: FuchsBau – von FehlerFuchs
     width: 1080
     height: 360
+  # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
+  # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
+  # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.
+  platzhalter: 4
+# Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
+# Die helle Fassung – die Seite bleibt eine Website, kein Bildschirmfoto.
+# Alle Kontraste sind vom Prüfskript gerechnet, nicht geschätzt.
+theme:
+  modus: hell
+  hintergrund: "#F1F0E7"
+  flaeche: "#FCFBF6"
+  rand: "#E0DACB"
+  text: "#2B241C"
+  textLeise: "#6E6657"
+  akzent: "#2C5740"
+  quelle: FehlerFuchs_FuchsBau/fuchsbau/lib/core/theme/app_theme.dart
 
 links:
   page: /apps/fuchsbau.html

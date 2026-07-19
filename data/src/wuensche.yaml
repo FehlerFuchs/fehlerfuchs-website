@@ -1,0 +1,101 @@
+# Wunscherfüller — freigegebene Wünsche
+# =====================================
+#
+# Geprüft gegen data/schema/wunsch.schema.json.
+#
+# ACHTUNG, DAS IST DER WICHTIGSTE SATZ IN DIESER DATEI:
+#
+#     Diese Datei wird VERÖFFENTLICHT. Hier stehen ausschließlich Angaben,
+#     die öffentlich sein dürfen.
+#
+# Name, E-Mail und alles Weitere, das jemand freiwillig angibt, erreichen nur
+# die Benachrichtigungs-Mail an FehlerFuchs. Sie werden nie hier abgelegt –
+# das Prüfskript sucht aktiv nach E-Mail-Adressen und Telefonnummern und
+# bricht ab, wenn es welche findet. Der Schutz soll nicht am Gedächtnis hängen.
+#
+# Hier stehen nur FREIGEGEBENE Wünsche. Noch nicht freigegebene liegen auf dem
+# Server und werden von der Seite live nachgeladen – verschwommen, ohne Inhalt.
+#
+# Bearbeitet über die Werkstatt (astro, /werkstatt/) oder von Hand.
+# Nach jeder Änderung:
+#     cd website && py -3 tools\build_data.py
+
+wuensche:
+
+  # ---------------------------------------------------------------------
+  # PLATZHALTER. Solange keine echten Wünsche da sind, soll die Seite nicht
+  # leer wirken – aber auch niemanden täuschen. Sie sind als Beispiel
+  # gekennzeichnet und zählen im Zähler nicht mit. Sobald der erste echte
+  # Wunsch freigegeben ist, können sie weg.
+  # ---------------------------------------------------------------------
+
+  - id: "2026-001"
+    platzhalter: true
+    eingereicht: "2026-07-10"
+    alias: Beispiel
+    thema: anwendungswunsch
+    quelle: extern
+    titel: "Eine App, die tut was sie soll – und sonst nichts"
+    text: >-
+      Ich nutze täglich eine App aus dem Play Store, weil ich die Funktion brauche.
+      Aber die Werbung nervt, sie braucht ewig zum Starten, und die Hälfte der
+      Berechtigungen verstehe ich nicht. Ich hätte gern dasselbe, nur schlank und
+      ohne dass jemand mitliest. Muss auch nichts kostenlos sein.
+    status: in-bearbeitung
+    kommentar:
+      datum: "2026-07-12"
+      text: >-
+        Genau dafür gibt es FehlerFuchs. Ich schaue mir an, was die App wirklich
+        können muss – erfahrungsgemäß sind es drei Dinge und nicht dreißig.
+        Melde mich, sobald ich einschätzen kann, ob es sich lohnt.
+
+  - id: "2026-002"
+    platzhalter: true
+    eingereicht: "2026-07-11"
+    thema: wunsch-bestehend
+    produkt: orgafuchs
+    quelle: extern
+    titel: Dienste zwischen zwei Geräten tauschen, ohne alles neu zu tippen
+    text: >-
+      Wir planen zu zweit im Wechsel. Wenn einer eine Woche ändert, muss der andere
+      es von Hand nachziehen. Ein Weg, einzelne Dienste zu übernehmen statt den
+      ganzen Monat, wäre großartig.
+    status: neu
+
+  - id: "2026-003"
+    platzhalter: true
+    eingereicht: "2026-06-28"
+    thema: app-idee
+    quelle: intern
+    titel: Kleiner Helfer für wiederkehrende Papierkram-Termine
+    text: >-
+      Eigene Idee aus dem Alltag: Es gibt Fristen, die einmal im Jahr auftauchen
+      und die man jedes Mal neu zusammensucht. Eine kleine Anwendung, die sie
+      kennt und rechtzeitig erinnert – lokal, ohne Konto.
+    status: nicht-umsetzbar
+    kommentar:
+      datum: "2026-07-02"
+      text: >-
+        Nach kurzem Nachdenken verworfen: Das kann jeder Kalender, und ein weiteres
+        Programm dafür wäre eins zu viel. Ich sage lieber ehrlich Nein, als etwas
+        zu bauen, das niemand braucht.
+
+  - id: "2026-004"
+    platzhalter: true
+    eingereicht: "2026-06-20"
+    alias: Kerstin
+    thema: wunsch-bestehend
+    produkt: mobilereport
+    quelle: extern
+    titel: Betreff für Meldungen
+    text: >-
+      Wenn ich eine Meldung als Mail rausschicke, steht im Betreff immer dasselbe.
+      Ich hätte gern einen eigenen Betreff je Meldung, damit man in der Mailflut
+      erkennt, worum es geht.
+    status: umgesetzt
+    ergebnis: mobilereport-enterprise
+    kommentar:
+      datum: "2026-07-09"
+      text: >-
+        Ist drin, seit Version 1.0.1. Danke – das war eine dieser Kleinigkeiten,
+        die im eigenen Gebrauch nie auffallen und im echten sofort.
