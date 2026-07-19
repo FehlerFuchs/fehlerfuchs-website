@@ -77,13 +77,26 @@ footer{margin-top:30px;color:var(--muted);font-size:.82rem;border-top:1px solid 
 .rollbereich{scrollbar-width:none;-ms-overflow-style:none}
 .rollbereich::-webkit-scrollbar{width:0;height:0;display:none}
 .rollbereich.senkrecht{padding-right:12px}
-.rollbereich.waagerecht{padding-bottom:12px}
+.rollbereich.waagerecht{padding-bottom:4px}
 
 .rollschiene{position:absolute;border-radius:6px;opacity:0;
              background:var(--pg-rand,#ecdfd2);transition:opacity .15s}
 .rollschiene.da{opacity:1}
 .rollrahmen:not(.waagerecht) .rollschiene{right:0;top:2px;bottom:2px;width:6px}
-.rollrahmen.waagerecht .rollschiene{left:2px;right:2px;bottom:0;height:6px}
+
+/* Die waagerechte Schiene KLEBT. Eine Tabelle kann zwei Bildschirme hoch sein;
+   eine Leiste an ihrem Fuss sieht man dann erst, wenn man ganz unten ist - und
+   bis dahin ahnt niemand, dass es seitwaerts weitergeht. 'position:sticky' mit
+   'bottom' heftet sie an den unteren Bildschirmrand, solange die Tabelle im
+   Bild ist, und legt sie am Ende wieder ab. Eine zweite Leiste oben waere
+   dieselbe Aussage zweimal - und die obere waere unten wieder unsichtbar. */
+.rollrahmen.waagerecht .rollschiene{position:sticky;bottom:14px;height:6px;
+                                    margin:4px 2px 0;z-index:5}
+
+/* Am Handy sitzt unten die Tableiste. Die Schiene legt sich darueber. */
+@media (max-width:719px){
+  .rollrahmen.waagerecht .rollschiene{bottom:84px}
+}
 .rollschieber{position:absolute;border-radius:6px;background:var(--pg-akzent,var(--accent,#E76F51))}
 .rollrahmen:not(.waagerecht) .rollschieber{left:0;width:6px;top:0;height:20px}
 .rollrahmen.waagerecht .rollschieber{top:0;height:6px;left:0;width:20px}
