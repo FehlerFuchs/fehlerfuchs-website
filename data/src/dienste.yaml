@@ -1,0 +1,170 @@
+# Dienste, die FehlerFuchs betreibt oder in Anspruch nimmt.
+#
+# WOZU: Die Datenschutzseite besteht aus drei Schichten – Allgemeines, dann
+# je Anwendung, dann je Dienst. Die unterste Schicht steht hier, damit sie
+# nicht in einem Fließtext festwächst, den beim nächsten Dienst niemand
+# nachzieht. Was ein Dienst tut und was dabei übertragen wird, ist eine
+# Tatsache über die Infrastruktur, keine Formulierung.
+#
+# VERTRAULICH BLEIBT DRAUSSEN. Dieser Ordner wird von GitHub Pages
+# ausgeliefert – jede Zeile hier steht im Netz. Keine IP-Adressen, keine
+# Admin-Zugänge, keine Kontodaten. Öffentliche Namen und Adressen sind in
+# Ordnung, sie stehen ohnehin im Zertifikat.
+#
+# Prüfregeln (tools/build_data.py):
+#   • id ist eindeutig und ändert sich nie
+#   • jede genannte Produkt-Kennung muss es geben          → Fehler
+#   • 'stand' darf nicht in der Zukunft liegen             → Fehler
+#   • eine IP-Adresse im Text                              → Fehler
+#   • ein Dienst, den kein Produkt nutzt                   → Warnung
+
+# Auftragsverarbeiter: Stellen, die personenbezogene Daten NUR fuer FehlerFuchs
+# und nach Weisung verarbeiten (Art. 28 DSGVO). Hier zentral, weil dieselbe
+# Stelle mehrere Dienste traegt - eine Anschrift an vier Orten ist eine
+# Anschrift, von der eines Tages drei falsch sind.
+#
+# Alle Angaben am 19.07.2026 am Impressum bzw. am Vertragstext geprueft.
+auftragsverarbeiter:
+
+  - id: ionos
+    name: IONOS SE
+    anschrift: Elgendorfer Str. 57, 56410 Montabaur, Deutschland
+    register: Amtsgericht Montabaur, HRB 24498
+    ustId: DE815563912
+    wofuer:
+      - Betrieb des virtuellen Servers, auf dem Lizenz- und Relaisdienst laufen
+      - Postfach und Mailversand (SMTP)
+    avv: >-
+      Vereinbarung zur Auftragsverarbeitung nach Art. 28 Abs. 3 DSGVO,
+      Fassung 1.2, Stand 06/2023. Sie ist Bestandteil der AGB und gilt fuer
+      jeden gebuchten Vertrag - auch ohne ausdruecklichen Verweis (Ziffer 1.1).
+    avv_quelle: https://www.ionos.de/terms-gtc/avv/
+    standort: >-
+      Verarbeitung in der EU bzw. im EWR; bei Drittlandtransfer sichert IONOS
+      die Voraussetzungen nach Art. 44 ff. DSGVO zu (Ziffer 4.3).
+    unterauftragnehmer: >-
+      Allgemein genehmigt (Ziffer 10.1); die jeweils eingesetzten Stellen
+      stehen in Anhang 2 des Vertrags, Aenderungen werden angekuendigt.
+    nachweis: ISO 27001 (Ziffer 9.2)
+    geprueft: "2026-07-19"
+
+dienste:
+
+  - id: lizenzserver
+    name: Lizenzserver
+    adresse: license.fehlerfuchs.eu
+    zweck: >-
+      Stellt Lizenzschlüssel für kostenpflichtige Ausbaustufen aus und prüft
+      sie. Ohne Kauf einer solchen Stufe wird er nie angesprochen.
+    betreiber: eigen
+    standort: Deutschland
+    stand: "2026-07-19"
+    # Nur was die APP oder der BROWSER dorthin sendet. Was der Dienst
+    # intern speichert, gehoert in die Aufbewahrung darunter.
+    uebermittelt:
+      - Lizenzschlüssel
+      - Kennung des Geräts, auf dem freigeschaltet wird
+    aufbewahrung: >-
+      Lizenz und zugehörige Gerätekennung, solange die Lizenz gilt.
+      Kaufabwicklung und Rechnungsdaten liegen beim Zahlungsdienstleister,
+      nicht hier.
+    produkte: [mobilereport, mobilereport-enterprise, gewerbepro]
+    # Korrigiert am 19.07.2026: Hier stand "der Dienst ist im Aufbau, bis er in
+    # Betrieb geht baut keine veröffentlichte Anwendung eine Verbindung dorthin
+    # auf". Beides war falsch – der Dienst läuft, und die veröffentlichte
+    # GewerbePro-Beta spricht ihn an (siehe deren Steckbrief). Ein Satz, der
+    # einmal stimmte und nie nachgezogen wurde: genau der Fall, für den es den
+    # Steckbrief-Umlauf gibt.
+    hinweis: >-
+      Ohne Kauf einer kostenpflichtigen Stufe wird der Dienst nicht
+      angesprochen. Die Kontakt- und Supportformulare der Apps laufen
+      ebenfalls über ihn – dann ohne jeden Lizenzbezug.
+
+  - id: relaisserver
+    name: Relaisserver
+    adresse: relais.fehlerfuchs.eu
+    zweck: >-
+      Reicht verschlüsselte Nachrichten zwischen den eigenen Geräten einer
+      Gruppe weiter, wenn sie nicht im selben Netz stehen. Er ist ein
+      Briefkasten, kein Speicher: Der Inhalt wird unangetastet weitergeleitet
+      und nicht abgelegt.
+    betreiber: eigen
+    standort: Deutschland
+    stand: "2026-07-14"
+    uebermittelt:
+      - Gruppenkennung (ein selbst gewähltes Kennwort, nicht der Gruppenname)
+      - Gerätekennung innerhalb der Gruppe
+      - der verschlüsselte Nachrichteninhalt
+    aufbewahrung: >-
+      Keine. Nachrichten werden weitergereicht und nicht gespeichert. Der
+      Dienst kennt weder Namen noch Konten – es gibt keine Anmeldung.
+    produkte: [orgafuchs]
+    hinweis: >-
+      Wer den Sync über das eigene Heimnetz betreibt oder ihn gar nicht nutzt,
+      spricht diesen Dienst nie an.
+
+  - id: push
+    name: Benachrichtigungen
+    adresse: ntfy.relais.fehlerfuchs.eu
+    zweck: >-
+      Schickt kurze Hinweise auf Geräte einer Gruppe, etwa wenn sich ein Plan
+      geändert hat. Selbst betrieben, nicht über einen Anbieterdienst.
+    betreiber: eigen
+    standort: Deutschland
+    stand: "2026-07-14"
+    uebermittelt:
+      - Themenkennung der Gruppe
+      - der Hinweistext
+    aufbewahrung: >-
+      Hinweise werden zugestellt und danach verworfen.
+    produkte: [orgafuchs]
+
+  - id: digistore24
+    name: Zahlungsabwicklung (Digistore24)
+    adresse: digistore24.com
+    # Am 19.07.2026 an der Datenschutzerklärung geprüft. WICHTIG: Es gibt zwei
+    # Gesellschaften. Für den europäischen Raum ist es die GmbH in Hildesheim,
+    # NICHT die Digistore24 Inc. in Florida. Deren Erklärung (die man über die
+    # Sprachumschaltung zuerst findet) ist nach kalifornischem Recht verfasst
+    # und beschreibt Weitergaben an Werbenetzwerke, die hier nicht gelten.
+    # Der Verweis von dort auf die EWR-Fassung zeigt im Kreis auf sich selbst.
+    anbieter:
+      name: Digistore24 GmbH
+      anschrift: St.-Godehard-Straße 32, 31139 Hildesheim, Deutschland
+      register: Amtsgericht Hildesheim, HRB 202956
+      vertreter: Anthony Kossatz
+      datenschutz: datenschutz@digistore24.com
+      datenschutzbeauftragter: Simon Hofer
+      erklaerung: https://www.digistore24.com/page/privacy/1/de
+      geprueft: "2026-07-19"
+    # KEIN Auftragsverarbeiter: Digistore24 verkauft als Merchant of Record im
+    # eigenen Namen und ist damit eigener Verantwortlicher. Es braucht also
+    # keinen Vertrag nach Art. 28, sondern die Beschreibung einer Weitergabe.
+    rolle: eigener-verantwortlicher
+    # Entscheidung Matze, 19.07.2026: Gekauft wird auf einem Orderform BEI
+    # Digistore24, nicht über deren eingebettetes Formular (Multi-Step-Orderbox)
+    # auf fehlerfuchs.eu. Das ist der einfache Weg: keine gemeinsame
+    # Verantwortlichkeit nach Art. 26, nur eine Weitergabe, die zu beschreiben
+    # ist. Wird das Formular je eingebettet, ändert sich die Rechtslage – dann
+    # muss diese Zeile mitgeändert werden.
+    einbindung: orderform-bei-digistore24
+    drittland: >-
+      Übermittlungen finden laut Erklärung nur bei geeigneten Garantien,
+      Standardvertragsklauseln oder einem Angemessenheitsbeschluss statt.
+    zweck: >-
+      Wickelt den Kauf kostenpflichtiger Ausbaustufen ab. Digistore24 ist
+      dabei der Verkäufer gegenüber dem Kunden; FehlerFuchs erhält den Kauf
+      gemeldet und stellt daraufhin die Lizenz aus.
+    betreiber: fremd
+    standort: Deutschland
+    stand: "2026-07-19"
+    uebermittelt:
+      - Angaben, die beim Kauf eingegeben werden
+      - Zahlungsdaten
+    aufbewahrung: >-
+      Liegt bei Digistore24. FehlerFuchs erhält nur die Bestätigung des Kaufs
+      und die Angaben, die zur Ausstellung der Lizenz nötig sind.
+    produkte: [mobilereport, mobilereport-enterprise, gewerbepro]
+    hinweis: >-
+      Solange keine kostenpflichtige Stufe gekauft wird, entsteht dort kein
+      Vorgang.

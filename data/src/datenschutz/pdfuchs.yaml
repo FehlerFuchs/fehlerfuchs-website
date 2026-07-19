@@ -1,0 +1,92 @@
+slug: pdfuchs
+name: PDFuchs
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_PDFuchs
+fassung: "v0.1.0_dev (Vorabfassung, noch nicht veroeffentlicht)"
+
+# Hinweis fuer die Pflege: Die angezeigten Felder (auf_dem_geraet,
+# berechtigungen, loeschung, besonderheiten) beschreiben, WAS mit Daten
+# geschieht. Technische Nachweise gehoeren ausschliesslich in "beleg".
+lokal_only: true
+
+auf_dem_geraet:
+  - was: Vom Nutzer geoeffnete und erzeugte PDFs sowie Zwischenergebnisse (Vorschauen, korrigierte Scans, ausfuellbare Formulare, Ergebnisse der Texterkennung)
+    wo: lokaler Ausgabeordner der Anwendung
+    beleg: 05_Engine/pdfuchs_core/pdfuchs_core/config.py:61
+  - was: Angaben zur Testphase und zur Zahl der erstellten Formulare (Startdatum, Zaehler)
+    wo: "Datei license_state.json im Anwendungsdatenordner des Benutzers (%LOCALAPPDATA%\\PDFuchs)"
+    beleg: 05_Engine/pdfuchs_core/pdfuchs_core/feature_flags.py:44-50
+  - was: Angaben zu erkannten Scannern (Geraetename, Hersteller, Geraetekennung, Faehigkeiten) und selbst angelegte Scanprofile
+    wo: zwei Dateien im lokalen Ausgabeordner der Anwendung
+    beleg: 05_Engine/pdfuchs_core/pdfuchs_core/scanner.py:22 und :28
+  - was: Speicherorte der mitgelieferten Zusatzwerkzeuge
+    wo: Einstellungsdatei im Programmordner
+    beleg: 92_Tools/werkzeuge.ini, erzeugt von 92_Tools/setup_werkzeuge.ps1
+
+berechtigungen:
+  - name: Zugriff auf lokale Dateien
+    wofuer: Oeffnen und Speichern der vom Nutzer gewaehlten Dokumente
+    pflicht: true
+    beleg: Windows-Desktopanwendung ohne Manifest-Berechtigungsmodell; Dateiauswahl ueber den Systemdialog
+  - name: Zugriff auf lokal angeschlossene Scanner
+    wofuer: Einscannen von Vorlagen ueber Flachbett oder Einzug
+    pflicht: false
+    beleg: 05_Engine/pdfuchs_core/pdfuchs_core/scanner.py (WIA/TWAIN)
+
+# Keine Uebertragung nach draussen.
+# Beleg: im Programmkern wurden keine Aufrufe nach draussen gefunden;
+# die einzige URL ist ein angezeigter Hinweistext.
+uebertragungen: []
+
+# Laufen alle lokal auf dem Geraet. Sie sehen den Dokumentinhalt, weil sie ihn
+# verarbeiten; sie geben nichts weiter.
+fremde_dienste:
+  - name: LibreOffice (mitgeliefert)
+    wofuer: Umwandlung von Office-Dateien nach PDF und PDF/A-Export
+    wann: lokal, nur wenn der Nutzer eine solche Umwandlung ausloest
+  - name: Tesseract OCR (mitgeliefert)
+    wofuer: Texterkennung auf gescannten Seiten
+    wann: lokal, nur wenn der Nutzer die Texterkennung ausloest
+  - name: PDFium (Bibliothek zur Anzeige)
+    wofuer: Darstellung der PDF-Seiten
+    wann: lokal, bei jeder Vorschau
+  - name: veraPDF (nicht mitgeliefert, extern)
+    wofuer: optionale Pruefung von PDF/A
+    wann: nur wenn der Nutzer es selbst installiert und eintraegt
+    beleg: 05_Engine/pdfuchs_core/pdfuchs_core/pdfa.py:88 (nur Hinweistext mit Downloadadresse)
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Alle Daten liegen auf dem Geraet. Selbst erzeugte oder bearbeitete PDFs liegen
+  dort, wo der Nutzer sie gespeichert hat, und lassen sich wie jede andere Datei
+  loeschen. Beim Deinstallieren wird das Programm entfernt; eigene Dokumente
+  bleiben erhalten. Die kleine Datei mit den Angaben zur Testphase im
+  Anwendungsdatenordner des Benutzers wird beim Deinstallieren nicht mit
+  entfernt und bleibt auf dem Geraet; sie kann jederzeit von Hand geloescht
+  werden.
+
+besonderheiten: >-
+  PDFuchs verarbeitet Dokumente vollstaendig auf dem eigenen Rechner. Die
+  Anwendung stellt von sich aus keine Verbindung ins Internet her und uebertraegt
+  keine Daten an FehlerFuchs oder an Dritte; ein Konto oder eine Anmeldung gibt
+  es nicht. Die Angaben zur Testphase und zur Zahl erstellter Formulare bleiben
+  ausschliesslich auf dem Geraet. Wird ein Scanner benutzt, werden Angaben zum
+  angeschlossenen Geraet lokal gespeichert, damit die Scanprofile dazu passen.
+  Der beschriebene Stand ist eine Vorabfassung, die noch nicht veroeffentlicht
+  wurde.
+
+vorhandener_text: 09_Releases/Datenschutz_Lokalhinweis_01072026.md
+
+offene_fragen: >-
+  1. Ob die mitgelieferten Zusatzwerkzeuge LibreOffice und Tesseract bei ihrer
+  Ausfuehrung von sich aus Netzverbindungen aufbauen (etwa eine Updatepruefung
+  von LibreOffice): PDFuchs loest nichts dergleichen aus; das Verhalten der
+  Werkzeuge selbst wurde nicht per Mitschnitt geprueft.
+  2. Ob die beim Einrichten gesetzte Windows-Dateizuordnung ueber die
+  Systemeintraege hinaus etwas nach aussen meldet: dafuer wurde kein Hinweis
+  gefunden, es wurde aber nicht abschliessend geprueft.

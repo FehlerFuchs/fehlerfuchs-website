@@ -1,0 +1,137 @@
+slug: lizenzserver
+name: FehlerFuchs Lizenzserver
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_Lizenzserver
+fassung: "Adapter-Stand 19.07.2026 (kein Versionsschema); Admin-API 1.0; mit Löschlauf"
+
+# Kein Endnutzer-Programm, sondern ein Server-Dienst. Daten verlassen das Gerät
+# des Nutzers zwangsläufig, sobald eine App den Dienst anspricht.
+lokal_only: false
+
+# Was der DIENST dauerhaft auf dem Server speichert (Feldname laut Vorlage
+# beibehalten; "Gerät" ist hier der Server).
+auf_dem_geraet:
+  - was: Lizenzdaten (Lizenzschlüssel, Lizenz-Kennung, Platzanzahl, Status, Laufzeit/Ablauf)
+    wo: Lizenzdatenbank auf dem Server
+    beleg: adapter/app/keygen_client.py, docker-compose.yml (Dienste keygen, postgres)
+  - was: E-Mail-Adresse des Käufers und Bestellnummer, als Angaben zur Lizenz
+    wo: Lizenzdatenbank auf dem Server
+    beleg: adapter/app/main.py, Funktion digistore_license (metadata)
+  - was: Geräte-/Aktivierungsdaten je belegtem Platz (Gerätekennung, Gerätename, Plattform, Zeitpunkte)
+    wo: Lizenzdatenbank auf dem Server
+    beleg: adapter/app/main.py, Funktion activate; adapter/app/keygen_client.py, activate_machine
+  - was: vollständige Aufrufe des Zahlungsanbieters (enthalten Bestell- und Käuferangaben, u. a. E-Mail)
+    wo: Datenbank auf dem Server; Löschung nach 90 Tagen
+    beleg: Tabelle provider_requests; adapter/app/db.py, record_request und cleanup
+  - was: Ereignis-Kennungen zum Schutz vor doppelter Verarbeitung
+    wo: Datenbank auf dem Server
+    beleg: Tabelle provider_events; adapter/app/db.py, record_event
+  - was: Beta-Tester-Registrierungen (Name, E-Mail, Kundenbereich, Freitext-Beschreibung, Einwilligung, Lizenzbezug, IP-Adresse, Zeitpunkt)
+    wo: Datenbank auf dem Server; IP-Adresse nach 7 Tagen entfernt, übrige Angaben nach 90 Tagen gelöscht bzw. die E-Mail durch eine gesalzene Einweg-Kennung ersetzt (pseudonym, nicht anonym)
+    beleg: Tabelle tester_registrations; adapter/app/db.py, record_tester und cleanup; adapter/app/main.py, tester_gewerbepro
+  - was: intern beobachtete Lizenzschlüssel samt Melde-Adresse (Hinweis bei Freischaltung)
+    wo: Datenbank auf dem Server
+    beleg: Tabelle watched_keys; adapter/app/db.py, add_watch
+  - was: Zustand des Tagesberichts (Zeitpunkt des letzten Laufs, Zähler)
+    wo: Datenbank auf dem Server
+    beleg: Tabelle report_state; adapter/app/db.py, set_last_run
+  - was: IP-Adressen als kurzlebige Zählwerte gegen Missbrauch (Kontaktformular, Tester-Registrierung)
+    wo: Zwischenspeicher auf dem Server, automatische Löschung nach 1 Stunde bzw. 24 Stunden
+    beleg: Redis; adapter/app/mailer.py, rate_ok und tester_rate_ok
+
+# Berechtigungen: entfällt — Server-Dienst, kein Manifest, keine Geräteberechtigungen.
+
+# JEDE Verbindung. Eingehend = jemand ruft den Dienst auf; ausgehend = der Dienst ruft.
+uebertragungen:
+  - wohin: license.fehlerfuchs.eu (eingehend, von den FehlerFuchs-Apps)
+    was: Lizenzschlüssel, Gerätekennung, optional Gerätename und Plattform
+    wann: beim Freischalten, Prüfen und Abmelden einer Lizenz
+    freiwillig: false
+    beleg: adapter/app/main.py, Endpunkte /v1/activate, /v1/validate, /v1/deactivate
+  - wohin: license.fehlerfuchs.eu (eingehend, vom Zahlungsanbieter)
+    was: Bestell- und Käuferangaben des Kaufvorgangs (u. a. Bestellnummer, E-Mail, Produkt/Variante)
+    wann: beim Kauf und bei Lebenszyklus-Ereignissen (z. B. Rückerstattung)
+    freiwillig: false
+    beleg: adapter/app/main.py, Endpunkte /v1/providers/digistore24/license und /ipn
+  - wohin: license.fehlerfuchs.eu (eingehend, von der Website)
+    was: Kontakt-/Supportanfragen (Name, E-Mail, Betreff, Nachricht, optionale Anhänge) bzw. Tester-Registrierungen
+    wann: wenn ein Formular abgeschickt wird
+    freiwillig: true
+    beleg: adapter/app/main.py, Endpunkte /v1/contact und /v1/providers/tester/gewerbepro
+  - wohin: E-Mail-Versand über den Postfachanbieter (SMTP)
+    was: Inhalt und Empfänger der versendeten Nachrichten (Lizenz-/Willkommensmails, Kontakt-/Supportanfragen inkl. Anhänge, interne Statusberichte)
+    wann: bei jedem Mailversand des Dienstes
+    freiwillig: false
+    beleg: adapter/app/mailer.py (aiosmtplib), adapter/requirements.txt
+  - wohin: keine weiteren ausgehenden Verbindungen
+    was: keine Update-Prüfung, keine Statistik, keine Schriften/Skripte aus fremden Netzen
+    wann: —
+    freiwillig: false
+    beleg: adapter/requirements.txt; die Lizenzsoftware (Keygen CE) läuft im selben Compose-Netz auf demselben Server (docker-compose.yml)
+
+# Fremde Stellen, die selbst Daten sehen.
+fremde_dienste:
+  - name: Digistore24 (Zahlungsabwicklung, Merchant of Record)
+    wofuer: Verkauf der Lizenzen; übermittelt Bestell- und Käuferangaben an den Lizenzserver
+    wann: beim Kauf und bei Lebenszyklus-Ereignissen
+  - name: Postfach-/SMTP-Anbieter (IONOS)
+    wofuer: Versand aller E-Mails des Dienstes
+    wann: bei jedem Mailversand
+  - name: Anbieter des virtuellen Servers (Hosting)
+    wofuer: Betrieb des Servers, auf dem alle genannten Daten liegen
+    wann: dauerhaft
+  - name: Keygen CE — KEIN fremder Dienst
+    wofuer: Lizenzverwaltung; selbst betriebene Software auf dem eigenen Server, es gehen keine Daten an den Hersteller
+    wann: —
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Ein täglicher Aufräumlauf setzt feste Fristen um. Die Roh-Aufrufe des
+  Zahlungsanbieters werden nach 90 Tagen endgültig gelöscht. Bei Tester-Registrierungen
+  wird die IP-Adresse bereits nach 7 Tagen entfernt; nach 90 Tagen werden Name,
+  Kundenbereich, Freitext und der Bezug zur Lizenz gelöscht und die E-Mail-Adresse durch
+  eine gesalzene Einweg-Kennung ersetzt. Das Salz ist ein Zufallsgeheimnis, das
+  ausschließlich auf dem Server liegt; ohne dieses Geheimnis ist die Kennung nicht
+  zurückrechenbar. Es handelt sich damit um eine Pseudonymisierung, nicht um eine
+  Anonymisierung — die Sperre gegen doppelte Gratislizenzen funktioniert weiter. Die
+  Zählschlüssel mit IP-Adressen im Zwischenspeicher löschen sich selbst nach längstens
+  24 Stunden. Die Betriebsprotokolle des Servers sind auf höchstens drei Dateien à 10 MB
+  je Dienst begrenzt und werden danach überschrieben; sie enthalten keine
+  Besucher-IP-Adressen (geprüft am laufenden System). Lizenzdaten und Geräte-/Aktivierungseinträge bleiben
+  bestehen, solange die Lizenz gilt — sonst würde das Produkt nicht mehr funktionieren;
+  sie lassen sich jederzeit gezielt endgültig löschen, einzelne Plätze auch freigeben.
+
+besonderheiten: >-
+  Der Lizenzserver ist ein Hintergrunddienst, kein Programm für Endnutzer.
+  Die Lizenzierung kommt ohne Benutzerkonto aus: Es genügen ein
+  Lizenzschlüssel und eine Gerätekennung, Namen sind nicht erforderlich. Für den
+  Betrieb ohne Netz gibt der Dienst ein signiertes Offline-Zeugnis an die App zurück,
+  das Lizenzschlüssel, Gerätekennung, Status und Platzanzahl enthält und auf dem Gerät
+  verbleibt. Angaben aus dem Kontakt- und Supportformular werden nicht in der Datenbank
+  gespeichert, sondern ausschließlich per E-Mail weitergeleitet; lediglich die
+  IP-Adresse fließt kurzzeitig in die Missbrauchsbremse ein. Der Zugriff auf die
+  Verwaltungsschnittstelle ist durch ein Zugangsgeheimnis geschützt, das nur auf dem
+  Server liegt. Wichtig zur Einordnung der Fristen: Die Pseudonymisierung nach 90 Tagen
+  betrifft die Tester-Registrierung. E-Mail-Adresse und Bestellnummer, die als
+  Metadaten an der Lizenz selbst hängen, bleiben davon unberührt, solange die Lizenz
+  besteht — Lizenzdaten sind von der Löschung ausdrücklich ausgenommen.
+
+vorhandener_text: ""
+
+offene_fragen: >-
+  (1) Hosting: Name und Anschrift des Server-Anbieters lassen sich aus diesem Projekt nicht
+  belegen (Standort laut Projektvorgabe EU/Deutschland). Für die Angaben zur
+  Auftragsverarbeitung nötig.
+  (2) Verträge und Steuerrecht: Ob mit dem Zahlungsanbieter und dem Postfachanbieter
+  Vereinbarungen zur Auftragsverarbeitung bestehen, ist von hier aus unbekannt. Ebenso
+  ungeprüft ist, ob der Zahlungsanbieter in seinen Aufrufen die IP-Adresse des Käufers
+  mitsendet — bis zur Löschung nach 90 Tagen liegt der Roh-Aufruf vor, die einzelnen
+  Feldinhalte wurden dafür nicht ausgewertet. Ob im Roh-Aufruf etwas steckt, das nur dort
+  existiert und für die Buchführung gebraucht würde, klärt abschließend der Steuerberater;
+  da der Zahlungsanbieter als Merchant of Record selbst verkauft und die Bestellung dort
+  geführt wird, spricht aus technischer Sicht nichts gegen die 90 Tage.

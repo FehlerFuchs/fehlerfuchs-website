@@ -351,6 +351,7 @@
       "items": {
         "enum": [
           "nur-lokal",
+          "inhalte-lokal",
           "keine-cloud",
           "kein-konto",
           "kein-tracking",

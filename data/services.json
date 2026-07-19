@@ -1,0 +1,115 @@
+{
+  "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
+  "generiert": "2026-07-19T23:32:19+02:00",
+  "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
+  "dienste": [
+    {
+      "id": "lizenzserver",
+      "name": "Lizenzserver",
+      "adresse": "license.fehlerfuchs.eu",
+      "zweck": "Stellt Lizenzschlüssel für kostenpflichtige Ausbaustufen aus und prüft sie. Ohne Kauf einer solchen Stufe wird er nie angesprochen.",
+      "betreiber": "eigen",
+      "standort": "Deutschland",
+      "stand": "2026-07-19",
+      "uebermittelt": [
+        "Lizenzschlüssel",
+        "Kennung des Geräts, auf dem freigeschaltet wird"
+      ],
+      "aufbewahrung": "Lizenz und zugehörige Gerätekennung, solange die Lizenz gilt. Kaufabwicklung und Rechnungsdaten liegen beim Zahlungsdienstleister, nicht hier.",
+      "produkte": [
+        "mobilereport",
+        "mobilereport-enterprise",
+        "gewerbepro"
+      ],
+      "hinweis": "Ohne Kauf einer kostenpflichtigen Stufe wird der Dienst nicht angesprochen. Die Kontakt- und Supportformulare der Apps laufen ebenfalls über ihn – dann ohne jeden Lizenzbezug."
+    },
+    {
+      "id": "relaisserver",
+      "name": "Relaisserver",
+      "adresse": "relais.fehlerfuchs.eu",
+      "zweck": "Reicht verschlüsselte Nachrichten zwischen den eigenen Geräten einer Gruppe weiter, wenn sie nicht im selben Netz stehen. Er ist ein Briefkasten, kein Speicher: Der Inhalt wird unangetastet weitergeleitet und nicht abgelegt.",
+      "betreiber": "eigen",
+      "standort": "Deutschland",
+      "stand": "2026-07-14",
+      "uebermittelt": [
+        "Gruppenkennung (ein selbst gewähltes Kennwort, nicht der Gruppenname)",
+        "Gerätekennung innerhalb der Gruppe",
+        "der verschlüsselte Nachrichteninhalt"
+      ],
+      "aufbewahrung": "Keine. Nachrichten werden weitergereicht und nicht gespeichert. Der Dienst kennt weder Namen noch Konten – es gibt keine Anmeldung.",
+      "produkte": [
+        "orgafuchs"
+      ],
+      "hinweis": "Wer den Sync über das eigene Heimnetz betreibt oder ihn gar nicht nutzt, spricht diesen Dienst nie an."
+    },
+    {
+      "id": "push",
+      "name": "Benachrichtigungen",
+      "adresse": "ntfy.relais.fehlerfuchs.eu",
+      "zweck": "Schickt kurze Hinweise auf Geräte einer Gruppe, etwa wenn sich ein Plan geändert hat. Selbst betrieben, nicht über einen Anbieterdienst.",
+      "betreiber": "eigen",
+      "standort": "Deutschland",
+      "stand": "2026-07-14",
+      "uebermittelt": [
+        "Themenkennung der Gruppe",
+        "der Hinweistext"
+      ],
+      "aufbewahrung": "Hinweise werden zugestellt und danach verworfen.",
+      "produkte": [
+        "orgafuchs"
+      ]
+    },
+    {
+      "id": "digistore24",
+      "name": "Zahlungsabwicklung (Digistore24)",
+      "adresse": "digistore24.com",
+      "anbieter": {
+        "name": "Digistore24 GmbH",
+        "anschrift": "St.-Godehard-Straße 32, 31139 Hildesheim, Deutschland",
+        "register": "Amtsgericht Hildesheim, HRB 202956",
+        "vertreter": "Anthony Kossatz",
+        "datenschutz": "datenschutz@digistore24.com",
+        "datenschutzbeauftragter": "Simon Hofer",
+        "erklaerung": "https://www.digistore24.com/page/privacy/1/de",
+        "geprueft": "2026-07-19"
+      },
+      "rolle": "eigener-verantwortlicher",
+      "einbindung": "orderform-bei-digistore24",
+      "drittland": "Übermittlungen finden laut Erklärung nur bei geeigneten Garantien, Standardvertragsklauseln oder einem Angemessenheitsbeschluss statt.",
+      "zweck": "Wickelt den Kauf kostenpflichtiger Ausbaustufen ab. Digistore24 ist dabei der Verkäufer gegenüber dem Kunden; FehlerFuchs erhält den Kauf gemeldet und stellt daraufhin die Lizenz aus.",
+      "betreiber": "fremd",
+      "standort": "Deutschland",
+      "stand": "2026-07-19",
+      "uebermittelt": [
+        "Angaben, die beim Kauf eingegeben werden",
+        "Zahlungsdaten"
+      ],
+      "aufbewahrung": "Liegt bei Digistore24. FehlerFuchs erhält nur die Bestätigung des Kaufs und die Angaben, die zur Ausstellung der Lizenz nötig sind.",
+      "produkte": [
+        "mobilereport",
+        "mobilereport-enterprise",
+        "gewerbepro"
+      ],
+      "hinweis": "Solange keine kostenpflichtige Stufe gekauft wird, entsteht dort kein Vorgang."
+    }
+  ],
+  "auftragsverarbeiter": [
+    {
+      "id": "ionos",
+      "name": "IONOS SE",
+      "anschrift": "Elgendorfer Str. 57, 56410 Montabaur, Deutschland",
+      "register": "Amtsgericht Montabaur, HRB 24498",
+      "ustId": "DE815563912",
+      "wofuer": [
+        "Betrieb des virtuellen Servers, auf dem Lizenz- und Relaisdienst laufen",
+        "Postfach und Mailversand (SMTP)"
+      ],
+      "avv": "Vereinbarung zur Auftragsverarbeitung nach Art. 28 Abs. 3 DSGVO, Fassung 1.2, Stand 06/2023. Sie ist Bestandteil der AGB und gilt fuer jeden gebuchten Vertrag - auch ohne ausdruecklichen Verweis (Ziffer 1.1).",
+      "avv_quelle": "https://www.ionos.de/terms-gtc/avv/",
+      "standort": "Verarbeitung in der EU bzw. im EWR; bei Drittlandtransfer sichert IONOS die Voraussetzungen nach Art. 44 ff. DSGVO zu (Ziffer 4.3).",
+      "unterauftragnehmer": "Allgemein genehmigt (Ziffer 10.1); die jeweils eingesetzten Stellen stehen in Anhang 2 des Vertrags, Aenderungen werden angekuendigt.",
+      "nachweis": "ISO 27001 (Ziffer 9.2)",
+      "geprueft": "2026-07-19"
+    }
+  ]
+}

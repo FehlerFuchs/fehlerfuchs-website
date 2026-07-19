@@ -7,9 +7,24 @@
 # Wert hier einen Text hat.
 
 privacy:
+  # Zwei Abstufungen, nicht eine. Bis zum 19.07.2026 trugen alle 15 Produkte
+  # 'nur-lokal'. Der Steckbrief-Umlauf hat gezeigt, dass vier davon sehr wohl
+  # etwas senden: Update-Prüfung, Lizenzprüfung, Schulferien, Kaufstatus.
+  # Inhalte sind es nie – aber 'nur lokal' war trotzdem zu absolut, und ein
+  # einziger Gegenbeweis macht auf einer Rechtsseite alles andere unglaubwürdig.
+  #
+  # Die Trennung nützt doppelt: Sie ist genauer, und sie macht sichtbar, dass
+  # CleanDesk oder PDFuchs strenger sind als eine App mit Lizenzprüfung.
+  # Geprüft wird beides gegen die Steckbriefe (tools/build_data.py).
   nur-lokal:
     label: nur lokal
-    erklaerung: Alle Daten bleiben auf dem Gerät.
+    erklaerung: Alle Daten bleiben auf dem Gerät. Es geht nichts nach draußen.
+  inhalte-lokal:
+    label: Inhalte bleiben auf dem Gerät
+    erklaerung: >-
+      Was du eingibst und erzeugst, verlässt das Gerät nicht. Nach draußen
+      gehen nur technische Abfragen – etwa ob es eine neue Fassung gibt oder
+      ob eine Lizenz gilt.
   keine-cloud:
     label: keine Cloud
     erklaerung: Kein Speicher bei uns oder Dritten.

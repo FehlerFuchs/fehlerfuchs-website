@@ -20,7 +20,7 @@ import json
 import re
 import struct
 import sys
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 try:
@@ -35,6 +35,8 @@ MELDUNG_SCHEMA_FILE = ROOT / "data" / "schema" / "meldung.schema.json"
 OUT_PRODUCTS = ROOT / "data" / "products.json"
 OUT_NEWS = ROOT / "data" / "news.json"
 OUT_WUENSCHE = ROOT / "data" / "wishes.json"
+OUT_DIENSTE = ROOT / "data" / "services.json"
+OUT_DATENSCHUTZ = ROOT / "data" / "privacy.json"
 WUNSCH_SCHEMA_FILE = ROOT / "data" / "schema" / "wunsch.schema.json"
 OUT_STATUSES = ROOT / "data" / "statuses.json"
 OUT_VOKABULAR = ROOT / "data" / "vocabulary.json"
@@ -791,6 +793,271 @@ PERSONENBEZUG = [
 ]
 
 
+def pruefe_dienste(dienste, produkte):
+    """Dienste, die FehlerFuchs betreibt oder in Anspruch nimmt.
+
+    Die Datenschutzseite leitet daraus ihre unterste Schicht ab. Geprueft wird
+    vor allem eines: dass hier nichts steht, was nicht ins Netz gehoert.
+    """
+    slugs = {p["slug"] for p in produkte}
+    gesehen = set()
+    heute_iso = date.today().isoformat()
+    # Grob, aber ausreichend: vier Zahlengruppen mit Punkten. Eine IP in einem
+    # oeffentlich ausgelieferten Ordner ist genau die Sorte Angabe, die man
+    # einmal eintraegt und nie wieder anschaut.
+    ip = re.compile(r"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b")
+    # Ausgenommen: Adressen, die auf JEDEM Rechner dasselbe bedeuten und
+    # nichts ueber unsere Infrastruktur verraten. Aufgefallen am 19.07.2026 im
+    # BelegWerk-Steckbrief ("Voreinstellung 127.0.0.1") - die Regel haette dort
+    # einen Fehler gemeldet, wo gar keiner ist. Eine Regel, die falsch anschlaegt,
+    # wird abgeschaltet; deshalb lieber hier genau sein.
+    HARMLOS = {"127.0.0.1", "0.0.0.0", "255.255.255.255"}
+
+    for d in dienste:
+        wo = f"Dienst '{d.get('id', '?')}'"
+        if d["id"] in gesehen:
+            melde(fehler, "dienste.yaml", f"{wo}: id kommt zweimal vor")
+        gesehen.add(d["id"])
+
+        for schluessel, wert in d.items():
+            if isinstance(wert, str):
+                treffer = [x for x in ip.findall(wert) if x not in HARMLOS]
+                if treffer:
+                    melde(fehler, "dienste.yaml",
+                          f"{wo}: '{schluessel}' enthaelt eine IP-Adresse ({treffer[0]}). "
+                          f"Dieser Ordner wird ausgeliefert - Infrastrukturangaben "
+                          f"gehoeren nicht ins Netz.")
+
+        if d.get("stand", "") > heute_iso:
+            melde(fehler, "dienste.yaml", f"{wo}: 'stand' liegt in der Zukunft")
+
+        unbekannt = [x for x in d.get("produkte", []) if x not in slugs]
+        if unbekannt:
+            melde(fehler, "dienste.yaml",
+                  f"{wo}: nennt Produkte, die es nicht gibt: {', '.join(unbekannt)}")
+        if not d.get("produkte"):
+            melde(warnungen, "dienste.yaml",
+                  f"{wo}: kein Produkt nutzt ihn. Ein Dienst ohne Nutzer gehoert entweder "
+                  f"zugeordnet oder von der Datenschutzseite genommen.")
+    return dienste
+
+
+def pruefe_steckbriefe(produkte, dienste):
+    """Die Datenschutz-Steckbriefe der Projekte.
+
+    Sie kommen aus dem Einreichordner und sind vor der Uebernahme schon auf
+    Vertrauliches geprueft (tools/steckbriefe_uebernehmen.py). Hier geht es um
+    etwas anderes: um WIDERSPRUECHE zwischen dem, was die Produktseite
+    verspricht, und dem, was das Projekt ueber sein eigenes Programm sagt.
+
+    Das ist der eigentliche Zweck des ganzen Umlaufs. Ein Werbeversprechen
+    'nur lokal' neben einem Steckbrief, der eine Uebertragung nennt, ist keine
+    Kleinigkeit - es ist eine falsche Zusicherung auf einer Rechtsseite.
+    """
+    ordner = SRC / "datenschutz"
+    if not ordner.is_dir():
+        warnungen.append(
+            "keine Datenschutz-Steckbriefe im Modell (data/src/datenschutz/) - "
+            "die Datenschutzseite haette dann nur den allgemeinen Teil. "
+            "Uebernehmen mit: python tools/steckbriefe_uebernehmen.py --uebernehmen")
+        return []
+
+    # Werbeaussage auf der Produktseite  ->  Tatsachenfeld im Steckbrief
+    VERSPRECHEN = {
+        "nur-lokal": ("lokal_only", True),
+        "kein-tracking": ("tracking", False),
+        "werbefrei": ("werbung", False),
+        "kein-konto": ("konto_noetig", False),
+    }
+
+    heute = date.today().isoformat()
+    lange_her = (date.today() - timedelta(days=180)).isoformat()
+    nach_slug = {p["slug"]: p for p in produkte}
+    dienst_ids = {d["id"] for d in dienste}
+
+    steckbriefe = []
+    for f in sorted(ordner.glob("*.yaml")) + sorted((ordner / "dienste").glob("*.yaml")):
+        ist_dienst = f.parent.name == "dienste"
+        try:
+            s = yaml.safe_load(f.read_text(encoding="utf-8"))
+        except yaml.YAMLError as e:
+            fehler.append(f"datenschutz/{f.name}: YAML lässt sich nicht lesen – {e}")
+            continue
+        if not isinstance(s, dict) or "slug" not in s:
+            fehler.append(f"datenschutz/{f.name}: kein gültiger Steckbrief (slug fehlt)")
+            continue
+
+        kennung = s["slug"]
+        wo = f"Steckbrief '{kennung}'"
+        if kennung != f.stem:
+            fehler.append(f"{wo}: Dateiname {f.name} passt nicht zum slug")
+
+        stand = str(s.get("stand", ""))
+        if stand > heute:
+            fehler.append(f"{wo}: 'stand' liegt in der Zukunft ({stand})")
+        elif stand < lange_her:
+            warnungen.append(
+                f"{wo}: zuletzt am {stand} geprüft – älter als ein halbes Jahr. "
+                f"Bestätigend erneuern, dann sieht man, dass hingeschaut wurde.")
+
+        if ist_dienst:
+            if kennung not in dienst_ids:
+                fehler.append(f"{wo}: kein Dienst mit dieser Kennung in dienste.yaml")
+            steckbriefe.append({**s, "art": "dienst"})
+            continue
+
+        # --- Widerspruch zwischen Versprechen und Tatsache ------------------
+        p = nach_slug.get(kennung)
+        if p:
+            tags = p.get("privacy") or []
+            for tag, (feld, erwartet) in VERSPRECHEN.items():
+                if tag in tags and s.get(feld) not in (None, erwartet):
+                    fehler.append(
+                        f"{wo}: Die Produktseite verspricht '{tag}', der Steckbrief sagt "
+                        f"{feld}={s[feld]!r}. Eines von beidem ist falsch – und auf einer "
+                        f"Rechtsseite ist das keine Kleinigkeit.")
+
+            # Die schwächere Zusage bei einem Programm, das gar nichts sendet:
+            # kein Fehler, aber verschenkt. Wer strenger ist, soll es sagen.
+            if "inhalte-lokal" in tags and s.get("lokal_only") is True:
+                warnungen.append(
+                    f"{wo}: trägt 'inhalte-lokal', sendet laut Steckbrief aber gar nichts. "
+                    f"Dann ist 'nur-lokal' die richtige – und stärkere – Angabe.")
+            if "nur-lokal" in tags and "inhalte-lokal" in tags:
+                fehler.append(f"{wo}: 'nur-lokal' und 'inhalte-lokal' schließen sich aus.")
+
+        # --- Widerspruch im Steckbrief selbst -------------------------------
+        # Nicht jede 'Uebertragung' geht nach draussen. BelegWerk prueft eine
+        # TCP-Verbindung zum eigenen Rechner (127.0.0.1) - das ist keine
+        # Datenweitergabe, sondern die Frage 'laeuft mein Dienst?'. Wer das als
+        # Widerspruch meldet, bringt ein Projekt dazu, seinen ehrlichen
+        # Steckbrief zu beschoenigen. Genau das darf nicht passieren.
+        EIGENES_GERAET = re.compile(
+            r"(?i)127\.0\.0\.1|\blocalhost\b|eigener?\s+rechner|dasselbe\s+ger[äa]t")
+
+        pflicht = [u for u in (s.get("uebertragungen") or [])
+                   if isinstance(u, dict) and u.get("freiwillig") is False
+                   and u.get("was") not in (None, "nichts", "keine")
+                   and not EIGENES_GERAET.search(str(u.get("wohin", "")))]
+        if s.get("lokal_only") is True and pflicht:
+            fehler.append(
+                f"{wo}: lokal_only=true, aber {len(pflicht)} Übertragung(en) ohne "
+                f"Zutun des Nutzers (freiwillig: false). Das schließt sich aus.")
+        if s.get("lokal_only") is False and not (s.get("uebertragungen") or []):
+            warnungen.append(
+                f"{wo}: lokal_only=false, aber keine Übertragung genannt – "
+                f"dann fehlt die Angabe, wohin die Daten gehen.")
+
+        steckbriefe.append({**s, "art": "anwendung"})
+
+    # --- Innensicht in Texten, die auf der Seite landen --------------------
+    #
+    # Die Datenschutzerklärung ist Matzes Erklärung – nach außen tritt niemand
+    # anders auf. Wie die Angaben intern zusammenkommen, ist ein Arbeitsablauf.
+    # Steht davon etwas im Text, liest ein Besucher plötzlich von 'Steckbriefen'
+    # und 'Slugs' und fragt sich, wer hier eigentlich spricht.
+    #
+    # Aufgefallen am 19.07.2026 beim ersten Bau der Seite: Ein 'besonderheiten'
+    # sagte, der Dienst gehöre 'in die dritte Schicht der Datenschutzseite'.
+    # Sachlich richtig, aber an einen Leser gerichtet, den es nicht gibt.
+    #
+    # Gemeldet wird nur, was tatsächlich angezeigt wird. Felder wie
+    # offene_fragen oder beleg sind Arbeitsmaterial und erscheinen nie.
+    INNENSICHT = re.compile(
+        r"(?i)\b(steckbrief\w*|slug\w*|prompt\w*|chefbüro|chefbuero|"
+        r"website-projekt|einreich\w*|umlauf|arbeitsfassung|"
+        r"(erste|zweite|dritte|vierte)\s+schicht|datenschutzseite|"
+        r"matze)\b")
+    # 'Datenmodell' und 'Produktmodell' standen hier auch – und haben sofort
+    # falsch angeschlagen: CoppiceMail speichert ein "E-Mail-Datenmodell", das
+    # ist sein eigenes und nicht unseres. Zu allgemeine Wörter melden das
+    # Falsche; die eindeutigen oben reichen.
+
+    ANGEZEIGT = ("loeschung", "besonderheiten")
+    ANGEZEIGT_LISTEN = {
+        "auf_dem_geraet": ("was", "wo"),
+        "berechtigungen": ("name", "wofuer", "hinweis"),
+        "uebertragungen": ("wohin", "was", "wann"),
+        "fremde_dienste": ("name", "wofuer", "wann"),
+    }
+
+    # Nur was auch angezeigt wird. Beide Meldungen unten sagen "steht auf der
+    # Datenschutzseite" – bei einem Steckbrief ohne Produktseite (SchichtFuchs)
+    # wäre das schlicht falsch, und eine Warnung, die nicht stimmt, erzieht
+    # dazu, Warnungen zu überlesen.
+    for s in steckbriefe:
+        if s["art"] == "anwendung" and s["slug"] not in nach_slug:
+            continue
+        stellen = [(f, s.get(f)) for f in ANGEZEIGT if isinstance(s.get(f), str)]
+        for feld, schluessel in ANGEZEIGT_LISTEN.items():
+            for i, eintrag in enumerate(s.get(feld) or []):
+                if isinstance(eintrag, dict):
+                    stellen += [(f"{feld}[{i}].{k}", eintrag[k])
+                                for k in schluessel if isinstance(eintrag.get(k), str)]
+                elif isinstance(eintrag, str):
+                    stellen.append((f"{feld}[{i}]", eintrag))
+
+        for feld, text in stellen:
+            treffer = sorted({t[0] if isinstance(t, tuple) else t
+                              for t in INNENSICHT.findall(text)})
+            if treffer:
+                warnungen.append(
+                    f"Steckbrief '{s['slug']}': '{feld}' spricht die Innensicht an "
+                    f"({', '.join(treffer)}). Dieser Text steht auf der Datenschutzseite – "
+                    f"dort liest ihn jemand, der von unserer Arbeitsteilung nichts weiß. "
+                    f"Bitte als Aussage über das Programm umformulieren.")
+
+            # ---- Betriebsinterna in einem Text, der öffentlich steht -------
+            #
+            # Bei der Durchsicht am 19.07.2026 stand in einem Abschnitt wörtlich,
+            # dass die Lizenzsperre nicht scharf geschaltet ist – samt der Namen
+            # der beiden Schalter. Das ist keine Datenschutzangabe mehr, sondern
+            # eine Handreichung an jeden, der nicht zahlen möchte.
+            #
+            # Die Grenze verläuft nicht bei "unangenehm", sondern bei "nützt nur
+            # dem Angreifer": DASS eine Datei liegen bleibt, muss ein Nutzer
+            # wissen. DASS ihr Löschen die Testphase zurücksetzt, muss er nicht.
+            for muster, was in (
+                (r"\b\w+ *= *(?:true|false)\b", "Schaltervariable mit Wert"),
+                (r"\b[\w/]+\.(?:dart|py|cs|kt|java|mjs|ts|nsi|csproj|xml|yaml)\b",
+                 "Quelltextdatei"),
+                (r"\bZeilen? *\d+(?:\s*-\s*\d+)?\b|:\d+-\d+\b", "Zeilennummer"),
+                # ue/ae/oe mitdenken: Viele Zulieferungen sind umlautfrei
+                # geschrieben, 'Pruefung' waere sonst durchgerutscht.
+                (r"(?i)\bkeine? (?:serverseitige|wiederkehrende) (?:pr[üu]e?f|lizenzpr[üu]e?f)\w*",
+                 "Hinweis, dass eine Prüfung fehlt"),
+                # Nur INNERE Feldnamen. Der Dateiname license_state.json stand
+                # hier auch – und hat prompt dreimal falsch gemeldet: Genau
+                # dieser Name gehört in die Erklärung, sonst kann niemand die
+                # Datei finden und löschen (Art. 17 DSGVO). Die Grenze verläuft
+                # zwischen 'wo liegt meine Datei' (muss rein) und 'wie heißen
+                # die Felder darin' (nützt nur dem, der sie manipulieren will).
+                (r"(?i)\blizenz\.\w+|\b(?:lizenz|license)[._](?:key|token|fingerprint)\b",
+                 "innerer Feldname der Lizenzablage"),
+                (r"(?i)\bnicht scharf geschaltet\b|\bsperre .{0,20}(?:nicht|kein)\w*\b",
+                 "Hinweis auf eine unwirksame Sperre"),
+            ):
+                if re.search(muster, text):
+                    warnungen.append(
+                        f"Steckbrief '{s['slug']}': '{feld}' enthält Betriebsinterna "
+                        f"({was}). Dieser Text wird auf der Datenschutzseite "
+                        f"veröffentlicht. Belege gehören ins Feld 'beleg' – das wird "
+                        f"nicht angezeigt.")
+                    break
+
+    # --- Produkte ohne Steckbrief ------------------------------------------
+    # Der wichtigste Fall: Ein Produkt steht auf der Seite, sagt aber nirgends,
+    # was es mit Daten tut. Die Datenschutzseite hätte dort eine Lücke.
+    vorhanden = {s["slug"] for s in steckbriefe}
+    for p in produkte:
+        if p["slug"] not in vorhanden:
+            warnungen.append(
+                f"{p['slug']}: hat eine Produktseite, aber keinen Datenschutz-Steckbrief – "
+                f"auf der Datenschutzseite bliebe dieses Produkt unerwähnt.")
+
+    return steckbriefe
+
+
 def pruefe_wuensche(wuensche, produkte, vokabular, schema):
     """Prüft die freigegebenen Wünsche.
 
@@ -974,7 +1241,7 @@ def main():
     if len(slugs) != len(produkte):
         fehler.append("mehrere Produkte teilen sich denselben slug")
 
-    meldungen, wuensche = [], []
+    meldungen, wuensche, steckbriefe, verarbeiter = [], [], [], []
     if not fehler:
         for p in produkte:
             pruefe_vokabular(p, vokabular)
@@ -983,6 +1250,14 @@ def main():
 
         roh = yaml.safe_load((SRC / "meldungen.yaml").read_text(encoding="utf-8"))
         meldungen = pruefe_meldungen(roh.get("meldungen", []), produkte, meldung_schema)
+
+        rohd = yaml.safe_load((SRC / "dienste.yaml").read_text(encoding="utf-8")) or {}
+        dienste = pruefe_dienste(rohd.get("dienste", []), produkte)
+        # Auftragsverarbeiter stehen in derselben Datei, gehen aber nicht durch
+        # pruefe_dienste: Sie haben kein 'produkte' und keinen 'stand' je Dienst.
+        verarbeiter = rohd.get("auftragsverarbeiter", [])
+
+        steckbriefe = pruefe_steckbriefe(produkte, dienste)
 
         rohw = yaml.safe_load((SRC / "wuensche.yaml").read_text(encoding="utf-8"))
         wuensche = pruefe_wuensche(rohw.get("wuensche", []), produkte, vokabular, wunsch_schema)
@@ -1015,7 +1290,7 @@ def main():
         return 1
 
     print(f"\nGeprüft: {len(produkte)} Produkte, {len(meldungen)} Meldungen, "
-          f"{len(wuensche)} Wünsche, "
+          f"{len(wuensche)} Wünsche, {len(steckbriefe)} Steckbriefe, "
           f"{len(statuses)} Statusstufen, "
           f"{sum(len(v) for v in vokabular.values())} Vokabeln — keine Fehler.")
 
@@ -1051,9 +1326,18 @@ def main():
         "nichtUmsetzbar": sum(1 for w in echte if w["status"] == "nicht-umsetzbar"),
     }}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
+    OUT_DIENSTE.write_text(json.dumps(
+        {**kopf, "dienste": dienste, "auftragsverarbeiter": verarbeiter},
+        ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    OUT_DATENSCHUTZ.write_text(json.dumps({**kopf, "steckbriefe": sorted(
+        steckbriefe, key=lambda s: (s["art"] != "anwendung", s["name"]))},
+        ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
     print(f"Geschrieben: {OUT_PRODUCTS.relative_to(ROOT)}, {OUT_STATUSES.relative_to(ROOT)}, "
           f"{OUT_VOKABULAR.relative_to(ROOT)}, {OUT_MARKE.relative_to(ROOT)}, "
-          f"{OUT_NEWS.relative_to(ROOT)}, {OUT_WUENSCHE.relative_to(ROOT)}")
+          f"{OUT_NEWS.relative_to(ROOT)}, {OUT_WUENSCHE.relative_to(ROOT)}, "
+          f"{OUT_DIENSTE.relative_to(ROOT)}, {OUT_DATENSCHUTZ.relative_to(ROOT)}")
     return 0
 
 

@@ -1,0 +1,85 @@
+slug: up2date
+name: Up2Date – FehlerFuchs Update-Helfer
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_Up2Date
+fassung: "1.0.0 (MVP-Grundgeruest, noch nicht veroeffentlicht)"
+
+# Geprueft wurde der Quellstand in 05_App/up2date, nicht die Produktbeschreibung.
+# Heute enthaelt der Code ausschliesslich das Tray-/Fenster-Grundgeruest.
+
+lokal_only: true
+
+# Die Anwendung legt derzeit NICHTS ab. Es gibt keinen Datei-, Datenbank- oder
+# Einstellungszugriff im Code (geprueft: keine Treffer fuer File(), Directory(),
+# shared_preferences in lib/).
+auf_dem_geraet:
+  - was: keine Daten
+    wo: entfaellt – die Anwendung legt im aktuellen Stand nichts auf dem Geraet ab
+    beleg: lib/main.dart und lib/theme.dart sind die einzigen Quelldateien; keine
+      Treffer fuer File(), Directory() oder shared_preferences
+
+# Windows-Desktop-Anwendung: es gibt kein Berechtigungsmanifest wie unter Android.
+# Nach Regel 1 hier trotzdem die Pakete, die entsprechende Faehigkeiten mitbringen,
+# im aktuellen Stand aber NICHT benutzt werden.
+berechtigungen:
+  - name: Lesen der Liste installierter Programme
+    wofuer: spaeter geplant – Erkennen, welche FehlerFuchs-Programme vorhanden sind
+    pflicht: false
+    beleg: pubspec.yaml – Paket win32_registry deklariert, 0 Verwendungen in lib/
+  - name: Automatischer Start mit Windows
+    wofuer: spaeter geplant – nur nach ausdruecklicher Zustimmung, jederzeit abschaltbar
+    pflicht: false
+    beleg: pubspec.yaml – Paket launch_at_startup deklariert, 0 Verwendungen in lib/
+  - name: Zugriff auf das Internet
+    wofuer: spaeter geplant – Abruf der Liste aktueller Fassungen von fehlerfuchs.eu
+    pflicht: false
+    beleg: pubspec.yaml – Paket http deklariert, 0 Verwendungen in lib/
+  - name: Windows-Benachrichtigungen
+    wofuer: spaeter geplant – Hinweis, wenn eine neue Fassung vorliegt
+    pflicht: false
+    beleg: pubspec.yaml – Paket local_notifier deklariert, 0 Verwendungen in lib/
+  - name: Speichern von Einstellungen
+    wofuer: spaeter geplant – Merken der eigenen Einstellungen
+    pflicht: false
+    beleg: pubspec.yaml – Paket shared_preferences deklariert, 0 Verwendungen in lib/
+
+# Im aktuellen Stand verlaesst KEIN Datum das Geraet. Es gibt keinen einzigen
+# Netzwerkaufruf im Code (geprueft: keine Treffer fuer http://, https://, Uri.,
+# get(), post() in lib/). Auch der Windows-Runner ist unveraendert (keine Treffer
+# fuer winhttp, wininet, socket, telemetry, analytics in windows/).
+uebertragungen: []
+
+fremde_dienste: []
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Die Anwendung speichert im aktuellen Stand keine Daten. Es genuegt, das
+  Programm zu entfernen; es bleibt nichts zurueck.
+
+besonderheiten: >-
+  Up2Date ist der zentrale Update-Helfer fuer FehlerFuchs-Anwendungen und laeuft
+  als Symbol im Windows-Infobereich. Im geprueften Stand zeigt die Anwendung
+  lediglich dieses Symbol und ein Fenster; sie verarbeitet noch keine Daten.
+  Kuenftig soll sie erkennen, welche FehlerFuchs-Programme installiert sind, und
+  deren Stand mit einer oeffentlich abrufbaren Liste aktueller Fassungen auf
+  fehlerfuchs.eu vergleichen. Beides geschieht heute nicht. Ein Konto ist nicht
+  vorgesehen, ebenso wenig Telemetrie oder Werbung.
+
+vorhandener_text: ""
+
+offene_fragen: >-
+  1) Sobald der Versionsabgleich umgesetzt ist, ruft die Anwendung
+  fehlerfuchs.eu auf; ob der Server dabei IP-Adressen protokolliert, haengt vom
+  Server ab und ist von hier aus nicht feststellbar. 2) Ob und welche
+  Einstellungen kuenftig lokal gespeichert werden, steht noch nicht fest.
+  3) Der geplante Abgleich liest Herstellerangabe und Version installierter
+  Programme; die Auswertung soll rein lokal bleiben, ist aber noch nicht gebaut
+  und daher nicht ueberpruefbar. 4) Es existiert noch kein Installer; ob dieser
+  spaeter Eintraege ausserhalb des Programmordners anlegt, ist offen.
+  (Erledigt am 19.07.2026: Der Slug "up2date" ist in _SLUG-EIGENTUEMER.md
+  offiziell aufgenommen und damit bestaetigt.)

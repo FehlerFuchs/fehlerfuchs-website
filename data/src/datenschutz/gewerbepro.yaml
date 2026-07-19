@@ -1,0 +1,165 @@
+slug: gewerbepro
+name: FehlerFuchs GewerbePro
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_GewerbePro
+fassung: "0.3.1 (aktueller Code-Stand; öffentlich verfügbar ist die Beta 0.3.0)"
+
+# Nein: die Update-Prüfung ist ab Werk eingeschaltet, die Lizenzprüfung ist in
+# der Vollversion nötig. Ohne Vollversion und mit abgeschalteter Update-Prüfung
+# arbeitet die Anwendung rein lokal.
+lokal_only: false
+
+auf_dem_geraet:
+  - was: Geschäftsdaten (Kunden, Angebote, Aufträge, Rechnungen, Quittungen,
+      Gutschriften, Mahnungen, Projekte, Einnahmen/Ausgaben, Anlagen/AfA,
+      Fahrtenbuch, Termine, Aufgaben, Logbuch, Katalog)
+    wo: lokale Datenbank (SQLite) im Datenordner der Anwendung
+    beleg: 20_Engine/gewerbepro_core/db.py (_SCHEMA); config.py DB_FILE / _resolve_data_dir
+  - was: Stammdaten des Betriebs (Firma, Inhaber, Steuernummer, Bankverbindung,
+      Fußzeilen) und Programmeinstellungen
+    wo: in derselben lokalen Datenbank
+    beleg: 20_Engine/gewerbepro_core/db.py get_stammdaten/set_stammdaten
+  - was: Firmenlogo und hinterlegte Unterschrift
+    wo: nur der Dateipfad wird gespeichert; die Bilddatei bleibt am vom Nutzer
+      gewählten Ort
+    beleg: 20_Engine/gewerbepro_core/config.py (logo_pfad, unterschrift_pfad);
+      pdf_gen.py _logo_src / _stored_signature
+  - was: Zugangsdaten der E-Mail-Konten (Servername, Benutzername, Passwort) –
+      nur wenn ein Postfach eingerichtet wurde
+    wo: in der lokalen Datenbank, ohne gesonderte Verschlüsselung
+    beleg: 20_Engine/gewerbepro_core/mail.py (Anmeldung mit k["passwort"])
+  - was: Lizenzschlüssel, Freischaltnachweis und eine zufällig erzeugte
+      Gerätekennung, die keine Hardware-Merkmale enthält
+    wo: in der lokalen Datenbank
+    beleg: 20_Engine/gewerbepro_core/lizenz.py _fingerprint (uuid.uuid4)
+  - was: erzeugte PDFs und Exporte (Rechnungen, Berichte, E-Rechnungen,
+      PDFuchs-Ergebnisse), abgelegte Belege und Datenbank-Backups
+    wo: Unterordner des Datenordners (Exporte, PDFuchs, Belege, Fallakten)
+    beleg: 20_Engine/gewerbepro_core/config.py; engine_api.py _default_pdfuchs_dir
+  - was: abgerufene E-Mails samt Anhängen (nur bei eingerichtetem Postfach)
+    wo: lokale Datenbank bzw. Datenordner
+    beleg: 20_Engine/gewerbepro_core/mail.py
+
+# Windows-Desktop-Anwendung – keine App-Store-Berechtigungen; hier die
+# tatsächlich benötigten Zugriffe.
+berechtigungen:
+  - name: Dateisystem (Lesen/Schreiben)
+    wofuer: Datenordner, PDF-Ausgabe, Belegimport, vom Nutzer gewählte Dateien/Ordner
+    pflicht: true
+    beleg: 20_Engine/gewerbepro_core/config.py _resolve_data_dir;
+      21_App_Flutter/gewerbepro_desktop/pubspec.yaml (file_picker)
+  - name: Netzwerkzugriff
+    wofuer: Update-Prüfung, Lizenzprüfung, optional Schulferien-Abruf und
+      E-Mail-Konten
+    pflicht: false
+    beleg: engine_api.py update_check; lizenz.py; db.py (Ferien); mail.py
+  - name: Scanner (Windows WIA)
+    wofuer: Seiten direkt vom Scanner als PDF einlesen (PDFuchs, Vollversion)
+    pflicht: false
+    beleg: engine_api.py pdfuchs_scan → pdfuchs_core/scanner.py (WIA über PowerShell)
+  - name: Zwischenablage
+    wofuer: Kopieren des eigenen Lizenzschlüssels
+    pflicht: false
+    beleg: 21_App_Flutter/gewerbepro_desktop/lib/main.dart (Clipboard.setData)
+  - name: Installation ohne Administratorrechte
+    wofuer: Installation im Benutzerprofil
+    pflicht: true
+    beleg: 22_Packaging/GewerbePro.iss (PrivilegesRequired=lowest)
+
+uebertragungen:
+  - wohin: fehlerfuchs.eu
+    was: Abruf einer Versionsdatei (latest.json); mitgesendet wird die eigene
+      Programmversion in der User-Agent-Kennung
+    wann: beim Programmstart, solange die automatische Update-Prüfung
+      eingeschaltet ist (ab Werk eingeschaltet); außerdem manuell über
+      „Auf Updates prüfen"
+    freiwillig: false
+    beleg: 20_Engine/gewerbepro_core/engine_api.py _DEFAULT_UPDATE_URL,
+      update_check; config.py update_auto = "1"
+  - wohin: license.fehlerfuchs.eu
+    was: Lizenzschlüssel, zufällige Gerätekennung (UUID) und Produktname; bei
+      der erstmaligen Aktivierung zusätzlich der Windows-Computername und die
+      Plattformangabe „Windows"
+    wann: bei der Aktivierung, beim Abgleich zum Programmstart und beim Lösen
+      der Lizenz – nur in der Vollversion GewerbePro
+    freiwillig: false
+    beleg: 20_Engine/gewerbepro_core/lizenz.py BASE_URL,
+      aktivieren/pruefen/deaktivieren (socket.gethostname bei /v1/activate)
+  - wohin: openholidaysapi.org
+    was: Abruf der Schulferien des eingestellten Bundeslandes
+    wann: nur wenn „Schulferien automatisch abgleichen" eingeschaltet ist
+      (ab Werk ausgeschaltet)
+    freiwillig: true
+    beleg: 20_Engine/gewerbepro_core/db.py (openholidaysapi.org/SchoolHolidays);
+      config.py kalender_ferien_auto = "0"
+  - wohin: E-Mail-Server, den der Nutzer selbst einträgt (IMAP/SMTP)
+    was: Abrufen und Versenden von E-Mails samt Anmeldung
+    wann: nur wenn ein Postfach eingerichtet ist (Vollversion)
+    freiwillig: true
+    beleg: 20_Engine/gewerbepro_core/mail.py
+  - wohin: github.com
+    was: Herunterladen der Installationsdatei im Browser des Nutzers
+    wann: nur wenn der Nutzer im Update-Fenster „Update herunterladen" anklickt
+    freiwillig: true
+    beleg: 21_App_Flutter/gewerbepro_desktop/lib/main.dart
+      showUpdateCheckDialog (_launchUrl); Feld download_url im Update-Manifest
+  - wohin: www.fehlerfuchs.eu
+    was: Öffnen von Impressum, Datenschutz, Support und Produktseite im Browser
+    wann: nur wenn der Nutzer die jeweilige Schaltfläche anklickt
+    freiwillig: true
+    beleg: 21_App_Flutter/gewerbepro_desktop/lib/main.dart _launchUrl
+
+fremde_dienste:
+  - name: openholidaysapi.org (Open Data)
+    wofuer: Schulferien im Auftragskalender
+    wann: nur bei eingeschaltetem Ferienabgleich
+  - name: GitHub
+    wofuer: Ablageort der Installationsdatei für Updates
+    wann: nur beim vom Nutzer ausgelösten Download
+  - name: Digistore24
+    wofuer: Kauf der Lizenz
+    wann: außerhalb der Anwendung im Browser; die Anwendung selbst ruft
+      Digistore24 nicht auf
+  - name: Tesseract OCR (extern zu installieren, optional)
+    wofuer: Texterkennung in PDFs
+    wann: nur bei Nutzung der OCR-Funktion; läuft vollständig lokal
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Alle Daten liegen auf dem Gerät. In den Einstellungen entfernt „Alle
+  Geschäftsdaten löschen" Kunden, Rechnungen, Angebote, Belege, Termine,
+  Aufgaben und Logbuch (Stammdaten bleiben erhalten). Die Deinstallation
+  entfernt das Programm; der Datenordner mit Datenbank, Exporten und Backups
+  bleibt bestehen und kann vom Nutzer gelöscht werden. Eine hinterlegte Lizenz
+  lässt sich in den Einstellungen vom Gerät lösen.
+
+besonderheiten: >-
+  Die Anwendung arbeitet offline-first: alle Geschäftsdaten bleiben in einer
+  lokalen Datenbank auf dem Rechner, es gibt keinen Server, der Inhalte
+  speichert. Ein Benutzerkonto wird nicht angelegt; die Vollversion wird über
+  einen Lizenzschlüssel freigeschaltet, wobei die dabei verwendete Gerätekennung
+  zufällig erzeugt wird und keine Hardware-Merkmale enthält. Es werden keine
+  Nutzungsdaten ausgewertet, keine Werbung eingeblendet und keine Absturzberichte
+  verschickt; der „Support-Bericht" erzeugt lediglich ein PDF auf dem Rechner,
+  das der Nutzer selbst versendet. Die geplante Companion-App und der Datenaustausch
+  mit ihr sind im heutigen Stand noch nicht ausgeliefert.
+
+vorhandener_text: >-
+  Kein eigenes Datenschutzdokument im Programmordner; die Anwendung verweist
+  unter „Info & Rechtliches" auf www.fehlerfuchs.eu/datenschutz.html.
+
+offene_fragen: >-
+  1) Ob und wie lange der Lizenzserver Anfragen protokolliert (etwa IP-Adresse,
+  Zeitpunkt) – das entscheidet der Server, nicht die Anwendung.
+  2) Ob openholidaysapi.org die Ferienabfragen protokolliert – serverseitig,
+  von der Anwendung aus nicht feststellbar.
+  3) Welche Daten GitHub beim Herunterladen der Installationsdatei sieht –
+  serverseitig, nicht von der Anwendung bestimmbar.
+  4) Ob die in der lokalen Datenbank abgelegten E-Mail-Zugangsdaten zusätzlich
+  verschlüsselt werden sollen – derzeit ist keine gesonderte Verschlüsselung
+  vorhanden; eine Entscheidung dazu steht aus.

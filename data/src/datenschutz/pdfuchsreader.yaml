@@ -1,0 +1,207 @@
+slug: pdfuchsreader
+name: PDFuchs Reader
+stand: "2026-07-19"
+geprueft_von: >-
+  FehlerFuchs_PDFuchsReader_Mobile (Eigentümer des Slugs, Android-Teil).
+  Windows-Teil geprüft und belegt zugeliefert von FehlerFuchs_PDFuchs am
+  19.07.2026, hier eingearbeitet.
+fassung: >-
+  Zweite Fassung vom 19.07.2026 - gegenüber der ersten Einreichung desselben
+  Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt.
+  Zwei Fassungen tragen heute diesen Slug.
+  (A) Android-Fassung 1.0.0 (versionCode 1, Paket eu.fehlerfuchs.pdfuchsreader):
+  signierter Release-AAB ist gebaut und am Gerät getestet, aber noch NICHT im
+  Play Store veröffentlicht (geplant als Offener Test). Geprüft am echten
+  Code, Manifest und am gemergten Manifest des gebauten Release-AAB.
+  (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht
+  veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und
+  Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, NSIS-Installerskript.
+  Kein Laufzeit-Mitschnitt des Netzwerkverkehrs - siehe offene Frage 4.
+
+# Ohne Zutun des Nutzers verlässt kein Datum das Gerät. Beide Fassungen sind
+# offline voll benutzbar; jede Verbindung nach draußen ist nutzerinitiiert.
+# Im Windows-Teil wurde keine Netzwerkbibliothek und keine Übertragung gefunden.
+lokal_only: true
+
+auf_dem_geraet:
+  # --- Android-Fassung ---
+  - was: Liste „Zuletzt geöffnet" (Dateipfad, Dateiname, Öffnungsdatum)
+    wo: im Einstellungsspeicher der App auf dem Gerät
+    beleg: 05_App/pdfuchsreader_mobile/lib/core/recent/recent_store.dart
+  - was: Einstellung Anzeigemodus (Hell/Dunkel/System)
+    wo: im Einstellungsspeicher der App auf dem Gerät
+    beleg: 05_App/pdfuchsreader_mobile/lib/features/settings/settings_controller.dart
+  - was: Kopie des mitgelieferten Handbuch-PDFs + einmaliges Onboarding-Kennzeichen
+    wo: App-Dokumenteordner der App
+    beleg: 05_App/pdfuchsreader_mobile/lib/core/onboarding/handbook_seeder.dart
+  - was: Vom Nutzer erzeugte bearbeitete PDF-Kopien (<name>_bearbeitet.pdf)
+    wo: App-Dokumenteordner der App; das Original wird nie überschrieben
+    beleg: 05_App/pdfuchsreader_mobile/lib/features/editor/seiten_editor_screen.dart
+  - was: Per „Öffnen mit"/Teilen hereingereichte PDFs (Arbeitskopie)
+    wo: Zwischenspeicher (Cache) der App
+    beleg: 05_App/pdfuchsreader_mobile/android/app/src/main/kotlin/com/example/pdfuchsreader_mobile/MainActivity.kt (kopiereNachCache)
+  # --- Windows-Fassung (geprüft, Zulieferung FehlerFuchs_PDFuchs 19.07.2026) ---
+  - was: Vom Nutzer geöffnete PDFs und daraus erzeugte Ausgaben
+    wo: der vom Nutzer gewählte Speicherort
+    beleg: (Windows) 05_Engine/pdfuchs_core/pdfuchs_core/config.py:61
+  - was: Ergebnisdateien der Verarbeitung (z. B. Texterkennung, Miniaturen, korrigierte Seiten)
+    wo: in einem Ausgabeordner im Programmverzeichnis - nicht in den eigenen Dateien des Nutzers
+    beleg: (Windows) 05_Engine/pdfuchs_core/pdfuchs_core/config.py:61
+  - was: Datei license_state.json mit einem lokalen Zählerstand zur Programmnutzung; keine personenbezogenen Angaben
+    wo: >-
+      im lokalen Anwendungsdatenordner des Benutzers unter %LOCALAPPDATA%\PDFuchs
+      (möglich auch unter %ProgramData%\PDFuchs). Diese Datei bleibt nach dem
+      Deinstallieren auf dem Rechner liegen und kann von Hand gelöscht werden.
+    beleg: (Windows) 05_Engine/pdfuchs_core/pdfuchs_core/feature_flags.py:44-50; 92_Tools/installer_flutter.nsi Section Uninstall (Zeile 130-154, ohne Löschung dieser Datei)
+  - was: Temporäre Dateien während Anzeige und Verarbeitung
+    wo: im Temp-Ordner von Windows; sie werden nach Gebrauch automatisch wieder entfernt
+    beleg: (Windows) 05_Engine/pdfuchs_core/pdfuchs_core/render.py:29 (TemporaryDirectory)
+  - was: Keine Einstellungsdatei und keine Liste zuletzt geöffneter Dateien
+    wo: Entfällt - die Windows-Fassung legt dafür nichts auf dem Rechner ab.
+    beleg: (Windows) 11_App_Flutter/pdfuchs_desktop/pubspec.yaml; 11_App_Flutter/pdfuchs_desktop/lib/main.dart:78-127
+
+berechtigungen:
+  - name: INTERNET (Android)
+    wofuer: Ausschließlich nutzerinitiierter Versand des Support-/Kontaktformulars und Öffnen externer Links
+    pflicht: false
+    beleg: 05_App/pdfuchsreader_mobile/android/app/src/main/AndroidManifest.xml (Zeile 5); im gemergten Manifest des Release-AAB bestätigt
+  - name: App-interne Systemberechtigung (Android)
+    wofuer: >-
+      Eine rein app-interne Berechtigung, die das System beim Erstellen der App
+      automatisch anlegt. Sie erlaubt keinen Zugriff auf Daten des Nutzers.
+    pflicht: true
+    beleg: >-
+      Technischer Name eu.fehlerfuchs.pdfuchsreader.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION,
+      von AndroidX erzeugt; ausgelesen aus
+      build/app/intermediates/bundle_manifest/release/.../AndroidManifest.xml
+  - name: (Android - keine weiteren)
+    wofuer: >-
+      Die App fordert keine weiteren Berechtigungen an - insbesondere keinen
+      Zugriff auf Speicher, Kamera, Standort, Kontakte oder Mikrofon.
+    pflicht: false
+    beleg: >-
+      Gemergtes Manifest des gebauten Release-AAB vollständig ausgelesen; enthält
+      nur INTERNET und die app-interne Systemberechtigung. Randnotiz für die
+      Pflege, nicht zur Anzeige: das Paket permission_handler ist in pubspec.yaml
+      (Zeile 32) deklariert, wird nirgends verwendet und fügt keine Berechtigung
+      hinzu.
+  - name: (Windows) Zugriff auf lokale Dateien
+    wofuer: Öffnen und Speichern der vom Nutzer gewählten PDF-Dateien
+    pflicht: true
+    beleg: (Windows) Desktopanwendung ohne Manifest-Berechtigungsmodell
+  - name: (Windows) Registrierung als PDF-Anwendung („Öffnen mit"), optional
+    wofuer: >-
+      Nur wenn der Nutzer diese Option bei der Installation wählt. Der Reader
+      wird dann als mögliche Anwendung zum Öffnen von PDF-Dateien eingetragen;
+      welches Programm der Standard ist, entscheidet der Nutzer weiterhin selbst
+      in den Windows-Einstellungen. Die Einträge gelten nur für das angemeldete
+      Benutzerkonto, nicht für den ganzen Rechner, und werden beim
+      Deinstallieren wieder entfernt.
+    pflicht: false
+    beleg: (Windows) 92_Tools/installer_flutter.nsi:108-128 (PDF-Registrierung), :80-89 (Uninstall-Eintrag)
+
+uebertragungen:
+  - wohin: license.fehlerfuchs.eu
+    was: >-
+      Nachrichtentext, freiwillig Name und E-Mail-Adresse, Ziel (Support/Kontakt),
+      Betreff, Thema, App-Name, Edition „Free", App-Version, Android-Version,
+      Gerätehersteller und Modell. Keine Dateianhänge - das dafür vorgesehene
+      Feld wird vom Support-Formular nicht befüllt.
+    wann: Nur wenn der Nutzer das Support-/Kontaktformular ausfüllt und „Senden" drückt (nur Android-Fassung)
+    freiwillig: true
+    beleg: 05_App/pdfuchsreader_mobile/lib/core/kontakt/kontakt_service.dart (Zeile 19, 37-56) und lib/core/kontakt/kontext.dart
+  - wohin: E-Mail-App des Nutzers (mailto an support@ bzw. info@fehlerfuchs.eu)
+    was: Betreff und Nachrichtentext als vorausgefüllte E-Mail
+    wann: Nur als Ausweichweg, wenn der Versand oben fehlschlägt; der Nutzer muss die Mail selbst abschicken
+    freiwillig: true
+    beleg: 05_App/pdfuchsreader_mobile/lib/features/support/support_screen.dart (Zeile 95)
+  - wohin: fehlerfuchs.eu (Seiten unterstuetzen.html, impressum.html, kontakt.html, datenschutz.html)
+    was: Normaler Seitenaufruf im externen Browser; die App selbst sendet dabei keine Inhalte
+    wann: Nur wenn der Nutzer den jeweiligen Verweis antippt
+    freiwillig: true
+    beleg: lib/features/home/support_dialog.dart (Zeile 7), lib/features/legal/impressum_screen.dart (Zeile 59, 65), lib/features/legal/datenschutz_screen.dart (Zeile 76)
+  - wohin: Vom Nutzer gewählte fremde App bzw. Android-Druckdienst
+    was: Die geöffnete PDF-Datei
+    wann: Nur wenn der Nutzer „Teilen" oder „Drucken" auslöst; wohin sie geht, bestimmt der Nutzer
+    freiwillig: true
+    beleg: 05_App/pdfuchsreader_mobile/lib/features/viewer/viewer_screen.dart (Zeile 53, 62)
+  # Windows-Fassung: keine. Es wurde keine Netzwerkbibliothek und kein Aufruf
+  # nach außen gefunden (keine Treffer für requests, urllib, http.client, socket;
+  # Flutter-Shell ohne Fremdpakete und ohne HTTP-/URL-Aufruf).
+  # Beleg: 11_App_Flutter/pdfuchs_desktop/pubspec.yaml (nur flutter + cupertino_icons).
+
+fremde_dienste:
+  - name: PDFium (über die Bibliothek pdfrx)
+    wofuer: Darstellung, Textsuche und verlustfreies Speichern der PDF-Seiten
+    wann: Ausschließlich lokal auf dem Gerät, ohne Netzverbindung
+  - name: Android-Teilen- und Druck-Framework
+    wofuer: Weitergabe bzw. Ausdruck einer PDF-Datei
+    wann: Nur auf Auslösung durch den Nutzer
+  - name: (Windows) Tesseract OCR, mitgeliefert
+    wofuer: Texterkennung, wenn der Nutzer OCR auslöst
+    wann: >-
+      Lokal, nur auf Auslösung durch den Nutzer. Tesseract wird ausschließlich
+      als lokaler Unterprozess gestartet; Sprachdaten liegen lokal daneben, es
+      werden keine Adressen, Proxys oder Onlinedienste übergeben. Gilt NUR für
+      die Windows-Fassung - die Android-Fassung enthält bewusst kein OCR.
+  - name: (Windows) PDFium über pypdfium2
+    wofuer: Darstellung der PDF-Seiten
+    wann: Lokal, bei jeder Anzeige
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Android: Alle Daten liegen auf dem Gerät. Einträge der Liste „Zuletzt
+  geöffnet" lassen sich einzeln entfernen oder komplett leeren. Beim
+  Deinstallieren verschwinden App-Einstellungen, Zuletzt-Liste, Handbuch-Kopie,
+  im App-Ordner erzeugte bearbeitete Kopien und der Zwischenspeicher.
+  Windows: Das Deinstallieren entfernt das Programmverzeichnis, die Desktop- und
+  Startmenü-Verknüpfungen sowie die bei der Installation gesetzten Einträge.
+  Eine Datei bleibt dabei zurück: license_state.json im lokalen
+  Anwendungsdatenordner unter %LOCALAPPDATA%\PDFuchs. Sie enthält einen lokalen
+  Zählerstand zur Programmnutzung und keine personenbezogenen Angaben. Wer sie
+  entfernen möchte, kann sie von Hand löschen.
+  In beiden Fassungen bleiben die eigenen Dokumente des Nutzers unangetastet -
+  Originale werden nie überschrieben.
+
+besonderheiten: >-
+  Beide Fassungen sind offline voll benutzbar; ohne Zutun des Nutzers entsteht
+  keine Verbindung nach draußen. Es gibt kein Konto, keine Anmeldung, keine
+  Werbung, keine Nutzungsmessung und keine In-App-Käufe. Die Windows-Fassung
+  stellt überhaupt keine Verbindung ins Internet her und sucht auch nicht
+  selbsttätig nach Aktualisierungen. Die einzige Verbindung, die überhaupt
+  aufgebaut wird, ist der Versand des Support-Formulars in der Android-Fassung,
+  und den löst der Nutzer bewusst selbst aus. Bearbeitete PDF-Dateien werden
+  immer als neue Kopie gespeichert, die Ursprungsdatei bleibt unverändert. Die
+  Android-Fassung soll über Google Play vertrieben werden; Google erhält dabei
+  die üblichen Installations- und Kontodaten des Store-Vorgangs, worauf die App
+  selbst keinen Einfluss hat.
+
+vorhandener_text: >-
+  Android: 05_App/pdfuchsreader_mobile/lib/features/legal/datenschutz_screen.dart
+  (Datenschutztext in der App, verweist auf https://fehlerfuchs.eu/datenschutz.html).
+  Windows: 09_Releases/Datenschutz_Lokalhinweis_01072026.md
+
+offene_fragen: >-
+  1. Slug-Zuordnung: Windows-Reader und Android-Reader teilen sich denselben
+  Slug „pdfuchsreader"; in der Liste gibt es keinen eigenen Slug für die mobile
+  Fassung. Unklar, ob die Website beide Fassungen getrennt darstellen möchte -
+  dann wäre ein zusätzlicher Slug nötig. Slugs werden nicht selbst erfunden,
+  daher stehen hier beide Fassungen in einer Datei.
+  2. Ob der Kontakt-Endpunkt auf license.fehlerfuchs.eu IP-Adressen oder
+  Zeitstempel protokolliert, hängt vom Server ab und ist aus der App heraus
+  nicht feststellbar - unbekannt.
+  3. Das Paket permission_handler ist in der Android-Fassung deklariert, aber
+  ungenutzt. Es hat heute keine Datenschutzwirkung; ob es aus den Abhängigkeiten
+  entfernt wird, ist noch nicht entschieden.
+  4. (aus der Windows-Zulieferung) Das Netzverhalten der mitgelieferten
+  Tesseract-Binary selbst wurde nicht per Mitschnitt geprüft; geprüft wurde nur,
+  was PDFuchs aufruft und übergibt.
+  5. (aus der Windows-Zulieferung) Ob Aktionen, die im Reader ausgelöst werden,
+  den lokalen Zähler in license_state.json mitschreiben, wurde nicht
+  abschließend geprüft: Reader und Suite nutzen denselben Programmkern, ein
+  reader-eigener Schreibzugriff wurde jedoch nicht gefunden.

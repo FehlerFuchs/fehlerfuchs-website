@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-19T20:32:07+02:00",
+  "generiert": "2026-07-19T23:32:19+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "name": "FehlerFuchs",
   "slogan": "Einfach kleine Helfer.",
@@ -32,6 +32,21 @@
       "text": "klare Sprache statt Fachchinesisch."
     }
   ],
+  "anbieter": {
+    "marke": "FehlerFuchs",
+    "bezeichnung": "Geschäftsbezeichnung / Marke von",
+    "name": "Matthias Schacht",
+    "strasse": "Susanne-Bohl-Straße 8",
+    "ort": "07747 Jena",
+    "land": "Deutschland",
+    "email": "admin@fehlerfuchs.eu",
+    "emailKontakt": "info@fehlerfuchs.eu",
+    "telefon": "+49 176 44 79 89 21",
+    "duns": "317270302",
+    "ustId": "DE463451160",
+    "kleinunternehmer": true,
+    "domain": "fehlerfuchs.eu"
+  },
   "person": {
     "name": "Matthias Schacht",
     "rufname": "Matze",

@@ -1,0 +1,108 @@
+slug: appinsight
+name: FehlerFuchs AppInsight
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_AppInsight
+fassung: "1.0.0-beta.1 (noch nicht veroeffentlicht)"
+
+# Die App besitzt keine Berechtigung fuer Internetzugriff und kann daher von
+# sich aus nichts senden oder abrufen.
+lokal_only: true
+
+auf_dem_geraet:
+  - was: Anzeige-Einstellung (Hell, Dunkel oder Systemvorgabe)
+    wo: App-Einstellungen auf dem Geraet
+    beleg: lib/core/state/providers.dart (ThemeModeController, Schluessel "themeMode")
+  - was: Liste der Apps, denen du den Internetzugang gesperrt hast (Paketnamen)
+    wo: App-Einstellungen auf dem Geraet
+    beleg: lib/core/state/providers.dart (BlockedAppsController, Schluessel "blockedApps")
+  - was: Merker, ob die Ersteinrichtung abgeschlossen ist
+    wo: App-Einstellungen auf dem Geraet
+    beleg: lib/core/state/providers.dart (OnboardingController, Schluessel "onboardingDone")
+  - was: Erzeugte Berichte (PDF oder HTML) ueber die installierten Apps
+    wo: temporaerer Ablageort der App, nur im Moment des Teilens
+    beleg: lib/core/report/report_service.dart (getTemporaryDirectory, _shareBytes, _shareTextFile)
+  - was: Ergebnisse der App-Analyse (Liste, Berechtigungen, Bewertungen)
+    wo: nur im Arbeitsspeicher, wird nicht dauerhaft gespeichert
+    beleg: lib/core/state/providers.dart (appsProvider); lib/core/platform/app_scanner.dart
+
+berechtigungen:
+  - name: Alle installierten Apps sehen
+    wofuer: Kernzweck der App - die installierten Apps auflisten und ihre
+      Berechtigungen, Bestandteile und Tracker-Hinweise auswerten
+    pflicht: true
+    beleg: android/app/src/main/AndroidManifest.xml (QUERY_ALL_PACKAGES)
+  - name: Nutzungsdaten (Sonderzugriff, den du selbst in den Android-Einstellungen erteilst)
+    wofuer: Groesse, Cache, Nutzungszeiten und Datenverbrauch je App anzeigen
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml (PACKAGE_USAGE_STATS);
+      MainActivity.kt (hasUsageAccess, getStorageAndUsage, getNetworkUsage)
+  - name: Dienst, der im Vordergrund weiterlaeuft
+    wofuer: Betrieb der App-Internetsperre, solange mindestens eine App gesperrt ist
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml (FOREGROUND_SERVICE,
+      FOREGROUND_SERVICE_SPECIAL_USE); BlockerVpnService.kt
+  - name: Benachrichtigungen
+    wofuer: von Android vorgeschriebener Hinweis, solange die Internetsperre laeuft
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml (POST_NOTIFICATIONS)
+  - name: Geraeteinterne Netzwerksperre einrichten
+    wofuer: technische Voraussetzung fuer die App-Internetsperre; du bestaetigst
+      sie einmalig in einem Android-Dialog
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml (service .BlockerVpnService,
+      BIND_VPN_SERVICE)
+
+# Die App baut selbst keine Netzwerkverbindungen auf. Aufgefuehrt sind
+# Uebergaben an andere Apps, die der Nutzer selbst ausloest.
+uebertragungen:
+  - wohin: vom Nutzer gewaehlte Ziel-App (Android-Teilen-Menue)
+    was: der erzeugte Bericht mit Namen und Berechtigungen der auf dem Geraet
+      installierten Apps
+    wann: nur wenn der Nutzer einen Bericht teilt
+    freiwillig: true
+    beleg: lib/core/report/report_service.dart (Share.shareXFiles)
+  - wohin: Google Play Store
+    was: nur der Paketname der aufgerufenen App
+    wann: nur bei "Im Store ansehen", "Bedenken melden" oder "Im Store bewerten"
+    freiwillig: true
+    beleg: MainActivity.kt (openAppStore); lib/features/apps/app_detail_page.dart
+
+# Keine fremden Dienste eingebunden: keine Analyse-, Werbe- oder Absturzdienste,
+# keine Bezahlabwicklung, keine Schriften oder Inhalte aus dem Netz.
+fremde_dienste: []
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Alle Daten liegen auf dem Geraet: die App-Einstellungen und - nur waehrend des
+  Teilens - eine voruebergehende Berichtsdatei. Beim Deinstallieren verschwindet
+  alles. Berichte, die du selbst weitergegeben oder abgespeichert hast, liegen
+  dort, wohin du sie gelegt hast, und muessen dort geloescht werden.
+
+besonderheiten: >-
+  AppInsight liest Angaben ueber andere Apps: Name, angeforderte Berechtigungen,
+  Bestandteile, Signatur und Installationsquelle sowie - wenn du die Nutzungsdaten
+  freigibst - Speicher-, Nutzungs- und Datenverbrauchswerte. Inhalte anderer Apps
+  liest es nicht; Android schottet Apps gegeneinander ab. Die gesamte Auswertung
+  findet auf dem Geraet statt. Die optionale Internetsperre arbeitet mit einer
+  geraeteinternen Sperre, die den Datenverkehr der gesperrten Apps verwirft: Es
+  gibt keine Weiterleitung ueber einen Server und keine Aufzeichnung des
+  Datenverkehrs. Die Ampel-Einordnung ist eine Einschaetzung nach festen Regeln,
+  kein Urteil ueber eine App.
+
+vorhandener_text: >-
+  Kein separates Dokument. In der App gibt es die Abschnitte "Datenschutz" und
+  "Warum braucht AppInsight Berechtigungen?" unter Info und Einstellungen
+  (lib/features/transparency/about_page.dart).
+
+offene_fragen: >-
+  1) Die Kontaktfunktion ist derzeit nur ein Platzhalter: Der Text wird in die
+  Zwischenablage kopiert, es wird nichts gesendet. Sobald der geplante Versand
+  ueber den FehlerFuchs-Lizenzserver eingebaut ist, entsteht eine neue
+  Uebertragung nach draussen - dieser Steckbrief muss dann erneuert werden.
+  2) Die App ist noch nicht veroeffentlicht (Stand 1.0.0-beta.1). Alle Angaben
+  beziehen sich auf den heutigen Entwicklungsstand, nicht auf eine Store-Fassung.

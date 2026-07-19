@@ -1,0 +1,122 @@
+slug: checkin-vita
+name: CheckInVita
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_CheckIn_Vita
+fassung: "0.2.0+1 – Android-Stand, noch nicht veröffentlicht (Windows-Fassung baut, ebenfalls unveröffentlicht)"
+
+# Ohne aktives Zutun des Nutzers verlässt kein Datum das Gerät.
+lokal_only: true
+
+auf_dem_geraet:
+  - was: Tagebuch-Einträge (Gewicht, Blutdruck, Puls, Blutzucker, HbA1c, SpO2, Temperatur, Atemfrequenz, Schritte, Schlaf, Notizen)
+    wo: lokale Datenbank (SQLite)
+    beleg: lib/data/database/app_database.dart
+  - was: Medikamente, Medikationsplan, Injektionstherapien und Injektionsprotokoll
+    wo: lokale Datenbank (SQLite)
+    beleg: lib/data/database/tables/
+  - was: Behandler-Kontakte, Impfungen, Rezeptanfragen, Mail-Verlauf, Kostenübernahmen
+    wo: lokale Datenbank (SQLite)
+    beleg: lib/data/database/app_database.dart
+  - was: Rauchverhalten (Profil und Änderungen)
+    wo: lokale Datenbank (SQLite)
+    beleg: lib/data/database/tables/
+  - was: Stammdaten (Name, Geburtsdatum, Geschlecht, Größe, Start-/Zielgewicht) und App-Einstellungen
+    wo: lokale Schlüssel-Wert-Ablage (Hive)
+    beleg: lib/data/hive/app_config.dart
+  - was: selbst erzeugte Gerätekennung und Gerätename – nur für den Abgleich zwischen zwei eigenen Geräten
+    wo: lokale Schlüssel-Wert-Ablage (Hive)
+    beleg: lib/data/hive/app_config.dart (deviceId, deviceName)
+  - was: selbst aufgenommene oder ausgewählte Fotos zu Einträgen
+    wo: app-privates Dateiverzeichnis
+    beleg: lib/data/documents/document_service.dart
+  - was: erzeugte PDF-Übersichten (Werte-Zusammenfassung, Medikamenten-Plan)
+    wo: app-privates Dateiverzeichnis
+    beleg: lib/data/documents/document_service.dart
+  - was: vom Nutzer selbst erzeugte Export- und Abgleich-Dateien (CSV, JSON-Backup, .cvsync)
+    wo: vom Nutzer gewählter Speicherort
+    beleg: lib/shared/utils/file_share.dart
+
+berechtigungen:
+  - name: Kamera
+    wofuer: Foto zu einem Tagebuch-Eintrag aufnehmen
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml (CAMERA)
+  - name: Benachrichtigungen
+    wofuer: Erinnerungen an Injektion und Rezeptbestellung
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml (POST_NOTIFICATIONS)
+  - name: Biometrie
+    wofuer: optionaler App-Lock beim Öffnen der App
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml (USE_BIOMETRIC)
+  - name: Start nach Geräteneustart
+    wofuer: bereits geplante Erinnerungen nach einem Neustart erneut einplanen
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml (RECEIVE_BOOT_COMPLETED)
+  - name: Internet
+    wofuer: ausschließlich das vom Nutzer selbst abgesendete Support-/Kontaktformular; darüber hinaus stellt die App keine Verbindung her
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml (INTERNET); einzige Verwendung in lib/data/support/support_service.dart
+
+uebertragungen:
+  - wohin: license.fehlerfuchs.eu
+    was: Betreff und Nachrichtentext; freiwillig Name und E-Mail-Adresse; App-Version und Betriebssystem-Bezeichnung; vom Nutzer bewusst ausgewählte Dateianhänge; auf ausdrückliche Zustimmung eine technische Diagnosedatei (nur App-Version, System, Zeitstempel)
+    wann: nur wenn der Nutzer im Support-/Kontaktformular auf „Senden" tippt
+    freiwillig: true
+    beleg: lib/data/support/support_service.dart (MultipartRequest auf /v1/contact)
+  - wohin: fehlerfuchs.eu
+    was: gewöhnlicher Seitenaufruf im externen Browser; es werden keine App-Daten übergeben
+    wann: nur wenn der Nutzer im Über-Bildschirm „Solche Projekte unterstützen?" antippt
+    freiwillig: true
+    beleg: lib/features/about/about_screen.dart (kUnterstuetzenUrl)
+  - wohin: die vom Nutzer gewählte E-Mail- bzw. Telefon-App auf dem Gerät
+    was: vorbereiteter Textentwurf; die App selbst versendet nichts – gesendet wird nur, was der Nutzer dort abschickt
+    wann: beim Öffnen einer Mailvorlage oder einer Telefonnummer
+    freiwillig: true
+    beleg: lib/features/communication/mail_service.dart, lib/features/communication/care_providers_screen.dart
+
+# Keine eingebundenen Fremddienste: kein Firebase, keine Analyse-Bibliothek,
+# keine Kartendienste, keine Schriften aus dem Netz (Poppins liegt lokal bei),
+# kein In-App-Kauf.
+fremde_dienste: []
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Alle Daten liegen auf dem Gerät. Einzelne Einträge lassen sich in der App
+  löschen; unter Einstellungen entfernt „Alle Daten löschen" sämtliche
+  Einträge, Stammdaten und Einstellungen unwiderruflich. Beim Deinstallieren
+  der App verschwinden alle Daten mit. Selbst erzeugte Export-, Backup- und
+  Abgleich-Dateien liegen dort, wo der Nutzer sie abgelegt hat, und muss er
+  selbst löschen.
+
+besonderheiten: >-
+  CheckInVita ist ein Gesundheits-Tagebuch und ausdrücklich kein Medizinprodukt
+  nach MDR 2017/745; es findet keine Bewertung und keine Diagnose statt. Die
+  erfassten Angaben können besonders schützenswerte Gesundheitsdaten nach
+  Art. 9 DSGVO sein – sie bleiben ausschließlich lokal. Die Internet-Berechtigung
+  besteht allein für das nutzerinitiierte Support-/Kontaktformular; ein
+  automatischer Upload existiert nicht. Vor dem Anhängen von Dateien warnt die
+  App ausdrücklich davor, sensible Gesundheitsdaten mitzuschicken. Der optionale
+  Abgleich zwischen zwei eigenen Geräten läuft über eine Datei, die der Nutzer
+  selbst per Kabel kopiert – ohne Server und ohne Netzverbindung; die Datei ist
+  unverschlüsselt, worauf die App vor jedem Export hinweist. Auf eine
+  Berechtigung für den Fotospeicher wird bewusst verzichtet: Bilder aus der
+  Galerie werden über den Auswahldialog des Systems ausgewählt, die App erhält
+  dabei keinen Zugriff auf die übrigen Fotos. Ebenso wird keine Berechtigung
+  für exakte Weckzeiten angefordert; Erinnerungen können daher um einige
+  Minuten abweichen.
+
+vorhandener_text: lib/features/legal/legal_screen.dart (kPrivacyText, in der App unter Über → Datenschutzerklärung); ausführlich in docs/Datenschutzerklaerung_CheckInVita.md
+
+offene_fragen: >-
+  1. Ob und wie lange der Dienst unter license.fehlerfuchs.eu die übermittelten
+  Angaben (Nachricht, Name, E-Mail, Anhänge) und die IP-Adresse serverseitig
+  protokolliert oder zwischenspeichert, lässt sich aus der App heraus nicht
+  feststellen – das beantwortet das Projekt, das den Dienst betreibt.
+  2. Für die Windows-Fassung ist noch nicht abschließend entschieden, ob sie bei
+  Veröffentlichung eine Aktualisierungsprüfung erhält; heute enthält sie keine.

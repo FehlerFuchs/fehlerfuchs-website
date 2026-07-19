@@ -30,6 +30,25 @@ leitsaetze:
 # Der Mensch hinter der Marke. Bewusst sichtbar: Wer sein Gesicht zeigt,
 # steht für seine Arbeit ein – das ist bei einem Ein-Personen-Projekt keine
 # Kosmetik, sondern das eigentliche Vertrauensangebot.
+# Die Pflichtangaben nach § 5 DDG. Sie stehen HIER und nicht im Fließtext der
+# Impressumsseite: Eine Anschrift, die an zwei Stellen steht, ist eine Anschrift,
+# von der eines Tages eine falsch ist. Ändert sich etwas, ändert es sich hier –
+# und die Seite zieht mit.
+anbieter:
+  marke: FehlerFuchs
+  bezeichnung: Geschäftsbezeichnung / Marke von
+  name: Matthias Schacht
+  strasse: Susanne-Bohl-Straße 8
+  ort: 07747 Jena
+  land: Deutschland
+  email: admin@fehlerfuchs.eu
+  emailKontakt: info@fehlerfuchs.eu
+  telefon: +49 176 44 79 89 21
+  duns: "317270302"
+  ustId: DE463451160
+  kleinunternehmer: true
+  domain: fehlerfuchs.eu
+
 person:
   name: Matthias Schacht
   rufname: Matze

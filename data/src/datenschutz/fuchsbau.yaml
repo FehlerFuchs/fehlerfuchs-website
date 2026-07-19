@@ -1,0 +1,106 @@
+slug: fuchsbau
+name: FuchsBau Passwortmanager
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_FuchsBau
+fassung: "0.6.2+17 (Entwicklungsstand, noch nicht veroeffentlicht)"
+
+# Die App fordert in der Veroeffentlichungsfassung keine Internet-Berechtigung an
+# und ruft im Code nirgends Netzwerkfunktionen auf.
+lokal_only: true
+
+auf_dem_geraet:
+  - was: Tresor-Eintraege (Titel und Passwort, optional Benutzername, URL, Kategorie, Notiz)
+    wo: verschluesselt im geschuetzten Speicher des Geraets
+    beleg: lib/data/secure_vault_repository.dart (flutter_secure_storage,
+      Schluessel "fuchsbau_vault_v1")
+  - was: Pruefsummen von Tresor-PIN, Tresor-Passwort und Offline-Sicherheitsschluessel;
+      die eingegebenen Werte selbst werden nicht gespeichert
+    wo: verschluesselt im geschuetzten Speicher des Geraets
+    beleg: lib/core/security/pin_service.dart; lib/core/security/password_service.dart;
+      lib/core/security/security_key_service.dart (Argon2id-Hash + Salt)
+  - was: Auswahl der aktiven Entsperr-Faktoren
+    wo: verschluesselt im geschuetzten Speicher des Geraets
+    beleg: lib/core/security/unlock_config.dart (Schluessel "fuchsbau_unlock_cfg")
+  - was: Einstellungen (Hell/Dunkel/System, Merker fuer die Einfuehrung beim ersten Start,
+      selbst ergaenzte Woerter fuer den Passphrasen-Generator)
+    wo: verschluesselt im geschuetzten Speicher des Geraets
+    beleg: lib/core/theme/theme_controller.dart; lib/core/onboarding/onboarding_controller.dart;
+      lib/domain/wordlist/custom_words_controller.dart
+  - was: Mitgelieferte deutsche Wortliste fuer Passphrasen (7855 Woerter, keine Nutzerdaten)
+    wo: Bestandteil der App
+    beleg: assets/wordlists/de_words.txt
+
+berechtigungen:
+  - name: Biometrie
+    wofuer: Entsperren per Fingerabdruck oder Gesicht, wenn der Nutzer diesen Faktor
+      aktiviert; die App laesst sich auch ohne Biometrie allein mit PIN nutzen
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml (USE_BIOMETRIC)
+  - name: Internet
+    wofuer: wird in der Veroeffentlichungsfassung nicht angefordert und nicht genutzt.
+      Die App kann von sich aus nichts senden und nichts abrufen.
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml enthaelt kein INTERNET; der Eintrag
+      steht nur in android/app/src/debug/AndroidManifest.xml und
+      android/app/src/profile/AndroidManifest.xml (Flutter-Standardvorlage fuer
+      Entwicklerwerkzeuge, nicht Teil des Release-Builds)
+
+# Die App baut selbst KEINE Netzwerkverbindungen auf. Aufgefuehrt sind Uebergaben an
+# das System bzw. an andere Apps, die der Nutzer ausdruecklich selbst ausloest.
+uebertragungen:
+  - wohin: vom Nutzer gewaehlter Android-Druckdienst
+    was: PDF mit dem Offline-Sicherheitsschluessel
+    wann: nur wenn der Nutzer den Sicherheitsschluessel drucken bzw. als PDF sichern waehlt
+    freiwillig: true
+    beleg: lib/features/security_key/security_key_show_screen.dart (Printing.layoutPdf)
+  - wohin: Zwischenablage des Geraets (systemweit, grundsaetzlich fuer andere Apps lesbar)
+    was: ein einzelnes Passwort oder der verschluesselte Backup-Text
+    wann: nur wenn der Nutzer "Kopieren" waehlt; kopierte Passwoerter werden nach 30 Sekunden
+      automatisch wieder geleert
+    freiwillig: true
+    beleg: lib/core/security/clipboard_service.dart; lib/features/backup/backup_screen.dart
+
+# Keine fremden Dienste eingebunden: keine Analyse-, Werbe- oder Absturzdienste,
+# kein Google Play Billing, keine Inhalte oder Schriften aus dem Netz.
+fremde_dienste: []
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Alle Daten liegen im verschluesselten Speicher des Geraets. Sie verschwinden beim
+  Deinstallieren der App oder beim Loeschen der App-Daten. Einzelne Eintraege lassen sich
+  in der App loeschen. Eine vom Nutzer selbst erzeugte Sicherung liegt dort, wohin er sie
+  gelegt hat, und muss dort selbst geloescht werden.
+
+besonderheiten: >-
+  FuchsBau arbeitet ausschliesslich auf dem Geraet: kein Konto, keine Anmeldung, keine
+  Verbindung nach draussen. Passwoerter und Notizen liegen verschluesselt im geschuetzten
+  Speicher des Geraets. PIN, Tresor-Passwort und Sicherheitsschluessel werden nie im
+  Klartext gespeichert, sondern nur als Pruefsumme, aus der sich der eingegebene Wert
+  nicht zurueckrechnen laesst. Der Tresor verlangt mindestens zwei Faktoren; einzelne
+  Eintraege lassen sich zusaetzlich mit einem Offline-Sicherheitsschluessel schuetzen, der
+  genau einmal angezeigt wird und danach nicht wiederherstellbar ist. In der
+  Veroeffentlichungsfassung sind Bildschirmfotos und das Vorschaubild in der
+  App-Uebersicht unterbunden. Eine Sicherung ist ein Text, den der Nutzer mit einer
+  selbst gewaehlten Passphrase verschluesselt; ohne diese Passphrase ist sie fuer
+  niemanden lesbar, auch nicht fuer FehlerFuchs.
+
+vorhandener_text: >-
+  Noch keiner. In der App gibt es bislang weder einen Datenschutz- noch einen
+  Impressumstext; eine Muster-Vorlage liegt projektintern bereit, ist aber nicht eingebunden.
+
+offene_fragen: >-
+  1) Ob der verschluesselte Speicher auf einem konkreten Geraet hardwaregestuetzt
+  abgesichert ist, haengt vom Geraet und der Android-Fassung ab und laesst sich aus der
+  App heraus nicht zusichern.
+  2) Was der vom Nutzer gewaehlte Android-Druckdienst mit dem PDF des Sicherheitsschluessels
+  macht, liegt ausserhalb der App - es kann auch ein Netzwerk- oder Cloud-Druckdienst sein.
+  3) Die App ist noch nicht veroeffentlicht; eine Verteilung ueber Google Play ist geplant.
+  Was Google im Zuge der Verteilung selbst erhebt, ist hier nicht abgebildet und muss vor
+  der Veroeffentlichung ergaenzt werden.
+  4) Ein In-App-Datenschutz- und Impressumstext fehlt noch und muss vor der
+  Veroeffentlichung ergaenzt werden.

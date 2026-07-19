@@ -1,0 +1,184 @@
+slug: orgafuchs
+name: OrgaFuchs
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_OrgaFuchs
+# 19.07.2026, zweite Fassung des Tages: technische Angaben (Dateinamen,
+# Bezeichner, Portangabe, Schaltervariablen) aus den veroeffentlichten Feldern
+# entfernt; sachlich unveraendert, die Belege stehen weiterhin in "beleg".
+fassung: "1.0.0 (versionCode 1); signierter Release-AAB am 18.07.2026 gebaut, Veroeffentlichung im Play Store zum Pruefzeitpunkt nicht bestaetigt"
+
+# Verlaesst IRGENDEIN Datum das Geraet, wenn man nichts weiter einstellt?
+# Nein -> false: Sobald im Einrichtungsassistenten ein Bundesland gesetzt ist
+# (Vorbelegung TH), ruft die App beim Start automatisch die Schulferien von
+# fehlerfuchs.eu ab, hoechstens etwa einmal im Monat. Dabei werden keine
+# Nutzerinhalte gesendet, es entsteht aber eine Verbindung (IP-Adresse und
+# angefragtes Bundesland sind fuer den Server sichtbar). Alle uebrigen
+# Verbindungen sind ab Werk aus und muessen erst eingeschaltet werden.
+lokal_only: false
+
+auf_dem_geraet:
+  - was: Personen, Dienste und Kategorien, Dienstplan-Eintraege, Termine, Notizen, Sondertage, Einstellungen und die Sync-Konfiguration
+    wo: in der lokalen Datenbank der App auf dem Geraet
+    beleg: lib/data/database.dart:1134-1135
+  - was: Aenderungsprotokoll der App (wer hat wann was geaendert)
+    wo: in einer lokalen Protokolldatei der App auf dem Geraet
+    beleg: lib/data/logbuch_store.dart:75-76
+  - was: Jahresarchiv des Aenderungsprotokolls
+    wo: in lokalen Archivdateien der App auf dem Geraet
+    beleg: lib/services/logbuch_archiv.dart:21-44
+  - was: Fehlerprotokoll der App (technische Meldungen zum Betrieb)
+    wo: in einer lokalen Protokolldatei der App auf dem Geraet
+    beleg: lib/core/diagnose/fehlerlog.dart:26-27
+  - was: erzeugte PDF-Plaene (Monat und Jahr)
+    wo: in einer lokalen Ablage der App auf dem Geraet
+    beleg: lib/services/pdf_archiv.dart:11-21
+  - was: Sicherungen des Datenbestands und ausgelagerte Vorlagen
+    wo: in lokalen Dateien der App auf dem Geraet; sie werden nur weitergegeben, wenn der Nutzer sie selbst teilt
+    beleg: lib/features/settings/backup_page.dart:34-36, lib/features/settings/vorlagen_editor_page.dart:107-108
+  - was: bearbeitete Kategorie-Vorlagen
+    wo: in einer lokalen Datei der App auf dem Geraet
+    beleg: lib/data/vorlagen.dart:81-82
+  - was: zwischengespeicherte Schulferien des eingestellten Bundeslandes
+    wo: in einer lokalen Datei der App auf dem Geraet
+    beleg: lib/services/schulferien.dart:39-40
+  - was: technische Einstellungen (Erscheinungsbild sowie die Adresse des gewaehlten Benachrichtigungsservers)
+    wo: in den Geraeteeinstellungen der App
+    beleg: lib/app.dart:106, lib/services/push_controller.dart:42-43
+  - was: das Gruppen-Passwort bzw. das daraus abgeleitete Zugangsmerkmal fuer den Abgleich
+    wo: in der lokalen Datenbank der App auf dem Geraet
+    beleg: lib/data/database.dart (Tabelle konfiguration)
+
+berechtigungen:
+  - name: Internet
+    wofuer: Schulferien-Abruf, optionaler Sync, optionaler Push, nutzerinitiiertes Support-Formular, Oeffnen von Weblinks
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml (INTERNET)
+  - name: Netzwerkstatus / WLAN-Status
+    wofuer: lokale IP-Adresse fuer den Heimnetz-Sync ermitteln, Verbindungszustand pruefen
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml (ACCESS_NETWORK_STATE, ACCESS_WIFI_STATE)
+  - name: Kamera
+    wofuer: QR-Code scannen beim Beitritt zu einer Sync-Gruppe
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml (CAMERA, uses-feature required=false); lib/features/sync/qr_scan_page.dart
+  - name: Benachrichtigungen
+    wofuer: Hinweis, wenn ein anderes Geraet der Gruppe etwas geaendert hat
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml (POST_NOTIFICATIONS)
+  - name: Vordergrunddienst (Typ Datenabgleich)
+    wofuer: haelt bei eingeschalteten Hinweisen die Verbindung zum gewaehlten Benachrichtigungsserver, damit Aenderungen auch bei geschlossener App ankommen
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml (FOREGROUND_SERVICE, FOREGROUND_SERVICE_DATA_SYNC); lib/services/hintergrund_push.dart
+  - name: Autostart nach Geraeteneustart
+    wofuer: wird von den mitgelieferten Bausteinen fuer Hintergrundbetrieb und Benachrichtigungen angefordert; solange die Hinweise ausgeschaltet sind, baut die App von sich aus keine Verbindung auf
+    pflicht: false
+    beleg: zusammengefuehrtes AndroidManifest (RECEIVE_BOOT_COMPLETED) - steht nicht in der App-eigenen Manifestdatei
+  - name: Geraet wachhalten
+    wofuer: wird vom mitgelieferten Baustein fuer den Hintergrundbetrieb angefordert
+    pflicht: false
+    beleg: zusammengefuehrtes AndroidManifest (WAKE_LOCK) - steht nicht in der App-eigenen Manifestdatei
+  - name: Vibration
+    wofuer: kurze Rueckmeldung beim Schnelleintrag sowie Benachrichtigungen
+    pflicht: false
+    beleg: zusammengefuehrtes AndroidManifest (VIBRATE)
+  - name: Keine Standort-, Kontakt-, Mikrofon-, Speicher- oder Medienberechtigung
+    wofuer: wird nicht angefordert; die Dateiauswahl laeuft ueber den System-Dialog ohne Speicherzugriffsrecht
+    pflicht: false
+    beleg: zusammengefuehrtes AndroidManifest enthaelt kein READ_MEDIA_*, kein READ/WRITE_EXTERNAL_STORAGE; file_picker nutzt ACTION_GET_CONTENT
+
+uebertragungen:
+  - wohin: fehlerfuchs.eu
+    was: Abruf der Schulferien des eingestellten Bundeslandes (Download einer oeffentlichen JSON-Datei); gesendet wird nur die Anfrage selbst, keine Nutzerinhalte
+    wann: beim App-Start automatisch, hoechstens etwa einmal im Monat, sobald ein Bundesland eingestellt ist; zusaetzlich manuell ueber "Feiertage & Ferien aktualisieren"
+    freiwillig: false
+    beleg: lib/services/schulferien.dart:29+85-96, lib/providers.dart:172-183, lib/features/home/home_shell.dart:32
+  - wohin: orgafuchs.relais.fehlerfuchs.eu (Vorbelegung; frei aenderbar, auch selbst hostbar)
+    was: Ende-zu-Ende-verschluesselte Sync-Nachrichten (Plan-, Personen- und Termindaten im verschluesselten Umschlag) samt Gruppen- und Geraetekennung zur Adressierung
+    wann: nur wenn der Nutzer den Sync ueber Relais einschaltet (ab Werk aus)
+    freiwillig: true
+    beleg: lib/sync/relay.dart, lib/features/sync/sync_page.dart:25, lib/core/server_dropdown.dart:102, lib/sync/host_wiederherstellung.dart:31
+  - wohin: ntfy.relais.fehlerfuchs.eu (Vorbelegung), wahlweise ntfy.sh oder eine selbst eingetragene Adresse
+    was: Benachrichtigungssignal "es gibt Aenderungen" samt Themenkennung; keine Planinhalte
+    wann: nur wenn der Nutzer Push einschaltet (ab Werk aus)
+    freiwillig: true
+    beleg: lib/services/push_ntfy.dart, lib/core/server_dropdown.dart:107-108, lib/services/push_controller.dart:30-31
+  - wohin: license.fehlerfuchs.eu
+    was: Support-/Kontaktformular - eingegebene Nachricht, optional Name und E-Mail, dazu App-Name, Version, Betriebssystem, Geraetebezeichnung und optional angehaengte Diagnose-/Protokolldateien
+    wann: nur wenn der Nutzer das Formular absendet
+    freiwillig: true
+    beleg: lib/services/kontakt_service.dart:20-58, lib/features/info/kontakt_page.dart
+  - wohin: anderes Geraet im selben Netz (lokale Adresse, kein Internet)
+    was: Sync-Daten zwischen Hauptgeraet und Mitgliedsgeraeten ueber HTTP im Heimnetz/Hotspot, Port 7842
+    wann: nur bei eingerichtetem Heimnetz-Sync
+    freiwillig: true
+    beleg: lib/sync/sync_server.dart, lib/sync/sync_client.dart:25
+  - wohin: fehlerfuchs.eu (im externen Browser des Nutzers)
+    was: Aufruf von Impressum, Datenschutz, Kontakt, Unterstuetzen und der Windows-Produktseite; die App sendet dabei selbst keine Daten
+    wann: nur bei Antippen des jeweiligen Verweises
+    freiwillig: true
+    beleg: lib/features/info/info_page.dart:13-17
+
+fremde_dienste:
+  - name: Google ML Kit - Barcode Scanning (mitgeliefertes Modell, ueber die Bibliothek mobile_scanner)
+    wofuer: Erkennung des Beitritts-QR-Codes; die Erkennung laeuft auf dem Geraet
+    wann: nur solange der QR-Scanner geoeffnet ist
+  - name: ntfy (quelloffener Benachrichtigungsdienst)
+    wofuer: Push-Signal bei Aenderungen; vorbelegt ist ein selbst betriebener Server, alternativ ntfy.sh oder ein eigener
+    wann: nur bei eingeschaltetem Push
+  - name: Kein Google-Konto, kein Firebase/Analytics, kein Play Billing, keine Karten, keine Schriften aus dem Netz
+    wofuer: nicht eingebunden (App ist kostenlos, keine In-App-Kaeufe)
+    wann: entfaellt
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Alle Inhalte liegen auf dem Geraet. Einzelne Eintraege, Personen und Dienste
+  lassen sich in der App loeschen; der Einrichtungsassistent kann im Modus
+  "Komplett neu" den gesamten Bestand zuruecksetzen. Mit der Deinstallation
+  verschwinden Datenbank, Protokolle, PDF-Ablage und Sicherungen im App-Ordner.
+  Beim Sync ueber Relais liegen dort nur verschluesselte, kurzlebige Nachrichten;
+  ohne das Gruppen-Passwort sind sie nicht lesbar. Ueber das Support-Formular
+  gesendete Nachrichten werden auf Anfrage per E-Mail geloescht.
+
+besonderheiten: >-
+  Der Abgleich zwischen mehreren Geraeten kommt ohne Konto und ohne
+  Registrierung aus: Ein Geraet ist "Hauptgeraet", weitere treten per QR-Code
+  und einem selbst gewaehlten Gruppen-Passwort bei. Aus diesem Passwort wird der
+  Schluessel fuer die Ende-zu-Ende-Verschluesselung abgeleitet; ein Relais sieht
+  daher nur verschluesselte Daten und die Angabe, an welche Gruppe sie gehen -
+  weder Namen noch Inhalte noch die Mitglieder der Gruppe. Beim Abgleich im
+  eigenen Netz nimmt das Hauptgeraet die Anfragen der anderen Geraete direkt
+  entgegen und antwortet nur, wenn das Zugangsmerkmal der Gruppe stimmt; auf
+  diesem Weg werden die Daten innerhalb des lokalen Netzes unverschluesselt
+  uebertragen und verlassen es nicht. Welcher Relais- und welcher
+  Benachrichtigungsserver verwendet wird, ist frei einstellbar; beide lassen
+  sich auch selbst betreiben. Die App zeigt eine Uebersicht der verwendeten
+  Open-Source-Bausteine und Datenquellen. Da Dienstplaene mittelbar
+  Rueckschluesse auf Arbeits- und Abwesenheitszeiten mehrerer Personen zulassen,
+  koennen die lokal gespeicherten Inhalte sensibel sein.
+
+vorhandener_text: >-
+  Kein eigener veroeffentlichter Datenschutztext im Projekt. In der App:
+  Einstellungen -> Info & Rechtliches mit Impressum und Verweis auf
+  https://fehlerfuchs.eu/datenschutz.html (lib/features/info/info_page.dart:13-17)
+  sowie die Transparenzseite lib/features/info/open_source_page.dart. Als interner
+  Entwurf fuer die Play-Console existiert
+  01_Konzept/OrgaFuchs_Release_Store-und-DataSafety.md.
+
+offene_fragen: >-
+  1) Unklar, ob und wie lange die angefragten Server (fehlerfuchs.eu fuer die
+  Schulferien, das Relais, der ntfy-Server, license.fehlerfuchs.eu) IP-Adressen
+  oder Zugriffe protokollieren - das haengt vom Serverbetrieb ab, nicht von der App.
+  2) Unklar, ob das mitgelieferte Google-ML-Kit-Barcodemodul eigene Verbindungen
+  zu Google aufbaut (etwa Modell- oder Telemetriezugriffe); aus dem App-Code ist
+  keine solche Verbindung ersichtlich, die Bibliothek wurde nicht im
+  Netzwerkmitschnitt geprueft.
+  3) Unklar, welche Daten der Endpunkt license.fehlerfuchs.eu nach Empfang einer
+  Support-Anfrage speichert und wie lange.
+  4) Nicht geprueft, ob die dem Support-Formular optional angehaengte
+  Diagnosedatei in Einzelfaellen Inhalte aus Dienstplaenen enthalten kann; sie ist
+  als rein technische Zusammenfassung angelegt (lib/core/diagnose/diagnose.dart).

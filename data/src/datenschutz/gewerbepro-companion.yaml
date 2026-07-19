@@ -1,0 +1,119 @@
+slug: gewerbepro-companion
+name: GewerbePro Companion
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_GewerbePro_Companion
+fassung: "0.1.0+1 – in Entwicklung, nicht veröffentlicht"
+
+# Ohne weiteres Zutun verlässt kein Datum das Gerät.
+lokal_only: true
+
+auf_dem_geraet:
+  - was: Kundendaten (Anrede, Name/Firma, Anschrift, E-Mail, Telefon, USt-IdNr., Leitweg-ID, Notiz)
+    wo: in der App auf dem Gerät
+    beleg: lib/data/db.dart (Tabelle customers, SQLite companion.db)
+  - was: Auftrags-Entwürfe mit Positionen (Beschreibung, Menge, Einzelpreis) und Kopftexten
+    wo: in der App auf dem Gerät
+    beleg: lib/data/db.dart (draft_orders, draft_order_items)
+  - was: Fahrtenbuch-Einträge (Datum, Von/Nach, Zweck, Art, Kilometer) und gemerkte Fahrzeuge (Kennzeichen, letzter km-Stand)
+    wo: in der App auf dem Gerät
+    beleg: lib/data/db.dart (trips, vehicles)
+  - was: Quittungen einschließlich der handschriftlichen Unterschrift als Bild
+    wo: in der App auf dem Gerät
+    beleg: lib/data/db.dart (receipts), lib/screens/quittung_screen.dart
+  - was: Aufgaben, Fristen und Termine
+    wo: in der App auf dem Gerät
+    beleg: lib/data/db.dart (tasks, events)
+  - was: Katalog mit Artikeln und Preisen – eine Kopie aus GewerbePro, die nur gelesen wird
+    wo: in der App auf dem Gerät
+    beleg: lib/data/db.dart (position_templates)
+  - was: erzeugte PDF-Belege (Quittung, Fahrtenbuch)
+    wo: im eigenen Speicherbereich der App
+    beleg: lib/services/dokument_dienst.dart (Unterordner "dokumente")
+  - was: aus GewerbePro übernommenes Branding (Firmenlogo, hinterlegte Unterschrift, Absender- und Fußzeilentexte)
+    wo: im eigenen Speicherbereich der App
+    beleg: lib/services/branding_store.dart (Ordner "branding" und App-Einstellungen)
+  - was: das Paket mit den erfassten Daten, das für die Übergabe an GewerbePro erzeugt wird
+    wo: im eigenen Speicherbereich der App
+    beleg: lib/screens/sync_screen.dart (companion_paket_<zeit>.json)
+  - was: App-Einstellungen (Gerätename, Standard-E-Mail-Adresse, eine zufällige Gerätekennung)
+    wo: in der App auf dem Gerät
+    beleg: lib/data/db.dart (Tabelle app_settings)
+
+berechtigungen:
+  - name: keine
+    wofuer: >-
+      Die App fordert in der Fassung für Nutzer keine Android-Berechtigung an.
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml – kein uses-permission-Eintrag; nur der Standard-queries-Eintrag PROCESS_TEXT der Flutter-Vorlage
+  - name: Internetzugriff – nur in den internen Testfassungen
+    wofuer: >-
+      In den Fassungen, die ausschließlich zum Entwickeln gebaut werden, ist der
+      Internetzugriff durch die Entwicklungsumgebung voreingestellt. Die App
+      nutzt ihn nicht, und in der Fassung für Nutzer ist er nicht enthalten.
+    pflicht: false
+    beleg: android/app/src/debug/AndroidManifest.xml und android/app/src/profile/AndroidManifest.xml (INTERNET); im Release-Manifest nicht vorhanden
+
+uebertragungen:
+  - wohin: keine – die App baut von sich aus keine Verbindung nach draußen auf
+    was: nichts
+    wann: nie; kein HTTP-Client, keine Socket-Nutzung im Quelltext, keine INTERNET-Berechtigung im Release
+    freiwillig: false
+    beleg: lib/ (Suche nach HttpClient, package:http, Socket, WebSocket ohne Treffer), android/app/src/main/AndroidManifest.xml
+  - wohin: vom Nutzer im Android-Teilen-Dialog gewähltes Ziel (z. B. eine E-Mail-App)
+    was: das erzeugte PDF (Quittung oder Fahrtenbuch)
+    wann: nur wenn der Nutzer "Teilen/Senden" auslöst; die App übergibt die Datei an das Betriebssystem, nicht an einen eigenen Dienst
+    freiwillig: true
+    beleg: lib/services/dokument_dienst.dart (Printing.sharePdf)
+  - wohin: keine Lizenzprüfung durch die App
+    was: nichts
+    wann: die App kontaktiert den FehlerFuchs-Lizenzserver nicht; die Lizenz-/Seat-Prüfung findet in GewerbePro am PC beim Datenaustausch statt
+    freiwillig: false
+    beleg: 00_Steuerung/SYNC-Logbuch_GewerbePro-Companion.md (Eintrag 20)
+
+fremde_dienste:
+  - name: Android-System für Teilen und Drucken (über die Bibliothek "printing")
+    wofuer: PDF ansehen, drucken oder an eine vom Nutzer gewählte App übergeben
+    wann: nur bei ausdrücklicher Nutzeraktion
+  - name: Android-Dateiauswahl (über die Bibliothek "file_picker")
+    wofuer: Branding-Paket vom PC einlesen; die gewählte Datei wird nur gelesen
+    wann: nur bei ausdrücklicher Nutzeraktion
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Alle Daten liegen ausschließlich auf dem Gerät im app-eigenen Speicher. Beim
+  Deinstallieren der App verschwinden sie vollständig. Einzelne Kunden, Entwürfe,
+  Fahrten, Aufgaben und Termine lassen sich in der App löschen; erzeugte PDFs
+  können unter Einstellungen entfernt werden (Datei und Eintrag). Die
+  handschriftliche Unterschrift wird nach dem Erzeugen des Quittungs-PDFs aus
+  dem Datensatz gelöscht und bleibt nur im PDF erhalten.
+
+besonderheiten: >-
+  Die App ist ein reiner Erfassungs-Begleiter zu GewerbePro. Gerechnet und
+  endgültig erzeugt wird alles am PC. Sie arbeitet vollständig offline und
+  benötigt kein Konto. Der Datenaustausch mit dem PC ist ein bewusster Schritt
+  des Nutzers: Die App legt die erfassten Daten als Paket in ihrem eigenen
+  Speicherbereich ab, ein automatischer Versand findet nicht statt. Firmenlogo,
+  Absenderangaben und Unterschrift werden aus GewerbePro übernommen, damit
+  Belege vor Ort im gewohnten Aussehen erzeugt werden können. Da Kundendaten und
+  Unterschriften erfasst werden, verarbeitet der Nutzer mit dieser App
+  personenbezogene Daten seiner eigenen Kunden in eigener Verantwortung.
+
+vorhandener_text: ""
+
+offene_fragen: >-
+  1. Die App ist noch nicht veröffentlicht. Ein Play-Store-Eintrag und das dortige
+  Datensicherheitsformular existieren nicht; Berechtigungen können sich bis zum
+  Release noch ändern.
+  2. Geprüft wurde der Quelltext und die Quell-Manifeste. Ob die Bibliotheken
+  "printing" und "file_picker" beim Zusammenbauen des Release-APK zusätzliche
+  Manifest-Einträge ergänzen, wurde an einem fertigen APK nicht nachgemessen.
+  3. Der geplante Sync über USB, eigene Cloud oder späteren Server ist noch nicht
+  umgesetzt. Sobald er kommt, entstehen neue Übertragungen, die hier nachgetragen
+  werden müssen.
+  (Die frühere Frage zum Slug ist erledigt: "gewerbepro-companion" ist am
+  19.07.2026 in _SLUG-EIGENTUEMER.md bestätigt.)

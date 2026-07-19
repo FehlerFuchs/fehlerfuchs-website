@@ -1,0 +1,123 @@
+slug: mobilereport
+name: MobileReport
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_MobileReport
+fassung: "1.1.0+39 (zusammengefuehrte Free/Pro-App mit In-App-Kauf; geprueft im Ordner FehlerFuchsMR_Pro\\01_App)"
+
+# Ohne Zutun des Nutzers verlaesst kein Inhalt das Geraet: kein Konto, keine
+# Hintergrund-Uebertragung, kein Tracking. Verbindungen entstehen nur
+# nutzerinitiiert (Support-/Kontaktformular, In-App-Kauf, Mail/Browser oeffnen).
+# Google Play Billing ist auf dem Geraet ueber die Play-Dienste eingebunden.
+lokal_only: true
+
+auf_dem_geraet:
+  - was: Meldungen (Bereich, Standort, Kategorie, Prioritaet, Betreff, Beschreibung, optional Melder-Name/Position)
+    wo: lokale Datenbank (SQLite)
+    beleg: lib/data/local/app_database.dart
+  - was: Fotos, die der Nutzer einer Meldung hinzufuegt, und erzeugte PDF-Dateien
+    wo: app-eigener Dokumentenordner auf dem Geraet
+    beleg: lib/services/image_service.dart, lib/services/pdf_service.dart
+  - was: Einstellungen (u. a. Empfaenger-Adresse, PDF-Layout, Profilangaben, Pro-Freischaltstatus)
+    wo: Geraeteeinstellungen der App (SharedPreferences)
+    beleg: lib/data/local/settings_repository_prefs.dart, lib/data/pro_provider.dart (Key pro_unlocked)
+  - was: lokales Zugriffsprotokoll der letzten App-Zugriffe
+    wo: Geraeteeinstellungen der App (SharedPreferences)
+    beleg: lib/services/access_log_service.dart
+  - was: App-eigener Fehlerlog (technische Fehlermeldungen, keine Meldungsinhalte)
+    wo: lokale Textdatei im App-Speicher
+    beleg: lib/core/diagnose/fehlerlog.dart
+
+berechtigungen:
+  - name: Kamera und Fotos
+    wofuer: >-
+      Ein Foto zur Meldung aufnehmen oder ein vorhandenes Bild auswaehlen. Die App
+      benutzt dafuer die Bildauswahl des Betriebssystems und verlangt keinen
+      eigenen Zugriff auf die Fotosammlung.
+    pflicht: false
+    beleg: image_picker (pubspec.yaml); android/app/src/main/AndroidManifest.xml - keine CAMERA-/Speicher-Berechtigung deklariert
+  - name: Kontakte
+    wofuer: >-
+      Beim Auswaehlen eines Empfaengers wird nur die E-Mail-Adresse des Kontakts
+      uebernommen, den der Nutzer selbst antippt. Auf das uebrige Adressbuch hat
+      die App keinen Zugriff.
+    pflicht: false
+    beleg: lib/services/contact_picker_service.dart - ACTION_PICK-Intent, kein READ_CONTACTS
+  - name: Internet
+    wofuer: >-
+      Wird nur gebraucht, wenn der Nutzer das Support- und Kontaktformular
+      abschickt oder die Pro-Freischaltung kauft. Zum Erfassen von Meldungen, zum
+      Erzeugen der PDF-Berichte und fuers Logbuch wird sie nicht benoetigt.
+    pflicht: false
+    beleg: nicht im App-Manifest deklariert, wird beim Zusammenfuehren der Manifeste durch in_app_purchase und http ergaenzt (pubspec.yaml)
+  - name: Abrechnung ueber Google Play
+    wofuer: Einmaliger Kauf der Pro-Freischaltung im Google-Play-Store.
+    pflicht: false
+    beleg: com.android.vending.BILLING, ergaenzt durch in_app_purchase (pubspec.yaml)
+
+uebertragungen:
+  - wohin: license.fehlerfuchs.eu (Endpunkt /v1/contact)
+    was: Anliegen (Support/Kontakt), Nachricht, optional Name/E-Mail, optional Screenshots; nur mit ausdruecklicher Zustimmung Diagnosedaten (Android-Version, Geraetemodell, App-Version/Build, App-eigener Fehlerlog)
+    wann: nur wenn der Nutzer das Support-/Kontaktformular absendet
+    freiwillig: true
+    beleg: lib/core/kontakt/kontakt_service.dart, lib/features/support/support_page.dart
+  - wohin: Google Play (Play Billing)
+    was: Kauf- bzw. Wiederherstellungsvorgang der Pro-Freischaltung; keine Meldungsinhalte
+    wann: beim Kauf und bei "Kaeufe wiederherstellen"
+    freiwillig: true
+    beleg: lib/data/pro_provider.dart (in_app_purchase)
+  - wohin: vom Nutzer gewaehlte E-Mail-App auf dem Geraet
+    was: erzeugtes PDF als Anhang, Empfaengeradresse und Betreff
+    wann: nur wenn der Nutzer den Versand ausloest; das Verschicken passiert in der fremden E-Mail-App, nicht in dieser Anwendung
+    freiwillig: true
+    beleg: lib/services/mail_share_service.dart (flutter_email_sender)
+  - wohin: externer Browser des Geraets
+    was: Aufruf oeffentlicher Webseiten (Enterprise-Produktseite, Unterstuetzen-Seite)
+    wann: nur wenn der Nutzer einen Link antippt; davor erscheint eine Bestaetigungsabfrage ("Browser oeffnen?")
+    freiwillig: true
+    beleg: lib/features/pro/pro_unlock_page.dart (url_launcher)
+
+fremde_dienste:
+  - name: Google Play Billing (in_app_purchase)
+    wofuer: einmaliger In-App-Kauf der Pro-Freischaltung
+    wann: nur beim Kauf/Wiederherstellen
+  - name: FehlerFuchs-Kontakt-Bridge (eigener Server, license.fehlerfuchs.eu)
+    wofuer: Weiterleitung der Support-/Kontaktanfrage per E-Mail
+    wann: nur beim Absenden des Formulars
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Alle Daten liegen auf dem Geraet. Einzelne Meldungen und Bilder lassen sich in der App
+  loeschen; zusaetzlich gibt es eine Aufraeum-Funktion fuer Bilddateien, die zu keiner
+  Meldung mehr gehoeren. Mit der Deinstallation verschwinden Datenbank, Bilder und
+  Einstellungen. Bereits gesendete Support-Nachrichten auf Anfrage per E-Mail.
+
+besonderheiten: >-
+  Meldungen koennen Fotos enthalten, die der Nutzer selbst aufnimmt. Die App weist
+  ausdruecklich darauf hin, keine Patientendaten oder sonstigen sensiblen Inhalte zu
+  fotografieren oder einzutragen. Sie ist kein Nachweissystem, kein Ticketsystem und keine
+  Medizintechnik-Software. Der Versand ist bewusst manuell: die App bereitet eine E-Mail
+  vor, verschickt aber nichts selbst. Ohne Zutun verlaesst kein Meldungsinhalt das Geraet;
+  Uebertragungen entstehen nur nutzerinitiiert (Support-Formular an einen eigenen EU-Server,
+  In-App-Kauf ueber Google Play). Diagnosedaten werden nur nach ausdruecklicher Zustimmung
+  mitgesendet und sind vorher in der App einsehbar. Die "Pro"-Freischaltung ist ein
+  einmaliger In-App-Kauf (kein Abo).
+
+vorhandener_text: lib/features/privacy/privacy_page.dart (In-App); Website fehlerfuchs.eu/datenschutz.html
+
+offene_fragen: >-
+  (1) Der genaue Play-Rollout-Status von 1.1.0+39 (bereits in Produktion live vs. in
+  Auslieferung) ist hier nicht verifiziert; dieser Steckbrief beschreibt den aktuellen
+  Codestand der zusammengefuehrten App.
+  (2) Der exakte, beim finalen AAB zusammengefuehrte Android-Berechtigungssatz
+  (Manifest-Merge von in_app_purchase/http/image_picker) wurde nicht aus einem gebauten
+  Artefakt verifiziert; ob restorePurchases beim App-Start eine Netzverbindung zu Google
+  Play ausloest oder nur den lokalen Play-Cache liest, ist unbekannt.
+  (3) Unbekannt, ob beim Drucken/Teilen ueber das Paket printing Daten an System- oder
+  Cloud-Druckdienste des Geraets gelangen - das haengt vom Geraet ab, nicht von der App.
+  (4) Ob die Kontakt-Bridge serverseitig IP-Adressen protokolliert, haengt vom Server ab,
+  nicht von der App.

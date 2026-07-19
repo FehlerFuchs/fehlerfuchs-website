@@ -1,0 +1,82 @@
+slug: relaisserver
+name: FehlerFuchs Relaisserver (Dienst - Relais und Push)
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_Relaisserver
+fassung: "Stand 19.07.2026 - relay-orgafuchs, ntfy v2.9.0, relay-admin, Caddy 2"
+
+# Hinweis: Dies ist die DIENST-Ebene (dritte Schicht), kein Endnutzer-Produkt.
+# Geraetebezogene Felder (auf_dem_geraet, berechtigungen) entfallen daher.
+lokal_only: false
+
+# Was der Dienst speichert bzw. voruebergehend vorhaelt.
+serverseitig:
+  - was: Nachrichteninhalte des Gruppen-Sync
+    wo: nirgends - werden nur im Arbeitsspeicher weitergereicht, keine Datenbank, kein Schreiben auf Platte
+    beleg: 05_Server/apps/orgafuchs/relay_server.dart (rooms = In-Memory-Map; nur eine Startzeile auf stdout, kein Nachrichten-Logging)
+  - was: Push-Meldungen (Inhalt sinngemaess "es gibt Aenderungen", keine Nutzdaten)
+    wo: Zwischenspeicher des Push-Dienstes, hoechstens 12 Stunden
+    beleg: 05_Server/compose/docker-compose.yml (NTFY_CACHE_DURATION=12h, NTFY_CACHE_FILE)
+  - was: Zugriffsprotokolle des Reverse-Proxy (Client-IP, Zeitpunkt, Pfad inklusive Query-Parameter)
+    wo: rotierende Container-Logs (je Dienst max. 3 x 10 MB), keine Archivierung, nicht im Backup
+    beleg: 05_Server/proxy/Caddyfile (log-Direktive je Site); 05_Server/compose/docker-compose.yml (logging max-size/max-file)
+  - was: aggregierte Zaehler (Anzahl Push-Meldungen, aktive Themen, Dienst-Health)
+    wo: nur dienstintern, ohne Personenbezug; Verwaltungszugang liefert keine Einzeldatensaetze
+    beleg: 05_Server/apps/relay-admin/admin_server.dart (items liefert immer eine leere Liste)
+
+# Jede Verbindung des Dienstes nach draussen.
+uebertragungen:
+  - wohin: Let's Encrypt (ACME)
+    was: Domainnamen der Subdomains zur Zertifikatsausstellung
+    wann: automatisch bei Ausstellung und Erneuerung
+    freiwillig: false
+    beleg: 05_Server/proxy/Caddyfile (automatisches HTTPS)
+  - wohin: IONOS (SMTP)
+    was: Betriebs- und Stoerungsmeldungen an die eigene Administrationsadresse; keine Nutzerdaten
+    wann: zweimal taeglich sowie bei anhaltender Stoerung
+    freiwillig: false
+    beleg: 05_Server/scripts/monitor.sh
+
+fremde_dienste:
+  - name: IONOS
+    wofuer: Hosting des Servers und Versand der Betriebsmeldungen
+    wann: dauerhaft
+  - name: Let's Encrypt
+    wofuer: TLS-Zertifikate; ausgestellte Zertifikate erscheinen in oeffentlichen Certificate-Transparency-Logs
+    wann: bei Ausstellung und Erneuerung
+  - name: ntfy (Open Source, selbst betrieben)
+    wofuer: Push-Benachrichtigungen auf dem eigenen Server statt ueber einen fremden Push-Anbieter
+    wann: dauerhaft
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Der Dienst haelt keine Nutzdaten dauerhaft vor. Weitergereichte Nachrichten
+  bestehen nur waehrend der Uebertragung, Push-Meldungen verfallen nach
+  spaetestens zwoelf Stunden, Zugriffsprotokolle werden durch Rotation
+  ueberschrieben. Es gibt keine Konten und damit auch keinen Datenbestand,
+  der auf Antrag zu loeschen waere.
+
+besonderheiten: >-
+  Der Relais ist bewusst inhaltsblind: Die Nutzdaten werden bereits auf dem
+  Geraet Ende-zu-Ende verschluesselt, der Server sieht nur Chiffrat und reicht
+  es anhand einer Zielkennung weiter. Es gibt keine Konten, keine Mitgliederliste
+  und keine Datenbank. Push laeuft ueber eine selbst betriebene Instanz statt
+  ueber einen grossen Anbieter; uebertragen wird dabei nur der Anstoss zu
+  synchronisieren, kein Inhalt. Der Verwaltungszugang fuer die interne
+  Serveruebersicht liefert ausschliesslich aggregierte Zahlen ohne Personenbezug.
+
+vorhandener_text: 01_Konzept/Sicherheitskonzept.md
+
+offene_fragen: >-
+  (1) Die Zugriffsprotokolle des Reverse-Proxy enthalten die Client-IP und den
+  vollstaendigen Pfad einschliesslich Query-Parametern; bei Sync-Verbindungen
+  stehen dort Gruppen- und Geraetekennung. Die Logs rotieren nach Groesse und
+  werden nicht archiviert - eine feste Aufbewahrungsfrist in Tagen ist damit
+  nicht definiert. Ob das so bleibt oder das Protokollieren der Query-Parameter
+  abgeschaltet wird, ist offen.
+  (2) Unbekannt, ob und wie lange der Hoster auf Netzwerkebene eigene Protokolle
+  fuehrt - das liegt ausserhalb der eigenen Konfiguration.

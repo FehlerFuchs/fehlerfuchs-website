@@ -36,7 +36,7 @@ platforms:
     distribution: github-release
     since: "2026-07-06"
 
-privacy: [nur-lokal, keine-cloud, kein-tracking, werbefrei, kein-google, offline-faehig]
+privacy: [inhalte-lokal, keine-cloud, kein-tracking, werbefrei, kein-google, offline-faehig]
 
 editions:
   - id: white-label

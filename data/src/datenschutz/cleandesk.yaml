@@ -1,0 +1,94 @@
+slug: cleandesk
+name: FehlerFuchs CleanDesk
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_CleanDesk
+fassung: "0.1.0 (csproj) - Entwicklungsstand v0.2, noch nicht veroeffentlicht"
+
+# Windows-Desktop-Anwendung (.NET 8 / WPF, net8.0-windows). Im gesamten
+# Quellcode gibt es keinen einzigen Netzwerkaufruf; die csproj enthaelt
+# keinen einzigen PackageReference (keine Fremdpakete).
+lokal_only: true
+
+auf_dem_geraet:
+  - was: Einstellungen (zu pruefende Ordner, Grenzwerte fuer gross und alt, max. Hash-Groesse)
+    wo: '%LOCALAPPDATA%\FehlerFuchs\CleanDesk\settings.json'
+    beleg: src/CleanDesk/Services/Settings.cs (DataDir, SettingsPath)
+  - was: eigene Sortier-Regeln (Dateiendung -> Zielordner)
+    wo: '%LOCALAPPDATA%\FehlerFuchs\CleanDesk\sortierregeln.json'
+    beleg: src/CleanDesk/Services/RulesStore.cs
+  - was: Berichte ueber die Funde; enthalten Dateinamen, vollstaendige Pfade,
+      Groessen, Aenderungsdaten und SHA-256-Pruefsummen der Dateien des Nutzers
+    wo: '%LOCALAPPDATA%\FehlerFuchs\CleanDesk\berichte\ (TXT, CSV, JSON)'
+    beleg: src/CleanDesk/Services/ReportWriter.cs
+  - was: Protokoll der ausgefuehrten Aktionen (Quell- und Zielpfade beim Sortieren,
+      Papierkorb-Aktionen)
+    wo: '%LOCALAPPDATA%\FehlerFuchs\CleanDesk\logs\ (JSONL und TXT)'
+    beleg: src/CleanDesk/Safety/Protocol.cs
+  - was: beim Sortieren erzeugte Kopien der Dateien; die Originale wandern in den
+      Windows-Papierkorb
+    wo: vom Nutzer gewaehlter Zielordner bzw. Windows-Papierkorb
+    beleg: src/CleanDesk/Safety/SafeMover.cs, src/CleanDesk/Safety/RecycleBin.cs
+
+# Windows-Desktop-Anwendung ohne Manifest-Berechtigungen (kein Android-Manifest).
+# Kein <ApplicationManifest> mit Elevation in der csproj; laeuft ohne Administratorrechte.
+berechtigungen:
+  - name: Lesezugriff auf die vom Nutzer gewaehlten Ordner
+    wofuer: Scan nach echten Duplikaten (Groessen-Vorfilter, dann SHA-256), grossen
+      und alten Dateien sowie leeren Ordnern
+    pflicht: true
+    beleg: src/CleanDesk/Core/Scanner.cs, src/CleanDesk/Core/DuplicateFinder.cs
+  - name: Schreiben und Verschieben in den Papierkorb in den gewaehlten Ordnern
+    wofuer: Sortieren (kopieren) und Duplikate in den Papierkorb - ausschliesslich
+      nach ausdruecklicher Bestaetigung im Dialog
+    pflicht: false
+    beleg: src/CleanDesk/Safety/SafeMover.cs, src/CleanDesk/Safety/RecycleBin.cs
+
+# Keine Uebertragung nach draussen.
+# Beleg: kein HttpClient/WebClient/WebRequest/Socket/System.Net und keine URL im
+# gesamten Quellcode (geprueft ueber src/CleanDesk/**/*.cs und *.xaml).
+# Process.Start wird nur lokal verwendet: explorer.exe auf den Berichtsordner und
+# Oeffnen einer lokalen Berichtsdatei (Beleg: src/CleanDesk/Views/ReportsView.xaml.cs).
+uebertragungen: []
+
+# Keine fremden Dienste oder Bibliotheken.
+# Beleg: csproj ohne PackageReference; genutzt wird nur die .NET-8-Windows-Desktop-
+# Laufzeit inkl. Microsoft.VisualBasic.FileIO fuer den Windows-Papierkorb
+# (src/CleanDesk/Safety/RecycleBin.cs).
+fremde_dienste: []
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Alle Daten liegen auf dem Geraet. Berichte und Protokolle lassen sich einzeln
+  loeschen; der gesamte App-Datenordner %LOCALAPPDATA%\FehlerFuchs\CleanDesk kann
+  jederzeit von Hand entfernt werden. Dateien, die CleanDesk in den Papierkorb
+  verschoben hat, lassen sich ueber den Windows-Papierkorb wiederherstellen oder
+  dort endgueltig loeschen.
+
+besonderheiten: >-
+  Der Scan ist reine Analyse und veraendert nichts. Veraendernde Aktionen laufen nur
+  nach Bestaetigung und ausschliesslich ueber den Papierkorb; endgueltiges Loeschen
+  gibt es in diesem Stand nicht. Verschoben wird immer in drei Schritten: Die Datei
+  wird zuerst an den Zielort kopiert, die Kopie wird ueber Groesse und Pruefsumme mit
+  dem Original verglichen, und erst danach wandert das Original in den Papierkorb.
+  Bei Namensgleichheit wird umbenannt, nie ueberschrieben. Geschuetzte Bereiche des
+  Betriebssystems und der Programme sowie versteckte Anwendungsdaten werden nicht
+  gelesen; Verknuepfungen auf andere Orte werden nicht verfolgt.
+  Datenschutzrelevant: Berichte und Protokolle enthalten vollstaendige Dateipfade und
+  Dateinamen des Nutzers und koennen dadurch personenbezogene Angaben in Pfadnamen
+  enthalten; sie verbleiben lokal und werden nicht versendet.
+
+vorhandener_text: src/CleanDesk/Views/InfoView.xaml (Seite "Info / Datenschutz" in der App)
+
+offene_fragen: >-
+  1) Die Anwendung ist nicht veroeffentlicht und besitzt keine Installations- oder
+  Update-Funktion. Ob eine spaetere Verteilung (Installer, Signierung, Update-Pruefung)
+  Verbindungen nach draussen mit sich bringt, ist heute offen.
+  2) Beim Oeffnen eines Berichts oder des Berichtsordners uebergibt CleanDesk den
+  Vorgang an Windows. Was die dort registrierte
+  Standardanwendung anschliessend tut, liegt ausserhalb von CleanDesk und ist von hier
+  aus nicht bewertbar.

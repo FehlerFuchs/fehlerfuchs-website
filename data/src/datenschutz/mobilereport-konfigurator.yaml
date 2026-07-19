@@ -1,0 +1,93 @@
+slug: mobilereport-konfigurator
+name: Branding-Konfigurator
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_WEBSEITE
+fassung: >-
+  Zwei Fassungen, beide am 19.07.2026 im Quelltext geprüft und inhaltlich
+  gleich. (A) Maßgeblich künftig: die Astro-Fassung
+  astro/src/pages/produkte/mobilereport-konfigurator.astro. (B) Derzeit über
+  fehlerfuchs.eu ausgeliefert: website/apps/mobilereport-konfigurator.html
+  (Commit 0e09025). Die Belege unten nennen die Astro-Fassung; die
+  HTML-Fassung trägt dieselben Funktionsnamen.
+
+# ---------------------------------------------------------------------------
+# EIGENTÜMER: FehlerFuchs_WEBSEITE.
+# Der Konfigurator ist keine App des MobileReport-Projekts, sondern eine Seite
+# auf fehlerfuchs.eu ohne Serverlogik. Das Enterprise-Whitelabel-Konzept ordnet
+# ihn ausdrücklich dem Website-Projekt zu („statisch, kein Backend"). Das
+# MobileReport-Projekt hat zu Recht gemeldet, bei sich nichts zu finden; seine
+# Meldung liegt daneben als
+#   mobilereport-konfigurator_HINWEIS_von_FehlerFuchs_MobileReport.yaml
+# und ist damit erledigt.
+# ---------------------------------------------------------------------------
+lokal_only: true
+
+auf_dem_geraet:
+  - was: Eingegebener Firmenname, Farben, Schalter und das gewählte Logo
+    wo: nur im Arbeitsspeicher des Browsers, solange die Seite offen ist
+    beleg: Variablen logo/manual/flags, Funktion buildBrand()
+  - was: >-
+      die erzeugte Branding-Datei (.mrbrand) – enthält Name, Farben und das
+      eingebettete Logo
+    wo: im Download-Ordner, vom Nutzer selbst ausgelöst
+    beleg: Funktion doExport(), Blob + URL.createObjectURL
+
+# Kein Speicher, der über das Schließen der Seite hinaus bestehen bleibt.
+# Nachgeprüft: kein localStorage, kein sessionStorage, kein indexedDB,
+# kein document.cookie im gesamten Quelltext.
+speichert_dauerhaft: false
+
+berechtigungen:
+  - name: Dateiauswahl
+    wofuer: Auswahl einer Logodatei (PNG oder JPG) für die Vorschau
+    pflicht: false
+    beleg: 'Dateifeld mit accept="image/png,image/jpeg", Verarbeitung in handleLogo() per FileReader'
+    hinweis: >-
+      Das ist keine Berechtigung im Sinne einer App-Erlaubnis, sondern das
+      normale Dateifeld des Browsers. Die Datei wird nur im Browser gelesen
+      und verlässt das Gerät nicht.
+
+# KEINE. Nachgeprüft: kein fetch, kein XMLHttpRequest, kein WebSocket, kein
+# sendBeacon, kein Formular, keine fremde Domain. Geladen werden ausschließlich
+# eigene Dateien derselben Herkunft (Stilvorlage, Favicon, selbst ausgelieferte
+# Schriften). Der einzige absolute Verweis ist das canonical-Meta, das keinen
+# Abruf auslöst.
+uebertragungen: []
+
+# Keine. Insbesondere kein CDN und keine Schriften aus dem Netz.
+fremde_dienste: []
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Es entsteht nichts, was zu löschen wäre. Schließt man die Seite oder lädt
+  sie neu, sind alle Eingaben und das Logo weg; die Schaltfläche
+  „Zurücksetzen" leert sie sofort. Die heruntergeladene Branding-Datei liegt
+  danach nur noch beim Nutzer.
+
+besonderheiten: >-
+  Das Logo wird im Browser gelesen, in eine Vorschau gezeichnet und in die
+  Branding-Datei geschrieben. Es wird zu keinem Zeitpunkt übertragen. Auch der
+  Farbvorschlag aus dem Logo und die Größenprüfung (max. 512 KB, max. 1024
+  Pixel) laufen ausschließlich im Browser. Die erzeugte Branding-Datei enthält
+  die Angaben des Nutzers einschließlich des eingebetteten Logos und sollte von
+  ihm wie eine eigene Datei behandelt werden. Nutzung ohne Anmeldung und
+  kostenlos.
+
+# Beleg zu „besonderheiten": Farbableitung per Canvas/getImageData in
+# deriveFromLogo(), Größenprüfung in handleLogo().
+
+vorhandener_text: >-
+  Kein eigener Text nur für dieses Werkzeug; es gilt die allgemeine
+  Datenschutzseite der Website.
+
+offene_fragen: >-
+  Die Seite wird von GitHub Pages ausgeliefert. Ob und wie lange GitHub dabei
+  Server-Protokolle mit IP-Adressen führt, ist eine Frage an den Hoster und
+  nicht am Produkt zu klären. Sie betrifft alle Seiten von fehlerfuchs.eu
+  gleichermaßen und gehört in den allgemeinen Teil der Datenschutzseite, nicht
+  in diesen Steckbrief.

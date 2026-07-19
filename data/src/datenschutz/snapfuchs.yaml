@@ -1,0 +1,132 @@
+slug: snapfuchs
+name: SnapFuchs
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_SnapFuchs
+fassung: "1.0.0 (versionCode 3, bei Google Play in Pruefung)"
+
+# Beim App-Start fragt die Pro-Freischaltung automatisch den Kaufstatus bei
+# Google Play ab (restorePurchases). Nutzerinhalte (Scans, PDFs, erkannter
+# Text) verlassen das Geraet dabei NICHT.
+lokal_only: false
+
+auf_dem_geraet:
+  - was: Exportierte PDFs (auch in selbst angelegten Ordnern)
+    wo: App-eigenes Dokumentenverzeichnis, Unterordner "SnapFuchs"
+    beleg: lib/core/storage/dokument_speicher.dart
+  - was: Einstellungen (Wasserzeichen-Stil und -Position, Kaufstatus)
+    wo: Geraeteeinstellungen der App
+    beleg: lib/models/watermark_config.dart, lib/utils/pro_check.dart
+  - was: App-eigener Fehlerlog (technische Fehlermeldungen, ueberdauert Neustart)
+    wo: lokale Datei im App-Verzeichnis
+    beleg: lib/core/diagnose/fehlerlog.dart
+  - was: Temporaere Dateien fuer OCR, Export und Teilen
+    wo: App-Cache, werden nach Gebrauch geloescht bzw. vom System aufgeraeumt
+    beleg: lib/core/ocr/tesseract_service.dart, lib/core/pdf/pdf_export.dart
+  - was: Fuer die PDF-Werkzeuge ausgewaehlte fremde PDF-Dateien
+    wo: Kopie im App-Cache
+    beleg: android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt
+
+berechtigungen:
+  - name: Kamera
+    wofuer: Dokumente scannen, QR-Codes und Barcodes lesen
+    pflicht: true
+    beleg: CAMERA in android/app/src/main/AndroidManifest.xml
+  - name: Internet
+    wofuer: Feedback absenden, Verweise im Browser oeffnen, Kaufabwicklung ueber Google Play
+    pflicht: false
+    beleg: INTERNET in android/app/src/main/AndroidManifest.xml
+  - name: In-App-Abrechnung
+    wofuer: einmaliger Kauf der Pro-Fassung
+    pflicht: false
+    beleg: com.android.vending.BILLING, vom Paket in_app_purchase ergaenzt, im gemergten Release-Manifest enthalten
+  - name: Schreiben auf den geteilten Speicher, nur auf Android 9 und aelter
+    wofuer: alter Weg fuer den Export; eigene Dokumente werden im Bereich der App abgelegt
+    pflicht: false
+    beleg: WRITE_EXTERNAL_STORAGE mit maxSdkVersion 28 in android/app/src/main/AndroidManifest.xml
+  - name: Netzwerkstatus
+    wofuer: wird von der App nicht abgefragt; stammt aus eingebundenen Bausteinen
+    pflicht: false
+    beleg: ACCESS_NETWORK_STATE, gemergtes Release-Manifest Zeile 71
+  - name: Mikrofon
+    wofuer: wird nicht genutzt; stammt aus dem Kamera-Baustein. Die Kamera wird ohne Tonaufnahme geoeffnet
+    pflicht: false
+    beleg: RECORD_AUDIO, gemergtes Release-Manifest Zeile 63; enableAudio false in lib/features/scan/scan_screen.dart:49
+  - name: Zugriff auf Fotos und Videos
+    wofuer: wird nicht angefordert. Bilder waehlt man ueber den Android-Fotoauswahl-Dialog aus, der ohne diese Berechtigung auskommt
+    pflicht: false
+    beleg: READ_MEDIA_IMAGES und READ_MEDIA_VIDEO per tools:node="remove" entfernt in android/app/src/main/AndroidManifest.xml; useAndroidPhotoPicker in lib/main.dart
+
+uebertragungen:
+  - wohin: Google Play (Abrechnung)
+    was: Abfrage bzw. Uebermittlung des Kaufstatus fuer die Pro-Fassung
+    wann: automatisch beim App-Start (Wiederherstellung) und beim Kauf
+    freiwillig: false
+    beleg: lib/utils/pro_check.dart
+  - wohin: license.fehlerfuchs.eu
+    was: Nachrichtentext, freiwillig Name und E-Mail-Adresse, App-Name, Edition, App-Version, Android-Version, Geraetemodell; optional angehaengte Bilder; nur bei gesetztem Haken zusaetzlich eine Diagnosedatei mit Technikdaten und dem App-eigenen Fehlerlog
+    wann: nur wenn der Nutzer das Feedback-Formular aktiv absendet
+    freiwillig: true
+    beleg: lib/core/kontakt/kontakt_service.dart, lib/features/info/feedback_screen.dart
+  - wohin: fehlerfuchs.eu
+    was: Aufruf der Website (Impressum, Kontakt, weitere Apps, Unterstuetzen) im externen Browser
+    wann: nur wenn der Nutzer den jeweiligen Verweis antippt
+    freiwillig: true
+    beleg: lib/features/info/impressum_screen.dart, lib/features/home/home_screen.dart
+  - wohin: vom Nutzer gescannte Adresse (QR-Code)
+    was: Aufruf der im Code enthaltenen Adresse im externen Browser
+    wann: nur nach Antippen von "Oeffnen" im Ergebnisdialog
+    freiwillig: true
+    beleg: lib/features/code/code_scan_screen.dart
+  - wohin: Mail-App des Geraets
+    was: vorbereitete Support-Mail als Rueckfallweg, wenn das Formular nicht durchkommt
+    wann: nur nach Bestaetigung durch den Nutzer
+    freiwillig: true
+    beleg: lib/features/info/feedback_screen.dart
+
+fremde_dienste:
+  - name: Google Play Billing (Paket in_app_purchase)
+    wofuer: einmaliger In-App-Kauf der Pro-Fassung und dessen Wiederherstellung
+    wann: beim App-Start (Statusabfrage) und beim Kauf
+  - name: Kontakt-Weiterleitung auf dem FehlerFuchs-Lizenzserver (EU, IONOS)
+    wofuer: nimmt das Feedback entgegen und leitet es per E-Mail weiter
+    wann: nur beim aktiven Absenden des Formulars
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Alle Inhalte liegen auf dem Geraet. Einzelne Dokumente und Ordner lassen sich
+  in der App loeschen; alles Uebrige (Einstellungen, Fehlerlog, Cache)
+  verschwindet mit der Deinstallation. Per Feedback gesendete Nachrichten liegen
+  im Support-Postfach und werden auf Anfrage geloescht.
+
+besonderheiten: >-
+  Texterkennung, Tabellenerkennung, das Lesen von QR-Codes und Barcodes sowie
+  alle PDF-Werkzeuge laufen vollstaendig auf dem Geraet und bauen dafuer keine
+  Verbindung nach aussen auf. Es gibt kein Konto und keine Registrierung.
+  Bilder aus der Galerie werden ueber den Android-Fotoauswahl-Dialog
+  ausgewaehlt; deshalb fordert die App keine Berechtigung fuer Fotos oder
+  Videos an. In der kostenlosen Fassung tragen die erzeugten PDFs ein
+  Wasserzeichen, das nach dem einmaligen Kauf entfaellt. Der Kaufstatus wird
+  auf dem Geraet gespeichert und zusaetzlich bei Google Play abgefragt.
+
+vorhandener_text: >-
+  Kein eigenes Dokument. Ein Datenschutz-Abschnitt steht in der App unter
+  Einstellungen (lib/features/settings/settings_screen.dart); das Impressum
+  verweist auf die Website.
+
+offene_fragen: >-
+  1) RECORD_AUDIO steht im gemergten Release-Manifest (vom Kamera-Paket
+  ergaenzt), wird von der App aber nicht genutzt - die Kamera wird ohne Ton
+  geoeffnet. Ob die Berechtigung entfernt werden soll, ist nicht entschieden.
+  2) ACCESS_NETWORK_STATE steht ebenfalls nur wegen eingebundener Pakete im
+  Manifest; im eigenen Code wird der Netzwerkstatus nirgends abgefragt.
+  3) Beim Feedback werden App-Version, Android-Version und Geraetemodell IMMER
+  mitgesendet, auch ohne den Haken "Diagnosedaten mitsenden"; der Haken fuegt
+  nur die ausfuehrliche Diagnosedatei mit Fehlerlog hinzu. Ob der Hinweistext
+  oder das Verhalten angepasst wird, ist offen.
+  4) Ob und wie lange der Kontakt-Server IP-Adressen protokolliert, haengt vom
+  Server ab und ist aus dem App-Code nicht feststellbar.

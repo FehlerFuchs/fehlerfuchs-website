@@ -1,0 +1,100 @@
+slug: mobilereport-enterprise
+name: MobileReport Enterprise
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_MobileReport
+fassung: "1.0.1+4 (Arbeitsstand im Ordner FehlerFuchsMR_Enterprise\\01_App; nicht im Play Store)"
+
+# Falsch, weil Lizenzpruefung und Update-Hinweis das Geraet verlassen.
+lokal_only: false
+
+auf_dem_geraet:
+  - was: Meldungen (Geraet, Bereich, Kategorie, Prioritaet, Beschreibung, Melder-Name)
+    wo: lokale Datenbank (SQLite)
+    beleg: lib/data/local/app_database.dart
+  - was: Fotos zu Meldungen und erzeugte PDF-Dateien
+    wo: app-eigener Dokumentenordner auf dem Geraet
+    beleg: lib/services/image_service.dart
+  - was: Einstellungen und Firmen-Branding (Logo, Farben, Name aus einer .mrbrand-Datei)
+    wo: Geraeteeinstellungen der App
+    beleg: lib/domain/models/brand_theme.dart
+  - was: Lizenzschluessel, Offline-Nachweis und Geraete-Kennung
+    wo: besonders geschuetzter Speicherbereich des Geraets, getrennt von den uebrigen Einstellungen und nicht Teil der Datensicherung
+    beleg: lib/services/license_store.dart (flutter_secure_storage / Android-Keystore)
+  - was: lokales Zugriffsprotokoll
+    wo: Geraeteeinstellungen der App
+    beleg: lib/services/access_log_service.dart
+
+berechtigungen:
+  - name: Internet
+    wofuer: >-
+      Freischalten und Pruefen der Firmenlizenz sowie der Hinweis auf eine neuere
+      Fassung. Zum Erfassen von Meldungen, zum Erzeugen der PDF-Berichte und fuers
+      Logbuch wird sie nicht benoetigt.
+    pflicht: false
+    beleg: android/app/src/main/AndroidManifest.xml (uses-permission INTERNET)
+
+uebertragungen:
+  - wohin: license.fehlerfuchs.eu
+    was: >-
+      Lizenzschluessel, Geraete-Fingerprint, optional ein selbst vergebener
+      Geraetename und die Angabe "Android". Ausdruecklich KEINE Meldungen,
+      Bilder, PDFs oder Einstellungen.
+    wann: bei Aktivierung, Online-Pruefung und Freigabe eines Arbeitsplatzes
+    freiwillig: false
+    beleg: lib/services/license_service.dart (Zeilen 50-95; /v1/activate, /v1/validate, /v1/deactivate)
+  - wohin: fehlerfuchs.eu
+    was: Abruf einer Versionsdatei (enterprise/latest.json) fuer den Update-Hinweis; es werden keine Inhalte gesendet
+    wann: beim Pruefen auf eine neuere Fassung
+    freiwillig: false
+    beleg: lib/services/update_service.dart (Zeilen 22-28)
+  - wohin: fehlerfuchs.eu im Browser des Geraets
+    was: Aufruf einer oeffentlichen Webseite
+    wann: nur wenn der Nutzer einen Link antippt
+    freiwillig: true
+    beleg: lib/features/enterprise/enterprise_info_page.dart, lib/features/home/home_page.dart
+  - wohin: vom Nutzer gewaehlte E-Mail-App auf dem Geraet
+    was: erzeugtes PDF als Anhang, Empfaenger und Betreff
+    wann: nur wenn der Nutzer den Versand ausloest
+    freiwillig: true
+    beleg: lib/services/mail_share_service.dart
+
+fremde_dienste:
+  - name: Lizenzdienst unter license.fehlerfuchs.eu
+    wofuer: Aktivierung und Pruefung der Firmenlizenz (Arbeitsplatz-Zaehlung)
+    wann: bei Aktivierung und Online-Pruefung
+# Kein Firebase, keine Analytics, kein Absturzdienst, keine Werbe-SDKs im Projekt.
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Meldungen, Bilder und Einstellungen liegen auf dem Geraet und lassen sich dort
+  einzeln loeschen; mit der Deinstallation verschwinden sie vollstaendig. Der
+  belegte Arbeitsplatz laesst sich in der App wieder freigeben, damit die Lizenz
+  auf einem anderen Geraet genutzt werden kann.
+
+besonderheiten: >-
+  Die Geraete-Kennung ist keine Hardware-Kennung und wird nicht aus dem Geraet
+  ausgelesen: Es ist eine beim ersten Start zufaellig erzeugte Zufallsnummer, die
+  geschuetzt auf dem Geraet liegt. Sie dient allein dazu, einen Arbeitsplatz zu
+  zaehlen und bei erneuter Freischaltung nicht doppelt zu belegen; ein Rueckschluss
+  auf eine Person ist damit nicht moeglich. Die App kennt den Zahlungsanbieter
+  nicht, sie spricht ausschliesslich die eigene Lizenz-Schnittstelle an. Nach dem
+  Freischalten ist die Nutzung auch ohne Netzverbindung moeglich. Das
+  Firmen-Branding wird als Datei auf dem Geraet eingelesen und nicht aus dem Netz
+  geladen.
+
+vorhandener_text: unbekannt (im Enterprise-Ordner wurde kein eigener Datenschutztext gefunden)
+
+offene_fragen: >-
+  (1) Unbekannt, ob der Lizenzdienst serverseitig IP-Adressen oder Zeitpunkte
+  protokolliert - das haengt vom Server ab, nicht von der App.
+  (2) Unbekannt, ob der Abruf der Versionsdatei auf fehlerfuchs.eu serverseitig
+  protokolliert wird.
+  (3) Das Firmen-Setup (Provisioning) aus
+  00_Konzept\PROVISIONING_FIRMENSETUP_KONZEPT.md ist bisher nur Konzept; im
+  geprueften Code wurde dazu nichts gefunden. Unbekannt, ob Teile davon bereits
+  ausserhalb der geprueften Dateien vorbereitet sind.

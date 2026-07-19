@@ -1,0 +1,63 @@
+slug: schichtfuchs
+name: SchichtFuchsHTML
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_SchichtFuchs
+fassung: "BETA 2.0 (UKJ-Edition) – in Erprobung, nicht veröffentlicht"
+
+# Verlässt IRGENDEIN Datum das Gerät, wenn man nichts weiter einstellt?
+lokal_only: true
+
+# Was die Anwendung auf dem Gerät ablegt.
+auf_dem_geraet:
+  - was: nichts dauerhaft – alle Eingaben (Plan, Meldungen, Stammdaten) liegen nur im Arbeitsspeicher der Browser-Sitzung und sind nach Neuladen/Schließen weg
+    wo: Arbeitsspeicher des Browsers (keine Datenbank, kein dauerhafter Browser-Speicher, keine Cookies)
+    beleg: 02_Mockup/SchichtFuchsHTML_BETA_2.0_UKJ.html – Code enthält keinerlei localStorage/sessionStorage/indexedDB/document.cookie-Aufrufe (geprüft per Volltextsuche, 0 Treffer)
+
+# Berechtigungen: keine. Es wird nichts angefordert (kein Standort, keine
+# Kamera, keine Benachrichtigungen).
+
+# JEDE Verbindung nach draußen.
+uebertragungen:
+  - wohin: cdnjs.cloudflare.com
+    was: Abruf der JavaScript-Bibliothek SheetJS (xlsx 0.18.5); es werden keine Plan- oder Personendaten übertragen, der CDN-Betreiber sieht die übliche HTTP-Anfrage
+    wann: nur wenn der Nutzer aktiv eine Excel-Datei (.xlsx) in den Stammdaten importiert und die Bibliothek noch nicht geladen ist; der CSV-Import kommt ohne jede Verbindung aus
+    freiwillig: true
+    beleg: 02_Mockup/SchichtFuchsHTML_BETA_2.0_UKJ.html – change-Handler von #stamm-import, createElement("script") mit URL https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js
+  # Prototyp und BETA 1.0 enthalten überhaupt keine externen Adressen
+  # (einzige URL im Code ist der SVG-Namespace http://www.w3.org/2000/svg).
+
+# Fremde Dienste und Bibliotheken, die selbst Daten sehen.
+fremde_dienste:
+  - name: Cloudflare cdnjs (Auslieferung von SheetJS)
+    wofuer: einmaliges Nachladen der Excel-Import-Bibliothek
+    wann: nur beim vom Nutzer ausgelösten .xlsx-Import
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Es wird nichts dauerhaft gespeichert: Seite neu laden oder den Browser-Tab
+  schließen genügt, alle Eingaben der Sitzung sind damit weg. Die HTML-Datei
+  selbst kann einfach gelöscht werden.
+
+besonderheiten: >-
+  SchichtFuchsHTML ist eine einzelne HTML-Datei, die ohne Installation im
+  Browser läuft – ohne Serverdienst, ohne Konto und ohne jede
+  Berechtigungsanfrage. Die mitgelieferten Namen und Pläne sind fiktive
+  Demo-Daten. Eine dauerhafte Speicherung gibt es im heutigen Stand nicht;
+  sobald sie kommt (vorgesehen ist eine Ablage auf einem gemeinsamen
+  Netzlaufwerk der Einrichtung), ändert sich das Speicherbild und dieser
+  Steckbrief wird erneuert.
+
+vorhandener_text:
+
+offene_fragen: >-
+  1) Der Slug „schichtfuchs" steht noch nicht in der Slug-Liste des Prompts –
+  bitte in die Website-Liste aufnehmen oder Zuordnung nennen.
+  2) Ob Cloudflare beim Bibliotheks-Abruf IP-Adressen protokolliert, hängt vom
+  CDN-Betreiber ab und ist von der App aus nicht feststellbar.
+  3) Nach Umstellung auf JSON-Persistenz (Netzlaufwerk) muss der Abschnitt
+  „auf_dem_geraet"/„loeschung" neu gefasst werden.

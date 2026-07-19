@@ -44,7 +44,7 @@ platforms:
     status: pruefung
     distribution: play-store
 
-privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, kein-google, offline-faehig]
+privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, kein-google, offline-faehig]
 
 editions:
   - id: free

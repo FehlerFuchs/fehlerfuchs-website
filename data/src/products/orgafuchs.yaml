@@ -51,7 +51,7 @@ umwege:
       unsichere Maschine durchentscheidet, statt einen Menschen hinzuzuziehen.
       Ein Blick hätte gereicht; so kostet es sieben bis vierzehn Tage.
 
-privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, kein-google, eigener-sync, offline-faehig]
+privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, kein-google, eigener-sync, offline-faehig]
 
 editions:
   - id: standard

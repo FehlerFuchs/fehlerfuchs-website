@@ -1,0 +1,51 @@
+slug: einzelstueck
+name: EinzelStück
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_ChefBüro
+fassung: "keine Anwendung vorhanden – Dienstleistung, Angebot im Aufbau"
+
+# Es gibt kein Programm, das Nutzer installieren. Nichts verlässt ein Gerät,
+# weil es kein ausgeliefertes Produkt gibt.
+lokal_only: true
+
+# Keine Anwendung -> nichts, was auf einem Nutzergerät abgelegt wird.
+auf_dem_geraet: []
+
+# Keine Anwendung -> keine Berechtigungen.
+berechtigungen: []
+
+# Keine Anwendung -> keine Verbindungen nach draußen.
+uebertragungen: []
+
+# Keine Anwendung -> keine eingebundenen Fremddienste.
+fremde_dienste: []
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Es gibt keine Anwendung und damit keine Nutzerdaten. Daten, die im Rahmen eines
+  konkreten Auftrags vom Kunden bereitgestellt werden, liegen ausschließlich lokal
+  beim Auftragnehmer, werden nach Projektende gelöscht und die Löschung wird im
+  jeweiligen Auftragsordner protokolliert.
+
+besonderheiten: >-
+  EinzelStück ist eine Dienstleistung (individuell beauftragte Softwarelösungen für
+  Betriebe), kein Produkt zum Herunterladen. Es existiert derzeit weder eine Anwendung
+  noch ein laufender Auftrag; der Projektordner enthält ausschließlich Text- und
+  Grafikdateien (Konzept, Vorlagen, Prozess). Datenschutzrelevant wird erst die einzelne
+  Anfertigung: Jede ausgelieferte Lösung ist ein eigenständiges Produkt beim Kunden und
+  braucht dann eine eigene Betrachtung. Vom Kunden gelieferte Beispieldaten werden
+  bewusst sparsam angenommen, nicht weitergegeben und nach Projektende gelöscht.
+
+vorhandener_text: ""
+
+offene_fragen: >-
+  1) Wie sollen einzelne Anfertigungen datenschutzseitig erfasst werden – jede
+  ausgelieferte Lösung läuft beim Kunden und ist ein eigenes Produkt; ob und in welcher
+  Form dafür eigene Steckbriefe entstehen, ist mit dem WEBSEITE-Projekt zu klären.
+  2) Ob bei Kundenprojekten eine Auftragsverarbeitung nach Art. 28 DSGVO nötig wird,
+  ist rechtlich zu prüfen und noch nicht entschieden.

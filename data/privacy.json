@@ -1,0 +1,1898 @@
+{
+  "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
+  "generiert": "2026-07-19T23:32:19+02:00",
+  "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
+  "steckbriefe": [
+    {
+      "slug": "belegwerk",
+      "name": "BelegWerk",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_BelegWerk",
+      "fassung": "0.1.0 – Entwicklungsstand, nicht veroeffentlicht",
+      "lokal_only": true,
+      "auf_dem_geraet": [
+        {
+          "was": "Konfiguration und Profile (Zielordner, ASN-Vorlage, Uebergabeart)",
+          "wo": "JSON-Datei im Benutzer-Konfigurationsordner",
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/config/service.py (default_config_path, user_config_dir)"
+        },
+        {
+          "was": "Vorgangsjournal je Scan (Dateiname, Pruefsumme, Status, Zeitstempel, erkannte ASN)",
+          "wo": "lokale SQLite-Datenbank im Benutzer-Datenordner",
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/journal/service.py"
+        },
+        {
+          "was": "Zaehlerstaende der ASN je Profil",
+          "wo": "JSON-Dateien im Unterordner \"counters\" des Datenordners",
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/label/asn.py (AsnCounterStore)"
+        },
+        {
+          "was": "Drucklog der erzeugten ASN (Zeitstempel, Profil, ASN)",
+          "wo": "CSV-Datei im Unterordner \"logs\" des Datenordners",
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/label/service.py (_log_path)"
+        },
+        {
+          "was": "Vorschaubilder von PDF-Seiten",
+          "wo": "Cache-Ordner im Datenordner",
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/preview/service.py"
+        },
+        {
+          "was": "Arbeitskopien (getrennte, gedrehte oder mit Barcode versehene PDFs)",
+          "wo": "vom Nutzer festgelegter Arbeitsordner; Originale bleiben unveraendert",
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/prepare/, label/stamp.py"
+        },
+        {
+          "was": "Kopien von Belegen in Quarantaene",
+          "wo": "Unterordner \"quarantine\" des Datenordners",
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/routing/service.py (quarantine_entry)"
+        },
+        {
+          "was": "uebergebene Belegkopien",
+          "wo": "vom Nutzer konfigurierte lokale Zielordner (Paperless-Eingangsordner, optional zusaetzlicher Archivordner)",
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/routing/service.py (route_entry)"
+        }
+      ],
+      "berechtigungen": [
+        {
+          "name": "Lesender und schreibender Zugriff auf vom Nutzer festgelegte Ordner",
+          "wofuer": "Scans einlesen, Arbeitskopien erzeugen, Belege in Zielordner uebergeben",
+          "pflicht": true,
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/scaninput/service.py, routing/service.py"
+        },
+        {
+          "name": "Ausfuehren des lokalen Programms \"docker\"",
+          "wofuer": "Statusanzeige laufender Container; Start/Stop nur nach ausdruecklicher Bestaetigung",
+          "pflicht": false,
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/docker/service.py, docker/control.py"
+        },
+        {
+          "name": "Ausfuehren des mitgelieferten lokalen Programmteils",
+          "wofuer": "Verarbeitung der Belege auf dem Geraet",
+          "pflicht": true,
+          "beleg": "11_App_Flutter/belegwerk_desktop/lib/core/core_bridge.dart (Process.run)"
+        }
+      ],
+      "uebertragungen": [
+        {
+          "wohin": "lokaler Rechner bzw. vom Nutzer eingetragener Host (Voreinstellung 127.0.0.1)",
+          "was": "reiner TCP-Verbindungstest auf einen Port, es werden keine Inhalte gesendet",
+          "wann": "wenn die Dienstuebersicht aufgerufen wird",
+          "freiwillig": false,
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/docker/probes.py (is_port_open)"
+        },
+        {
+          "wohin": "vom Nutzer eingetragene Paperless-Adresse (typischerweise eigener Rechner oder eigenes Netz)",
+          "was": "lesende Suchanfrage nach einer Archiv-Seriennummer bzw. einem Suchbegriff; Zugangstoken im Anfragekopf",
+          "wann": "nur wenn der optionale Paperless-Abgleich benutzt wird; heute nicht aus Oberflaeche oder Kommandozeile aufrufbar",
+          "freiwillig": true,
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/paperless/api.py"
+        }
+      ],
+      "fremde_dienste": [
+        {
+          "name": "Paperless-ngx (eigene Installation des Nutzers)",
+          "wofuer": "Zielablage der Belege; optionaler lesender Statusabgleich",
+          "wann": "nur wenn der Nutzer ein Paperless-Profil einrichtet"
+        },
+        {
+          "name": "Docker bzw. Docker Desktop (lokal installiert)",
+          "wofuer": "Anzeige des Dienststatus; Steuerung nur nach Bestaetigung",
+          "wann": "nur wenn lokal vorhanden"
+        }
+      ],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Alle Daten liegen auf dem Geraet. Konfiguration, Journal, Zaehler, Drucklog, Vorschau-Cache und Quarantaene liegen in den Benutzerordnern der Anwendung und koennen dort geloescht werden; mit dem Entfernen der Anwendung und dieser Ordner ist nichts mehr vorhanden. Arbeitskopien und uebergebene Belege liegen in den vom Nutzer selbst gewaehlten Ordnern und werden dort geloescht.",
+      "besonderheiten": "BelegWerk arbeitet bewusst als lokaler Vorraum vor der eigenen Dokumentenablage. Originale werden nie veraendert oder verschoben; die Uebergabe erfolgt in der Voreinstellung als Kopie. Ein Zugangstoken fuer die optionale Paperless-Abfrage wird nicht gespeichert und nicht protokolliert. In angezeigten Logausschnitten werden token- und passwortartige Werte unkenntlich gemacht. Angezeigte Pruefberichte nennen nur Speicherorte und Erreichbarkeit, keine Dateiinhalte.",
+      "vorhandener_text": "",
+      "offene_fragen": "1) Der lesende Paperless-Client ist im Kern vorhanden, aber noch nicht aus Oberflaeche oder Kommandozeile aufrufbar; ob und wie ein Zugangstoken spaeter dauerhaft hinterlegt wird, ist noch nicht entschieden. 2) Ob die spaetere Auslieferung als Installer zusaetzliche Bestandteile mitbringt (etwa Texterkennung), ist offen; der heutige Code nutzt keine Texterkennung. 3) Ob eine angesprochene Paperless-Installation Zugriffe oder IP-Adressen protokolliert, haengt vom jeweiligen Server ab und nicht von BelegWerk. 4) Die Etikettenausgabe an einen Drucker ist noch nicht angebunden; ein Datenfluss dorthin besteht heute nicht.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "mobilereport-konfigurator",
+      "name": "Branding-Konfigurator",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_WEBSEITE",
+      "fassung": "Zwei Fassungen, beide am 19.07.2026 im Quelltext geprüft und inhaltlich gleich. (A) Maßgeblich künftig: die Astro-Fassung astro/src/pages/produkte/mobilereport-konfigurator.astro. (B) Derzeit über fehlerfuchs.eu ausgeliefert: website/apps/mobilereport-konfigurator.html (Commit 0e09025). Die Belege unten nennen die Astro-Fassung; die HTML-Fassung trägt dieselben Funktionsnamen.",
+      "lokal_only": true,
+      "auf_dem_geraet": [
+        {
+          "was": "Eingegebener Firmenname, Farben, Schalter und das gewählte Logo",
+          "wo": "nur im Arbeitsspeicher des Browsers, solange die Seite offen ist",
+          "beleg": "Variablen logo/manual/flags, Funktion buildBrand()"
+        },
+        {
+          "was": "die erzeugte Branding-Datei (.mrbrand) – enthält Name, Farben und das eingebettete Logo",
+          "wo": "im Download-Ordner, vom Nutzer selbst ausgelöst",
+          "beleg": "Funktion doExport(), Blob + URL.createObjectURL"
+        }
+      ],
+      "speichert_dauerhaft": false,
+      "berechtigungen": [
+        {
+          "name": "Dateiauswahl",
+          "wofuer": "Auswahl einer Logodatei (PNG oder JPG) für die Vorschau",
+          "pflicht": false,
+          "beleg": "Dateifeld mit accept=\"image/png,image/jpeg\", Verarbeitung in handleLogo() per FileReader",
+          "hinweis": "Das ist keine Berechtigung im Sinne einer App-Erlaubnis, sondern das normale Dateifeld des Browsers. Die Datei wird nur im Browser gelesen und verlässt das Gerät nicht."
+        }
+      ],
+      "uebertragungen": [],
+      "fremde_dienste": [],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Es entsteht nichts, was zu löschen wäre. Schließt man die Seite oder lädt sie neu, sind alle Eingaben und das Logo weg; die Schaltfläche „Zurücksetzen\" leert sie sofort. Die heruntergeladene Branding-Datei liegt danach nur noch beim Nutzer.",
+      "besonderheiten": "Das Logo wird im Browser gelesen, in eine Vorschau gezeichnet und in die Branding-Datei geschrieben. Es wird zu keinem Zeitpunkt übertragen. Auch der Farbvorschlag aus dem Logo und die Größenprüfung (max. 512 KB, max. 1024 Pixel) laufen ausschließlich im Browser. Die erzeugte Branding-Datei enthält die Angaben des Nutzers einschließlich des eingebetteten Logos und sollte von ihm wie eine eigene Datei behandelt werden. Nutzung ohne Anmeldung und kostenlos.",
+      "vorhandener_text": "Kein eigener Text nur für dieses Werkzeug; es gilt die allgemeine Datenschutzseite der Website.",
+      "offene_fragen": "Die Seite wird von GitHub Pages ausgeliefert. Ob und wie lange GitHub dabei Server-Protokolle mit IP-Adressen führt, ist eine Frage an den Hoster und nicht am Produkt zu klären. Sie betrifft alle Seiten von fehlerfuchs.eu gleichermaßen und gehört in den allgemeinen Teil der Datenschutzseite, nicht in diesen Steckbrief.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "checkin-vita",
+      "name": "CheckInVita",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_CheckIn_Vita",
+      "fassung": "0.2.0+1 – Android-Stand, noch nicht veröffentlicht (Windows-Fassung baut, ebenfalls unveröffentlicht)",
+      "lokal_only": true,
+      "auf_dem_geraet": [
+        {
+          "was": "Tagebuch-Einträge (Gewicht, Blutdruck, Puls, Blutzucker, HbA1c, SpO2, Temperatur, Atemfrequenz, Schritte, Schlaf, Notizen)",
+          "wo": "lokale Datenbank (SQLite)",
+          "beleg": "lib/data/database/app_database.dart"
+        },
+        {
+          "was": "Medikamente, Medikationsplan, Injektionstherapien und Injektionsprotokoll",
+          "wo": "lokale Datenbank (SQLite)",
+          "beleg": "lib/data/database/tables/"
+        },
+        {
+          "was": "Behandler-Kontakte, Impfungen, Rezeptanfragen, Mail-Verlauf, Kostenübernahmen",
+          "wo": "lokale Datenbank (SQLite)",
+          "beleg": "lib/data/database/app_database.dart"
+        },
+        {
+          "was": "Rauchverhalten (Profil und Änderungen)",
+          "wo": "lokale Datenbank (SQLite)",
+          "beleg": "lib/data/database/tables/"
+        },
+        {
+          "was": "Stammdaten (Name, Geburtsdatum, Geschlecht, Größe, Start-/Zielgewicht) und App-Einstellungen",
+          "wo": "lokale Schlüssel-Wert-Ablage (Hive)",
+          "beleg": "lib/data/hive/app_config.dart"
+        },
+        {
+          "was": "selbst erzeugte Gerätekennung und Gerätename – nur für den Abgleich zwischen zwei eigenen Geräten",
+          "wo": "lokale Schlüssel-Wert-Ablage (Hive)",
+          "beleg": "lib/data/hive/app_config.dart (deviceId, deviceName)"
+        },
+        {
+          "was": "selbst aufgenommene oder ausgewählte Fotos zu Einträgen",
+          "wo": "app-privates Dateiverzeichnis",
+          "beleg": "lib/data/documents/document_service.dart"
+        },
+        {
+          "was": "erzeugte PDF-Übersichten (Werte-Zusammenfassung, Medikamenten-Plan)",
+          "wo": "app-privates Dateiverzeichnis",
+          "beleg": "lib/data/documents/document_service.dart"
+        },
+        {
+          "was": "vom Nutzer selbst erzeugte Export- und Abgleich-Dateien (CSV, JSON-Backup, .cvsync)",
+          "wo": "vom Nutzer gewählter Speicherort",
+          "beleg": "lib/shared/utils/file_share.dart"
+        }
+      ],
+      "berechtigungen": [
+        {
+          "name": "Kamera",
+          "wofuer": "Foto zu einem Tagebuch-Eintrag aufnehmen",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml (CAMERA)"
+        },
+        {
+          "name": "Benachrichtigungen",
+          "wofuer": "Erinnerungen an Injektion und Rezeptbestellung",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml (POST_NOTIFICATIONS)"
+        },
+        {
+          "name": "Biometrie",
+          "wofuer": "optionaler App-Lock beim Öffnen der App",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml (USE_BIOMETRIC)"
+        },
+        {
+          "name": "Start nach Geräteneustart",
+          "wofuer": "bereits geplante Erinnerungen nach einem Neustart erneut einplanen",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml (RECEIVE_BOOT_COMPLETED)"
+        },
+        {
+          "name": "Internet",
+          "wofuer": "ausschließlich das vom Nutzer selbst abgesendete Support-/Kontaktformular; darüber hinaus stellt die App keine Verbindung her",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml (INTERNET); einzige Verwendung in lib/data/support/support_service.dart"
+        }
+      ],
+      "uebertragungen": [
+        {
+          "wohin": "license.fehlerfuchs.eu",
+          "was": "Betreff und Nachrichtentext; freiwillig Name und E-Mail-Adresse; App-Version und Betriebssystem-Bezeichnung; vom Nutzer bewusst ausgewählte Dateianhänge; auf ausdrückliche Zustimmung eine technische Diagnosedatei (nur App-Version, System, Zeitstempel)",
+          "wann": "nur wenn der Nutzer im Support-/Kontaktformular auf „Senden\" tippt",
+          "freiwillig": true,
+          "beleg": "lib/data/support/support_service.dart (MultipartRequest auf /v1/contact)"
+        },
+        {
+          "wohin": "fehlerfuchs.eu",
+          "was": "gewöhnlicher Seitenaufruf im externen Browser; es werden keine App-Daten übergeben",
+          "wann": "nur wenn der Nutzer im Über-Bildschirm „Solche Projekte unterstützen?\" antippt",
+          "freiwillig": true,
+          "beleg": "lib/features/about/about_screen.dart (kUnterstuetzenUrl)"
+        },
+        {
+          "wohin": "die vom Nutzer gewählte E-Mail- bzw. Telefon-App auf dem Gerät",
+          "was": "vorbereiteter Textentwurf; die App selbst versendet nichts – gesendet wird nur, was der Nutzer dort abschickt",
+          "wann": "beim Öffnen einer Mailvorlage oder einer Telefonnummer",
+          "freiwillig": true,
+          "beleg": "lib/features/communication/mail_service.dart, lib/features/communication/care_providers_screen.dart"
+        }
+      ],
+      "fremde_dienste": [],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Alle Daten liegen auf dem Gerät. Einzelne Einträge lassen sich in der App löschen; unter Einstellungen entfernt „Alle Daten löschen\" sämtliche Einträge, Stammdaten und Einstellungen unwiderruflich. Beim Deinstallieren der App verschwinden alle Daten mit. Selbst erzeugte Export-, Backup- und Abgleich-Dateien liegen dort, wo der Nutzer sie abgelegt hat, und muss er selbst löschen.",
+      "besonderheiten": "CheckInVita ist ein Gesundheits-Tagebuch und ausdrücklich kein Medizinprodukt nach MDR 2017/745; es findet keine Bewertung und keine Diagnose statt. Die erfassten Angaben können besonders schützenswerte Gesundheitsdaten nach Art. 9 DSGVO sein – sie bleiben ausschließlich lokal. Die Internet-Berechtigung besteht allein für das nutzerinitiierte Support-/Kontaktformular; ein automatischer Upload existiert nicht. Vor dem Anhängen von Dateien warnt die App ausdrücklich davor, sensible Gesundheitsdaten mitzuschicken. Der optionale Abgleich zwischen zwei eigenen Geräten läuft über eine Datei, die der Nutzer selbst per Kabel kopiert – ohne Server und ohne Netzverbindung; die Datei ist unverschlüsselt, worauf die App vor jedem Export hinweist. Auf eine Berechtigung für den Fotospeicher wird bewusst verzichtet: Bilder aus der Galerie werden über den Auswahldialog des Systems ausgewählt, die App erhält dabei keinen Zugriff auf die übrigen Fotos. Ebenso wird keine Berechtigung für exakte Weckzeiten angefordert; Erinnerungen können daher um einige Minuten abweichen.",
+      "vorhandener_text": "lib/features/legal/legal_screen.dart (kPrivacyText, in der App unter Über → Datenschutzerklärung); ausführlich in docs/Datenschutzerklaerung_CheckInVita.md",
+      "offene_fragen": "1. Ob und wie lange der Dienst unter license.fehlerfuchs.eu die übermittelten Angaben (Nachricht, Name, E-Mail, Anhänge) und die IP-Adresse serverseitig protokolliert oder zwischenspeichert, lässt sich aus der App heraus nicht feststellen – das beantwortet das Projekt, das den Dienst betreibt. 2. Für die Windows-Fassung ist noch nicht abschließend entschieden, ob sie bei Veröffentlichung eine Aktualisierungsprüfung erhält; heute enthält sie keine.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "coppicemail",
+      "name": "CoppiceMail",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_CoppiceMail",
+      "fassung": "0.1.0-dev - nicht veroeffentlicht; Entwicklung ruht",
+      "lokal_only": true,
+      "auf_dem_geraet": [
+        {
+          "was": "E-Mail-Daten (Ordner, Nachrichten, Angaben zu Anhaengen, Vorlagen, Regeln)",
+          "wo": "lokale Datenbank auf dem Geraet",
+          "beleg": "app/data/repo.py (default_db_path, connect, init_db); app/data/schema_email.sql; Datei Daten/coppicemail.sqlite3"
+        },
+        {
+          "was": "Beispieldaten, die beim ersten Start angelegt werden (frei erfundene Absender und Betreffe, keine echten Nachrichten)",
+          "wo": "dieselbe lokale Datenbank",
+          "beleg": "app/data/repo.py (seed_demo)"
+        },
+        {
+          "was": "Lesestatus und Ordnerzuordnung der Nachrichten",
+          "wo": "dieselbe lokale Datenbank",
+          "beleg": "app/data/repo.py (mark_read, move_message)"
+        }
+      ],
+      "berechtigungen": [],
+      "uebertragungen": [],
+      "fremde_dienste": [],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Alle Daten liegen ausschliesslich lokal in einer einzigen Datenbankdatei im Programmordner. Wird diese Datei oder der Programmordner geloescht, sind saemtliche Daten vollstaendig entfernt. Es gibt keine Kopien auf Servern, und es bleibt nach dem Loeschen nichts zurueck.",
+      "besonderheiten": "Die Anwendung wurde nie veroeffentlicht und liegt als Entwicklervorschau vor; die Entwicklung ruht seit dem 02.07.2026. Sie stellt heute keine Verbindung ins Internet her: Es werden keine Nachrichten abgerufen und keine versendet, und es werden keine Daten an andere Programme oder Dienste uebergeben. Alles, was die Vorschau anzeigt, stammt aus Beispieldaten, die sie beim ersten Start selbst auf dem Geraet anlegt. Ein Konto wird nicht benoetigt.",
+      "vorhandener_text": "",
+      "offene_fragen": "1) Ob und wann der Abruf und Versand von E-Mails tatsaechlich umgesetzt wird und welche Serververbindungen dann entstehen, ist offen - das Projekt ruht. 2) Ob die im Projekt deklarierten, derzeit ungenutzten Zusatzpakete bei einer Wiederaufnahme wirklich verwendet werden, ist unbekannt. 3) Wo Zugangsdaten fuer Mailkonten spaeter abgelegt werden, ist noch nicht entschieden; der dafuer vorgesehene sichere Speicher ist bisher nicht umgesetzt.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "einzelstueck",
+      "name": "EinzelStück",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_ChefBüro",
+      "fassung": "keine Anwendung vorhanden – Dienstleistung, Angebot im Aufbau",
+      "lokal_only": true,
+      "auf_dem_geraet": [],
+      "berechtigungen": [],
+      "uebertragungen": [],
+      "fremde_dienste": [],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Es gibt keine Anwendung und damit keine Nutzerdaten. Daten, die im Rahmen eines konkreten Auftrags vom Kunden bereitgestellt werden, liegen ausschließlich lokal beim Auftragnehmer, werden nach Projektende gelöscht und die Löschung wird im jeweiligen Auftragsordner protokolliert.",
+      "besonderheiten": "EinzelStück ist eine Dienstleistung (individuell beauftragte Softwarelösungen für Betriebe), kein Produkt zum Herunterladen. Es existiert derzeit weder eine Anwendung noch ein laufender Auftrag; der Projektordner enthält ausschließlich Text- und Grafikdateien (Konzept, Vorlagen, Prozess). Datenschutzrelevant wird erst die einzelne Anfertigung: Jede ausgelieferte Lösung ist ein eigenständiges Produkt beim Kunden und braucht dann eine eigene Betrachtung. Vom Kunden gelieferte Beispieldaten werden bewusst sparsam angenommen, nicht weitergegeben und nach Projektende gelöscht.",
+      "vorhandener_text": "",
+      "offene_fragen": "1) Wie sollen einzelne Anfertigungen datenschutzseitig erfasst werden – jede ausgelieferte Lösung läuft beim Kunden und ist ein eigenes Produkt; ob und in welcher Form dafür eigene Steckbriefe entstehen, ist mit dem WEBSEITE-Projekt zu klären. 2) Ob bei Kundenprojekten eine Auftragsverarbeitung nach Art. 28 DSGVO nötig wird, ist rechtlich zu prüfen und noch nicht entschieden.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "appinsight",
+      "name": "FehlerFuchs AppInsight",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_AppInsight",
+      "fassung": "1.0.0-beta.1 (noch nicht veroeffentlicht)",
+      "lokal_only": true,
+      "auf_dem_geraet": [
+        {
+          "was": "Anzeige-Einstellung (Hell, Dunkel oder Systemvorgabe)",
+          "wo": "App-Einstellungen auf dem Geraet",
+          "beleg": "lib/core/state/providers.dart (ThemeModeController, Schluessel \"themeMode\")"
+        },
+        {
+          "was": "Liste der Apps, denen du den Internetzugang gesperrt hast (Paketnamen)",
+          "wo": "App-Einstellungen auf dem Geraet",
+          "beleg": "lib/core/state/providers.dart (BlockedAppsController, Schluessel \"blockedApps\")"
+        },
+        {
+          "was": "Merker, ob die Ersteinrichtung abgeschlossen ist",
+          "wo": "App-Einstellungen auf dem Geraet",
+          "beleg": "lib/core/state/providers.dart (OnboardingController, Schluessel \"onboardingDone\")"
+        },
+        {
+          "was": "Erzeugte Berichte (PDF oder HTML) ueber die installierten Apps",
+          "wo": "temporaerer Ablageort der App, nur im Moment des Teilens",
+          "beleg": "lib/core/report/report_service.dart (getTemporaryDirectory, _shareBytes, _shareTextFile)"
+        },
+        {
+          "was": "Ergebnisse der App-Analyse (Liste, Berechtigungen, Bewertungen)",
+          "wo": "nur im Arbeitsspeicher, wird nicht dauerhaft gespeichert",
+          "beleg": "lib/core/state/providers.dart (appsProvider); lib/core/platform/app_scanner.dart"
+        }
+      ],
+      "berechtigungen": [
+        {
+          "name": "Alle installierten Apps sehen",
+          "wofuer": "Kernzweck der App - die installierten Apps auflisten und ihre Berechtigungen, Bestandteile und Tracker-Hinweise auswerten",
+          "pflicht": true,
+          "beleg": "android/app/src/main/AndroidManifest.xml (QUERY_ALL_PACKAGES)"
+        },
+        {
+          "name": "Nutzungsdaten (Sonderzugriff, den du selbst in den Android-Einstellungen erteilst)",
+          "wofuer": "Groesse, Cache, Nutzungszeiten und Datenverbrauch je App anzeigen",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml (PACKAGE_USAGE_STATS); MainActivity.kt (hasUsageAccess, getStorageAndUsage, getNetworkUsage)"
+        },
+        {
+          "name": "Dienst, der im Vordergrund weiterlaeuft",
+          "wofuer": "Betrieb der App-Internetsperre, solange mindestens eine App gesperrt ist",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml (FOREGROUND_SERVICE, FOREGROUND_SERVICE_SPECIAL_USE); BlockerVpnService.kt"
+        },
+        {
+          "name": "Benachrichtigungen",
+          "wofuer": "von Android vorgeschriebener Hinweis, solange die Internetsperre laeuft",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml (POST_NOTIFICATIONS)"
+        },
+        {
+          "name": "Geraeteinterne Netzwerksperre einrichten",
+          "wofuer": "technische Voraussetzung fuer die App-Internetsperre; du bestaetigst sie einmalig in einem Android-Dialog",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml (service .BlockerVpnService, BIND_VPN_SERVICE)"
+        }
+      ],
+      "uebertragungen": [
+        {
+          "wohin": "vom Nutzer gewaehlte Ziel-App (Android-Teilen-Menue)",
+          "was": "der erzeugte Bericht mit Namen und Berechtigungen der auf dem Geraet installierten Apps",
+          "wann": "nur wenn der Nutzer einen Bericht teilt",
+          "freiwillig": true,
+          "beleg": "lib/core/report/report_service.dart (Share.shareXFiles)"
+        },
+        {
+          "wohin": "Google Play Store",
+          "was": "nur der Paketname der aufgerufenen App",
+          "wann": "nur bei \"Im Store ansehen\", \"Bedenken melden\" oder \"Im Store bewerten\"",
+          "freiwillig": true,
+          "beleg": "MainActivity.kt (openAppStore); lib/features/apps/app_detail_page.dart"
+        }
+      ],
+      "fremde_dienste": [],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Alle Daten liegen auf dem Geraet: die App-Einstellungen und - nur waehrend des Teilens - eine voruebergehende Berichtsdatei. Beim Deinstallieren verschwindet alles. Berichte, die du selbst weitergegeben oder abgespeichert hast, liegen dort, wohin du sie gelegt hast, und muessen dort geloescht werden.",
+      "besonderheiten": "AppInsight liest Angaben ueber andere Apps: Name, angeforderte Berechtigungen, Bestandteile, Signatur und Installationsquelle sowie - wenn du die Nutzungsdaten freigibst - Speicher-, Nutzungs- und Datenverbrauchswerte. Inhalte anderer Apps liest es nicht; Android schottet Apps gegeneinander ab. Die gesamte Auswertung findet auf dem Geraet statt. Die optionale Internetsperre arbeitet mit einer geraeteinternen Sperre, die den Datenverkehr der gesperrten Apps verwirft: Es gibt keine Weiterleitung ueber einen Server und keine Aufzeichnung des Datenverkehrs. Die Ampel-Einordnung ist eine Einschaetzung nach festen Regeln, kein Urteil ueber eine App.",
+      "vorhandener_text": "Kein separates Dokument. In der App gibt es die Abschnitte \"Datenschutz\" und \"Warum braucht AppInsight Berechtigungen?\" unter Info und Einstellungen (lib/features/transparency/about_page.dart).",
+      "offene_fragen": "1) Die Kontaktfunktion ist derzeit nur ein Platzhalter: Der Text wird in die Zwischenablage kopiert, es wird nichts gesendet. Sobald der geplante Versand ueber den FehlerFuchs-Lizenzserver eingebaut ist, entsteht eine neue Uebertragung nach draussen - dieser Steckbrief muss dann erneuert werden. 2) Die App ist noch nicht veroeffentlicht (Stand 1.0.0-beta.1). Alle Angaben beziehen sich auf den heutigen Entwicklungsstand, nicht auf eine Store-Fassung.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "cleandesk",
+      "name": "FehlerFuchs CleanDesk",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_CleanDesk",
+      "fassung": "0.1.0 (csproj) - Entwicklungsstand v0.2, noch nicht veroeffentlicht",
+      "lokal_only": true,
+      "auf_dem_geraet": [
+        {
+          "was": "Einstellungen (zu pruefende Ordner, Grenzwerte fuer gross und alt, max. Hash-Groesse)",
+          "wo": "%LOCALAPPDATA%\\FehlerFuchs\\CleanDesk\\settings.json",
+          "beleg": "src/CleanDesk/Services/Settings.cs (DataDir, SettingsPath)"
+        },
+        {
+          "was": "eigene Sortier-Regeln (Dateiendung -> Zielordner)",
+          "wo": "%LOCALAPPDATA%\\FehlerFuchs\\CleanDesk\\sortierregeln.json",
+          "beleg": "src/CleanDesk/Services/RulesStore.cs"
+        },
+        {
+          "was": "Berichte ueber die Funde; enthalten Dateinamen, vollstaendige Pfade, Groessen, Aenderungsdaten und SHA-256-Pruefsummen der Dateien des Nutzers",
+          "wo": "%LOCALAPPDATA%\\FehlerFuchs\\CleanDesk\\berichte\\ (TXT, CSV, JSON)",
+          "beleg": "src/CleanDesk/Services/ReportWriter.cs"
+        },
+        {
+          "was": "Protokoll der ausgefuehrten Aktionen (Quell- und Zielpfade beim Sortieren, Papierkorb-Aktionen)",
+          "wo": "%LOCALAPPDATA%\\FehlerFuchs\\CleanDesk\\logs\\ (JSONL und TXT)",
+          "beleg": "src/CleanDesk/Safety/Protocol.cs"
+        },
+        {
+          "was": "beim Sortieren erzeugte Kopien der Dateien; die Originale wandern in den Windows-Papierkorb",
+          "wo": "vom Nutzer gewaehlter Zielordner bzw. Windows-Papierkorb",
+          "beleg": "src/CleanDesk/Safety/SafeMover.cs, src/CleanDesk/Safety/RecycleBin.cs"
+        }
+      ],
+      "berechtigungen": [
+        {
+          "name": "Lesezugriff auf die vom Nutzer gewaehlten Ordner",
+          "wofuer": "Scan nach echten Duplikaten (Groessen-Vorfilter, dann SHA-256), grossen und alten Dateien sowie leeren Ordnern",
+          "pflicht": true,
+          "beleg": "src/CleanDesk/Core/Scanner.cs, src/CleanDesk/Core/DuplicateFinder.cs"
+        },
+        {
+          "name": "Schreiben und Verschieben in den Papierkorb in den gewaehlten Ordnern",
+          "wofuer": "Sortieren (kopieren) und Duplikate in den Papierkorb - ausschliesslich nach ausdruecklicher Bestaetigung im Dialog",
+          "pflicht": false,
+          "beleg": "src/CleanDesk/Safety/SafeMover.cs, src/CleanDesk/Safety/RecycleBin.cs"
+        }
+      ],
+      "uebertragungen": [],
+      "fremde_dienste": [],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Alle Daten liegen auf dem Geraet. Berichte und Protokolle lassen sich einzeln loeschen; der gesamte App-Datenordner %LOCALAPPDATA%\\FehlerFuchs\\CleanDesk kann jederzeit von Hand entfernt werden. Dateien, die CleanDesk in den Papierkorb verschoben hat, lassen sich ueber den Windows-Papierkorb wiederherstellen oder dort endgueltig loeschen.",
+      "besonderheiten": "Der Scan ist reine Analyse und veraendert nichts. Veraendernde Aktionen laufen nur nach Bestaetigung und ausschliesslich ueber den Papierkorb; endgueltiges Loeschen gibt es in diesem Stand nicht. Verschoben wird immer in drei Schritten: Die Datei wird zuerst an den Zielort kopiert, die Kopie wird ueber Groesse und Pruefsumme mit dem Original verglichen, und erst danach wandert das Original in den Papierkorb. Bei Namensgleichheit wird umbenannt, nie ueberschrieben. Geschuetzte Bereiche des Betriebssystems und der Programme sowie versteckte Anwendungsdaten werden nicht gelesen; Verknuepfungen auf andere Orte werden nicht verfolgt. Datenschutzrelevant: Berichte und Protokolle enthalten vollstaendige Dateipfade und Dateinamen des Nutzers und koennen dadurch personenbezogene Angaben in Pfadnamen enthalten; sie verbleiben lokal und werden nicht versendet.",
+      "vorhandener_text": "src/CleanDesk/Views/InfoView.xaml (Seite \"Info / Datenschutz\" in der App)",
+      "offene_fragen": "1) Die Anwendung ist nicht veroeffentlicht und besitzt keine Installations- oder Update-Funktion. Ob eine spaetere Verteilung (Installer, Signierung, Update-Pruefung) Verbindungen nach draussen mit sich bringt, ist heute offen. 2) Beim Oeffnen eines Berichts oder des Berichtsordners uebergibt CleanDesk den Vorgang an Windows. Was die dort registrierte Standardanwendung anschliessend tut, liegt ausserhalb von CleanDesk und ist von hier aus nicht bewertbar.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "gewerbepro",
+      "name": "FehlerFuchs GewerbePro",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_GewerbePro",
+      "fassung": "0.3.1 (aktueller Code-Stand; öffentlich verfügbar ist die Beta 0.3.0)",
+      "lokal_only": false,
+      "auf_dem_geraet": [
+        {
+          "was": "Geschäftsdaten (Kunden, Angebote, Aufträge, Rechnungen, Quittungen, Gutschriften, Mahnungen, Projekte, Einnahmen/Ausgaben, Anlagen/AfA, Fahrtenbuch, Termine, Aufgaben, Logbuch, Katalog)",
+          "wo": "lokale Datenbank (SQLite) im Datenordner der Anwendung",
+          "beleg": "20_Engine/gewerbepro_core/db.py (_SCHEMA); config.py DB_FILE / _resolve_data_dir"
+        },
+        {
+          "was": "Stammdaten des Betriebs (Firma, Inhaber, Steuernummer, Bankverbindung, Fußzeilen) und Programmeinstellungen",
+          "wo": "in derselben lokalen Datenbank",
+          "beleg": "20_Engine/gewerbepro_core/db.py get_stammdaten/set_stammdaten"
+        },
+        {
+          "was": "Firmenlogo und hinterlegte Unterschrift",
+          "wo": "nur der Dateipfad wird gespeichert; die Bilddatei bleibt am vom Nutzer gewählten Ort",
+          "beleg": "20_Engine/gewerbepro_core/config.py (logo_pfad, unterschrift_pfad); pdf_gen.py _logo_src / _stored_signature"
+        },
+        {
+          "was": "Zugangsdaten der E-Mail-Konten (Servername, Benutzername, Passwort) – nur wenn ein Postfach eingerichtet wurde",
+          "wo": "in der lokalen Datenbank, ohne gesonderte Verschlüsselung",
+          "beleg": "20_Engine/gewerbepro_core/mail.py (Anmeldung mit k[\"passwort\"])"
+        },
+        {
+          "was": "Lizenzschlüssel, Freischaltnachweis und eine zufällig erzeugte Gerätekennung, die keine Hardware-Merkmale enthält",
+          "wo": "in der lokalen Datenbank",
+          "beleg": "20_Engine/gewerbepro_core/lizenz.py _fingerprint (uuid.uuid4)"
+        },
+        {
+          "was": "erzeugte PDFs und Exporte (Rechnungen, Berichte, E-Rechnungen, PDFuchs-Ergebnisse), abgelegte Belege und Datenbank-Backups",
+          "wo": "Unterordner des Datenordners (Exporte, PDFuchs, Belege, Fallakten)",
+          "beleg": "20_Engine/gewerbepro_core/config.py; engine_api.py _default_pdfuchs_dir"
+        },
+        {
+          "was": "abgerufene E-Mails samt Anhängen (nur bei eingerichtetem Postfach)",
+          "wo": "lokale Datenbank bzw. Datenordner",
+          "beleg": "20_Engine/gewerbepro_core/mail.py"
+        }
+      ],
+      "berechtigungen": [
+        {
+          "name": "Dateisystem (Lesen/Schreiben)",
+          "wofuer": "Datenordner, PDF-Ausgabe, Belegimport, vom Nutzer gewählte Dateien/Ordner",
+          "pflicht": true,
+          "beleg": "20_Engine/gewerbepro_core/config.py _resolve_data_dir; 21_App_Flutter/gewerbepro_desktop/pubspec.yaml (file_picker)"
+        },
+        {
+          "name": "Netzwerkzugriff",
+          "wofuer": "Update-Prüfung, Lizenzprüfung, optional Schulferien-Abruf und E-Mail-Konten",
+          "pflicht": false,
+          "beleg": "engine_api.py update_check; lizenz.py; db.py (Ferien); mail.py"
+        },
+        {
+          "name": "Scanner (Windows WIA)",
+          "wofuer": "Seiten direkt vom Scanner als PDF einlesen (PDFuchs, Vollversion)",
+          "pflicht": false,
+          "beleg": "engine_api.py pdfuchs_scan → pdfuchs_core/scanner.py (WIA über PowerShell)"
+        },
+        {
+          "name": "Zwischenablage",
+          "wofuer": "Kopieren des eigenen Lizenzschlüssels",
+          "pflicht": false,
+          "beleg": "21_App_Flutter/gewerbepro_desktop/lib/main.dart (Clipboard.setData)"
+        },
+        {
+          "name": "Installation ohne Administratorrechte",
+          "wofuer": "Installation im Benutzerprofil",
+          "pflicht": true,
+          "beleg": "22_Packaging/GewerbePro.iss (PrivilegesRequired=lowest)"
+        }
+      ],
+      "uebertragungen": [
+        {
+          "wohin": "fehlerfuchs.eu",
+          "was": "Abruf einer Versionsdatei (latest.json); mitgesendet wird die eigene Programmversion in der User-Agent-Kennung",
+          "wann": "beim Programmstart, solange die automatische Update-Prüfung eingeschaltet ist (ab Werk eingeschaltet); außerdem manuell über „Auf Updates prüfen\"",
+          "freiwillig": false,
+          "beleg": "20_Engine/gewerbepro_core/engine_api.py _DEFAULT_UPDATE_URL, update_check; config.py update_auto = \"1\""
+        },
+        {
+          "wohin": "license.fehlerfuchs.eu",
+          "was": "Lizenzschlüssel, zufällige Gerätekennung (UUID) und Produktname; bei der erstmaligen Aktivierung zusätzlich der Windows-Computername und die Plattformangabe „Windows\"",
+          "wann": "bei der Aktivierung, beim Abgleich zum Programmstart und beim Lösen der Lizenz – nur in der Vollversion GewerbePro",
+          "freiwillig": false,
+          "beleg": "20_Engine/gewerbepro_core/lizenz.py BASE_URL, aktivieren/pruefen/deaktivieren (socket.gethostname bei /v1/activate)"
+        },
+        {
+          "wohin": "openholidaysapi.org",
+          "was": "Abruf der Schulferien des eingestellten Bundeslandes",
+          "wann": "nur wenn „Schulferien automatisch abgleichen\" eingeschaltet ist (ab Werk ausgeschaltet)",
+          "freiwillig": true,
+          "beleg": "20_Engine/gewerbepro_core/db.py (openholidaysapi.org/SchoolHolidays); config.py kalender_ferien_auto = \"0\""
+        },
+        {
+          "wohin": "E-Mail-Server, den der Nutzer selbst einträgt (IMAP/SMTP)",
+          "was": "Abrufen und Versenden von E-Mails samt Anmeldung",
+          "wann": "nur wenn ein Postfach eingerichtet ist (Vollversion)",
+          "freiwillig": true,
+          "beleg": "20_Engine/gewerbepro_core/mail.py"
+        },
+        {
+          "wohin": "github.com",
+          "was": "Herunterladen der Installationsdatei im Browser des Nutzers",
+          "wann": "nur wenn der Nutzer im Update-Fenster „Update herunterladen\" anklickt",
+          "freiwillig": true,
+          "beleg": "21_App_Flutter/gewerbepro_desktop/lib/main.dart showUpdateCheckDialog (_launchUrl); Feld download_url im Update-Manifest"
+        },
+        {
+          "wohin": "www.fehlerfuchs.eu",
+          "was": "Öffnen von Impressum, Datenschutz, Support und Produktseite im Browser",
+          "wann": "nur wenn der Nutzer die jeweilige Schaltfläche anklickt",
+          "freiwillig": true,
+          "beleg": "21_App_Flutter/gewerbepro_desktop/lib/main.dart _launchUrl"
+        }
+      ],
+      "fremde_dienste": [
+        {
+          "name": "openholidaysapi.org (Open Data)",
+          "wofuer": "Schulferien im Auftragskalender",
+          "wann": "nur bei eingeschaltetem Ferienabgleich"
+        },
+        {
+          "name": "GitHub",
+          "wofuer": "Ablageort der Installationsdatei für Updates",
+          "wann": "nur beim vom Nutzer ausgelösten Download"
+        },
+        {
+          "name": "Digistore24",
+          "wofuer": "Kauf der Lizenz",
+          "wann": "außerhalb der Anwendung im Browser; die Anwendung selbst ruft Digistore24 nicht auf"
+        },
+        {
+          "name": "Tesseract OCR (extern zu installieren, optional)",
+          "wofuer": "Texterkennung in PDFs",
+          "wann": "nur bei Nutzung der OCR-Funktion; läuft vollständig lokal"
+        }
+      ],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Alle Daten liegen auf dem Gerät. In den Einstellungen entfernt „Alle Geschäftsdaten löschen\" Kunden, Rechnungen, Angebote, Belege, Termine, Aufgaben und Logbuch (Stammdaten bleiben erhalten). Die Deinstallation entfernt das Programm; der Datenordner mit Datenbank, Exporten und Backups bleibt bestehen und kann vom Nutzer gelöscht werden. Eine hinterlegte Lizenz lässt sich in den Einstellungen vom Gerät lösen.",
+      "besonderheiten": "Die Anwendung arbeitet offline-first: alle Geschäftsdaten bleiben in einer lokalen Datenbank auf dem Rechner, es gibt keinen Server, der Inhalte speichert. Ein Benutzerkonto wird nicht angelegt; die Vollversion wird über einen Lizenzschlüssel freigeschaltet, wobei die dabei verwendete Gerätekennung zufällig erzeugt wird und keine Hardware-Merkmale enthält. Es werden keine Nutzungsdaten ausgewertet, keine Werbung eingeblendet und keine Absturzberichte verschickt; der „Support-Bericht\" erzeugt lediglich ein PDF auf dem Rechner, das der Nutzer selbst versendet. Die geplante Companion-App und der Datenaustausch mit ihr sind im heutigen Stand noch nicht ausgeliefert.",
+      "vorhandener_text": "Kein eigenes Datenschutzdokument im Programmordner; die Anwendung verweist unter „Info & Rechtliches\" auf www.fehlerfuchs.eu/datenschutz.html.",
+      "offene_fragen": "1) Ob und wie lange der Lizenzserver Anfragen protokolliert (etwa IP-Adresse, Zeitpunkt) – das entscheidet der Server, nicht die Anwendung. 2) Ob openholidaysapi.org die Ferienabfragen protokolliert – serverseitig, von der Anwendung aus nicht feststellbar. 3) Welche Daten GitHub beim Herunterladen der Installationsdatei sieht – serverseitig, nicht von der Anwendung bestimmbar. 4) Ob die in der lokalen Datenbank abgelegten E-Mail-Zugangsdaten zusätzlich verschlüsselt werden sollen – derzeit ist keine gesonderte Verschlüsselung vorhanden; eine Entscheidung dazu steht aus.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "fuchsbau",
+      "name": "FuchsBau Passwortmanager",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_FuchsBau",
+      "fassung": "0.6.2+17 (Entwicklungsstand, noch nicht veroeffentlicht)",
+      "lokal_only": true,
+      "auf_dem_geraet": [
+        {
+          "was": "Tresor-Eintraege (Titel und Passwort, optional Benutzername, URL, Kategorie, Notiz)",
+          "wo": "verschluesselt im geschuetzten Speicher des Geraets",
+          "beleg": "lib/data/secure_vault_repository.dart (flutter_secure_storage, Schluessel \"fuchsbau_vault_v1\")"
+        },
+        {
+          "was": "Pruefsummen von Tresor-PIN, Tresor-Passwort und Offline-Sicherheitsschluessel; die eingegebenen Werte selbst werden nicht gespeichert",
+          "wo": "verschluesselt im geschuetzten Speicher des Geraets",
+          "beleg": "lib/core/security/pin_service.dart; lib/core/security/password_service.dart; lib/core/security/security_key_service.dart (Argon2id-Hash + Salt)"
+        },
+        {
+          "was": "Auswahl der aktiven Entsperr-Faktoren",
+          "wo": "verschluesselt im geschuetzten Speicher des Geraets",
+          "beleg": "lib/core/security/unlock_config.dart (Schluessel \"fuchsbau_unlock_cfg\")"
+        },
+        {
+          "was": "Einstellungen (Hell/Dunkel/System, Merker fuer die Einfuehrung beim ersten Start, selbst ergaenzte Woerter fuer den Passphrasen-Generator)",
+          "wo": "verschluesselt im geschuetzten Speicher des Geraets",
+          "beleg": "lib/core/theme/theme_controller.dart; lib/core/onboarding/onboarding_controller.dart; lib/domain/wordlist/custom_words_controller.dart"
+        },
+        {
+          "was": "Mitgelieferte deutsche Wortliste fuer Passphrasen (7855 Woerter, keine Nutzerdaten)",
+          "wo": "Bestandteil der App",
+          "beleg": "assets/wordlists/de_words.txt"
+        }
+      ],
+      "berechtigungen": [
+        {
+          "name": "Biometrie",
+          "wofuer": "Entsperren per Fingerabdruck oder Gesicht, wenn der Nutzer diesen Faktor aktiviert; die App laesst sich auch ohne Biometrie allein mit PIN nutzen",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml (USE_BIOMETRIC)"
+        },
+        {
+          "name": "Internet",
+          "wofuer": "wird in der Veroeffentlichungsfassung nicht angefordert und nicht genutzt. Die App kann von sich aus nichts senden und nichts abrufen.",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml enthaelt kein INTERNET; der Eintrag steht nur in android/app/src/debug/AndroidManifest.xml und android/app/src/profile/AndroidManifest.xml (Flutter-Standardvorlage fuer Entwicklerwerkzeuge, nicht Teil des Release-Builds)"
+        }
+      ],
+      "uebertragungen": [
+        {
+          "wohin": "vom Nutzer gewaehlter Android-Druckdienst",
+          "was": "PDF mit dem Offline-Sicherheitsschluessel",
+          "wann": "nur wenn der Nutzer den Sicherheitsschluessel drucken bzw. als PDF sichern waehlt",
+          "freiwillig": true,
+          "beleg": "lib/features/security_key/security_key_show_screen.dart (Printing.layoutPdf)"
+        },
+        {
+          "wohin": "Zwischenablage des Geraets (systemweit, grundsaetzlich fuer andere Apps lesbar)",
+          "was": "ein einzelnes Passwort oder der verschluesselte Backup-Text",
+          "wann": "nur wenn der Nutzer \"Kopieren\" waehlt; kopierte Passwoerter werden nach 30 Sekunden automatisch wieder geleert",
+          "freiwillig": true,
+          "beleg": "lib/core/security/clipboard_service.dart; lib/features/backup/backup_screen.dart"
+        }
+      ],
+      "fremde_dienste": [],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Alle Daten liegen im verschluesselten Speicher des Geraets. Sie verschwinden beim Deinstallieren der App oder beim Loeschen der App-Daten. Einzelne Eintraege lassen sich in der App loeschen. Eine vom Nutzer selbst erzeugte Sicherung liegt dort, wohin er sie gelegt hat, und muss dort selbst geloescht werden.",
+      "besonderheiten": "FuchsBau arbeitet ausschliesslich auf dem Geraet: kein Konto, keine Anmeldung, keine Verbindung nach draussen. Passwoerter und Notizen liegen verschluesselt im geschuetzten Speicher des Geraets. PIN, Tresor-Passwort und Sicherheitsschluessel werden nie im Klartext gespeichert, sondern nur als Pruefsumme, aus der sich der eingegebene Wert nicht zurueckrechnen laesst. Der Tresor verlangt mindestens zwei Faktoren; einzelne Eintraege lassen sich zusaetzlich mit einem Offline-Sicherheitsschluessel schuetzen, der genau einmal angezeigt wird und danach nicht wiederherstellbar ist. In der Veroeffentlichungsfassung sind Bildschirmfotos und das Vorschaubild in der App-Uebersicht unterbunden. Eine Sicherung ist ein Text, den der Nutzer mit einer selbst gewaehlten Passphrase verschluesselt; ohne diese Passphrase ist sie fuer niemanden lesbar, auch nicht fuer FehlerFuchs.",
+      "vorhandener_text": "Noch keiner. In der App gibt es bislang weder einen Datenschutz- noch einen Impressumstext; eine Muster-Vorlage liegt projektintern bereit, ist aber nicht eingebunden.",
+      "offene_fragen": "1) Ob der verschluesselte Speicher auf einem konkreten Geraet hardwaregestuetzt abgesichert ist, haengt vom Geraet und der Android-Fassung ab und laesst sich aus der App heraus nicht zusichern. 2) Was der vom Nutzer gewaehlte Android-Druckdienst mit dem PDF des Sicherheitsschluessels macht, liegt ausserhalb der App - es kann auch ein Netzwerk- oder Cloud-Druckdienst sein. 3) Die App ist noch nicht veroeffentlicht; eine Verteilung ueber Google Play ist geplant. Was Google im Zuge der Verteilung selbst erhebt, ist hier nicht abgebildet und muss vor der Veroeffentlichung ergaenzt werden. 4) Ein In-App-Datenschutz- und Impressumstext fehlt noch und muss vor der Veroeffentlichung ergaenzt werden.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "gewerbepro-companion",
+      "name": "GewerbePro Companion",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_GewerbePro_Companion",
+      "fassung": "0.1.0+1 – in Entwicklung, nicht veröffentlicht",
+      "lokal_only": true,
+      "auf_dem_geraet": [
+        {
+          "was": "Kundendaten (Anrede, Name/Firma, Anschrift, E-Mail, Telefon, USt-IdNr., Leitweg-ID, Notiz)",
+          "wo": "in der App auf dem Gerät",
+          "beleg": "lib/data/db.dart (Tabelle customers, SQLite companion.db)"
+        },
+        {
+          "was": "Auftrags-Entwürfe mit Positionen (Beschreibung, Menge, Einzelpreis) und Kopftexten",
+          "wo": "in der App auf dem Gerät",
+          "beleg": "lib/data/db.dart (draft_orders, draft_order_items)"
+        },
+        {
+          "was": "Fahrtenbuch-Einträge (Datum, Von/Nach, Zweck, Art, Kilometer) und gemerkte Fahrzeuge (Kennzeichen, letzter km-Stand)",
+          "wo": "in der App auf dem Gerät",
+          "beleg": "lib/data/db.dart (trips, vehicles)"
+        },
+        {
+          "was": "Quittungen einschließlich der handschriftlichen Unterschrift als Bild",
+          "wo": "in der App auf dem Gerät",
+          "beleg": "lib/data/db.dart (receipts), lib/screens/quittung_screen.dart"
+        },
+        {
+          "was": "Aufgaben, Fristen und Termine",
+          "wo": "in der App auf dem Gerät",
+          "beleg": "lib/data/db.dart (tasks, events)"
+        },
+        {
+          "was": "Katalog mit Artikeln und Preisen – eine Kopie aus GewerbePro, die nur gelesen wird",
+          "wo": "in der App auf dem Gerät",
+          "beleg": "lib/data/db.dart (position_templates)"
+        },
+        {
+          "was": "erzeugte PDF-Belege (Quittung, Fahrtenbuch)",
+          "wo": "im eigenen Speicherbereich der App",
+          "beleg": "lib/services/dokument_dienst.dart (Unterordner \"dokumente\")"
+        },
+        {
+          "was": "aus GewerbePro übernommenes Branding (Firmenlogo, hinterlegte Unterschrift, Absender- und Fußzeilentexte)",
+          "wo": "im eigenen Speicherbereich der App",
+          "beleg": "lib/services/branding_store.dart (Ordner \"branding\" und App-Einstellungen)"
+        },
+        {
+          "was": "das Paket mit den erfassten Daten, das für die Übergabe an GewerbePro erzeugt wird",
+          "wo": "im eigenen Speicherbereich der App",
+          "beleg": "lib/screens/sync_screen.dart (companion_paket_<zeit>.json)"
+        },
+        {
+          "was": "App-Einstellungen (Gerätename, Standard-E-Mail-Adresse, eine zufällige Gerätekennung)",
+          "wo": "in der App auf dem Gerät",
+          "beleg": "lib/data/db.dart (Tabelle app_settings)"
+        }
+      ],
+      "berechtigungen": [
+        {
+          "name": "keine",
+          "wofuer": "Die App fordert in der Fassung für Nutzer keine Android-Berechtigung an.",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml – kein uses-permission-Eintrag; nur der Standard-queries-Eintrag PROCESS_TEXT der Flutter-Vorlage"
+        },
+        {
+          "name": "Internetzugriff – nur in den internen Testfassungen",
+          "wofuer": "In den Fassungen, die ausschließlich zum Entwickeln gebaut werden, ist der Internetzugriff durch die Entwicklungsumgebung voreingestellt. Die App nutzt ihn nicht, und in der Fassung für Nutzer ist er nicht enthalten.",
+          "pflicht": false,
+          "beleg": "android/app/src/debug/AndroidManifest.xml und android/app/src/profile/AndroidManifest.xml (INTERNET); im Release-Manifest nicht vorhanden"
+        }
+      ],
+      "uebertragungen": [
+        {
+          "wohin": "keine – die App baut von sich aus keine Verbindung nach draußen auf",
+          "was": "nichts",
+          "wann": "nie; kein HTTP-Client, keine Socket-Nutzung im Quelltext, keine INTERNET-Berechtigung im Release",
+          "freiwillig": false,
+          "beleg": "lib/ (Suche nach HttpClient, package:http, Socket, WebSocket ohne Treffer), android/app/src/main/AndroidManifest.xml"
+        },
+        {
+          "wohin": "vom Nutzer im Android-Teilen-Dialog gewähltes Ziel (z. B. eine E-Mail-App)",
+          "was": "das erzeugte PDF (Quittung oder Fahrtenbuch)",
+          "wann": "nur wenn der Nutzer \"Teilen/Senden\" auslöst; die App übergibt die Datei an das Betriebssystem, nicht an einen eigenen Dienst",
+          "freiwillig": true,
+          "beleg": "lib/services/dokument_dienst.dart (Printing.sharePdf)"
+        },
+        {
+          "wohin": "keine Lizenzprüfung durch die App",
+          "was": "nichts",
+          "wann": "die App kontaktiert den FehlerFuchs-Lizenzserver nicht; die Lizenz-/Seat-Prüfung findet in GewerbePro am PC beim Datenaustausch statt",
+          "freiwillig": false,
+          "beleg": "00_Steuerung/SYNC-Logbuch_GewerbePro-Companion.md (Eintrag 20)"
+        }
+      ],
+      "fremde_dienste": [
+        {
+          "name": "Android-System für Teilen und Drucken (über die Bibliothek \"printing\")",
+          "wofuer": "PDF ansehen, drucken oder an eine vom Nutzer gewählte App übergeben",
+          "wann": "nur bei ausdrücklicher Nutzeraktion"
+        },
+        {
+          "name": "Android-Dateiauswahl (über die Bibliothek \"file_picker\")",
+          "wofuer": "Branding-Paket vom PC einlesen; die gewählte Datei wird nur gelesen",
+          "wann": "nur bei ausdrücklicher Nutzeraktion"
+        }
+      ],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Alle Daten liegen ausschließlich auf dem Gerät im app-eigenen Speicher. Beim Deinstallieren der App verschwinden sie vollständig. Einzelne Kunden, Entwürfe, Fahrten, Aufgaben und Termine lassen sich in der App löschen; erzeugte PDFs können unter Einstellungen entfernt werden (Datei und Eintrag). Die handschriftliche Unterschrift wird nach dem Erzeugen des Quittungs-PDFs aus dem Datensatz gelöscht und bleibt nur im PDF erhalten.",
+      "besonderheiten": "Die App ist ein reiner Erfassungs-Begleiter zu GewerbePro. Gerechnet und endgültig erzeugt wird alles am PC. Sie arbeitet vollständig offline und benötigt kein Konto. Der Datenaustausch mit dem PC ist ein bewusster Schritt des Nutzers: Die App legt die erfassten Daten als Paket in ihrem eigenen Speicherbereich ab, ein automatischer Versand findet nicht statt. Firmenlogo, Absenderangaben und Unterschrift werden aus GewerbePro übernommen, damit Belege vor Ort im gewohnten Aussehen erzeugt werden können. Da Kundendaten und Unterschriften erfasst werden, verarbeitet der Nutzer mit dieser App personenbezogene Daten seiner eigenen Kunden in eigener Verantwortung.",
+      "vorhandener_text": "",
+      "offene_fragen": "1. Die App ist noch nicht veröffentlicht. Ein Play-Store-Eintrag und das dortige Datensicherheitsformular existieren nicht; Berechtigungen können sich bis zum Release noch ändern. 2. Geprüft wurde der Quelltext und die Quell-Manifeste. Ob die Bibliotheken \"printing\" und \"file_picker\" beim Zusammenbauen des Release-APK zusätzliche Manifest-Einträge ergänzen, wurde an einem fertigen APK nicht nachgemessen. 3. Der geplante Sync über USB, eigene Cloud oder späteren Server ist noch nicht umgesetzt. Sobald er kommt, entstehen neue Übertragungen, die hier nachgetragen werden müssen. (Die frühere Frage zum Slug ist erledigt: \"gewerbepro-companion\" ist am 19.07.2026 in _SLUG-EIGENTUEMER.md bestätigt.)",
+      "art": "anwendung"
+    },
+    {
+      "slug": "mobilereport",
+      "name": "MobileReport",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_MobileReport",
+      "fassung": "1.1.0+39 (zusammengefuehrte Free/Pro-App mit In-App-Kauf; geprueft im Ordner FehlerFuchsMR_Pro\\01_App)",
+      "lokal_only": true,
+      "auf_dem_geraet": [
+        {
+          "was": "Meldungen (Bereich, Standort, Kategorie, Prioritaet, Betreff, Beschreibung, optional Melder-Name/Position)",
+          "wo": "lokale Datenbank (SQLite)",
+          "beleg": "lib/data/local/app_database.dart"
+        },
+        {
+          "was": "Fotos, die der Nutzer einer Meldung hinzufuegt, und erzeugte PDF-Dateien",
+          "wo": "app-eigener Dokumentenordner auf dem Geraet",
+          "beleg": "lib/services/image_service.dart, lib/services/pdf_service.dart"
+        },
+        {
+          "was": "Einstellungen (u. a. Empfaenger-Adresse, PDF-Layout, Profilangaben, Pro-Freischaltstatus)",
+          "wo": "Geraeteeinstellungen der App (SharedPreferences)",
+          "beleg": "lib/data/local/settings_repository_prefs.dart, lib/data/pro_provider.dart (Key pro_unlocked)"
+        },
+        {
+          "was": "lokales Zugriffsprotokoll der letzten App-Zugriffe",
+          "wo": "Geraeteeinstellungen der App (SharedPreferences)",
+          "beleg": "lib/services/access_log_service.dart"
+        },
+        {
+          "was": "App-eigener Fehlerlog (technische Fehlermeldungen, keine Meldungsinhalte)",
+          "wo": "lokale Textdatei im App-Speicher",
+          "beleg": "lib/core/diagnose/fehlerlog.dart"
+        }
+      ],
+      "berechtigungen": [
+        {
+          "name": "Kamera und Fotos",
+          "wofuer": "Ein Foto zur Meldung aufnehmen oder ein vorhandenes Bild auswaehlen. Die App benutzt dafuer die Bildauswahl des Betriebssystems und verlangt keinen eigenen Zugriff auf die Fotosammlung.",
+          "pflicht": false,
+          "beleg": "image_picker (pubspec.yaml); android/app/src/main/AndroidManifest.xml - keine CAMERA-/Speicher-Berechtigung deklariert"
+        },
+        {
+          "name": "Kontakte",
+          "wofuer": "Beim Auswaehlen eines Empfaengers wird nur die E-Mail-Adresse des Kontakts uebernommen, den der Nutzer selbst antippt. Auf das uebrige Adressbuch hat die App keinen Zugriff.",
+          "pflicht": false,
+          "beleg": "lib/services/contact_picker_service.dart - ACTION_PICK-Intent, kein READ_CONTACTS"
+        },
+        {
+          "name": "Internet",
+          "wofuer": "Wird nur gebraucht, wenn der Nutzer das Support- und Kontaktformular abschickt oder die Pro-Freischaltung kauft. Zum Erfassen von Meldungen, zum Erzeugen der PDF-Berichte und fuers Logbuch wird sie nicht benoetigt.",
+          "pflicht": false,
+          "beleg": "nicht im App-Manifest deklariert, wird beim Zusammenfuehren der Manifeste durch in_app_purchase und http ergaenzt (pubspec.yaml)"
+        },
+        {
+          "name": "Abrechnung ueber Google Play",
+          "wofuer": "Einmaliger Kauf der Pro-Freischaltung im Google-Play-Store.",
+          "pflicht": false,
+          "beleg": "com.android.vending.BILLING, ergaenzt durch in_app_purchase (pubspec.yaml)"
+        }
+      ],
+      "uebertragungen": [
+        {
+          "wohin": "license.fehlerfuchs.eu (Endpunkt /v1/contact)",
+          "was": "Anliegen (Support/Kontakt), Nachricht, optional Name/E-Mail, optional Screenshots; nur mit ausdruecklicher Zustimmung Diagnosedaten (Android-Version, Geraetemodell, App-Version/Build, App-eigener Fehlerlog)",
+          "wann": "nur wenn der Nutzer das Support-/Kontaktformular absendet",
+          "freiwillig": true,
+          "beleg": "lib/core/kontakt/kontakt_service.dart, lib/features/support/support_page.dart"
+        },
+        {
+          "wohin": "Google Play (Play Billing)",
+          "was": "Kauf- bzw. Wiederherstellungsvorgang der Pro-Freischaltung; keine Meldungsinhalte",
+          "wann": "beim Kauf und bei \"Kaeufe wiederherstellen\"",
+          "freiwillig": true,
+          "beleg": "lib/data/pro_provider.dart (in_app_purchase)"
+        },
+        {
+          "wohin": "vom Nutzer gewaehlte E-Mail-App auf dem Geraet",
+          "was": "erzeugtes PDF als Anhang, Empfaengeradresse und Betreff",
+          "wann": "nur wenn der Nutzer den Versand ausloest; das Verschicken passiert in der fremden E-Mail-App, nicht in dieser Anwendung",
+          "freiwillig": true,
+          "beleg": "lib/services/mail_share_service.dart (flutter_email_sender)"
+        },
+        {
+          "wohin": "externer Browser des Geraets",
+          "was": "Aufruf oeffentlicher Webseiten (Enterprise-Produktseite, Unterstuetzen-Seite)",
+          "wann": "nur wenn der Nutzer einen Link antippt; davor erscheint eine Bestaetigungsabfrage (\"Browser oeffnen?\")",
+          "freiwillig": true,
+          "beleg": "lib/features/pro/pro_unlock_page.dart (url_launcher)"
+        }
+      ],
+      "fremde_dienste": [
+        {
+          "name": "Google Play Billing (in_app_purchase)",
+          "wofuer": "einmaliger In-App-Kauf der Pro-Freischaltung",
+          "wann": "nur beim Kauf/Wiederherstellen"
+        },
+        {
+          "name": "FehlerFuchs-Kontakt-Bridge (eigener Server, license.fehlerfuchs.eu)",
+          "wofuer": "Weiterleitung der Support-/Kontaktanfrage per E-Mail",
+          "wann": "nur beim Absenden des Formulars"
+        }
+      ],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Alle Daten liegen auf dem Geraet. Einzelne Meldungen und Bilder lassen sich in der App loeschen; zusaetzlich gibt es eine Aufraeum-Funktion fuer Bilddateien, die zu keiner Meldung mehr gehoeren. Mit der Deinstallation verschwinden Datenbank, Bilder und Einstellungen. Bereits gesendete Support-Nachrichten auf Anfrage per E-Mail.",
+      "besonderheiten": "Meldungen koennen Fotos enthalten, die der Nutzer selbst aufnimmt. Die App weist ausdruecklich darauf hin, keine Patientendaten oder sonstigen sensiblen Inhalte zu fotografieren oder einzutragen. Sie ist kein Nachweissystem, kein Ticketsystem und keine Medizintechnik-Software. Der Versand ist bewusst manuell: die App bereitet eine E-Mail vor, verschickt aber nichts selbst. Ohne Zutun verlaesst kein Meldungsinhalt das Geraet; Uebertragungen entstehen nur nutzerinitiiert (Support-Formular an einen eigenen EU-Server, In-App-Kauf ueber Google Play). Diagnosedaten werden nur nach ausdruecklicher Zustimmung mitgesendet und sind vorher in der App einsehbar. Die \"Pro\"-Freischaltung ist ein einmaliger In-App-Kauf (kein Abo).",
+      "vorhandener_text": "lib/features/privacy/privacy_page.dart (In-App); Website fehlerfuchs.eu/datenschutz.html",
+      "offene_fragen": "(1) Der genaue Play-Rollout-Status von 1.1.0+39 (bereits in Produktion live vs. in Auslieferung) ist hier nicht verifiziert; dieser Steckbrief beschreibt den aktuellen Codestand der zusammengefuehrten App. (2) Der exakte, beim finalen AAB zusammengefuehrte Android-Berechtigungssatz (Manifest-Merge von in_app_purchase/http/image_picker) wurde nicht aus einem gebauten Artefakt verifiziert; ob restorePurchases beim App-Start eine Netzverbindung zu Google Play ausloest oder nur den lokalen Play-Cache liest, ist unbekannt. (3) Unbekannt, ob beim Drucken/Teilen ueber das Paket printing Daten an System- oder Cloud-Druckdienste des Geraets gelangen - das haengt vom Geraet ab, nicht von der App. (4) Ob die Kontakt-Bridge serverseitig IP-Adressen protokolliert, haengt vom Server ab, nicht von der App.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "mobilereport-enterprise",
+      "name": "MobileReport Enterprise",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_MobileReport",
+      "fassung": "1.0.1+4 (Arbeitsstand im Ordner FehlerFuchsMR_Enterprise\\01_App; nicht im Play Store)",
+      "lokal_only": false,
+      "auf_dem_geraet": [
+        {
+          "was": "Meldungen (Geraet, Bereich, Kategorie, Prioritaet, Beschreibung, Melder-Name)",
+          "wo": "lokale Datenbank (SQLite)",
+          "beleg": "lib/data/local/app_database.dart"
+        },
+        {
+          "was": "Fotos zu Meldungen und erzeugte PDF-Dateien",
+          "wo": "app-eigener Dokumentenordner auf dem Geraet",
+          "beleg": "lib/services/image_service.dart"
+        },
+        {
+          "was": "Einstellungen und Firmen-Branding (Logo, Farben, Name aus einer .mrbrand-Datei)",
+          "wo": "Geraeteeinstellungen der App",
+          "beleg": "lib/domain/models/brand_theme.dart"
+        },
+        {
+          "was": "Lizenzschluessel, Offline-Nachweis und Geraete-Kennung",
+          "wo": "besonders geschuetzter Speicherbereich des Geraets, getrennt von den uebrigen Einstellungen und nicht Teil der Datensicherung",
+          "beleg": "lib/services/license_store.dart (flutter_secure_storage / Android-Keystore)"
+        },
+        {
+          "was": "lokales Zugriffsprotokoll",
+          "wo": "Geraeteeinstellungen der App",
+          "beleg": "lib/services/access_log_service.dart"
+        }
+      ],
+      "berechtigungen": [
+        {
+          "name": "Internet",
+          "wofuer": "Freischalten und Pruefen der Firmenlizenz sowie der Hinweis auf eine neuere Fassung. Zum Erfassen von Meldungen, zum Erzeugen der PDF-Berichte und fuers Logbuch wird sie nicht benoetigt.",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml (uses-permission INTERNET)"
+        }
+      ],
+      "uebertragungen": [
+        {
+          "wohin": "license.fehlerfuchs.eu",
+          "was": "Lizenzschluessel, Geraete-Fingerprint, optional ein selbst vergebener Geraetename und die Angabe \"Android\". Ausdruecklich KEINE Meldungen, Bilder, PDFs oder Einstellungen.",
+          "wann": "bei Aktivierung, Online-Pruefung und Freigabe eines Arbeitsplatzes",
+          "freiwillig": false,
+          "beleg": "lib/services/license_service.dart (Zeilen 50-95; /v1/activate, /v1/validate, /v1/deactivate)"
+        },
+        {
+          "wohin": "fehlerfuchs.eu",
+          "was": "Abruf einer Versionsdatei (enterprise/latest.json) fuer den Update-Hinweis; es werden keine Inhalte gesendet",
+          "wann": "beim Pruefen auf eine neuere Fassung",
+          "freiwillig": false,
+          "beleg": "lib/services/update_service.dart (Zeilen 22-28)"
+        },
+        {
+          "wohin": "fehlerfuchs.eu im Browser des Geraets",
+          "was": "Aufruf einer oeffentlichen Webseite",
+          "wann": "nur wenn der Nutzer einen Link antippt",
+          "freiwillig": true,
+          "beleg": "lib/features/enterprise/enterprise_info_page.dart, lib/features/home/home_page.dart"
+        },
+        {
+          "wohin": "vom Nutzer gewaehlte E-Mail-App auf dem Geraet",
+          "was": "erzeugtes PDF als Anhang, Empfaenger und Betreff",
+          "wann": "nur wenn der Nutzer den Versand ausloest",
+          "freiwillig": true,
+          "beleg": "lib/services/mail_share_service.dart"
+        }
+      ],
+      "fremde_dienste": [
+        {
+          "name": "Lizenzdienst unter license.fehlerfuchs.eu",
+          "wofuer": "Aktivierung und Pruefung der Firmenlizenz (Arbeitsplatz-Zaehlung)",
+          "wann": "bei Aktivierung und Online-Pruefung"
+        }
+      ],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Meldungen, Bilder und Einstellungen liegen auf dem Geraet und lassen sich dort einzeln loeschen; mit der Deinstallation verschwinden sie vollstaendig. Der belegte Arbeitsplatz laesst sich in der App wieder freigeben, damit die Lizenz auf einem anderen Geraet genutzt werden kann.",
+      "besonderheiten": "Die Geraete-Kennung ist keine Hardware-Kennung und wird nicht aus dem Geraet ausgelesen: Es ist eine beim ersten Start zufaellig erzeugte Zufallsnummer, die geschuetzt auf dem Geraet liegt. Sie dient allein dazu, einen Arbeitsplatz zu zaehlen und bei erneuter Freischaltung nicht doppelt zu belegen; ein Rueckschluss auf eine Person ist damit nicht moeglich. Die App kennt den Zahlungsanbieter nicht, sie spricht ausschliesslich die eigene Lizenz-Schnittstelle an. Nach dem Freischalten ist die Nutzung auch ohne Netzverbindung moeglich. Das Firmen-Branding wird als Datei auf dem Geraet eingelesen und nicht aus dem Netz geladen.",
+      "vorhandener_text": "unbekannt (im Enterprise-Ordner wurde kein eigener Datenschutztext gefunden)",
+      "offene_fragen": "(1) Unbekannt, ob der Lizenzdienst serverseitig IP-Adressen oder Zeitpunkte protokolliert - das haengt vom Server ab, nicht von der App. (2) Unbekannt, ob der Abruf der Versionsdatei auf fehlerfuchs.eu serverseitig protokolliert wird. (3) Das Firmen-Setup (Provisioning) aus 00_Konzept\\PROVISIONING_FIRMENSETUP_KONZEPT.md ist bisher nur Konzept; im geprueften Code wurde dazu nichts gefunden. Unbekannt, ob Teile davon bereits ausserhalb der geprueften Dateien vorbereitet sind.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "orgafuchs",
+      "name": "OrgaFuchs",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_OrgaFuchs",
+      "fassung": "1.0.0 (versionCode 1); signierter Release-AAB am 18.07.2026 gebaut, Veroeffentlichung im Play Store zum Pruefzeitpunkt nicht bestaetigt",
+      "lokal_only": false,
+      "auf_dem_geraet": [
+        {
+          "was": "Personen, Dienste und Kategorien, Dienstplan-Eintraege, Termine, Notizen, Sondertage, Einstellungen und die Sync-Konfiguration",
+          "wo": "in der lokalen Datenbank der App auf dem Geraet",
+          "beleg": "lib/data/database.dart:1134-1135"
+        },
+        {
+          "was": "Aenderungsprotokoll der App (wer hat wann was geaendert)",
+          "wo": "in einer lokalen Protokolldatei der App auf dem Geraet",
+          "beleg": "lib/data/logbuch_store.dart:75-76"
+        },
+        {
+          "was": "Jahresarchiv des Aenderungsprotokolls",
+          "wo": "in lokalen Archivdateien der App auf dem Geraet",
+          "beleg": "lib/services/logbuch_archiv.dart:21-44"
+        },
+        {
+          "was": "Fehlerprotokoll der App (technische Meldungen zum Betrieb)",
+          "wo": "in einer lokalen Protokolldatei der App auf dem Geraet",
+          "beleg": "lib/core/diagnose/fehlerlog.dart:26-27"
+        },
+        {
+          "was": "erzeugte PDF-Plaene (Monat und Jahr)",
+          "wo": "in einer lokalen Ablage der App auf dem Geraet",
+          "beleg": "lib/services/pdf_archiv.dart:11-21"
+        },
+        {
+          "was": "Sicherungen des Datenbestands und ausgelagerte Vorlagen",
+          "wo": "in lokalen Dateien der App auf dem Geraet; sie werden nur weitergegeben, wenn der Nutzer sie selbst teilt",
+          "beleg": "lib/features/settings/backup_page.dart:34-36, lib/features/settings/vorlagen_editor_page.dart:107-108"
+        },
+        {
+          "was": "bearbeitete Kategorie-Vorlagen",
+          "wo": "in einer lokalen Datei der App auf dem Geraet",
+          "beleg": "lib/data/vorlagen.dart:81-82"
+        },
+        {
+          "was": "zwischengespeicherte Schulferien des eingestellten Bundeslandes",
+          "wo": "in einer lokalen Datei der App auf dem Geraet",
+          "beleg": "lib/services/schulferien.dart:39-40"
+        },
+        {
+          "was": "technische Einstellungen (Erscheinungsbild sowie die Adresse des gewaehlten Benachrichtigungsservers)",
+          "wo": "in den Geraeteeinstellungen der App",
+          "beleg": "lib/app.dart:106, lib/services/push_controller.dart:42-43"
+        },
+        {
+          "was": "das Gruppen-Passwort bzw. das daraus abgeleitete Zugangsmerkmal fuer den Abgleich",
+          "wo": "in der lokalen Datenbank der App auf dem Geraet",
+          "beleg": "lib/data/database.dart (Tabelle konfiguration)"
+        }
+      ],
+      "berechtigungen": [
+        {
+          "name": "Internet",
+          "wofuer": "Schulferien-Abruf, optionaler Sync, optionaler Push, nutzerinitiiertes Support-Formular, Oeffnen von Weblinks",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml (INTERNET)"
+        },
+        {
+          "name": "Netzwerkstatus / WLAN-Status",
+          "wofuer": "lokale IP-Adresse fuer den Heimnetz-Sync ermitteln, Verbindungszustand pruefen",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml (ACCESS_NETWORK_STATE, ACCESS_WIFI_STATE)"
+        },
+        {
+          "name": "Kamera",
+          "wofuer": "QR-Code scannen beim Beitritt zu einer Sync-Gruppe",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml (CAMERA, uses-feature required=false); lib/features/sync/qr_scan_page.dart"
+        },
+        {
+          "name": "Benachrichtigungen",
+          "wofuer": "Hinweis, wenn ein anderes Geraet der Gruppe etwas geaendert hat",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml (POST_NOTIFICATIONS)"
+        },
+        {
+          "name": "Vordergrunddienst (Typ Datenabgleich)",
+          "wofuer": "haelt bei eingeschalteten Hinweisen die Verbindung zum gewaehlten Benachrichtigungsserver, damit Aenderungen auch bei geschlossener App ankommen",
+          "pflicht": false,
+          "beleg": "android/app/src/main/AndroidManifest.xml (FOREGROUND_SERVICE, FOREGROUND_SERVICE_DATA_SYNC); lib/services/hintergrund_push.dart"
+        },
+        {
+          "name": "Autostart nach Geraeteneustart",
+          "wofuer": "wird von den mitgelieferten Bausteinen fuer Hintergrundbetrieb und Benachrichtigungen angefordert; solange die Hinweise ausgeschaltet sind, baut die App von sich aus keine Verbindung auf",
+          "pflicht": false,
+          "beleg": "zusammengefuehrtes AndroidManifest (RECEIVE_BOOT_COMPLETED) - steht nicht in der App-eigenen Manifestdatei"
+        },
+        {
+          "name": "Geraet wachhalten",
+          "wofuer": "wird vom mitgelieferten Baustein fuer den Hintergrundbetrieb angefordert",
+          "pflicht": false,
+          "beleg": "zusammengefuehrtes AndroidManifest (WAKE_LOCK) - steht nicht in der App-eigenen Manifestdatei"
+        },
+        {
+          "name": "Vibration",
+          "wofuer": "kurze Rueckmeldung beim Schnelleintrag sowie Benachrichtigungen",
+          "pflicht": false,
+          "beleg": "zusammengefuehrtes AndroidManifest (VIBRATE)"
+        },
+        {
+          "name": "Keine Standort-, Kontakt-, Mikrofon-, Speicher- oder Medienberechtigung",
+          "wofuer": "wird nicht angefordert; die Dateiauswahl laeuft ueber den System-Dialog ohne Speicherzugriffsrecht",
+          "pflicht": false,
+          "beleg": "zusammengefuehrtes AndroidManifest enthaelt kein READ_MEDIA_*, kein READ/WRITE_EXTERNAL_STORAGE; file_picker nutzt ACTION_GET_CONTENT"
+        }
+      ],
+      "uebertragungen": [
+        {
+          "wohin": "fehlerfuchs.eu",
+          "was": "Abruf der Schulferien des eingestellten Bundeslandes (Download einer oeffentlichen JSON-Datei); gesendet wird nur die Anfrage selbst, keine Nutzerinhalte",
+          "wann": "beim App-Start automatisch, hoechstens etwa einmal im Monat, sobald ein Bundesland eingestellt ist; zusaetzlich manuell ueber \"Feiertage & Ferien aktualisieren\"",
+          "freiwillig": false,
+          "beleg": "lib/services/schulferien.dart:29+85-96, lib/providers.dart:172-183, lib/features/home/home_shell.dart:32"
+        },
+        {
+          "wohin": "orgafuchs.relais.fehlerfuchs.eu (Vorbelegung; frei aenderbar, auch selbst hostbar)",
+          "was": "Ende-zu-Ende-verschluesselte Sync-Nachrichten (Plan-, Personen- und Termindaten im verschluesselten Umschlag) samt Gruppen- und Geraetekennung zur Adressierung",
+          "wann": "nur wenn der Nutzer den Sync ueber Relais einschaltet (ab Werk aus)",
+          "freiwillig": true,
+          "beleg": "lib/sync/relay.dart, lib/features/sync/sync_page.dart:25, lib/core/server_dropdown.dart:102, lib/sync/host_wiederherstellung.dart:31"
+        },
+        {
+          "wohin": "ntfy.relais.fehlerfuchs.eu (Vorbelegung), wahlweise ntfy.sh oder eine selbst eingetragene Adresse",
+          "was": "Benachrichtigungssignal \"es gibt Aenderungen\" samt Themenkennung; keine Planinhalte",
+          "wann": "nur wenn der Nutzer Push einschaltet (ab Werk aus)",
+          "freiwillig": true,
+          "beleg": "lib/services/push_ntfy.dart, lib/core/server_dropdown.dart:107-108, lib/services/push_controller.dart:30-31"
+        },
+        {
+          "wohin": "license.fehlerfuchs.eu",
+          "was": "Support-/Kontaktformular - eingegebene Nachricht, optional Name und E-Mail, dazu App-Name, Version, Betriebssystem, Geraetebezeichnung und optional angehaengte Diagnose-/Protokolldateien",
+          "wann": "nur wenn der Nutzer das Formular absendet",
+          "freiwillig": true,
+          "beleg": "lib/services/kontakt_service.dart:20-58, lib/features/info/kontakt_page.dart"
+        },
+        {
+          "wohin": "anderes Geraet im selben Netz (lokale Adresse, kein Internet)",
+          "was": "Sync-Daten zwischen Hauptgeraet und Mitgliedsgeraeten ueber HTTP im Heimnetz/Hotspot, Port 7842",
+          "wann": "nur bei eingerichtetem Heimnetz-Sync",
+          "freiwillig": true,
+          "beleg": "lib/sync/sync_server.dart, lib/sync/sync_client.dart:25"
+        },
+        {
+          "wohin": "fehlerfuchs.eu (im externen Browser des Nutzers)",
+          "was": "Aufruf von Impressum, Datenschutz, Kontakt, Unterstuetzen und der Windows-Produktseite; die App sendet dabei selbst keine Daten",
+          "wann": "nur bei Antippen des jeweiligen Verweises",
+          "freiwillig": true,
+          "beleg": "lib/features/info/info_page.dart:13-17"
+        }
+      ],
+      "fremde_dienste": [
+        {
+          "name": "Google ML Kit - Barcode Scanning (mitgeliefertes Modell, ueber die Bibliothek mobile_scanner)",
+          "wofuer": "Erkennung des Beitritts-QR-Codes; die Erkennung laeuft auf dem Geraet",
+          "wann": "nur solange der QR-Scanner geoeffnet ist"
+        },
+        {
+          "name": "ntfy (quelloffener Benachrichtigungsdienst)",
+          "wofuer": "Push-Signal bei Aenderungen; vorbelegt ist ein selbst betriebener Server, alternativ ntfy.sh oder ein eigener",
+          "wann": "nur bei eingeschaltetem Push"
+        },
+        {
+          "name": "Kein Google-Konto, kein Firebase/Analytics, kein Play Billing, keine Karten, keine Schriften aus dem Netz",
+          "wofuer": "nicht eingebunden (App ist kostenlos, keine In-App-Kaeufe)",
+          "wann": "entfaellt"
+        }
+      ],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Alle Inhalte liegen auf dem Geraet. Einzelne Eintraege, Personen und Dienste lassen sich in der App loeschen; der Einrichtungsassistent kann im Modus \"Komplett neu\" den gesamten Bestand zuruecksetzen. Mit der Deinstallation verschwinden Datenbank, Protokolle, PDF-Ablage und Sicherungen im App-Ordner. Beim Sync ueber Relais liegen dort nur verschluesselte, kurzlebige Nachrichten; ohne das Gruppen-Passwort sind sie nicht lesbar. Ueber das Support-Formular gesendete Nachrichten werden auf Anfrage per E-Mail geloescht.",
+      "besonderheiten": "Der Abgleich zwischen mehreren Geraeten kommt ohne Konto und ohne Registrierung aus: Ein Geraet ist \"Hauptgeraet\", weitere treten per QR-Code und einem selbst gewaehlten Gruppen-Passwort bei. Aus diesem Passwort wird der Schluessel fuer die Ende-zu-Ende-Verschluesselung abgeleitet; ein Relais sieht daher nur verschluesselte Daten und die Angabe, an welche Gruppe sie gehen - weder Namen noch Inhalte noch die Mitglieder der Gruppe. Beim Abgleich im eigenen Netz nimmt das Hauptgeraet die Anfragen der anderen Geraete direkt entgegen und antwortet nur, wenn das Zugangsmerkmal der Gruppe stimmt; auf diesem Weg werden die Daten innerhalb des lokalen Netzes unverschluesselt uebertragen und verlassen es nicht. Welcher Relais- und welcher Benachrichtigungsserver verwendet wird, ist frei einstellbar; beide lassen sich auch selbst betreiben. Die App zeigt eine Uebersicht der verwendeten Open-Source-Bausteine und Datenquellen. Da Dienstplaene mittelbar Rueckschluesse auf Arbeits- und Abwesenheitszeiten mehrerer Personen zulassen, koennen die lokal gespeicherten Inhalte sensibel sein.",
+      "vorhandener_text": "Kein eigener veroeffentlichter Datenschutztext im Projekt. In der App: Einstellungen -> Info & Rechtliches mit Impressum und Verweis auf https://fehlerfuchs.eu/datenschutz.html (lib/features/info/info_page.dart:13-17) sowie die Transparenzseite lib/features/info/open_source_page.dart. Als interner Entwurf fuer die Play-Console existiert 01_Konzept/OrgaFuchs_Release_Store-und-DataSafety.md.",
+      "offene_fragen": "1) Unklar, ob und wie lange die angefragten Server (fehlerfuchs.eu fuer die Schulferien, das Relais, der ntfy-Server, license.fehlerfuchs.eu) IP-Adressen oder Zugriffe protokollieren - das haengt vom Serverbetrieb ab, nicht von der App. 2) Unklar, ob das mitgelieferte Google-ML-Kit-Barcodemodul eigene Verbindungen zu Google aufbaut (etwa Modell- oder Telemetriezugriffe); aus dem App-Code ist keine solche Verbindung ersichtlich, die Bibliothek wurde nicht im Netzwerkmitschnitt geprueft. 3) Unklar, welche Daten der Endpunkt license.fehlerfuchs.eu nach Empfang einer Support-Anfrage speichert und wie lange. 4) Nicht geprueft, ob die dem Support-Formular optional angehaengte Diagnosedatei in Einzelfaellen Inhalte aus Dienstplaenen enthalten kann; sie ist als rein technische Zusammenfassung angelegt (lib/core/diagnose/diagnose.dart).",
+      "art": "anwendung"
+    },
+    {
+      "slug": "pdfuchs",
+      "name": "PDFuchs",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_PDFuchs",
+      "fassung": "v0.1.0_dev (Vorabfassung, noch nicht veroeffentlicht)",
+      "lokal_only": true,
+      "auf_dem_geraet": [
+        {
+          "was": "Vom Nutzer geoeffnete und erzeugte PDFs sowie Zwischenergebnisse (Vorschauen, korrigierte Scans, ausfuellbare Formulare, Ergebnisse der Texterkennung)",
+          "wo": "lokaler Ausgabeordner der Anwendung",
+          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/config.py:61"
+        },
+        {
+          "was": "Angaben zur Testphase und zur Zahl der erstellten Formulare (Startdatum, Zaehler)",
+          "wo": "Datei license_state.json im Anwendungsdatenordner des Benutzers (%LOCALAPPDATA%\\PDFuchs)",
+          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/feature_flags.py:44-50"
+        },
+        {
+          "was": "Angaben zu erkannten Scannern (Geraetename, Hersteller, Geraetekennung, Faehigkeiten) und selbst angelegte Scanprofile",
+          "wo": "zwei Dateien im lokalen Ausgabeordner der Anwendung",
+          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/scanner.py:22 und :28"
+        },
+        {
+          "was": "Speicherorte der mitgelieferten Zusatzwerkzeuge",
+          "wo": "Einstellungsdatei im Programmordner",
+          "beleg": "92_Tools/werkzeuge.ini, erzeugt von 92_Tools/setup_werkzeuge.ps1"
+        }
+      ],
+      "berechtigungen": [
+        {
+          "name": "Zugriff auf lokale Dateien",
+          "wofuer": "Oeffnen und Speichern der vom Nutzer gewaehlten Dokumente",
+          "pflicht": true,
+          "beleg": "Windows-Desktopanwendung ohne Manifest-Berechtigungsmodell; Dateiauswahl ueber den Systemdialog"
+        },
+        {
+          "name": "Zugriff auf lokal angeschlossene Scanner",
+          "wofuer": "Einscannen von Vorlagen ueber Flachbett oder Einzug",
+          "pflicht": false,
+          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/scanner.py (WIA/TWAIN)"
+        }
+      ],
+      "uebertragungen": [],
+      "fremde_dienste": [
+        {
+          "name": "LibreOffice (mitgeliefert)",
+          "wofuer": "Umwandlung von Office-Dateien nach PDF und PDF/A-Export",
+          "wann": "lokal, nur wenn der Nutzer eine solche Umwandlung ausloest"
+        },
+        {
+          "name": "Tesseract OCR (mitgeliefert)",
+          "wofuer": "Texterkennung auf gescannten Seiten",
+          "wann": "lokal, nur wenn der Nutzer die Texterkennung ausloest"
+        },
+        {
+          "name": "PDFium (Bibliothek zur Anzeige)",
+          "wofuer": "Darstellung der PDF-Seiten",
+          "wann": "lokal, bei jeder Vorschau"
+        },
+        {
+          "name": "veraPDF (nicht mitgeliefert, extern)",
+          "wofuer": "optionale Pruefung von PDF/A",
+          "wann": "nur wenn der Nutzer es selbst installiert und eintraegt",
+          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/pdfa.py:88 (nur Hinweistext mit Downloadadresse)"
+        }
+      ],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Alle Daten liegen auf dem Geraet. Selbst erzeugte oder bearbeitete PDFs liegen dort, wo der Nutzer sie gespeichert hat, und lassen sich wie jede andere Datei loeschen. Beim Deinstallieren wird das Programm entfernt; eigene Dokumente bleiben erhalten. Die kleine Datei mit den Angaben zur Testphase im Anwendungsdatenordner des Benutzers wird beim Deinstallieren nicht mit entfernt und bleibt auf dem Geraet; sie kann jederzeit von Hand geloescht werden.",
+      "besonderheiten": "PDFuchs verarbeitet Dokumente vollstaendig auf dem eigenen Rechner. Die Anwendung stellt von sich aus keine Verbindung ins Internet her und uebertraegt keine Daten an FehlerFuchs oder an Dritte; ein Konto oder eine Anmeldung gibt es nicht. Die Angaben zur Testphase und zur Zahl erstellter Formulare bleiben ausschliesslich auf dem Geraet. Wird ein Scanner benutzt, werden Angaben zum angeschlossenen Geraet lokal gespeichert, damit die Scanprofile dazu passen. Der beschriebene Stand ist eine Vorabfassung, die noch nicht veroeffentlicht wurde.",
+      "vorhandener_text": "09_Releases/Datenschutz_Lokalhinweis_01072026.md",
+      "offene_fragen": "1. Ob die mitgelieferten Zusatzwerkzeuge LibreOffice und Tesseract bei ihrer Ausfuehrung von sich aus Netzverbindungen aufbauen (etwa eine Updatepruefung von LibreOffice): PDFuchs loest nichts dergleichen aus; das Verhalten der Werkzeuge selbst wurde nicht per Mitschnitt geprueft. 2. Ob die beim Einrichten gesetzte Windows-Dateizuordnung ueber die Systemeintraege hinaus etwas nach aussen meldet: dafuer wurde kein Hinweis gefunden, es wurde aber nicht abschliessend geprueft.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "pdfuchsreader",
+      "name": "PDFuchs Reader",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_PDFuchsReader_Mobile (Eigentümer des Slugs, Android-Teil). Windows-Teil geprüft und belegt zugeliefert von FehlerFuchs_PDFuchs am 19.07.2026, hier eingearbeitet.",
+      "fassung": "Zweite Fassung vom 19.07.2026 - gegenüber der ersten Einreichung desselben Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt. Zwei Fassungen tragen heute diesen Slug. (A) Android-Fassung 1.0.0 (versionCode 1, Paket eu.fehlerfuchs.pdfuchsreader): signierter Release-AAB ist gebaut und am Gerät getestet, aber noch NICHT im Play Store veröffentlicht (geplant als Offener Test). Geprüft am echten Code, Manifest und am gemergten Manifest des gebauten Release-AAB. (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, NSIS-Installerskript. Kein Laufzeit-Mitschnitt des Netzwerkverkehrs - siehe offene Frage 4.",
+      "lokal_only": true,
+      "auf_dem_geraet": [
+        {
+          "was": "Liste „Zuletzt geöffnet\" (Dateipfad, Dateiname, Öffnungsdatum)",
+          "wo": "im Einstellungsspeicher der App auf dem Gerät",
+          "beleg": "05_App/pdfuchsreader_mobile/lib/core/recent/recent_store.dart"
+        },
+        {
+          "was": "Einstellung Anzeigemodus (Hell/Dunkel/System)",
+          "wo": "im Einstellungsspeicher der App auf dem Gerät",
+          "beleg": "05_App/pdfuchsreader_mobile/lib/features/settings/settings_controller.dart"
+        },
+        {
+          "was": "Kopie des mitgelieferten Handbuch-PDFs + einmaliges Onboarding-Kennzeichen",
+          "wo": "App-Dokumenteordner der App",
+          "beleg": "05_App/pdfuchsreader_mobile/lib/core/onboarding/handbook_seeder.dart"
+        },
+        {
+          "was": "Vom Nutzer erzeugte bearbeitete PDF-Kopien (<name>_bearbeitet.pdf)",
+          "wo": "App-Dokumenteordner der App; das Original wird nie überschrieben",
+          "beleg": "05_App/pdfuchsreader_mobile/lib/features/editor/seiten_editor_screen.dart"
+        },
+        {
+          "was": "Per „Öffnen mit\"/Teilen hereingereichte PDFs (Arbeitskopie)",
+          "wo": "Zwischenspeicher (Cache) der App",
+          "beleg": "05_App/pdfuchsreader_mobile/android/app/src/main/kotlin/com/example/pdfuchsreader_mobile/MainActivity.kt (kopiereNachCache)"
+        },
+        {
+          "was": "Vom Nutzer geöffnete PDFs und daraus erzeugte Ausgaben",
+          "wo": "der vom Nutzer gewählte Speicherort",
+          "beleg": "(Windows) 05_Engine/pdfuchs_core/pdfuchs_core/config.py:61"
+        },
+        {
+          "was": "Ergebnisdateien der Verarbeitung (z. B. Texterkennung, Miniaturen, korrigierte Seiten)",
+          "wo": "in einem Ausgabeordner im Programmverzeichnis - nicht in den eigenen Dateien des Nutzers",
+          "beleg": "(Windows) 05_Engine/pdfuchs_core/pdfuchs_core/config.py:61"
+        },
+        {
+          "was": "Datei license_state.json mit einem lokalen Zählerstand zur Programmnutzung; keine personenbezogenen Angaben",
+          "wo": "im lokalen Anwendungsdatenordner des Benutzers unter %LOCALAPPDATA%\\PDFuchs (möglich auch unter %ProgramData%\\PDFuchs). Diese Datei bleibt nach dem Deinstallieren auf dem Rechner liegen und kann von Hand gelöscht werden.",
+          "beleg": "(Windows) 05_Engine/pdfuchs_core/pdfuchs_core/feature_flags.py:44-50; 92_Tools/installer_flutter.nsi Section Uninstall (Zeile 130-154, ohne Löschung dieser Datei)"
+        },
+        {
+          "was": "Temporäre Dateien während Anzeige und Verarbeitung",
+          "wo": "im Temp-Ordner von Windows; sie werden nach Gebrauch automatisch wieder entfernt",
+          "beleg": "(Windows) 05_Engine/pdfuchs_core/pdfuchs_core/render.py:29 (TemporaryDirectory)"
+        },
+        {
+          "was": "Keine Einstellungsdatei und keine Liste zuletzt geöffneter Dateien",
+          "wo": "Entfällt - die Windows-Fassung legt dafür nichts auf dem Rechner ab.",
+          "beleg": "(Windows) 11_App_Flutter/pdfuchs_desktop/pubspec.yaml; 11_App_Flutter/pdfuchs_desktop/lib/main.dart:78-127"
+        }
+      ],
+      "berechtigungen": [
+        {
+          "name": "INTERNET (Android)",
+          "wofuer": "Ausschließlich nutzerinitiierter Versand des Support-/Kontaktformulars und Öffnen externer Links",
+          "pflicht": false,
+          "beleg": "05_App/pdfuchsreader_mobile/android/app/src/main/AndroidManifest.xml (Zeile 5); im gemergten Manifest des Release-AAB bestätigt"
+        },
+        {
+          "name": "App-interne Systemberechtigung (Android)",
+          "wofuer": "Eine rein app-interne Berechtigung, die das System beim Erstellen der App automatisch anlegt. Sie erlaubt keinen Zugriff auf Daten des Nutzers.",
+          "pflicht": true,
+          "beleg": "Technischer Name eu.fehlerfuchs.pdfuchsreader.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION, von AndroidX erzeugt; ausgelesen aus build/app/intermediates/bundle_manifest/release/.../AndroidManifest.xml"
+        },
+        {
+          "name": "(Android - keine weiteren)",
+          "wofuer": "Die App fordert keine weiteren Berechtigungen an - insbesondere keinen Zugriff auf Speicher, Kamera, Standort, Kontakte oder Mikrofon.",
+          "pflicht": false,
+          "beleg": "Gemergtes Manifest des gebauten Release-AAB vollständig ausgelesen; enthält nur INTERNET und die app-interne Systemberechtigung. Randnotiz für die Pflege, nicht zur Anzeige: das Paket permission_handler ist in pubspec.yaml (Zeile 32) deklariert, wird nirgends verwendet und fügt keine Berechtigung hinzu."
+        },
+        {
+          "name": "(Windows) Zugriff auf lokale Dateien",
+          "wofuer": "Öffnen und Speichern der vom Nutzer gewählten PDF-Dateien",
+          "pflicht": true,
+          "beleg": "(Windows) Desktopanwendung ohne Manifest-Berechtigungsmodell"
+        },
+        {
+          "name": "(Windows) Registrierung als PDF-Anwendung („Öffnen mit\"), optional",
+          "wofuer": "Nur wenn der Nutzer diese Option bei der Installation wählt. Der Reader wird dann als mögliche Anwendung zum Öffnen von PDF-Dateien eingetragen; welches Programm der Standard ist, entscheidet der Nutzer weiterhin selbst in den Windows-Einstellungen. Die Einträge gelten nur für das angemeldete Benutzerkonto, nicht für den ganzen Rechner, und werden beim Deinstallieren wieder entfernt.",
+          "pflicht": false,
+          "beleg": "(Windows) 92_Tools/installer_flutter.nsi:108-128 (PDF-Registrierung), :80-89 (Uninstall-Eintrag)"
+        }
+      ],
+      "uebertragungen": [
+        {
+          "wohin": "license.fehlerfuchs.eu",
+          "was": "Nachrichtentext, freiwillig Name und E-Mail-Adresse, Ziel (Support/Kontakt), Betreff, Thema, App-Name, Edition „Free\", App-Version, Android-Version, Gerätehersteller und Modell. Keine Dateianhänge - das dafür vorgesehene Feld wird vom Support-Formular nicht befüllt.",
+          "wann": "Nur wenn der Nutzer das Support-/Kontaktformular ausfüllt und „Senden\" drückt (nur Android-Fassung)",
+          "freiwillig": true,
+          "beleg": "05_App/pdfuchsreader_mobile/lib/core/kontakt/kontakt_service.dart (Zeile 19, 37-56) und lib/core/kontakt/kontext.dart"
+        },
+        {
+          "wohin": "E-Mail-App des Nutzers (mailto an support@ bzw. info@fehlerfuchs.eu)",
+          "was": "Betreff und Nachrichtentext als vorausgefüllte E-Mail",
+          "wann": "Nur als Ausweichweg, wenn der Versand oben fehlschlägt; der Nutzer muss die Mail selbst abschicken",
+          "freiwillig": true,
+          "beleg": "05_App/pdfuchsreader_mobile/lib/features/support/support_screen.dart (Zeile 95)"
+        },
+        {
+          "wohin": "fehlerfuchs.eu (Seiten unterstuetzen.html, impressum.html, kontakt.html, datenschutz.html)",
+          "was": "Normaler Seitenaufruf im externen Browser; die App selbst sendet dabei keine Inhalte",
+          "wann": "Nur wenn der Nutzer den jeweiligen Verweis antippt",
+          "freiwillig": true,
+          "beleg": "lib/features/home/support_dialog.dart (Zeile 7), lib/features/legal/impressum_screen.dart (Zeile 59, 65), lib/features/legal/datenschutz_screen.dart (Zeile 76)"
+        },
+        {
+          "wohin": "Vom Nutzer gewählte fremde App bzw. Android-Druckdienst",
+          "was": "Die geöffnete PDF-Datei",
+          "wann": "Nur wenn der Nutzer „Teilen\" oder „Drucken\" auslöst; wohin sie geht, bestimmt der Nutzer",
+          "freiwillig": true,
+          "beleg": "05_App/pdfuchsreader_mobile/lib/features/viewer/viewer_screen.dart (Zeile 53, 62)"
+        }
+      ],
+      "fremde_dienste": [
+        {
+          "name": "PDFium (über die Bibliothek pdfrx)",
+          "wofuer": "Darstellung, Textsuche und verlustfreies Speichern der PDF-Seiten",
+          "wann": "Ausschließlich lokal auf dem Gerät, ohne Netzverbindung"
+        },
+        {
+          "name": "Android-Teilen- und Druck-Framework",
+          "wofuer": "Weitergabe bzw. Ausdruck einer PDF-Datei",
+          "wann": "Nur auf Auslösung durch den Nutzer"
+        },
+        {
+          "name": "(Windows) Tesseract OCR, mitgeliefert",
+          "wofuer": "Texterkennung, wenn der Nutzer OCR auslöst",
+          "wann": "Lokal, nur auf Auslösung durch den Nutzer. Tesseract wird ausschließlich als lokaler Unterprozess gestartet; Sprachdaten liegen lokal daneben, es werden keine Adressen, Proxys oder Onlinedienste übergeben. Gilt NUR für die Windows-Fassung - die Android-Fassung enthält bewusst kein OCR."
+        },
+        {
+          "name": "(Windows) PDFium über pypdfium2",
+          "wofuer": "Darstellung der PDF-Seiten",
+          "wann": "Lokal, bei jeder Anzeige"
+        }
+      ],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Android: Alle Daten liegen auf dem Gerät. Einträge der Liste „Zuletzt geöffnet\" lassen sich einzeln entfernen oder komplett leeren. Beim Deinstallieren verschwinden App-Einstellungen, Zuletzt-Liste, Handbuch-Kopie, im App-Ordner erzeugte bearbeitete Kopien und der Zwischenspeicher. Windows: Das Deinstallieren entfernt das Programmverzeichnis, die Desktop- und Startmenü-Verknüpfungen sowie die bei der Installation gesetzten Einträge. Eine Datei bleibt dabei zurück: license_state.json im lokalen Anwendungsdatenordner unter %LOCALAPPDATA%\\PDFuchs. Sie enthält einen lokalen Zählerstand zur Programmnutzung und keine personenbezogenen Angaben. Wer sie entfernen möchte, kann sie von Hand löschen. In beiden Fassungen bleiben die eigenen Dokumente des Nutzers unangetastet - Originale werden nie überschrieben.",
+      "besonderheiten": "Beide Fassungen sind offline voll benutzbar; ohne Zutun des Nutzers entsteht keine Verbindung nach draußen. Es gibt kein Konto, keine Anmeldung, keine Werbung, keine Nutzungsmessung und keine In-App-Käufe. Die Windows-Fassung stellt überhaupt keine Verbindung ins Internet her und sucht auch nicht selbsttätig nach Aktualisierungen. Die einzige Verbindung, die überhaupt aufgebaut wird, ist der Versand des Support-Formulars in der Android-Fassung, und den löst der Nutzer bewusst selbst aus. Bearbeitete PDF-Dateien werden immer als neue Kopie gespeichert, die Ursprungsdatei bleibt unverändert. Die Android-Fassung soll über Google Play vertrieben werden; Google erhält dabei die üblichen Installations- und Kontodaten des Store-Vorgangs, worauf die App selbst keinen Einfluss hat.",
+      "vorhandener_text": "Android: 05_App/pdfuchsreader_mobile/lib/features/legal/datenschutz_screen.dart (Datenschutztext in der App, verweist auf https://fehlerfuchs.eu/datenschutz.html). Windows: 09_Releases/Datenschutz_Lokalhinweis_01072026.md",
+      "offene_fragen": "1. Slug-Zuordnung: Windows-Reader und Android-Reader teilen sich denselben Slug „pdfuchsreader\"; in der Liste gibt es keinen eigenen Slug für die mobile Fassung. Unklar, ob die Website beide Fassungen getrennt darstellen möchte - dann wäre ein zusätzlicher Slug nötig. Slugs werden nicht selbst erfunden, daher stehen hier beide Fassungen in einer Datei. 2. Ob der Kontakt-Endpunkt auf license.fehlerfuchs.eu IP-Adressen oder Zeitstempel protokolliert, hängt vom Server ab und ist aus der App heraus nicht feststellbar - unbekannt. 3. Das Paket permission_handler ist in der Android-Fassung deklariert, aber ungenutzt. Es hat heute keine Datenschutzwirkung; ob es aus den Abhängigkeiten entfernt wird, ist noch nicht entschieden. 4. (aus der Windows-Zulieferung) Das Netzverhalten der mitgelieferten Tesseract-Binary selbst wurde nicht per Mitschnitt geprüft; geprüft wurde nur, was PDFuchs aufruft und übergibt. 5. (aus der Windows-Zulieferung) Ob Aktionen, die im Reader ausgelöst werden, den lokalen Zähler in license_state.json mitschreiben, wurde nicht abschließend geprüft: Reader und Suite nutzen denselben Programmkern, ein reader-eigener Schreibzugriff wurde jedoch nicht gefunden.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "schichtfuchs",
+      "name": "SchichtFuchsHTML",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_SchichtFuchs",
+      "fassung": "BETA 2.0 (UKJ-Edition) – in Erprobung, nicht veröffentlicht",
+      "lokal_only": true,
+      "auf_dem_geraet": [
+        {
+          "was": "nichts dauerhaft – alle Eingaben (Plan, Meldungen, Stammdaten) liegen nur im Arbeitsspeicher der Browser-Sitzung und sind nach Neuladen/Schließen weg",
+          "wo": "Arbeitsspeicher des Browsers (keine Datenbank, kein dauerhafter Browser-Speicher, keine Cookies)",
+          "beleg": "02_Mockup/SchichtFuchsHTML_BETA_2.0_UKJ.html – Code enthält keinerlei localStorage/sessionStorage/indexedDB/document.cookie-Aufrufe (geprüft per Volltextsuche, 0 Treffer)"
+        }
+      ],
+      "uebertragungen": [
+        {
+          "wohin": "cdnjs.cloudflare.com",
+          "was": "Abruf der JavaScript-Bibliothek SheetJS (xlsx 0.18.5); es werden keine Plan- oder Personendaten übertragen, der CDN-Betreiber sieht die übliche HTTP-Anfrage",
+          "wann": "nur wenn der Nutzer aktiv eine Excel-Datei (.xlsx) in den Stammdaten importiert und die Bibliothek noch nicht geladen ist; der CSV-Import kommt ohne jede Verbindung aus",
+          "freiwillig": true,
+          "beleg": "02_Mockup/SchichtFuchsHTML_BETA_2.0_UKJ.html – change-Handler von"
+        }
+      ],
+      "fremde_dienste": [
+        {
+          "name": "Cloudflare cdnjs (Auslieferung von SheetJS)",
+          "wofuer": "einmaliges Nachladen der Excel-Import-Bibliothek",
+          "wann": "nur beim vom Nutzer ausgelösten .xlsx-Import"
+        }
+      ],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Es wird nichts dauerhaft gespeichert: Seite neu laden oder den Browser-Tab schließen genügt, alle Eingaben der Sitzung sind damit weg. Die HTML-Datei selbst kann einfach gelöscht werden.",
+      "besonderheiten": "SchichtFuchsHTML ist eine einzelne HTML-Datei, die ohne Installation im Browser läuft – ohne Serverdienst, ohne Konto und ohne jede Berechtigungsanfrage. Die mitgelieferten Namen und Pläne sind fiktive Demo-Daten. Eine dauerhafte Speicherung gibt es im heutigen Stand nicht; sobald sie kommt (vorgesehen ist eine Ablage auf einem gemeinsamen Netzlaufwerk der Einrichtung), ändert sich das Speicherbild und dieser Steckbrief wird erneuert.",
+      "vorhandener_text": null,
+      "offene_fragen": "1) Der Slug „schichtfuchs\" steht noch nicht in der Slug-Liste des Prompts – bitte in die Website-Liste aufnehmen oder Zuordnung nennen. 2) Ob Cloudflare beim Bibliotheks-Abruf IP-Adressen protokolliert, hängt vom CDN-Betreiber ab und ist von der App aus nicht feststellbar. 3) Nach Umstellung auf JSON-Persistenz (Netzlaufwerk) muss der Abschnitt „auf_dem_geraet\"/„loeschung\" neu gefasst werden.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "snapfuchs",
+      "name": "SnapFuchs",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_SnapFuchs",
+      "fassung": "1.0.0 (versionCode 3, bei Google Play in Pruefung)",
+      "lokal_only": false,
+      "auf_dem_geraet": [
+        {
+          "was": "Exportierte PDFs (auch in selbst angelegten Ordnern)",
+          "wo": "App-eigenes Dokumentenverzeichnis, Unterordner \"SnapFuchs\"",
+          "beleg": "lib/core/storage/dokument_speicher.dart"
+        },
+        {
+          "was": "Einstellungen (Wasserzeichen-Stil und -Position, Kaufstatus)",
+          "wo": "Geraeteeinstellungen der App",
+          "beleg": "lib/models/watermark_config.dart, lib/utils/pro_check.dart"
+        },
+        {
+          "was": "App-eigener Fehlerlog (technische Fehlermeldungen, ueberdauert Neustart)",
+          "wo": "lokale Datei im App-Verzeichnis",
+          "beleg": "lib/core/diagnose/fehlerlog.dart"
+        },
+        {
+          "was": "Temporaere Dateien fuer OCR, Export und Teilen",
+          "wo": "App-Cache, werden nach Gebrauch geloescht bzw. vom System aufgeraeumt",
+          "beleg": "lib/core/ocr/tesseract_service.dart, lib/core/pdf/pdf_export.dart"
+        },
+        {
+          "was": "Fuer die PDF-Werkzeuge ausgewaehlte fremde PDF-Dateien",
+          "wo": "Kopie im App-Cache",
+          "beleg": "android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt"
+        }
+      ],
+      "berechtigungen": [
+        {
+          "name": "Kamera",
+          "wofuer": "Dokumente scannen, QR-Codes und Barcodes lesen",
+          "pflicht": true,
+          "beleg": "CAMERA in android/app/src/main/AndroidManifest.xml"
+        },
+        {
+          "name": "Internet",
+          "wofuer": "Feedback absenden, Verweise im Browser oeffnen, Kaufabwicklung ueber Google Play",
+          "pflicht": false,
+          "beleg": "INTERNET in android/app/src/main/AndroidManifest.xml"
+        },
+        {
+          "name": "In-App-Abrechnung",
+          "wofuer": "einmaliger Kauf der Pro-Fassung",
+          "pflicht": false,
+          "beleg": "com.android.vending.BILLING, vom Paket in_app_purchase ergaenzt, im gemergten Release-Manifest enthalten"
+        },
+        {
+          "name": "Schreiben auf den geteilten Speicher, nur auf Android 9 und aelter",
+          "wofuer": "alter Weg fuer den Export; eigene Dokumente werden im Bereich der App abgelegt",
+          "pflicht": false,
+          "beleg": "WRITE_EXTERNAL_STORAGE mit maxSdkVersion 28 in android/app/src/main/AndroidManifest.xml"
+        },
+        {
+          "name": "Netzwerkstatus",
+          "wofuer": "wird von der App nicht abgefragt; stammt aus eingebundenen Bausteinen",
+          "pflicht": false,
+          "beleg": "ACCESS_NETWORK_STATE, gemergtes Release-Manifest Zeile 71"
+        },
+        {
+          "name": "Mikrofon",
+          "wofuer": "wird nicht genutzt; stammt aus dem Kamera-Baustein. Die Kamera wird ohne Tonaufnahme geoeffnet",
+          "pflicht": false,
+          "beleg": "RECORD_AUDIO, gemergtes Release-Manifest Zeile 63; enableAudio false in lib/features/scan/scan_screen.dart:49"
+        },
+        {
+          "name": "Zugriff auf Fotos und Videos",
+          "wofuer": "wird nicht angefordert. Bilder waehlt man ueber den Android-Fotoauswahl-Dialog aus, der ohne diese Berechtigung auskommt",
+          "pflicht": false,
+          "beleg": "READ_MEDIA_IMAGES und READ_MEDIA_VIDEO per tools:node=\"remove\" entfernt in android/app/src/main/AndroidManifest.xml; useAndroidPhotoPicker in lib/main.dart"
+        }
+      ],
+      "uebertragungen": [
+        {
+          "wohin": "Google Play (Abrechnung)",
+          "was": "Abfrage bzw. Uebermittlung des Kaufstatus fuer die Pro-Fassung",
+          "wann": "automatisch beim App-Start (Wiederherstellung) und beim Kauf",
+          "freiwillig": false,
+          "beleg": "lib/utils/pro_check.dart"
+        },
+        {
+          "wohin": "license.fehlerfuchs.eu",
+          "was": "Nachrichtentext, freiwillig Name und E-Mail-Adresse, App-Name, Edition, App-Version, Android-Version, Geraetemodell; optional angehaengte Bilder; nur bei gesetztem Haken zusaetzlich eine Diagnosedatei mit Technikdaten und dem App-eigenen Fehlerlog",
+          "wann": "nur wenn der Nutzer das Feedback-Formular aktiv absendet",
+          "freiwillig": true,
+          "beleg": "lib/core/kontakt/kontakt_service.dart, lib/features/info/feedback_screen.dart"
+        },
+        {
+          "wohin": "fehlerfuchs.eu",
+          "was": "Aufruf der Website (Impressum, Kontakt, weitere Apps, Unterstuetzen) im externen Browser",
+          "wann": "nur wenn der Nutzer den jeweiligen Verweis antippt",
+          "freiwillig": true,
+          "beleg": "lib/features/info/impressum_screen.dart, lib/features/home/home_screen.dart"
+        },
+        {
+          "wohin": "vom Nutzer gescannte Adresse (QR-Code)",
+          "was": "Aufruf der im Code enthaltenen Adresse im externen Browser",
+          "wann": "nur nach Antippen von \"Oeffnen\" im Ergebnisdialog",
+          "freiwillig": true,
+          "beleg": "lib/features/code/code_scan_screen.dart"
+        },
+        {
+          "wohin": "Mail-App des Geraets",
+          "was": "vorbereitete Support-Mail als Rueckfallweg, wenn das Formular nicht durchkommt",
+          "wann": "nur nach Bestaetigung durch den Nutzer",
+          "freiwillig": true,
+          "beleg": "lib/features/info/feedback_screen.dart"
+        }
+      ],
+      "fremde_dienste": [
+        {
+          "name": "Google Play Billing (Paket in_app_purchase)",
+          "wofuer": "einmaliger In-App-Kauf der Pro-Fassung und dessen Wiederherstellung",
+          "wann": "beim App-Start (Statusabfrage) und beim Kauf"
+        },
+        {
+          "name": "Kontakt-Weiterleitung auf dem FehlerFuchs-Lizenzserver (EU, IONOS)",
+          "wofuer": "nimmt das Feedback entgegen und leitet es per E-Mail weiter",
+          "wann": "nur beim aktiven Absenden des Formulars"
+        }
+      ],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Alle Inhalte liegen auf dem Geraet. Einzelne Dokumente und Ordner lassen sich in der App loeschen; alles Uebrige (Einstellungen, Fehlerlog, Cache) verschwindet mit der Deinstallation. Per Feedback gesendete Nachrichten liegen im Support-Postfach und werden auf Anfrage geloescht.",
+      "besonderheiten": "Texterkennung, Tabellenerkennung, das Lesen von QR-Codes und Barcodes sowie alle PDF-Werkzeuge laufen vollstaendig auf dem Geraet und bauen dafuer keine Verbindung nach aussen auf. Es gibt kein Konto und keine Registrierung. Bilder aus der Galerie werden ueber den Android-Fotoauswahl-Dialog ausgewaehlt; deshalb fordert die App keine Berechtigung fuer Fotos oder Videos an. In der kostenlosen Fassung tragen die erzeugten PDFs ein Wasserzeichen, das nach dem einmaligen Kauf entfaellt. Der Kaufstatus wird auf dem Geraet gespeichert und zusaetzlich bei Google Play abgefragt.",
+      "vorhandener_text": "Kein eigenes Dokument. Ein Datenschutz-Abschnitt steht in der App unter Einstellungen (lib/features/settings/settings_screen.dart); das Impressum verweist auf die Website.",
+      "offene_fragen": "1) RECORD_AUDIO steht im gemergten Release-Manifest (vom Kamera-Paket ergaenzt), wird von der App aber nicht genutzt - die Kamera wird ohne Ton geoeffnet. Ob die Berechtigung entfernt werden soll, ist nicht entschieden. 2) ACCESS_NETWORK_STATE steht ebenfalls nur wegen eingebundener Pakete im Manifest; im eigenen Code wird der Netzwerkstatus nirgends abgefragt. 3) Beim Feedback werden App-Version, Android-Version und Geraetemodell IMMER mitgesendet, auch ohne den Haken \"Diagnosedaten mitsenden\"; der Haken fuegt nur die ausfuehrliche Diagnosedatei mit Fehlerlog hinzu. Ob der Hinweistext oder das Verhalten angepasst wird, ist offen. 4) Ob und wie lange der Kontakt-Server IP-Adressen protokolliert, haengt vom Server ab und ist aus dem App-Code nicht feststellbar.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "up2date",
+      "name": "Up2Date – FehlerFuchs Update-Helfer",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_Up2Date",
+      "fassung": "1.0.0 (MVP-Grundgeruest, noch nicht veroeffentlicht)",
+      "lokal_only": true,
+      "auf_dem_geraet": [
+        {
+          "was": "keine Daten",
+          "wo": "entfaellt – die Anwendung legt im aktuellen Stand nichts auf dem Geraet ab",
+          "beleg": "lib/main.dart und lib/theme.dart sind die einzigen Quelldateien; keine Treffer fuer File(), Directory() oder shared_preferences"
+        }
+      ],
+      "berechtigungen": [
+        {
+          "name": "Lesen der Liste installierter Programme",
+          "wofuer": "spaeter geplant – Erkennen, welche FehlerFuchs-Programme vorhanden sind",
+          "pflicht": false,
+          "beleg": "pubspec.yaml – Paket win32_registry deklariert, 0 Verwendungen in lib/"
+        },
+        {
+          "name": "Automatischer Start mit Windows",
+          "wofuer": "spaeter geplant – nur nach ausdruecklicher Zustimmung, jederzeit abschaltbar",
+          "pflicht": false,
+          "beleg": "pubspec.yaml – Paket launch_at_startup deklariert, 0 Verwendungen in lib/"
+        },
+        {
+          "name": "Zugriff auf das Internet",
+          "wofuer": "spaeter geplant – Abruf der Liste aktueller Fassungen von fehlerfuchs.eu",
+          "pflicht": false,
+          "beleg": "pubspec.yaml – Paket http deklariert, 0 Verwendungen in lib/"
+        },
+        {
+          "name": "Windows-Benachrichtigungen",
+          "wofuer": "spaeter geplant – Hinweis, wenn eine neue Fassung vorliegt",
+          "pflicht": false,
+          "beleg": "pubspec.yaml – Paket local_notifier deklariert, 0 Verwendungen in lib/"
+        },
+        {
+          "name": "Speichern von Einstellungen",
+          "wofuer": "spaeter geplant – Merken der eigenen Einstellungen",
+          "pflicht": false,
+          "beleg": "pubspec.yaml – Paket shared_preferences deklariert, 0 Verwendungen in lib/"
+        }
+      ],
+      "uebertragungen": [],
+      "fremde_dienste": [],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Die Anwendung speichert im aktuellen Stand keine Daten. Es genuegt, das Programm zu entfernen; es bleibt nichts zurueck.",
+      "besonderheiten": "Up2Date ist der zentrale Update-Helfer fuer FehlerFuchs-Anwendungen und laeuft als Symbol im Windows-Infobereich. Im geprueften Stand zeigt die Anwendung lediglich dieses Symbol und ein Fenster; sie verarbeitet noch keine Daten. Kuenftig soll sie erkennen, welche FehlerFuchs-Programme installiert sind, und deren Stand mit einer oeffentlich abrufbaren Liste aktueller Fassungen auf fehlerfuchs.eu vergleichen. Beides geschieht heute nicht. Ein Konto ist nicht vorgesehen, ebenso wenig Telemetrie oder Werbung.",
+      "vorhandener_text": "",
+      "offene_fragen": "1) Sobald der Versionsabgleich umgesetzt ist, ruft die Anwendung fehlerfuchs.eu auf; ob der Server dabei IP-Adressen protokolliert, haengt vom Server ab und ist von hier aus nicht feststellbar. 2) Ob und welche Einstellungen kuenftig lokal gespeichert werden, steht noch nicht fest. 3) Der geplante Abgleich liest Herstellerangabe und Version installierter Programme; die Auswertung soll rein lokal bleiben, ist aber noch nicht gebaut und daher nicht ueberpruefbar. 4) Es existiert noch kein Installer; ob dieser spaeter Eintraege ausserhalb des Programmordners anlegt, ist offen. (Erledigt am 19.07.2026: Der Slug \"up2date\" ist in _SLUG-EIGENTUEMER.md offiziell aufgenommen und damit bestaetigt.)",
+      "art": "anwendung"
+    },
+    {
+      "slug": "lizenzserver",
+      "name": "FehlerFuchs Lizenzserver",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_Lizenzserver",
+      "fassung": "Adapter-Stand 19.07.2026 (kein Versionsschema); Admin-API 1.0; mit Löschlauf",
+      "lokal_only": false,
+      "auf_dem_geraet": [
+        {
+          "was": "Lizenzdaten (Lizenzschlüssel, Lizenz-Kennung, Platzanzahl, Status, Laufzeit/Ablauf)",
+          "wo": "Lizenzdatenbank auf dem Server",
+          "beleg": "adapter/app/keygen_client.py, docker-compose.yml (Dienste keygen, postgres)"
+        },
+        {
+          "was": "E-Mail-Adresse des Käufers und Bestellnummer, als Angaben zur Lizenz",
+          "wo": "Lizenzdatenbank auf dem Server",
+          "beleg": "adapter/app/main.py, Funktion digistore_license (metadata)"
+        },
+        {
+          "was": "Geräte-/Aktivierungsdaten je belegtem Platz (Gerätekennung, Gerätename, Plattform, Zeitpunkte)",
+          "wo": "Lizenzdatenbank auf dem Server",
+          "beleg": "adapter/app/main.py, Funktion activate; adapter/app/keygen_client.py, activate_machine"
+        },
+        {
+          "was": "vollständige Aufrufe des Zahlungsanbieters (enthalten Bestell- und Käuferangaben, u. a. E-Mail)",
+          "wo": "Datenbank auf dem Server; Löschung nach 90 Tagen",
+          "beleg": "Tabelle provider_requests; adapter/app/db.py, record_request und cleanup"
+        },
+        {
+          "was": "Ereignis-Kennungen zum Schutz vor doppelter Verarbeitung",
+          "wo": "Datenbank auf dem Server",
+          "beleg": "Tabelle provider_events; adapter/app/db.py, record_event"
+        },
+        {
+          "was": "Beta-Tester-Registrierungen (Name, E-Mail, Kundenbereich, Freitext-Beschreibung, Einwilligung, Lizenzbezug, IP-Adresse, Zeitpunkt)",
+          "wo": "Datenbank auf dem Server; IP-Adresse nach 7 Tagen entfernt, übrige Angaben nach 90 Tagen gelöscht bzw. die E-Mail durch eine gesalzene Einweg-Kennung ersetzt (pseudonym, nicht anonym)",
+          "beleg": "Tabelle tester_registrations; adapter/app/db.py, record_tester und cleanup; adapter/app/main.py, tester_gewerbepro"
+        },
+        {
+          "was": "intern beobachtete Lizenzschlüssel samt Melde-Adresse (Hinweis bei Freischaltung)",
+          "wo": "Datenbank auf dem Server",
+          "beleg": "Tabelle watched_keys; adapter/app/db.py, add_watch"
+        },
+        {
+          "was": "Zustand des Tagesberichts (Zeitpunkt des letzten Laufs, Zähler)",
+          "wo": "Datenbank auf dem Server",
+          "beleg": "Tabelle report_state; adapter/app/db.py, set_last_run"
+        },
+        {
+          "was": "IP-Adressen als kurzlebige Zählwerte gegen Missbrauch (Kontaktformular, Tester-Registrierung)",
+          "wo": "Zwischenspeicher auf dem Server, automatische Löschung nach 1 Stunde bzw. 24 Stunden",
+          "beleg": "Redis; adapter/app/mailer.py, rate_ok und tester_rate_ok"
+        }
+      ],
+      "uebertragungen": [
+        {
+          "wohin": "license.fehlerfuchs.eu (eingehend, von den FehlerFuchs-Apps)",
+          "was": "Lizenzschlüssel, Gerätekennung, optional Gerätename und Plattform",
+          "wann": "beim Freischalten, Prüfen und Abmelden einer Lizenz",
+          "freiwillig": false,
+          "beleg": "adapter/app/main.py, Endpunkte /v1/activate, /v1/validate, /v1/deactivate"
+        },
+        {
+          "wohin": "license.fehlerfuchs.eu (eingehend, vom Zahlungsanbieter)",
+          "was": "Bestell- und Käuferangaben des Kaufvorgangs (u. a. Bestellnummer, E-Mail, Produkt/Variante)",
+          "wann": "beim Kauf und bei Lebenszyklus-Ereignissen (z. B. Rückerstattung)",
+          "freiwillig": false,
+          "beleg": "adapter/app/main.py, Endpunkte /v1/providers/digistore24/license und /ipn"
+        },
+        {
+          "wohin": "license.fehlerfuchs.eu (eingehend, von der Website)",
+          "was": "Kontakt-/Supportanfragen (Name, E-Mail, Betreff, Nachricht, optionale Anhänge) bzw. Tester-Registrierungen",
+          "wann": "wenn ein Formular abgeschickt wird",
+          "freiwillig": true,
+          "beleg": "adapter/app/main.py, Endpunkte /v1/contact und /v1/providers/tester/gewerbepro"
+        },
+        {
+          "wohin": "E-Mail-Versand über den Postfachanbieter (SMTP)",
+          "was": "Inhalt und Empfänger der versendeten Nachrichten (Lizenz-/Willkommensmails, Kontakt-/Supportanfragen inkl. Anhänge, interne Statusberichte)",
+          "wann": "bei jedem Mailversand des Dienstes",
+          "freiwillig": false,
+          "beleg": "adapter/app/mailer.py (aiosmtplib), adapter/requirements.txt"
+        },
+        {
+          "wohin": "keine weiteren ausgehenden Verbindungen",
+          "was": "keine Update-Prüfung, keine Statistik, keine Schriften/Skripte aus fremden Netzen",
+          "wann": "—",
+          "freiwillig": false,
+          "beleg": "adapter/requirements.txt; die Lizenzsoftware (Keygen CE) läuft im selben Compose-Netz auf demselben Server (docker-compose.yml)"
+        }
+      ],
+      "fremde_dienste": [
+        {
+          "name": "Digistore24 (Zahlungsabwicklung, Merchant of Record)",
+          "wofuer": "Verkauf der Lizenzen; übermittelt Bestell- und Käuferangaben an den Lizenzserver",
+          "wann": "beim Kauf und bei Lebenszyklus-Ereignissen"
+        },
+        {
+          "name": "Postfach-/SMTP-Anbieter (IONOS)",
+          "wofuer": "Versand aller E-Mails des Dienstes",
+          "wann": "bei jedem Mailversand"
+        },
+        {
+          "name": "Anbieter des virtuellen Servers (Hosting)",
+          "wofuer": "Betrieb des Servers, auf dem alle genannten Daten liegen",
+          "wann": "dauerhaft"
+        },
+        {
+          "name": "Keygen CE — KEIN fremder Dienst",
+          "wofuer": "Lizenzverwaltung; selbst betriebene Software auf dem eigenen Server, es gehen keine Daten an den Hersteller",
+          "wann": "—"
+        }
+      ],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Ein täglicher Aufräumlauf setzt feste Fristen um. Die Roh-Aufrufe des Zahlungsanbieters werden nach 90 Tagen endgültig gelöscht. Bei Tester-Registrierungen wird die IP-Adresse bereits nach 7 Tagen entfernt; nach 90 Tagen werden Name, Kundenbereich, Freitext und der Bezug zur Lizenz gelöscht und die E-Mail-Adresse durch eine gesalzene Einweg-Kennung ersetzt. Das Salz ist ein Zufallsgeheimnis, das ausschließlich auf dem Server liegt; ohne dieses Geheimnis ist die Kennung nicht zurückrechenbar. Es handelt sich damit um eine Pseudonymisierung, nicht um eine Anonymisierung — die Sperre gegen doppelte Gratislizenzen funktioniert weiter. Die Zählschlüssel mit IP-Adressen im Zwischenspeicher löschen sich selbst nach längstens 24 Stunden. Die Betriebsprotokolle des Servers sind auf höchstens drei Dateien à 10 MB je Dienst begrenzt und werden danach überschrieben; sie enthalten keine Besucher-IP-Adressen (geprüft am laufenden System). Lizenzdaten und Geräte-/Aktivierungseinträge bleiben bestehen, solange die Lizenz gilt — sonst würde das Produkt nicht mehr funktionieren; sie lassen sich jederzeit gezielt endgültig löschen, einzelne Plätze auch freigeben.",
+      "besonderheiten": "Der Lizenzserver ist ein Hintergrunddienst, kein Programm für Endnutzer. Die Lizenzierung kommt ohne Benutzerkonto aus: Es genügen ein Lizenzschlüssel und eine Gerätekennung, Namen sind nicht erforderlich. Für den Betrieb ohne Netz gibt der Dienst ein signiertes Offline-Zeugnis an die App zurück, das Lizenzschlüssel, Gerätekennung, Status und Platzanzahl enthält und auf dem Gerät verbleibt. Angaben aus dem Kontakt- und Supportformular werden nicht in der Datenbank gespeichert, sondern ausschließlich per E-Mail weitergeleitet; lediglich die IP-Adresse fließt kurzzeitig in die Missbrauchsbremse ein. Der Zugriff auf die Verwaltungsschnittstelle ist durch ein Zugangsgeheimnis geschützt, das nur auf dem Server liegt. Wichtig zur Einordnung der Fristen: Die Pseudonymisierung nach 90 Tagen betrifft die Tester-Registrierung. E-Mail-Adresse und Bestellnummer, die als Metadaten an der Lizenz selbst hängen, bleiben davon unberührt, solange die Lizenz besteht — Lizenzdaten sind von der Löschung ausdrücklich ausgenommen.",
+      "vorhandener_text": "",
+      "offene_fragen": "(1) Hosting: Name und Anschrift des Server-Anbieters lassen sich aus diesem Projekt nicht belegen (Standort laut Projektvorgabe EU/Deutschland). Für die Angaben zur Auftragsverarbeitung nötig. (2) Verträge und Steuerrecht: Ob mit dem Zahlungsanbieter und dem Postfachanbieter Vereinbarungen zur Auftragsverarbeitung bestehen, ist von hier aus unbekannt. Ebenso ungeprüft ist, ob der Zahlungsanbieter in seinen Aufrufen die IP-Adresse des Käufers mitsendet — bis zur Löschung nach 90 Tagen liegt der Roh-Aufruf vor, die einzelnen Feldinhalte wurden dafür nicht ausgewertet. Ob im Roh-Aufruf etwas steckt, das nur dort existiert und für die Buchführung gebraucht würde, klärt abschließend der Steuerberater; da der Zahlungsanbieter als Merchant of Record selbst verkauft und die Bestellung dort geführt wird, spricht aus technischer Sicht nichts gegen die 90 Tage.",
+      "art": "dienst"
+    },
+    {
+      "slug": "relaisserver",
+      "name": "FehlerFuchs Relaisserver (Dienst - Relais und Push)",
+      "stand": "2026-07-19",
+      "geprueft_von": "FehlerFuchs_Relaisserver",
+      "fassung": "Stand 19.07.2026 - relay-orgafuchs, ntfy v2.9.0, relay-admin, Caddy 2",
+      "lokal_only": false,
+      "serverseitig": [
+        {
+          "was": "Nachrichteninhalte des Gruppen-Sync",
+          "wo": "nirgends - werden nur im Arbeitsspeicher weitergereicht, keine Datenbank, kein Schreiben auf Platte",
+          "beleg": "05_Server/apps/orgafuchs/relay_server.dart (rooms = In-Memory-Map; nur eine Startzeile auf stdout, kein Nachrichten-Logging)"
+        },
+        {
+          "was": "Push-Meldungen (Inhalt sinngemaess \"es gibt Aenderungen\", keine Nutzdaten)",
+          "wo": "Zwischenspeicher des Push-Dienstes, hoechstens 12 Stunden",
+          "beleg": "05_Server/compose/docker-compose.yml (NTFY_CACHE_DURATION=12h, NTFY_CACHE_FILE)"
+        },
+        {
+          "was": "Zugriffsprotokolle des Reverse-Proxy (Client-IP, Zeitpunkt, Pfad inklusive Query-Parameter)",
+          "wo": "rotierende Container-Logs (je Dienst max. 3 x 10 MB), keine Archivierung, nicht im Backup",
+          "beleg": "05_Server/proxy/Caddyfile (log-Direktive je Site); 05_Server/compose/docker-compose.yml (logging max-size/max-file)"
+        },
+        {
+          "was": "aggregierte Zaehler (Anzahl Push-Meldungen, aktive Themen, Dienst-Health)",
+          "wo": "nur dienstintern, ohne Personenbezug; Verwaltungszugang liefert keine Einzeldatensaetze",
+          "beleg": "05_Server/apps/relay-admin/admin_server.dart (items liefert immer eine leere Liste)"
+        }
+      ],
+      "uebertragungen": [
+        {
+          "wohin": "Let's Encrypt (ACME)",
+          "was": "Domainnamen der Subdomains zur Zertifikatsausstellung",
+          "wann": "automatisch bei Ausstellung und Erneuerung",
+          "freiwillig": false,
+          "beleg": "05_Server/proxy/Caddyfile (automatisches HTTPS)"
+        },
+        {
+          "wohin": "IONOS (SMTP)",
+          "was": "Betriebs- und Stoerungsmeldungen an die eigene Administrationsadresse; keine Nutzerdaten",
+          "wann": "zweimal taeglich sowie bei anhaltender Stoerung",
+          "freiwillig": false,
+          "beleg": "05_Server/scripts/monitor.sh"
+        }
+      ],
+      "fremde_dienste": [
+        {
+          "name": "IONOS",
+          "wofuer": "Hosting des Servers und Versand der Betriebsmeldungen",
+          "wann": "dauerhaft"
+        },
+        {
+          "name": "Let's Encrypt",
+          "wofuer": "TLS-Zertifikate; ausgestellte Zertifikate erscheinen in oeffentlichen Certificate-Transparency-Logs",
+          "wann": "bei Ausstellung und Erneuerung"
+        },
+        {
+          "name": "ntfy (Open Source, selbst betrieben)",
+          "wofuer": "Push-Benachrichtigungen auf dem eigenen Server statt ueber einen fremden Push-Anbieter",
+          "wann": "dauerhaft"
+        }
+      ],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Der Dienst haelt keine Nutzdaten dauerhaft vor. Weitergereichte Nachrichten bestehen nur waehrend der Uebertragung, Push-Meldungen verfallen nach spaetestens zwoelf Stunden, Zugriffsprotokolle werden durch Rotation ueberschrieben. Es gibt keine Konten und damit auch keinen Datenbestand, der auf Antrag zu loeschen waere.",
+      "besonderheiten": "Der Relais ist bewusst inhaltsblind: Die Nutzdaten werden bereits auf dem Geraet Ende-zu-Ende verschluesselt, der Server sieht nur Chiffrat und reicht es anhand einer Zielkennung weiter. Es gibt keine Konten, keine Mitgliederliste und keine Datenbank. Push laeuft ueber eine selbst betriebene Instanz statt ueber einen grossen Anbieter; uebertragen wird dabei nur der Anstoss zu synchronisieren, kein Inhalt. Der Verwaltungszugang fuer die interne Serveruebersicht liefert ausschliesslich aggregierte Zahlen ohne Personenbezug.",
+      "vorhandener_text": "01_Konzept/Sicherheitskonzept.md",
+      "offene_fragen": "(1) Die Zugriffsprotokolle des Reverse-Proxy enthalten die Client-IP und den vollstaendigen Pfad einschliesslich Query-Parametern; bei Sync-Verbindungen stehen dort Gruppen- und Geraetekennung. Die Logs rotieren nach Groesse und werden nicht archiviert - eine feste Aufbewahrungsfrist in Tagen ist damit nicht definiert. Ob das so bleibt oder das Protokollieren der Query-Parameter abgeschaltet wird, ist offen. (2) Unbekannt, ob und wie lange der Hoster auf Netzwerkebene eigene Protokolle fuehrt - das liegt ausserhalb der eigenen Konfiguration.",
+      "art": "dienst"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+slug: coppicemail
+name: CoppiceMail
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_CoppiceMail
+fassung: "0.1.0-dev - nicht veroeffentlicht; Entwicklung ruht"
+
+# Heute verlaesst kein Datum das Geraet.
+lokal_only: true
+
+auf_dem_geraet:
+  - was: E-Mail-Daten (Ordner, Nachrichten, Angaben zu Anhaengen, Vorlagen, Regeln)
+    wo: lokale Datenbank auf dem Geraet
+    beleg: app/data/repo.py (default_db_path, connect, init_db); app/data/schema_email.sql; Datei Daten/coppicemail.sqlite3
+  - was: Beispieldaten, die beim ersten Start angelegt werden (frei erfundene Absender und Betreffe, keine echten Nachrichten)
+    wo: dieselbe lokale Datenbank
+    beleg: app/data/repo.py (seed_demo)
+  - was: Lesestatus und Ordnerzuordnung der Nachrichten
+    wo: dieselbe lokale Datenbank
+    beleg: app/data/repo.py (mark_read, move_message)
+
+# Desktop-Anwendung fuer Windows; es werden keine Systemberechtigungen angefordert.
+berechtigungen: []
+
+uebertragungen: []
+
+fremde_dienste: []
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Alle Daten liegen ausschliesslich lokal in einer einzigen Datenbankdatei im
+  Programmordner. Wird diese Datei oder der Programmordner geloescht, sind saemtliche
+  Daten vollstaendig entfernt. Es gibt keine Kopien auf Servern, und es bleibt nach
+  dem Loeschen nichts zurueck.
+
+besonderheiten: >-
+  Die Anwendung wurde nie veroeffentlicht und liegt als Entwicklervorschau vor; die
+  Entwicklung ruht seit dem 02.07.2026. Sie stellt heute keine Verbindung ins Internet
+  her: Es werden keine Nachrichten abgerufen und keine versendet, und es werden keine
+  Daten an andere Programme oder Dienste uebergeben. Alles, was die Vorschau anzeigt,
+  stammt aus Beispieldaten, die sie beim ersten Start selbst auf dem Geraet anlegt.
+  Ein Konto wird nicht benoetigt.
+
+vorhandener_text: ""
+
+offene_fragen: >-
+  1) Ob und wann der Abruf und Versand von E-Mails tatsaechlich umgesetzt wird und
+  welche Serververbindungen dann entstehen, ist offen - das Projekt ruht.
+  2) Ob die im Projekt deklarierten, derzeit ungenutzten Zusatzpakete bei einer
+  Wiederaufnahme wirklich verwendet werden, ist unbekannt.
+  3) Wo Zugangsdaten fuer Mailkonten spaeter abgelegt werden, ist noch nicht
+  entschieden; der dafuer vorgesehene sichere Speicher ist bisher nicht umgesetzt.

@@ -1,0 +1,108 @@
+slug: belegwerk
+name: BelegWerk
+stand: "2026-07-19"
+geprueft_von: FehlerFuchs_BelegWerk
+fassung: "0.1.0 – Entwicklungsstand, nicht veroeffentlicht"
+
+# Kein Datum verlaesst das Geraet, wenn man nichts weiter einstellt.
+# Alle Verarbeitung (PDF-Vorschau, Barcode, Trennen, Etiketten) laeuft lokal.
+lokal_only: true
+
+auf_dem_geraet:
+  - was: Konfiguration und Profile (Zielordner, ASN-Vorlage, Uebergabeart)
+    wo: JSON-Datei im Benutzer-Konfigurationsordner
+    beleg: 05_Engine/belegwerk_core/belegwerk_core/config/service.py (default_config_path, user_config_dir)
+  - was: Vorgangsjournal je Scan (Dateiname, Pruefsumme, Status, Zeitstempel, erkannte ASN)
+    wo: lokale SQLite-Datenbank im Benutzer-Datenordner
+    beleg: 05_Engine/belegwerk_core/belegwerk_core/journal/service.py
+  - was: Zaehlerstaende der ASN je Profil
+    wo: JSON-Dateien im Unterordner "counters" des Datenordners
+    beleg: 05_Engine/belegwerk_core/belegwerk_core/label/asn.py (AsnCounterStore)
+  - was: Drucklog der erzeugten ASN (Zeitstempel, Profil, ASN)
+    wo: CSV-Datei im Unterordner "logs" des Datenordners
+    beleg: 05_Engine/belegwerk_core/belegwerk_core/label/service.py (_log_path)
+  - was: Vorschaubilder von PDF-Seiten
+    wo: Cache-Ordner im Datenordner
+    beleg: 05_Engine/belegwerk_core/belegwerk_core/preview/service.py
+  - was: Arbeitskopien (getrennte, gedrehte oder mit Barcode versehene PDFs)
+    wo: vom Nutzer festgelegter Arbeitsordner; Originale bleiben unveraendert
+    beleg: 05_Engine/belegwerk_core/belegwerk_core/prepare/, label/stamp.py
+  - was: Kopien von Belegen in Quarantaene
+    wo: Unterordner "quarantine" des Datenordners
+    beleg: 05_Engine/belegwerk_core/belegwerk_core/routing/service.py (quarantine_entry)
+  - was: uebergebene Belegkopien
+    wo: vom Nutzer konfigurierte lokale Zielordner (Paperless-Eingangsordner, optional zusaetzlicher Archivordner)
+    beleg: 05_Engine/belegwerk_core/belegwerk_core/routing/service.py (route_entry)
+
+# Windows-Desktop-Anwendung: kein Berechtigungsmanifest wie bei Android/iOS.
+# Faktisch benoetigt/genutzt werden:
+berechtigungen:
+  - name: Lesender und schreibender Zugriff auf vom Nutzer festgelegte Ordner
+    wofuer: Scans einlesen, Arbeitskopien erzeugen, Belege in Zielordner uebergeben
+    pflicht: true
+    beleg: 05_Engine/belegwerk_core/belegwerk_core/scaninput/service.py, routing/service.py
+  - name: Ausfuehren des lokalen Programms "docker"
+    wofuer: Statusanzeige laufender Container; Start/Stop nur nach ausdruecklicher Bestaetigung
+    pflicht: false
+    beleg: 05_Engine/belegwerk_core/belegwerk_core/docker/service.py, docker/control.py
+  - name: Ausfuehren des mitgelieferten lokalen Programmteils
+    wofuer: Verarbeitung der Belege auf dem Geraet
+    pflicht: true
+    beleg: 11_App_Flutter/belegwerk_desktop/lib/core/core_bridge.dart (Process.run)
+
+uebertragungen:
+  - wohin: lokaler Rechner bzw. vom Nutzer eingetragener Host (Voreinstellung 127.0.0.1)
+    was: reiner TCP-Verbindungstest auf einen Port, es werden keine Inhalte gesendet
+    wann: wenn die Dienstuebersicht aufgerufen wird
+    freiwillig: false
+    beleg: 05_Engine/belegwerk_core/belegwerk_core/docker/probes.py (is_port_open)
+  - wohin: vom Nutzer eingetragene Paperless-Adresse (typischerweise eigener Rechner oder eigenes Netz)
+    was: lesende Suchanfrage nach einer Archiv-Seriennummer bzw. einem Suchbegriff; Zugangstoken im Anfragekopf
+    wann: nur wenn der optionale Paperless-Abgleich benutzt wird; heute nicht aus Oberflaeche oder Kommandozeile aufrufbar
+    freiwillig: true
+    beleg: 05_Engine/belegwerk_core/belegwerk_core/paperless/api.py
+
+# Keine fremden Dienste eingebunden: keine Cloud, keine Schriften aus dem Netz,
+# keine Bezahl- oder Kartendienste. Die Oberflaeche haengt nur an Flutter selbst.
+fremde_dienste:
+  - name: Paperless-ngx (eigene Installation des Nutzers)
+    wofuer: Zielablage der Belege; optionaler lesender Statusabgleich
+    wann: nur wenn der Nutzer ein Paperless-Profil einrichtet
+  - name: Docker bzw. Docker Desktop (lokal installiert)
+    wofuer: Anzeige des Dienststatus; Steuerung nur nach Bestaetigung
+    wann: nur wenn lokal vorhanden
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Alle Daten liegen auf dem Geraet. Konfiguration, Journal, Zaehler, Drucklog,
+  Vorschau-Cache und Quarantaene liegen in den Benutzerordnern der Anwendung und
+  koennen dort geloescht werden; mit dem Entfernen der Anwendung und dieser
+  Ordner ist nichts mehr vorhanden. Arbeitskopien und uebergebene Belege liegen
+  in den vom Nutzer selbst gewaehlten Ordnern und werden dort geloescht.
+
+besonderheiten: >-
+  BelegWerk arbeitet bewusst als lokaler Vorraum vor der eigenen Dokumentenablage.
+  Originale werden nie veraendert oder verschoben; die Uebergabe erfolgt in der
+  Voreinstellung als Kopie. Ein Zugangstoken fuer die optionale Paperless-Abfrage
+  wird nicht gespeichert und nicht protokolliert. In angezeigten Logausschnitten
+  werden token- und passwortartige Werte unkenntlich gemacht. Angezeigte
+  Pruefberichte nennen nur Speicherorte und Erreichbarkeit, keine Dateiinhalte.
+
+vorhandener_text: ""
+
+offene_fragen: >-
+  1) Der lesende Paperless-Client ist im Kern vorhanden, aber noch nicht aus
+  Oberflaeche oder Kommandozeile aufrufbar; ob und wie ein Zugangstoken spaeter
+  dauerhaft hinterlegt wird, ist noch nicht entschieden.
+  2) Ob die spaetere Auslieferung als Installer zusaetzliche Bestandteile
+  mitbringt (etwa Texterkennung), ist offen; der heutige Code nutzt keine
+  Texterkennung.
+  3) Ob eine angesprochene Paperless-Installation Zugriffe oder IP-Adressen
+  protokolliert, haengt vom jeweiligen Server ab und nicht von BelegWerk.
+  4) Die Etikettenausgabe an einen Drucker ist noch nicht angebunden; ein
+  Datenfluss dorthin besteht heute nicht.

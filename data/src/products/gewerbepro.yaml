@@ -26,7 +26,7 @@ platforms:
     requirements: Android, Installation außerhalb des Play Stores
     distribution: github-release
 
-privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
+privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
 editions:
   - id: free
