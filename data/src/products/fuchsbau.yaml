@@ -1,0 +1,30 @@
+slug: fuchsbau
+name: FuchsBau
+fullName: FehlerFuchs FuchsBau
+kind: produkt
+tagline: Passwort-Generator mit einfachem Tresor – menschlich merkbare Passwörter erzeugen und sicher verwahren.
+description: >-
+  Erzeugt Passwörter, die man sich tatsächlich merken kann, und verwahrt sie in einem
+  einfachen lokalen Tresor. Kein Konto, keine Cloud, keine Synchronisation über fremde Server.
+audience: [privat, selbststaendige]
+accent: "#3B6B4E"
+status: entwicklung
+
+platforms:
+  - os: android
+    status: entwicklung
+    distribution: keiner
+
+privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
+
+editions:
+  - id: standard
+    name: FuchsBau
+    public: true
+    price: { model: offen }
+
+releases: []
+
+links:
+  page: /apps/fuchsbau.html
+  contact: /kontakt.html?app=FuchsBau&topic=interesse

@@ -1,0 +1,32 @@
+slug: belegwerk
+name: BelegWerk
+fullName: FehlerFuchs BelegWerk
+kind: produkt
+tagline: Belege scannen, ordnen und kontrolliert an Paperless übergeben.
+description: >-
+  Nimmt Belege auf, sortiert und benennt sie nachvollziehbar und übergibt sie erst nach
+  Kontrolle an ein Paperless-Archiv. Der Zwischenschritt ist Absicht: Was einmal falsch
+  im Archiv liegt, findet man später nicht wieder.
+audience: [selbststaendige, unternehmen]
+accent: "#B45309"
+status: entwicklung
+
+platforms:
+  - os: windows
+    status: entwicklung
+    distribution: keiner
+
+privacy: [nur-lokal, kein-tracking, werbefrei]
+
+editions: []
+releases: []
+
+# Noch keine eigene Produktseite.
+links:
+  page: /produkte.html
+  contact: /kontakt.html?app=BelegWerk&topic=interesse
+
+notes: >-
+  Anbindung an Paperless bedeutet, dass Daten an ein selbst betriebenes Archiv gehen.
+  Das Merkmal „keine-cloud" ist deshalb bewusst nicht gesetzt – es hängt davon ab,
+  wo der Nutzer sein Paperless betreibt.

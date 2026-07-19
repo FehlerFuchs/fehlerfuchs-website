@@ -1,0 +1,41 @@
+slug: mobilereport
+name: MobileReport
+fullName: FehlerFuchs MobileReport
+kind: produkt
+tagline: Das kleine, lokale Melde-Logbuch für Geräte – schnell erfasst, sauber als PDF, direkt per Mail vorbereitet.
+description: >-
+  Meldungen zu Geräten und Anlagen unterwegs erfassen: Beschreibung, Fotos, Ort und
+  Zeitpunkt, daraus ein sauberes PDF und eine vorbereitete E-Mail. Alles bleibt auf dem
+  Gerät – kein Konto, keine Cloud, keine Werbung.
+audience: [selbststaendige, unternehmen, vereine]
+accent: "#2E7D46"
+status: verfuegbar
+
+platforms:
+  - os: android
+    status: verfuegbar
+    distribution: play-store
+    storeId: eu.fehlerfuchs.mobilereport
+
+privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
+
+editions:
+  - id: free
+    name: MobileReport Free
+    public: true
+    summary: Grundfunktionen zum Erfassen und als PDF Ausgeben.
+    price: { model: kostenlos }
+  - id: pro
+    name: MobileReport Pro
+    public: true
+    summary: Voller Funktionsumfang, freigeschaltet per einmaligem In-App-Kauf.
+    price: { model: iap, amount: 5.00, currency: EUR, vatIncluded: true, recurring: false }
+
+# Play-Store-Apps haben bei uns keine Release-Einträge: Version, Datum und Größe
+# verwaltet der Store. Eine zweite Angabe hier wäre sofort veraltet.
+releases: []
+
+links:
+  page: /apps/mobilereport.html
+  store: https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport
+  contact: /kontakt.html?app=MobileReport&topic=interesse

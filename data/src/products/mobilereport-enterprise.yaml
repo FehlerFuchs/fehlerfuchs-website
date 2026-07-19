@@ -1,0 +1,89 @@
+slug: mobilereport-enterprise
+name: MobileReport Enterprise
+fullName: FehlerFuchs MobileReport Enterprise
+kind: edition
+parent: mobilereport
+tagline: Die Firmen-Stufe – Direkt-Download außerhalb von Google Play, eigenes Branding und Lizenz je Arbeitsplatz.
+description: >-
+  MobileReport für Unternehmen: Verteilung als APK außerhalb des Play Stores, eigenes
+  Branding per .mrbrand-Datei oder als Dienstleistung, Freischaltung über Lizenzschlüssel
+  je Arbeitsplatz mit Offline-Karenz. Strikt lokal, ohne Cloud-Zwang.
+audience: [unternehmen]
+accent: "#2E7D46"
+status: verfuegbar
+
+platforms:
+  - os: android
+    status: verfuegbar
+    requirements: Android, Installation außerhalb des Play Stores
+    distribution: github-release
+    since: "2026-07-06"
+
+privacy: [nur-lokal, keine-cloud, kein-tracking, werbefrei, kein-google, offline-faehig]
+
+editions:
+  - id: white-label
+    name: White-Label
+    public: true
+    summary: >-
+      Logo und Farben selbst im Branding-Konfigurator zusammenstellen und als
+      .mrbrand-Datei importieren. Der Konfigurator ist kostenlos.
+    price:
+      model: staffel
+      currency: EUR
+      vatIncluded: true
+      recurring: false
+      tiers:
+        - { seats: 10,   amount: 50.00,   perSeat: 5.00, discountPercent: 0 }
+        - { seats: 25,   amount: 112.50,  perSeat: 4.50, discountPercent: 10 }
+        - { seats: 50,   amount: 200.00,  perSeat: 4.00, discountPercent: 20 }
+        - { seats: 100,  amount: 350.00,  perSeat: 3.50, discountPercent: 30 }
+        - { seats: 250,  amount: 750.00,  perSeat: 3.00, discountPercent: 40 }
+        - { seats: 500,  amount: 1250.00, perSeat: 2.50, discountPercent: 50 }
+        - { seats: 1000, amount: 2000.00, perSeat: 2.00, discountPercent: 60 }
+  - id: custom
+    name: Custom-Branding
+    public: true
+    summary: Wir richten das Branding ein. Aufpreis je nach Aufwand, separat in Rechnung gestellt.
+    price: { model: auf-anfrage }
+
+releases:
+  - version: "1.0.1"
+    date: "2026-07-09"
+    channel: stable
+    os: android
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v1.0.1/MobileReport-Enterprise-1.0.1.apk
+    filename: MobileReport-Enterprise-1.0.1.apk
+    size:
+      bytes: null
+      label: "60,3 MB"
+      source: GitHub-Release-Asset (gerundet)
+    sha256: "3e990a428ed208be11587e779ce1eba02f8efbc81d192092a928270d75ca30a5"
+    signed: false
+    notes: >-
+      Betreff für Meldungen, Fotos per Ziehen sortieren, Name als Pflichtfeld,
+      einstellbare maximale Bildanzahl, Profilfeld Position/Funktion, überarbeitete
+      Einstellungen, Fix für Admin- und Branding-Übernahme.
+  - version: "1.0.0"
+    date: "2026-07-06"
+    channel: stable
+    os: android
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v1.0.0/MobileReport-Enterprise-1.0.0.apk
+    filename: MobileReport-Enterprise-1.0.0.apk
+    size: { bytes: null, label: "unbekannt", source: nicht erhoben }
+    sha256: null
+    signed: false
+    notes: Erste Enterprise-Version – Branding-Import, Lizenz je Arbeitsplatz, Backup, PDF-Export.
+
+links:
+  page: /apps/mobilereport-enterprise.html
+  release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mr-ent-v1.0.1
+  contact: /kontakt.html?app=MobileReport%20Enterprise&topic=angebot
+
+manifests:
+  updateFeed: enterprise/latest.json
+
+notes: >-
+  Kauf und Lizenzausgabe laufen über Digistore24 (Reseller/Merchant of Record),
+  Rückgabefrist 30 Tage. Zahllinks stehen nur auf der Produktseite, nicht hier –
+  sie ändern sich unabhängig vom Produkt.

@@ -1,0 +1,31 @@
+slug: cleandesk
+name: CleanDesk
+fullName: FehlerFuchs CleanDesk
+kind: produkt
+tagline: Der sichere Ordnungshelfer für Windows – findet Duplikate, große und alte Dateien, leere Ordner. Löscht nie von selbst.
+description: >-
+  Durchsucht Laufwerke nach Duplikaten, besonders großen oder lange nicht benutzten
+  Dateien und leeren Ordnern, und zeigt verständlich, was Platz belegt. Gelöscht wird
+  ausschließlich nach ausdrücklicher Bestätigung – nie automatisch.
+audience: [privat, selbststaendige]
+accent: "#0E7490"
+status: entwicklung
+
+platforms:
+  - os: windows
+    status: entwicklung
+    distribution: keiner
+
+privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
+
+editions:
+  - id: standard
+    name: CleanDesk
+    public: true
+    price: { model: offen }
+
+releases: []
+
+links:
+  page: /apps/cleandesk.html
+  contact: /kontakt.html?app=CleanDesk&topic=interesse

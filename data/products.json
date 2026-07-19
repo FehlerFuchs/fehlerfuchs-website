@@ -1,0 +1,832 @@
+{
+  "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
+  "generiert": "2026-07-19T09:43:18+02:00",
+  "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
+  "produkte": [
+    {
+      "slug": "mobilereport-konfigurator",
+      "name": "Branding-Konfigurator",
+      "fullName": "FehlerFuchs Branding-Konfigurator für MobileReport Enterprise",
+      "kind": "werkzeug",
+      "parent": "mobilereport-enterprise",
+      "tagline": "Name, Logo und Farben zusammenstellen, live in App- und PDF-Vorschau ansehen und als .mrbrand-Datei laden.",
+      "description": "Kostenloses Werkzeug im Browser: Firmenname, Logo und Farben für MobileReport Enterprise zusammenstellen, sofort in einer App- und PDF-Vorschau prüfen und als .mrbrand-Datei herunterladen. Läuft vollständig im Browser – nichts wird hochgeladen.",
+      "audience": [
+        "unternehmen"
+      ],
+      "accent": "#2E7D46",
+      "status": "verfuegbar",
+      "platforms": [
+        {
+          "os": "web",
+          "status": "verfuegbar",
+          "distribution": "keiner"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "Branding-Konfigurator",
+          "public": true,
+          "summary": "Kostenlos, keine Anmeldung.",
+          "price": {
+            "model": "kostenlos"
+          }
+        }
+      ],
+      "releases": [],
+      "links": {
+        "page": "/apps/mobilereport-konfigurator.html"
+      },
+      "notes": "Zubehör, kein eigenes Produkt – erscheint deshalb nicht in der Produktübersicht, sondern nur auf der Enterprise-Seite."
+    },
+    {
+      "slug": "mobilereport",
+      "name": "MobileReport",
+      "fullName": "FehlerFuchs MobileReport",
+      "kind": "produkt",
+      "tagline": "Das kleine, lokale Melde-Logbuch für Geräte – schnell erfasst, sauber als PDF, direkt per Mail vorbereitet.",
+      "description": "Meldungen zu Geräten und Anlagen unterwegs erfassen: Beschreibung, Fotos, Ort und Zeitpunkt, daraus ein sauberes PDF und eine vorbereitete E-Mail. Alles bleibt auf dem Gerät – kein Konto, keine Cloud, keine Werbung.",
+      "audience": [
+        "selbststaendige",
+        "unternehmen",
+        "vereine"
+      ],
+      "accent": "#2E7D46",
+      "status": "verfuegbar",
+      "platforms": [
+        {
+          "os": "android",
+          "status": "verfuegbar",
+          "distribution": "play-store",
+          "storeId": "eu.fehlerfuchs.mobilereport"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "free",
+          "name": "MobileReport Free",
+          "public": true,
+          "summary": "Grundfunktionen zum Erfassen und als PDF Ausgeben.",
+          "price": {
+            "model": "kostenlos"
+          }
+        },
+        {
+          "id": "pro",
+          "name": "MobileReport Pro",
+          "public": true,
+          "summary": "Voller Funktionsumfang, freigeschaltet per einmaligem In-App-Kauf.",
+          "price": {
+            "model": "iap",
+            "amount": 5.0,
+            "currency": "EUR",
+            "vatIncluded": true,
+            "recurring": false
+          }
+        }
+      ],
+      "releases": [],
+      "links": {
+        "page": "/apps/mobilereport.html",
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport",
+        "contact": "/kontakt.html?app=MobileReport&topic=interesse"
+      }
+    },
+    {
+      "slug": "mobilereport-enterprise",
+      "name": "MobileReport Enterprise",
+      "fullName": "FehlerFuchs MobileReport Enterprise",
+      "kind": "edition",
+      "parent": "mobilereport",
+      "tagline": "Die Firmen-Stufe – Direkt-Download außerhalb von Google Play, eigenes Branding und Lizenz je Arbeitsplatz.",
+      "description": "MobileReport für Unternehmen: Verteilung als APK außerhalb des Play Stores, eigenes Branding per .mrbrand-Datei oder als Dienstleistung, Freischaltung über Lizenzschlüssel je Arbeitsplatz mit Offline-Karenz. Strikt lokal, ohne Cloud-Zwang.",
+      "audience": [
+        "unternehmen"
+      ],
+      "accent": "#2E7D46",
+      "status": "verfuegbar",
+      "platforms": [
+        {
+          "os": "android",
+          "status": "verfuegbar",
+          "requirements": "Android, Installation außerhalb des Play Stores",
+          "distribution": "github-release",
+          "since": "2026-07-06"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-tracking",
+        "werbefrei",
+        "kein-google",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "white-label",
+          "name": "White-Label",
+          "public": true,
+          "summary": "Logo und Farben selbst im Branding-Konfigurator zusammenstellen und als .mrbrand-Datei importieren. Der Konfigurator ist kostenlos.",
+          "price": {
+            "model": "staffel",
+            "currency": "EUR",
+            "vatIncluded": true,
+            "recurring": false,
+            "tiers": [
+              {
+                "seats": 10,
+                "amount": 50.0,
+                "perSeat": 5.0,
+                "discountPercent": 0
+              },
+              {
+                "seats": 25,
+                "amount": 112.5,
+                "perSeat": 4.5,
+                "discountPercent": 10
+              },
+              {
+                "seats": 50,
+                "amount": 200.0,
+                "perSeat": 4.0,
+                "discountPercent": 20
+              },
+              {
+                "seats": 100,
+                "amount": 350.0,
+                "perSeat": 3.5,
+                "discountPercent": 30
+              },
+              {
+                "seats": 250,
+                "amount": 750.0,
+                "perSeat": 3.0,
+                "discountPercent": 40
+              },
+              {
+                "seats": 500,
+                "amount": 1250.0,
+                "perSeat": 2.5,
+                "discountPercent": 50
+              },
+              {
+                "seats": 1000,
+                "amount": 2000.0,
+                "perSeat": 2.0,
+                "discountPercent": 60
+              }
+            ]
+          }
+        },
+        {
+          "id": "custom",
+          "name": "Custom-Branding",
+          "public": true,
+          "summary": "Wir richten das Branding ein. Aufpreis je nach Aufwand, separat in Rechnung gestellt.",
+          "price": {
+            "model": "auf-anfrage"
+          }
+        }
+      ],
+      "releases": [
+        {
+          "version": "1.0.1",
+          "date": "2026-07-09",
+          "channel": "stable",
+          "os": "android",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v1.0.1/MobileReport-Enterprise-1.0.1.apk",
+          "filename": "MobileReport-Enterprise-1.0.1.apk",
+          "size": {
+            "bytes": null,
+            "label": "60,3 MB",
+            "source": "GitHub-Release-Asset (gerundet)"
+          },
+          "sha256": "3e990a428ed208be11587e779ce1eba02f8efbc81d192092a928270d75ca30a5",
+          "signed": false,
+          "notes": "Betreff für Meldungen, Fotos per Ziehen sortieren, Name als Pflichtfeld, einstellbare maximale Bildanzahl, Profilfeld Position/Funktion, überarbeitete Einstellungen, Fix für Admin- und Branding-Übernahme."
+        },
+        {
+          "version": "1.0.0",
+          "date": "2026-07-06",
+          "channel": "stable",
+          "os": "android",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v1.0.0/MobileReport-Enterprise-1.0.0.apk",
+          "filename": "MobileReport-Enterprise-1.0.0.apk",
+          "size": {
+            "bytes": null,
+            "label": "unbekannt",
+            "source": "nicht erhoben"
+          },
+          "sha256": null,
+          "signed": false,
+          "notes": "Erste Enterprise-Version – Branding-Import, Lizenz je Arbeitsplatz, Backup, PDF-Export."
+        }
+      ],
+      "links": {
+        "page": "/apps/mobilereport-enterprise.html",
+        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mr-ent-v1.0.1",
+        "contact": "/kontakt.html?app=MobileReport%20Enterprise&topic=angebot"
+      },
+      "manifests": {
+        "updateFeed": "enterprise/latest.json"
+      },
+      "notes": "Kauf und Lizenzausgabe laufen über Digistore24 (Reseller/Merchant of Record), Rückgabefrist 30 Tage. Zahllinks stehen nur auf der Produktseite, nicht hier – sie ändern sich unabhängig vom Produkt."
+    },
+    {
+      "slug": "orgafuchs",
+      "name": "OrgaFuchs",
+      "fullName": "FehlerFuchs OrgaFuchs",
+      "kind": "produkt",
+      "tagline": "Der lokale Familien- und Team-Planer für Schicht- und Dienstpläne – offline, mit eigenem Sync ohne Cloud.",
+      "description": "Plant Dienste, Schichten, Termine und Notizen für die ganze Familie oder ein kleines Team: Monatskalender, Schnelleintrag, PDF-Export als Monat, Jahr oder Blanko-Vorlage. Alle Daten bleiben auf den eigenen Geräten; die Synchronisation läuft über das eigene Heimnetz oder einen selbst gehosteten Relay – ohne Google, ohne Cloud, ohne Konto.",
+      "audience": [
+        "privat",
+        "vereine",
+        "unternehmen"
+      ],
+      "accent": "#E76F51",
+      "status": "verfuegbar",
+      "platforms": [
+        {
+          "os": "windows",
+          "status": "verfuegbar",
+          "requirements": "Windows 10/11 (64-bit)",
+          "distribution": "github-release",
+          "since": "2026-07-18"
+        },
+        {
+          "os": "android",
+          "status": "entwicklung",
+          "distribution": "play-store",
+          "storeId": "eu.fehlerfuchs.orgafuchs"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "kein-google",
+        "eigener-sync",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "OrgaFuchs",
+          "public": true,
+          "summary": "Voller Funktionsumfang, dauerhaft kostenlos.",
+          "price": {
+            "model": "kostenlos"
+          }
+        }
+      ],
+      "releases": [
+        {
+          "version": "1.0.0",
+          "date": "2026-07-18",
+          "channel": "stable",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.0.0/OrgaFuchs_Setup_1.0.0.exe",
+          "filename": "OrgaFuchs_Setup_1.0.0.exe",
+          "size": {
+            "bytes": null,
+            "label": "15,3 MB",
+            "source": "GitHub-Release-Asset (gerundet)"
+          },
+          "sha256": "6bdd5322629f8e6053b0d8e92ac6a5cd04b38b536fbacc0355b34769c4ffa991",
+          "signed": false,
+          "notes": "Erstveröffentlichung. Wiederkehrende Serien, PDF als Monat/Jahr/Blanko, Feiertage und Schulferien je Bundesland, Geräte-Sync per QR-Code, Transparenz- und Open-Source-Seite in der App."
+        }
+      ],
+      "links": {
+        "page": "/apps/orgafuchs.html",
+        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.0.0",
+        "contact": "/kontakt.html?app=OrgaFuchs&topic=interesse"
+      },
+      "notes": "Offen: Play-Store-Freigabe für Android. Ebenfalls offen ist der von der App erwartete Endpunkt data/schulferien/DE-XX.json auf fehlerfuchs.eu – bis dahin greift der eingebaute Datenbestand."
+    },
+    {
+      "slug": "pdfuchsreader",
+      "name": "PDFuchs Reader",
+      "fullName": "FehlerFuchs PDFuchs Reader",
+      "kind": "produkt",
+      "tagline": "Der kostenlose, werbefreie PDF-Reader für Android – lesen, suchen, teilen, drucken, Seiten bearbeiten.",
+      "description": "PDF-Viewer für Android, der ohne Konto und ohne Werbung auskommt: lesen, durchsuchen, teilen, drucken und Seiten leicht bearbeiten. Alles passiert lokal auf dem Gerät. Der mobile Zwilling der PDFuchs-Familie.",
+      "audience": [
+        "privat",
+        "selbststaendige",
+        "unternehmen"
+      ],
+      "accent": "#9F1239",
+      "status": "verfuegbar",
+      "platforms": [
+        {
+          "os": "android",
+          "status": "verfuegbar",
+          "distribution": "play-store",
+          "storeId": "eu.fehlerfuchs.pdfuchsreader",
+          "since": "2026-07-18"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "PDFuchs Reader",
+          "public": true,
+          "summary": "Voller Funktionsumfang, dauerhaft kostenlos und werbefrei.",
+          "price": {
+            "model": "kostenlos"
+          }
+        }
+      ],
+      "releases": [],
+      "links": {
+        "page": "/apps/pdfuchsreader.html",
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader",
+        "contact": "/kontakt.html?app=PDFuchs%20Reader&topic=interesse"
+      },
+      "notes": "Seit 18.07.2026 regulär im Play Store, davor offener Test."
+    },
+    {
+      "slug": "snapfuchs",
+      "name": "SnapFuchs",
+      "fullName": "FehlerFuchs SnapFuchs",
+      "kind": "produkt",
+      "tagline": "Lokaler Dokumenten-Scanner für Android – ohne Cloud, ohne Google.",
+      "description": "Dokumente mit der Kamera erfassen, gerade rücken, als PDF ablegen – alles auf dem Gerät. Kein Upload zu einem Scan-Dienst, keine Anmeldung, keine Werbung.",
+      "audience": [
+        "privat",
+        "selbststaendige"
+      ],
+      "accent": "#2563EB",
+      "status": "pruefung",
+      "platforms": [
+        {
+          "os": "android",
+          "status": "pruefung",
+          "distribution": "play-store"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "kein-google",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "SnapFuchs",
+          "public": true,
+          "price": {
+            "model": "offen"
+          }
+        }
+      ],
+      "releases": [],
+      "links": {
+        "page": "/produkte.html",
+        "contact": "/kontakt.html?app=SnapFuchs&topic=interesse"
+      },
+      "notes": "Liegt bei Google zur Prüfung. Nach der Freigabe: Status auf verfuegbar setzen, storeId ergänzen und eine eigene Produktseite anlegen."
+    },
+    {
+      "slug": "gewerbepro",
+      "name": "GewerbePro",
+      "fullName": "FehlerFuchs GewerbePro",
+      "kind": "produkt",
+      "tagline": "Das Multitool des fuchs-schlauen Selbstständigen – lokal auf dem Windows-PC, ohne Cloud und ohne Konto.",
+      "description": "Büro-Software für Kleingewerbe, Selbstständige und Nebengewerbe: Kunden, Angebote, Aufträge, Rechnungen, E-Rechnung nach EN 16931 (ZUGFeRD/XRechnung), Belege und EÜR-Vorbereitung, Kalender und Postfach. Komplett lokal auf dem eigenen Rechner – ohne Cloud-Zwang, ohne Konto, ohne Telemetrie.",
+      "audience": [
+        "selbststaendige",
+        "unternehmen"
+      ],
+      "accent": "#B45309",
+      "status": "beta",
+      "platforms": [
+        {
+          "os": "windows",
+          "status": "beta",
+          "requirements": "Windows 10/11 (64-bit)",
+          "distribution": "github-release",
+          "since": "2026-07-15"
+        },
+        {
+          "os": "android",
+          "status": "konzept",
+          "distribution": "keiner"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "free",
+          "name": "FehlerFuchs Gewerbe",
+          "public": true,
+          "summary": "Kostenlose Grundversion – Kunden, Rechnungen, EÜR-Vorbereitung.",
+          "price": {
+            "model": "kostenlos"
+          }
+        },
+        {
+          "id": "pro",
+          "name": "FehlerFuchs GewerbePro",
+          "public": true,
+          "summary": "Vollversion mit E-Rechnung, Mahnwesen, Projekten, E-Mail-Versand und eigenem Branding.",
+          "price": {
+            "model": "offen"
+          }
+        },
+        {
+          "id": "vather",
+          "name": "Vather",
+          "public": false,
+          "summary": "Interne Entwicklerversion. Erscheint auf keiner öffentlichen Seite.",
+          "price": {
+            "model": "offen"
+          }
+        }
+      ],
+      "releases": [
+        {
+          "version": "0.3.1",
+          "date": "2026-07-16",
+          "channel": "beta",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.1/FehlerFuchs_GewerbePro_Setup_0.3.1.exe",
+          "filename": "FehlerFuchs_GewerbePro_Setup_0.3.1.exe",
+          "size": {
+            "bytes": null,
+            "label": "114 MB",
+            "source": "GitHub-Release-Asset (gerundet)"
+          },
+          "sha256": "3ffd2fb6381549ae75de42d6cbcbbb8dd8541f78f515a6a2072fcbf1f4d2be9c",
+          "signed": false,
+          "notes": "Firmenlogo auf allen Belegen, frei anpassbare Programmfarben (Pro), gemeinsame Beleg-Fußzeile mit Unterschrift, PDFuchs mit QR-Code-Generator und Scannen, Werkzeug-Diagnose, Lizenzschlüssel anzeigen. Behoben: Editionserkennung nach Update."
+        },
+        {
+          "version": "0.3.0",
+          "date": "2026-07-15",
+          "channel": "beta",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.0/FehlerFuchs_GewerbePro_Setup_0.3.0.exe",
+          "filename": "FehlerFuchs_GewerbePro_Setup_0.3.0.exe",
+          "size": {
+            "bytes": null,
+            "label": "unbekannt",
+            "source": "nicht erhoben"
+          },
+          "sha256": null,
+          "signed": false,
+          "notes": "Erste öffentlich testbare Version. Editionserkennung abgesichert."
+        }
+      ],
+      "links": {
+        "page": "/apps/gewerbepro.html",
+        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/gewerbepro-v0.3.1",
+        "betaSignup": "https://license.fehlerfuchs.eu/v1/providers/tester/gewerbepro",
+        "contact": "/kontakt.html?app=GewerbePro&topic=interesse"
+      },
+      "manifests": {
+        "updateFeed": "updates/gewerbepro/latest.json"
+      },
+      "notes": "Vorläufer hieß „KleinGewerbe\"; apps/kleingewerbe.html leitet weiter. Die alten Free-/Pro-Beta-ZIPs (Tags kleingewerbe-free/-pro) sind durch den Installer ersetzt und werden bewusst nicht mehr als Release geführt."
+    },
+    {
+      "slug": "appinsight",
+      "name": "AppInsight",
+      "fullName": "FehlerFuchs AppInsight",
+      "kind": "produkt",
+      "tagline": "Sieh verständlich, was installierte Apps wirklich tun – Berechtigungen, Tracker, Verbrauch und Server-Kontakte.",
+      "description": "Zeigt in klarer Sprache, welche Berechtigungen installierte Apps haben, welche Tracker sie enthalten, wie viel sie verbrauchen und mit welchen Servern sie sprechen – mit einer Ampel-Einordnung statt pauschaler Urteile.",
+      "audience": [
+        "privat"
+      ],
+      "accent": "#2563EB",
+      "status": "entwicklung",
+      "platforms": [
+        {
+          "os": "android",
+          "status": "entwicklung",
+          "distribution": "keiner"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "AppInsight",
+          "public": true,
+          "price": {
+            "model": "offen"
+          }
+        }
+      ],
+      "releases": [],
+      "links": {
+        "page": "/apps/appinsight.html",
+        "contact": "/kontakt.html?app=AppInsight&topic=interesse"
+      }
+    },
+    {
+      "slug": "belegwerk",
+      "name": "BelegWerk",
+      "fullName": "FehlerFuchs BelegWerk",
+      "kind": "produkt",
+      "tagline": "Belege scannen, ordnen und kontrolliert an Paperless übergeben.",
+      "description": "Nimmt Belege auf, sortiert und benennt sie nachvollziehbar und übergibt sie erst nach Kontrolle an ein Paperless-Archiv. Der Zwischenschritt ist Absicht: Was einmal falsch im Archiv liegt, findet man später nicht wieder.",
+      "audience": [
+        "selbststaendige",
+        "unternehmen"
+      ],
+      "accent": "#B45309",
+      "status": "entwicklung",
+      "platforms": [
+        {
+          "os": "windows",
+          "status": "entwicklung",
+          "distribution": "keiner"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "kein-tracking",
+        "werbefrei"
+      ],
+      "editions": [],
+      "releases": [],
+      "links": {
+        "page": "/produkte.html",
+        "contact": "/kontakt.html?app=BelegWerk&topic=interesse"
+      },
+      "notes": "Anbindung an Paperless bedeutet, dass Daten an ein selbst betriebenes Archiv gehen. Das Merkmal „keine-cloud\" ist deshalb bewusst nicht gesetzt – es hängt davon ab, wo der Nutzer sein Paperless betreibt."
+    },
+    {
+      "slug": "cleandesk",
+      "name": "CleanDesk",
+      "fullName": "FehlerFuchs CleanDesk",
+      "kind": "produkt",
+      "tagline": "Der sichere Ordnungshelfer für Windows – findet Duplikate, große und alte Dateien, leere Ordner. Löscht nie von selbst.",
+      "description": "Durchsucht Laufwerke nach Duplikaten, besonders großen oder lange nicht benutzten Dateien und leeren Ordnern, und zeigt verständlich, was Platz belegt. Gelöscht wird ausschließlich nach ausdrücklicher Bestätigung – nie automatisch.",
+      "audience": [
+        "privat",
+        "selbststaendige"
+      ],
+      "accent": "#0E7490",
+      "status": "entwicklung",
+      "platforms": [
+        {
+          "os": "windows",
+          "status": "entwicklung",
+          "distribution": "keiner"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "CleanDesk",
+          "public": true,
+          "price": {
+            "model": "offen"
+          }
+        }
+      ],
+      "releases": [],
+      "links": {
+        "page": "/apps/cleandesk.html",
+        "contact": "/kontakt.html?app=CleanDesk&topic=interesse"
+      }
+    },
+    {
+      "slug": "fuchsbau",
+      "name": "FuchsBau",
+      "fullName": "FehlerFuchs FuchsBau",
+      "kind": "produkt",
+      "tagline": "Passwort-Generator mit einfachem Tresor – menschlich merkbare Passwörter erzeugen und sicher verwahren.",
+      "description": "Erzeugt Passwörter, die man sich tatsächlich merken kann, und verwahrt sie in einem einfachen lokalen Tresor. Kein Konto, keine Cloud, keine Synchronisation über fremde Server.",
+      "audience": [
+        "privat",
+        "selbststaendige"
+      ],
+      "accent": "#3B6B4E",
+      "status": "entwicklung",
+      "platforms": [
+        {
+          "os": "android",
+          "status": "entwicklung",
+          "distribution": "keiner"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "FuchsBau",
+          "public": true,
+          "price": {
+            "model": "offen"
+          }
+        }
+      ],
+      "releases": [],
+      "links": {
+        "page": "/apps/fuchsbau.html",
+        "contact": "/kontakt.html?app=FuchsBau&topic=interesse"
+      }
+    },
+    {
+      "slug": "pdfuchs",
+      "name": "PDFuchs",
+      "fullName": "FehlerFuchs PDFuchs",
+      "kind": "produkt",
+      "tagline": "Die lokale, verständliche PDF-Vollsuite – Kernstück sind komfortabel ausfüllbare PDF-Formulare aus Word-Dateien.",
+      "description": "PDF-Werkzeugkasten für den Alltag: zusammenfügen, teilen, drehen, komprimieren, Text erkennen – und als Kernstück aus Word-Dateien komfortabel ausfüllbare PDF-Formulare erzeugen. Ohne Cloud, ohne Konto.",
+      "audience": [
+        "privat",
+        "selbststaendige",
+        "unternehmen"
+      ],
+      "accent": "#9F1239",
+      "status": "entwicklung",
+      "platforms": [
+        {
+          "os": "windows",
+          "status": "entwicklung",
+          "distribution": "keiner"
+        },
+        {
+          "os": "android",
+          "status": "konzept",
+          "distribution": "keiner"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "PDFuchs",
+          "public": true,
+          "summary": "Geplant als kostenlose Anwendung.",
+          "price": {
+            "model": "kostenlos"
+          }
+        }
+      ],
+      "releases": [],
+      "links": {
+        "page": "/apps/pdfuchs.html",
+        "contact": "/kontakt.html?app=PDFuchs&topic=interesse"
+      },
+      "notes": "Teile des PDFuchs-Funktionsumfangs sind bereits in GewerbePro enthalten (QR-Code-Generator, Scannen, Ausgabeordner). Die eigenständige Suite wird daraus weiterentwickelt."
+    },
+    {
+      "slug": "checkin-vita",
+      "name": "CheckInVita",
+      "fullName": "FehlerFuchs CheckInVita",
+      "kind": "produkt",
+      "tagline": "Das persönliche Gesundheits-Tagebuch – Werte erfassen, Verläufe verstehen, auf Wunsch aufbereitet mit der Praxis teilen.",
+      "description": "Gesundheitswerte wie Blutdruck, Gewicht, Schlaf oder Medikamenteneinnahme selbst erfassen und im Verlauf sehen. Auf Wunsch als aufbereitete Übersicht für den Praxisbesuch ausgeben. Die Daten bleiben auf dem eigenen Gerät.",
+      "audience": [
+        "privat"
+      ],
+      "accent": "#5B8A72",
+      "status": "konzept",
+      "platforms": [
+        {
+          "os": "android",
+          "status": "konzept",
+          "distribution": "keiner"
+        },
+        {
+          "os": "windows",
+          "status": "konzept",
+          "distribution": "keiner"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "CheckInVita",
+          "public": true,
+          "summary": "Geplant als kostenlose Anwendung.",
+          "price": {
+            "model": "kostenlos"
+          }
+        }
+      ],
+      "releases": [],
+      "links": {
+        "page": "/apps/checkin-vita.html",
+        "contact": "/kontakt.html?app=CheckInVita&topic=interesse"
+      },
+      "notes": "Gesundheitsdaten sind besonders schützenswert. Vor einer Veröffentlichung ist ein eigener, ausführlicher Datenschutzabschnitt nötig – die Merkmalsliste allein reicht hier nicht."
+    },
+    {
+      "slug": "coppicemail",
+      "name": "CoppiceMail",
+      "fullName": "FehlerFuchs CoppiceMail",
+      "kind": "produkt",
+      "tagline": "Das lokale, datensparsame E-Mail-Programm für Belege und Büropost – der Weg Mail, Anhang, Beleg, Archiv so kurz wie möglich.",
+      "description": "E-Mail-Programm mit Belegfokus: Nachricht öffnen, Anhang erkennen, als Beleg ablegen, archivieren – ohne Umwege und ohne Cloud-Zwang. Die Entwicklung ruht derzeit zugunsten von GewerbePro.",
+      "audience": [
+        "selbststaendige",
+        "unternehmen"
+      ],
+      "accent": "#0F5132",
+      "status": "pausiert",
+      "platforms": [
+        {
+          "os": "windows",
+          "status": "pausiert",
+          "distribution": "keiner"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-tracking",
+        "werbefrei"
+      ],
+      "editions": [],
+      "releases": [],
+      "links": {
+        "page": "/apps/coppicemail.html",
+        "contact": "/kontakt.html?app=CoppiceMail&topic=interesse"
+      },
+      "notes": "Pausiert, nicht eingestellt. Die Seite bleibt erreichbar und ist auf produkte.html als „pausiert\" ausgezeichnet. Bei Wiederaufnahme genügt eine Statusänderung hier."
+    }
+  ]
+}

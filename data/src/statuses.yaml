@@ -1,0 +1,95 @@
+# Statusstufen — verbindlich für Website, Badges und Handlungsaufforderungen.
+# order: kleiner = weiter fortgeschritten. Bestimmt, welcher Plattformstatus
+#        den Gesamtstatus eines Produkts gewinnt.
+# cta:   welche Handlungsaufforderung diese Stufe überhaupt zulässt.
+#        Eine Seite darf niemals eine CTA zeigen, die hier nicht steht.
+
+verfuegbar:
+  label: Verfügbar
+  short: verfügbar
+  color: "#15803D"
+  bg: "#E7F3DF"
+  border: "#CDE7B6"
+  order: 1
+  cta: [download, kauf]
+  meaning: Öffentlich nutzbar, regulär veröffentlicht.
+
+pruefung:
+  label: In Store-Prüfung
+  short: in Prüfung
+  color: "#9A5B0E"
+  bg: "#FEF3E2"
+  border: "#F3D9B0"
+  order: 2
+  cta: [keine]
+  meaning: Beim Store eingereicht, Freigabe steht aus. Kein Download möglich.
+
+beta:
+  label: Offene Beta
+  short: Beta
+  color: "#B45309"
+  bg: "#FEF3E2"
+  border: "#F3D9B0"
+  order: 3
+  cta: [download, beta-anmeldung]
+  meaning: Öffentlich testbar, nicht endgültig. Fehler sind zu erwarten.
+
+alpha:
+  label: Geschlossene Alpha
+  short: Alpha
+  color: "#B45309"
+  bg: "#FEF3E2"
+  border: "#F3D9B0"
+  order: 4
+  cta: [beta-anmeldung]
+  meaning: Nur ausgewählte Tester.
+
+entwicklung:
+  label: In Entwicklung
+  short: in Entwicklung
+  color: "#6B5B50"
+  bg: "#F1ECE6"
+  border: "#E2D6C8"
+  order: 5
+  cta: [interesse]
+  meaning: Wird aktiv gebaut. Kein Termin zugesagt.
+
+konzept:
+  label: In Planung
+  short: geplant
+  color: "#6B5B50"
+  bg: "#F1ECE6"
+  border: "#E2D6C8"
+  order: 6
+  cta: [interesse]
+  meaning: Konzipiert, Umsetzung noch nicht begonnen.
+
+idee:
+  label: Idee
+  short: Idee
+  color: "#9C8C80"
+  bg: "#F1ECE6"
+  border: "#E2D6C8"
+  order: 7
+  cta: [keine]
+  meaning: Gesammelt, noch nicht bewertet.
+
+pausiert:
+  label: Pausiert
+  short: pausiert
+  color: "#9C8C80"
+  bg: "#F1ECE6"
+  border: "#E2D6C8"
+  order: 8
+  cta: [keine]
+  meaning: Arbeit ruht. Wiederaufnahme offen, aber nicht ausgeschlossen.
+
+eingestellt:
+  label: Eingestellt
+  short: eingestellt
+  color: "#9C8C80"
+  bg: "#F1ECE6"
+  border: "#E2D6C8"
+  order: 9
+  cta: [keine]
+  meaning: Endgültig beendet. Seite bleibt als Archiv bestehen.

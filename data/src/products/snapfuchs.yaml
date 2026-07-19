@@ -1,0 +1,38 @@
+slug: snapfuchs
+name: SnapFuchs
+fullName: FehlerFuchs SnapFuchs
+kind: produkt
+tagline: Lokaler Dokumenten-Scanner für Android – ohne Cloud, ohne Google.
+description: >-
+  Dokumente mit der Kamera erfassen, gerade rücken, als PDF ablegen – alles auf dem
+  Gerät. Kein Upload zu einem Scan-Dienst, keine Anmeldung, keine Werbung.
+audience: [privat, selbststaendige]
+accent: "#2563EB"
+# „pruefung" statt „beta": eingereicht, aber noch nichts öffentlich testbar.
+status: pruefung
+
+platforms:
+  - os: android
+    status: pruefung
+    distribution: play-store
+
+privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, kein-google, offline-faehig]
+
+editions:
+  - id: standard
+    name: SnapFuchs
+    public: true
+    price: { model: offen }
+
+releases: []
+
+# Noch keine eigene Produktseite – SnapFuchs erscheint bisher nur auf
+# produkte.html und downloads.html. Sobald die Freigabe da ist, wird eine
+# Seite unter /apps/snapfuchs.html gebraucht.
+links:
+  page: /produkte.html
+  contact: /kontakt.html?app=SnapFuchs&topic=interesse
+
+notes: >-
+  Liegt bei Google zur Prüfung. Nach der Freigabe: Status auf verfuegbar setzen,
+  storeId ergänzen und eine eigene Produktseite anlegen.

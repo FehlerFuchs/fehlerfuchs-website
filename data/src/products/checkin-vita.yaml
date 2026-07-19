@@ -1,0 +1,39 @@
+slug: checkin-vita
+name: CheckInVita
+fullName: FehlerFuchs CheckInVita
+kind: produkt
+tagline: Das persönliche Gesundheits-Tagebuch – Werte erfassen, Verläufe verstehen, auf Wunsch aufbereitet mit der Praxis teilen.
+description: >-
+  Gesundheitswerte wie Blutdruck, Gewicht, Schlaf oder Medikamenteneinnahme selbst
+  erfassen und im Verlauf sehen. Auf Wunsch als aufbereitete Übersicht für den
+  Praxisbesuch ausgeben. Die Daten bleiben auf dem eigenen Gerät.
+audience: [privat]
+accent: "#5B8A72"
+status: konzept
+
+platforms:
+  - os: android
+    status: konzept
+    distribution: keiner
+  - os: windows
+    status: konzept
+    distribution: keiner
+
+privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
+
+editions:
+  - id: standard
+    name: CheckInVita
+    public: true
+    summary: Geplant als kostenlose Anwendung.
+    price: { model: kostenlos }
+
+releases: []
+
+links:
+  page: /apps/checkin-vita.html
+  contact: /kontakt.html?app=CheckInVita&topic=interesse
+
+notes: >-
+  Gesundheitsdaten sind besonders schützenswert. Vor einer Veröffentlichung ist ein
+  eigener, ausführlicher Datenschutzabschnitt nötig – die Merkmalsliste allein reicht hier nicht.

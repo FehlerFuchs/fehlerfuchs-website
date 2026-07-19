@@ -1,0 +1,88 @@
+slug: gewerbepro
+name: GewerbePro
+fullName: FehlerFuchs GewerbePro
+kind: produkt
+tagline: Das Multitool des fuchs-schlauen Selbstständigen – lokal auf dem Windows-PC, ohne Cloud und ohne Konto.
+description: >-
+  Büro-Software für Kleingewerbe, Selbstständige und Nebengewerbe: Kunden, Angebote,
+  Aufträge, Rechnungen, E-Rechnung nach EN 16931 (ZUGFeRD/XRechnung), Belege und
+  EÜR-Vorbereitung, Kalender und Postfach. Komplett lokal auf dem eigenen Rechner –
+  ohne Cloud-Zwang, ohne Konto, ohne Telemetrie.
+audience: [selbststaendige, unternehmen]
+accent: "#B45309"
+status: beta
+
+platforms:
+  - os: windows
+    status: beta
+    requirements: Windows 10/11 (64-bit)
+    distribution: github-release
+    since: "2026-07-15"        # erste öffentliche Beta 0.3.0
+  # Android ist bislang nur ein Konzept, keine begonnene Umsetzung.
+  - os: android
+    status: konzept
+    distribution: keiner
+
+privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
+
+editions:
+  - id: free
+    name: FehlerFuchs Gewerbe
+    public: true
+    summary: Kostenlose Grundversion – Kunden, Rechnungen, EÜR-Vorbereitung.
+    price: { model: kostenlos }
+  - id: pro
+    name: FehlerFuchs GewerbePro
+    public: true
+    summary: >-
+      Vollversion mit E-Rechnung, Mahnwesen, Projekten, E-Mail-Versand und eigenem Branding.
+    # Preis ist bewusst noch nicht festgelegt – der Kauf-Button auf der Produktseite
+    # ist deshalb ausgegraut. Sobald der Betrag steht: model auf "einmalig" ändern.
+    price: { model: offen }
+  - id: vather
+    name: Vather
+    public: false
+    summary: Interne Entwicklerversion. Erscheint auf keiner öffentlichen Seite.
+    price: { model: offen }
+
+releases:
+  - version: "0.3.1"
+    date: "2026-07-16"
+    channel: beta
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.1/FehlerFuchs_GewerbePro_Setup_0.3.1.exe
+    filename: FehlerFuchs_GewerbePro_Setup_0.3.1.exe
+    size:
+      bytes: null              # exakte Bytezahl noch nicht erhoben
+      label: "114 MB"
+      source: GitHub-Release-Asset (gerundet)
+    sha256: "3ffd2fb6381549ae75de42d6cbcbbb8dd8541f78f515a6a2072fcbf1f4d2be9c"
+    signed: false
+    notes: >-
+      Firmenlogo auf allen Belegen, frei anpassbare Programmfarben (Pro), gemeinsame
+      Beleg-Fußzeile mit Unterschrift, PDFuchs mit QR-Code-Generator und Scannen,
+      Werkzeug-Diagnose, Lizenzschlüssel anzeigen. Behoben: Editionserkennung nach Update.
+  - version: "0.3.0"
+    date: "2026-07-15"
+    channel: beta
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.0/FehlerFuchs_GewerbePro_Setup_0.3.0.exe
+    filename: FehlerFuchs_GewerbePro_Setup_0.3.0.exe
+    size: { bytes: null, label: "unbekannt", source: nicht erhoben }
+    sha256: null
+    signed: false
+    notes: Erste öffentlich testbare Version. Editionserkennung abgesichert.
+
+links:
+  page: /apps/gewerbepro.html
+  release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/gewerbepro-v0.3.1
+  betaSignup: https://license.fehlerfuchs.eu/v1/providers/tester/gewerbepro
+  contact: /kontakt.html?app=GewerbePro&topic=interesse
+
+manifests:
+  updateFeed: updates/gewerbepro/latest.json
+
+notes: >-
+  Vorläufer hieß „KleinGewerbe"; apps/kleingewerbe.html leitet weiter. Die alten
+  Free-/Pro-Beta-ZIPs (Tags kleingewerbe-free/-pro) sind durch den Installer ersetzt
+  und werden bewusst nicht mehr als Release geführt.

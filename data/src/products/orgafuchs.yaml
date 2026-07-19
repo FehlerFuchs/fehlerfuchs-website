@@ -1,0 +1,63 @@
+slug: orgafuchs
+name: OrgaFuchs
+fullName: FehlerFuchs OrgaFuchs
+kind: produkt
+tagline: Der lokale Familien- und Team-Planer für Schicht- und Dienstpläne – offline, mit eigenem Sync ohne Cloud.
+description: >-
+  Plant Dienste, Schichten, Termine und Notizen für die ganze Familie oder ein kleines
+  Team: Monatskalender, Schnelleintrag, PDF-Export als Monat, Jahr oder Blanko-Vorlage.
+  Alle Daten bleiben auf den eigenen Geräten; die Synchronisation läuft über das eigene
+  Heimnetz oder einen selbst gehosteten Relay – ohne Google, ohne Cloud, ohne Konto.
+audience: [privat, vereine, unternehmen]
+accent: "#E76F51"
+# Windows ist verfügbar, Android noch nicht – der Gesamtstatus folgt der
+# weitesten Plattform. Genau dieser Fall war der Grund für Status je Plattform.
+status: verfuegbar
+
+platforms:
+  - os: windows
+    status: verfuegbar
+    requirements: Windows 10/11 (64-bit)
+    distribution: github-release
+    since: "2026-07-18"
+  - os: android
+    status: entwicklung
+    distribution: play-store
+    storeId: eu.fehlerfuchs.orgafuchs
+
+privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, kein-google, eigener-sync, offline-faehig]
+
+editions:
+  - id: standard
+    name: OrgaFuchs
+    public: true
+    summary: Voller Funktionsumfang, dauerhaft kostenlos.
+    price: { model: kostenlos }
+
+releases:
+  - version: "1.0.0"
+    date: "2026-07-18"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.0.0/OrgaFuchs_Setup_1.0.0.exe
+    filename: OrgaFuchs_Setup_1.0.0.exe
+    size:
+      bytes: null
+      label: "15,3 MB"
+      source: GitHub-Release-Asset (gerundet)
+    sha256: "6bdd5322629f8e6053b0d8e92ac6a5cd04b38b536fbacc0355b34769c4ffa991"
+    signed: false
+    notes: >-
+      Erstveröffentlichung. Wiederkehrende Serien, PDF als Monat/Jahr/Blanko,
+      Feiertage und Schulferien je Bundesland, Geräte-Sync per QR-Code,
+      Transparenz- und Open-Source-Seite in der App.
+
+links:
+  page: /apps/orgafuchs.html
+  release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.0.0
+  contact: /kontakt.html?app=OrgaFuchs&topic=interesse
+
+notes: >-
+  Offen: Play-Store-Freigabe für Android. Ebenfalls offen ist der von der App erwartete
+  Endpunkt data/schulferien/DE-XX.json auf fehlerfuchs.eu – bis dahin greift der
+  eingebaute Datenbestand.

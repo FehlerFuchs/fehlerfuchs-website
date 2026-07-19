@@ -1,0 +1,30 @@
+slug: coppicemail
+name: CoppiceMail
+fullName: FehlerFuchs CoppiceMail
+kind: produkt
+tagline: Das lokale, datensparsame E-Mail-Programm für Belege und Büropost – der Weg Mail, Anhang, Beleg, Archiv so kurz wie möglich.
+description: >-
+  E-Mail-Programm mit Belegfokus: Nachricht öffnen, Anhang erkennen, als Beleg ablegen,
+  archivieren – ohne Umwege und ohne Cloud-Zwang. Die Entwicklung ruht derzeit
+  zugunsten von GewerbePro.
+audience: [selbststaendige, unternehmen]
+accent: "#0F5132"
+status: pausiert
+
+platforms:
+  - os: windows
+    status: pausiert
+    distribution: keiner
+
+privacy: [nur-lokal, keine-cloud, kein-tracking, werbefrei]
+
+editions: []
+releases: []
+
+links:
+  page: /apps/coppicemail.html
+  contact: /kontakt.html?app=CoppiceMail&topic=interesse
+
+notes: >-
+  Pausiert, nicht eingestellt. Die Seite bleibt erreichbar und ist auf produkte.html
+  als „pausiert" ausgezeichnet. Bei Wiederaufnahme genügt eine Statusänderung hier.

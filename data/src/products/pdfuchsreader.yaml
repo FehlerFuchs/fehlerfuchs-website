@@ -1,0 +1,37 @@
+slug: pdfuchsreader
+name: PDFuchs Reader
+fullName: FehlerFuchs PDFuchs Reader
+kind: produkt
+tagline: Der kostenlose, werbefreie PDF-Reader für Android – lesen, suchen, teilen, drucken, Seiten bearbeiten.
+description: >-
+  PDF-Viewer für Android, der ohne Konto und ohne Werbung auskommt: lesen, durchsuchen,
+  teilen, drucken und Seiten leicht bearbeiten. Alles passiert lokal auf dem Gerät.
+  Der mobile Zwilling der PDFuchs-Familie.
+audience: [privat, selbststaendige, unternehmen]
+accent: "#9F1239"
+status: verfuegbar
+
+platforms:
+  - os: android
+    status: verfuegbar
+    distribution: play-store
+    storeId: eu.fehlerfuchs.pdfuchsreader
+    since: "2026-07-18"
+
+privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
+
+editions:
+  - id: standard
+    name: PDFuchs Reader
+    public: true
+    summary: Voller Funktionsumfang, dauerhaft kostenlos und werbefrei.
+    price: { model: kostenlos }
+
+releases: []
+
+links:
+  page: /apps/pdfuchsreader.html
+  store: https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader
+  contact: /kontakt.html?app=PDFuchs%20Reader&topic=interesse
+
+notes: Seit 18.07.2026 regulär im Play Store, davor offener Test.

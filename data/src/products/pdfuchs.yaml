@@ -1,0 +1,40 @@
+slug: pdfuchs
+name: PDFuchs
+fullName: FehlerFuchs PDFuchs
+kind: produkt
+tagline: Die lokale, verständliche PDF-Vollsuite – Kernstück sind komfortabel ausfüllbare PDF-Formulare aus Word-Dateien.
+description: >-
+  PDF-Werkzeugkasten für den Alltag: zusammenfügen, teilen, drehen, komprimieren,
+  Text erkennen – und als Kernstück aus Word-Dateien komfortabel ausfüllbare
+  PDF-Formulare erzeugen. Ohne Cloud, ohne Konto.
+audience: [privat, selbststaendige, unternehmen]
+accent: "#9F1239"
+status: entwicklung
+
+platforms:
+  - os: windows
+    status: entwicklung
+    distribution: keiner
+  - os: android
+    status: konzept
+    distribution: keiner
+
+privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
+
+editions:
+  - id: standard
+    name: PDFuchs
+    public: true
+    summary: Geplant als kostenlose Anwendung.
+    price: { model: kostenlos }
+
+releases: []
+
+links:
+  page: /apps/pdfuchs.html
+  contact: /kontakt.html?app=PDFuchs&topic=interesse
+
+notes: >-
+  Teile des PDFuchs-Funktionsumfangs sind bereits in GewerbePro enthalten
+  (QR-Code-Generator, Scannen, Ausgabeordner). Die eigenständige Suite wird daraus
+  weiterentwickelt.

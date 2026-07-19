@@ -1,0 +1,31 @@
+slug: appinsight
+name: AppInsight
+fullName: FehlerFuchs AppInsight
+kind: produkt
+tagline: Sieh verständlich, was installierte Apps wirklich tun – Berechtigungen, Tracker, Verbrauch und Server-Kontakte.
+description: >-
+  Zeigt in klarer Sprache, welche Berechtigungen installierte Apps haben, welche Tracker
+  sie enthalten, wie viel sie verbrauchen und mit welchen Servern sie sprechen –
+  mit einer Ampel-Einordnung statt pauschaler Urteile.
+audience: [privat]
+accent: "#2563EB"
+status: entwicklung
+
+platforms:
+  - os: android
+    status: entwicklung
+    distribution: keiner
+
+privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei]
+
+editions:
+  - id: standard
+    name: AppInsight
+    public: true
+    price: { model: offen }
+
+releases: []
+
+links:
+  page: /apps/appinsight.html
+  contact: /kontakt.html?app=AppInsight&topic=interesse
