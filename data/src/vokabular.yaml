@@ -55,7 +55,9 @@ os:
   web:     { label: Browser }
 
 # Werte der Merkmalsmatrix. 'art' steuert die Darstellung:
-#   enthalten | fehlt | teilweise | spaeter
+#   enthalten | fehlt | teilweise | spaeter | positiv
+# 'positiv' ist für Werte, bei denen das WORT die Aussage trägt und ein Häkchen
+# sie verschlucken würde – „kostenlos" ist mehr als nur „enthalten".
 featureWerte:
   ja:
     label: enthalten
@@ -88,4 +90,12 @@ featureWerte:
   fast-fertig:
     label: fast fertig
     erklaerung: Lauffähig, es fehlen nur noch Kleinigkeiten.
+    art: teilweise
+  kostenlos:
+    label: kostenlos
+    erklaerung: Ohne Kosten und ohne Verpflichtung.
+    art: positiv
+  nach-absprache:
+    label: nach Absprache
+    erklaerung: Möglich, wird im Einzelfall vereinbart.
     art: teilweise

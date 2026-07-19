@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-19T12:11:46+02:00",
+  "generiert": "2026-07-19T14:40:01+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -50,6 +50,311 @@
       "notes": "Zubehör, kein eigenes Produkt – erscheint deshalb nicht in der Produktübersicht, sondern nur auf der Enterprise-Seite."
     },
     {
+      "slug": "einzelstueck",
+      "name": "EinzelStück",
+      "fullName": "FehlerFuchs EinzelStück",
+      "kind": "dienstleistung",
+      "tagline": "Ich baue, was Sie brauchen – und zwar so, wie Sie es möchten.",
+      "description": "Manchmal gibt es für ein Problem keine fertige Software. Oder es gibt zwanzig, und jede kann neunzehn Dinge zu viel. Dann entsteht ein EinzelStück: eine Anwendung, die genau eine Aufgabe löst – Ihre. Als Windows-Programm, Browser-Werkzeug oder Android-App. Die erste Sichtung des Problems und eine grobe Kostenschätzung sind kostenlos.",
+      "audience": [
+        "unternehmen",
+        "selbststaendige",
+        "vereine"
+      ],
+      "accent": "#8A6A1E",
+      "wordmark": [
+        {
+          "text": "FehlerFuchs ",
+          "color": "#7C3F16",
+          "weight": "normal"
+        },
+        {
+          "text": "Einzel",
+          "color": "#7C3F16",
+          "weight": "bold",
+          "break": true
+        },
+        {
+          "text": "Stück",
+          "color": "#8A6A1E",
+          "weight": "bold"
+        }
+      ],
+      "status": "verfuegbar",
+      "platforms": [
+        {
+          "os": "windows",
+          "status": "verfuegbar",
+          "requirements": "Windows 10/11 (64-bit)",
+          "distribution": "auf-anfrage"
+        },
+        {
+          "os": "web",
+          "status": "verfuegbar",
+          "requirements": "läuft im Browser, auch ohne Server",
+          "distribution": "auf-anfrage"
+        },
+        {
+          "os": "android",
+          "status": "verfuegbar",
+          "requirements": "Android, Verteilung als APK oder über Ihren Store-Zugang",
+          "distribution": "auf-anfrage"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-tracking",
+        "werbefrei",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "Individuelle Anwendung",
+          "public": true,
+          "summary": "Erstsichtung und grobe Kostenschätzung kostenlos. Der Preis ergibt sich aus Art, Umfang und Aufwand – erst danach wird etwas verbindlich.",
+          "price": {
+            "model": "auf-anfrage"
+          }
+        }
+      ],
+      "releases": [],
+      "features": [
+        {
+          "group": "Was gebaut werden kann",
+          "items": [
+            {
+              "name": "Windows-Anwendung (Desktop, arbeitet lokal)",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Browser-Werkzeug (HTML, läuft ohne Installation)",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Android-App (als APK oder über Ihren eigenen Store-Zugang)",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Auswertungen und Ausgaben als PDF, CSV oder Excel",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Vorlagen, Formulare und Berichte in Ihrem Erscheinungsbild",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "iOS-App",
+              "values": {
+                "standard": "nein"
+              },
+              "note": "Dafür fehlen mir Gerätepark und Entwicklerzugang. Ich sage es lieber vorher."
+            }
+          ]
+        },
+        {
+          "group": "Es ist Ihre Anwendung",
+          "items": [
+            {
+              "name": "Eigenes Logo, eigenes Symbol, eigener Name",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Ihr Corporate Design wird übernommen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Farben, Schriften, Vorlagen – wenn Sie eine Gestaltungsrichtlinie haben, richte ich mich danach."
+            },
+            {
+              "name": "Impressum und rechtliche Angaben auf Sie zugeschnitten",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "FehlerFuchs steht sichtbar in der Anwendung",
+              "values": {
+                "standard": "nein"
+              },
+              "note": "Mein Name erscheint nur dort, wo es technisch nötig ist. Es ist Ihre Anwendung, nicht meine Werbefläche."
+            },
+            {
+              "name": "Die fertige Anwendung gehört Ihnen",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Wie es abläuft",
+          "items": [
+            {
+              "name": "Erstsichtung: Sie schildern das Problem, ich schaue es mir an",
+              "values": {
+                "standard": "kostenlos"
+              }
+            },
+            {
+              "name": "Grobe Kostenschätzung nach der Sichtung",
+              "values": {
+                "standard": "kostenlos"
+              }
+            },
+            {
+              "name": "Kostenrahmen vor Baubeginn",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Ein Rahmen, kein Festpreis auf den Cent. Wer vor der ersten Zeile Code einen festen Betrag zusagt, hat entweder großzügig aufgeschlagen oder muss später nachverhandeln. Beides möchte ich vermeiden."
+            },
+            {
+              "name": "Erste lauffähige Vorversion zum Ausprobieren",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Früh und absichtlich unfertig. An etwas Laufendem sieht man in fünf Minuten mehr als in einem zehnseitigen Konzept."
+            },
+            {
+              "name": "Zwischenstände zum Ansehen und Nachsteuern",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Korrekturschleifen nach Absprache",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Der Umfang wird vorher festgelegt – so weiß jeder, woran er ist."
+            }
+          ]
+        },
+        {
+          "group": "Danach",
+          "items": [
+            {
+              "name": "Nachbessern, wenn die Praxis etwas anderes zeigt",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Das ist der Normalfall, nicht die Ausnahme. Sobald echte Menschen mit einer Anwendung arbeiten, fällt auf, was fehlt oder anders sein müsste. Diese Runde ist eingeplant – sie ist kein Zeichen dafür, dass etwas schiefgelaufen ist."
+            },
+            {
+              "name": "Einweisung und Kurzanleitung",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Fehlerbehebung nach der Übergabe",
+              "values": {
+                "standard": "nach-absprache"
+              }
+            },
+            {
+              "name": "Weiterentwicklung und neue Funktionen",
+              "values": {
+                "standard": "nach-absprache"
+              },
+              "note": "Anwendungen wachsen mit dem, was sie tun sollen. Das ist gut so."
+            },
+            {
+              "name": "Quelltext-Übergabe",
+              "values": {
+                "standard": "nach-absprache"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Was ich nicht übernehme",
+          "items": [
+            {
+              "name": "Einbindung in Ihr Firmennetz und Ihre Infrastruktur",
+              "values": {
+                "standard": "nein"
+              },
+              "note": "Das macht Ihre IT – sie kennt Ihre Umgebung, Ihre Freigaben und Ihre Sicherheitsvorgaben. Ich baue die Anwendung so, dass sie hineinpasst."
+            },
+            {
+              "name": "Vorarbeit dafür (Schnittstellen, Formate, Vorgaben umsetzen)",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Bei entsprechenden Vorgaben Ihrer IT bereite ich alles vor."
+            },
+            {
+              "name": "Betrieb von Servern und Diensten",
+              "values": {
+                "standard": "nein"
+              }
+            },
+            {
+              "name": "Schulung ganzer Abteilungen",
+              "values": {
+                "standard": "nein"
+              },
+              "note": "Eine Einweisung für die Personen, die damit arbeiten, ist dabei."
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Was kostet das?",
+          "answer": "Das lässt sich seriös erst nach der Sichtung sagen. Der Preis ergibt sich aus der Art der Anwendung, dem Umfang, dem Aufwand, der Zahl der Korrekturschleifen und dem, was Sie an Unterstützung danach brauchen. Die Sichtung selbst und eine grobe Einordnung kosten nichts."
+        },
+        {
+          "question": "Was passiert bei der kostenlosen Erstsichtung?",
+          "answer": "Sie schildern mir das Problem – gern formlos. Ich stelle Rückfragen, schaue mir an, was heute schon da ist, und sage Ihnen ehrlich, ob sich eine eigene Anwendung überhaupt lohnt. Manchmal ist die Antwort: Es gibt schon etwas Passendes. Dann sage ich Ihnen das auch."
+        },
+        {
+          "question": "Bindet FehlerFuchs die Anwendung in unser Netzwerk ein?",
+          "answer": "Nein. Die Einbindung in Ihr Firmennetz und Ihre Infrastruktur bleibt bei Ihrer IT – sie kennt Ihre Umgebung und Ihre Sicherheitsvorgaben, ich nicht. Was ich leisten kann: die Vorarbeit dafür. Wenn Ihre IT Vorgaben macht, richte ich die Anwendung danach aus."
+        },
+        {
+          "question": "Wem gehört die fertige Anwendung?",
+          "answer": "Ihnen. Sie bekommt Ihr Logo, Ihr Symbol, Ihren Namen und, wenn Sie eine Gestaltungsrichtlinie haben, Ihre Farben und Schriften. Das Impressum wird auf Sie zugeschnitten. Mein Name erscheint nur dort, wo es technisch nötig ist – es ist Ihre Anwendung, nicht meine Werbefläche."
+        },
+        {
+          "question": "Bleiben unsere Daten lokal?",
+          "answer": "Sofern die Aufgabe es zulässt, ja. Das ist die Grundhaltung hinter allem, was hier entsteht: keine Cloud, kein Konto, kein Tracking. Wenn Ihre Aufgabe zwingend einen Server braucht, sage ich das vorher – und Sie entscheiden."
+        },
+        {
+          "question": "Wie lange dauert es?",
+          "answer": "Das hängt vom Umfang ab und steht im Angebot. FehlerFuchs ist ein Ein-Personen- Betrieb: Ich sage lieber einen ehrlichen Termin zu als einen schnellen."
+        }
+      ],
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/einzelstueck.svg",
+          "alt": "EinzelStück – von FehlerFuchs",
+          "width": 1120,
+          "height": 300
+        }
+      },
+      "links": {
+        "page": "/produkte.html",
+        "contact": "/kontakt.html?topic=einzelstueck"
+      },
+      "notes": "Noch keine eigene Seite auf der bestehenden Website – das Angebot entsteht mit Website 2.0. Der Abgleich meldet das erwartungsgemäß. Anrede: Dieses Angebot siezt, weil es sich an Betriebe richtet; der Rest der Website duzt. Bewusste Ausnahme – falls sie stören sollte, hier ändern."
+    },
+    {
       "slug": "mobilereport",
       "name": "MobileReport",
       "fullName": "FehlerFuchs MobileReport",
@@ -93,6 +398,7 @@
           "id": "pro",
           "name": "MobileReport Pro",
           "public": true,
+          "emphasis": true,
           "summary": "Voller Funktionsumfang, freigeschaltet per einmaligem In-App-Kauf.",
           "price": {
             "model": "iap",
@@ -101,6 +407,131 @@
             "vatIncluded": true,
             "recurring": false
           }
+        }
+      ],
+      "features": [
+        {
+          "group": "Grundlage",
+          "items": [
+            {
+              "name": "Erfassen, Fotos, PDF, E-Mail-Entwurf und Logbuch",
+              "values": {
+                "free": "ja",
+                "pro": "ja",
+                "mobilereport-enterprise": "ja"
+              }
+            },
+            {
+              "name": "Vollständig lokal und werbefrei",
+              "values": {
+                "free": "ja",
+                "pro": "ja",
+                "mobilereport-enterprise": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Vorgaben für das Team",
+          "items": [
+            {
+              "name": "Feste Bereiche, Kategorien und Pflichtfelder",
+              "values": {
+                "free": "nein",
+                "pro": "ja",
+                "mobilereport-enterprise": "ja"
+              }
+            },
+            {
+              "name": "Admin-Bereich mit Master-Passwort (geschütztes Berichtsformat)",
+              "values": {
+                "free": "nein",
+                "pro": "ja",
+                "mobilereport-enterprise": "ja"
+              }
+            },
+            {
+              "name": "Vorkonfiguration per CSV (Bereiche, Standorte, Empfänger)",
+              "values": {
+                "free": "nein",
+                "pro": "ja",
+                "mobilereport-enterprise": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Logbuch",
+          "items": [
+            {
+              "name": "Filter und Suche im Logbuch",
+              "values": {
+                "free": "teilweise",
+                "pro": "ja",
+                "mobilereport-enterprise": "ja"
+              },
+              "note": "Kostenlos gibt es die Grundsuche; die erweiterten Filter sind ab Pro dabei."
+            },
+            {
+              "name": "Eigene Zählweise und Muster für Dateinamen",
+              "values": {
+                "free": "teilweise",
+                "pro": "ja",
+                "mobilereport-enterprise": "ja"
+              },
+              "note": "Kostenlos gilt die feste Standardzählung."
+            }
+          ]
+        },
+        {
+          "group": "Erscheinungsbild",
+          "items": [
+            {
+              "name": "Branding und Farbschema",
+              "values": {
+                "free": "nein",
+                "pro": "Firmenlogo · 15 Vorlagen",
+                "mobilereport-enterprise": "frei wählbar: Logo, Farben, Name"
+              }
+            },
+            {
+              "name": "App unter eigenem Namen und Symbol",
+              "values": {
+                "free": "nein",
+                "pro": "nein",
+                "mobilereport-enterprise": "nur Custom-Branding"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Verteilung und Freischaltung",
+          "items": [
+            {
+              "name": "Bezugsweg",
+              "values": {
+                "free": "Google Play · kostenlos",
+                "pro": "In-App-Kauf in der App",
+                "mobilereport-enterprise": "Direkt-Download außerhalb von Play"
+              }
+            },
+            {
+              "name": "Freischaltung",
+              "values": {
+                "free": "nein",
+                "pro": "einmaliger Kauf, geräteübergreifend",
+                "mobilereport-enterprise": "Lizenzschlüssel je Arbeitsplatz"
+              }
+            },
+            {
+              "name": "Anbindung an eigene Systeme",
+              "values": {
+                "free": "nein",
+                "pro": "nein",
+                "mobilereport-enterprise": "nur Custom-Branding"
+              }
+            }
+          ]
         }
       ],
       "releases": [],
@@ -130,7 +561,7 @@
       "audience": [
         "unternehmen"
       ],
-      "accent": "#2E7D46",
+      "accent": "#0B9DC8",
       "status": "verfuegbar",
       "platforms": [
         {
@@ -163,8 +594,8 @@
             "tiers": [
               {
                 "seats": 10,
-                "amount": 50.0,
-                "perSeat": 5.0,
+                "amount": 50,
+                "perSeat": 5,
                 "discountPercent": 0,
                 "checkout": "https://www.checkout-ds24.com/product/709260"
               },
@@ -177,36 +608,36 @@
               },
               {
                 "seats": 50,
-                "amount": 200.0,
-                "perSeat": 4.0,
+                "amount": 200,
+                "perSeat": 4,
                 "discountPercent": 20,
                 "checkout": "https://www.checkout-ds24.com/product/709326"
               },
               {
                 "seats": 100,
-                "amount": 350.0,
+                "amount": 350,
                 "perSeat": 3.5,
                 "discountPercent": 30,
                 "checkout": "https://www.checkout-ds24.com/product/709328"
               },
               {
                 "seats": 250,
-                "amount": 750.0,
-                "perSeat": 3.0,
+                "amount": 750,
+                "perSeat": 3,
                 "discountPercent": 40,
                 "checkout": "https://www.checkout-ds24.com/product/709330"
               },
               {
                 "seats": 500,
-                "amount": 1250.0,
+                "amount": 1250,
                 "perSeat": 2.5,
                 "discountPercent": 50,
                 "checkout": "https://www.checkout-ds24.com/product/709331"
               },
               {
                 "seats": 1000,
-                "amount": 2000.0,
-                "perSeat": 2.0,
+                "amount": 2000,
+                "perSeat": 2,
                 "discountPercent": 60,
                 "badge": "Bestpreis",
                 "checkout": "https://www.checkout-ds24.com/product/709333"
@@ -344,6 +775,139 @@
           "notes": "Erstveröffentlichung. Wiederkehrende Serien, PDF als Monat/Jahr/Blanko, Feiertage und Schulferien je Bundesland, Geräte-Sync per QR-Code, Transparenz- und Open-Source-Seite in der App."
         }
       ],
+      "features": [
+        {
+          "group": "Planen",
+          "items": [
+            {
+              "name": "Monatskalender für Dienste, Schichten, Termine und Notizen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Schnelleintrag – ganze Monate im Sekundentakt eintippen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Frei definierbare Dienste mit eigenen Kürzeln, Farben und Zeiten",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Mit Vorlagen für gängige Branchen – Früh/Spät/Nacht, Bereitschaft, Urlaub, Kinderbetreuung."
+            },
+            {
+              "name": "Wiederkehrende Serien (täglich, wöchentlich, eigenes Muster)",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Notizen und Termine mit Personenbezug",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Ausgeben",
+          "items": [
+            {
+              "name": "PDF-Übersicht: Monat",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "PDF-Übersicht: Jahr",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "PDF-Vorlage: Blanko zum Ausdrucken",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Farbig oder schlicht in Schwarzweiß drucken",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Terminexport als ICS",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Jahresauswertung",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Geräte und Daten",
+          "items": [
+            {
+              "name": "Alle Daten ausschließlich auf dem Gerät (SQLite)",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Eigener Sync statt Cloud – Beitritt per QR-Code oder Passwort",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Im Heimnetz oder über einen selbst gehosteten Relay, Ende-zu-Ende-verschlüsselt."
+            },
+            {
+              "name": "Konto oder Registrierung nötig",
+              "values": {
+                "standard": "nein"
+              }
+            },
+            {
+              "name": "Backup und Wiederherstellung",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Logbuch in der App",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Beiwerk",
+          "items": [
+            {
+              "name": "Feiertage und Schulferien je Bundesland",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Mit Selbstaktualisierung; bis der Endpunkt auf fehlerfuchs.eu steht, greift der eingebaute Bestand."
+            },
+            {
+              "name": "Transparenz- und Open-Source-Seite in der App",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        }
+      ],
       "media": {
         "lockup": {
           "src": "/img/lockups/orgafuchs.png",
@@ -402,6 +966,116 @@
         }
       ],
       "releases": [],
+      "features": [
+        {
+          "group": "Lesen",
+          "items": [
+            {
+              "name": "PDFs flüssig anzeigen, scrollen und zoomen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Auf Grundlage der bewährten Render-Engine PDFium."
+            },
+            {
+              "name": "Dunkelmodus",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Volltextsuche mit hervorgehobenen Treffern",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Miniaturübersicht und schneller Seitensprung",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Weitergeben",
+          "items": [
+            {
+              "name": "Dokument teilen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Über den Android-Druckdialog ausdrucken",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "PDFs aus anderen Apps direkt öffnen („Öffnen mit\")",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Verlauf zuletzt geöffneter Dokumente",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Bearbeiten",
+          "items": [
+            {
+              "name": "Seiten drehen, löschen und neu ordnen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Als Kopie speichern – das Original bleibt unverändert",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Verlustfrei; die Ausgangsdatei wird nie überschrieben."
+            }
+          ]
+        },
+        {
+          "group": "Bewusst nicht dabei",
+          "items": [
+            {
+              "name": "Texterkennung (OCR) aus Bildern",
+              "values": {
+                "standard": "nein"
+              },
+              "note": "Weggelassen, damit der Reader schnell und schlank bleibt."
+            },
+            {
+              "name": "Formularfelder ausfüllen und unterschreiben",
+              "values": {
+                "standard": "geplant"
+              }
+            },
+            {
+              "name": "Voller PDF-Funktionsumfang",
+              "values": {
+                "standard": "nein"
+              },
+              "note": "Bleibt der PDFuchs-Suite für Windows vorbehalten."
+            },
+            {
+              "name": "Werbung, Konto oder Tracking",
+              "values": {
+                "standard": "nein"
+              }
+            }
+          ]
+        }
+      ],
       "media": {
         "lockup": {
           "src": "/img/lockups/pdfuchsreader.svg",
@@ -465,15 +1139,167 @@
       ],
       "editions": [
         {
-          "id": "standard",
+          "id": "free",
           "name": "SnapFuchs",
           "public": true,
+          "summary": "Scannen, gerade rücken und als PDF ablegen – kostenlos.",
           "price": {
-            "model": "offen"
+            "model": "kostenlos"
+          }
+        },
+        {
+          "id": "pro",
+          "name": "SnapFuchs Pro",
+          "public": true,
+          "emphasis": true,
+          "summary": "Voller Funktionsumfang, freigeschaltet per einmaligem In-App-Kauf.",
+          "price": {
+            "model": "iap",
+            "amount": 3.0,
+            "currency": "EUR",
+            "vatIncluded": true,
+            "recurring": false
           }
         }
       ],
       "releases": [],
+      "features": [
+        {
+          "group": "Erfassen",
+          "items": [
+            {
+              "name": "Seiten mit der Kamera aufnehmen",
+              "values": {
+                "free": "ja",
+                "pro": "ja"
+              }
+            },
+            {
+              "name": "Kanten automatisch erkennen und gerade rücken",
+              "values": {
+                "free": "ja",
+                "pro": "ja"
+              }
+            },
+            {
+              "name": "Zuschneiden und drehen von Hand",
+              "values": {
+                "free": "ja",
+                "pro": "ja"
+              }
+            },
+            {
+              "name": "Kontrast und Farbmodus (Graustufen, Schwarzweiß, Farbe)",
+              "values": {
+                "free": "teilweise",
+                "pro": "ja"
+              },
+              "note": "Kostenlos gibt es die Voreinstellung; einstellbar ist sie in Pro."
+            },
+            {
+              "name": "Mehrseitige Dokumente",
+              "values": {
+                "free": "bis 5 Seiten",
+                "pro": "ohne Begrenzung"
+              }
+            },
+            {
+              "name": "Bilder aus der Galerie übernehmen",
+              "values": {
+                "free": "nein",
+                "pro": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Ausgabe",
+          "items": [
+            {
+              "name": "Als PDF speichern",
+              "values": {
+                "free": "ja",
+                "pro": "ja"
+              }
+            },
+            {
+              "name": "Als JPG oder PNG speichern",
+              "values": {
+                "free": "nein",
+                "pro": "ja"
+              }
+            },
+            {
+              "name": "Teilen und drucken",
+              "values": {
+                "free": "ja",
+                "pro": "ja"
+              }
+            },
+            {
+              "name": "Texterkennung (OCR) für durchsuchbare PDFs",
+              "values": {
+                "free": "nein",
+                "pro": "geplant"
+              },
+              "note": "Läuft auf dem Gerät, nicht auf einem Server – das ist der Grund, warum es dauert."
+            },
+            {
+              "name": "Seitengröße und Ränder wählen (A4, Letter, Original)",
+              "values": {
+                "free": "nein",
+                "pro": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Ordnung",
+          "items": [
+            {
+              "name": "Zielordner selbst festlegen",
+              "values": {
+                "free": "nein",
+                "pro": "ja"
+              }
+            },
+            {
+              "name": "Muster für Dateinamen (Datum, Zähler, eigener Text)",
+              "values": {
+                "free": "nein",
+                "pro": "ja"
+              }
+            },
+            {
+              "name": "Seiten nachträglich umsortieren, ersetzen und löschen",
+              "values": {
+                "free": "teilweise",
+                "pro": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Erscheinungsbild",
+          "items": [
+            {
+              "name": "Hinweis „Erstellt mit SnapFuchs\" auf der letzten Seite",
+              "values": {
+                "free": "ja",
+                "pro": "nein"
+              },
+              "note": "In Pro entfällt der Hinweis."
+            },
+            {
+              "name": "Dunkles Erscheinungsbild",
+              "values": {
+                "free": "ja",
+                "pro": "ja"
+              }
+            }
+          ]
+        }
+      ],
       "links": {
         "page": "/produkte.html",
         "contact": "/kontakt.html?app=SnapFuchs&topic=interesse"

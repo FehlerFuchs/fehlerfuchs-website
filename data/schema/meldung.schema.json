@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fehlerfuchs.eu/data/schema/meldung.schema.json",
+  "title": "FehlerFuchs — Meldung (Aktuelles)",
+  "description": "Ein Eintrag im Aktuelles-Feed. Grundsatz: eine Meldung wiederholt keine Tatsache, die schon beim Produkt steht. Version, Datum, Download-Adresse und Store-Link werden aus dem Produkt geholt; hier steht nur, was der Feed zusätzlich braucht — Überschrift und Wortlaut.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "typ", "titel", "text"],
+
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Eindeutig und dauerhaft. Wird zum Sprungziel (#id) und darf sich deshalb nie ändern — sonst laufen geteilte Links ins Leere."
+    },
+
+    "typ": {
+      "enum": ["veroeffentlichung", "update", "store", "test", "hinweis"],
+      "description": "veroeffentlichung = erstmals da · update = neue Fassung · store = Weg in einen Store geändert · test = offener/geschlossener Test beginnt · hinweis = alles Übrige (Website, Preise, Termine)."
+    },
+
+    "produkt": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "slug eines Produkts. Fehlt er, ist es eine Meldung ohne Produktbezug (etwa zur Website selbst)."
+    },
+
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Verweis auf einen Release-Eintrag des Produkts. Ist er gesetzt, kommen Datum und Download-Adresse von dort — sie werden hier NICHT wiederholt."
+    },
+
+    "datum": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Pflicht, solange sich das Datum nicht aus einem Release oder aus platforms[].since ergibt. Steht es zusätzlich dort, muss es übereinstimmen — sonst meldet die Prüfung einen Widerspruch."
+    },
+
+    "titel": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 90,
+      "description": "Die Überschrift im Feed. Kurz genug, um in einer Zeile zu stehen."
+    },
+
+    "text": {
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 700,
+      "description": "Zwei bis vier Sätze in normaler Sprache. Was ist neu, was hat der Leser davon. Keine Aufzählung von Änderungen — die steht in den Release-Notizen des Produkts."
+    },
+
+    "ziel": {
+      "$ref": "#/$defs/weg",
+      "description": "Zusätzlicher Weg, der sich NICHT aus dem Produkt ergibt. Produktseite, Download und Store werden ohnehin automatisch angeboten; sie hier zu wiederholen ist ein Fehler."
+    },
+
+    "hervorgehoben": {
+      "type": "boolean",
+      "description": "Setzt den Eintrag optisch nach vorn. Sparsam verwenden — hebt man alles hervor, hebt man nichts hervor."
+    },
+
+    "notes": {
+      "type": "string",
+      "description": "Interne Notiz. Erscheint nicht auf der Website."
+    }
+  },
+
+  "$defs": {
+    "weg": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text", "url"],
+      "properties": {
+        "text": { "type": "string", "minLength": 3, "maxLength": 40 },
+        "url": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

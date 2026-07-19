@@ -31,7 +31,9 @@ except ImportError:
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data" / "src"
 SCHEMA_FILE = ROOT / "data" / "schema" / "product.schema.json"
+MELDUNG_SCHEMA_FILE = ROOT / "data" / "schema" / "meldung.schema.json"
 OUT_PRODUCTS = ROOT / "data" / "products.json"
+OUT_NEWS = ROOT / "data" / "news.json"
 OUT_STATUSES = ROOT / "data" / "statuses.json"
 OUT_VOKABULAR = ROOT / "data" / "vocabulary.json"
 OUT_MARKE = ROOT / "data" / "brand.json"
@@ -170,7 +172,7 @@ def pruefe_vokabular(p, vok):
                           f"er wird als freier Text ausgegeben. Tippfehler?")
 
 
-def pruefe_inhalt(p, statuses, alle_slugs):
+def pruefe_inhalt(p, statuses, alle_slugs, alle_produkte):
     slug = p["slug"]
 
     # 1. Gesamtstatus muss der weitesten Plattform entsprechen (siehe SCHEMA.md 3.2)
@@ -241,7 +243,11 @@ def pruefe_inhalt(p, statuses, alle_slugs):
         for pl in p["platforms"])
     # Reine Web-Werkzeuge laufen im Browser – sie brauchen weder Release noch Store.
     nur_web = all(pl["os"] == "web" for pl in p["platforms"])
+    # Eine Dienstleistung ist verfügbar, ohne dass es etwas herunterzuladen gäbe:
+    # Sie entsteht erst auf Bestellung. Ihre platforms[] sagen nicht „hier gibt es
+    # das", sondern „so etwas kann gebaut werden".
     if "download" in st["cta"] and not hat_download and not nur_web \
+            and p["kind"] != "dienstleistung" \
             and not p.get("links", {}).get("store"):
         melde(warnungen, slug, f"Status '{p['status']}' erlaubt einen Download, "
                                f"es ist aber weder ein Release noch ein Store-Link hinterlegt")
@@ -252,16 +258,26 @@ def pruefe_inhalt(p, statuses, alle_slugs):
     # 5b. Merkmalsmatrix: Spalten müssen zu den Editionen passen
     editions_ids = {e["id"] for e in p.get("editions", [])}
     oeffentliche = {e["id"] for e in p.get("editions", []) if e["public"]}
+
+    # Eine Ausbaustufe, die als eigenes Produkt geführt wird (parent + standalone),
+    # darf ebenfalls eine Spalte bekommen. Aus Sicht eines Käufers ist sie die
+    # dritte Stufe derselben App – ihn dafür auf eine andere Seite zu schicken,
+    # hieße den Vergleich zu zerreißen, den er gerade anstellt.
+    kinder = {k["slug"] for k in alle_produkte
+              if k.get("parent") == slug and k.get("standalone")}
+    erlaubte_spalten = editions_ids | kinder
+
     namen_gesehen = set()
     for gruppe in p.get("features", []):
         for item in gruppe["items"]:
             if item["name"] in namen_gesehen:
                 melde(warnungen, slug, f"Merkmal '{item['name']}' kommt mehrfach vor")
             namen_gesehen.add(item["name"])
-            unbekannt = set(item["values"]) - editions_ids
+            unbekannt = set(item["values"]) - erlaubte_spalten
             if unbekannt:
                 melde(fehler, slug, f"Merkmal '{item['name'][:40]}…': Spalte(n) "
-                                    f"{', '.join(sorted(unbekannt))} sind keine Editionen")
+                                    f"{', '.join(sorted(unbekannt))} sind weder Editionen "
+                                    f"dieses Produkts noch eigenständige Ausbaustufen davon")
             fehlend = oeffentliche - set(item["values"])
             if fehlend:
                 melde(warnungen, slug, f"Merkmal '{item['name'][:40]}…': für die öffentliche(n) "
@@ -313,6 +329,68 @@ def pruefe_inhalt(p, statuses, alle_slugs):
         melde(warnungen, slug, "weder media.lockup noch wordmark – der Titel erscheint "
                                "als schlichter Text ohne Markenbezug")
 
+    # 5f. Eine hervorgehobene Edition muss sich begründen lassen.
+    #     Ohne Merkmalsmatrix steht auf der Seite eine betonte Spalte, die nicht
+    #     zeigt, was sie mehr kann – die Bezahlfassung wirkt dann behauptet
+    #     statt belegt. Genau dieser Punkt war schon einmal Anlass zur Kritik.
+    #     Ausschlaggebend ist die Kombination kostenlos NEBEN kostenpflichtig: Nur
+    #     dann steht der Besucher vor der Frage „wofür soll ich zahlen?". Zwei
+    #     Bezahlstufen, die sich im Leistungsumfang gleichen und sich nur in der
+    #     Betreuung unterscheiden (Enterprise: selbst branden oder branden lassen),
+    #     sind mit ihren Kurzbeschreibungen ausreichend erklärt.
+    oeffentlich = [e for e in p.get("editions", []) if e.get("public")]
+    gratis = [e for e in oeffentlich if e["price"]["model"] == "kostenlos"]
+    bezahlt = [e for e in oeffentlich if e["price"]["model"] in ("iap", "einmalig", "staffel")]
+    if gratis and bezahlt and not p.get("features"):
+        melde(warnungen, slug,
+              f"kostenlose und kostenpflichtige Edition nebeneinander "
+              f"({gratis[0]['id']} / {bezahlt[0]['id']}), aber keine features. "
+              f"Die Seite kann nicht zeigen, wofür der Besucher zahlen soll.")
+
+    # 5g. Jede Produktseite muss mindestens EINEN Weg anbieten.
+    #     Die Seite leitet ihre Knöpfe aus diesen Angaben ab. Gibt es weder einen
+    #     Download noch einen Store, weder einen Kaufweg noch eine Kontaktadresse,
+    #     liest der Besucher etwas Interessantes und kann anschließend nichts tun.
+    #     Für Online-Werkzeuge gilt das nicht: Dort IST die Seite das Werkzeug.
+    if not p.get("customPage"):
+        wege = []
+        if st["cta"] != ["keine"] and p.get("releases"):
+            wege.append("Download")
+        if p.get("links", {}).get("store"):
+            wege.append("Store")
+        if p.get("links", {}).get("checkout"):
+            wege.append("Kauf")
+        if any(t.get("checkout") for e in p.get("editions", [])
+               for t in e["price"].get("tiers", [])):
+            wege.append("Pakete")
+        if p.get("links", {}).get("contact"):
+            wege.append("Kontakt")
+        if not wege:
+            melde(fehler, slug, "Sackgasse: kein Download, kein Store, kein Kaufweg und "
+                                "keine links.contact – die Seite bietet dem Besucher nichts an")
+
+    # 5h. Keine Produktseite ohne Merkmalstabelle.
+    #     Ohne sie steht dort Fließtext und eine Preisangabe – der Besucher muss
+    #     aus Prosa herauslesen, was das Ding eigentlich kann. Eine Spalte genügt
+    #     (Funktionsübersicht), mehrere ergeben den Editionsvergleich.
+    #
+    #     Zwei Ausnahmen:
+    #       • customPage – dort IST die Seite das Werkzeug.
+    #       • Ausbaustufen, die die Matrix des Elternprodukts mitbenutzen: Die
+    #         Tabelle steht dort EINMAL und wird von beiden Seiten gezeigt.
+    eltern = next((q for q in alle_produkte if q["slug"] == p.get("parent")), None)
+    erbt_matrix = any(
+        p["slug"] in item["values"]
+        for gruppe in (eltern or {}).get("features", [])
+        for item in gruppe["items"]
+    )
+    if not p.get("features") and not p.get("customPage") and not erbt_matrix:
+        stufe_offen = statuses[p["status"]]["order"] <= statuses["beta"]["order"]
+        melde(fehler if stufe_offen else warnungen, slug,
+              "keine features – die Produktseite hätte keine Merkmalstabelle. "
+              "Eine Spalte reicht (Funktionsübersicht), mehrere ergeben den "
+              "Editionsvergleich.")
+
     # 6. Preise
     for e in p.get("editions", []):
         pr = e["price"]
@@ -356,6 +434,129 @@ def pruefe_inhalt(p, statuses, alle_slugs):
                 and not p.get("links", {}).get("checkout"):
             melde(fehler, slug, f"Edition '{e['id']}' hat einen Festpreis, aber es gibt "
                                 f"keinen links.checkout – der Kauf ist nicht möglich")
+
+
+# ------------------------------------------------------------------- Meldungen
+
+def pruefe_meldungen(meldungen, produkte, schema):
+    """Prüft die Meldungen und löst ihre Verweise auf.
+
+    Rückgabe: die Meldungen mit aufgelöstem Datum und den Wegen, die sich aus
+    dem Produkt ergeben. Die Auflösung passiert HIER und nicht in der Website,
+    damit jeder Verbraucher der Daten dieselben Werte sieht.
+    """
+    nach_slug = {p["slug"]: p for p in produkte}
+    heute = date.today().isoformat()
+    gesehen = {}
+    ergebnis = []
+
+    for m in meldungen:
+        mid = m.get("id", "?")
+        pruefe_gegen_schema(m, schema, "", f"meldung {mid}")
+
+        # id ist ein Sprungziel. Eine doppelte id hieße: ein geteilter Link
+        # führt mal hierhin, mal dorthin.
+        if mid in gesehen:
+            melde(fehler, f"meldung {mid}", "diese id gibt es schon ein zweites Mal")
+        gesehen[mid] = True
+
+        p = nach_slug.get(m.get("produkt")) if m.get("produkt") else None
+        if m.get("produkt") and p is None:
+            melde(fehler, f"meldung {mid}", f"Produkt '{m['produkt']}' gibt es im Modell nicht")
+            continue
+
+        # --- Version auflösen ------------------------------------------------
+        release = None
+        if m.get("version"):
+            if p is None:
+                melde(fehler, f"meldung {mid}", "version ohne produkt – ein Verweis ins Nichts")
+            else:
+                release = next((r for r in p.get("releases", [])
+                                if r["version"] == m["version"]), None)
+                if release is None:
+                    vorhanden = ", ".join(r["version"] for r in p.get("releases", [])) or "keine"
+                    melde(fehler, f"meldung {mid}",
+                          f"{p['name']} hat keinen Release {m['version']} "
+                          f"(vorhanden: {vorhanden})")
+
+        # --- Datum auflösen --------------------------------------------------
+        # Reihenfolge der Wahrheit: Release > platforms[].since > eigenes Feld.
+        abgeleitet, quelle = None, None
+        if release:
+            abgeleitet, quelle = release["date"], f"Release {release['version']}"
+        elif p is not None and m.get("typ") == "store":
+            mit_since = [pl for pl in p["platforms"] if pl.get("since")]
+            if len(mit_since) == 1:
+                abgeleitet, quelle = mit_since[0]["since"], f"platforms[{mit_since[0]['os']}].since"
+
+        if abgeleitet and m.get("datum") and m["datum"] != abgeleitet:
+            melde(fehler, f"meldung {mid}",
+                  f"datum {m['datum']} widerspricht {quelle} ({abgeleitet}). "
+                  f"Eines von beiden ist falsch – beide Stellen zeigen dasselbe Ereignis.")
+        datum = m.get("datum") or abgeleitet
+        if not datum:
+            melde(fehler, f"meldung {mid}",
+                  "kein Datum – und keines, das sich aus Release oder platforms[].since ergibt")
+            continue
+        if datum > heute:
+            melde(warnungen, f"meldung {mid}", f"Datum {datum} liegt in der Zukunft")
+
+        # --- Versionsnummer im Titel darf nicht abdriften ---------------------
+        # \d+\.\d+\.\d+ trifft absichtlich keine Datumsangaben wie 18.07.2026,
+        # weil dort vier Stellen am Ende stehen.
+        im_titel = re.search(r"\b(\d+\.\d+\.\d{1,3})\b", m.get("titel", ""))
+        if im_titel and m.get("version") and im_titel.group(1) != m["version"]:
+            melde(fehler, f"meldung {mid}",
+                  f"im Titel steht Version {im_titel.group(1)}, verwiesen wird auf "
+                  f"{m['version']}")
+
+        # --- Wege, die sich aus dem Produkt ergeben --------------------------
+        wege = {}
+        if p is not None:
+            if release:
+                wege["download"] = release["url"]
+            if p.get("links", {}).get("store"):
+                wege["store"] = p["links"]["store"]
+            if p.get("links", {}).get("checkout"):
+                wege["kauf"] = p["links"]["checkout"]
+
+        ziel = m.get("ziel")
+        if ziel and ziel["url"] in wege.values():
+            melde(warnungen, f"meldung {mid}",
+                  "ziel.url wiederholt einen Weg, den die Seite ohnehin anbietet – "
+                  "der Knopf stünde zweimal da")
+
+        # Ein Verweis auf ein Produkt, das noch keine eigene Seite hat, führt
+        # den Leser auf eine Sammelseite. Das ist kein Fehler, aber es kostet
+        # ihn einen Klick, den er nicht erwartet.
+        if p is not None and p.get("links", {}).get("page") in ("/produkte.html", "/downloads.html"):
+            melde(warnungen, f"meldung {mid}",
+                  f"{p['name']} hat keine eigene Produktseite – die Meldung führt "
+                  f"auf eine Sammelseite")
+
+        if re.search(r"https?://", m.get("text", "")):
+            melde(warnungen, f"meldung {mid}",
+                  "im Text steht eine Adresse – Wege gehören nach ziel, sonst sind "
+                  "sie nicht anklickbar und veralten unbemerkt")
+
+        ergebnis.append({**m, "datum": datum, "datumQuelle": quelle or "eigene Angabe",
+                         **({"wege": wege} if wege else {})})
+
+    # --- Kein Release ohne Meldung -------------------------------------------
+    # Das ist der eigentliche Zweck der Prüfung: Wer etwas veröffentlicht, ohne
+    # es zu erzählen, hat es für die Besucher nicht veröffentlicht.
+    erzaehlt = {(m.get("produkt"), m.get("version")) for m in meldungen}
+    for p in produkte:
+        for r in p.get("releases", []):
+            if (p["slug"], r["version"]) not in erzaehlt:
+                melde(warnungen, p["slug"],
+                      f"Release {r['version']} vom {r['date']} hat keine Meldung in "
+                      f"meldungen.yaml – auf der Aktuelles-Seite fehlt er damit")
+
+    # Nur nach Datum sortieren. Pythons Sortierung ist stabil, deshalb behalten
+    # Meldungen desselben Tages die Reihenfolge aus meldungen.yaml – also die,
+    # die der Schreibende gemeint hat. Nach id zu sortieren wäre Zufall.
+    return sorted(ergebnis, key=lambda m: m["datum"], reverse=True)
 
 
 # --------------------------------------------------------- Abgleich mit der Website
@@ -424,6 +625,7 @@ def main():
     nur_pruefen = "--check" in sys.argv
 
     schema = json.loads(SCHEMA_FILE.read_text(encoding="utf-8"))
+    meldung_schema = json.loads(MELDUNG_SCHEMA_FILE.read_text(encoding="utf-8"))
     statuses = yaml.safe_load((SRC / "statuses.yaml").read_text(encoding="utf-8"))
     vokabular = yaml.safe_load((SRC / "vokabular.yaml").read_text(encoding="utf-8"))
     marke = yaml.safe_load((SRC / "marke.yaml").read_text(encoding="utf-8"))
@@ -456,11 +658,15 @@ def main():
     if len(slugs) != len(produkte):
         fehler.append("mehrere Produkte teilen sich denselben slug")
 
+    meldungen = []
     if not fehler:
         for p in produkte:
             pruefe_vokabular(p, vokabular)
-            pruefe_inhalt(p, statuses, slugs)
+            pruefe_inhalt(p, statuses, slugs, produkte)
         abgleich_mit_website(produkte)
+
+        roh = yaml.safe_load((SRC / "meldungen.yaml").read_text(encoding="utf-8"))
+        meldungen = pruefe_meldungen(roh.get("meldungen", []), produkte, meldung_schema)
 
     # Die Marke verspricht etwas – die Belege dafür stehen bei den Produkten.
     pt = marke.get("person", {}).get("portrait")
@@ -489,7 +695,8 @@ def main():
         print(f"\nAbbruch: {len(fehler)} Fehler. Es wurde nichts geschrieben.")
         return 1
 
-    print(f"\nGeprüft: {len(produkte)} Produkte, {len(statuses)} Statusstufen, "
+    print(f"\nGeprüft: {len(produkte)} Produkte, {len(meldungen)} Meldungen, "
+          f"{len(statuses)} Statusstufen, "
           f"{sum(len(v) for v in vokabular.values())} Vokabeln — keine Fehler.")
 
     if nur_pruefen:
@@ -511,9 +718,12 @@ def main():
         {**kopf, **vokabular}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     OUT_MARKE.write_text(json.dumps(
         {**kopf, **marke}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    OUT_NEWS.write_text(json.dumps(
+        {**kopf, "meldungen": meldungen}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print(f"Geschrieben: {OUT_PRODUCTS.relative_to(ROOT)}, {OUT_STATUSES.relative_to(ROOT)}, "
-          f"{OUT_VOKABULAR.relative_to(ROOT)}, {OUT_MARKE.relative_to(ROOT)}")
+          f"{OUT_VOKABULAR.relative_to(ROOT)}, {OUT_MARKE.relative_to(ROOT)}, "
+          f"{OUT_NEWS.relative_to(ROOT)}")
     return 0
 
 

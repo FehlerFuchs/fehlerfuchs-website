@@ -32,12 +32,17 @@ nicht weil man sorgfältiger arbeitet, sondern weil es die zweite Stelle nicht m
 website/data/
   SCHEMA.md                  ← dieses Dokument
   schema/product.schema.json ← maschinelle Prüfregeln (JSON Schema, Draft 2020-12)
+  schema/meldung.schema.json ← dasselbe für die Meldungen
   src/statuses.yaml          ← Statusstufen: Label, Farbe, erlaubte CTA
   src/vokabular.yaml         ← Anzeigetexte für alle technischen Schlüssel
+  src/marke.yaml             ← Haltung, Leitsätze, Person, Kontakt
+  src/meldungen.yaml         ← Aktuelles: was wann veröffentlicht wurde
   src/products/<slug>.yaml   ← je Produkt eine Datei (Quelle, von Hand gepflegt)
   products.json              ← ERZEUGT: alle Produkte gebündelt
   statuses.json              ← ERZEUGT: Statusstufen
   vocabulary.json            ← ERZEUGT: Anzeigetexte
+  brand.json                 ← ERZEUGT: Marke
+  news.json                  ← ERZEUGT: Meldungen, Verweise aufgelöst
 ```
 
 ### Warum `vokabular.yaml` nötig wurde
@@ -157,9 +162,19 @@ Merkmal darf nur gesetzt werden, wenn es **uneingeschränkt** zutrifft.
 | `produkt` | Eigenständige App oder Programm |
 | `edition` | Eigenständig vermarktete Ausbaustufe eines Produkts (z. B. Enterprise) |
 | `werkzeug` | Kostenloses Zubehör zu einem Produkt (z. B. Branding-Konfigurator) |
+| `dienstleistung` | Gibt es nicht fertig — wird auf Bestellung gebaut (Individuelle Anwendung) |
 
-Die Produktübersicht zeigt alles mit `kind: produkt` — **und zusätzlich alles mit
-`standalone: true`**. Diese Unterscheidung war nötig, weil MobileReport Enterprise
+Bei einer `dienstleistung` beschreiben die `platforms[]` nicht, **wo es etwas gibt**,
+sondern **was gebaut werden kann**; `distribution` ist dort immer `auf-anfrage`. Die
+Prüfung weiß das: Sie verlangt bei einer Dienstleistung weder Release noch Store-Link,
+obwohl der Status `verfuegbar` ist — verfügbar ist hier die Leistung, nicht eine Datei.
+
+Auf der **Startseite** zählt eine Dienstleistung bewusst nicht mit („3 Helfer, die du
+heute nutzen kannst" wäre gelogen, wenn einer davon erst gebaut werden muss). Dafür gibt
+es `nutzbareProdukte` neben `hauptprodukte`.
+
+Die Produktübersicht zeigt alles mit `kind: produkt` und `kind: dienstleistung` —
+**und zusätzlich alles mit `standalone: true`**. Diese Unterscheidung war nötig, weil MobileReport Enterprise
 fachlich eine Ausbaustufe ist, wirtschaftlich aber ein eigenes Produkt: eigener Preis,
 eigener Download, eigener Kaufweg. Ohne das Kennzeichen wäre es aus der Übersicht
 verschwunden, obwohl es das einzige Produkt mit Lizenzverkauf ist.
@@ -290,6 +305,50 @@ in der Tabelle ist damit nicht mehr möglich.
 Die Entwicklerfassung „Vather" steht vollständig im Modell, taucht aber auf keiner
 öffentlichen Seite auf.
 
+#### Spalten für eigenständige Ausbaustufen
+
+Eine Spalte darf statt einer Editions-ID auch der **slug einer Ausbaustufe** sein, die
+`parent` auf dieses Produkt setzt und `standalone: true` trägt:
+
+```yaml
+values: { free: nein, pro: ja, mobilereport-enterprise: ja }
+```
+
+Enterprise ist fachlich ein eigenes Produkt, aus Käufersicht aber schlicht die dritte
+Stufe derselben App. Ihn für den Vergleich auf eine andere Seite zu schicken, hieße den
+Vergleich zu zerreißen, den er gerade anstellt.
+
+**Die Matrix existiert dabei nur einmal — beim Elternprodukt.** Beide Seiten zeigen
+dieselbe Tabelle aus unterschiedlicher Blickrichtung:
+
+| Seite | Was sie zeigt |
+|---|---|
+| `/produkte/mobilereport/` | eigene Editionen, Enterprise als dritte Spalte mit Verweis |
+| `/produkte/mobilereport-enterprise/` | dieselbe Tabelle, die eigene Spalte hervorgehoben |
+
+Die Ausbaustufe braucht dafür **kein eigenes `features`**. Hätte sie eines, würde
+derselbe Vergleich an zwei Stellen gepflegt — und genau das soll dieses Modell abschaffen.
+
+#### Wann eine Matrix Pflicht ist
+
+**Grundregel: keine Produktseite ohne Merkmalstabelle.** Ohne sie steht dort Fließtext und
+eine Preisangabe — der Besucher müsste aus Prosa herauslesen, was das Ding eigentlich kann.
+Eine Spalte genügt; die Seite macht daraus eine **Funktionsübersicht** („Was es kann")
+statt eines Vergleichs.
+
+| Lage | Stufe |
+|---|---|
+| Produkt ist öffentlich nutzbar (`verfuegbar`, `pruefung`, `beta`) und hat kein `features` | **Fehler** |
+| Produkt ist noch in Arbeit (`entwicklung` und tiefer) und hat kein `features` | Warnung |
+| `customPage: true` | keine Prüfung — dort *ist* die Seite das Werkzeug |
+| Ausbaustufe, die die Matrix des Elternprodukts mitbenutzt | keine Prüfung — die Tabelle steht dort einmal |
+
+Zusätzlich: Stehen eine **kostenlose und eine kostenpflichtige** Edition öffentlich
+nebeneinander, ohne dass `features` vorhanden ist, sagt die Meldung ausdrücklich, dass die
+Seite nicht zeigen kann, wofür der Besucher zahlen soll. Zwei Bezahlstufen, die sich nur in
+der Betreuung unterscheiden (Enterprise: selbst branden oder branden lassen), sind mit
+ihren `summary`-Zeilen ausreichend erklärt.
+
 ### 5.7 `faq[]`
 
 | Feld | Pflicht | Regel |
@@ -375,3 +434,74 @@ Das Skript kennt drei Meldungsarten:
 - **WARNUNG** — inhaltlich fragwürdig (fehlende Prüfsumme, Preis offen). Erzeugung läuft weiter.
 - **ABGLEICH** — Wert weicht von dem ab, was auf der bestehenden Website steht.
   Das ist kein Fehler im Modell, sondern ein Hinweis, dass eine der beiden Seiten veraltet ist.
+
+---
+
+## 8. Meldungen (Aktuelles)
+
+`src/meldungen.yaml`, geprüft gegen `schema/meldung.schema.json`.
+
+### Der Grundsatz
+
+> Eine Meldung wiederholt keine Tatsache, die schon beim Produkt steht.
+
+Version, Datum, Download-Adresse, Store-Link und Produktname kommen aus
+`src/products/*.yaml`. In der Meldung stehen nur Überschrift und Wortlaut — also
+genau das, was es sonst nirgends gibt.
+
+Das ist keine Sparsamkeit um ihrer selbst willen. Der Ausgangspunkt des ganzen
+Datenmodells war eine Startseite, auf der „Beta pausiert" stand, während die Beta lief:
+dieselbe Aussage an zwei Stellen, eine davon vergessen. Ein Datum, das nur einmal
+existiert, kann sich nicht widersprechen.
+
+### Woher das Datum kommt
+
+Die Reihenfolge der Wahrheit ist festgelegt:
+
+| Fall | Quelle des Datums |
+|---|---|
+| `version` verweist auf einen Release | `releases[].date` |
+| `typ: store` und genau eine Plattform hat `since` | `platforms[].since` |
+| sonst | `datum` in der Meldung selbst |
+
+Steht ein `datum` zusätzlich in der Meldung und weicht ab, ist das ein **Fehler** —
+nicht ein stillschweigender Vorrang. Denn beide Angaben beschreiben dasselbe Ereignis,
+also ist eine von beiden schlicht falsch, und welche das ist, kann nur ein Mensch wissen.
+
+### Feldreferenz
+
+| Feld | Pflicht | Bedeutung |
+|---|---|---|
+| `id` | ja | Sprungziel (`/aktuelles/#id`). **Ändert sich nie** — sonst brechen geteilte Links. |
+| `typ` | ja | `veroeffentlichung`, `update`, `store`, `test`, `hinweis` |
+| `produkt` | nein | slug. Fehlt er, ist es eine Meldung ohne Produktbezug. |
+| `version` | nein | Verweis auf einen Release-Eintrag des Produkts |
+| `datum` | bedingt | nur nötig, wenn es sich nicht ableiten lässt |
+| `titel` | ja | 8–90 Zeichen |
+| `text` | ja | 40–700 Zeichen, zwei bis vier Sätze in normaler Sprache |
+| `ziel` | nein | zusätzlicher Weg, der sich **nicht** aus dem Produkt ergibt |
+
+### Prüfregeln
+
+| Regel | Stufe |
+|---|---|
+| `produkt` und `version` existieren im Modell | Fehler |
+| `datum` widerspricht Release oder `since` nicht | Fehler |
+| Versionsnummer im Titel passt zur verwiesenen Version | Fehler |
+| `id` ist eindeutig | Fehler |
+| **jeder Release hat eine Meldung** | Warnung |
+| `ziel.url` wiederholt keinen automatischen Weg | Warnung |
+| kein `https://` im Fließtext | Warnung |
+| Datum liegt nicht in der Zukunft | Warnung |
+
+Die fett gesetzte Regel ist der eigentliche Zweck: Wer etwas veröffentlicht, ohne es zu
+erzählen, hat es für die Besucher nicht veröffentlicht.
+
+### Was `news.json` zusätzlich enthält
+
+Die Auflösung passiert beim Erzeugen, nicht in der Website — damit jeder Verbraucher
+der Daten dieselben Werte sieht:
+
+- `datum` — aufgelöst
+- `datumQuelle` — woher es stammt (nachvollziehbar, ohne ins YAML zu schauen)
+- `wege` — `download`, `store`, `kauf`, sofern das Produkt sie hat

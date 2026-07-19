@@ -26,12 +26,82 @@ platforms:
 privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, kein-google, offline-faehig]
 
 editions:
-  - id: standard
+  - id: free
     name: SnapFuchs
     public: true
-    price: { model: offen }
+    summary: Scannen, gerade rücken und als PDF ablegen – kostenlos.
+    price: { model: kostenlos }
+  - id: pro
+    name: SnapFuchs Pro
+    public: true
+    emphasis: true
+    # Wie bei MobileReport: Freischaltung über Google Play Billing als
+    # einmaliges Kaufprodukt, kein Abo. Der Preis ist der deutsche
+    # Endkundenpreis inklusive Mehrwertsteuer; Google rechnet je Land um.
+    summary: Voller Funktionsumfang, freigeschaltet per einmaligem In-App-Kauf.
+    price: { model: iap, amount: 3.00, currency: EUR, vatIncluded: true, recurring: false }
 
 releases: []
+
+# ┌──────────────────────────────────────────────────────────────────────────┐
+# │ ENTWURF – bitte gegenlesen und korrigieren.                              │
+# │                                                                          │
+# │ Aufbau wie bei GewerbePro: Gruppen, je Zeile ein Merkmal, je Edition     │
+# │ ein Wert. Die Werte stammen aus vokabular.yaml → featureWerte            │
+# │ (ja · nein · optional · teilweise · geplant · in-arbeit · fast-fertig)   │
+# │ oder sind freier Text, wenn eine Zahl dazugehört („bis 5 Seiten").       │
+# │                                                                          │
+# │ Zusammengestellt aus dem, was üblicherweise die Grenze zwischen einer    │
+# │ kostenlosen und einer bezahlten Scanner-App bildet. Was nicht stimmt,    │
+# │ bitte hier ändern – die Produktseite folgt automatisch.                  │
+# └──────────────────────────────────────────────────────────────────────────┘
+features:
+  - group: Erfassen
+    items:
+      - name: Seiten mit der Kamera aufnehmen
+        values: { free: ja, pro: ja }
+      - name: Kanten automatisch erkennen und gerade rücken
+        values: { free: ja, pro: ja }
+      - name: Zuschneiden und drehen von Hand
+        values: { free: ja, pro: ja }
+      - name: Kontrast und Farbmodus (Graustufen, Schwarzweiß, Farbe)
+        values: { free: teilweise, pro: ja }
+        note: Kostenlos gibt es die Voreinstellung; einstellbar ist sie in Pro.
+      - name: Mehrseitige Dokumente
+        values: { free: "bis 5 Seiten", pro: "ohne Begrenzung" }
+      - name: Bilder aus der Galerie übernehmen
+        values: { free: nein, pro: ja }
+
+  - group: Ausgabe
+    items:
+      - name: Als PDF speichern
+        values: { free: ja, pro: ja }
+      - name: Als JPG oder PNG speichern
+        values: { free: nein, pro: ja }
+      - name: Teilen und drucken
+        values: { free: ja, pro: ja }
+      - name: Texterkennung (OCR) für durchsuchbare PDFs
+        values: { free: nein, pro: geplant }
+        note: Läuft auf dem Gerät, nicht auf einem Server – das ist der Grund, warum es dauert.
+      - name: Seitengröße und Ränder wählen (A4, Letter, Original)
+        values: { free: nein, pro: ja }
+
+  - group: Ordnung
+    items:
+      - name: Zielordner selbst festlegen
+        values: { free: nein, pro: ja }
+      - name: Muster für Dateinamen (Datum, Zähler, eigener Text)
+        values: { free: nein, pro: ja }
+      - name: Seiten nachträglich umsortieren, ersetzen und löschen
+        values: { free: teilweise, pro: ja }
+
+  - group: Erscheinungsbild
+    items:
+      - name: Hinweis „Erstellt mit SnapFuchs" auf der letzten Seite
+        values: { free: ja, pro: nein }
+        note: In Pro entfällt der Hinweis.
+      - name: Dunkles Erscheinungsbild
+        values: { free: ja, pro: ja }
 
 # Noch keine eigene Produktseite – SnapFuchs erscheint bisher nur auf
 # produkte.html und downloads.html. Sobald die Freigabe da ist, wird eine

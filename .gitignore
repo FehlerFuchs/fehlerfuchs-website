@@ -1,0 +1,17 @@
+# Sicherungen der Werkstatt.
+#
+# Beim Speichern legt /werkstatt/ eine Kopie der bisherigen YAML-Datei ab, bevor
+# sie überschrieben wird. Die Kopien sind ein Sicherheitsnetz für den Augenblick
+# – kein Verlauf. Den führt Git.
+#
+# Sie gehören aus zwei Gründen nicht ins Repository: Dieser Ordner wird bei
+# jedem Push von GitHub Pages ausgeliefert (jede Datei darin landet im Netz),
+# und ein Verlauf neben dem Verlauf stiftet nur Verwirrung.
+data/src/_sicherungen/
+
+# Betriebssystem und Editor
+Thumbs.db
+.DS_Store
+*.log
+.vscode/
+.idea/

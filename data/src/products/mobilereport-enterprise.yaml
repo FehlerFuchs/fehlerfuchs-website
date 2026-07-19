@@ -1,25 +1,38 @@
+# FehlerFuchs MobileReport Enterprise
+# ===================================
+#
+# Diese Datei ist die Quelle. Geprüft wird sie gegen
+# data/schema/product.schema.json; erzeugt daraus wird data/products.json.
+#
+# Bearbeitet über die Werkstatt (astro, /werkstatt/) oder von Hand — beides
+# ist erlaubt. Nach jeder Änderung:
+#     cd website && python tools/build_data.py
+
 slug: mobilereport-enterprise
 name: MobileReport Enterprise
 fullName: FehlerFuchs MobileReport Enterprise
 kind: edition
 parent: mobilereport
-# Fachlich eine Ausbaustufe von MobileReport, wirtschaftlich ein eigenes Produkt:
-# eigener Preis, eigener Download, eigener Kaufweg. Gehört deshalb in die
-# Produktübersicht – anders als der Branding-Konfigurator, der reines Zubehör ist.
+
+# Wird eigenständig verkauft und erscheint deshalb trotzdem in der
+# Produktübersicht – auch wenn es fachlich eine Ausbaustufe ist.
 standalone: true
-tagline: Die Firmen-Stufe – Direkt-Download außerhalb von Google Play, eigenes Branding und Lizenz je Arbeitsplatz.
+tagline: "Die Firmen-Stufe – Direkt-Download außerhalb von Google Play, eigenes Branding und Lizenz je Arbeitsplatz."
 description: >-
   MobileReport für Unternehmen: Verteilung als APK außerhalb des Play Stores, eigenes
-  Branding per .mrbrand-Datei oder als Dienstleistung, Freischaltung über Lizenzschlüssel
-  je Arbeitsplatz mit Offline-Karenz. Strikt lokal, ohne Cloud-Zwang.
+  Branding per .mrbrand-Datei oder als Dienstleistung, Freischaltung über
+  Lizenzschlüssel je Arbeitsplatz mit Offline-Karenz. Strikt lokal, ohne Cloud-Zwang.
 audience: [unternehmen]
-accent: "#2E7D46"
+accent: "#0B9DC8"
+
+# Der Gesamtstatus folgt der WEITESTEN Plattform. Das Prüfskript rechnet
+# nach und meldet, wenn hier etwas anderes steht.
 status: verfuegbar
 
 platforms:
   - os: android
     status: verfuegbar
-    requirements: Android, Installation außerhalb des Play Stores
+    requirements: "Android, Installation außerhalb des Play Stores"
     distribution: github-release
     since: "2026-07-06"
 
@@ -37,60 +50,56 @@ editions:
       currency: EUR
       vatIncluded: true
       recurring: false
-      # Jede Staffel hat ihren EIGENEN Kassenlink – bei Digistore24 ist jede
-      # Paketgröße ein eigenes Produkt. Ohne diese Links endet die Preisangabe
-      # auf der Seite in einer Sackgasse: „ab 50 €" ohne Weg zum Kauf.
+      # Jede Stufe braucht ihren EIGENEN Kassenlink – sonst endet die
+      # Preisangabe auf der Seite in einer Sackgasse.
       tiers:
-        - { seats: 10,   amount: 50.00,   perSeat: 5.00, discountPercent: 0,
-            checkout: "https://www.checkout-ds24.com/product/709260" }
-        - { seats: 25,   amount: 112.50,  perSeat: 4.50, discountPercent: 10,
-            checkout: "https://www.checkout-ds24.com/product/709324" }
-        - { seats: 50,   amount: 200.00,  perSeat: 4.00, discountPercent: 20,
-            checkout: "https://www.checkout-ds24.com/product/709326" }
-        - { seats: 100,  amount: 350.00,  perSeat: 3.50, discountPercent: 30,
-            checkout: "https://www.checkout-ds24.com/product/709328" }
-        - { seats: 250,  amount: 750.00,  perSeat: 3.00, discountPercent: 40,
-            checkout: "https://www.checkout-ds24.com/product/709330" }
-        - { seats: 500,  amount: 1250.00, perSeat: 2.50, discountPercent: 50,
-            checkout: "https://www.checkout-ds24.com/product/709331" }
-        - { seats: 1000, amount: 2000.00, perSeat: 2.00, discountPercent: 60,
-            badge: Bestpreis,
-            checkout: "https://www.checkout-ds24.com/product/709333" }
+        - { seats: 10, amount: 50, perSeat: 5, discountPercent: 0, checkout: "https://www.checkout-ds24.com/product/709260" }
+        - { seats: 25, amount: 112.5, perSeat: 4.5, discountPercent: 10, checkout: "https://www.checkout-ds24.com/product/709324" }
+        - { seats: 50, amount: 200, perSeat: 4, discountPercent: 20, checkout: "https://www.checkout-ds24.com/product/709326" }
+        - { seats: 100, amount: 350, perSeat: 3.5, discountPercent: 30, checkout: "https://www.checkout-ds24.com/product/709328" }
+        - { seats: 250, amount: 750, perSeat: 3, discountPercent: 40, checkout: "https://www.checkout-ds24.com/product/709330" }
+        - { seats: 500, amount: 1250, perSeat: 2.5, discountPercent: 50, checkout: "https://www.checkout-ds24.com/product/709331" }
+        - { seats: 1000, amount: 2000, perSeat: 2, discountPercent: 60, badge: Bestpreis, checkout: "https://www.checkout-ds24.com/product/709333" }
   - id: custom
     name: Custom-Branding
     public: true
-    summary: Wir richten das Branding ein. Aufpreis je nach Aufwand, separat in Rechnung gestellt.
+    summary: >-
+      Wir richten das Branding ein. Aufpreis je nach Aufwand, separat in Rechnung
+      gestellt.
     price: { model: auf-anfrage }
 
+# ACHTUNG: Aus diesen Angaben entstehen die Manifeste, die ausgelieferte
+# Apps lesen. Der Text unter notes erscheint WÖRTLICH im Update-Hinweis.
 releases:
   - version: "1.0.1"
     date: "2026-07-09"
     channel: stable
     os: android
-    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v1.0.1/MobileReport-Enterprise-1.0.1.apk
+    url: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v1.0.1/MobileReport-Enterprise-1.0.1.apk"
     filename: MobileReport-Enterprise-1.0.1.apk
-    size:
-      bytes: null
-      label: "60,3 MB"
-      source: GitHub-Release-Asset (gerundet)
-    sha256: "3e990a428ed208be11587e779ce1eba02f8efbc81d192092a928270d75ca30a5"
+    size: { bytes: null, label: "60,3 MB", source: GitHub-Release-Asset (gerundet) }
+    sha256: 3e990a428ed208be11587e779ce1eba02f8efbc81d192092a928270d75ca30a5
     signed: false
-    # Wortlaut identisch zu enterprise/latest.json — die App zeigt diesen Text
-    # wörtlich im Update-Banner an. Änderungen hier ändern den Text in der App.
-    notes: '1.0.1: Betreff für Meldungen, Fotos per Ziehen sortieren (erstes Bild = Hauptbild), Name als Pflichtfeld mit optionalem Standard-Speichern, einstellbare maximale Bildanzahl, Profil-Feld Position/Funktion, überarbeitete Einstellungen (Bereich "Verwaltung") und Fix für die Admin-/Branding-Übernahme.'
+    notes: >-
+      1.0.1: Betreff für Meldungen, Fotos per Ziehen sortieren (erstes Bild = Hauptbild),
+      Name als Pflichtfeld mit optionalem Standard-Speichern, einstellbare maximale
+      Bildanzahl, Profil-Feld Position/Funktion, überarbeitete Einstellungen (Bereich
+      "Verwaltung") und Fix für die Admin-/Branding-Übernahme.
   - version: "1.0.0"
     date: "2026-07-06"
     channel: stable
     os: android
-    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v1.0.0/MobileReport-Enterprise-1.0.0.apk
+    url: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v1.0.0/MobileReport-Enterprise-1.0.0.apk"
     filename: MobileReport-Enterprise-1.0.0.apk
-    size: { bytes: null, label: "unbekannt", source: nicht erhoben }
+    size: { bytes: null, label: unbekannt, source: nicht erhoben }
     sha256: null
     signed: false
-    notes: Erste Enterprise-Version – Branding-Import, Lizenz je Arbeitsplatz, Backup, PDF-Export.
+    notes: >-
+      Erste Enterprise-Version – Branding-Import, Lizenz je Arbeitsplatz, Backup,
+      PDF-Export.
 
-# Bild-Wortmarke. Ist sie gesetzt, ist SIE der sichtbare Titel und die
-# Überschrift steht nur für Screenreader da – sonst stünde der Name doppelt.
+# Bildmarke. Ist sie gesetzt, ist SIE der sichtbare Titel; die Überschrift
+# bleibt für Screenreader im Dokument, nur unsichtbar.
 media:
   lockup:
     src: /img/lockups/mobilereport-enterprise.png
@@ -100,13 +109,15 @@ media:
 
 links:
   page: /apps/mobilereport-enterprise.html
-  release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mr-ent-v1.0.1
-  contact: /kontakt.html?app=MobileReport%20Enterprise&topic=angebot
+  release: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mr-ent-v1.0.1"
+  contact: "/kontakt.html?app=MobileReport%20Enterprise&topic=angebot"
 
 manifests:
   updateFeed: enterprise/latest.json
 
+# Freie Notiz. Hier gehört hin, was sonst als Kommentar verloren ginge –
+# Begründungen, offene Punkte, Absprachen.
 notes: >-
   Kauf und Lizenzausgabe laufen über Digistore24 (Reseller/Merchant of Record),
-  Rückgabefrist 30 Tage. Die Kassenlinks stehen bewusst hier im Modell: Ohne sie
-  zeigt die Seite zwar Preise, führt aber nirgendwohin.
+  Rückgabefrist 30 Tage. Die Kassenlinks stehen bewusst hier im Modell: Ohne sie zeigt
+  die Seite zwar Preise, führt aber nirgendwohin.

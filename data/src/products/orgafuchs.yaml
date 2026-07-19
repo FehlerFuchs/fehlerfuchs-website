@@ -52,6 +52,62 @@ releases:
       Feiertage und Schulferien je Bundesland, Geräte-Sync per QR-Code,
       Transparenz- und Open-Source-Seite in der App.
 
+# Funktionsübersicht. Übernommen aus dem Abschnitt „Funktionen" auf
+# apps/orgafuchs.html – also aus dem, was heute schon veröffentlicht ist.
+# Eine Spalte, weil es nur eine Edition gibt: Die Seite zeigt daraus eine
+# Funktionsübersicht statt eines Vergleichs.
+features:
+  - group: Planen
+    items:
+      - name: Monatskalender für Dienste, Schichten, Termine und Notizen
+        values: { standard: ja }
+      - name: Schnelleintrag – ganze Monate im Sekundentakt eintippen
+        values: { standard: ja }
+      - name: Frei definierbare Dienste mit eigenen Kürzeln, Farben und Zeiten
+        values: { standard: ja }
+        note: Mit Vorlagen für gängige Branchen – Früh/Spät/Nacht, Bereitschaft, Urlaub, Kinderbetreuung.
+      - name: Wiederkehrende Serien (täglich, wöchentlich, eigenes Muster)
+        values: { standard: ja }
+      - name: Notizen und Termine mit Personenbezug
+        values: { standard: ja }
+
+  - group: Ausgeben
+    items:
+      - name: "PDF-Übersicht: Monat"
+        values: { standard: ja }
+      - name: "PDF-Übersicht: Jahr"
+        values: { standard: ja }
+      - name: "PDF-Vorlage: Blanko zum Ausdrucken"
+        values: { standard: ja }
+      - name: Farbig oder schlicht in Schwarzweiß drucken
+        values: { standard: ja }
+      - name: Terminexport als ICS
+        values: { standard: ja }
+      - name: Jahresauswertung
+        values: { standard: ja }
+
+  - group: Geräte und Daten
+    items:
+      - name: Alle Daten ausschließlich auf dem Gerät (SQLite)
+        values: { standard: ja }
+      - name: Eigener Sync statt Cloud – Beitritt per QR-Code oder Passwort
+        values: { standard: ja }
+        note: Im Heimnetz oder über einen selbst gehosteten Relay, Ende-zu-Ende-verschlüsselt.
+      - name: Konto oder Registrierung nötig
+        values: { standard: nein }
+      - name: Backup und Wiederherstellung
+        values: { standard: ja }
+      - name: Logbuch in der App
+        values: { standard: ja }
+
+  - group: Beiwerk
+    items:
+      - name: Feiertage und Schulferien je Bundesland
+        values: { standard: ja }
+        note: Mit Selbstaktualisierung; bis der Endpunkt auf fehlerfuchs.eu steht, greift der eingebaute Bestand.
+      - name: Transparenz- und Open-Source-Seite in der App
+        values: { standard: ja }
+
 media:
   lockup:
     src: /img/lockups/orgafuchs.png

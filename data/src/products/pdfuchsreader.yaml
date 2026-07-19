@@ -29,6 +29,56 @@ editions:
 
 releases: []
 
+# Funktionsübersicht. Übernommen aus den Abschnitten „Funktionen" und
+# „Was (noch) nicht dabei ist" auf apps/pdfuchsreader.html.
+#
+# Die letzte Gruppe ist Absicht: Was eine App bewusst NICHT tut, gehört auf die
+# Seite. Wer OCR sucht, soll das hier erfahren und nicht erst nach dem Herunterladen.
+features:
+  - group: Lesen
+    items:
+      - name: PDFs flüssig anzeigen, scrollen und zoomen
+        values: { standard: ja }
+        note: Auf Grundlage der bewährten Render-Engine PDFium.
+      - name: Dunkelmodus
+        values: { standard: ja }
+      - name: Volltextsuche mit hervorgehobenen Treffern
+        values: { standard: ja }
+      - name: Miniaturübersicht und schneller Seitensprung
+        values: { standard: ja }
+
+  - group: Weitergeben
+    items:
+      - name: Dokument teilen
+        values: { standard: ja }
+      - name: Über den Android-Druckdialog ausdrucken
+        values: { standard: ja }
+      - name: PDFs aus anderen Apps direkt öffnen („Öffnen mit")
+        values: { standard: ja }
+      - name: Verlauf zuletzt geöffneter Dokumente
+        values: { standard: ja }
+
+  - group: Bearbeiten
+    items:
+      - name: Seiten drehen, löschen und neu ordnen
+        values: { standard: ja }
+      - name: Als Kopie speichern – das Original bleibt unverändert
+        values: { standard: ja }
+        note: Verlustfrei; die Ausgangsdatei wird nie überschrieben.
+
+  - group: Bewusst nicht dabei
+    items:
+      - name: Texterkennung (OCR) aus Bildern
+        values: { standard: nein }
+        note: Weggelassen, damit der Reader schnell und schlank bleibt.
+      - name: Formularfelder ausfüllen und unterschreiben
+        values: { standard: geplant }
+      - name: Voller PDF-Funktionsumfang
+        values: { standard: nein }
+        note: Bleibt der PDFuchs-Suite für Windows vorbehalten.
+      - name: Werbung, Konto oder Tracking
+        values: { standard: nein }
+
 # Bild-Wortmarke. Ist sie gesetzt, ist SIE der sichtbare Titel und die
 # Überschrift steht nur für Screenreader da – sonst stünde der Name doppelt.
 media:

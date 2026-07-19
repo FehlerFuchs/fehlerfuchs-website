@@ -28,8 +28,68 @@ editions:
   - id: pro
     name: MobileReport Pro
     public: true
+    emphasis: true
     summary: Voller Funktionsumfang, freigeschaltet per einmaligem In-App-Kauf.
     price: { model: iap, amount: 5.00, currency: EUR, vatIncluded: true, recurring: false }
+
+# Merkmalsmatrix. Übernommen aus der Vergleichstabelle auf apps/mobilereport.html –
+# also aus dem, was heute schon veröffentlicht ist, nicht neu erdacht.
+#
+# Die dritte Spalte ist kein Tippfehler: 'mobilereport-enterprise' ist ein eigenes
+# Produkt (parent + standalone), aus Käufersicht aber schlicht die dritte Stufe
+# derselben App. Ihn für den Vergleich auf eine andere Seite zu schicken, hieße den
+# Vergleich zu zerreißen, den er gerade anstellt. Die Prüfung lässt Spalten von
+# eigenständigen Ausbaustufen deshalb ausdrücklich zu.
+features:
+  - group: Grundlage
+    items:
+      - name: Erfassen, Fotos, PDF, E-Mail-Entwurf und Logbuch
+        values: { free: ja, pro: ja, mobilereport-enterprise: ja }
+      - name: Vollständig lokal und werbefrei
+        values: { free: ja, pro: ja, mobilereport-enterprise: ja }
+
+  - group: Vorgaben für das Team
+    items:
+      - name: Feste Bereiche, Kategorien und Pflichtfelder
+        values: { free: nein, pro: ja, mobilereport-enterprise: ja }
+      - name: Admin-Bereich mit Master-Passwort (geschütztes Berichtsformat)
+        values: { free: nein, pro: ja, mobilereport-enterprise: ja }
+      - name: Vorkonfiguration per CSV (Bereiche, Standorte, Empfänger)
+        values: { free: nein, pro: ja, mobilereport-enterprise: ja }
+
+  - group: Logbuch
+    items:
+      - name: Filter und Suche im Logbuch
+        values: { free: teilweise, pro: ja, mobilereport-enterprise: ja }
+        note: Kostenlos gibt es die Grundsuche; die erweiterten Filter sind ab Pro dabei.
+      - name: Eigene Zählweise und Muster für Dateinamen
+        values: { free: teilweise, pro: ja, mobilereport-enterprise: ja }
+        note: Kostenlos gilt die feste Standardzählung.
+
+  - group: Erscheinungsbild
+    items:
+      - name: Branding und Farbschema
+        values:
+          free: nein
+          pro: "Firmenlogo · 15 Vorlagen"
+          mobilereport-enterprise: "frei wählbar: Logo, Farben, Name"
+      - name: App unter eigenem Namen und Symbol
+        values: { free: nein, pro: nein, mobilereport-enterprise: "nur Custom-Branding" }
+
+  - group: Verteilung und Freischaltung
+    items:
+      - name: Bezugsweg
+        values:
+          free: "Google Play · kostenlos"
+          pro: "In-App-Kauf in der App"
+          mobilereport-enterprise: "Direkt-Download außerhalb von Play"
+      - name: Freischaltung
+        values:
+          free: nein
+          pro: "einmaliger Kauf, geräteübergreifend"
+          mobilereport-enterprise: "Lizenzschlüssel je Arbeitsplatz"
+      - name: Anbindung an eigene Systeme
+        values: { free: nein, pro: nein, mobilereport-enterprise: "nur Custom-Branding" }
 
 # Play-Store-Apps haben bei uns keine Release-Einträge: Version, Datum und Größe
 # verwaltet der Store. Eine zweite Angabe hier wäre sofort veraltet.

@@ -1,0 +1,217 @@
+slug: einzelstueck
+name: EinzelStück
+fullName: FehlerFuchs EinzelStück
+# Keine fertige App, sondern eine Leistung: Sie entsteht erst, wenn jemand
+# ein Problem mitbringt. Deshalb kein Download, keine Version, kein Store –
+# und deshalb die eigene Art 'dienstleistung'.
+kind: dienstleistung
+tagline: Ich baue, was Sie brauchen – und zwar so, wie Sie es möchten.
+description: >-
+  Manchmal gibt es für ein Problem keine fertige Software. Oder es gibt zwanzig, und
+  jede kann neunzehn Dinge zu viel. Dann entsteht ein EinzelStück: eine Anwendung, die
+  genau eine Aufgabe löst – Ihre. Als Windows-Programm, Browser-Werkzeug oder Android-App.
+  Die erste Sichtung des Problems und eine grobe Kostenschätzung sind kostenlos.
+
+audience: [unternehmen, selbststaendige, vereine]
+
+# Gedecktes Gold. Der helle Ton (#B8912F) sieht schöner aus, hat gegen Weiß aber
+# nur 3,0:1 Kontrast – weiße Schrift auf einem Knopf wäre schlecht lesbar.
+# #8A6A1E kommt auf 5,1:1 und besteht die Prüfschwelle von 4,5.
+# Das helle Gold lebt im Verlauf der Wortmarke weiter, wo es keine Schrift trägt.
+accent: "#8A6A1E"
+
+# Rückfallebene für kleine Größen und einfarbigen Druck: Der Farbverlauf steckt im
+# Lockup (media.lockup), hier stehen feste Farben. Eine Wortmarke muss auch dann
+# funktionieren, wenn nur eine Farbe zur Verfügung steht.
+wordmark:
+  - { text: "FehlerFuchs ", color: "#7C3F16", weight: normal }
+  - { text: "Einzel", color: "#7C3F16", weight: bold, break: true }
+  - { text: "Stück", color: "#8A6A1E", weight: bold }
+
+status: verfuegbar
+
+# Bei einer Dienstleistung beschreiben die Plattformen nicht, wo es etwas gibt,
+# sondern WAS gebaut werden kann. Der Bezugsweg ist daher immer „auf Anfrage".
+platforms:
+  - os: windows
+    status: verfuegbar
+    requirements: Windows 10/11 (64-bit)
+    distribution: auf-anfrage
+  - os: web
+    status: verfuegbar
+    requirements: läuft im Browser, auch ohne Server
+    distribution: auf-anfrage
+  - os: android
+    status: verfuegbar
+    requirements: Android, Verteilung als APK oder über Ihren Store-Zugang
+    distribution: auf-anfrage
+
+# Dieselbe Haltung wie bei allen fertigen Anwendungen – sie ist der Grund,
+# warum jemand hier anfragt und nicht anderswo.
+privacy: [nur-lokal, keine-cloud, kein-tracking, werbefrei, offline-faehig]
+
+editions:
+  - id: standard
+    name: Individuelle Anwendung
+    public: true
+    summary: >-
+      Erstsichtung und grobe Kostenschätzung kostenlos. Der Preis ergibt sich aus
+      Art, Umfang und Aufwand – erst danach wird etwas verbindlich.
+    price: { model: auf-anfrage }
+
+releases: []
+
+# Der Ablauf gehört ins Modell, nicht in die Seitenvorlage: Er ist Inhalt, und
+# er ist das, was ein Interessent als Erstes wissen will.
+features:
+  - group: Was gebaut werden kann
+    items:
+      - name: Windows-Anwendung (Desktop, arbeitet lokal)
+        values: { standard: ja }
+      - name: Browser-Werkzeug (HTML, läuft ohne Installation)
+        values: { standard: ja }
+      - name: Android-App (als APK oder über Ihren eigenen Store-Zugang)
+        values: { standard: ja }
+      - name: Auswertungen und Ausgaben als PDF, CSV oder Excel
+        values: { standard: ja }
+      - name: Vorlagen, Formulare und Berichte in Ihrem Erscheinungsbild
+        values: { standard: ja }
+      - name: iOS-App
+        values: { standard: nein }
+        note: Dafür fehlen mir Gerätepark und Entwicklerzugang. Ich sage es lieber vorher.
+
+  # Das ist der Kern des Angebots, deshalb steht die Gruppe weit oben: Am Ende
+  # steht nicht „eine FehlerFuchs-App mit Ihrem Namen drauf", sondern Ihre
+  # Anwendung. Wer das erst im Kleingedruckten erfährt, hat vorher gezögert.
+  - group: Es ist Ihre Anwendung
+    items:
+      - name: Eigenes Logo, eigenes Symbol, eigener Name
+        values: { standard: ja }
+      - name: Ihr Corporate Design wird übernommen
+        values: { standard: ja }
+        note: Farben, Schriften, Vorlagen – wenn Sie eine Gestaltungsrichtlinie haben, richte ich mich danach.
+      - name: Impressum und rechtliche Angaben auf Sie zugeschnitten
+        values: { standard: ja }
+      - name: FehlerFuchs steht sichtbar in der Anwendung
+        values: { standard: nein }
+        note: >-
+          Mein Name erscheint nur dort, wo es technisch nötig ist. Es ist Ihre
+          Anwendung, nicht meine Werbefläche.
+      - name: Die fertige Anwendung gehört Ihnen
+        values: { standard: ja }
+
+  - group: Wie es abläuft
+    items:
+      - name: "Erstsichtung: Sie schildern das Problem, ich schaue es mir an"
+        values: { standard: "kostenlos" }
+      - name: Grobe Kostenschätzung nach der Sichtung
+        values: { standard: "kostenlos" }
+      - name: Kostenrahmen vor Baubeginn
+        values: { standard: ja }
+        note: >-
+          Ein Rahmen, kein Festpreis auf den Cent. Wer vor der ersten Zeile Code
+          einen festen Betrag zusagt, hat entweder großzügig aufgeschlagen oder
+          muss später nachverhandeln. Beides möchte ich vermeiden.
+      - name: Erste lauffähige Vorversion zum Ausprobieren
+        values: { standard: ja }
+        note: >-
+          Früh und absichtlich unfertig. An etwas Laufendem sieht man in fünf
+          Minuten mehr als in einem zehnseitigen Konzept.
+      - name: Zwischenstände zum Ansehen und Nachsteuern
+        values: { standard: ja }
+      - name: Korrekturschleifen nach Absprache
+        values: { standard: ja }
+        note: Der Umfang wird vorher festgelegt – so weiß jeder, woran er ist.
+
+  - group: Danach
+    items:
+      - name: Nachbessern, wenn die Praxis etwas anderes zeigt
+        values: { standard: ja }
+        note: >-
+          Das ist der Normalfall, nicht die Ausnahme. Sobald echte Menschen mit
+          einer Anwendung arbeiten, fällt auf, was fehlt oder anders sein müsste.
+          Diese Runde ist eingeplant – sie ist kein Zeichen dafür, dass etwas
+          schiefgelaufen ist.
+      - name: Einweisung und Kurzanleitung
+        values: { standard: ja }
+      - name: Fehlerbehebung nach der Übergabe
+        values: { standard: nach-absprache }
+      - name: Weiterentwicklung und neue Funktionen
+        values: { standard: nach-absprache }
+        note: Anwendungen wachsen mit dem, was sie tun sollen. Das ist gut so.
+      - name: Quelltext-Übergabe
+        values: { standard: nach-absprache }
+
+  - group: Was ich nicht übernehme
+    items:
+      - name: Einbindung in Ihr Firmennetz und Ihre Infrastruktur
+        values: { standard: nein }
+        note: >-
+          Das macht Ihre IT – sie kennt Ihre Umgebung, Ihre Freigaben und Ihre
+          Sicherheitsvorgaben. Ich baue die Anwendung so, dass sie hineinpasst.
+      - name: Vorarbeit dafür (Schnittstellen, Formate, Vorgaben umsetzen)
+        values: { standard: ja }
+        note: Bei entsprechenden Vorgaben Ihrer IT bereite ich alles vor.
+      - name: Betrieb von Servern und Diensten
+        values: { standard: nein }
+      - name: Schulung ganzer Abteilungen
+        values: { standard: nein }
+        note: Eine Einweisung für die Personen, die damit arbeiten, ist dabei.
+
+faq:
+  - question: Was kostet das?
+    answer: >-
+      Das lässt sich seriös erst nach der Sichtung sagen. Der Preis ergibt sich aus
+      der Art der Anwendung, dem Umfang, dem Aufwand, der Zahl der Korrekturschleifen
+      und dem, was Sie an Unterstützung danach brauchen. Die Sichtung selbst und eine
+      grobe Einordnung kosten nichts.
+  - question: Was passiert bei der kostenlosen Erstsichtung?
+    answer: >-
+      Sie schildern mir das Problem – gern formlos. Ich stelle Rückfragen, schaue mir
+      an, was heute schon da ist, und sage Ihnen ehrlich, ob sich eine eigene Anwendung
+      überhaupt lohnt. Manchmal ist die Antwort: Es gibt schon etwas Passendes. Dann
+      sage ich Ihnen das auch.
+  - question: Bindet FehlerFuchs die Anwendung in unser Netzwerk ein?
+    answer: >-
+      Nein. Die Einbindung in Ihr Firmennetz und Ihre Infrastruktur bleibt bei Ihrer
+      IT – sie kennt Ihre Umgebung und Ihre Sicherheitsvorgaben, ich nicht. Was ich
+      leisten kann: die Vorarbeit dafür. Wenn Ihre IT Vorgaben macht, richte ich die
+      Anwendung danach aus.
+  - question: Wem gehört die fertige Anwendung?
+    answer: >-
+      Ihnen. Sie bekommt Ihr Logo, Ihr Symbol, Ihren Namen und, wenn Sie eine
+      Gestaltungsrichtlinie haben, Ihre Farben und Schriften. Das Impressum wird auf
+      Sie zugeschnitten. Mein Name erscheint nur dort, wo es technisch nötig ist –
+      es ist Ihre Anwendung, nicht meine Werbefläche.
+  - question: Bleiben unsere Daten lokal?
+    answer: >-
+      Sofern die Aufgabe es zulässt, ja. Das ist die Grundhaltung hinter allem, was
+      hier entsteht: keine Cloud, kein Konto, kein Tracking. Wenn Ihre Aufgabe zwingend
+      einen Server braucht, sage ich das vorher – und Sie entscheiden.
+  - question: Wie lange dauert es?
+    answer: >-
+      Das hängt vom Umfang ab und steht im Angebot. FehlerFuchs ist ein Ein-Personen-
+      Betrieb: Ich sage lieber einen ehrlichen Termin zu als einen schnellen.
+
+# Bildmarke mit dem Farbverlauf Braun → Gold. Das Besondere wächst aus der Marke
+# heraus, statt daneben zu stehen: Der Verlauf beginnt im Markenbraun. Der Fuchs
+# trägt hier einen Zollstock statt der Lupe – er sucht nicht mehr, er nimmt Maß.
+media:
+  lockup:
+    src: /img/lockups/einzelstueck.svg
+    alt: EinzelStück – von FehlerFuchs
+    width: 1120
+    height: 300
+
+links:
+  # Auf der bestehenden Website gibt es dieses Angebot noch nicht; bis dahin
+  # zeigt der Verweis auf die Sammelseite. Website 2.0 erzeugt die eigene Seite
+  # aus diesen Daten von selbst.
+  page: /produkte.html
+  contact: /kontakt.html?topic=einzelstueck
+
+notes: >-
+  Noch keine eigene Seite auf der bestehenden Website – das Angebot entsteht mit
+  Website 2.0. Der Abgleich meldet das erwartungsgemäß.
+  Anrede: Dieses Angebot siezt, weil es sich an Betriebe richtet; der Rest der
+  Website duzt. Bewusste Ausnahme – falls sie stören sollte, hier ändern.

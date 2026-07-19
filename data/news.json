@@ -1,0 +1,120 @@
+{
+  "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
+  "generiert": "2026-07-19T14:40:01+02:00",
+  "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
+  "meldungen": [
+    {
+      "id": "orgafuchs-1-0-0",
+      "typ": "veroeffentlichung",
+      "produkt": "orgafuchs",
+      "version": "1.0.0",
+      "titel": "OrgaFuchs 1.0.0 – für Windows da, Android in Arbeit",
+      "text": "Der lokale Familien- und Schichtplaner ist fertig für Windows. Monatskalender, Schnelleintrag, PDF als Monat, Jahr oder Blanko-Vorlage, dazu Feiertage und Schulferien je Bundesland. Die Geräte gleichen sich per QR-Code direkt untereinander ab – ohne Cloud, ohne Google, ohne Konto. Die Android-Fassung wird gerade gebaut.",
+      "datum": "2026-07-18",
+      "datumQuelle": "Release 1.0.0",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.0.0/OrgaFuchs_Setup_1.0.0.exe"
+      }
+    },
+    {
+      "id": "pdfuchsreader-play-regulaer",
+      "typ": "store",
+      "produkt": "pdfuchsreader",
+      "titel": "PDFuchs Reader ist jetzt regulär im Play Store",
+      "text": "Der offene Test ist vorbei: Der kostenlose, werbefreie PDF-Reader für Android steht ab sofort regulär im Google Play Store. Lesen, suchen, teilen, drucken und Seiten leicht bearbeiten – alles bleibt auf dem Gerät.",
+      "datum": "2026-07-18",
+      "datumQuelle": "platforms[android].since",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader"
+      }
+    },
+    {
+      "id": "gewerbepro-0-3-1",
+      "typ": "update",
+      "produkt": "gewerbepro",
+      "version": "0.3.1",
+      "titel": "GewerbePro 0.3.1 – Logo, Farben und Unterschrift",
+      "text": "Belege tragen jetzt das eigene Firmenlogo, die Programmfarben lassen sich frei einstellen und in die gemeinsame Beleg-Fußzeile passt eine hinterlegte Unterschrift. Der eingebaute PDFuchs bekommt einen QR-Code-Generator und kann unter Windows direkt scannen. Wer die Beta schon nutzt, findet das Update in der App unter „Auf Updates prüfen\".",
+      "datum": "2026-07-16",
+      "datumQuelle": "Release 0.3.1",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.1/FehlerFuchs_GewerbePro_Setup_0.3.1.exe"
+      }
+    },
+    {
+      "id": "gewerbepro-0-3-0",
+      "typ": "test",
+      "produkt": "gewerbepro",
+      "version": "0.3.0",
+      "titel": "GewerbePro 0.3.0: die offene Beta ist da",
+      "text": "Die lokale Büro-Software für Windows steht erstmals öffentlich zum Testen bereit. Die Gewerbe-Edition ist kostenlos und läuft sofort los. Für die Pro-Funktionen gibt es während der Beta eine 90-Tage-Testlizenz automatisch per E-Mail. Rückmeldungen sind ausdrücklich erwünscht – dafür ist eine Beta da.",
+      "datum": "2026-07-15",
+      "datumQuelle": "Release 0.3.0",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.0/FehlerFuchs_GewerbePro_Setup_0.3.0.exe"
+      }
+    },
+    {
+      "id": "pdfuchsreader-offener-test",
+      "typ": "test",
+      "produkt": "pdfuchsreader",
+      "datum": "2026-07-14",
+      "titel": "PDFuchs Reader im offenen Test",
+      "text": "Der PDF-Reader für Android geht in den offenen Test bei Google Play. Lesen, durchsuchen, teilen, drucken und Seiten leicht bearbeiten – ohne Werbung, ohne Konto, vollständig auf dem Gerät.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader"
+      }
+    },
+    {
+      "id": "mobilereport-1-1-0-pro",
+      "typ": "update",
+      "produkt": "mobilereport",
+      "datum": "2026-07-12",
+      "titel": "MobileReport 1.1.0 – Pro als einmaliger Kauf",
+      "text": "Pro schaltet man jetzt mit einem einmaligen In-App-Kauf frei: fünf Euro, kein Abo, dauerhaft und auf allen Geräten mit demselben Google-Konto. Dazu gehören der Admin-Bereich mit Master-Passwort, eigenes Branding in App und PDF sowie einstellbare Logbuch-Zähler.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport"
+      }
+    },
+    {
+      "id": "mobilereport-enterprise-1-0-1",
+      "typ": "update",
+      "produkt": "mobilereport-enterprise",
+      "version": "1.0.1",
+      "titel": "MobileReport Enterprise 1.0.1",
+      "text": "Meldungen bekommen einen Betreff, Fotos lassen sich per Ziehen sortieren – das erste Bild ist das Hauptbild. Der Name ist Pflichtfeld und kann als Standard gespeichert werden, die höchste Bildanzahl ist einstellbar und das Profil kennt jetzt Position beziehungsweise Funktion. Die Einstellungen wurden neu geordnet.",
+      "datum": "2026-07-09",
+      "datumQuelle": "Release 1.0.1",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v1.0.1/MobileReport-Enterprise-1.0.1.apk"
+      }
+    },
+    {
+      "id": "mobilereport-free-play",
+      "typ": "store",
+      "produkt": "mobilereport",
+      "datum": "2026-07-09",
+      "titel": "MobileReport ist jetzt im Play Store",
+      "text": "Das kleine Melde-Logbuch für Geräte und Anlagen steht ab sofort im Google Play Store: Beschreibung, Fotos, Ort und Zeit erfassen, daraus ein sauberes PDF und eine vorbereitete E-Mail. Alles bleibt auf dem Gerät.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport"
+      }
+    },
+    {
+      "id": "mobilereport-enterprise-1-0-0",
+      "typ": "veroeffentlichung",
+      "produkt": "mobilereport-enterprise",
+      "version": "1.0.0",
+      "titel": "MobileReport Enterprise – die Fassung für Firmen",
+      "text": "Für Betriebe, die MobileReport auf mehreren Geräten mit eigenem Erscheinungsbild einsetzen wollen: Firmenname, Logo und Farben werden einmal im Browser zusammengestellt und als Datei auf die Geräte gebracht. Die App wird direkt geliefert, nicht über den Play Store – es gibt sie pro Gerät und gestaffelt.",
+      "datum": "2026-07-06",
+      "datumQuelle": "Release 1.0.0",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v1.0.0/MobileReport-Enterprise-1.0.0.apk"
+      }
+    }
+  ]
+}

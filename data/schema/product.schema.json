@@ -34,10 +34,12 @@
       "maxLength": 90
     },
     "kind": {
+      "description": "produkt = fertige Anwendung · edition = Ausbaustufe eines Produkts · werkzeug = Zubehör · dienstleistung = wird erst auf Bestellung gebaut, es gibt sie also nicht zum Herunterladen",
       "enum": [
         "produkt",
         "edition",
-        "werkzeug"
+        "werkzeug",
+        "dienstleistung"
       ]
     },
     "standalone": {
