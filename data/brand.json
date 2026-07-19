@@ -1,0 +1,60 @@
+{
+  "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
+  "generiert": "2026-07-19T11:24:38+02:00",
+  "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
+  "name": "FehlerFuchs",
+  "slogan": "Einfach kleine Helfer.",
+  "untertitel": "Kleine, lokale Helfer-Apps – mit Haltung.",
+  "claim": "Kleine, lokale Helfer-Apps – datensparsam, ohne Cloud und ohne Tracking.",
+  "leitsaetze": [
+    {
+      "titel": "Einfach & ehrlich",
+      "text": "löst ein konkretes Problem, sonst nichts."
+    },
+    {
+      "titel": "Datensparsam",
+      "text": "ohne Cloud, Tracking oder Konto."
+    },
+    {
+      "titel": "Lokal",
+      "text": "deine Daten bleiben bei dir."
+    },
+    {
+      "titel": "Fair",
+      "text": "werbefrei; das Grundlegende bleibt immer frei."
+    },
+    {
+      "titel": "Transparent",
+      "text": "du behältst die Kontrolle, Daten jederzeit löschbar."
+    },
+    {
+      "titel": "Verständlich",
+      "text": "klare Sprache statt Fachchinesisch."
+    }
+  ],
+  "person": {
+    "name": "Matthias Schacht",
+    "rufname": "Matze",
+    "signatur": "— Matthias (Matze) von FehlerFuchs",
+    "portrait": {
+      "src": "/img/matze-portrait-sw.jpg",
+      "alt": "Matthias Schacht, Gründer von FehlerFuchs",
+      "width": 480,
+      "height": 720,
+      "fokus": "50% 12%"
+    }
+  },
+  "idee": {
+    "ueberschrift": "FehlerFuchs – die Idee",
+    "absaetze": [
+      "Hinter FehlerFuchs steht kein riesiges Softwareunternehmen und kein großes Team – nur ich, Matze. Mich hat es schon immer gereizt, Abläufe einfacher zu machen: Dinge, die im Alltag umständlich sind, so lange zu drehen, bis sie rund laufen.",
+      "Die Apps entstehen komplett in meiner Freizeit – einfach, weil mir genau dieses Tüfteln Spaß macht. Mein Anspruch dabei: kleine, ehrliche Werkzeuge, die ein konkretes Problem lösen und sonst nichts. Datensparsam, ohne Cloud, ohne Tracking, ohne Konto – die Daten bleiben dort, wo sie hingehören: bei dir.",
+      "Es wird kostenlose Apps geben – und einzelne Apps mit optionaler Pro-Version, die noch individueller ist oder mehr Funktionen bietet. Wichtig ist mir aber: Das Wesentliche, das man grundlegend braucht, steckt immer schon in der kostenlosen Version. Natürlich soll FehlerFuchs Geld verdienen und meine Arbeit tragen. Aber nicht mit Druck, künstlichen Abhängigkeiten oder dem Ziel, ein Monopol aufzubauen. Fair, schlank und auf Augenhöhe.",
+      "FehlerFuchs ist der Rahmen, unter dem nach und nach mehrere solcher Helfer entstehen. MobileReport war der Anfang – inzwischen wächst die Familie Stück für Stück (Programme für den PC, weitere Apps in Arbeit). Wenn dir etwas auffällt oder fehlt, freue ich mich über jede Rückmeldung."
+    ]
+  },
+  "kontakt": {
+    "ueberschrift": "Kontakt",
+    "text": "Fragen, Interesse oder Feedback? Schreib mir über das kurze Kontaktformular – ich melde mich per E-Mail oder (auf Wunsch) telefonisch zurück."
+  }
+}

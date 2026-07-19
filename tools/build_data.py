@@ -18,6 +18,7 @@ Minimalprüfung, die alle im Schema verwendeten Konstrukte abdeckt.
 
 import json
 import re
+import struct
 import sys
 from datetime import date, datetime
 from pathlib import Path
@@ -33,8 +34,33 @@ SCHEMA_FILE = ROOT / "data" / "schema" / "product.schema.json"
 OUT_PRODUCTS = ROOT / "data" / "products.json"
 OUT_STATUSES = ROOT / "data" / "statuses.json"
 OUT_VOKABULAR = ROOT / "data" / "vocabulary.json"
+OUT_MARKE = ROOT / "data" / "brand.json"
 
 fehler, warnungen, abgleich = [], [], []
+
+
+def bildmasse(pfad):
+    """Echte Maße aus der Datei lesen – PNG und JPEG, ohne Zusatzpaket.
+    Falsche Maße im Modell führen zu verzerrten oder falsch beschnittenen
+    Bildern; das fällt sonst erst dem Besucher auf."""
+    d = pfad.read_bytes()
+    if d[:8] == b"\x89PNG\r\n\x1a\n":
+        return struct.unpack(">II", d[16:24])
+    if d[:2] == b"\xff\xd8":
+        i = 2
+        while i < len(d) - 9:
+            if d[i] != 0xFF:
+                i += 1
+                continue
+            m = d[i + 1]
+            if m in (0xC0, 0xC1, 0xC2, 0xC3):
+                h, w = struct.unpack(">HH", d[i + 5:i + 9])
+                return (w, h)
+            if m in (0xD8, 0xD9) or 0xD0 <= m <= 0xD7:
+                i += 2
+                continue
+            i += 2 + struct.unpack(">H", d[i + 2:i + 4])[0]
+    return None
 
 
 def melde(liste, slug, text):
@@ -400,6 +426,7 @@ def main():
     schema = json.loads(SCHEMA_FILE.read_text(encoding="utf-8"))
     statuses = yaml.safe_load((SRC / "statuses.yaml").read_text(encoding="utf-8"))
     vokabular = yaml.safe_load((SRC / "vokabular.yaml").read_text(encoding="utf-8"))
+    marke = yaml.safe_load((SRC / "marke.yaml").read_text(encoding="utf-8"))
 
     dateien = sorted((SRC / "products").glob("*.yaml"))
     if not dateien:
@@ -435,6 +462,21 @@ def main():
             pruefe_inhalt(p, statuses, slugs)
         abgleich_mit_website(produkte)
 
+    # Die Marke verspricht etwas – die Belege dafür stehen bei den Produkten.
+    pt = marke.get("person", {}).get("portrait")
+    if pt:
+        datei = ROOT / pt["src"].lstrip("/")
+        if not datei.exists():
+            fehler.append(f"marke: Porträt {pt['src']} gibt es nicht")
+        else:
+            echt = bildmasse(datei)
+            if echt and (echt != (pt.get("width"), pt.get("height"))):
+                fehler.append(f"marke: Porträt ist {echt[0]}×{echt[1]}, im Modell steht "
+                              f"{pt.get('width')}×{pt.get('height')} – falsche Maße "
+                              f"verzerren das Bild oder schneiden es falsch zu")
+    if not marke.get("leitsaetze"):
+        fehler.append("marke: keine Leitsätze hinterlegt – die Startseite hätte keine Botschaft")
+
     breite = 74
     for titel, liste in (("FEHLER", fehler), ("WARNUNG", warnungen), ("ABGLEICH", abgleich)):
         if liste:
@@ -467,9 +509,11 @@ def main():
         {**kopf, "statuses": statuses}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     OUT_VOKABULAR.write_text(json.dumps(
         {**kopf, **vokabular}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    OUT_MARKE.write_text(json.dumps(
+        {**kopf, **marke}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print(f"Geschrieben: {OUT_PRODUCTS.relative_to(ROOT)}, {OUT_STATUSES.relative_to(ROOT)}, "
-          f"{OUT_VOKABULAR.relative_to(ROOT)}")
+          f"{OUT_VOKABULAR.relative_to(ROOT)}, {OUT_MARKE.relative_to(ROOT)}")
     return 0
 
 
