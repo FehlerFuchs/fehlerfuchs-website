@@ -33,10 +33,21 @@ website/data/
   SCHEMA.md                  ← dieses Dokument
   schema/product.schema.json ← maschinelle Prüfregeln (JSON Schema, Draft 2020-12)
   src/statuses.yaml          ← Statusstufen: Label, Farbe, erlaubte CTA
+  src/vokabular.yaml         ← Anzeigetexte für alle technischen Schlüssel
   src/products/<slug>.yaml   ← je Produkt eine Datei (Quelle, von Hand gepflegt)
   products.json              ← ERZEUGT: alle Produkte gebündelt
   statuses.json              ← ERZEUGT: Statusstufen
+  vocabulary.json            ← ERZEUGT: Anzeigetexte
 ```
+
+### Warum `vokabular.yaml` nötig wurde
+
+Ein Schlüssel wie `offline-faehig` ist zum Sortieren und Vergleichen ideal — aber nichts,
+was ein Besucher lesen soll. Ohne Zuordnung landeten die Schlüssel wörtlich auf der Seite:
+„offline faehig", „kein tracking", „github release". Jetzt hat jeder Schlüssel einen
+Anzeigetext, und das Prüfskript meldet als **Fehler**, wenn ein benutzter Wert keinen hat.
+Die Umlaute können damit nicht mehr verlorengehen, weil sie nicht mehr aus dem Schlüssel
+abgeleitet werden.
 
 `tools/build_data.py` liest `src/`, prüft gegen das Schema und schreibt die `.json`-Dateien.
 
@@ -207,6 +218,20 @@ und bleibt deshalb draußen.
 | `public` | bool | ja | `false` = intern, wird nirgends ausgegeben |
 | `price` | object | ja | siehe 4.4 |
 | `summary` | string | nein | Ein Satz zur Abgrenzung |
+| `wordmark` | object[] | nein | Wortmarke in farbigen Teilen, für Tabellenüberschriften |
+| `emphasis` | bool | nein | Diese Spalte wird in der Merkmalsmatrix hervorgehoben |
+
+`wordmark` zerlegt den Namen in Textstücke mit eigener Farbe und Stärke:
+
+```yaml
+wordmark:
+  - { text: "FehlerFuchs ", color: "#7C3F16", weight: normal }
+  - { text: "Gewerbe",      color: "#B45309", weight: bold }
+  - { text: "Pro",          color: "#7C3F16", weight: bold }
+```
+
+Ohne dieses Feld wird schlicht `name` gesetzt. Es ist also nur nötig, wo die Marke
+tatsächlich mehrfarbig gesetzt wird.
 
 ### 5.4 `releases[]`
 

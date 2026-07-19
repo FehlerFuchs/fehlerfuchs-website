@@ -32,6 +32,7 @@ SRC = ROOT / "data" / "src"
 SCHEMA_FILE = ROOT / "data" / "schema" / "product.schema.json"
 OUT_PRODUCTS = ROOT / "data" / "products.json"
 OUT_STATUSES = ROOT / "data" / "statuses.json"
+OUT_VOKABULAR = ROOT / "data" / "vocabulary.json"
 
 fehler, warnungen, abgleich = [], [], []
 
@@ -115,6 +116,33 @@ def pruefe_gegen_schema(daten, schema, pfad, slug, defs=None):
 
 
 # ------------------------------------------------------------- Inhaltliche Regeln
+
+def pruefe_vokabular(p, vok):
+    """Jeder benutzte Schlüssel braucht einen Anzeigetext – sonst steht der
+    technische Schlüssel auf der Seite ('offline faehig', 'github release')."""
+    slug = p["slug"]
+
+    def deckt_ab(bereich, wert, wo):
+        if wert not in vok.get(bereich, {}):
+            melde(fehler, slug, f"{wo}: '{wert}' hat keinen Anzeigetext in "
+                                f"vokabular.yaml → {bereich}")
+
+    for m in p.get("privacy", []):
+        deckt_ab("privacy", m, "privacy")
+    for pl in p["platforms"]:
+        deckt_ab("os", pl["os"], f"platforms[{pl['os']}].os")
+        deckt_ab("distribution", pl["distribution"], f"platforms[{pl['os']}].distribution")
+    for r in p.get("releases", []):
+        deckt_ab("os", r["os"], f"releases[{r['version']}].os")
+    for g in p.get("features", []):
+        for item in g["items"]:
+            for wert in item["values"].values():
+                # Freitext ist erlaubt; nur die Vokabular-Kurzwörter müssen abgedeckt sein.
+                if " " not in wert and wert not in vok.get("featureWerte", {}):
+                    melde(warnungen, slug,
+                          f"Merkmalswert '{wert}' steht nicht im Vokabular – "
+                          f"er wird als freier Text ausgegeben. Tippfehler?")
+
 
 def pruefe_inhalt(p, statuses, alle_slugs):
     slug = p["slug"]
@@ -306,6 +334,7 @@ def main():
 
     schema = json.loads(SCHEMA_FILE.read_text(encoding="utf-8"))
     statuses = yaml.safe_load((SRC / "statuses.yaml").read_text(encoding="utf-8"))
+    vokabular = yaml.safe_load((SRC / "vokabular.yaml").read_text(encoding="utf-8"))
 
     dateien = sorted((SRC / "products").glob("*.yaml"))
     if not dateien:
@@ -337,6 +366,7 @@ def main():
 
     if not fehler:
         for p in produkte:
+            pruefe_vokabular(p, vokabular)
             pruefe_inhalt(p, statuses, slugs)
         abgleich_mit_website(produkte)
 
@@ -352,7 +382,8 @@ def main():
         print(f"\nAbbruch: {len(fehler)} Fehler. Es wurde nichts geschrieben.")
         return 1
 
-    print(f"\nGeprüft: {len(produkte)} Produkte, {len(statuses)} Statusstufen — keine Fehler.")
+    print(f"\nGeprüft: {len(produkte)} Produkte, {len(statuses)} Statusstufen, "
+          f"{sum(len(v) for v in vokabular.values())} Vokabeln — keine Fehler.")
 
     if nur_pruefen:
         print("Nur-Prüfen-Modus: keine Dateien geschrieben.")
@@ -369,8 +400,11 @@ def main():
         ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     OUT_STATUSES.write_text(json.dumps(
         {**kopf, "statuses": statuses}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    OUT_VOKABULAR.write_text(json.dumps(
+        {**kopf, **vokabular}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    print(f"Geschrieben: {OUT_PRODUCTS.relative_to(ROOT)}, {OUT_STATUSES.relative_to(ROOT)}")
+    print(f"Geschrieben: {OUT_PRODUCTS.relative_to(ROOT)}, {OUT_STATUSES.relative_to(ROOT)}, "
+          f"{OUT_VOKABULAR.relative_to(ROOT)}")
     return 0
 
 

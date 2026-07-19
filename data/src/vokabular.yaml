@@ -1,0 +1,85 @@
+# Anzeigetexte für alle kontrollierten Vokabulare.
+#
+# Warum eine eigene Datei: Ein technischer Schlüssel wie 'offline-faehig' ist zum
+# Sortieren, Filtern und Vergleichen gut – aber nichts, was ein Besucher lesen soll.
+# Ohne diese Zuordnung landeten Schlüssel ungefiltert auf der Seite („offline faehig",
+# „github release"). Das Prüfskript stellt sicher, dass JEDER im Datenmodell benutzte
+# Wert hier einen Text hat.
+
+privacy:
+  nur-lokal:
+    label: nur lokal
+    erklaerung: Alle Daten bleiben auf dem Gerät.
+  keine-cloud:
+    label: keine Cloud
+    erklaerung: Kein Speicher bei uns oder Dritten.
+  kein-konto:
+    label: kein Konto
+    erklaerung: Keine Registrierung, keine Anmeldung.
+  kein-tracking:
+    label: kein Tracking
+    erklaerung: Keine Telemetrie, keine Analysedienste.
+  werbefrei:
+    label: werbefrei
+    erklaerung: Keine Werbung, keine Werbenetzwerke.
+  kein-google:
+    label: ohne Google
+    erklaerung: Keine Google-Dienste eingebunden.
+  eigener-sync:
+    label: eigener Sync
+    erklaerung: Abgleich über das eigene Netz oder einen selbst betriebenen Relay.
+  offline-faehig:
+    label: offlinefähig
+    erklaerung: Voll nutzbar ohne Internetverbindung.
+
+distribution:
+  play-store:
+    label: Google Play
+  github-release:
+    label: GitHub-Release
+  digistore24:
+    label: Digistore24
+  auf-anfrage:
+    label: auf Anfrage
+  keiner:
+    label: noch kein Bezugsweg
+
+os:
+  windows: { label: Windows }
+  android: { label: Android }
+  ios:     { label: iOS }
+  linux:   { label: Linux }
+  macos:   { label: macOS }
+  web:     { label: Browser }
+
+# Werte der Merkmalsmatrix. 'art' steuert die Darstellung:
+#   enthalten | fehlt | teilweise | spaeter
+featureWerte:
+  ja:
+    label: enthalten
+    zeichen: "✓"
+    art: enthalten
+  nein:
+    label: nicht enthalten
+    zeichen: "✕"
+    art: fehlt
+  optional:
+    label: optional
+    erklaerung: Als Zusatzpaket installierbar.
+    art: teilweise
+  teilweise:
+    label: teilweise
+    erklaerung: Eingeschränkt enthalten.
+    art: teilweise
+  geplant:
+    label: geplant
+    erklaerung: Vorgesehen, Umsetzung noch nicht begonnen.
+    art: spaeter
+  in-arbeit:
+    label: in Arbeit
+    erklaerung: Wird gerade gebaut.
+    art: spaeter
+  in-vorbereitung:
+    label: in Vorbereitung
+    erklaerung: Kommt, Termin noch offen.
+    art: spaeter
