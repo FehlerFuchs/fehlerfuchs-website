@@ -1,0 +1,118 @@
+name: Website 2.0 bauen und deployen
+
+# NOCH NICHT SCHARF.
+#
+# Dieser Ablauf laeuft ausschliesslich auf Knopfdruck (workflow_dispatch).
+# Der alte Ablauf deploy.yml bleibt aktiv und liefert weiter die bestehende
+# Website. Erst wenn hier ein Durchlauf zufriedenstellend war, wird
+# umgeschaltet: unten steht, wie.
+#
+# WAS HIER PASSIERT
+#   1. Beide Repositories auschecken - website (Datenmodell und Bilder) und
+#      astro (Vorlagen). Sie muessen NEBENEINANDER liegen, weil die
+#      Datenschicht mit '../website' arbeitet.
+#   2. Datenmodell erzeugen und pruefen. Meldet build_data.py einen Fehler,
+#      bricht der Ablauf ab - es geht nichts kaputt live.
+#   3. Alle Oberflaechenpruefungen. Auch sie duerfen den Bau anhalten.
+#   4. Bauen und das Ergebnis zu GitHub Pages hochladen.
+#
+# VORAUSSETZUNG: ein Geheimnis namens ASTRO_REPO_TOKEN.
+#   Das astro-Repository ist privat; der eingebaute GITHUB_TOKEN dieses
+#   Repositories darf dort nicht lesen. Anzulegen als Fine-grained Personal
+#   Access Token mit NUR Lesezugriff auf 'Contents' des Repositories
+#   fehlerfuchs-website-astro, hinterlegt unter
+#   Settings -> Secrets and variables -> Actions -> New repository secret.
+#
+# UMSCHALTEN, wenn es soweit ist:
+#   - hier den Block 'push' unter 'on:' einkommentieren
+#   - in deploy.yml den Block 'push' auskommentieren
+#   Zwei aktive Ablaeufe auf dieselbe Pages-Umgebung wuerden sich sonst
+#   gegenseitig ueberschreiben, und welcher gewinnt, entscheidet der Zufall.
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  bauen:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Datenmodell auschecken (dieses Repository)
+        uses: actions/checkout@v4
+        with:
+          path: website
+
+      - name: Vorlagen auschecken (privates astro-Repository)
+        uses: actions/checkout@v4
+        with:
+          repository: FehlerFuchs/fehlerfuchs-website-astro
+          token: ${{ secrets.ASTRO_REPO_TOKEN }}
+          path: astro
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: PyYAML installieren
+        run: pip install pyyaml
+
+      - name: Datenmodell erzeugen und pruefen
+        working-directory: website
+        run: python tools/build_data.py
+
+      - name: Node bereitstellen
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: astro/package-lock.json
+
+      - name: Abhaengigkeiten holen
+        working-directory: astro
+        run: npm ci
+
+      - name: Oberflaeche pruefen
+        working-directory: astro
+        run: npm run pruefen
+
+      - name: Bauen
+        working-directory: astro
+        run: npm run build
+
+      - name: Health-/Version-JSON stempeln
+        run: |
+          cat > astro/dist/health.json <<EOF
+          { "ok": true, "service": "website", "version": "${GITHUB_SHA::7}", "deployed_at": "$(date -u +%FT%TZ)" }
+          EOF
+
+      - name: CNAME mitnehmen
+        # Ohne diese Datei faellt die eigene Domain nach dem naechsten Deploy
+        # auf die github.io-Adresse zurueck. Sie liegt im Datenmodell-Repo,
+        # nicht im Bauergebnis - also von Hand hinueber.
+        run: cp website/CNAME astro/dist/CNAME
+
+      - name: Pages konfigurieren
+        uses: actions/configure-pages@v5
+
+      - name: Ergebnis als Artefakt hochladen
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: astro/dist
+
+      - name: Zu GitHub Pages deployen
+        id: deployment
+        uses: actions/deploy-pages@v4
