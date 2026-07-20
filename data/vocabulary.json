@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-20T00:03:44+02:00",
+  "generiert": "2026-07-20T08:23:54+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "privacy": {
     "nur-lokal": {
@@ -28,8 +28,8 @@
       "erklaerung": "Keine Werbung, keine Werbenetzwerke."
     },
     "kein-google": {
-      "label": "ohne Google",
-      "erklaerung": "Keine Google-Dienste eingebunden."
+      "label": "ohne Google-Verbindung",
+      "erklaerung": "Es geht nichts an Google-Server – kein Konto, keine Abrechnung, keine Karten, keine Schriften aus dem Netz. Mitgelieferte Bibliotheken, die auf dem Gerät rechnen und nichts senden, sind davon nicht berührt."
     },
     "eigener-sync": {
       "label": "eigener Sync",

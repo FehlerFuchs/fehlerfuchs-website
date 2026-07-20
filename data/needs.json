@@ -1,0 +1,158 @@
+{
+  "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
+  "generiert": "2026-07-20T08:23:54+02:00",
+  "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
+  "bedarf": [
+    {
+      "id": "code-signing",
+      "titel": "Code-Signing-Zertifikat",
+      "art": "beitrag",
+      "von": 200,
+      "bis": 400,
+      "takt": "jaehrlich",
+      "zeichen": "siegel",
+      "status": "offen",
+      "text": "Signiert die Windows-Downloads, damit sie ohne SmartScreen-Warnung starten (OV- oder EV-Zertifikat, meist jährlich).",
+      "betrag": "~200–400 € / Jahr"
+    },
+    {
+      "id": "nas",
+      "titel": "NAS-System (2×10 TB, erweiterbar)",
+      "art": "geraet",
+      "von": 1500,
+      "takt": "einmalig",
+      "zeichen": "platte",
+      "status": "offen",
+      "text": "Zentrale, ausfallsichere Ablage und Backups für Quellcode, Releases und Dokumente. Später erweiterbar – zum Beispiel Ugreen NASync DXP4800 Pro.",
+      "betrag": "~1.500 €"
+    },
+    {
+      "id": "usv",
+      "titel": "USV-Systeme (PC und NAS)",
+      "art": "geraet",
+      "von": 500,
+      "takt": "einmalig",
+      "zeichen": "blitz",
+      "status": "offen",
+      "text": "Schützt Rechner und NAS bei Stromausfall – keine kaputten Builds und keine verlorenen Daten.",
+      "betrag": "~500 €"
+    },
+    {
+      "id": "workstation",
+      "titel": "Leistungsstarker Office-Rechner (ab 64 GB RAM)",
+      "art": "geraet",
+      "von": 2000,
+      "bis": 2500,
+      "takt": "einmalig",
+      "zeichen": "rechner",
+      "status": "offen",
+      "text": "Für zügiges Bauen, Testen, virtuelle Maschinen und mehrere Anwendungen nebeneinander.",
+      "betrag": "~2.000–2.500 €"
+    },
+    {
+      "id": "monitore",
+      "titel": "Zwei neue Monitore",
+      "art": "geraet",
+      "von": 300,
+      "bis": 500,
+      "takt": "einmalig",
+      "zeichen": "bildschirm",
+      "status": "offen",
+      "text": "Mehr Fläche für Quelltext, Vorschau und Dokumentation nebeneinander.",
+      "betrag": "~300–500 €"
+    },
+    {
+      "id": "code-signing-sponsor",
+      "titel": "Code-Signing-Sponsor",
+      "art": "sponsoring",
+      "von": 200,
+      "bis": 400,
+      "takt": "jaehrlich",
+      "zeichen": "handschlag",
+      "status": "offen",
+      "text": "Ein Zertifikats-Anbieter oder Unternehmen, das die Signierung dauerhaft trägt – gern mit Nennung als Unterstützer.",
+      "betrag": "~200–400 € / Jahr"
+    },
+    {
+      "id": "lokale-hilfe",
+      "titel": "Lokale Unterstützung",
+      "art": "zeit",
+      "zeichen": "leute",
+      "status": "offen",
+      "text": "Mithilfe aus der Region um Jena: testen, weiterempfehlen, Kontakte knüpfen, ehrenamtlich mit anpacken. Kein Geld – Zeit zählt genauso.",
+      "betrag": ""
+    },
+    {
+      "id": "kleinkram",
+      "titel": "Kabel, Adapter und Verbrauchsmaterial",
+      "art": "geraet",
+      "von": 30,
+      "bis": 80,
+      "takt": "einmalig",
+      "zeichen": "kabel",
+      "status": "offen",
+      "text": "Der ständige Kleinkram: Kabel, Adapter, Datenträger, Druck- und Büromaterial. Unspektakulär und trotzdem dauernd gebraucht.",
+      "betrag": "~30–80 €"
+    },
+    {
+      "id": "werkzeug-lizenzen",
+      "titel": "Entwickler- und Werkzeug-Lizenzen",
+      "art": "sponsoring",
+      "von": 150,
+      "bis": 500,
+      "takt": "jaehrlich",
+      "zeichen": "werkzeug",
+      "status": "offen",
+      "text": "Zum Beispiel JetBrains-Entwicklungsumgebungen, Affinity Designer und Photo für Grafik, Snagit für Bildschirmfotos oder ein guter Installer-Baukasten.",
+      "betrag": "~150–500 € / Jahr"
+    },
+    {
+      "id": "claude-max",
+      "titel": "Claude Max (20×) – Abo-Sponsoring",
+      "art": "sponsoring",
+      "von": 185,
+      "takt": "monatlich",
+      "zeichen": "funke",
+      "status": "offen",
+      "text": "KI-Unterstützung bei Entwicklung, Dokumentation und Tests – das große 20×-Kontingent.",
+      "betrag": "~185 € / Monat"
+    },
+    {
+      "id": "chatgpt-pro",
+      "titel": "ChatGPT Pro – Abo-Sponsoring",
+      "art": "sponsoring",
+      "von": 185,
+      "takt": "monatlich",
+      "zeichen": "funke",
+      "status": "offen",
+      "text": "Zusätzliche KI-Unterstützung im Entwicklungsalltag.",
+      "betrag": "~185 € / Monat"
+    }
+  ],
+  "zaehler": {
+    "gesamt": 11,
+    "offen": 11,
+    "inArbeit": 0,
+    "erfuellt": 0
+  },
+  "summen": {
+    "einmalig": {
+      "posten": 5,
+      "von": 4330,
+      "bis": 5080,
+      "text": "~4.330–5.080 €"
+    },
+    "jaehrlich": {
+      "posten": 3,
+      "von": 550,
+      "bis": 1300,
+      "text": "~550–1.300 € / Jahr"
+    },
+    "monatlich": {
+      "posten": 2,
+      "von": 370,
+      "bis": 370,
+      "text": "~370 € / Monat"
+    }
+  }
+}

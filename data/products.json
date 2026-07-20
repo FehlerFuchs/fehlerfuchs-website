@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-20T00:03:44+02:00",
+  "generiert": "2026-07-20T08:23:54+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1335,8 +1335,8 @@
       "name": "SnapFuchs",
       "fullName": "FehlerFuchs SnapFuchs",
       "kind": "produkt",
-      "tagline": "Lokaler Dokumenten-Scanner für Android – ohne Cloud, ohne Google.",
-      "description": "Dokumente mit der Kamera erfassen, gerade rücken, als PDF ablegen – alles auf dem Gerät. Kein Upload zu einem Scan-Dienst, keine Anmeldung, keine Werbung.",
+      "tagline": "Lokaler Dokumenten-Scanner für Android – ohne Cloud, ohne Konto.",
+      "description": "Dokumente mit der Kamera erfassen, gerade rücken, als PDF ablegen – alles auf dem Gerät. Kein Upload zu einem Scan-Dienst, keine Anmeldung, keine Werbung. Für den einmaligen Kauf der Pro-Fassung fragt die App beim Start den Kaufstatus bei Google Play ab – das verlangt der Play Store so. Deine Scans, Bilder und PDFs sieht Google nie; sie verlassen das Gerät nicht.",
       "audience": [
         "privat",
         "selbststaendige"
@@ -1383,7 +1383,6 @@
         "kein-konto",
         "kein-tracking",
         "werbefrei",
-        "kein-google",
         "offline-faehig"
       ],
       "editions": [
@@ -2306,7 +2305,7 @@
       "releases": [],
       "media": {
         "lockup": {
-          "src": "/img/lockups/cleandesk.png",
+          "src": "/img/lockups/cleandesk.svg",
           "alt": "CleanDesk – von FehlerFuchs",
           "width": 770,
           "height": 210
@@ -2436,7 +2435,7 @@
       "releases": [],
       "media": {
         "lockup": {
-          "src": "/img/lockups/pdfuchs.png",
+          "src": "/img/lockups/pdfuchs.svg",
           "alt": "PDFuchs – von FehlerFuchs",
           "width": 907,
           "height": 300
@@ -2558,7 +2557,7 @@
       "releases": [],
       "media": {
         "lockup": {
-          "src": "/img/lockups/coppicemail.png",
+          "src": "/img/lockups/coppicemail.svg",
           "alt": "CoppiceMail – von FehlerFuchs",
           "width": 1160,
           "height": 300

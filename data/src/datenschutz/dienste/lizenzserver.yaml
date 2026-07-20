@@ -1,8 +1,8 @@
 slug: lizenzserver
 name: FehlerFuchs Lizenzserver
-stand: "2026-07-19"
+stand: "2026-07-20"
 geprueft_von: FehlerFuchs_Lizenzserver
-fassung: "Adapter-Stand 19.07.2026 (kein Versionsschema); Admin-API 1.0; mit Löschlauf"
+fassung: "Adapter-Stand 20.07.2026 (kein Versionsschema); Admin-API 1.0; mit Löschlauf und Wunscherfüller"
 
 # Kein Endnutzer-Programm, sondern ein Server-Dienst. Daten verlassen das Gerät
 # des Nutzers zwangsläufig, sobald eine App den Dienst anspricht.
@@ -35,7 +35,10 @@ auf_dem_geraet:
   - was: Zustand des Tagesberichts (Zeitpunkt des letzten Laufs, Zähler)
     wo: Datenbank auf dem Server
     beleg: Tabelle report_state; adapter/app/db.py, set_last_run
-  - was: IP-Adressen als kurzlebige Zählwerte gegen Missbrauch (Kontaktformular, Tester-Registrierung)
+  - was: Einsendungen aus dem Wunscherfüller (Titel, Wunschtext, Thema, ggf. betroffenes Produkt, Anzeigename; nur bei gewünschter Antwort zusätzlich Name und E-Mail-Adresse)
+    wo: Datenbank auf dem Server; Löschung nach 90 Tagen. Es wird keine IP-Adresse gespeichert
+    beleg: Tabelle wuensche; adapter/app/db.py, record_wunsch und cleanup; adapter/app/main.py, wunsch_einreichen
+  - was: IP-Adressen als kurzlebige Zählwerte gegen Missbrauch (Kontaktformular, Wunscherfüller, Tester-Registrierung)
     wo: Zwischenspeicher auf dem Server, automatische Löschung nach 1 Stunde bzw. 24 Stunden
     beleg: Redis; adapter/app/mailer.py, rate_ok und tester_rate_ok
 
@@ -58,8 +61,18 @@ uebertragungen:
     wann: wenn ein Formular abgeschickt wird
     freiwillig: true
     beleg: adapter/app/main.py, Endpunkte /v1/contact und /v1/providers/tester/gewerbepro
+  - wohin: license.fehlerfuchs.eu (eingehend, von der Website)
+    was: Einsendungen aus dem Wunscherfüller (Titel, Wunschtext, Thema, ggf. Produkt, Anzeigename; auf Wunsch Name und E-Mail für die Antwort)
+    wann: wenn das Wunsch-Formular abgeschickt wird
+    freiwillig: true
+    beleg: adapter/app/main.py, Endpunkt /v1/wuensche
+  - wohin: Website (ausgehend, öffentlich abrufbar)
+    was: ausschließlich das Eingangsdatum noch nicht bearbeiteter Wunsch-Einsendungen — kein Titel, kein Text, kein Anzeigename
+    wann: beim Aufruf der Wunscherfüller-Seite
+    freiwillig: false
+    beleg: adapter/app/main.py, Endpunkt /v1/wuensche (Abfrage); adapter/app/db.py, offene_wuensche
   - wohin: E-Mail-Versand über den Postfachanbieter (SMTP)
-    was: Inhalt und Empfänger der versendeten Nachrichten (Lizenz-/Willkommensmails, Kontakt-/Supportanfragen inkl. Anhänge, interne Statusberichte)
+    was: Inhalt und Empfänger der versendeten Nachrichten (Lizenz-/Willkommensmails, Kontakt-/Supportanfragen inkl. Anhänge, Wunsch-Einsendungen, interne Statusberichte)
     wann: bei jedem Mailversand des Dienstes
     freiwillig: false
     beleg: adapter/app/mailer.py (aiosmtplib), adapter/requirements.txt
@@ -116,7 +129,12 @@ besonderheiten: >-
   gespeichert, sondern ausschließlich per E-Mail weitergeleitet; lediglich die
   IP-Adresse fließt kurzzeitig in die Missbrauchsbremse ein. Der Zugriff auf die
   Verwaltungsschnittstelle ist durch ein Zugangsgeheimnis geschützt, das nur auf dem
-  Server liegt. Wichtig zur Einordnung der Fristen: Die Pseudonymisierung nach 90 Tagen
+  Server liegt. Einsendungen aus dem Wunscherfüller werden vom Server niemals im Wortlaut
+  herausgegeben: Öffentlich abrufbar ist allein das Eingangsdatum, damit die Seite einen
+  verdeckten Platzhalter anzeigen kann. Im Wortlaut sind Einsendungen ausschließlich über
+  die durch ein Zugangsgeheimnis geschützte Verwaltung abrufbar. Ob ein Wunsch veröffentlicht wird, entscheidet ein
+  Mensch, und der Text wird dafür von Hand übertragen — der Server veröffentlicht nichts
+  selbsttätig. Wichtig zur Einordnung der Fristen: Die Pseudonymisierung nach 90 Tagen
   betrifft die Tester-Registrierung. E-Mail-Adresse und Bestellnummer, die als
   Metadaten an der Lizenz selbst hängen, bleiben davon unberührt, solange die Lizenz
   besteht — Lizenzdaten sind von der Löschung ausdrücklich ausgenommen.

@@ -41,6 +41,7 @@ WUNSCH_SCHEMA_FILE = ROOT / "data" / "schema" / "wunsch.schema.json"
 OUT_STATUSES = ROOT / "data" / "statuses.json"
 OUT_VOKABULAR = ROOT / "data" / "vocabulary.json"
 OUT_MARKE = ROOT / "data" / "brand.json"
+OUT_BEDARF = ROOT / "data" / "needs.json"
 
 fehler, warnungen, abgleich = [], [], []
 
@@ -67,6 +68,42 @@ def bildmasse(pfad):
                 continue
             i += 2 + struct.unpack(">H", d[i + 2:i + 4])[0]
     return None
+
+
+# Die einzigen zwei Schriften der Marke. Steht so im Markenkonzept
+# (_Marke_und_IP\MARKENKONZEPT.md, Abschnitt 3) und ist dort ausdrücklich
+# abschließend: keine Ersatzschriften, auch nicht „nur diesmal".
+MARKENSCHRIFTEN = {"poppins", "inter"}
+
+# Generische Angaben sind keine Schriftwahl, sondern der Notnagel dahinter.
+# Sie allein sind kein Verstoß – nur wenn sie als EINZIGES dastehen, fehlt
+# eine echte Angabe, und das meldet die Prüfung ohnehin als „ohne Schriftangabe".
+GENERISCH = {"sans-serif", "serif", "monospace", "system-ui", "ui-sans-serif",
+             "-apple-system", "blinkmacsystemfont", "segoe ui"}
+
+
+def schriften_im_svg(inhalt):
+    """Alle font-family-Angaben einer SVG – und welche davon fremd sind.
+
+    Gibt (alle, fremde) zurück. 'fremd' meint: weder Poppins noch Inter noch
+    ein generischer Notnagel. Genau diese Liste entscheidet zwischen Warnung
+    und Fehler.
+    """
+    roh = re.findall(r"font-family\s*[:=]\s*[\"']?([^;\"'>]+)", inhalt)
+    einzeln = []
+    for angabe in roh:
+        # 'Poppins, Arial, sans-serif' sind drei Angaben, nicht eine. Die
+        # zweite ist der Fall, um den es geht: Sie greift bei jedem Besucher
+        # ohne Poppins – also bei fast allen.
+        for teil in angabe.split(","):
+            name = teil.strip().strip("\"'")
+            if name:
+                einzeln.append(name)
+    alle = sorted(set(einzeln), key=str.lower)
+    fremd = sorted({n for n in alle
+                    if n.lower() not in MARKENSCHRIFTEN and n.lower() not in GENERISCH},
+                   key=str.lower)
+    return alle, fremd
 
 
 def melde(liste, slug, text):
@@ -370,6 +407,50 @@ def pruefe_inhalt(p, statuses, alle_slugs, alle_produkte):
                                            f"({datei.stat().st_size // 1024} KB, sofern vorhanden). "
                                            f"Eine Wortmarke ist reine Vektorgrafik – als SVG "
                                            f"wäre sie ein Bruchteil davon und in jeder Größe scharf.")
+
+                # Ein SVG mit echtem <text> ist eine Falle. Als <img> eingebunden
+                # erbt es KEINE Schriften von der Seite: Der Browser nimmt, was
+                # er hat. Poppins und Inter sind auf keinem Standardsystem
+                # installiert, also wird mit Arial oder Ähnlichem gerendert –
+                # das Logo sieht dann anders aus als gestaltet, und zwar nur bei
+                # Besuchern, nie beim Entwickeln mit installierter Schrift.
+                #
+                # Aufgefallen am 19.07.2026 beim Umstellen der Wortmarken von
+                # PNG auf SVG: Vier von sieben Vorlagen hatten Text statt Pfade,
+                # eine davon sogar mit 'Liberation Sans' – einer Linux-Schrift,
+                # die es unter Windows nicht gibt.
+                #
+                # Abhilfe im Zeichenprogramm: Text in Pfade wandeln
+                # ("Objekt → Pfad → Objekt in Pfad umwandeln" bei Inkscape).
+                if b["src"].endswith(".svg") and datei.exists():
+                    inhalt = datei.read_text(encoding="utf-8", errors="ignore")
+                    if re.search(r"<text[\s>]", inhalt):
+                        gefunden, fremd = schriften_im_svg(inhalt)
+                        # Zwei verschiedene Lagen, bisher in einen Topf geworfen:
+                        #
+                        # Poppins mit echtem Text ist die RICHTIGE Schrift, nur
+                        # noch nicht in Pfade gewandelt – ärgerlich, reparabel.
+                        #
+                        # Arial ist die FALSCHE Marke. Das Markenkonzept kennt
+                        # seit dem 20.07.2026 genau zwei Schriften; alles andere
+                        # ist keine Nachlässigkeit mehr, sondern ein Verstoß.
+                        # Beides als Warnung zu melden hieß, dass die schwerere
+                        # Lage in der Menge unterging.
+                        if fremd:
+                            # Siehe pruefe_alle_svg(): vorerst Warnung, weil
+                            # der Altbestand gerade neu gesetzt wird.
+                            melde(warnungen, slug,
+                                  f"media.lockup ist in {', '.join(fremd)} gesetzt. "
+                                  f"Das Markenkonzept kennt nur Poppins und Inter "
+                                  f"(_Marke_und_IP\\MARKENKONZEPT.md, Abschnitt 3). "
+                                  f"Die Wortmarke ist neu zu setzen, nicht zu wandeln.")
+                        else:
+                            melde(warnungen, slug,
+                                  f"media.lockup ist ein SVG mit echtem Text "
+                                  f"({', '.join(gefunden) or 'ohne Schriftangabe'}). "
+                                  f"Als Bild eingebunden erbt es die Schriften der Seite NICHT – "
+                                  f"bei Besuchern ohne diese Schrift sieht die Wortmarke anders "
+                                  f"aus. Im Zeichenprogramm Text in Pfade wandeln.")
 
     # 5e. Ein Titel braucht eine Form: Bildmarke ODER Wortmarke. Ohne beides
     #     steht dort schlichter Text – zulässig, aber es sollte Absicht sein.
@@ -926,6 +1007,49 @@ def pruefe_steckbriefe(produkte, dienste):
             if "nur-lokal" in tags and "inhalte-lokal" in tags:
                 fehler.append(f"{wo}: 'nur-lokal' und 'inhalte-lokal' schließen sich aus.")
 
+            # 'kein-google' heißt seit dem 20.07.2026: „Es geht nichts an
+            # Google-Server." Die Frage ist damit nicht mehr, ob Google-Code
+            # im Programm steckt, sondern ob eine VERBINDUNG entsteht.
+            #
+            # Der Unterschied entscheidet zwei reale Fälle:
+            #   SnapFuchs fragte beim App-Start den Kaufstatus bei Google Play
+            #     ab – eine Übertragung, das Merkmal war falsch.
+            #   OrgaFuchs rechnet mit Google ML Kit, aber auf dem Gerät –
+            #     keine Übertragung, das Merkmal ist richtig.
+            #
+            # Deshalb sucht die Prüfung in 'uebertragungen' und nicht in
+            # 'fremde_dienste'. Eine Regel, die beides gleich behandelt, hätte
+            # OrgaFuchs zu Unrecht angeschwärzt – und wer einmal zu Unrecht
+            # gemeldet wird, glaubt der Regel beim nächsten Mal nicht mehr.
+            if "kein-google" in tags:
+                nach_google = []
+                for u in (s.get("uebertragungen") or []):
+                    if not isinstance(u, dict):
+                        continue
+                    ziel = str(u.get("wohin", ""))
+                    if re.search(r"(?i)google", ziel):
+                        nach_google.append(f"{ziel} ({u.get('wann', 'ohne Angabe')})")
+                if nach_google:
+                    warnungen.append(
+                        f"{wo}: trägt 'kein-google', überträgt laut Steckbrief aber an "
+                        f"{'; '.join(nach_google)}. Das Merkmal sagt zu, dass nichts an "
+                        f"Google-Server geht.")
+
+                # Kein Befund, aber ein Hinweis: Google-Bibliotheken im
+                # Programm sind zulässig, solange sie nichts senden. Damit
+                # das eine bewusste Aussage bleibt und keine Nachlässigkeit,
+                # wird es beim Prüflauf einmal genannt.
+                lokal = [str(d.get("name", ""))[:60]
+                         for d in (s.get("fremde_dienste") or [])
+                         if isinstance(d, dict)
+                         and "google" in json.dumps(d, ensure_ascii=False).lower()
+                         and not str(d.get("name", "")).lower().startswith(("kein", "keine"))]
+                if lokal and not nach_google:
+                    abgleich.append(
+                          f"{wo}: trägt 'kein-google' und bindet {'; '.join(lokal)} ein – "
+                          f"laut Steckbrief ohne Verbindung nach draußen. So gemeint? "
+                          f"Dann ist alles richtig.")
+
         # --- Widerspruch im Steckbrief selbst -------------------------------
         # Nicht jede 'Uebertragung' geht nach draussen. BelegWerk prueft eine
         # TCP-Verbindung zum eigenen Rechner (127.0.0.1) - das ist keine
@@ -1056,6 +1180,297 @@ def pruefe_steckbriefe(produkte, dienste):
                 f"auf der Datenschutzseite bliebe dieses Produkt unerwähnt.")
 
     return steckbriefe
+
+
+BEDARF_ARTEN = {"beitrag", "geraet", "sponsoring", "zeit"}
+BEDARF_STATUS = {"offen", "in-arbeit", "erfuellt"}
+BEDARF_TAKTE = {"einmalig": "", "jaehrlich": " / Jahr", "monatlich": " / Monat"}
+# Die Motive stehen als SVG in der Seite. Hier steht nur, welche es gibt –
+# so fällt ein Tippfehler beim Erzeugen auf und nicht erst als leere Stelle
+# im Browser, wo ihn niemand meldet.
+BEDARF_ZEICHEN = {"siegel", "platte", "blitz", "rechner", "bildschirm",
+                  "handschlag", "leute", "kabel", "werkzeug", "funke"}
+
+
+def euro(n):
+    """1500 → '1.500'. Punkt als Tausendertrenner, wie im Deutschen üblich."""
+    return f"{n:,}".replace(",", ".")
+
+
+def betrag_text(e):
+    """Baut '~200–400 € / Jahr' aus von/bis/takt.
+
+    Steht bewusst hier und nicht in der Seite: Sonst müsste dieselbe Regel in
+    JavaScript noch einmal existieren – für die Werkstatt, für die Vorschau,
+    für jede weitere Stelle, die den Betrag zeigen will.
+    """
+    if e.get("von") is None:
+        return ""
+    spanne = f"{euro(e['von'])}–{euro(e['bis'])}" if e.get("bis") else euro(e["von"])
+    return f"~{spanne} €{BEDARF_TAKTE.get(e.get('takt'), '')}"
+
+# Eine IBAN im Fließtext wäre kein Weltuntergang – die Bankverbindung steht
+# ohnehin auf der Seite. Aber sie gehört an EINE Stelle, die aus marke.yaml
+# kommt, nicht verstreut in Bedarfstexte, wo sie beim nächsten Kontowechsel
+# stehen bliebe.
+IBAN_MUSTER = re.compile(r"\b[A-Z]{2}\d{2}(?:[ ]?[A-Z0-9]{4}){3,}")
+
+
+
+def pruefe_fremdziele(rohd, produkte, marke):
+    """Jede fremde Adresse im Datenmodell muss in 'fremdziele' beschrieben sein.
+
+    Am 20.07.2026 stellte sich heraus: Die Website verweist auf PayPal, GitHub
+    und Google Play, und keines davon stand in der Datenschutzerklärung. Bei
+    PayPal war es seit der alten Website so. Gefunden habe ich es nur, weil ich
+    zufällig danach suchte — und genau darauf soll sich niemand verlassen
+    müssen.
+
+    Der Fund ist ein FEHLER und keine Warnung: Eine Datenschutzerklärung, die
+    ein Ziel verschweigt, ist unvollständig, und unvollständig veröffentlicht
+    ist schlimmer als gar nicht gebaut.
+    """
+    beschrieben = {f.get("adresse", "").lower().removeprefix("www.")
+                   for f in (rohd.get("fremdziele") or [])}
+
+    # Eigene Adressen sind keine Fremdziele.
+    eigen = {"fehlerfuchs.eu", "license.fehlerfuchs.eu", "localhost"}
+
+    # Wo überall Adressen stehen können: Produkte, Marke, Dienste. Statt jede
+    # Stelle einzeln zu kennen, wird der gesamte Baum nach http-Adressen
+    # durchsucht — eine neue Stelle im Modell fällt damit von selbst mit auf.
+    gefunden = {}
+
+    def suche(knoten, woher):
+        if isinstance(knoten, dict):
+            for k, v in knoten.items():
+                suche(v, woher)
+        elif isinstance(knoten, list):
+            for v in knoten:
+                suche(v, woher)
+        elif isinstance(knoten, str):
+            for treffer in re.findall(r"https?://([a-zA-Z0-9.-]+)", knoten):
+                gefunden.setdefault(treffer.lower(), set()).add(woher)
+
+    for p in produkte:
+        suche(p, p.get("slug", "?"))
+    suche(marke, "marke")
+    # Die Dienste beschreiben sich selbst – dort steht die Erklärung des
+    # Anbieters, und die IST das Fremdziel. Sie mitzuprüfen hieße, jede
+    # Erklärungs-Adresse doppelt zu führen.
+    suche(rohd.get("dienste") or [], "dienste")
+
+    for adresse, woher in sorted(gefunden.items()):
+        kurz = adresse.removeprefix("www.")
+        if kurz in eigen or kurz.endswith(".fehlerfuchs.eu"):
+            continue
+        if kurz in beschrieben:
+            continue
+        wer = ", ".join(sorted(woher)[:4])
+        melde(fehler, "fremdziele",
+              f"{adresse} steht im Datenmodell ({wer}), aber nicht in "
+              f"dienste.yaml unter 'fremdziele'. Damit fehlt es auf der "
+              f"Datenschutzseite — ein Ziel, das niemand genannt hat.")
+
+
+
+# Zusagen, die im Freitext stehen können. Der Schlüssel ist das Merkmal, das
+# sie belegen muss.
+FREITEXT_ZUSAGEN = {
+    "kein-google":   (re.compile(r"(?i)ohne\s+google"), "ohne Google"),
+    "keine-cloud":   (re.compile(r"(?i)(ohne|keine)\s+cloud"), "ohne Cloud"),
+    "kein-konto":    (re.compile(r"(?i)(ohne|keine?)\s+(konto|anmeldung)"), "ohne Konto"),
+    "werbefrei":     (re.compile(r"(?i)((ohne|keine)\s+werbung|werbefrei)"), "werbefrei"),
+    "kein-tracking": (re.compile(r"(?i)(ohne|kein)\s+tracking"), "ohne Tracking"),
+}
+
+
+def pruefe_freitext_zusagen(p):
+    """Tagline und Beschreibung dürfen nichts versprechen, was die
+    Merkmalsliste nicht deckt.
+
+    Die Merkmale werden gegen den Datenschutz-Steckbrief geprüft, der Freitext
+    bisher nicht — dabei steht die Tagline ganz oben auf der Produktseite und
+    ist die sichtbarste Zusage von allen.
+
+    Am 20.07.2026 stand bei SnapFuchs „ohne Google" in der Tagline UND als
+    Merkmal, obwohl die App beim Start Google Play kontaktiert. Beim Streichen
+    des Merkmals wäre die Tagline um ein Haar stehen geblieben — dann hätte die
+    Seite dasselbe weiter behauptet, nur an einer Stelle, die niemand prüft.
+    """
+    text = f"{p.get('tagline') or ''} {p.get('description') or ''}"
+    hat = set(p.get("privacy") or [])
+    for tag, (muster, wortlaut) in FREITEXT_ZUSAGEN.items():
+        if muster.search(text) and tag not in hat:
+            melde(fehler, p["slug"],
+                  f"Tagline oder Beschreibung sagt '{wortlaut}', das Merkmal "
+                  f"'{tag}' fehlt aber. Entweder das Merkmal setzen — dann wird "
+                  f"es gegen den Steckbrief geprüft — oder die Zusage aus dem "
+                  f"Text nehmen.")
+
+
+def pruefe_alle_svg():
+    """Jede SVG im Bildordner auf fremde Schriften.
+
+    Die Prüfung bei media.lockup erwischt nur Dateien, die ein Produkt
+    referenziert. Am 20.07.2026 fiel auf: '404-kaffeetasse.svg' ist in Arial
+    gesetzt und wird von keinem Produkt genannt – also sah sie nie jemand an,
+    obwohl sie auf jeder Fehlerseite ausgeliefert wird. Dasselbe gilt für die
+    App-Icons, die als Vorrat herumliegen und irgendwann eingebunden werden.
+
+    Eine Datei, die niemand prüft, weil niemand sie referenziert, ist genau
+    die, die beim Einbinden Ärger macht.
+    """
+    ordner = ROOT / "img"
+    if not ordner.exists():
+        return
+
+    for datei in sorted(ordner.rglob("*.svg")):
+        rel = datei.relative_to(ordner).as_posix()
+        inhalt = datei.read_text(encoding="utf-8", errors="ignore")
+        if not re.search(r"<text[\s>]", inhalt):
+            continue
+
+        alle, fremd = schriften_im_svg(inhalt)
+        if fremd:
+            # WARNUNG und nicht FEHLER – vorerst.
+            #
+            # Ein Fehler bricht den Lauf ab und schreibt nichts. Am 20.07.2026
+            # hätte das die gesamte Website blockiert: fünf Dateien tragen
+            # Arial, und sie werden gerade vom Projekt „Marke und Identität"
+            # neu gesetzt. Eine Prüfung, die den Betrieb anhält wegen etwas,
+            # das woanders schon in Arbeit ist, wird abgeschaltet – und dann
+            # fehlt sie ganz.
+            #
+            # HOCHSTUFEN AUF FEHLER, sobald der Abschlussbericht von „Marke
+            # und Identität" vorliegt. Dann ist jede fremde Schrift ein
+            # Rückschritt und kein Altbestand mehr.
+            melde(warnungen, "bilder",
+                  f"img/{rel} ist in {', '.join(fremd)} gesetzt. Das Markenkonzept "
+                  f"kennt nur Poppins und Inter – die Datei ist NEU ZU SETZEN, "
+                  f"nicht zu wandeln.")
+        else:
+            melde(abgleich, "bilder", f"img/{rel} enthält noch echten Text "
+                                      f"({', '.join(alle) or 'ohne Schriftangabe'}) – "
+                                      f"vor dem nächsten Einsatz in Pfade wandeln.")
+
+
+def pruefe_bedarf(eintraege):
+    """Prüft den Betriebsbedarf für die Unterstützen-Seite.
+
+    Wenig Regeln, aber jede davon ist an einem realen Fehler entstanden:
+    Die alte Seite führte den Betrag zweimal (Zeile und 'Schätzkosten:'-Note)
+    und die Wege standen als Verweise im Markup statt in den Daten. Beides
+    ist hier abgeleitet – aus 'art' folgt, welche Hilfe-Wege angeboten werden.
+    """
+    gesehen = set()
+
+    for e in eintraege:
+        kennung = e.get("id", "?")
+
+        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", str(kennung)):
+            melde(fehler, "bedarf", f"'{kennung}': id nur klein, Ziffern und Bindestriche "
+                                    "– sie wird zum Sprungziel in der Adresse.")
+        if kennung in gesehen:
+            melde(fehler, "bedarf", f"'{kennung}': id kommt doppelt vor.")
+        gesehen.add(kennung)
+
+        if e.get("art") not in BEDARF_ARTEN:
+            melde(fehler, "bedarf", f"'{kennung}': art '{e.get('art')}' unbekannt. "
+                                    f"Erlaubt: {', '.join(sorted(BEDARF_ARTEN))}.")
+        if e.get("status") not in BEDARF_STATUS:
+            melde(fehler, "bedarf", f"'{kennung}': status '{e.get('status')}' unbekannt. "
+                                    f"Erlaubt: {', '.join(sorted(BEDARF_STATUS))}.")
+
+        text = (e.get("text") or "").strip()
+        if len(text) < 40:
+            melde(fehler, "bedarf", f"'{kennung}': text fehlt oder ist zu kurz. "
+                                    "Er soll sagen, WOZU es gebraucht wird.")
+        if IBAN_MUSTER.search(text) or IBAN_MUSTER.search(e.get("titel", "")):
+            melde(fehler, "bedarf", f"'{kennung}': sieht nach einer Bankverbindung aus. "
+                                    "Die steht einmal in marke.yaml, sonst nirgends.")
+
+        # FehlerFuchs ist ein Gewerbe, keine gemeinnützige Einrichtung. Wer
+        # „Spende" liest, erwartet eine Zuwendungsbestätigung – die es nicht
+        # geben kann. Bis zum 20.07.2026 stand „Sachspende" auf sechs
+        # Merkzeichen der Unterstützen-Seite.
+        if re.search(r"(?i)spende", e.get("titel", "") + " " + text):
+            melde(fehler, "bedarf", f"'{kennung}': das Wort 'Spende' gehört hier nicht hin. "
+                                    "FehlerFuchs kann keine Spenden im Rechtssinn "
+                                    "entgegennehmen – es geht um Beitrag, Gerät, "
+                                    "Sponsoring oder Zeit.")
+
+        if e.get("zeichen") not in BEDARF_ZEICHEN:
+            melde(fehler, "bedarf", f"'{kennung}': zeichen '{e.get('zeichen')}' gibt es nicht. "
+                                    f"Vorhanden: {', '.join(sorted(BEDARF_ZEICHEN))}.")
+
+        # Betrag und Art müssen zusammenpassen, sonst steht auf der Seite ein
+        # Preisschild an einer Bitte um Zeit – oder umgekehrt ein Gerät ohne
+        # jede Angabe, was es ungefähr kostet.
+        von, bis = e.get("von"), e.get("bis")
+        if e.get("art") == "zeit" and von is not None:
+            melde(warnungen, "bedarf", f"'{kennung}': art ist 'zeit', trotzdem steht ein Betrag.")
+        if e.get("art") in {"beitrag", "geraet"} and von is None:
+            melde(warnungen, "bedarf", f"'{kennung}': kein Betrag. Ohne Größenordnung "
+                                       "kann niemand einschätzen, ob er helfen kann.")
+
+        # 'zahlbar' merkt sich, ob mit den Beträgen gerechnet werden darf.
+        # Ohne diese Klammer stürzte der Lauf bei 'von: "fuenfhundert"' in
+        # betrag_text ab, mit einem ValueError aus der Zahlenformatierung –
+        # einem Abbruch, der nicht sagt, welcher Eintrag schuld ist. Eine
+        # Prüfung, die abstürzt statt zu melden, ist keine Prüfung.
+        zahlbar = True
+        if von is not None:
+            if not isinstance(von, int) or isinstance(von, bool) or von <= 0:
+                melde(fehler, "bedarf", f"'{kennung}': von muss eine ganze Zahl über null "
+                                        f"sein, steht aber als {von!r} da.")
+                zahlbar = False
+            if bis is not None:
+                if not isinstance(bis, int) or isinstance(bis, bool):
+                    melde(fehler, "bedarf", f"'{kennung}': bis muss eine ganze Zahl sein, "
+                                            f"steht aber als {bis!r} da.")
+                    zahlbar = False
+                elif zahlbar and bis <= von:
+                    melde(fehler, "bedarf", f"'{kennung}': bis ({bis}) muss größer sein als "
+                                            f"von ({von}) – sonst ist es keine Spanne.")
+            if e.get("takt") not in BEDARF_TAKTE:
+                melde(fehler, "bedarf", f"'{kennung}': takt '{e.get('takt')}' unbekannt. "
+                                        f"Erlaubt: {', '.join(BEDARF_TAKTE)}.")
+                zahlbar = False
+        elif e.get("takt"):
+            melde(warnungen, "bedarf", f"'{kennung}': takt ohne Betrag ergibt keinen Sinn.")
+
+        # Abgeleitet, nicht erfasst.
+        e["betrag"] = betrag_text(e) if zahlbar else ""
+
+    return eintraege
+
+
+def bedarf_summen(eintraege):
+    """Was insgesamt offen ist, getrennt nach Takt.
+
+    Einmalige und laufende Kosten zu addieren wäre eine Zahl, die nichts
+    bedeutet: 1.500 € für ein Gerät und 185 € im Monat sind nicht dasselbe
+    Geld. Deshalb drei Summen statt einer großen.
+    """
+    offen = [e for e in eintraege if e.get("status") != "erfuellt"
+             and isinstance(e.get("von"), int) and not isinstance(e.get("von"), bool)]
+    s = {}
+    for takt in BEDARF_TAKTE:
+        posten = [e for e in offen if e.get("takt") == takt]
+        if not posten:
+            continue
+        s[takt] = {
+            "posten": len(posten),
+            "von": sum(e["von"] for e in posten),
+            "bis": sum(e.get("bis") or e["von"] for e in posten),
+        }
+        s[takt]["text"] = betrag_text({
+            "von": s[takt]["von"],
+            "bis": s[takt]["bis"] if s[takt]["bis"] != s[takt]["von"] else None,
+            "takt": takt,
+        })
+    return s
 
 
 def pruefe_wuensche(wuensche, produkte, vokabular, schema):
@@ -1241,11 +1656,12 @@ def main():
     if len(slugs) != len(produkte):
         fehler.append("mehrere Produkte teilen sich denselben slug")
 
-    meldungen, wuensche, steckbriefe, verarbeiter = [], [], [], []
+    meldungen, wuensche, steckbriefe, verarbeiter, bedarf = [], [], [], [], []
     if not fehler:
         for p in produkte:
             pruefe_vokabular(p, vokabular)
             pruefe_inhalt(p, statuses, slugs, produkte)
+            pruefe_freitext_zusagen(p)
         abgleich_mit_website(produkte)
 
         roh = yaml.safe_load((SRC / "meldungen.yaml").read_text(encoding="utf-8"))
@@ -1261,6 +1677,33 @@ def main():
 
         rohw = yaml.safe_load((SRC / "wuensche.yaml").read_text(encoding="utf-8"))
         wuensche = pruefe_wuensche(rohw.get("wuensche", []), produkte, vokabular, wunsch_schema)
+
+        rohb = yaml.safe_load((SRC / "bedarf.yaml").read_text(encoding="utf-8")) or {}
+        bedarf = pruefe_bedarf(rohb.get("bedarf", []))
+
+        pruefe_alle_svg()
+        pruefe_fremdziele(rohd, produkte, marke)
+
+    # Ein Zahlungsweg ohne Datenschutzangabe.
+    #
+    # Am 20.07.2026 ging die neue Unterstützen-Seite mit PayPal-Knopf und
+    # Bankverbindung online, und in der Datenschutzerklärung stand davon kein
+    # Wort — obwohl die ALTE Seite denselben Knopf schon lange hatte. Es fiel
+    # nur auf, weil ich zufällig danach suchte.
+    #
+    # Wer Geld entgegennimmt, verarbeitet personenbezogene Daten: Name, Betrag,
+    # bei PayPal die E-Mail, bei Überweisung die IBAN. Das muss dastehen.
+    u = marke.get("unterstuetzung") or {}
+    if u.get("paypal") or u.get("bank"):
+        d = u.get("datenschutz") or {}
+        if not d.get("paypal", {}).get("name"):
+            fehler.append("marke: Es gibt einen Zahlungsweg (unterstuetzung), aber keine "
+                          "Angaben unter unterstuetzung.datenschutz.paypal. Ohne sie fehlt "
+                          "der Abschnitt auf der Datenschutzseite.")
+        if not d.get("aufbewahrung"):
+            fehler.append("marke: unterstuetzung.datenschutz.aufbewahrung fehlt. "
+                          "Zahlungseingänge sind Buchungsbelege — die Frist gehört "
+                          "genannt, auch wenn sie unbequem ist.")
 
     # Die Marke verspricht etwas – die Belege dafür stehen bei den Produkten.
     pt = marke.get("person", {}).get("portrait")
@@ -1290,8 +1733,8 @@ def main():
         return 1
 
     print(f"\nGeprüft: {len(produkte)} Produkte, {len(meldungen)} Meldungen, "
-          f"{len(wuensche)} Wünsche, {len(steckbriefe)} Steckbriefe, "
-          f"{len(statuses)} Statusstufen, "
+          f"{len(wuensche)} Wünsche, {len(bedarf)} Bedarfsposten, "
+          f"{len(steckbriefe)} Steckbriefe, {len(statuses)} Statusstufen, "
           f"{sum(len(v) for v in vokabular.values())} Vokabeln — keine Fehler.")
 
     if nur_pruefen:
@@ -1327,7 +1770,19 @@ def main():
     }}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     OUT_DIENSTE.write_text(json.dumps(
-        {**kopf, "dienste": dienste, "auftragsverarbeiter": verarbeiter},
+        {**kopf, "dienste": dienste, "auftragsverarbeiter": verarbeiter,
+         "fremdziele": rohd.get("fremdziele") or []},
+        ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    # Der Zähler wird hier ausgerechnet und nicht auf der Seite: Sonst steht
+    # dieselbe Logik in zwei Sprachen, und beim nächsten neuen Status stimmt
+    # eine von beiden nicht mehr.
+    OUT_BEDARF.write_text(json.dumps({**kopf, "bedarf": bedarf, "zaehler": {
+        "gesamt": len(bedarf),
+        "offen": sum(1 for b in bedarf if b["status"] == "offen"),
+        "inArbeit": sum(1 for b in bedarf if b["status"] == "in-arbeit"),
+        "erfuellt": sum(1 for b in bedarf if b["status"] == "erfuellt"),
+    }, "summen": bedarf_summen(bedarf)},
         ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     OUT_DATENSCHUTZ.write_text(json.dumps({**kopf, "steckbriefe": sorted(
@@ -1337,7 +1792,8 @@ def main():
     print(f"Geschrieben: {OUT_PRODUCTS.relative_to(ROOT)}, {OUT_STATUSES.relative_to(ROOT)}, "
           f"{OUT_VOKABULAR.relative_to(ROOT)}, {OUT_MARKE.relative_to(ROOT)}, "
           f"{OUT_NEWS.relative_to(ROOT)}, {OUT_WUENSCHE.relative_to(ROOT)}, "
-          f"{OUT_DIENSTE.relative_to(ROOT)}, {OUT_DATENSCHUTZ.relative_to(ROOT)}")
+          f"{OUT_DIENSTE.relative_to(ROOT)}, {OUT_DATENSCHUTZ.relative_to(ROOT)}, "
+          f"{OUT_BEDARF.relative_to(ROOT)}")
     return 0
 
 

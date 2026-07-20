@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-20T00:03:44+02:00",
+  "generiert": "2026-07-20T08:23:54+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "name": "FehlerFuchs",
   "slogan": "Einfach kleine Helfer.",
@@ -46,6 +46,27 @@
     "ustId": "DE463451160",
     "kleinunternehmer": true,
     "domain": "fehlerfuchs.eu"
+  },
+  "unterstuetzung": {
+    "paypal": {
+      "url": "https://www.paypal.com/ncp/payment/ARHM75WKUT5AU",
+      "qr": "/img/paypal-qr.png"
+    },
+    "bank": {
+      "inhaber": "Matthias Schacht (FehlerFuchs)",
+      "iban": "DE13 1001 1001 2272 4154 76",
+      "bic": "NTSBDEB1XXX",
+      "institut": "N26",
+      "verwendungszweck": "Unterstützung FehlerFuchs"
+    },
+    "datenschutz": {
+      "paypal": {
+        "name": "PayPal (Europe) S.à r.l. et Cie, S.C.A.",
+        "anschrift": "22-24 Boulevard Royal, L-2449 Luxemburg",
+        "erklaerung": "https://www.paypal.com/de/legalhub/privacy-full"
+      },
+      "aufbewahrung": "10 Jahre nach § 147 Abgabenordnung"
+    }
   },
   "person": {
     "name": "Matthias Schacht",

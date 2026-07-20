@@ -49,6 +49,45 @@ anbieter:
   kleinunternehmer: true
   domain: fehlerfuchs.eu
 
+# Wege, FehlerFuchs zu unterstützen. Stehen hier und nicht auf der Seite, aus
+# demselben Grund wie die Anschrift darüber: Ein Zahlungsweg, der an zwei
+# Stellen steht, ist einer, von dem eines Tages einer falsch ist.
+#
+# ZUR BANKVERBINDUNG: Sie ist BEWUSST öffentlich – Entscheidung Matze,
+# 20.07.2026. Das ist kein Widerspruch zur Regel „keine Kontodaten ins
+# Website-Repo": Gemeint sind dort Zugänge und Geheimnisse. Eine IBAN steht
+# auf jeder Rechnung. Sie erlaubt niemandem, Geld abzubuchen, ohne dass es
+# zurückzuholen wäre – nur Lästiges, kein Schaden.
+#
+# Was hier NICHT hineingehört: Online-Banking-Zugang, TAN-Verfahren,
+# PayPal-Anmeldedaten, Händler-Schlüssel.
+unterstuetzung:
+  paypal:
+    url: https://www.paypal.com/ncp/payment/ARHM75WKUT5AU
+    qr: /img/paypal-qr.png
+  bank:
+    inhaber: Matthias Schacht (FehlerFuchs)
+    iban: DE13 1001 1001 2272 4154 76
+    bic: NTSBDEB1XXX
+    institut: N26
+    verwendungszweck: Unterstützung FehlerFuchs
+
+  # Für die Datenschutzseite. Wer unterstützt, hinterlässt Daten – bei PayPal
+  # und bei mir als Zahlungsempfänger. Das gilt auch für die Überweisung: Auf
+  # dem Kontoauszug stehen Name, IBAN und Verwendungszweck.
+  #
+  # Diese Angaben standen bis zum 20.07.2026 NIRGENDS, obwohl die alte Seite
+  # denselben PayPal-Knopf hatte. Aufgefallen beim Neubau der Seite.
+  datenschutz:
+    paypal:
+      name: PayPal (Europe) S.à r.l. et Cie, S.C.A.
+      anschrift: 22-24 Boulevard Royal, L-2449 Luxemburg
+      erklaerung: https://www.paypal.com/de/legalhub/privacy-full
+    # Zahlungseingänge sind Buchungsbelege. Die handels- und steuerrechtliche
+    # Aufbewahrungsfrist geht der eigenen Löschabsicht vor – das gehört ehrlich
+    # auf die Seite und nicht verschwiegen, weil es unbequem ist.
+    aufbewahrung: 10 Jahre nach § 147 Abgabenordnung
+
 person:
   name: Matthias Schacht
   rufname: Matze

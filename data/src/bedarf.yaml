@@ -1,0 +1,172 @@
+# Betriebsbedarf — was FehlerFuchs konkret braucht
+# ================================================
+#
+# NICHT ZU VERWECHSELN MIT wuensche.yaml.
+#
+# Dort stehen Wünsche VON BESUCHERN an die Software („hätte gern eine App,
+# die …"). Hier steht, was ICH für den Betrieb brauche: Geräte, Lizenzen,
+# Zertifikate. Beides hieß auf der alten Website „Wunschliste", und genau
+# daraus entstand die Verwechslung — deshalb heißt es hier Bedarf.
+#
+# Diese Datei wird veröffentlicht. Keine Kontodaten, keine Bestellnummern,
+# keine Händler-Zugänge.
+#
+# Nach jeder Änderung:
+#     cd website && py -3 tools\build_data.py
+#
+# FELDER
+#   id       kleingeschrieben, mit Bindestrich; wird zum Sprungziel auf der Seite
+#   titel    wie es auf der Seite steht
+#   art      beitrag | geraet | sponsoring | zeit   (bestimmt die Hilfe-Wege)
+#
+#            KEIN 'spende'. FehlerFuchs ist ein Gewerbe und keine gemeinnuetzige
+#            Einrichtung – Spenden im steuerlichen Sinn kann es gar nicht
+#            entgegennehmen. 'Sachspende' stand bis zum 20.07.2026 auf der
+#            Seite und war damit nicht nur schief, sondern falsch. Es geht um
+#            konkrete Dinge, die konkrete Unterstuetzung brauchen.
+#   von/bis  Betrag in ganzen Euro. Nur 'von' angeben, wenn es kein Spanne ist.
+#   takt     einmalig | jaehrlich | monatlich   (nur mit Betrag)
+#   status   offen | in-arbeit | erfuellt
+#   text     ein bis zwei Sätze: WOZU es gebraucht wird, nicht was es ist
+#   zeichen  Motiv für das Symbol in der Liste (siehe unten)
+#
+# WARUM ZAHLEN UND KEIN TEXT
+# Die alte Seite führte den Betrag zweimal: einmal in der Zeile („~1.500 €")
+# und einmal als Schätzkosten-Note darunter. Zwei Stellen, eine Wahrheit – das
+# geht eine Weile gut. Jetzt stehen hier Zahlen; die Zeile „~1.500 € einmalig"
+# wird daraus gerechnet, und die Seite kann außerdem sagen, was insgesamt
+# offen ist. Was ableitbar ist, wird abgeleitet.
+#
+# ZEICHEN
+# siegel · platte · blitz · rechner · bildschirm · handschlag · leute ·
+# kabel · werkzeug · funke
+# Sie sind in der Seite hinterlegt, nicht als Dateien – ein fehlendes Motiv
+# fällt beim Erzeugen auf und nicht erst im Browser.
+#
+# Die Reihenfolge in dieser Datei ist die Reihenfolge auf der Seite.
+
+bedarf:
+
+  - id: code-signing
+    titel: Code-Signing-Zertifikat
+    art: beitrag
+    von: 200
+    bis: 400
+    takt: jaehrlich
+    zeichen: siegel
+    status: offen
+    text: >-
+      Signiert die Windows-Downloads, damit sie ohne SmartScreen-Warnung
+      starten (OV- oder EV-Zertifikat, meist jährlich).
+
+  - id: nas
+    titel: NAS-System (2×10 TB, erweiterbar)
+    art: geraet
+    von: 1500
+    takt: einmalig
+    zeichen: platte
+    status: offen
+    text: >-
+      Zentrale, ausfallsichere Ablage und Backups für Quellcode, Releases und
+      Dokumente. Später erweiterbar – zum Beispiel Ugreen NASync DXP4800 Pro.
+
+  - id: usv
+    titel: USV-Systeme (PC und NAS)
+    art: geraet
+    von: 500
+    takt: einmalig
+    zeichen: blitz
+    status: offen
+    text: >-
+      Schützt Rechner und NAS bei Stromausfall – keine kaputten Builds und
+      keine verlorenen Daten.
+
+  - id: workstation
+    titel: Leistungsstarker Office-Rechner (ab 64 GB RAM)
+    art: geraet
+    von: 2000
+    bis: 2500
+    takt: einmalig
+    zeichen: rechner
+    status: offen
+    text: >-
+      Für zügiges Bauen, Testen, virtuelle Maschinen und mehrere Anwendungen
+      nebeneinander.
+
+  - id: monitore
+    titel: Zwei neue Monitore
+    art: geraet
+    von: 300
+    bis: 500
+    takt: einmalig
+    zeichen: bildschirm
+    status: offen
+    text: >-
+      Mehr Fläche für Quelltext, Vorschau und Dokumentation nebeneinander.
+
+  - id: code-signing-sponsor
+    titel: Code-Signing-Sponsor
+    art: sponsoring
+    von: 200
+    bis: 400
+    takt: jaehrlich
+    zeichen: handschlag
+    status: offen
+    text: >-
+      Ein Zertifikats-Anbieter oder Unternehmen, das die Signierung dauerhaft
+      trägt – gern mit Nennung als Unterstützer.
+
+  - id: lokale-hilfe
+    titel: Lokale Unterstützung
+    art: zeit
+    zeichen: leute
+    status: offen
+    text: >-
+      Mithilfe aus der Region um Jena: testen, weiterempfehlen, Kontakte
+      knüpfen, ehrenamtlich mit anpacken. Kein Geld – Zeit zählt genauso.
+
+  - id: kleinkram
+    titel: Kabel, Adapter und Verbrauchsmaterial
+    art: geraet
+    von: 30
+    bis: 80
+    takt: einmalig
+    zeichen: kabel
+    status: offen
+    text: >-
+      Der ständige Kleinkram: Kabel, Adapter, Datenträger, Druck- und
+      Büromaterial. Unspektakulär und trotzdem dauernd gebraucht.
+
+  - id: werkzeug-lizenzen
+    titel: Entwickler- und Werkzeug-Lizenzen
+    art: sponsoring
+    von: 150
+    bis: 500
+    takt: jaehrlich
+    zeichen: werkzeug
+    status: offen
+    text: >-
+      Zum Beispiel JetBrains-Entwicklungsumgebungen, Affinity Designer und
+      Photo für Grafik, Snagit für Bildschirmfotos oder ein guter
+      Installer-Baukasten.
+
+  - id: claude-max
+    titel: Claude Max (20×) – Abo-Sponsoring
+    art: sponsoring
+    von: 185
+    takt: monatlich
+    zeichen: funke
+    status: offen
+    text: >-
+      KI-Unterstützung bei Entwicklung, Dokumentation und Tests – das große
+      20×-Kontingent.
+
+  - id: chatgpt-pro
+    titel: ChatGPT Pro – Abo-Sponsoring
+    art: sponsoring
+    von: 185
+    takt: monatlich
+    zeichen: funke
+    status: offen
+    text: >-
+      Zusätzliche KI-Unterstützung im Entwicklungsalltag.

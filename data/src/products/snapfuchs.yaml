@@ -2,10 +2,17 @@ slug: snapfuchs
 name: SnapFuchs
 fullName: FehlerFuchs SnapFuchs
 kind: produkt
-tagline: Lokaler Dokumenten-Scanner für Android – ohne Cloud, ohne Google.
+# „ohne Google" am 20.07.2026 gestrichen — dieselbe Begründung wie beim
+# Merkmal weiter unten: Die App fragt beim Start den Kaufstatus der
+# Pro-Fassung bei Google Play ab. Die Tagline steht ganz oben auf der
+# Produktseite und ist damit die sichtbarste Zusage von allen.
+tagline: Lokaler Dokumenten-Scanner für Android – ohne Cloud, ohne Konto.
 description: >-
   Dokumente mit der Kamera erfassen, gerade rücken, als PDF ablegen – alles auf dem
   Gerät. Kein Upload zu einem Scan-Dienst, keine Anmeldung, keine Werbung.
+  Für den einmaligen Kauf der Pro-Fassung fragt die App beim Start den
+  Kaufstatus bei Google Play ab – das verlangt der Play Store so. Deine Scans,
+  Bilder und PDFs sieht Google nie; sie verlassen das Gerät nicht.
 audience: [privat, selbststaendige]
 
 # Akzent für Listen und Karten auf hellem Grund (Produktübersicht, Downloads).
@@ -44,7 +51,12 @@ platforms:
     status: pruefung
     distribution: play-store
 
-privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, kein-google, offline-faehig]
+# 'kein-google' am 20.07.2026 gestrichen: Die App fragt beim Start den
+# Kaufstatus der Pro-Fassung bei Google Play ab (Steckbrief, freiwillig:
+# false). MobileReport hat dieselbe Lage und trug das Merkmal nie — dort war
+# es von Anfang an richtig. Der Sachverhalt steht jetzt im Fliesstext, wo er
+# erklaert werden kann, statt in einem Merkmal, das die Haelfte verschweigt.
+privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
 editions:
   - id: free

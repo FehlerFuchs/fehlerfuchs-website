@@ -168,3 +168,78 @@ dienste:
     hinweis: >-
       Solange keine kostenpflichtige Stufe gekauft wird, entsteht dort kein
       Vorgang.
+
+# ---------------------------------------------------------------------------
+# Ziele, zu denen die Website VERWEIST, ohne sie einzubinden
+# ---------------------------------------------------------------------------
+#
+# Der Unterschied ist der ganze Punkt: Eingebunden hieße, der Browser lädt beim
+# Aufruf der Seite etwas von dort — dann ginge die IP-Adresse jedes Besuchers
+# ungefragt dorthin. Verwiesen heißt, es passiert erst, wenn jemand klickt.
+#
+# Erwähnt gehören sie trotzdem. Bei einem Download merkt man kaum, dass man die
+# Website verlässt: Der Knopf sieht aus wie ein Download von hier.
+#
+# WARUM ES DIESE LISTE GIBT
+# Am 20.07.2026 fiel auf, dass die Unterstützen-Seite auf PayPal verweist, ohne
+# dass es in der Datenschutzerklärung stand — und die ALTE Seite hatte denselben
+# Knopf schon lange. Beim Nachsehen kamen GitHub und Google Play dazu. Der
+# Erzeuger prüft jetzt jede fremde Adresse im Datenmodell gegen diese Liste;
+# eine unbekannte bricht den Lauf ab.
+fremdziele:
+
+  - adresse: github.com
+    zweck: Downloads für Windows
+    anbieter: GitHub, Inc.
+    anschrift: 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA
+    erklaerung: https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement
+    drittland: >-
+      GitHub gehört zu Microsoft. Die Übertragung in die USA stützt sich auf
+      die Standardvertragsklauseln der EU-Kommission und die Teilnahme am
+      EU-US Data Privacy Framework.
+    was: >-
+      Beim Herunterladen einer Datei übermittelt dein Gerät die IP-Adresse und
+      technische Angaben an GitHub. Die Datei selbst liegt dort, nicht hier.
+
+  - adresse: play.google.com
+    zweck: Bezug der Android-Anwendungen
+    anbieter: Google Ireland Limited
+    anschrift: Gordon House, Barrow Street, Dublin 4, Irland
+    erklaerung: https://policies.google.com/privacy
+    was: >-
+      Der Verweis öffnet den Google-Play-Store. Was dort geschieht, verantwortet
+      Google; für die Nutzung des Stores brauchst du ein Google-Konto.
+
+  - adresse: www.paypal.com
+    zweck: Freiwillige Unterstützung
+    anbieter: PayPal (Europe) S.à r.l. et Cie, S.C.A.
+    anschrift: 22-24 Boulevard Royal, L-2449 Luxemburg
+    erklaerung: https://www.paypal.com/de/legalhub/privacy-full
+    was: >-
+      Der Knopf ist ein Verweis; eingebunden ist nichts, auch der QR-Code liegt
+      hier. Einzelheiten stehen im Abschnitt „Freiwillige Unterstützung".
+
+  - adresse: www.checkout-ds24.com
+    zweck: Kaufabwicklung
+    anbieter: Digistore24 GmbH
+    anschrift: St.-Godehard-Straße 32, 31139 Hildesheim, Deutschland
+    erklaerung: https://www.digistore24.com/page/privacy/1/de
+    was: >-
+      Die Bestellseite von Digistore24. Einzelheiten stehen im Abschnitt „Kauf
+      einer kostenpflichtigen Fassung".
+
+  # Nur verlinkt, nicht angesteuert: die Anbieterangaben im Impressum und in
+  # der Datenschutzerklärung selbst.
+  - adresse: www.ionos.de
+    zweck: Angaben zum Hoster
+    anbieter: IONOS SE
+    anschrift: Elgendorfer Straße 57, 56410 Montabaur, Deutschland
+    erklaerung: https://www.ionos.de/terms-gtc/datenschutzerklaerung/
+    was: Verweis auf die Angaben des Hosters. Einzelheiten unter „Wo alles liegt".
+
+  - adresse: www.digistore24.com
+    zweck: Angaben zum Zahlungsanbieter
+    anbieter: Digistore24 GmbH
+    anschrift: St.-Godehard-Straße 32, 31139 Hildesheim, Deutschland
+    erklaerung: https://www.digistore24.com/page/privacy/1/de
+    was: Verweis auf die Erklärung des Zahlungsanbieters.

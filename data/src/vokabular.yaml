@@ -37,9 +37,21 @@ privacy:
   werbefrei:
     label: werbefrei
     erklaerung: Keine Werbung, keine Werbenetzwerke.
+  # Geschaerft am 20.07.2026. Die alte Erklaerung lautete „Keine
+  # Google-Dienste eingebunden." — sie fragte nach der HERKUNFT des Codes.
+  # Fuer einen Besucher zaehlt aber der DATENFLUSS: Ihn interessiert nicht,
+  # wer die Bibliothek geschrieben hat, sondern ob seine Daten irgendwo landen.
+  #
+  # Der Unterschied war nicht theoretisch: SnapFuchs trug das Merkmal, obwohl
+  # es beim App-Start den Kaufstatus bei Google Play abfragt. OrgaFuchs trug
+  # es und rechnet mit Google ML Kit — aber vollstaendig auf dem Geraet.
+  # Nach altem Wortlaut waren beide falsch, nach neuem ist nur SnapFuchs es.
   kein-google:
-    label: ohne Google
-    erklaerung: Keine Google-Dienste eingebunden.
+    label: ohne Google-Verbindung
+    erklaerung: >-
+      Es geht nichts an Google-Server – kein Konto, keine Abrechnung, keine
+      Karten, keine Schriften aus dem Netz. Mitgelieferte Bibliotheken, die
+      auf dem Gerät rechnen und nichts senden, sind davon nicht berührt.
   eigener-sync:
     label: eigener Sync
     erklaerung: Abgleich über das eigene Netz oder einen selbst betriebenen Relay.
