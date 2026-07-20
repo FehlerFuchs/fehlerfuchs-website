@@ -5,8 +5,8 @@ name: Deploy statische Seite zu GitHub Pages
 # interne Jekyll-Pipeline durch die Node-20-Abschaltung (ab 16.06.2026) bricht.
 
 on:
-  push:
-    branches: [main]
+ # push:
+ #   branches: [main]
   workflow_dispatch:
 
 permissions:
