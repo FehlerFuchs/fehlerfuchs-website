@@ -29,6 +29,32 @@
 
 meldungen:
 
+  - id: website-2-0
+    typ: veroeffentlichung
+    # Kein Produkt: Die Website ist keins. Deshalb auch keine Version -
+    # 'version ohne produkt' waere ein Verweis ins Nichts.
+    datum: "2026-07-20"
+    titel: Neue Website – aufgeräumt, schneller, ehrlicher
+    text: >-
+      fehlerfuchs.eu ist neu gebaut. Alle Angaben zu den Anwendungen kommen jetzt
+      aus einer einzigen Quelle – Status, Plattformen, Preise und Datenschutz
+      können sich damit nicht mehr widersprechen. Neu sind eine ausführliche
+      Datenschutzseite mit einem Steckbrief je Anwendung, der Wunscherfüller zum
+      Einreichen eigener Ideen und eine Seite, die offen zeigt, was FehlerFuchs
+      gerade an Ausstattung braucht. Alte Adressen leiten weiter; Lesezeichen
+      bleiben gültig.
+
+  - id: snapfuchs-play-veroeffentlichung
+    typ: store
+    produkt: snapfuchs
+    # Datum ergibt sich aus platforms[android].since und wird von dort geholt.
+    titel: SnapFuchs ist im Play Store
+    text: >-
+      Der lokale Dokumenten-Scanner für Android ist da. Mit der Kamera erfassen,
+      gerade rücken, als PDF ablegen – alles bleibt auf dem Gerät, ohne Upload zu
+      einem Scan-Dienst und ohne Anmeldung. Die Pro-Fassung ist ein einmaliger
+      Kauf, kein Abo; das Wesentliche steckt in der kostenlosen Fassung.
+
   - id: orgafuchs-play-ablehnung-2026-07
     typ: store
     produkt: orgafuchs

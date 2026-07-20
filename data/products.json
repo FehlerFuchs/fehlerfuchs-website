@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-20T10:37:57+02:00",
+  "generiert": "2026-07-20T14:28:30+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -610,8 +610,8 @@
       },
       "links": {
         "page": "/apps/mobilereport.html",
-        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport",
-        "contact": "/kontakt.html?app=MobileReport&topic=interesse"
+        "contact": "/kontakt.html?app=MobileReport&topic=interesse",
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport"
       }
     },
     {
@@ -1090,7 +1090,8 @@
       "links": {
         "page": "/apps/orgafuchs.html",
         "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.0.0",
-        "contact": "/kontakt.html?app=OrgaFuchs&topic=interesse"
+        "contact": "/kontakt.html?app=OrgaFuchs&topic=interesse",
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
       },
       "notes": "Offen: Play-Store-Freigabe für Android. Ebenfalls offen ist der von der App erwartete Endpunkt data/schulferien/DE-XX.json auf fehlerfuchs.eu – bis dahin greift der eingebaute Datenbestand."
     },
@@ -1333,8 +1334,8 @@
       },
       "links": {
         "page": "/apps/pdfuchsreader.html",
-        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader",
-        "contact": "/kontakt.html?app=PDFuchs%20Reader&topic=interesse"
+        "contact": "/kontakt.html?app=PDFuchs%20Reader&topic=interesse",
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader"
       },
       "notes": "Seit 18.07.2026 regulär im Play Store, davor offener Test."
     },
@@ -1377,12 +1378,14 @@
           "weight": "bold"
         }
       ],
-      "status": "pruefung",
+      "status": "verfuegbar",
       "platforms": [
         {
           "os": "android",
-          "status": "pruefung",
-          "distribution": "play-store"
+          "status": "verfuegbar",
+          "distribution": "play-store",
+          "storeId": "eu.fehlerfuchs.snapfuchs",
+          "since": "2026-07-20"
         }
       ],
       "privacy": [
@@ -1634,9 +1637,10 @@
       },
       "links": {
         "page": "/produkte.html",
-        "contact": "/kontakt.html?app=SnapFuchs&topic=interesse"
+        "contact": "/kontakt.html?app=SnapFuchs&topic=interesse",
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.snapfuchs"
       },
-      "notes": "Liegt bei Google zur Prüfung. Nach der Freigabe: Status auf verfuegbar setzen, storeId ergänzen und eine eigene Produktseite anlegen."
+      "notes": "Am 20.07.2026 im Play Store freigegeben. Offen: eine eigene Produktseite (derzeit wird die Vorlage benutzt) und die Bildschirmfotos gegen die veröffentlichte Fassung prüfen."
     },
     {
       "slug": "gewerbepro",

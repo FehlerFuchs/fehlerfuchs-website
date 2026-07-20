@@ -1304,6 +1304,39 @@ FREITEXT_ZUSAGEN = {
 # Statusfarben - wird er weiterhin geprueft, in pruefe_inhalt().
 
 
+PLAY_STORE = "https://play.google.com/store/apps/details?id="
+
+
+def store_adresse_ableiten(p):
+    """Baut links.store aus der storeId, wenn er fehlt.
+
+    Beide Angaben sind dasselbe: Die Store-Adresse ist die Paketkennung mit
+    einem festen Vorspann davor. Sie zweimal zu pflegen hat am 20.07.2026 genau
+    das getan, was doppelte Angaben immer tun — SnapFuchs ging im Play Store
+    live, bekam 'storeId', und auf der Produktseite stand trotzdem „Bescheid
+    geben lassen", weil 'links.store' fehlte. Der Knopf zum Herunterladen war
+    nicht da, obwohl die App verfuegbar war.
+
+    OrgaFuchs hatte dieselbe Luecke, nur unbemerkt: Dort verdeckte der
+    Windows-Download, dass der Play-Store-Knopf fehlte.
+    """
+    links = p.setdefault("links", {})
+    for pl in p.get("platforms") or []:
+        if pl.get("distribution") != "play-store" or not pl.get("storeId"):
+            continue
+        abgeleitet = PLAY_STORE + pl["storeId"]
+        if not links.get("store"):
+            links["store"] = abgeleitet
+        elif links["store"] != abgeleitet:
+            # Widerspruch: Beide stehen da und meinen Verschiedenes. Welcher
+            # stimmt, kann nur ein Mensch wissen.
+            melde(fehler, p["slug"],
+                  f"links.store zeigt auf {links['store']}, aus storeId "
+                  f"'{pl['storeId']}' ergaebe sich aber {abgeleitet}. "
+                  f"Eine der beiden Angaben ist falsch.")
+        return
+
+
 def pruefe_freitext_zusagen(p):
     """Tagline und Beschreibung dürfen nichts versprechen, was die
     Merkmalsliste nicht deckt.
@@ -1680,6 +1713,7 @@ def main():
         for p in produkte:
             pruefe_vokabular(p, vokabular)
             pruefe_inhalt(p, statuses, slugs, produkte)
+            store_adresse_ableiten(p)
             pruefe_freitext_zusagen(p)
         abgleich_mit_website(produkte)
 

@@ -1,8 +1,28 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-20T10:37:57+02:00",
+  "generiert": "2026-07-20T14:28:30+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "website-2-0",
+      "typ": "veroeffentlichung",
+      "datum": "2026-07-20",
+      "titel": "Neue Website – aufgeräumt, schneller, ehrlicher",
+      "text": "fehlerfuchs.eu ist neu gebaut. Alle Angaben zu den Anwendungen kommen jetzt aus einer einzigen Quelle – Status, Plattformen, Preise und Datenschutz können sich damit nicht mehr widersprechen. Neu sind eine ausführliche Datenschutzseite mit einem Steckbrief je Anwendung, der Wunscherfüller zum Einreichen eigener Ideen und eine Seite, die offen zeigt, was FehlerFuchs gerade an Ausstattung braucht. Alte Adressen leiten weiter; Lesezeichen bleiben gültig.",
+      "datumQuelle": "eigene Angabe"
+    },
+    {
+      "id": "snapfuchs-play-veroeffentlichung",
+      "typ": "store",
+      "produkt": "snapfuchs",
+      "titel": "SnapFuchs ist im Play Store",
+      "text": "Der lokale Dokumenten-Scanner für Android ist da. Mit der Kamera erfassen, gerade rücken, als PDF ablegen – alles bleibt auf dem Gerät, ohne Upload zu einem Scan-Dienst und ohne Anmeldung. Die Pro-Fassung ist ein einmaliger Kauf, kein Abo; das Wesentliche steckt in der kostenlosen Fassung.",
+      "datum": "2026-07-20",
+      "datumQuelle": "platforms[android].since",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.snapfuchs"
+      }
+    },
     {
       "id": "orgafuchs-play-ablehnung-2026-07",
       "typ": "store",
@@ -10,7 +30,10 @@
       "datum": "2026-07-18",
       "titel": "OrgaFuchs für Android – von der Prüfsoftware abgelehnt, Widerspruch läuft",
       "text": "Eingereicht und noch am selben Tag zurück. Die automatische Prüfung von Google hat die Einstellungsseite für den Gruppen-Sync als Bezahlschranke oder nicht deklarierten Login gewertet. Beides ist sie nicht: Dort trägt man eine Relay-Adresse und ein selbst gewähltes Gruppen-Passwort ein, um die eigenen Geräte zu verbinden. Kein Konto, keine Anmeldung, keine Zahlung. Der Widerspruch läuft; er kostet voraussichtlich sieben bis vierzehn Tage. Was mich dabei ärgert, ist nicht die Prüfung – die ist richtig –, sondern dass eine unsichere Maschine durchentscheidet, statt einen Menschen dazuzuholen. Windows bleibt verfügbar.",
-      "datumQuelle": "eigene Angabe"
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
+      }
     },
     {
       "id": "orgafuchs-1-0-0",
@@ -22,7 +45,8 @@
       "datum": "2026-07-18",
       "datumQuelle": "Release 1.0.0",
       "wege": {
-        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.0.0/OrgaFuchs_Setup_1.0.0.exe"
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.0.0/OrgaFuchs_Setup_1.0.0.exe",
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
       }
     },
     {

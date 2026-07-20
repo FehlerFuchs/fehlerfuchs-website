@@ -44,12 +44,14 @@ wordmark:
   - { text: "Fuchs", color: "#2563EB", weight: bold }
 
 # „pruefung" statt „beta": eingereicht, aber noch nichts öffentlich testbar.
-status: pruefung
+status: verfuegbar
 
 platforms:
   - os: android
-    status: pruefung
+    status: verfuegbar
     distribution: play-store
+    storeId: eu.fehlerfuchs.snapfuchs
+    since: "2026-07-20"
 
 # 'kein-google' am 20.07.2026 gestrichen: Die App fragt beim Start den
 # Kaufstatus der Pro-Fassung bei Google Play ab (Steckbrief, freiwillig:
@@ -225,5 +227,6 @@ links:
   contact: /kontakt.html?app=SnapFuchs&topic=interesse
 
 notes: >-
-  Liegt bei Google zur Prüfung. Nach der Freigabe: Status auf verfuegbar setzen,
-  storeId ergänzen und eine eigene Produktseite anlegen.
+  Am 20.07.2026 im Play Store freigegeben. Offen: eine eigene Produktseite
+  (derzeit wird die Vorlage benutzt) und die Bildschirmfotos gegen die
+  veröffentlichte Fassung prüfen.
