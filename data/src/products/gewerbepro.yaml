@@ -230,8 +230,8 @@ media:
   lockup:
     src: /img/lockups/gewerbepro.svg
     alt: GewerbePro – von FehlerFuchs
-    width: 1000
-    height: 300
+    width: 1614
+    height: 360
   # Aus Marketing_Facebook/Tablet_10Zoll des Projekts übernommen und auf
   # Webgröße gerechnet. Werbebilder mit Überschrift, keine nackten
   # Bildschirmabzüge – der Alternativtext sagt das auch so.

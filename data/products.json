@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-20T08:23:54+02:00",
+  "generiert": "2026-07-20T10:37:57+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -47,7 +47,15 @@
       "links": {
         "page": "/apps/mobilereport-konfigurator.html"
       },
-      "notes": "Zubehör, kein eigenes Produkt – erscheint deshalb nicht in der Produktübersicht, sondern nur auf der Enterprise-Seite."
+      "notes": "Zubehör, kein eigenes Produkt – erscheint deshalb nicht in der Produktübersicht, sondern nur auf der Enterprise-Seite.",
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/mobilereport-konfigurator.svg",
+          "alt": "Branding-Konfigurator – von FehlerFuchs",
+          "width": 1739,
+          "height": 365
+        }
+      }
     },
     {
       "slug": "einzelstueck",
@@ -344,8 +352,8 @@
         "lockup": {
           "src": "/img/lockups/einzelstueck.svg",
           "alt": "EinzelStück – von FehlerFuchs",
-          "width": 1120,
-          "height": 300
+          "width": 1531,
+          "height": 360
         },
         "platzhalter": 4
       },
@@ -544,10 +552,10 @@
       "releases": [],
       "media": {
         "lockup": {
-          "src": "/img/lockups/mobilereport.png",
+          "src": "/img/lockups/mobilereport.svg",
           "alt": "MobileReport – von FehlerFuchs",
-          "width": 1333,
-          "height": 322
+          "width": 1739,
+          "height": 365
         },
         "screenshots": [
           {
@@ -748,10 +756,10 @@
       ],
       "media": {
         "lockup": {
-          "src": "/img/lockups/mobilereport-enterprise.png",
+          "src": "/img/lockups/mobilereport-enterprise.svg",
           "alt": "MobileReport Enterprise – von FehlerFuchs",
-          "width": 720,
-          "height": 120
+          "width": 2118,
+          "height": 365
         },
         "platzhalter": 4
       },
@@ -989,10 +997,10 @@
       ],
       "media": {
         "lockup": {
-          "src": "/img/lockups/orgafuchs.png",
+          "src": "/img/lockups/orgafuchs.svg",
           "alt": "OrgaFuchs – von FehlerFuchs",
-          "width": 1040,
-          "height": 400
+          "width": 1656,
+          "height": 460
         },
         "screenshots": [
           {
@@ -1243,8 +1251,8 @@
         "lockup": {
           "src": "/img/lockups/pdfuchsreader.svg",
           "alt": "PDFuchs Reader – von FehlerFuchs",
-          "width": 1180,
-          "height": 300
+          "width": 2036,
+          "height": 360
         },
         "screenshots": [
           {
@@ -1559,6 +1567,12 @@
         }
       ],
       "media": {
+        "lockup": {
+          "src": "/img/lockups/snapfuchs.svg",
+          "alt": "SnapFuchs – von FehlerFuchs",
+          "width": 1583,
+          "height": 397
+        },
         "screenshots": [
           {
             "src": "/img/screenshots/snapfuchs/handy-01.png",
@@ -2041,8 +2055,8 @@
         "lockup": {
           "src": "/img/lockups/gewerbepro.svg",
           "alt": "GewerbePro – von FehlerFuchs",
-          "width": 1000,
-          "height": 300
+          "width": 1614,
+          "height": 360
         },
         "screenshots": [
           {
@@ -2179,9 +2193,9 @@
       "releases": [],
       "media": {
         "lockup": {
-          "src": "/img/lockups/appinsight.png",
+          "src": "/img/lockups/appinsight.svg",
           "alt": "AppInsight – von FehlerFuchs",
-          "width": 1200,
+          "width": 1500,
           "height": 360
         },
         "platzhalter": 4
@@ -2256,6 +2270,12 @@
         "quelle": "FehlerFuchs_BelegWerk/11_App_Flutter/belegwerk_desktop/lib/ui/ff_tokens.dart"
       },
       "media": {
+        "lockup": {
+          "src": "/img/lockups/belegwerk.svg",
+          "alt": "BelegWerk – von FehlerFuchs",
+          "width": 1520,
+          "height": 380
+        },
         "platzhalter": 4
       },
       "links": {
@@ -2307,8 +2327,8 @@
         "lockup": {
           "src": "/img/lockups/cleandesk.svg",
           "alt": "CleanDesk – von FehlerFuchs",
-          "width": 770,
-          "height": 210
+          "width": 1476,
+          "height": 420
         },
         "platzhalter": 4
       },
@@ -2367,8 +2387,8 @@
         "lockup": {
           "src": "/img/lockups/fuchsbau.svg",
           "alt": "FuchsBau – von FehlerFuchs",
-          "width": 1080,
-          "height": 360
+          "width": 1385,
+          "height": 362
         },
         "platzhalter": 4
       },
@@ -2437,8 +2457,8 @@
         "lockup": {
           "src": "/img/lockups/pdfuchs.svg",
           "alt": "PDFuchs – von FehlerFuchs",
-          "width": 907,
-          "height": 300
+          "width": 1260,
+          "height": 368
         },
         "platzhalter": 4
       },
@@ -2506,8 +2526,8 @@
         "lockup": {
           "src": "/img/lockups/checkin-vita.svg",
           "alt": "CheckInVita – von FehlerFuchs",
-          "width": 760,
-          "height": 150
+          "width": 1629,
+          "height": 403
         },
         "platzhalter": 4
       },
@@ -2559,8 +2579,8 @@
         "lockup": {
           "src": "/img/lockups/coppicemail.svg",
           "alt": "CoppiceMail – von FehlerFuchs",
-          "width": 1160,
-          "height": 300
+          "width": 1649,
+          "height": 360
         },
         "platzhalter": 4
       },

@@ -1,0 +1,15 @@
+Verwaiste Dateien, verschoben am 20.07.2026.
+
+Keine davon wurde noch irgendwo eingebunden - weder von der neuen Astro-Seite
+noch von den alten HTML-Dateien noch aus dem Datenmodell.
+
+  kleingewerbe-*            Der Name gibt es nicht mehr. Aus Kleingewerbe
+                            wurde GewerbePro; die V2-Dateien liegen unter
+                            gewerbepro-*.
+  orgafuchs-silhouette.svg  Silhouetten sind in allen Produkten derselbe
+                            Fuchskopf. Es genuegt fehlerfuchs-silhouette.svg.
+  email-logo-fehlerfuchs    Fuer E-Mail-Signaturen gedacht, auf der Website
+                            nie verwendet. Liegt in Email-Signatur/ richtig.
+
+Geloescht wird hier nichts - verschoben. Wer eine davon doch braucht, holt sie
+sich aus dem aktuellen Markenbestand in _Marke_und_IP und nicht von hier.

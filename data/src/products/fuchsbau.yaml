@@ -31,8 +31,8 @@ media:
   lockup:
     src: /img/lockups/fuchsbau.svg
     alt: FuchsBau – von FehlerFuchs
-    width: 1080
-    height: 360
+    width: 1385
+    height: 362
   # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
   # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
   # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.

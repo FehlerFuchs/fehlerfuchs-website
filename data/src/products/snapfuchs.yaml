@@ -167,6 +167,11 @@ umwege:
 # Seite unter /apps/snapfuchs.html gebraucht.
 
 media:
+  lockup:
+    src: /img/lockups/snapfuchs.svg
+    alt: SnapFuchs – von FehlerFuchs
+    width: 1583
+    height: 397
   # Bildschirmfotos aus dem Play-Store-Satz (Release_SnapFuchs_android/screenshots).
   # Für die Website auf 620 Pixel Breite verkleinert – dargestellt werden sie mit
   # 230 Pixeln, alles darüber wäre übertragene Datenmenge ohne Gegenwert.

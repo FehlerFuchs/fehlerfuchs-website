@@ -136,10 +136,10 @@ features:
 
 media:
   lockup:
-    src: /img/lockups/orgafuchs.png
+    src: /img/lockups/orgafuchs.svg
     alt: OrgaFuchs – von FehlerFuchs
-    width: 1040
-    height: 400
+    width: 1656
+    height: 460
 
   # Aus dem fertig sortierten Store-Satz des Play-Console-Ordners:
   # Release_OrgaFuchs_android/02_Grafiken/_STORE-FERTIG/Handy.

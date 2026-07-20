@@ -1,15 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="60 80 392 392" width="392" height="392">
-<path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="#D97706"/>
-<path d="M132,120 L186,150 L158,182 Z" fill="#7C3F16"/>
-<path d="M380,120 L326,150 L354,182 Z" fill="#7C3F16"/>
-<path d="M198,250 L314,250 L256,430 Z" fill="#FFF7ED"/>
-<path d="M192,228 L232,222 L214,250 Z" fill="#2B160B"/>
-<path d="M243,372 L269,372 L256,392 Z" fill="#2B160B"/>
-<ellipse cx="308" cy="233" rx="15" ry="11" fill="#2B160B" transform="rotate(16 308 233)"/>
-<circle cx="308" cy="231" r="29" fill="#2563EB" opacity="0.16"/>
-<path d="M289,217 A29,29 0 0 1 311,205" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
-<line x1="330" y1="253" x2="373" y2="296" stroke="#2B160B" stroke-width="18" stroke-linecap="round"/>
-<line x1="332" y1="255" x2="369" y2="292" stroke="#C2410C" stroke-width="7" stroke-linecap="round"/>
-<circle cx="308" cy="231" r="29" fill="none" stroke="#2B160B" stroke-width="11"/>
-<circle cx="308" cy="231" r="23" fill="none" stroke="#FFF7ED" stroke-width="2" opacity="0.45"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="78 80 356 376"><g transform="translate(0.000,0.000) scale(1.000000)"><path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="#D97706"/><path d="M132,120 L186,150 L158,182 Z" fill="#7C3F16"/><path d="M380,120 L326,150 L354,182 Z" fill="#7C3F16"/><path d="M198,250 L314,250 L256,430 Z" fill="#FFF7ED"/><path d="M192,228 L232,222 L214,250 Z" fill="#2B160B"/><circle cx="306" cy="236" r="30" fill="#7C3F16"/><circle cx="306" cy="236" r="22" fill="#0E2540"/><circle cx="306" cy="236" r="13" fill="#2563EB"/><circle cx="306" cy="236" r="6" fill="#7DD3FC"/><path d="M243,372 L269,372 L256,392 Z" fill="#2B160B"/><line x1="339" y1="269" x2="392" y2="322" stroke="#2B160B" stroke-width="24" stroke-linecap="round"/><line x1="341" y1="271" x2="388" y2="318" stroke="#C2410C" stroke-width="11" stroke-linecap="round"/><path fill-rule="evenodd" fill="#2B160B" d="M259,236 a47,47 0 1,0 94,0 a47,47 0 1,0 -94,0 Z M270,236 a36,36 0 1,0 72,0 a36,36 0 1,0 -72,0 Z"/><path fill-rule="evenodd" fill="#C2410C" d="M270,236 a36,36 0 1,0 72,0 a36,36 0 1,0 -72,0 Z M274,236 a32,32 0 1,0 64,0 a32,32 0 1,0 -64,0 Z"/></g></svg>

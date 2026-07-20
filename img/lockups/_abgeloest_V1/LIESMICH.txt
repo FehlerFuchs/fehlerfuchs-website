@@ -1,0 +1,14 @@
+Abgeloeste Lockups der Fassung V1, verschoben am 20.07.2026.
+
+Sie wurden durch die V2-Fassungen aus _Marke_und_IP ersetzt. Die neuen sind
+SVG statt PNG - eine Wortmarke ist reine Vektorgrafik und in jeder Groesse
+scharf, statt in vier Aufloesungen vorgehalten zu werden.
+
+NICHT ZURUECKHOLEN. Mehrere Motive haben sich geaendert, nicht nur die
+Dateiform: MobileReport traegt jetzt ein Handy mit Warnzeichen, CleanDesk
+fuenf Funkeln statt einer Schreibtischlampe, OrgaFuchs ein anderes Kopfband.
+Wer eine dieser Dateien vermisst, meldet es bei "Marke und Identitaet" -
+dort wird sie regelkonform nachgebaut.
+
+'kleingewerbe.png' gehoert zu einem Namen, den es nicht mehr gibt: Aus
+Kleingewerbe wurde GewerbePro.

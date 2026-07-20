@@ -41,3 +41,10 @@ links:
 notes: >-
   Zubehör, kein eigenes Produkt – erscheint deshalb nicht in der Produktübersicht,
   sondern nur auf der Enterprise-Seite.
+
+media:
+  lockup:
+    src: /img/lockups/mobilereport-konfigurator.svg
+    alt: Branding-Konfigurator – von FehlerFuchs
+    width: 1739
+    height: 365

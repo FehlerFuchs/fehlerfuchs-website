@@ -102,10 +102,10 @@ releases: []
 # Überschrift steht nur für Screenreader da – sonst stünde der Name doppelt.
 media:
   lockup:
-    src: /img/lockups/mobilereport.png
+    src: /img/lockups/mobilereport.svg
     alt: MobileReport – von FehlerFuchs
-    width: 1333
-    height: 322
+    width: 1739
+    height: 365
   # Aus dem Play-Store-Satz des Projekts übernommen und auf Webgröße
   # gerechnet. Es sind Werbebilder mit Überschrift, keine nackten
   # Bildschirmabzüge - der Alternativtext sagt das auch so.

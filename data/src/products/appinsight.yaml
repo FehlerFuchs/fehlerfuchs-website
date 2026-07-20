@@ -30,9 +30,9 @@ releases: []
 # Überschrift steht nur für Screenreader da – sonst stünde der Name doppelt.
 media:
   lockup:
-    src: /img/lockups/appinsight.png
+    src: /img/lockups/appinsight.svg
     alt: AppInsight – von FehlerFuchs
-    width: 1200
+    width: 1500
     height: 360
   # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
   # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.

@@ -1285,6 +1285,25 @@ FREITEXT_ZUSAGEN = {
 }
 
 
+# HIER STAND EINE PRUEFUNG DES AKZENT-KONTRASTS. Sie ist am 20.07.2026 wieder
+# entfernt worden, und der Weg dorthin ist lehrreicher als die Regel es war.
+#
+# Erste Fassung: mass die Akzentfarbe pauschal gegen hell und meldete SnapFuchs
+#   mit 1,93:1. Uebersehen: Die Produktseite traegt das Theme des Produkts, und
+#   SnapFuchs ist absichtlich dunkel gebaut - dort sind es 6,96:1.
+#
+# Zweite Fassung: mass nur noch gegen die Produktkarte, die tatsaechlich weiss
+#   ist. Rechnerisch richtig, in der Sache trotzdem falsch: WCAG 1.4.11 gilt
+#   fuer grafische Elemente, die zum VERSTEHEN noetig sind. Der Balken links an
+#   der Karte traegt keine Information - Name, Status und Beschreibung stehen
+#   daneben. Er ist Wiedererkennung, kein Bedeutungstraeger.
+#
+# Was bleibt: Eine Regel muss wissen, WO die Farbe landet und WOFUER sie dort
+# steht. Beides hatte ich nicht geprueft, sondern eine Zahl gerechnet und
+# daraus einen Befund gemacht. Wo Kontrast wirklich zaehlt - Text, Bedienung,
+# Statusfarben - wird er weiterhin geprueft, in pruefe_inhalt().
+
+
 def pruefe_freitext_zusagen(p):
     """Tagline und Beschreibung dürfen nichts versprechen, was die
     Merkmalsliste nicht deckt.

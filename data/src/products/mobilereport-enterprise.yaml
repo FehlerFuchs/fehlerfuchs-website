@@ -102,10 +102,10 @@ releases:
 # bleibt für Screenreader im Dokument, nur unsichtbar.
 media:
   lockup:
-    src: /img/lockups/mobilereport-enterprise.png
+    src: /img/lockups/mobilereport-enterprise.svg
     alt: MobileReport Enterprise – von FehlerFuchs
-    width: 720
-    height: 120
+    width: 2118
+    height: 365
   # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
   # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
   # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.

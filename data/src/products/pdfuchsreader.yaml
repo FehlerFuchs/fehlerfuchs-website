@@ -85,8 +85,8 @@ media:
   lockup:
     src: /img/lockups/pdfuchsreader.svg
     alt: PDFuchs Reader – von FehlerFuchs
-    width: 1180
-    height: 300
+    width: 2036
+    height: 360
   # Aus dem Play-Store-Satz des Projekts übernommen und auf Webgröße
   # gerechnet. Es sind Werbebilder mit Überschrift, keine nackten
   # Bildschirmabzüge - der Alternativtext sagt das auch so.

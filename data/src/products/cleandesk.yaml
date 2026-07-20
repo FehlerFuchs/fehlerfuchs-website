@@ -30,10 +30,10 @@ releases: []
 # Überschrift steht nur für Screenreader da – sonst stünde der Name doppelt.
 media:
   lockup:
-    src: /img/lockups/cleandesk.png
+    src: /img/lockups/cleandesk.svg
     alt: CleanDesk – von FehlerFuchs
-    width: 770
-    height: 210
+    width: 1476
+    height: 420
   # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
   # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
   # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.

@@ -34,10 +34,10 @@ releases: []
 # Überschrift steht nur für Screenreader da – sonst stünde der Name doppelt.
 media:
   lockup:
-    src: /img/lockups/pdfuchs.png
+    src: /img/lockups/pdfuchs.svg
     alt: PDFuchs – von FehlerFuchs
-    width: 907
-    height: 300
+    width: 1260
+    height: 368
   # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
   # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
   # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.

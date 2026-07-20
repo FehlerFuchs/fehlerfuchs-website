@@ -36,8 +36,8 @@ media:
   lockup:
     src: /img/lockups/checkin-vita.svg
     alt: CheckInVita – von FehlerFuchs
-    width: 760
-    height: 150
+    width: 1629
+    height: 403
   # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
   # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
   # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.
