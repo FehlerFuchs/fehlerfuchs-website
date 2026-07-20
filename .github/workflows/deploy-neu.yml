@@ -31,8 +31,8 @@ name: Website 2.0 bauen und deployen
 
 on:
   workflow_dispatch:
-   push:
-     branches: [main]
+  push:
+    branches: [main]
 
 permissions:
   contents: read
