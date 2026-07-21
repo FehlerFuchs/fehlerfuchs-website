@@ -9,6 +9,10 @@
 *.xml  text eol=lf
 *.txt  text eol=lf
 *.md   text eol=lf
+# Erzeugte Dateien aus data/. build_data.py schreibt sie seit dem 21.07.2026
+# selbst mit LF (siehe schreibe() dort); die Zeile hier ist die zweite
+# Sicherung, falls sie doch einmal jemand von Hand anfasst.
+*.json text eol=lf
 CNAME  text eol=lf
 
 # Binärdateien nie anfassen

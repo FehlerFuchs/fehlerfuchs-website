@@ -781,6 +781,26 @@ WaechterLader.add_constructor(
     yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, _keine_doppelten)
 
 
+def schreibe(pfad, text):
+    """Schreibt eine erzeugte Datei - immer mit LF, nie mit CRLF.
+
+    Pythons write_text() uebersetzt im Textmodus jedes '\n' unter Windows in
+    '\r\n'. Git wandelt beim Einchecken zurueck und meldet das jedes Mal:
+
+        warning: in the working copy of 'data/products.json', CRLF will be
+        replaced by LF the next time Git touches it
+
+    Zehnmal nebeneinander, bei jedem Commit. Schlimmer als der Laerm ist die
+    Folge: Alle zehn Dateien gelten nach jedem Lauf als geaendert, auch wenn
+    inhaltlich nichts anders ist. Man sieht dann nie, ob wirklich etwas
+    passiert ist - und gewoehnt sich an, im 'git status' wegzuschauen.
+
+    newline='\n' schreibt so, wie .gitattributes es ohnehin verlangt.
+    """
+    with open(pfad, "w", encoding="utf-8", newline="\n") as f:
+        f.write(text)
+
+
 def lies_yaml(pfad):
     """Einziger Weg, eine YAML zu lesen - damit die Wache nirgends fehlt."""
     with open(pfad, encoding="utf-8") as f:
@@ -2179,50 +2199,50 @@ def main():
         "generiert": datetime.now().astimezone().replace(microsecond=0).isoformat(),
         "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
     }
-    OUT_PRODUCTS.write_text(json.dumps(
+    schreibe(OUT_PRODUCTS, json.dumps(
         {**kopf, "produkte": sorted(produkte, key=lambda p: (statuses[p["status"]]["order"], p["name"]))},
-        ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    OUT_STATUSES.write_text(json.dumps(
-        {**kopf, "statuses": statuses}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    OUT_VOKABULAR.write_text(json.dumps(
-        {**kopf, **vokabular}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    OUT_MARKE.write_text(json.dumps(
-        {**kopf, **marke}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    OUT_NEWS.write_text(json.dumps(
-        {**kopf, "meldungen": meldungen}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        ensure_ascii=False, indent=2) + "\n")
+    schreibe(OUT_STATUSES, json.dumps(
+        {**kopf, "statuses": statuses}, ensure_ascii=False, indent=2) + "\n")
+    schreibe(OUT_VOKABULAR, json.dumps(
+        {**kopf, **vokabular}, ensure_ascii=False, indent=2) + "\n")
+    schreibe(OUT_MARKE, json.dumps(
+        {**kopf, **marke}, ensure_ascii=False, indent=2) + "\n")
+    schreibe(OUT_NEWS, json.dumps(
+        {**kopf, "meldungen": meldungen}, ensure_ascii=False, indent=2) + "\n")
     # Zähler gleich mitgeben: Er wird auf der Seite gebraucht und soll nicht
     # dort noch einmal ausgerechnet werden. Platzhalter zählen nicht mit.
     echte = [w for w in wuensche if not w.get("platzhalter")]
-    OUT_WUENSCHE.write_text(json.dumps({**kopf, "wuensche": wuensche, "zaehler": {
+    schreibe(OUT_WUENSCHE, json.dumps({**kopf, "wuensche": wuensche, "zaehler": {
         "gesamt": len(echte),
         "neu": sum(1 for w in echte if w["status"] == "neu"),
         "inBearbeitung": sum(1 for w in echte if w["status"] == "in-bearbeitung"),
         "umgesetzt": sum(1 for w in echte if w["status"] == "umgesetzt"),
         "nichtUmsetzbar": sum(1 for w in echte if w["status"] == "nicht-umsetzbar"),
-    }}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    }}, ensure_ascii=False, indent=2) + "\n")
 
-    OUT_AKTIONEN.write_text(json.dumps(
-        {**kopf, "aktionen": aktionen}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    schreibe(OUT_AKTIONEN, json.dumps(
+        {**kopf, "aktionen": aktionen}, ensure_ascii=False, indent=2) + "\n")
 
-    OUT_DIENSTE.write_text(json.dumps(
+    schreibe(OUT_DIENSTE, json.dumps(
         {**kopf, "dienste": dienste, "auftragsverarbeiter": verarbeiter,
          "fremdziele": rohd.get("fremdziele") or []},
-        ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        ensure_ascii=False, indent=2) + "\n")
 
     # Der Zähler wird hier ausgerechnet und nicht auf der Seite: Sonst steht
     # dieselbe Logik in zwei Sprachen, und beim nächsten neuen Status stimmt
     # eine von beiden nicht mehr.
-    OUT_BEDARF.write_text(json.dumps({**kopf, "bedarf": bedarf, "zaehler": {
+    schreibe(OUT_BEDARF, json.dumps({**kopf, "bedarf": bedarf, "zaehler": {
         "gesamt": len(bedarf),
         "offen": sum(1 for b in bedarf if b["status"] == "offen"),
         "inArbeit": sum(1 for b in bedarf if b["status"] == "in-arbeit"),
         "erfuellt": sum(1 for b in bedarf if b["status"] == "erfuellt"),
     }, "summen": bedarf_summen(bedarf)},
-        ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        ensure_ascii=False, indent=2) + "\n")
 
-    OUT_DATENSCHUTZ.write_text(json.dumps({**kopf, "steckbriefe": sorted(
+    schreibe(OUT_DATENSCHUTZ, json.dumps({**kopf, "steckbriefe": sorted(
         steckbriefe, key=lambda s: (s["art"] != "anwendung", s["name"]))},
-        ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        ensure_ascii=False, indent=2) + "\n")
 
     print(f"Geschrieben: {OUT_PRODUCTS.relative_to(ROOT)}, {OUT_STATUSES.relative_to(ROOT)}, "
           f"{OUT_VOKABULAR.relative_to(ROOT)}, {OUT_MARKE.relative_to(ROOT)}, "
