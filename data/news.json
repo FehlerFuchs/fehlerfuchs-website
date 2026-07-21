@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-20T14:28:30+02:00",
+  "generiert": "2026-07-21T15:34:36+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "snapfuchs-1-1-0",
+      "typ": "update",
+      "produkt": "snapfuchs",
+      "datum": "2026-07-21",
+      "titel": "SnapFuchs 1.1.0: die Kamera zeigt, was sie erkennt",
+      "text": "Der erkannte Dokumentrand wird jetzt live eingezeichnet — orange heißt erkannt, grün heißt stabil. Man sieht vor dem Auslösen, ob es sitzt. Die Erkennung selbst wurde an 1.000 Aufnahmen mit hinterlegten Soll-Ecken neu vermessen und findet nun auch farbige, dunkle und gemusterte Vorlagen. Dazu: helles Erscheinungsbild (kostenlos), ein geführter Rundgang, ausführliche Hilfe in der App — und für Pro der Stapelscan, eigene Dateinamen und wählbares Seitenformat.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.snapfuchs"
+      }
+    },
     {
       "id": "website-2-0",
       "typ": "veroeffentlichung",
@@ -21,6 +33,19 @@
       "datumQuelle": "platforms[android].since",
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.snapfuchs"
+      }
+    },
+    {
+      "id": "aktion-snapfuchs-promo",
+      "typ": "hinweis",
+      "produkt": "snapfuchs",
+      "datum": "2026-07-20",
+      "datumQuelle": "Start der Aktion",
+      "titel": "Release-Geschenk – 100 Codes für SnapFuchs Pro",
+      "text": "SnapFuchs ist im Play Store, und zur Veröffentlichung verschenke ich 100 Codes für die Pro-Fassung. Eine Frage beantworten, Alias und E-Mail angeben, Code bekommen — mehr ist es nicht. Wer einlöst, behält Pro dauerhaft: kein Abo, keine Folgekosten. Solange der Vorrat reicht.",
+      "hervorgehoben": true,
+      "wege": {
+        "aktion": "/aktion/snapfuchs-promo/"
       }
     },
     {

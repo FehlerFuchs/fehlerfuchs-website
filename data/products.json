@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-20T14:28:30+02:00",
+  "generiert": "2026-07-21T15:34:36+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -45,7 +45,7 @@
       "releases": [],
       "customPage": true,
       "links": {
-        "page": "/apps/mobilereport-konfigurator.html"
+        "alt_html": "/apps/mobilereport-konfigurator.html"
       },
       "notes": "Zubehör, kein eigenes Produkt – erscheint deshalb nicht in der Produktübersicht, sondern nur auf der Enterprise-Seite.",
       "media": {
@@ -364,7 +364,6 @@
         "quelle": "FehlerFuchs_EinzelStueck/04_Marke/MARKE_EinzelStueck.md"
       },
       "links": {
-        "page": "/produkte.html",
         "contact": "/kontakt.html?topic=einzelstueck"
       },
       "notes": "Noch keine eigene Seite auf der bestehenden Website – das Angebot entsteht mit Website 2.0. Der Abgleich meldet das erwartungsgemäß. Anrede: Dieses Angebot siezt, weil es sich an Betriebe richtet; der Rest der Website duzt. Bewusste Ausnahme – falls sie stören sollte, hier ändern."
@@ -392,7 +391,7 @@
         }
       ],
       "privacy": [
-        "nur-lokal",
+        "inhalte-lokal",
         "keine-cloud",
         "kein-konto",
         "kein-tracking",
@@ -609,7 +608,7 @@
         "quelle": "FehlerFuchs Mobile Report/FehlerFuchsMR/lib/core/constants/app_colors.dart"
       },
       "links": {
-        "page": "/apps/mobilereport.html",
+        "alt_html": "/apps/mobilereport.html",
         "contact": "/kontakt.html?app=MobileReport&topic=interesse",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport"
       }
@@ -774,7 +773,7 @@
         "quelle": "FehlerFuchs Mobile Report/FehlerFuchsMR_Enterprise/01_App/lib/core/constants/app_colors.dart"
       },
       "links": {
-        "page": "/apps/mobilereport-enterprise.html",
+        "alt_html": "/apps/mobilereport-enterprise.html",
         "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mr-ent-v1.0.1",
         "contact": "/kontakt.html?app=MobileReport%20Enterprise&topic=angebot"
       },
@@ -1088,7 +1087,7 @@
         "quelle": "FehlerFuchs_OrgaFuchs/05_App/orgafuchs/lib/core/theme/app_colors.dart"
       },
       "links": {
-        "page": "/apps/orgafuchs.html",
+        "alt_html": "/apps/orgafuchs.html",
         "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.0.0",
         "contact": "/kontakt.html?app=OrgaFuchs&topic=interesse",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
@@ -1333,7 +1332,7 @@
         "quelle": "FehlerFuchs_PDFuchsReader_Mobile/05_App/pdfuchsreader_mobile/lib/ui/ff_tokens.dart"
       },
       "links": {
-        "page": "/apps/pdfuchsreader.html",
+        "alt_html": "/apps/pdfuchsreader.html",
         "contact": "/kontakt.html?app=PDFuchs%20Reader&topic=interesse",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader"
       },
@@ -1448,6 +1447,27 @@
               }
             },
             {
+              "name": "Live-Randerkennung in der Kamera",
+              "values": {
+                "free": "ja",
+                "pro": "ja"
+              }
+            },
+            {
+              "name": "Taschenlampe im Scanner",
+              "values": {
+                "free": "ja",
+                "pro": "ja"
+              }
+            },
+            {
+              "name": "QR- und Barcode-Scanner",
+              "values": {
+                "free": "ja",
+                "pro": "ja"
+              }
+            },
+            {
               "name": "Kontrast und Farbmodus (Graustufen, Schwarzweiß, Farbe)",
               "values": {
                 "free": "teilweise",
@@ -1464,6 +1484,13 @@
             },
             {
               "name": "Bilder aus der Galerie übernehmen",
+              "values": {
+                "free": "nein",
+                "pro": "ja"
+              }
+            },
+            {
+              "name": "Stapelscan – löst automatisch aus, sobald der Rahmen sitzt",
               "values": {
                 "free": "nein",
                 "pro": "ja"
@@ -1534,6 +1561,40 @@
               "values": {
                 "free": "teilweise",
                 "pro": "ja"
+              },
+              "note": "Löschen ist kostenlos; neu aufnehmen und umsortieren gehören zu Pro."
+            }
+          ]
+        },
+        {
+          "group": "Hilfe in der App",
+          "items": [
+            {
+              "name": "Geführter Rundgang beim ersten Start",
+              "values": {
+                "free": "ja",
+                "pro": "ja"
+              }
+            },
+            {
+              "name": "Ausführliche Hilfe zu jeder Funktion",
+              "values": {
+                "free": "ja",
+                "pro": "ja"
+              }
+            },
+            {
+              "name": "„Problem melden\" und Kontakt direkt aus der App",
+              "values": {
+                "free": "ja",
+                "pro": "ja"
+              }
+            },
+            {
+              "name": "Transparenz-Seite – welche Bausteine stecken drin, was geht nach außen",
+              "values": {
+                "free": "ja",
+                "pro": "ja"
               }
             }
           ]
@@ -1551,6 +1612,13 @@
             },
             {
               "name": "Dunkles Erscheinungsbild",
+              "values": {
+                "free": "ja",
+                "pro": "ja"
+              }
+            },
+            {
+              "name": "Helles Erscheinungsbild oder wie das Gerät",
               "values": {
                 "free": "ja",
                 "pro": "ja"
@@ -1636,7 +1704,6 @@
         ]
       },
       "links": {
-        "page": "/produkte.html",
         "contact": "/kontakt.html?app=SnapFuchs&topic=interesse",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.snapfuchs"
       },
@@ -2148,7 +2215,7 @@
         "quelle": "FehlerFuchs_GewerbePro/21_App_Flutter/gewerbepro_desktop/lib/ui/ff_tokens.dart"
       },
       "links": {
-        "page": "/apps/gewerbepro.html",
+        "alt_html": "/apps/gewerbepro.html",
         "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/gewerbepro-v0.3.1",
         "betaSignup": "https://license.fehlerfuchs.eu/v1/providers/tester/gewerbepro",
         "contact": "/kontakt.html?app=GewerbePro&topic=interesse"
@@ -2215,7 +2282,7 @@
         "quelle": "FehlerFuchs_AppInsight/lib/core/theme/app_colors.dart"
       },
       "links": {
-        "page": "/apps/appinsight.html",
+        "alt_html": "/apps/appinsight.html",
         "contact": "/kontakt.html?app=AppInsight&topic=interesse"
       }
     },
@@ -2283,7 +2350,6 @@
         "platzhalter": 4
       },
       "links": {
-        "page": "/produkte.html",
         "contact": "/kontakt.html?app=BelegWerk&topic=interesse"
       },
       "notes": "Anbindung an Paperless bedeutet, dass Daten an ein selbst betriebenes Archiv gehen. Das Merkmal „keine-cloud\" ist deshalb bewusst nicht gesetzt – es hängt davon ab, wo der Nutzer sein Paperless betreibt."
@@ -2344,7 +2410,7 @@
         "quelle": "FehlerFuchs_CleanDesk/01_Branding/Branding-Notizen.md"
       },
       "links": {
-        "page": "/apps/cleandesk.html",
+        "alt_html": "/apps/cleandesk.html",
         "contact": "/kontakt.html?app=CleanDesk&topic=interesse"
       }
     },
@@ -2407,7 +2473,7 @@
         "quelle": "FehlerFuchs_FuchsBau/fuchsbau/lib/core/theme/app_theme.dart"
       },
       "links": {
-        "page": "/apps/fuchsbau.html",
+        "alt_html": "/apps/fuchsbau.html",
         "contact": "/kontakt.html?app=FuchsBau&topic=interesse"
       }
     },
@@ -2477,7 +2543,7 @@
         "quelle": "FehlerFuchs_PDFuchs/11_App_Flutter/pdfuchs_desktop/lib/ui/ff_tokens.dart"
       },
       "links": {
-        "page": "/apps/pdfuchs.html",
+        "alt_html": "/apps/pdfuchs.html",
         "contact": "/kontakt.html?app=PDFuchs&topic=interesse"
       },
       "notes": "Teile des PDFuchs-Funktionsumfangs sind bereits in GewerbePro enthalten (QR-Code-Generator, Scannen, Ausgabeordner). Die eigenständige Suite wird daraus weiterentwickelt."
@@ -2546,7 +2612,7 @@
         "quelle": "FehlerFuchs_CheckIn_Vita/src/lib/core/theme/app_colors.dart"
       },
       "links": {
-        "page": "/apps/checkin-vita.html",
+        "alt_html": "/apps/checkin-vita.html",
         "contact": "/kontakt.html?app=CheckInVita&topic=interesse"
       },
       "notes": "Gesundheitsdaten sind besonders schützenswert. Vor einer Veröffentlichung ist ein eigener, ausführlicher Datenschutzabschnitt nötig – die Merkmalsliste allein reicht hier nicht."
@@ -2603,7 +2669,7 @@
         "quelle": "FehlerFuchs_CoppiceMail/app/ui/theme.py"
       },
       "links": {
-        "page": "/apps/coppicemail.html",
+        "alt_html": "/apps/coppicemail.html",
         "contact": "/kontakt.html?app=CoppiceMail&topic=interesse"
       },
       "notes": "Pausiert, nicht eingestellt. Die Seite bleibt erreichbar und ist auf produkte.html als „pausiert\" ausgezeichnet. Bei Wiederaufnahme genügt eine Statusänderung hier."

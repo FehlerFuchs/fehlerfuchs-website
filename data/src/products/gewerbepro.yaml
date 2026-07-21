@@ -308,7 +308,20 @@ theme:
   quelle: FehlerFuchs_GewerbePro/21_App_Flutter/gewerbepro_desktop/lib/ui/ff_tokens.dart
 
 links:
-  page: /apps/gewerbepro.html
+  # Die ALTE Adresse dieses Produkts, von vor dem 20.07.2026. Sie steht hier
+  # aus genau einem Grund: Aus ihr entsteht die Weiterleitung, damit fremde
+  # Links und Lesezeichen nicht ins Leere laufen
+  # (astro/tools/weiterleitungen.mjs).
+  #
+  # Sie ist NICHT die Adresse der Produktseite. Die heisst /produkte/<slug>/
+  # und leitet sich aus dem Slug ab - deshalb hiess das Feld frueher 'page'
+  # und wurde am 21.07.2026 umbenannt: Der alte Name legte nahe, hier stehe,
+  # wo das Produkt heute zu finden ist. Eine Pruefung schloss daraus, SnapFuchs
+  # habe keine eigene Seite, obwohl es sie seit einem Tag hatte.
+  #
+  # Fehlt das Feld, gab es vorher keine eigene Seite - dann ist auch nichts
+  # weiterzuleiten.
+  alt_html: /apps/gewerbepro.html
   release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/gewerbepro-v0.3.1
   betaSignup: https://license.fehlerfuchs.eu/v1/providers/tester/gewerbepro
   contact: /kontakt.html?app=GewerbePro&topic=interesse

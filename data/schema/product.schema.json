@@ -494,13 +494,11 @@
     "links": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "page"
-      ],
       "properties": {
-        "page": {
+        "alt_html": {
           "type": "string",
-          "pattern": "^/"
+          "pattern": "^/.*\\.html$",
+          "description": "Die ALTE Adresse dieses Produkts von vor dem 20.07.2026. Nur fuer die Weiterleitung. NICHT die heutige Produktseite - die heisst /produkte/<slug>/ und leitet sich aus dem Slug ab. Fehlt das Feld, gab es keine eigene alte Seite."
         },
         "store": {
           "type": "string",

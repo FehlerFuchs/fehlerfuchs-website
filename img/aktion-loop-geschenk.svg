@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 700" role="img" aria-label="Ein Fuchs packt ein Geschenk aus; Konfetti fliegt, eine Urkunde erscheint."><style>
+  /* Grundzustand = ruhiges Schlussbild. Wer keine Bewegung will, sieht genau
+     das: offene Schachtel, Urkunde da, kein Konfetti. Die Animation weiter
+     unten ueberschreibt diesen Zustand nur, wenn sie laufen darf. */
+  .deckel  { opacity: 0; }
+  .konfetti{ opacity: 0; }
+  .glanz   { opacity: 0; }
+  .lid     { opacity: 0; }
+  svg      { transform-box: view-box; }
+  g        { transform-box: view-box; transform-origin: center; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fuchs   { animation: fuchs 30s linear infinite; transform-origin: 152px 560px; }
+    .deckel  { animation: deckel 30s linear infinite; transform-origin: 376px 437px; }
+    .urkunde { animation: urkunde 30s linear infinite; transform-origin: 376px 440px; }
+    .glanz   { animation: glanz 30s linear infinite; }
+    .lid     { animation: blinzeln 30s linear infinite; transform-origin: 306px 236px; }
+    .schachtel{ animation: wackeln 30s linear infinite; transform-origin: 376px 600px; }
+    .konfetti{ opacity: 1; }
+    .k1 { animation: konfetti1 30s linear infinite; }
+    .k2 { animation: konfetti2 30s linear infinite; }
+    .k3 { animation: konfetti3 30s linear infinite; }
+  }
+
+  /* Der Fuchs kommt von links, stupst zweimal an, schaut zu, freut sich. */
+  @keyframes fuchs {
+     0%   { transform: translate(-190px,0) rotate(0deg); }
+     7%   { transform: translate(0,0) rotate(0deg); }
+    10%   { transform: translate(0,0) rotate(9deg); }
+    13%   { transform: translate(14px,0) rotate(13deg); }
+    15%   { transform: translate(0,0) rotate(4deg); }
+    17%   { transform: translate(16px,0) rotate(13deg); }
+    19%   { transform: translate(0,0) rotate(0deg); }
+    24%   { transform: translate(0,-14px) rotate(-5deg); }
+    28%   { transform: translate(0,0) rotate(0deg); }
+    40%   { transform: translate(0,-8px) rotate(3deg); }
+    52%   { transform: translate(0,0) rotate(-3deg); }
+    64%   { transform: translate(0,-8px) rotate(3deg); }
+    72%   { transform: translate(0,0) rotate(0deg); }
+    88%   { transform: translate(0,0) rotate(0deg); }
+   100%   { transform: translate(-190px,0) rotate(0deg); }
+  }
+
+  /* Die Schachtel bekommt den Stups zu spueren. */
+  @keyframes wackeln {
+     0%,12% { transform: rotate(0deg); }
+    13.5%   { transform: rotate(-3deg); }
+    15%     { transform: rotate(2deg); }
+    17.5%   { transform: rotate(-3.5deg); }
+    19%     { transform: rotate(1.5deg); }
+    20.5%   { transform: rotate(0deg); }
+    21%     { transform: scale(1.06,0.94); }
+    23%     { transform: scale(1,1); }
+   100%     { transform: rotate(0deg); }
+  }
+
+  /* Der Deckel springt ab, fliegt aus dem Bild und kommt zum Schluss zurueck. */
+  @keyframes deckel {
+     0%,19% { opacity:1; transform: translate(0,0) rotate(0deg); }
+    21%     { opacity:1; transform: translate(6px,-64px) rotate(-14deg); }
+    26%     { opacity:1; transform: translate(64px,-190px) rotate(-46deg); }
+    31%     { opacity:0; transform: translate(150px,-330px) rotate(-96deg); }
+    31.1%,86% { opacity:0; transform: translate(150px,-330px) rotate(-96deg); }
+    93%     { opacity:1; transform: translate(0,-16px) rotate(4deg); }
+    96%     { opacity:1; transform: translate(0,0) rotate(0deg); }
+   100%     { opacity:1; transform: translate(0,0) rotate(0deg); }
+  }
+
+  /* Die Urkunde steigt aus der Schachtel und legt sich am Ende wieder hinein. */
+  @keyframes urkunde {
+     0%,23%  { opacity:0; transform: translate(0,300px) scale(0.35); }
+    25%      { opacity:1; transform: translate(0,268px) scale(0.45); }
+    33%      { opacity:1; transform: translate(0,-16px) scale(1.05); }
+    37%      { opacity:1; transform: translate(0,0) scale(1); }
+    50%      { opacity:1; transform: translate(0,-9px) scale(1); }
+    64%      { opacity:1; transform: translate(0,0) scale(1); }
+    76%      { opacity:1; transform: translate(0,0) scale(1); }
+    84%      { opacity:1; transform: translate(0,290px) scale(0.4); }
+    86%,100% { opacity:0; transform: translate(0,300px) scale(0.35); }
+  }
+
+  /* Ein einzelner Glanz ueber das Siegel, nicht mehr. */
+  @keyframes glanz {
+     0%,41% { opacity:0; }
+    44%     { opacity:0.55; }
+    48%     { opacity:0; }
+   100%     { opacity:0; }
+  }
+
+  /* Blinzeln: nur das aufgesetzte Lid, die Bildmarke darunter bleibt. */
+  @keyframes blinzeln {
+     0%,29.4% { opacity:0; transform: scaleY(0); }
+    29.8%     { opacity:1; transform: scaleY(1); }
+    30.6%     { opacity:1; transform: scaleY(1); }
+    31%       { opacity:0; transform: scaleY(0); }
+    56.4%     { opacity:0; transform: scaleY(0); }
+    56.8%     { opacity:1; transform: scaleY(1); }
+    57.6%     { opacity:1; transform: scaleY(1); }
+    58%       { opacity:0; transform: scaleY(0); }
+   100%       { opacity:0; transform: scaleY(0); }
+  }
+
+  @keyframes konfetti1 {
+     0%,20.0% { opacity:0; transform: translate(0,0) rotate(0deg) scale(0.4); }
+    21.0%      { opacity:1; transform: translate(0,0) rotate(0deg) scale(1); }
+    27%      { opacity:1; transform: translate(calc(var(--dx)*1px),calc(var(--dy)*1px))
+                              rotate(calc(var(--dr)*0.5deg)) scale(1); }
+    40%      { opacity:1; transform: translate(calc(var(--dx)*1.2px),120px)
+                              rotate(calc(var(--dr)*1deg)) scale(1); }
+    52%      { opacity:0; transform: translate(calc(var(--dx)*1.3px),240px)
+                              rotate(calc(var(--dr)*1.3deg)) scale(0.9); }
+   100%         { opacity:0; transform: translate(calc(var(--dx)*1.3px),240px)
+                              rotate(calc(var(--dr)*1.3deg)) scale(0.9); }
+  }
+
+  @keyframes konfetti2 {
+     0%,20.6% { opacity:0; transform: translate(0,0) rotate(0deg) scale(0.4); }
+    21.6%      { opacity:1; transform: translate(0,0) rotate(0deg) scale(1); }
+    28%      { opacity:1; transform: translate(calc(var(--dx)*1px),calc(var(--dy)*1px))
+                              rotate(calc(var(--dr)*0.5deg)) scale(1); }
+    42%      { opacity:1; transform: translate(calc(var(--dx)*1.2px),120px)
+                              rotate(calc(var(--dr)*1deg)) scale(1); }
+    55%      { opacity:0; transform: translate(calc(var(--dx)*1.3px),240px)
+                              rotate(calc(var(--dr)*1.3deg)) scale(0.9); }
+   100%         { opacity:0; transform: translate(calc(var(--dx)*1.3px),240px)
+                              rotate(calc(var(--dr)*1.3deg)) scale(0.9); }
+  }
+
+  @keyframes konfetti3 {
+     0%,21.2% { opacity:0; transform: translate(0,0) rotate(0deg) scale(0.4); }
+    22.2%      { opacity:1; transform: translate(0,0) rotate(0deg) scale(1); }
+    29%      { opacity:1; transform: translate(calc(var(--dx)*1px),calc(var(--dy)*1px))
+                              rotate(calc(var(--dr)*0.5deg)) scale(1); }
+    44%      { opacity:1; transform: translate(calc(var(--dx)*1.2px),120px)
+                              rotate(calc(var(--dr)*1deg)) scale(1); }
+    58%      { opacity:0; transform: translate(calc(var(--dx)*1.3px),240px)
+                              rotate(calc(var(--dr)*1.3deg)) scale(0.9); }
+   100%         { opacity:0; transform: translate(calc(var(--dx)*1.3px),240px)
+                              rotate(calc(var(--dr)*1.3deg)) scale(0.9); }
+  }
+</style><ellipse cx="376" cy="606" rx="150" ry="17" fill="#7C3F16" opacity="0.12"/><ellipse cx="152" cy="588" rx="86" ry="13" fill="#7C3F16" opacity="0.10"/><g class="urkunde"><rect x="288" y="108" width="210" height="268" rx="12" fill="#FFF7ED" stroke="#C2410C" stroke-width="9"/><rect x="314" y="160" width="128" height="11" rx="5.5" fill="#7C3F16"/><rect x="314" y="190" width="156" height="11" rx="5.5" fill="#7C3F16"/><rect x="314" y="220" width="104" height="11" rx="5.5" fill="#7C3F16"/><rect x="314" y="258" width="158" height="26" rx="13" fill="#C2410C"/><path d="M420,354 V414 L444,396 L468,414 V354 Z" fill="#C2410C"/><circle cx="444" cy="332" r="44" fill="#C2410C"/><circle cx="444" cy="332" r="35" fill="#FFF7ED"/><g transform="translate(405.30,291.49) scale(0.15116)"><path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="#C2410C"/></g><g class="glanz"><circle cx="444" cy="332" r="44" fill="#FDE68A"/></g></g><g class="fuchs"><g transform="translate(-7.26,285.28) scale(0.62209)"><g transform="translate(0.000,0.000) scale(1.000000)"><path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="#D97706"/><path d="M132,120 L186,150 L158,182 Z" fill="#7C3F16"/><path d="M380,120 L326,150 L354,182 Z" fill="#7C3F16"/><path d="M198,250 L314,250 L256,430 Z" fill="#FFF7ED"/><path d="M192,228 L232,222 L214,250 Z" fill="#2B160B"/><circle cx="306" cy="236" r="30" fill="#7C3F16"/><circle cx="306" cy="236" r="22" fill="#0E2540"/><circle cx="306" cy="236" r="13" fill="#2563EB"/><circle cx="306" cy="236" r="6" fill="#7DD3FC"/><path d="M243,372 L269,372 L256,392 Z" fill="#2B160B"/></g><g class="lid"><circle cx="306" cy="236" r="32" fill="#D97706"/></g></g></g><g class="schachtel"><rect x="258" y="452" width="236" height="148" rx="10" fill="#C2410C"/><path d="M268,452 H484 A10,10 0 0 1 494,462 V467 H258 V462 A10,10 0 0 1 268,452 Z" fill="#7A2A08"/><rect x="359.0" y="467" width="34" height="133" fill="#FFF7ED"/><g class="deckel"><rect x="242" y="412" width="268" height="56" rx="9" fill="#7C3F16"/><rect x="359.0" y="412" width="34" height="56" fill="#FFF7ED"/><path d="M376,412 L336,376 L330,404 L352,414 Z" fill="#FFF7ED" stroke="#7C3F16" stroke-width="5" stroke-linejoin="round"/><path d="M376,412 L416,376 L422,404 L400,414 Z" fill="#FFF7ED" stroke="#7C3F16" stroke-width="5" stroke-linejoin="round"/><circle cx="376" cy="410" r="11" fill="#FDE68A" stroke="#7C3F16" stroke-width="5"/></g></g><g class="konfetti"><g class="k k1" style="--dx:-48;--dy:-104;--dr:-462" transform="translate(376,430)"><circle cx="0" cy="0" r="6.0" fill="#C2410C"/></g><g class="k k2" style="--dx:13;--dy:-148;--dr:-500" transform="translate(376,430)"><rect x="-4.2" y="-3.8" width="8.4" height="7.5" rx="1.5" fill="#D97706"/></g><g class="k k3" style="--dx:-16;--dy:-100;--dr:353" transform="translate(376,430)"><rect x="-4.3" y="-3.6" width="8.6" height="7.1" rx="1.5" fill="#FDE68A"/></g><g class="k k1" style="--dx:-100;--dy:-76;--dr:484" transform="translate(376,430)"><circle cx="0" cy="0" r="5.9" fill="#7C3F16"/></g><g class="k k2" style="--dx:29;--dy:-151;--dr:387" transform="translate(376,430)"><rect x="-7.4" y="-2.6" width="14.8" height="5.2" rx="1.5" fill="#FFF7ED" stroke="#7C3F16" stroke-width="1.2"/></g><g class="k k3" style="--dx:-56;--dy:-98;--dr:341" transform="translate(376,430)"><rect x="-4.4" y="-3.3" width="8.8" height="6.5" rx="1.5" fill="#2563EB"/></g><g class="k k1" style="--dx:-129;--dy:-130;--dr:-138" transform="translate(376,430)"><circle cx="0" cy="0" r="5.9" fill="#C2410C"/></g><g class="k k2" style="--dx:12;--dy:-99;--dr:195" transform="translate(376,430)"><rect x="-4.2" y="-3.0" width="8.4" height="6.0" rx="1.5" fill="#D97706"/></g><g class="k k3" style="--dx:-25;--dy:-138;--dr:-216" transform="translate(376,430)"><rect x="-6.0" y="-3.6" width="12.1" height="7.3" rx="1.5" fill="#FDE68A"/></g><g class="k k1" style="--dx:133;--dy:-152;--dr:80" transform="translate(376,430)"><circle cx="0" cy="0" r="4.7" fill="#7C3F16"/></g><g class="k k2" style="--dx:14;--dy:-230;--dr:519" transform="translate(376,430)"><rect x="-6.6" y="-3.2" width="13.1" height="6.4" rx="1.5" fill="#FFF7ED" stroke="#7C3F16" stroke-width="1.2"/></g><g class="k k3" style="--dx:-126;--dy:-93;--dr:-12" transform="translate(376,430)"><rect x="-6.6" y="-2.9" width="13.3" height="5.8" rx="1.5" fill="#2563EB"/></g><g class="k k1" style="--dx:-178;--dy:-85;--dr:79" transform="translate(376,430)"><circle cx="0" cy="0" r="6.3" fill="#C2410C"/></g><g class="k k2" style="--dx:111;--dy:-85;--dr:86" transform="translate(376,430)"><rect x="-6.4" y="-4.0" width="12.9" height="8.0" rx="1.5" fill="#D97706"/></g><g class="k k3" style="--dx:-24;--dy:-223;--dr:177" transform="translate(376,430)"><rect x="-7.3" y="-3.7" width="14.6" height="7.4" rx="1.5" fill="#FDE68A"/></g><g class="k k1" style="--dx:-178;--dy:-96;--dr:533" transform="translate(376,430)"><circle cx="0" cy="0" r="5.9" fill="#7C3F16"/></g><g class="k k2" style="--dx:96;--dy:-96;--dr:-516" transform="translate(376,430)"><rect x="-5.4" y="-4.2" width="10.7" height="8.3" rx="1.5" fill="#FFF7ED" stroke="#7C3F16" stroke-width="1.2"/></g><g class="k k3" style="--dx:-11;--dy:-116;--dr:290" transform="translate(376,430)"><rect x="-4.4" y="-2.6" width="8.8" height="5.3" rx="1.5" fill="#2563EB"/></g><g class="k k1" style="--dx:-102;--dy:-80;--dr:401" transform="translate(376,430)"><circle cx="0" cy="0" r="5.2" fill="#C2410C"/></g><g class="k k2" style="--dx:-138;--dy:-84;--dr:345" transform="translate(376,430)"><rect x="-5.9" y="-4.7" width="11.8" height="9.4" rx="1.5" fill="#D97706"/></g><g class="k k3" style="--dx:105;--dy:-85;--dr:415" transform="translate(376,430)"><rect x="-5.5" y="-3.4" width="10.9" height="6.8" rx="1.5" fill="#FDE68A"/></g><g class="k k1" style="--dx:103;--dy:-50;--dr:-289" transform="translate(376,430)"><circle cx="0" cy="0" r="4.5" fill="#7C3F16"/></g><g class="k k2" style="--dx:-102;--dy:-133;--dr:-536" transform="translate(376,430)"><rect x="-6.1" y="-3.2" width="12.1" height="6.3" rx="1.5" fill="#FFF7ED" stroke="#7C3F16" stroke-width="1.2"/></g><g class="k k3" style="--dx:-29;--dy:-146;--dr:206" transform="translate(376,430)"><rect x="-6.0" y="-4.9" width="12.0" height="9.8" rx="1.5" fill="#2563EB"/></g><g class="k k1" style="--dx:7;--dy:-189;--dr:-482" transform="translate(376,430)"><circle cx="0" cy="0" r="6.0" fill="#C2410C"/></g><g class="k k2" style="--dx:178;--dy:-120;--dr:-116" transform="translate(376,430)"><rect x="-7.1" y="-4.5" width="14.1" height="9.0" rx="1.5" fill="#D97706"/></g><g class="k k3" style="--dx:-26;--dy:-103;--dr:-467" transform="translate(376,430)"><rect x="-6.2" y="-2.7" width="12.4" height="5.3" rx="1.5" fill="#FDE68A"/></g><g class="k k1" style="--dx:-76;--dy:-88;--dr:-483" transform="translate(376,430)"><circle cx="0" cy="0" r="5.0" fill="#7C3F16"/></g><g class="k k2" style="--dx:-107;--dy:-39;--dr:-512" transform="translate(376,430)"><rect x="-4.4" y="-3.4" width="8.7" height="6.8" rx="1.5" fill="#FFF7ED" stroke="#7C3F16" stroke-width="1.2"/></g><g class="k k3" style="--dx:149;--dy:-115;--dr:-165" transform="translate(376,430)"><rect x="-4.5" y="-3.1" width="9.0" height="6.3" rx="1.5" fill="#2563EB"/></g></g></svg>

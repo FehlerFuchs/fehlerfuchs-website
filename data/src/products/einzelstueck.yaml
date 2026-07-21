@@ -219,7 +219,6 @@ links:
   # Auf der bestehenden Website gibt es dieses Angebot noch nicht; bis dahin
   # zeigt der Verweis auf die Sammelseite. Website 2.0 erzeugt die eigene Seite
   # aus diesen Daten von selbst.
-  page: /produkte.html
   contact: /kontakt.html?topic=einzelstueck
 
 notes: >-

@@ -16,6 +16,9 @@ Abhängigkeiten: PyYAML. jsonschema ist optional – fehlt es, greift eine einge
 Minimalprüfung, die alle im Schema verwendeten Konstrukte abdeckt.
 """
 
+import hashlib
+import pathlib
+import random
 import json
 import re
 import struct
@@ -42,6 +45,7 @@ OUT_STATUSES = ROOT / "data" / "statuses.json"
 OUT_VOKABULAR = ROOT / "data" / "vocabulary.json"
 OUT_MARKE = ROOT / "data" / "brand.json"
 OUT_BEDARF = ROOT / "data" / "needs.json"
+OUT_AKTIONEN = ROOT / "data" / "campaigns.json"
 
 fehler, warnungen, abgleich = [], [], []
 
@@ -741,6 +745,53 @@ def pruefe_inhalt(p, statuses, alle_slugs, alle_produkte):
 
 # ------------------------------------------------------------------- Meldungen
 
+# ------------------------------------------------- Doppelte Schluessel in YAML
+#
+# YAML nimmt bei einem doppelt vergebenen Schluessel wortlos den LETZTEN. Kein
+# Fehler, keine Warnung, nichts. Am 21.07.2026 stand 'bild:' zweimal in
+# aktionen.yaml - einmal mit vollem Pfad, einmal nur mit Dateinamen. Gewonnen
+# hat der falsche, und aufgefallen ist es nur, weil zufaellig geprueft wurde,
+# ob die Datei existiert.
+#
+# Es ist die zweite stille YAML-Falle dieser Woche (die erste war eine
+# Einrueckung, die 'push' zum Kind von 'workflow_dispatch' machte). Beide
+# haben gemeinsam: Die Datei ist gueltig, sie bedeutet nur etwas anderes.
+# Genau dagegen hilft nur Nachsehen.
+
+class WaechterLader(yaml.SafeLoader):
+    """Wie SafeLoader, meldet aber doppelte Schluessel statt sie zu schlucken."""
+
+
+def _keine_doppelten(lader, knoten, deep=False):
+    gesehen = {}
+    for schluessel_knoten, _ in knoten.value:
+        k = lader.construct_object(schluessel_knoten, deep=deep)
+        if k in gesehen:
+            zeile = schluessel_knoten.start_mark.line + 1
+            datei = pathlib.Path(schluessel_knoten.start_mark.name).name
+            melde(fehler, "yaml",
+                  f"{datei}, Zeile {zeile}: '{k}' steht zum zweiten Mal. YAML nimmt "
+                  f"dann stillschweigend den letzten Wert - der erste ist wirkungslos, "
+                  f"ohne dass irgendetwas es meldet.")
+        gesehen[k] = True
+    return yaml.SafeLoader.construct_mapping(lader, knoten, deep)
+
+
+WaechterLader.add_constructor(
+    yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, _keine_doppelten)
+
+
+def lies_yaml(pfad):
+    """Einziger Weg, eine YAML zu lesen - damit die Wache nirgends fehlt."""
+    with open(pfad, encoding="utf-8") as f:
+        return yaml.load(f, Loader=WaechterLader)
+
+
+# Wird nach dem Lesen von meldungen.yaml gefuellt. pruefe_aktionen braucht die
+# Liste, um zu sehen, ob dieselbe Meldung von Hand ein zweites Mal dasteht.
+MELDUNGS_IDS = []
+
+
 def pruefe_meldungen(meldungen, produkte, schema):
     """Prüft die Meldungen und löst ihre Verweise auf.
 
@@ -829,13 +880,18 @@ def pruefe_meldungen(meldungen, produkte, schema):
                   "ziel.url wiederholt einen Weg, den die Seite ohnehin anbietet – "
                   "der Knopf stünde zweimal da")
 
-        # Ein Verweis auf ein Produkt, das noch keine eigene Seite hat, führt
-        # den Leser auf eine Sammelseite. Das ist kein Fehler, aber es kostet
-        # ihn einen Klick, den er nicht erwartet.
-        if p is not None and p.get("links", {}).get("page") in ("/produkte.html", "/downloads.html"):
-            melde(warnungen, f"meldung {mid}",
-                  f"{p['name']} hat keine eigene Produktseite – die Meldung führt "
-                  f"auf eine Sammelseite")
+        # HIER STAND EINE WARNUNG, DIE SEIT DEM 20.07.2026 FALSCH WAR.
+        #
+        # Sie meldete "hat keine eigene Produktseite", wenn links.page auf eine
+        # Sammelseite zeigte. Seit dem Umbau bekommt JEDES Produkt eine Seite
+        # unter /produkte/<slug>/, ganz gleich, was in links stand - die
+        # Warnung beschrieb also einen Zustand, den es nicht mehr gibt. Sie
+        # meldete das u.a. fuer SnapFuchs, einen Tag nachdem dessen Seite
+        # entstanden war.
+        #
+        # Das Feld heisst jetzt links.alt_html und sagt, was es ist: die alte
+        # Adresse, allein fuer die Weiterleitung. Gepruft wird stattdessen in
+        # pruefe_alte_adressen(), ob die Datei dazu ueberhaupt existiert.
 
         if re.search(r"https?://", m.get("text", "")):
             melde(warnungen, f"meldung {mid}",
@@ -960,7 +1016,7 @@ def pruefe_steckbriefe(produkte, dienste):
     for f in sorted(ordner.glob("*.yaml")) + sorted((ordner / "dienste").glob("*.yaml")):
         ist_dienst = f.parent.name == "dienste"
         try:
-            s = yaml.safe_load(f.read_text(encoding="utf-8"))
+            s = lies_yaml(f)
         except yaml.YAMLError as e:
             fehler.append(f"datenschutz/{f.name}: YAML lässt sich nicht lesen – {e}")
             continue
@@ -1407,6 +1463,354 @@ def pruefe_alle_svg():
                                       f"vor dem nächsten Einsatz in Pfade wandeln.")
 
 
+def pruefe_aktionen(eintraege, produkte):
+    """Prueft die zeitlich begrenzten Aktionen.
+
+    Aus jedem Eintrag entstehen zwei Dinge von selbst: die Seite unter
+    /aktion/<id>/ und ein Abschnitt auf der Datenschutzseite. Eine neue Aktion
+    braucht deshalb nichts als einen Eintrag - und genau deshalb muss dieser
+    Eintrag vollstaendig sein, bevor er durchgeht.
+
+    Der Kern ist 'zeigen_bis'. Ein Datenschutzabschnitt darf nicht mit der
+    Aktion verschwinden - danach laufen noch die Speicherfristen, und wer
+    wissen will, was mit seiner Adresse geschieht, muss es nachlesen koennen,
+    solange sie liegt.
+    """
+    slugs = {p["slug"] for p in produkte}
+    heute = date.today().isoformat()
+    gesehen = set()
+
+    for a in eintraege:
+        kennung = a.get("id", "?")
+        wo = f"Aktion '{kennung}'"
+
+        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", str(kennung)):
+            melde(fehler, "aktionen", f"{wo}: id nur klein, Ziffern und Bindestriche - "
+                                      f"sie wird zur Adresse /aktion/{kennung}/.")
+        if kennung in gesehen:
+            melde(fehler, "aktionen", f"{wo}: id kommt doppelt vor.")
+        gesehen.add(kennung)
+
+        if a.get("produkt") and a["produkt"] not in slugs:
+            melde(fehler, "aktionen", f"{wo}: produkt '{a['produkt']}' gibt es nicht.")
+
+        # --- Was die Seite braucht ----------------------------------------
+        for feld in ("titel", "vorspann", "was_es_gibt", "frage", "endpunkt", "danach"):
+            if not str(a.get(feld) or "").strip():
+                melde(fehler, "aktionen", f"{wo}: {feld} fehlt - ohne diese Angabe laesst "
+                                          f"sich die Seite nicht bauen.")
+
+        if not str(a.get("endpunkt") or "").startswith("https://"):
+            melde(fehler, "aktionen", f"{wo}: endpunkt muss eine https-Adresse sein.")
+
+        # 'gueltig_bis' ist ein Zeitstempel, kein Text: Die Seite rechnet
+        # daraus, wie lange noch Zeit ist. Als Wort ginge das nicht.
+        gb = a.get("gueltig_bis")
+        if gb:
+            try:
+                ende = datetime.fromisoformat(str(gb))
+            except ValueError:
+                melde(fehler, "aktionen", f"{wo}: gueltig_bis '{gb}' ist kein Zeitstempel. "
+                                          f"Erwartet wird etwa 2027-07-19T23:00:00+02:00.")
+            else:
+                if ende.tzinfo is None:
+                    melde(warnungen, "aktionen",
+                          f"{wo}: gueltig_bis hat keine Zeitzone. Im Sommer sind das eine "
+                          f"Stunde Unterschied - genug, um jemanden zu spaet kommen zu lassen.")
+                # Eine Frist ohne Erklaerung liest sich wie eine Laufzeit.
+                # Genau dieses Missverstaendnis - "Pro laeuft 2027 aus" -
+                # waere das teuerste an der ganzen Aktion.
+                if not (a.get("dauerhaft") or "").strip():
+                    melde(fehler, "aktionen",
+                          f"{wo}: hat ein gueltig_bis, aber kein Feld 'dauerhaft'. "
+                          f"Ohne den Satz liest sich die Frist wie eine Laufzeit - "
+                          f"als wuerde die Freischaltung an dem Datum enden.")
+                if ende < datetime.now(ende.tzinfo) and a.get("laeuft"):
+                    melde(fehler, "aktionen",
+                          f"{wo}: gueltig_bis liegt in der Vergangenheit, die Aktion steht "
+                          f"aber auf laeuft: true. Dann werden Codes verteilt, die niemand "
+                          f"mehr einloesen kann.")
+
+        # Eine laufende Aktion, von der die Website nichts erzaehlt, ist eine
+        # Seite, die niemand findet. Deshalb Pflicht, solange sie laeuft.
+        m = a.get("meldung") or {}
+        if a.get("laeuft"):
+            if not m.get("titel") or not m.get("text"):
+                melde(fehler, "aktionen",
+                      f"{wo}: laeuft, hat aber keine 'meldung' mit titel und text. "
+                      f"Ohne sie steht die Aktion auf keiner Seite ausser ihrer "
+                      f"eigenen - gefunden wird sie dann nur ueber den geteilten Link.")
+            elif len(str(m.get("text"))) < 40:
+                melde(fehler, "aktionen", f"{wo}: meldung.text ist zu kurz.")
+        # Die Meldung ist abgeleitet, nicht abgeschrieben: In meldungen.yaml
+        # darf dieselbe Sache nicht ein zweites Mal stehen.
+        if m and any(x.get("id") == f"aktion-{kennung}" for x in MELDUNGS_IDS):
+            melde(fehler, "aktionen",
+                  f"{wo}: 'aktion-{kennung}' steht auch in meldungen.yaml. "
+                  f"Die Meldung entsteht aus dieser Datei - dann gibt es sie zweimal.")
+
+        # Ein Bildpfad, der ins Leere zeigt, faellt beim Bauen nicht auf -
+        # nur im Browser, als leerer Kasten. Also hier nachsehen.
+        bild = a.get("bild")
+        if bild:
+            datei = ROOT / bild.lstrip("/")
+            if not datei.exists():
+                melde(fehler, "aktionen", f"{wo}: bild '{bild}' gibt es nicht unter "
+                                          f"website{bild}.")
+            elif not (a.get("bild_alt") or "").strip():
+                melde(fehler, "aktionen", f"{wo}: bild ohne bild_alt. Ohne Beschreibung "
+                                          f"ist das Motiv fuer Vorlesegeraete nicht da.")
+            elif datei.suffix == ".svg":
+                inhalt = datei.read_text(encoding="utf-8", errors="replace")
+                # Ein Loop, der sich nicht abschalten laesst, ist auf einer
+                # Seite mit Formular eine Zumutung - und ein Verstoss gegen
+                # WCAG 2.2.2, sobald er laenger als fuenf Sekunden laeuft.
+                if "prefers-reduced-motion" not in inhalt:
+                    melde(fehler, "aktionen",
+                          f"{wo}: '{bild}' ist bewegt, kennt aber kein "
+                          f"prefers-reduced-motion. Wer Bewegung abgestellt hat, "
+                          f"bekommt sie trotzdem.")
+                if "<script" in inhalt.lower():
+                    melde(fehler, "aktionen", f"{wo}: '{bild}' enthaelt ein Skript. "
+                                              f"Ein Bild fuehrt nichts aus.")
+
+        # Die Bitte ist freiwillig - aber wenn sie dasteht, darf sie keine
+        # Bedingung sein. Ein Code gegen eine Bewertung waere im Play Store
+        # ein Verstoss gegen die Programmrichtlinien, und unabhaengig davon
+        # das Gegenteil von dem, was hier gemeint ist.
+        if a.get("laeuft") and not (a.get("knopftext") or "").strip():
+            melde(warnungen, "aktionen",
+                  f"{wo}: kein knopftext. Der Knopf heisst dann 'Zur Aktion' - "
+                  f"richtig, aber nichtssagend.")
+
+        b = a.get("bitte") or {}
+        if b:
+            if not b.get("titel") or not b.get("text"):
+                melde(fehler, "aktionen", f"{wo}: bitte braucht titel und text.")
+            zusammen = " ".join(str(v) for v in b.values())
+            for wort in ("nur wenn", "voraussetzung", "verpflichte", "muss.*bewerten",
+                         "gegen eine Bewertung", "im Gegenzug"):
+                if re.search(wort, zusammen, re.I):
+                    melde(fehler, "aktionen",
+                          f"{wo}: die bitte klingt nach einer Bedingung ('{wort}'). "
+                          f"Ein Code gegen eine Bewertung ist im Play Store nicht "
+                          f"erlaubt - und war hier auch nie gemeint.")
+
+        einl = a.get("einloesen")
+        if einl and not isinstance(einl, list):
+            melde(warnungen, "aktionen", f"{wo}: einloesen sollte eine Liste von Schritten "
+                                         f"sein, kein Fliesstext.")
+
+        # --- Die Prueffrage ------------------------------------------------
+        antworten = a.get("antworten") or []
+        richtige = [x for x in antworten if isinstance(x, dict) and x.get("richtig")]
+        if len(antworten) < 3:
+            melde(fehler, "aktionen", f"{wo}: mindestens drei Antwortmoeglichkeiten. Bei "
+                                      f"zweien raet man mit 50 Prozent richtig.")
+        if len(richtige) != 1:
+            melde(fehler, "aktionen", f"{wo}: genau EINE Antwort muss 'richtig: true' "
+                                      f"tragen, hier sind es {len(richtige)}.")
+        texte = [str(x.get("text", "")).strip() for x in antworten if isinstance(x, dict)]
+        if len(set(texte)) != len(texte):
+            melde(fehler, "aktionen", f"{wo}: zwei Antworten sind wortgleich.")
+        if any(not t for t in texte):
+            melde(fehler, "aktionen", f"{wo}: eine Antwort hat keinen Text.")
+
+        # --- Datenschutz ---------------------------------------------------
+        for feld in ("zweck", "rechtsgrundlage", "frist", "wo"):
+            if not str(a.get(feld) or "").strip():
+                melde(fehler, "aktionen", f"{wo}: {feld} fehlt - ohne diese Angabe ist der "
+                                          f"Datenschutzabschnitt unvollstaendig.")
+        if not (a.get("daten") or []):
+            melde(fehler, "aktionen", f"{wo}: keine Angabe, WELCHE Daten verarbeitet werden. "
+                                      f"Genau das will der Leser wissen.")
+
+        zb = a.get("zeigen_bis")
+        if not zb:
+            melde(fehler, "aktionen", f"{wo}: zeigen_bis fehlt. Ohne das Datum weiss niemand, "
+                                      f"wann der Abschnitt weg darf.")
+        elif str(zb) < heute:
+            melde(abgleich, "aktionen",
+                  f"{wo}: zeigen_bis war am {zb}. Die Speicherfristen sind um - der Eintrag "
+                  f"kann aus aktionen.yaml entfernt werden.")
+
+        if a.get("ende") and a.get("laeuft"):
+            melde(warnungen, "aktionen", f"{wo}: hat ein Ende, steht aber auf laeuft: true. "
+                                         f"Eines von beidem stimmt nicht.")
+
+        # --- Die richtige Antwort verlaesst das Modell ---------------------
+        #
+        # In der YAML steht, welche Antwort stimmt. In campaigns.json darf das
+        # NICHT stehen: Die Datei wird ausgeliefert, und 'richtig: true' im
+        # Quelltext waere die Antwort auf dem Silbertablett.
+        #
+        # Stattdessen ein SHA-256 der richtigen Antwort. Damit kann die Seite
+        # eine getippte Antwort pruefen, ohne sie zu kennen. Das ist KEINE
+        # Sicherheit - bei vier Moeglichkeiten hat man alle vier in einer
+        # Minute durchgerechnet. Es sorgt nur dafuer, dass die Antwort nicht
+        # beim ersten Blick in den Quelltext dasteht. Die eigentliche Pruefung
+        # macht der Server.
+        if richtige:
+            wort = str(richtige[0].get("text", "")).strip().lower().rstrip(".")
+            a["antwortpruefung"] = hashlib.sha256(wort.encode("utf-8")).hexdigest()
+        # Die Markierung selbst raus, und mischen: Eine feste Reihenfolge
+        # spricht sich sonst herum ("immer die erste").
+        a["antworten"] = [str(x.get("text", "")) for x in antworten if isinstance(x, dict)]
+        random.shuffle(a["antworten"])
+
+    return eintraege
+
+
+def meldungen_aus_aktionen(aktionen, meldungen):
+    """Haengt jede laufende Aktion als Meldung an den Feed.
+
+    WARUM ABGELEITET UND NICHT GESCHRIEBEN
+    Eine Aktion hoert wieder auf. Stuende ihre Meldung von Hand in
+    meldungen.yaml, muesste jemand daran denken, sie zu entfernen - und
+    genau das ist an dieser Website schon einmal schiefgegangen. So
+    verschwindet sie mit 'laeuft: false' von selbst, in einem einzigen
+    Handgriff, an einer einzigen Stelle.
+
+    Die Meldung wird NICHT geprueft wie die anderen: Sie hat kein Release,
+    keine Version und kein Datum aus einem Produkt. Ihr Datum ist der Start
+    der Aktion.
+    """
+    zusatz = []
+    for a in aktionen:
+        if not a.get("laeuft"):
+            continue
+        m = a.get("meldung") or {}
+        if not m.get("titel"):
+            continue
+        zusatz.append({
+            "id": f"aktion-{a['id']}",
+            "typ": "hinweis",
+            "produkt": a.get("produkt"),
+            "datum": str(a.get("start") or date.today().isoformat()),
+            "datumQuelle": "Start der Aktion",
+            "titel": m["titel"],
+            "text": m["text"],
+            "hervorgehoben": True,
+            # Dieselbe Form wie bei den anderen Meldungen: ein Verzeichnis
+            # mit benannten Wegen, keine Liste. Eine Liste haette die Seite
+            # stillschweigend uebersprungen - sie fragt nach wege.store & Co.
+            "wege": {"aktion": f"/aktion/{a['id']}/"},
+        })
+    # Wieder nach Datum sortieren, sonst haengt die Aktion am Ende des Feeds.
+    return sorted(meldungen + zusatz, key=lambda m: m["datum"], reverse=True)
+
+
+def pruefe_alte_adressen(produkte):
+    """Jede 'alt_html' muss auf eine Datei zeigen, die es wirklich gibt.
+
+    Die Weiterleitung entsteht aus diesem Feld. Steht dort ein Tippfehler,
+    baut Astro eine Weiterleitung fuer eine Adresse, die nie jemand aufruft -
+    und die echte alte Adresse bleibt ohne Ziel. Beides faellt nirgends auf:
+    Der Bau laeuft durch, die Seite sieht gut aus, nur fremde Links landen im
+    Nichts.
+
+    Umgekehrt gilt es auch: Liegt unter apps/ eine Datei, auf die kein Produkt
+    zeigt, fehlt entweder eine Weiterleitung oder das Produkt ist weg. Das
+    meldet astro/tools/weiterleitungen-pruefen.mjs - hier geht es nur um die
+    Richtung Modell -> Datei.
+    """
+    for p in produkte:
+        alt = (p.get("links") or {}).get("alt_html")
+        if not alt:
+            continue
+        if not (ROOT / alt.lstrip("/")).exists():
+            melde(fehler, p["slug"],
+                  f"links.alt_html zeigt auf {alt} - diese Datei gibt es nicht. "
+                  f"Dann entsteht eine Weiterleitung fuer eine Adresse, die "
+                  f"niemand aufruft, und die echte bleibt ohne Ziel.")
+        if alt == f"/produkte/{p['slug']}/" or not alt.endswith(".html"):
+            melde(fehler, p["slug"],
+                  f"links.alt_html ist '{alt}'. Hier gehoert die ALTE "
+                  f"Adresse hin (eine .html-Datei), nicht die heutige Seite.")
+
+
+def pruefe_altbestand():
+    """Wacht ueber die Grenze, die am 20.07.2026 gezogen wurde.
+
+    Seit dem Umschalten liefert deploy-neu.yml ausschliesslich astro/dist
+    aus. Was hier im Wurzelverzeichnis liegt, wird NICHT mehr veroeffentlicht
+    - sieht aber aus wie eine Website und stand zuletzt auf dem Stand vom
+    19.07. Genau daran ist am 21.07. jemand haengengeblieben.
+
+    Zwei Regeln, beide aus demselben Vorfall:
+    """
+    # 1. Keine HTML-Datei im Wurzelverzeichnis. Sie waere entweder tot oder
+    #    ein zweiter Ort fuer eine Aussage, die im Datenmodell steht.
+    for datei in sorted(ROOT.glob("*.html")):
+        melde(fehler, "altbestand",
+              f"{datei.name} liegt im Wurzelverzeichnis. Ausgeliefert wird nur "
+              f"astro/dist - die Datei ist also entweder tot oder ein zweiter Ort "
+              f"fuer etwas, das im Datenmodell steht. Nach 90_Archiv/website-1.0/.")
+
+    # 2. Der alte 1:1-Upload darf nicht in .github/workflows/ liegen. Sein
+    #    push-Ausloeser war auskommentiert, workflow_dispatch aber nicht -
+    #    ein Klick auf "Run workflow" haette die neue Website mit dem alten
+    #    Stand ueberschrieben. Auskommentieren reicht hier nicht.
+    for datei in sorted((ROOT / ".github" / "workflows").glob("*.yml")):
+        if datei.name == "deploy-neu.yml":
+            continue
+        inhalt = datei.read_text(encoding="utf-8", errors="replace")
+        if "upload-pages-artifact" in inhalt and "astro" not in inhalt:
+            melde(fehler, "altbestand",
+                  f".github/workflows/{datei.name} laedt das Repository direkt zu "
+                  f"Pages hoch, ohne astro zu bauen. Auf Knopfdruck ueberschreibt "
+                  f"das die Website mit dem Altbestand. Nach 90_Archiv/.")
+
+    # 3. Die alten Produktseiten unter apps/ bleiben, wo sie sind.
+    #
+    #    Das sieht nach Altbestand aus und ist trotzdem keiner: Sie sind die
+    #    BESTANDSLISTE, aus der astro/tools/weiterleitungen-pruefen.mjs
+    #    ableitet, welche alten Adressen ein Ziel brauchen. Verschwinden sie,
+    #    verliert der Pruefer seine Grundlage und meldet Entwarnung, waehrend
+    #    fremde Links ins Leere laufen - der schlimmste aller Zustaende,
+    #    weil ihn niemand bemerkt.
+    #
+    #    Ausgeliefert werden sie nicht (nur astro/dist geht zu Pages). Sie
+    #    kosten also nichts ausser dem Platz und diesem Absatz.
+    alte = list((ROOT / "apps").glob("*.html")) if (ROOT / "apps").exists() else []
+    if len(alte) < 10:
+        melde(fehler, "altbestand",
+              f"unter apps/ liegen nur noch {len(alte)} alte Produktseiten. Sie sind "
+              f"die Bestandsliste fuer weiterleitungen-pruefen.mjs - fehlen sie, "
+              f"prueft er nichts mehr und meldet trotzdem 'alles gut'. "
+              f"Nicht aufraeumen, auch wenn sie nach Altbestand aussehen.")
+
+    # 4. Dieselbe Luecke hatten robots.txt, sitemap.xml und der Feed.
+    #
+    #    Alle drei sind unsichtbar, solange sie fehlen: Die Seite sieht gut
+    #    aus, kein Prueflauf schlaegt an, nur Suchmaschinen und Feedleser
+    #    finden nichts. robots.txt und sitemap.xml lagen bis zum 21.07.2026
+    #    im Wurzelverzeichnis und wurden seit dem Umschalten nicht mehr
+    #    ausgeliefert; einen Feed gab es nie.
+    seiten = ROOT.parent / "astro" / "src" / "pages"
+    if seiten.exists():
+        for datei, wozu in [
+            ("sitemap.xml.js", "Suchmaschinen finden die neuen Adressen nicht"),
+            ("robots.txt.js", "es gibt keine Sitemap-Angabe und keine Sperre "
+                              "fuer die Werkstatt"),
+            ("feed.xml.js", "wer FehlerFuchs verfolgen will, braucht ein Konto "
+                            "bei irgendeiner Plattform"),
+        ]:
+            if not (seiten / datei).exists():
+                melde(fehler, "altbestand",
+                      f"astro/src/pages/{datei} fehlt - {wozu}. Faellt sonst "
+                      f"niemandem auf: Die Website sieht ohne sie genauso aus.")
+
+    # 5. Es MUSS eine 404 geben. Sie lag bis zum 20.07. hier als 404.html und
+    #    wurde beim Umzug schlicht vergessen - fuenf Tage lang bekam jeder
+    #    Tippfehler die graue GitHub-Standardseite auf Englisch.
+    astro = ROOT.parent / "astro" / "src" / "pages" / "404.astro"
+    if astro.parent.exists() and not astro.exists():
+        melde(fehler, "altbestand",
+              "astro/src/pages/404.astro fehlt. GitHub Pages liefert dann seine "
+              "eigene englische Fehlerseite aus - ohne Marke und ohne Weg zurueck.")
+
+
 def pruefe_bedarf(eintraege):
     """Prüft den Betriebsbedarf für die Unterstützen-Seite.
 
@@ -1609,63 +2013,31 @@ def pruefe_wuensche(wuensche, produkte, vokabular, schema):
 
 
 # --------------------------------------------------------- Abgleich mit der Website
-
-def abgleich_mit_website(produkte):
-    """Meldet, wenn Modell und ausgelieferte Seite auseinanderlaufen."""
-    # Produkte ohne eigene Seite zeigen auf eine Sammelseite – dort ergeben
-    # seitenbezogene Prüfungen keinen Sinn.
-    sammelseiten = {"/produkte.html", "/downloads.html", "/index.html"}
-    for p in produkte:
-        slug = p["slug"]
-        eigene_seite = p["links"]["page"] not in sammelseiten
-        if not eigene_seite:
-            melde(abgleich, slug, "hat noch keine eigene Produktseite "
-                                  f"(verweist auf {p['links']['page']})")
-            continue
-        seite = ROOT / p["links"]["page"].lstrip("/")
-        if not seite.exists():
-            melde(abgleich, slug, f"Produktseite {p['links']['page']} existiert nicht")
-            continue
-        html = seite.read_text(encoding="utf-8", errors="replace")
-
-        for r in p.get("releases", []):
-            if r is p["releases"][0] and r["url"] not in html and p["links"]["page"] != "/produkte.html":
-                melde(abgleich, slug, f"neuestes Release {r['version']} wird auf "
-                                      f"{p['links']['page']} nicht verlinkt")
-
-        store = p.get("links", {}).get("store")
-        if store and store not in html:
-            melde(abgleich, slug, f"Store-Link fehlt auf {p['links']['page']}")
-
-        if p.get("accent") and f'--accent:{p["accent"]}' not in html.replace(" ", ""):
-            melde(abgleich, slug, f"Akzentfarbe {p['accent']} steht nicht auf der Produktseite")
-
-    # Zubehör und Editionen müssen von ihrem Hauptprodukt aus erreichbar sein.
-    # Sonst steht auf der Elternseite zwar, dass es sie gibt, aber kein Weg dorthin.
-    nach_slug = {p["slug"]: p for p in produkte}
-    for kind in produkte:
-        if not kind.get("parent"):
-            continue
-        elter = nach_slug.get(kind["parent"])
-        if not elter:
-            continue
-        elternseite = ROOT / elter["links"]["page"].lstrip("/")
-        if not elternseite.exists():
-            continue
-        html = elternseite.read_text(encoding="utf-8", errors="replace")
-        ziel = kind["links"]["page"].lstrip("/").split("/")[-1]
-        if ziel not in html:
-            melde(abgleich, kind["slug"],
-                  f"wird von der Seite des Hauptprodukts ({elter['links']['page']}) "
-                  f"nicht verlinkt – Besucher finden es dort nicht")
-
-    # Downloadseite: verlinkt sie alle aktuellen Releases?
-    dl = (ROOT / "downloads.html").read_text(encoding="utf-8", errors="replace")
-    for p in produkte:
-        for r in p.get("releases", [])[:1]:
-            if r["url"] not in dl:
-                melde(abgleich, p["slug"],
-                      f"aktuelles Release {r['version']} fehlt auf downloads.html")
+#
+# HIER STAND EINMAL abgleich_mit_website().
+#
+# Sie las die ausgelieferten HTML-Dateien im Wurzelverzeichnis und meldete,
+# wenn Modell und Seite auseinanderliefen: fehlende Release-Links, fehlende
+# Store-Adressen, nicht verlinkte Zubehoerteile, Akzentfarben.
+#
+# Diese Pruefung ist seit dem 20.07.2026 gegenstandslos. Die Seiten werden aus
+# demselben Datenmodell erzeugt, gegen das sie geprueft haetten - sie KOENNEN
+# nicht mehr auseinanderlaufen. Ein Release, das im Modell steht, steht auf der
+# Seite; steht es nicht im Modell, gibt es keine Seite dafuer.
+#
+# Aufgefallen ist das erst, als die alten HTML-Dateien ins Archiv gingen: Die
+# Funktion stuerzte mit FileNotFoundError auf downloads.html ab. Bis dahin lief
+# sie taeglich mit und pruefte Dateien, die niemand mehr ausliefert - sie haette
+# also jederzeit Entwarnung fuer eine Seite geben koennen, die es nicht gibt.
+#
+# Was von ihr sinnvoll bleibt, ist an anderer Stelle aufgehoben:
+#   - "hat noch keine eigene Produktseite"  -> 'customPage' und der Slug regeln das
+#   - "Release ohne Meldung"                -> pruefe_meldungen, Regel 5
+#   - "Zubehoer nicht verlinkt"             -> die Elternseite leitet es ab
+#   - "Store-Adresse fehlt"                 -> store_adresse_ableiten
+#
+# Wer hier wieder etwas gegen eine gebaute Seite pruefen will, tut das in
+# astro/tools/ gegen astro/dist - nicht hier gegen Dateien im Wurzelverzeichnis.
 
 
 # ------------------------------------------------------------------------- Ablauf
@@ -1676,9 +2048,9 @@ def main():
     schema = json.loads(SCHEMA_FILE.read_text(encoding="utf-8"))
     meldung_schema = json.loads(MELDUNG_SCHEMA_FILE.read_text(encoding="utf-8"))
     wunsch_schema = json.loads(WUNSCH_SCHEMA_FILE.read_text(encoding="utf-8"))
-    statuses = yaml.safe_load((SRC / "statuses.yaml").read_text(encoding="utf-8"))
-    vokabular = yaml.safe_load((SRC / "vokabular.yaml").read_text(encoding="utf-8"))
-    marke = yaml.safe_load((SRC / "marke.yaml").read_text(encoding="utf-8"))
+    statuses = lies_yaml(SRC / "statuses.yaml")
+    vokabular = lies_yaml(SRC / "vokabular.yaml")
+    marke = lies_yaml(SRC / "marke.yaml")
 
     dateien = sorted((SRC / "products").glob("*.yaml"))
     if not dateien:
@@ -1687,7 +2059,7 @@ def main():
     produkte = []
     for f in dateien:
         try:
-            p = yaml.safe_load(f.read_text(encoding="utf-8"))
+            p = lies_yaml(f)
         except yaml.YAMLError as e:
             mark = getattr(e, "problem_mark", None)
             stelle = f" (Zeile {mark.line + 1}, Spalte {mark.column + 1})" if mark else ""
@@ -1709,18 +2081,19 @@ def main():
         fehler.append("mehrere Produkte teilen sich denselben slug")
 
     meldungen, wuensche, steckbriefe, verarbeiter, bedarf = [], [], [], [], []
+    aktionen = []
     if not fehler:
         for p in produkte:
             pruefe_vokabular(p, vokabular)
             pruefe_inhalt(p, statuses, slugs, produkte)
             store_adresse_ableiten(p)
             pruefe_freitext_zusagen(p)
-        abgleich_mit_website(produkte)
 
-        roh = yaml.safe_load((SRC / "meldungen.yaml").read_text(encoding="utf-8"))
+        roh = lies_yaml(SRC / "meldungen.yaml")
         meldungen = pruefe_meldungen(roh.get("meldungen", []), produkte, meldung_schema)
+        MELDUNGS_IDS.extend(meldungen)
 
-        rohd = yaml.safe_load((SRC / "dienste.yaml").read_text(encoding="utf-8")) or {}
+        rohd = lies_yaml(SRC / "dienste.yaml") or {}
         dienste = pruefe_dienste(rohd.get("dienste", []), produkte)
         # Auftragsverarbeiter stehen in derselben Datei, gehen aber nicht durch
         # pruefe_dienste: Sie haben kein 'produkte' und keinen 'stand' je Dienst.
@@ -1728,12 +2101,18 @@ def main():
 
         steckbriefe = pruefe_steckbriefe(produkte, dienste)
 
-        rohw = yaml.safe_load((SRC / "wuensche.yaml").read_text(encoding="utf-8"))
+        rohw = lies_yaml(SRC / "wuensche.yaml")
         wuensche = pruefe_wuensche(rohw.get("wuensche", []), produkte, vokabular, wunsch_schema)
 
-        rohb = yaml.safe_load((SRC / "bedarf.yaml").read_text(encoding="utf-8")) or {}
+        roha = lies_yaml(SRC / "aktionen.yaml") or {}
+        aktionen = pruefe_aktionen(roha.get("aktionen", []), produkte)
+        meldungen = meldungen_aus_aktionen(aktionen, meldungen)
+
+        rohb = lies_yaml(SRC / "bedarf.yaml") or {}
         bedarf = pruefe_bedarf(rohb.get("bedarf", []))
 
+        pruefe_alte_adressen(produkte)
+        pruefe_altbestand()
         pruefe_alle_svg()
         pruefe_fremdziele(rohd, produkte, marke)
 
@@ -1822,6 +2201,9 @@ def main():
         "nichtUmsetzbar": sum(1 for w in echte if w["status"] == "nicht-umsetzbar"),
     }}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
+    OUT_AKTIONEN.write_text(json.dumps(
+        {**kopf, "aktionen": aktionen}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
     OUT_DIENSTE.write_text(json.dumps(
         {**kopf, "dienste": dienste, "auftragsverarbeiter": verarbeiter,
          "fremdziele": rohd.get("fremdziele") or []},
@@ -1846,7 +2228,7 @@ def main():
           f"{OUT_VOKABULAR.relative_to(ROOT)}, {OUT_MARKE.relative_to(ROOT)}, "
           f"{OUT_NEWS.relative_to(ROOT)}, {OUT_WUENSCHE.relative_to(ROOT)}, "
           f"{OUT_DIENSTE.relative_to(ROOT)}, {OUT_DATENSCHUTZ.relative_to(ROOT)}, "
-          f"{OUT_BEDARF.relative_to(ROOT)}")
+          f"{OUT_BEDARF.relative_to(ROOT)}, {OUT_AKTIONEN.relative_to(ROOT)}")
     return 0
 
 

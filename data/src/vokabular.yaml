@@ -31,9 +31,28 @@ privacy:
   kein-konto:
     label: kein Konto
     erklaerung: Keine Registrierung, keine Anmeldung.
+  # Geschaerft am 21.07.2026. Die alte Erklaerung lautete „Keine Telemetrie,
+  # keine Analysedienste." — als pauschale Aussage ist sie nicht haltbar.
+  #
+  # Der Befund: Wer Googles Abrechnungsbibliothek einbindet (in_app_purchase →
+  # com.android.billingclient), bekommt deren Telemetrie mitgeliefert. Sie
+  # meldet sich beim App-Start an firebaselogging.googleapis.com, ohne Zutun
+  # des Nutzers, und laesst sich nicht offiziell abschalten. Nachgewiesen vom
+  # MobileReport-Projekt am gebauten Release 1.1.0+39, mit Gegenprobe: Der
+  # Enterprise-Bau ohne Billing enthaelt davon nichts.
+  #
+  # Warum das Merkmal trotzdem bleibt: Fuer den Besucher zaehlt, dass NIEMAND
+  # bei FehlerFuchs mitliest — kein Analysedienst, keine Auswertung, keine
+  # Profile. Das stimmt weiterhin. Es zu streichen hiesse zu verschweigen, dass
+  # wir nichts tun; es unveraendert zu lassen hiesse zu verschweigen, was Google
+  # tut. Beides waere falsch, also sagt die Erklaerung jetzt beides.
   kein-tracking:
     label: kein Tracking
-    erklaerung: Keine Telemetrie, keine Analysedienste.
+    erklaerung: >-
+      FehlerFuchs erhebt nichts über dich und wertet nichts aus – keine
+      Analysedienste, keine Profile, keine Reichweitenmessung. Bei Apps mit
+      In-App-Kauf sendet Googles Abrechnungsbibliothek eigene Telemetrie an
+      Google, auf die wir keinen Einfluss haben.
   werbefrei:
     label: werbefrei
     erklaerung: Keine Werbung, keine Werbenetzwerke.

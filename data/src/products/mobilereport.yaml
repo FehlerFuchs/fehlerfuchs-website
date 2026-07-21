@@ -17,7 +17,18 @@ platforms:
     distribution: play-store
     storeId: eu.fehlerfuchs.mobilereport
 
-privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
+# 'nur-lokal' am 21.07.2026 gestrichen, ersetzt durch 'inhalte-lokal'.
+#
+# 'nur-lokal' ist die staerkste Zusage im Vokabular: sendet gar nichts ohne
+# Zutun. Seit dem Einbau des In-App-Kaufs stimmt sie nicht mehr — Googles
+# Abrechnungsbibliothek meldet sich beim App-Start selbst. Das MobileReport-
+# Projekt hat es am gebauten Release nachgewiesen und 'lokal_only' im
+# Steckbrief bereits auf false gesetzt.
+#
+# 'inhalte-lokal' bleibt richtig und ist die Aussage, auf die es ankommt:
+# Meldungen, Fotos und PDFs verlassen das Geraet nur, wenn der Nutzer es
+# ausloest.
+privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
 editions:
   - id: free
@@ -152,5 +163,18 @@ theme:
   quelle: FehlerFuchs Mobile Report/FehlerFuchsMR/lib/core/constants/app_colors.dart
 
 links:
-  page: /apps/mobilereport.html
+  # Die ALTE Adresse dieses Produkts, von vor dem 20.07.2026. Sie steht hier
+  # aus genau einem Grund: Aus ihr entsteht die Weiterleitung, damit fremde
+  # Links und Lesezeichen nicht ins Leere laufen
+  # (astro/tools/weiterleitungen.mjs).
+  #
+  # Sie ist NICHT die Adresse der Produktseite. Die heisst /produkte/<slug>/
+  # und leitet sich aus dem Slug ab - deshalb hiess das Feld frueher 'page'
+  # und wurde am 21.07.2026 umbenannt: Der alte Name legte nahe, hier stehe,
+  # wo das Produkt heute zu finden ist. Eine Pruefung schloss daraus, SnapFuchs
+  # habe keine eigene Seite, obwohl es sie seit einem Tag hatte.
+  #
+  # Fehlt das Feld, gab es vorher keine eigene Seite - dann ist auch nichts
+  # weiterzuleiten.
+  alt_html: /apps/mobilereport.html
   contact: /kontakt.html?app=MobileReport&topic=interesse

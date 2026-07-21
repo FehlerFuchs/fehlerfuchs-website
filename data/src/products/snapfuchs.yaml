@@ -99,12 +99,24 @@ features:
         values: { free: ja, pro: ja }
       - name: Zuschneiden und drehen von Hand
         values: { free: ja, pro: ja }
+      # 1.1.0: Der Rand wird zehnmal pro Sekunde eingezeichnet - orange heisst
+      # erkannt, gruen heisst stabil. Man sieht VOR dem Ausloesen, ob es sitzt.
+      - name: Live-Randerkennung in der Kamera
+        values: { free: ja, pro: ja }
+      - name: Taschenlampe im Scanner
+        values: { free: ja, pro: ja }
+      - name: QR- und Barcode-Scanner
+        values: { free: ja, pro: ja }
       - name: Kontrast und Farbmodus (Graustufen, Schwarzweiß, Farbe)
         values: { free: teilweise, pro: ja }
         note: Kostenlos gibt es die Voreinstellung; einstellbar ist sie in Pro.
       - name: Mehrseitige Dokumente
         values: { free: "bis 5 Seiten", pro: "ohne Begrenzung" }
       - name: Bilder aus der Galerie übernehmen
+        values: { free: nein, pro: ja }
+      # 1.1.0: Handy ablegen, Seite auflegen - sobald der Rahmen gruen steht,
+      # loest die App selbst aus.
+      - name: Stapelscan – löst automatisch aus, sobald der Rahmen sitzt
         values: { free: nein, pro: ja }
 
   - group: Ausgabe
@@ -129,6 +141,20 @@ features:
         values: { free: nein, pro: ja }
       - name: Seiten nachträglich umsortieren, ersetzen und löschen
         values: { free: teilweise, pro: ja }
+        note: Löschen ist kostenlos; neu aufnehmen und umsortieren gehören zu Pro.
+
+  # 1.1.0: Hilfe, Rundgang und Kontakt sind in der App selbst - wer nicht
+  # weiterkommt, muss dafuer nicht die Website suchen.
+  - group: Hilfe in der App
+    items:
+      - name: Geführter Rundgang beim ersten Start
+        values: { free: ja, pro: ja }
+      - name: Ausführliche Hilfe zu jeder Funktion
+        values: { free: ja, pro: ja }
+      - name: „Problem melden" und Kontakt direkt aus der App
+        values: { free: ja, pro: ja }
+      - name: Transparenz-Seite – welche Bausteine stecken drin, was geht nach außen
+        values: { free: ja, pro: ja }
 
   - group: Erscheinungsbild
     items:
@@ -136,6 +162,10 @@ features:
         values: { free: ja, pro: nein }
         note: In Pro entfällt der Hinweis.
       - name: Dunkles Erscheinungsbild
+        values: { free: ja, pro: ja }
+      # 1.1.0 und ausdruecklich kostenlos - das Erscheinungsbild hinter eine
+      # Bezahlschranke zu stellen waere kleinlich.
+      - name: Helles Erscheinungsbild oder wie das Gerät
         values: { free: ja, pro: ja }
 
 # Umwege: Rückschläge, die den Weg verändert haben.
@@ -223,7 +253,6 @@ media:
       titel: Auf dem Tablet
 
 links:
-  page: /produkte.html
   contact: /kontakt.html?app=SnapFuchs&topic=interesse
 
 notes: >-

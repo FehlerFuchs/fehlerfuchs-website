@@ -182,7 +182,11 @@ def main():
             "sizeLabel": r["size"]["label"],
             "sha256": r["sha256"],
             "signed": r["signed"],
-            "page": "https://fehlerfuchs.eu" + p["links"]["page"],
+            # Die heutige Produktseite, abgeleitet aus dem Slug. Bis zum
+            # 21.07.2026 stand hier links.page - also die ALTE .html-Adresse.
+            # Sie leitet zwar weiter, aber ein oeffentliches Manifest sollte
+            # nicht auf eine Weiterleitung zeigen.
+            "page": f"https://fehlerfuchs.eu/produkte/{p['slug']}/",
             "notes": r.get("notes", ""),
         })
     geplant.append((

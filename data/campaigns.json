@@ -1,0 +1,68 @@
+{
+  "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
+  "generiert": "2026-07-21T15:34:36+02:00",
+  "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
+  "aktionen": [
+    {
+      "id": "snapfuchs-promo",
+      "titel": "100× SnapFuchs Pro",
+      "produkt": "snapfuchs",
+      "laeuft": true,
+      "start": "2026-07-20",
+      "ende": null,
+      "zeigen_bis": "2027-12-31",
+      "bild": "/img/aktion-loop-geschenk.svg",
+      "bild_alt": "Ein Fuchs packt ein Geschenk aus; Konfetti fliegt, eine Urkunde erscheint.",
+      "vorspann": "SnapFuchs ist seit dem 20. Juli im Play Store: ein Dokumenten-Scanner für Android, der komplett auf deinem Gerät arbeitet. Zur Veröffentlichung verschenke ich 100 Codes für die Pro-Fassung — an Menschen, die so etwas tatsächlich brauchen und mir sagen, was noch fehlt.",
+      "was_es_gibt": "einen Code für SnapFuchs Pro — dauerhaft, kein Abo",
+      "bitte": {
+        "titel": "Eine Bitte zum Schluss",
+        "text": "Hinter FehlerFuchs steht kein Team — es ist ein Mensch, der abends und an Wochenenden entwickelt. Was im Play Store am meisten hilft, kostet dich zwei Minuten: eine Rezension. Sie entscheidet darüber, ob eine App überhaupt jemandem angezeigt wird, und sie ist für einen Einzelentwickler der Unterschied zwischen „gefunden\" und „gibt es eigentlich auch\".",
+        "nachsatz": "Ehrlich, bitte. Auch drei Sterne mit einem Satz, was fehlt, helfen mir mehr als fünf ohne Worte — daraus wird das nächste Update."
+      },
+      "dauerhaft": "Die Frist gilt nur für den Code. Einmal eingelöst, bleibt Pro dauerhaft freigeschaltet — kein Abo, keine Folgekosten.",
+      "gueltig_bis": "2027-07-19T23:00:00+02:00",
+      "einloesen": [
+        "SnapFuchs aus dem Play Store laden",
+        "In der App auf „Pro aktivieren\" tippen",
+        "Als Zahlungsart „Code\" wählen",
+        "Den Code aus der Mail einfügen — fertig"
+      ],
+      "einloesen_hinweis": "Es geht auch über den Play Store selbst (Profilbild · Zahlungen und Abos · Code einlösen) — der Weg über die App ist nur kürzer. Danach ist Pro dauerhaft freigeschaltet, ohne Ablaufdatum, auf jedem Gerät mit demselben Google-Konto.",
+      "meldung": {
+        "titel": "Release-Geschenk – 100 Codes für SnapFuchs Pro",
+        "text": "SnapFuchs ist im Play Store, und zur Veröffentlichung verschenke ich 100 Codes für die Pro-Fassung. Eine Frage beantworten, Alias und E-Mail angeben, Code bekommen — mehr ist es nicht. Wer einlöst, behält Pro dauerhaft: kein Abo, keine Folgekosten. Solange der Vorrat reicht."
+      },
+      "danach": "Alle Codes sind verteilt — danke fürs Mitmachen. Wer einen bekommen hat, behält Pro dauerhaft. SnapFuchs gibt es weiterhin kostenlos im Play Store; die Pro-Fassung ist dort ein einmaliger Kauf, kein Abo.",
+      "knopftext": "Zur SnapFuchs Promo",
+      "vorfrage": "Bevor du darfst, ein winziger Test:",
+      "loesungshinweis": "Die Lösung steht auf der Startseite.",
+      "frage": "Wie lautet der Leitspruch von FehlerFuchs?",
+      "antworten": [
+        "Software, die mitdenkt.",
+        "Einfach kleine Helfer.",
+        "Deine Daten, deine Cloud.",
+        "Digital. Einfach. Besser."
+      ],
+      "fehltext": "Nicht ganz. Schau nochmal auf die Startseite.",
+      "endpunkt": "https://license.fehlerfuchs.eu/v1/aktion/snapfuchs",
+      "zweck": "Zusendung eines Promo-Codes für SnapFuchs Pro und die Prüfung, dass dieselbe Adresse nur einen Code bekommt.",
+      "daten": [
+        "Alias (frei gewählt, kein echter Name nötig)",
+        "E-Mail-Adresse",
+        "Zeitpunkt der Anforderung",
+        "der zugeteilte Code"
+      ],
+      "rechtsgrundlage": "Art. 6 Abs. 1 lit. b DSGVO — die Zusendung wird selbst angefordert.",
+      "frist": "90 Tage nach der Anforderung",
+      "wo": "Lizenzserver (license.fehlerfuchs.eu)",
+      "nicht_gespeichert": [
+        "keine IP-Adresse in der Datenbank",
+        "kein Name, keine Anschrift",
+        "keine Auswertung, wer den Code eingelöst hat"
+      ],
+      "hinweis": "Nach 90 Tagen wird die Zuordnung gelöscht. Der Code selbst bleibt als vergeben vermerkt — sonst würde er ein zweites Mal ausgegeben, obwohl ihn jemand hat. Ein Personenbezug besteht dann nicht mehr.",
+      "antwortpruefung": "35f3cdc94279a921abb468f20b4bf71d56ec8eb585bf9884c65fdbf3f71ae235"
+    }
+  ]
+}

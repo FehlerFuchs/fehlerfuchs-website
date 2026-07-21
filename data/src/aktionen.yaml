@@ -1,0 +1,179 @@
+# Aktionen — zeitlich begrenzte Sachen mit eigener Datenverarbeitung
+# ===================================================================
+#
+# Aus jedem Eintrag hier entstehen ZWEI Dinge von selbst:
+#
+#   1. eine Seite unter /aktion/<id>/
+#   2. ein Abschnitt auf der Datenschutzseite
+#
+# Eine neue Aktion braucht deshalb nichts als einen Eintrag in dieser Datei —
+# keine neue Seite, keinen neuen Abschnitt, keine Änderung am Quelltext.
+#
+# WARUM EINE EIGENE DATEI
+# Eine Aktion ist kein Produkt und kein Dienst — sie hört wieder auf. Stünde
+# sie bei den Diensten, bliebe sie dort stehen, wenn sie vorbei ist; stünde sie
+# fest in einer Seite, müsste jemand daran denken, sie zu entfernen.
+#
+# DAS WICHTIGSTE FELD IST 'zeigen_bis'
+# Der Datenschutzabschnitt darf NICHT verschwinden, sobald die Aktion endet.
+# Danach laufen noch die Speicherfristen — und wer wissen will, was mit seiner
+# Adresse geschieht, muss es nachlesen können, solange sie liegt.
+#
+#     zeigen_bis = Ende der Aktion + Aufbewahrungsfrist + Puffer
+#
+# Nach diesem Datum meldet build_data.py, dass der Eintrag weg kann. Vorher
+# nicht — und von selbst verschwindet er nie, das wäre der falsche Automatismus.
+#
+# ZUR PRÜFFRAGE
+# Sie ist eine Freundlichkeitsschwelle, keine Sicherung. Der echte Schutz ist
+# die Prüfung auf dem Server plus die Anfragegrenze. Wer den Quelltext liest,
+# kann die richtige Antwort herausfinden — das ist hingenommen und der Grund,
+# warum der Server sie noch einmal prüft.
+#
+# Nach jeder Änderung:
+#     cd website && py -3 tools\build_data.py
+
+aktionen:
+
+  - id: snapfuchs-promo
+    titel: 100× SnapFuchs Pro
+    produkt: snapfuchs
+
+    # --- Ablauf -----------------------------------------------------------
+    laeuft: true
+    start: "2026-07-20"
+    # Ende offen: vorbei, wenn der letzte Code weg ist. Dann hier eintragen.
+    ende: null
+    # 90 Tage nach dem letzten möglichen Einlösen (19.07.2027), plus Puffer.
+    zeigen_bis: "2027-12-31"
+
+    # --- Die Seite --------------------------------------------------------
+    # Der Loop aus dem Markenbestand. Bewusst ein Feld und kein fester Pfad
+    # im Quelltext: Eine andere Aktion bekommt ein anderes Motiv, ohne dass
+    # jemand die Vorlage anfasst. Fehlt das Feld, entfaellt das Bild - die
+    # Seite funktioniert auch ohne.
+    #
+    # Das Bild sagt bewusst NICHTS Konkretes: kein Datum, keine Zahl, kein
+    # 'dauerhaft' als Bildtext. Solche Aussagen stehen in dieser Datei, und
+    # nur hier - sonst laufen Bild und Seite auseinander, sobald sich eine
+    # Zahl aendert.
+    #
+    # Im Markenbestand heisst die Datei 'aktion-loop_geschenk_V1.svg'. Hier
+    # traegt sie den Namen, den alle Bilder der Website tragen: klein, mit
+    # Bindestrichen, ohne Versionsnummer. Die Version steht im Bestand.
+    bild: /img/aktion-loop-geschenk.svg
+    bild_alt: >-
+      Ein Fuchs packt ein Geschenk aus; Konfetti fliegt, eine Urkunde erscheint.
+    vorspann: >-
+      SnapFuchs ist seit dem 20. Juli im Play Store: ein Dokumenten-Scanner für
+      Android, der komplett auf deinem Gerät arbeitet. Zur Veröffentlichung
+      verschenke ich 100 Codes für die Pro-Fassung — an Menschen, die so etwas
+      tatsächlich brauchen und mir sagen, was noch fehlt.
+    was_es_gibt: einen Code für SnapFuchs Pro — dauerhaft, kein Abo
+
+    # Die Gegenleistung, um die gebeten wird - freundlich, nicht als
+    # Bedingung. Sie steht bewusst NICHT im Formular und nicht als Haekchen:
+    # Wer den Code nur will, soll ihn bekommen. Eine Bitte, die man abschlagen
+    # kann, ist eine Bitte; eine, die man erfuellen muss, ist ein Preis.
+    bitte:
+      titel: Eine Bitte zum Schluss
+      text: >-
+        Hinter FehlerFuchs steht kein Team — es ist ein Mensch, der abends und
+        an Wochenenden entwickelt. Was im Play Store am meisten hilft, kostet
+        dich zwei Minuten: eine Rezension. Sie entscheidet darüber, ob eine App
+        überhaupt jemandem angezeigt wird, und sie ist für einen
+        Einzelentwickler der Unterschied zwischen „gefunden" und „gibt es
+        eigentlich auch".
+      nachsatz: >-
+        Ehrlich, bitte. Auch drei Sterne mit einem Satz, was fehlt, helfen mir
+        mehr als fünf ohne Worte — daraus wird das nächste Update.
+
+    # Der wichtigste Satz der ganzen Seite, und der am leichtesten misszu-
+    # verstehende: Die Frist gehoert zum CODE, nicht zur Freischaltung. Wer
+    # „gueltig bis 2027" liest, denkt zuerst an ein Abo, das dann auslaeuft.
+    # Deshalb steht das Gegenteil ausdruecklich da - und zwar ueberall, wo die
+    # Frist auftaucht.
+    dauerhaft: >-
+      Die Frist gilt nur für den Code. Einmal eingelöst, bleibt Pro dauerhaft
+      freigeschaltet — kein Abo, keine Folgekosten.
+
+    # Als Zeitstempel, nicht als Text: Daraus rechnet die Seite, wie lange die
+    # Aktion noch läuft. Ein Datum, das nur als Wort dasteht, kann das nicht.
+    gueltig_bis: "2027-07-19T23:00:00+02:00"
+
+    # Die Schritte einzeln, nicht als Satz mit Trennzeichen. Wer einen Code
+    # einlöst, hat das Handy in der einen und die Anleitung in der anderen Hand
+    # — da hilft eine nummerierte Liste, in der man die Zeile wiederfindet.
+    einloesen:
+      - SnapFuchs aus dem Play Store laden
+      - In der App auf „Pro aktivieren" tippen
+      - Als Zahlungsart „Code" wählen
+      - Den Code aus der Mail einfügen — fertig
+    einloesen_hinweis: >-
+      Es geht auch über den Play Store selbst (Profilbild · Zahlungen und Abos ·
+      Code einlösen) — der Weg über die App ist nur kürzer. Danach ist Pro
+      dauerhaft freigeschaltet, ohne Ablaufdatum, auf jedem Gerät mit demselben
+      Google-Konto.
+    # Aus diesen zwei Zeilen entsteht die Meldung auf 'Aktuelles' und der
+    # Startseite - solange 'laeuft: true' steht. Sie NICHT in meldungen.yaml
+    # zu schreiben ist Absicht: Sonst muesste jemand daran denken, sie wieder
+    # herauszunehmen, wenn die Codes weg sind. Genau daran hat schon einmal
+    # niemand gedacht ("Beta pausiert", waehrend die Beta lief).
+    meldung:
+      titel: Release-Geschenk – 100 Codes für SnapFuchs Pro
+      text: >-
+        SnapFuchs ist im Play Store, und zur Veröffentlichung verschenke ich 100
+        Codes für die Pro-Fassung. Eine Frage beantworten, Alias und E-Mail
+        angeben, Code bekommen — mehr ist es nicht. Wer einlöst, behält Pro
+        dauerhaft: kein Abo, keine Folgekosten. Solange der Vorrat reicht.
+
+    danach: >-
+      Alle Codes sind verteilt — danke fürs Mitmachen. Wer einen bekommen hat,
+      behält Pro dauerhaft. SnapFuchs gibt es weiterhin kostenlos im Play Store;
+      die Pro-Fassung ist dort ein einmaliger Kauf, kein Abo.
+
+    # Die Aufschrift des Knopfes, der von Startseite, Produktseite und
+    # Meldungsliste hierher fuehrt. Sie nennt die Aktion beim Namen statt
+    # „Mehr erfahren": Wer liest, soll wissen, wohin er kommt.
+    knopftext: Zur SnapFuchs Promo
+
+    # --- Die Prüffrage ----------------------------------------------------
+    # Der Satz davor nimmt der Frage die Strenge: Es ist keine Pruefung,
+    # sondern eine Schwelle, die Maschinen aufhaelt und Menschen nicht.
+    vorfrage: "Bevor du darfst, ein winziger Test:"
+    # Und der Hinweis darunter sorgt dafuer, dass niemand haengenbleibt.
+    # Absicht: Die Frage soll niemanden ausschliessen, nur bremsen.
+    loesungshinweis: Die Lösung steht auf der Startseite.
+    frage: Wie lautet der Leitspruch von FehlerFuchs?
+    antworten:
+      - text: Einfach kleine Helfer.
+        richtig: true
+      - text: Software, die mitdenkt.
+      - text: Digital. Einfach. Besser.
+      - text: Deine Daten, deine Cloud.
+    fehltext: Nicht ganz. Schau nochmal auf die Startseite.
+
+    # --- Der Endpunkt -----------------------------------------------------
+    endpunkt: https://license.fehlerfuchs.eu/v1/aktion/snapfuchs
+
+    # --- Datenschutz ------------------------------------------------------
+    zweck: >-
+      Zusendung eines Promo-Codes für SnapFuchs Pro und die Prüfung, dass
+      dieselbe Adresse nur einen Code bekommt.
+    daten:
+      - Alias (frei gewählt, kein echter Name nötig)
+      - E-Mail-Adresse
+      - Zeitpunkt der Anforderung
+      - der zugeteilte Code
+    rechtsgrundlage: >-
+      Art. 6 Abs. 1 lit. b DSGVO — die Zusendung wird selbst angefordert.
+    frist: 90 Tage nach der Anforderung
+    wo: Lizenzserver (license.fehlerfuchs.eu)
+    nicht_gespeichert:
+      - keine IP-Adresse in der Datenbank
+      - kein Name, keine Anschrift
+      - keine Auswertung, wer den Code eingelöst hat
+    hinweis: >-
+      Nach 90 Tagen wird die Zuordnung gelöscht. Der Code selbst bleibt als
+      vergeben vermerkt — sonst würde er ein zweites Mal ausgegeben, obwohl ihn
+      jemand hat. Ein Personenbezug besteht dann nicht mehr.

@@ -38,7 +38,10 @@ auf_dem_geraet:
   - was: Einsendungen aus dem Wunscherfüller (Titel, Wunschtext, Thema, ggf. betroffenes Produkt, Anzeigename; nur bei gewünschter Antwort zusätzlich Name und E-Mail-Adresse)
     wo: Datenbank auf dem Server; Löschung nach 90 Tagen. Es wird keine IP-Adresse gespeichert
     beleg: Tabelle wuensche; adapter/app/db.py, record_wunsch und cleanup; adapter/app/main.py, wunsch_einreichen
-  - was: IP-Adressen als kurzlebige Zählwerte gegen Missbrauch (Kontaktformular, Wunscherfüller, Tester-Registrierung)
+  - was: Teilnahme an der SnapFuchs-Aktion (selbst gewählter Anzeigename, E-Mail-Adresse, Zeitpunkt, der zugeteilte Gutscheincode)
+    wo: Datenbank auf dem Server; nach 90 Tagen werden Anzeigename und E-Mail gelöscht — der Code bleibt nur noch als „vergeben" vermerkt, ohne Bezug zu einer Person. Es wird keine IP-Adresse gespeichert
+    beleg: Tabelle aktion_codes; adapter/app/db.py, aktion_code_vergeben und cleanup; adapter/app/main.py, aktion_code_anfordern
+  - was: IP-Adressen als kurzlebige Zählwerte gegen Missbrauch (Kontaktformular, Wunscherfüller, Aktion, Tester-Registrierung)
     wo: Zwischenspeicher auf dem Server, automatische Löschung nach 1 Stunde bzw. 24 Stunden
     beleg: Redis; adapter/app/mailer.py, rate_ok und tester_rate_ok
 
@@ -66,6 +69,11 @@ uebertragungen:
     wann: wenn das Wunsch-Formular abgeschickt wird
     freiwillig: true
     beleg: adapter/app/main.py, Endpunkt /v1/wuensche
+  - wohin: license.fehlerfuchs.eu (eingehend, von der Website)
+    was: Teilnahme an der SnapFuchs-Aktion (Anzeigename, E-Mail-Adresse, angeklickte Antwort). Der Gutscheincode selbst wird ausschließlich per E-Mail zugestellt und nie an den Browser zurückgegeben
+    wann: wenn das Aktionsformular abgeschickt wird
+    freiwillig: true
+    beleg: adapter/app/main.py, Endpunkt /v1/aktion/snapfuchs
   - wohin: Website (ausgehend, öffentlich abrufbar)
     was: ausschließlich das Eingangsdatum noch nicht bearbeiteter Wunsch-Einsendungen — kein Titel, kein Text, kein Anzeigename
     wann: beim Aufruf der Wunscherfüller-Seite

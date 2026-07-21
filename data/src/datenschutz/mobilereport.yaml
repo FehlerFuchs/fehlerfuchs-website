@@ -1,14 +1,14 @@
 slug: mobilereport
 name: MobileReport
-stand: "2026-07-19"
+stand: "2026-07-21"
 geprueft_von: FehlerFuchs_MobileReport
 fassung: "1.1.0+39 (zusammengefuehrte Free/Pro-App mit In-App-Kauf; geprueft im Ordner FehlerFuchsMR_Pro\\01_App)"
 
-# Ohne Zutun des Nutzers verlaesst kein Inhalt das Geraet: kein Konto, keine
-# Hintergrund-Uebertragung, kein Tracking. Verbindungen entstehen nur
-# nutzerinitiiert (Support-/Kontaktformular, In-App-Kauf, Mail/Browser oeffnen).
-# Google Play Billing ist auf dem Geraet ueber die Play-Dienste eingebunden.
-lokal_only: true
+# Korrigiert am 21.07.2026: Die Google-Abrechnungsbibliothek bringt eine eigene
+# Telemetrie-Komponente mit, die ohne Zutun des Nutzers an Google sendet. Inhalte
+# der Meldungen sind davon nicht betroffen, aber "sendet nichts ohne Zutun"
+# stimmt dadurch nicht mehr.
+lokal_only: false
 
 auf_dem_geraet:
   - was: Meldungen (Bereich, Standort, Kategorie, Prioritaet, Betreff, Beschreibung, optional Melder-Name/Position)
@@ -65,6 +65,25 @@ uebertragungen:
     wann: beim Kauf und bei "Kaeufe wiederherstellen"
     freiwillig: true
     beleg: lib/data/pro_provider.dart (in_app_purchase)
+  - wohin: firebaselogging.googleapis.com bzw. firebaselogging-pa.googleapis.com (Google)
+    was: >-
+      Technische Betriebsdaten der Google-Abrechnungsbibliothek (Firelog/
+      DataTransport), die Google mit dieser Bibliothek ausliefert. Meldungen,
+      Fotos, PDFs, Empfaenger und Eingaben des Nutzers sind davon NICHT betroffen.
+      Welche Einzelwerte Google dabei erhebt, legt Google fest und ist von aussen
+      nicht einsehbar.
+    wann: >-
+      ohne Zutun des Nutzers, sobald die Abrechnung angesprochen wird - das
+      geschieht beim Start der App, weil sie dort den Kaufstatus der
+      Pro-Freischaltung abgleicht
+    freiwillig: false
+    beleg: >-
+      Nachgewiesen im Release-Bundle 1.1.0+39 (base/dex/classes.dex): CCT-Endpunkte
+      verschraenkt kodiert, com.google.android.datatransport.cct.CctBackendFactory,
+      TransportBackendDiscovery, JobInfoSchedulerService, Kennung
+      "datatransport/3.1.8". Transitiv ueber in_app_purchase ->
+      com.android.billingclient. Keine firebase-analytics- oder
+      Crashlytics-Klassen im Bundle. Im Enterprise-Bau (ohne Billing) 0 Treffer.
   - wohin: vom Nutzer gewaehlte E-Mail-App auf dem Geraet
     was: erzeugtes PDF als Anhang, Empfaengeradresse und Betreff
     wann: nur wenn der Nutzer den Versand ausloest; das Verschicken passiert in der fremden E-Mail-App, nicht in dieser Anwendung
@@ -83,6 +102,12 @@ fremde_dienste:
   - name: FehlerFuchs-Kontakt-Bridge (eigener Server, license.fehlerfuchs.eu)
     wofuer: Weiterleitung der Support-/Kontaktanfrage per E-Mail
     wann: nur beim Absenden des Formulars
+  - name: Google-Telemetrie in der Abrechnungsbibliothek (Firelog/DataTransport)
+    wofuer: >-
+      Von Google mitgelieferter Bestandteil der Play-Abrechnung; sendet
+      Betriebsdaten an Google. Nicht von FehlerFuchs eingebaut und derzeit nicht
+      abschaltbar, ohne die Abrechnung anzufassen.
+    wann: ohne Zutun, sobald die Abrechnung angesprochen wird
 
 konto_noetig: false
 tracking: false
@@ -101,11 +126,16 @@ besonderheiten: >-
   ausdruecklich darauf hin, keine Patientendaten oder sonstigen sensiblen Inhalte zu
   fotografieren oder einzutragen. Sie ist kein Nachweissystem, kein Ticketsystem und keine
   Medizintechnik-Software. Der Versand ist bewusst manuell: die App bereitet eine E-Mail
-  vor, verschickt aber nichts selbst. Ohne Zutun verlaesst kein Meldungsinhalt das Geraet;
-  Uebertragungen entstehen nur nutzerinitiiert (Support-Formular an einen eigenen EU-Server,
-  In-App-Kauf ueber Google Play). Diagnosedaten werden nur nach ausdruecklicher Zustimmung
-  mitgesendet und sind vorher in der App einsehbar. Die "Pro"-Freischaltung ist ein
-  einmaliger In-App-Kauf (kein Abo).
+  vor, verschickt aber nichts selbst. Was der Nutzer eingibt - Meldungen, Fotos, PDFs,
+  Empfaenger - verlaesst das Geraet nur, wenn er es selbst ausloest: beim Absenden des
+  Support-Formulars oder beim Verschicken eines Berichts aus seiner Mail-App. Diagnosedaten
+  werden nur nach ausdruecklicher Zustimmung mitgesendet und sind vorher in der App
+  einsehbar. Die "Pro"-Freischaltung ist ein einmaliger In-App-Kauf (kein Abo). Davon zu
+  trennen ist ein Punkt, der seit dem Einbau des In-App-Kaufs zutrifft: Die
+  Abrechnungsbibliothek von Google bringt eine eigene Telemetrie mit, die beim Start
+  Betriebsdaten an Google sendet, ohne dass der Nutzer etwas tut. Sie stammt nicht von
+  FehlerFuchs, laesst sich nicht einfach herausloesen und betrifft keine Inhalte aus der
+  App - erwaehnt gehoert sie trotzdem.
 
 vorhandener_text: lib/features/privacy/privacy_page.dart (In-App); Website fehlerfuchs.eu/datenschutz.html
 
@@ -113,11 +143,15 @@ offene_fragen: >-
   (1) Der genaue Play-Rollout-Status von 1.1.0+39 (bereits in Produktion live vs. in
   Auslieferung) ist hier nicht verifiziert; dieser Steckbrief beschreibt den aktuellen
   Codestand der zusammengefuehrten App.
-  (2) Der exakte, beim finalen AAB zusammengefuehrte Android-Berechtigungssatz
-  (Manifest-Merge von in_app_purchase/http/image_picker) wurde nicht aus einem gebauten
-  Artefakt verifiziert; ob restorePurchases beim App-Start eine Netzverbindung zu Google
-  Play ausloest oder nur den lokalen Play-Cache liest, ist unbekannt.
-  (3) Unbekannt, ob beim Drucken/Teilen ueber das Paket printing Daten an System- oder
-  Cloud-Druckdienste des Geraets gelangen - das haengt vom Geraet ab, nicht von der App.
-  (4) Ob die Kontakt-Bridge serverseitig IP-Adressen protokolliert, haengt vom Server ab,
+  (2) Die Google-Telemetrie ist im gebauten Bundle zweifelsfrei enthalten; nicht
+  gemessen ist, wie oft sie sendet und welche Einzelwerte dabei uebertragen werden -
+  das legt Google fest. Eine Messung am Geraet steht aus. Ebenfalls offen: ob sie sich
+  abschalten laesst, ohne die Abrechnung zu beschaedigen.
+  (3) Ob "tracking: false" und das Website-Merkmal "kein-tracking" angesichts dieser
+  Telemetrie so stehenbleiben koennen, ist eine Bewertungsfrage. FehlerFuchs selbst
+  verfolgt niemanden und wertet nichts aus; die Daten gehen an Google, nicht an uns.
+  Die Entscheidung ueber die Wortwahl auf der Website liegt nicht bei diesem Projekt.
+  (4) Unbekannt, ob beim Drucken/Teilen Daten an System- oder Cloud-Druckdienste des
+  Geraets gelangen - das haengt vom Geraet ab, nicht von der App.
+  (5) Ob die Kontakt-Bridge serverseitig IP-Adressen protokolliert, haengt vom Server ab,
   nicht von der App.

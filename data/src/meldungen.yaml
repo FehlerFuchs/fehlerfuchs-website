@@ -29,6 +29,23 @@
 
 meldungen:
 
+  - id: snapfuchs-1-1-0
+    typ: update
+    produkt: snapfuchs
+    # Play-Store-App: Versionen verwaltet der Store, deshalb kein Release im
+    # Modell und damit auch kein abgeleitetes Datum. Genau wie bei
+    # MobileReport 1.1.0 - siehe die Meldung weiter unten.
+    datum: "2026-07-21"
+    titel: "SnapFuchs 1.1.0: die Kamera zeigt, was sie erkennt"
+    text: >-
+      Der erkannte Dokumentrand wird jetzt live eingezeichnet — orange heißt
+      erkannt, grün heißt stabil. Man sieht vor dem Auslösen, ob es sitzt. Die
+      Erkennung selbst wurde an 1.000 Aufnahmen mit hinterlegten Soll-Ecken neu
+      vermessen und findet nun auch farbige, dunkle und gemusterte Vorlagen.
+      Dazu: helles Erscheinungsbild (kostenlos), ein geführter Rundgang,
+      ausführliche Hilfe in der App — und für Pro der Stapelscan, eigene
+      Dateinamen und wählbares Seitenformat.
+
   - id: website-2-0
     typ: veroeffentlichung
     # Kein Produkt: Die Website ist keins. Deshalb auch keine Version -
