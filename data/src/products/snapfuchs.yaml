@@ -11,10 +11,11 @@ description: >-
   Rechnung, Vertrag, Zeugnis oder Notiz: einmal antippen, und aus dem Foto wird
   ein gerade gezogenes PDF. Scannen, Entzerren, Filtern, Texterkennung und das
   Lesen von Codes laufen vollständig auf dem Gerät – auch im Flugmodus. Kein
-  Konto, keine Cloud, kein Analyse- oder Werbe-SDK. Nach außen geht nur, was du
-  selbst auslöst: ein geteilter Scan, ein abgesendetes Feedback, ein geöffneter
-  Link. Dazu die Abwicklung des einmaligen Pro-Kaufs über Google Play Billing –
-  deine Scans sieht Google dabei nie.
+  Konto, keine Cloud, keine Werbe-ID, kein Nutzungsprofil. Nach außen geht nur,
+  was du selbst auslöst: ein geteilter Scan, ein abgesendetes Feedback, ein
+  geöffneter Link. Dazu die Abwicklung des einmaligen Pro-Kaufs über Google
+  Play – was dabei übertragen wird, steht im Datenschutz-Steckbrief. Deine
+  Scans sieht Google nie.
 audience: [privat, selbststaendige]
 
 # Akzent für Listen und Karten auf hellem Grund (Produktübersicht, Downloads).

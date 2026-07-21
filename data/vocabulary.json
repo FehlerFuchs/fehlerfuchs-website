@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-21T17:14:00+02:00",
+  "generiert": "2026-07-21T17:43:25+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "privacy": {
     "nur-lokal": {
@@ -20,7 +20,7 @@
       "erklaerung": "Keine Registrierung, keine Anmeldung."
     },
     "kein-tracking": {
-      "label": "kein Tracking",
+      "label": "kein Tracking durch uns",
       "erklaerung": "FehlerFuchs erhebt nichts über dich und wertet nichts aus – keine Analysedienste, keine Profile, keine Reichweitenmessung. Bei Apps mit In-App-Kauf sendet Googles Abrechnungsbibliothek eigene Telemetrie an Google, auf die wir keinen Einfluss haben."
     },
     "werbefrei": {

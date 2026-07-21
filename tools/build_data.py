@@ -1720,6 +1720,46 @@ def meldungen_aus_aktionen(aktionen, meldungen):
     return sorted(meldungen + zusatz, key=lambda m: m["datum"], reverse=True)
 
 
+def pruefe_steckbrief_sichtbar(steckbriefe):
+    """Meldet Steckbrief-Angaben, die keine Seite jemals anzeigt.
+
+    Am 21.07.2026 stand im SnapFuchs-Steckbrief unter 'fremde_dienste' ein
+    Feld 'telemetrie' mit dem Wortlaut zur Play-Abrechnungsbibliothek. Es war
+    sauber gepflegt, geprueft und - unsichtbar: datenschutz.astro gab nur
+    'name' und 'wofuer' aus.
+
+    Das ist die schlechteste aller Lagen. Fehlt eine Angabe ganz, faellt es
+    beim Lesen auf. Steht sie im Modell und wird nicht gezeigt, glauben alle
+    Beteiligten, der Punkt sei erklaert - und die App verlinkt derweil auf
+    eine 'vollstaendige Fassung', in der er fehlt.
+
+    Deshalb: Jedes Feld, das hier gepflegt wird, muss in der Vorlage
+    vorkommen. Die Pruefung ist grob (Textsuche), aber sie faengt genau den
+    Fall, um den es geht: ein Feld, das niemand ausgibt.
+    """
+    vorlage = ROOT.parent / "astro" / "src" / "pages" / "datenschutz.astro"
+    if not vorlage.exists():
+        return
+    inhalt = vorlage.read_text(encoding="utf-8", errors="replace")
+
+    gesehen = set()
+    for sb in steckbriefe:
+        for d in sb.get("fremde_dienste") or []:
+            if isinstance(d, dict):
+                gesehen.update(d.keys())
+        for u in sb.get("uebertragung") or []:
+            if isinstance(u, dict):
+                gesehen.update(u.keys())
+
+    for feld in sorted(gesehen):
+        if feld not in inhalt:
+            melde(warnungen, "datenschutz",
+                  f"Das Feld '{feld}' wird in Steckbriefen gepflegt, kommt aber in "
+                  f"datenschutz.astro nicht vor - es steht also im Modell und auf "
+                  f"keiner Seite. Entweder ausgeben oder aus den Steckbriefen "
+                  f"entfernen; gepflegt und unsichtbar ist die schlechteste Lage.")
+
+
 def pruefe_alte_adressen(produkte):
     """Jede 'alt_html' muss auf eine Datei zeigen, die es wirklich gibt.
 
@@ -2131,6 +2171,7 @@ def main():
         rohb = lies_yaml(SRC / "bedarf.yaml") or {}
         bedarf = pruefe_bedarf(rohb.get("bedarf", []))
 
+        pruefe_steckbrief_sichtbar(steckbriefe)
         pruefe_alte_adressen(produkte)
         pruefe_altbestand()
         pruefe_alle_svg()

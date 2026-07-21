@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-21T17:14:00+02:00",
+  "generiert": "2026-07-21T17:43:25+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1344,7 +1344,7 @@
       "fullName": "FehlerFuchs SnapFuchs",
       "kind": "produkt",
       "tagline": "Dokumente scannen, erkennen, als PDF ablegen – alles auf dem Gerät.",
-      "description": "Rechnung, Vertrag, Zeugnis oder Notiz: einmal antippen, und aus dem Foto wird ein gerade gezogenes PDF. Scannen, Entzerren, Filtern, Texterkennung und das Lesen von Codes laufen vollständig auf dem Gerät – auch im Flugmodus. Kein Konto, keine Cloud, kein Analyse- oder Werbe-SDK. Nach außen geht nur, was du selbst auslöst: ein geteilter Scan, ein abgesendetes Feedback, ein geöffneter Link. Dazu die Abwicklung des einmaligen Pro-Kaufs über Google Play Billing – deine Scans sieht Google dabei nie.",
+      "description": "Rechnung, Vertrag, Zeugnis oder Notiz: einmal antippen, und aus dem Foto wird ein gerade gezogenes PDF. Scannen, Entzerren, Filtern, Texterkennung und das Lesen von Codes laufen vollständig auf dem Gerät – auch im Flugmodus. Kein Konto, keine Cloud, keine Werbe-ID, kein Nutzungsprofil. Nach außen geht nur, was du selbst auslöst: ein geteilter Scan, ein abgesendetes Feedback, ein geöffneter Link. Dazu die Abwicklung des einmaligen Pro-Kaufs über Google Play – was dabei übertragen wird, steht im Datenschutz-Steckbrief. Deine Scans sieht Google nie.",
       "audience": [
         "privat",
         "selbststaendige"

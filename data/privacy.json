@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-21T17:14:00+02:00",
+  "generiert": "2026-07-21T17:43:25+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1515,9 +1515,9 @@
     {
       "slug": "snapfuchs",
       "name": "SnapFuchs",
-      "stand": "2026-07-19",
+      "stand": "2026-07-21",
       "geprueft_von": "FehlerFuchs_SnapFuchs",
-      "fassung": "1.0.0 (versionCode 4)",
+      "fassung": "1.1.0 (versionCode 6)",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -1632,7 +1632,7 @@
           "name": "Google Play Billing (Paket in_app_purchase)",
           "wofuer": "einmaliger In-App-Kauf der Pro-Fassung und dessen Wiederherstellung",
           "wann": "beim App-Start (Statusabfrage) und beim Kauf",
-          "telemetrie": "Die Abrechnungsbibliothek meldet beim Start eigene Betriebsdaten an Google (firebaselogging.googleapis.com). Das sind technische Ereignisse zum Kaufvorgang – keine Scans, keine Dokumente, keine Nutzungsdaten von SnapFuchs. Abschalten lässt es sich nicht ohne Eingriff in die Bibliothek; ein Weg dafür ist in Prüfung."
+          "telemetrie": "Die Abrechnungsbibliothek meldet beim Start eigene Betriebsdaten an Google (firebaselogging.googleapis.com). Das sind technische Ereignisse zum Kaufvorgang – keine Scans, keine Dokumente, keine Nutzungsdaten von SnapFuchs. Abschalten ließe sich das nur durch einen Eingriff in die Bibliothek, an der die Kaufabwicklung hängt. Darauf verzichten wir bewusst: Ein ungetesteter Eingriff in den Kaufweg wäre das größere Risiko. Wir benennen es stattdessen – in der App unter Einstellungen und in der Transparenz-Anzeige."
         },
         {
           "name": "Kontakt-Weiterleitung auf dem FehlerFuchs-Lizenzserver (EU, IONOS)",

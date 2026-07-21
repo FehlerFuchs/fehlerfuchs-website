@@ -1,8 +1,8 @@
 slug: snapfuchs
 name: SnapFuchs
-stand: "2026-07-19"
+stand: "2026-07-21"
 geprueft_von: FehlerFuchs_SnapFuchs
-fassung: "1.0.0 (versionCode 4)"
+fassung: "1.1.0 (versionCode 6)"
 
 # Beim App-Start fragt die Pro-Freischaltung automatisch den Kaufstatus bei
 # Google Play ab (restorePurchases). Nutzerinhalte (Scans, PDFs, erkannter
@@ -99,13 +99,27 @@ fremde_dienste:
       Die Abrechnungsbibliothek meldet beim Start eigene Betriebsdaten an
       Google (firebaselogging.googleapis.com). Das sind technische Ereignisse
       zum Kaufvorgang – keine Scans, keine Dokumente, keine Nutzungsdaten von
-      SnapFuchs. Abschalten lässt es sich nicht ohne Eingriff in die
-      Bibliothek; ein Weg dafür ist in Prüfung.
+      SnapFuchs. Abschalten ließe sich das nur durch einen Eingriff in die
+      Bibliothek, an der die Kaufabwicklung hängt. Darauf verzichten wir
+      bewusst: Ein ungetesteter Eingriff in den Kaufweg wäre das größere
+      Risiko. Wir benennen es stattdessen – in der App unter Einstellungen und
+      in der Transparenz-Anzeige.
   - name: Kontakt-Weiterleitung auf dem FehlerFuchs-Lizenzserver (EU, IONOS)
     wofuer: nimmt das Feedback entgegen und leitet es per E-Mail weiter
     wann: nur beim aktiven Absenden des Formulars
 
 konto_noetig: false
+# Bewusst false (Stand 21.07.2026), und der Grund gehoert festgehalten, damit
+# ihn beim naechsten Umlauf niemand anders entscheidet:
+#
+# 'tracking' beschreibt, ob DIE APP ihre Nutzer verfolgt. Das tut sie nicht -
+# keine Werbe-ID, kein Nutzungsprofil, keine Analyse, kein Konto. Die
+# Betriebsdaten der Play-Abrechnungsbibliothek sind kein Nutzer-Tracking,
+# sondern technische Ereignisse zum Kaufvorgang, und sie stehen vollstaendig
+# unter fremde_dienste.
+#
+# Ein 'true' waere hier nicht ehrlicher, sondern UNSCHAERFER: Es wuerde
+# SnapFuchs mit Apps gleichsetzen, die tatsaechlich Nutzerverhalten auswerten.
 tracking: false
 werbung: false
 absturzberichte: false
