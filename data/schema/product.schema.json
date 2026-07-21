@@ -676,6 +676,11 @@
           "minimum": 1,
           "maximum": 8,
           "description": "Statt Bildschirmfotos Platzhalter aus dem Motivsatz zeigen. Zahl = wie viele. Die Auswahl haengt am Produktnamen und ist deshalb bei jedem Bau dieselbe. Wirkt nur, wenn 'screenshots' fehlt oder leer ist - echte Bilder haben immer Vorrang."
+        },
+        "vorschaubild": {
+          "type": "string",
+          "pattern": "^/img/",
+          "description": "Bild fuer geteilte Links (og:image). Ohne dieses Feld nimmt Basis.astro die FehlerFuchs-Bildmarke. Am besten ein Motiv im Verhaeltnis 1,91:1 - so schneiden Facebook und WhatsApp zu."
         }
       }
     },

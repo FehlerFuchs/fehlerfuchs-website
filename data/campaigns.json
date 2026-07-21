@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-21T15:44:19+02:00",
+  "generiert": "2026-07-21T16:07:17+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "aktionen": [
     {
@@ -39,10 +39,10 @@
       "loesungshinweis": "Die Lösung steht auf der Startseite.",
       "frage": "Wie lautet der Leitspruch von FehlerFuchs?",
       "antworten": [
-        "Einfach kleine Helfer.",
+        "Digital. Einfach. Besser.",
         "Deine Daten, deine Cloud.",
-        "Software, die mitdenkt.",
-        "Digital. Einfach. Besser."
+        "Einfach kleine Helfer.",
+        "Software, die mitdenkt."
       ],
       "fehltext": "Nicht ganz. Schau nochmal auf die Startseite.",
       "endpunkt": "https://license.fehlerfuchs.eu/v1/aktion/snapfuchs",

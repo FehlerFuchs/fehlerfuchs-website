@@ -6,13 +6,15 @@ kind: produkt
 # Merkmal weiter unten: Die App fragt beim Start den Kaufstatus der
 # Pro-Fassung bei Google Play ab. Die Tagline steht ganz oben auf der
 # Produktseite und ist damit die sichtbarste Zusage von allen.
-tagline: Lokaler Dokumenten-Scanner für Android – ohne Cloud, ohne Konto.
+tagline: Dokumente scannen, erkennen, als PDF ablegen – alles auf dem Gerät.
 description: >-
-  Dokumente mit der Kamera erfassen, gerade rücken, als PDF ablegen – alles auf dem
-  Gerät. Kein Upload zu einem Scan-Dienst, keine Anmeldung, keine Werbung.
-  Für den einmaligen Kauf der Pro-Fassung fragt die App beim Start den
-  Kaufstatus bei Google Play ab – das verlangt der Play Store so. Deine Scans,
-  Bilder und PDFs sieht Google nie; sie verlassen das Gerät nicht.
+  Rechnung, Vertrag, Zeugnis oder Notiz: einmal antippen, und aus dem Foto wird
+  ein gerade gezogenes PDF. Scannen, Entzerren, Filtern, Texterkennung und das
+  Lesen von Codes laufen vollständig auf dem Gerät – auch im Flugmodus. Kein
+  Konto, keine Cloud, kein Analyse- oder Werbe-SDK. Nach außen geht nur, was du
+  selbst auslöst: ein geteilter Scan, ein abgesendetes Feedback, ein geöffneter
+  Link. Dazu die Abwicklung des einmaligen Pro-Kaufs über Google Play Billing –
+  deine Scans sieht Google dabei nie.
 audience: [privat, selbststaendige]
 
 # Akzent für Listen und Karten auf hellem Grund (Produktübersicht, Downloads).
@@ -107,9 +109,13 @@ features:
         values: { free: ja, pro: ja }
       - name: QR- und Barcode-Scanner
         values: { free: ja, pro: ja }
-      - name: Kontrast und Farbmodus (Graustufen, Schwarzweiß, Farbe)
+      - name: Kontrast und Farbmodus (Graustufen, Schwarzweiß, Farbe, Tintensparen)
         values: { free: teilweise, pro: ja }
         note: Kostenlos gibt es die Voreinstellung; einstellbar ist sie in Pro.
+      - name: A4-genaue Entzerrung schiefer Aufnahmen
+        values: { free: ja, pro: ja }
+      - name: Farboptimierung gegen Schatten
+        values: { free: ja, pro: ja }
       - name: Mehrseitige Dokumente
         values: { free: "bis 5 Seiten", pro: "ohne Begrenzung" }
       - name: Bilder aus der Galerie übernehmen
@@ -123,13 +129,25 @@ features:
     items:
       - name: Als PDF speichern
         values: { free: ja, pro: ja }
-      - name: Als JPG oder PNG speichern
-        values: { free: nein, pro: ja }
+      - name: Als JPEG speichern
+        values: { free: ja, pro: ja }
       - name: Teilen und drucken
         values: { free: ja, pro: ja }
-      - name: Texterkennung (OCR) für durchsuchbare PDFs
-        values: { free: nein, pro: geplant }
-        note: Läuft auf dem Gerät, nicht auf einem Server – das ist der Grund, warum es dauert.
+      # Diese eine Zeile hiess bis zum 21.07.2026 „Texterkennung (OCR) fuer
+      # durchsuchbare PDFs" und stand auf „free: nein, pro: geplant". Sie war
+      # gleich doppelt falsch: OCR gibt es, und zwar kostenlos - was zu Pro
+      # gehoert, ist die unsichtbare Textebene IM PDF. Der Store-Text vom
+      # 21.07. trennt beides sauber, meine Tabelle warf es zusammen und
+      # verschwieg damit eine Funktion, die es seit Monaten gibt.
+      - name: Texterkennung (OCR) auf dem Gerät – Text anzeigen und kopieren
+        values: { free: ja, pro: ja }
+        note: Läuft auf dem Gerät, nicht auf einem Server – auch im Flugmodus.
+      - name: Durchsuchbares PDF (unsichtbare Textebene über dem Scan)
+        values: { free: nein, pro: ja }
+      - name: Erkannte Tabellen als Excel oder CSV ausgeben
+        values: { free: nein, pro: ja }
+      - name: Dokumente in der App unterschreiben (E-Signatur)
+        values: { free: nein, pro: ja }
       - name: Seitengröße und Ränder wählen (A4, Letter, Original)
         values: { free: nein, pro: ja }
 
@@ -161,6 +179,8 @@ features:
       - name: Hinweis „Erstellt mit SnapFuchs" auf der letzten Seite
         values: { free: ja, pro: nein }
         note: In Pro entfällt der Hinweis.
+      - name: Wasserzeichen in Form und Position frei wählbar
+        values: { free: teilweise, pro: ja }
       - name: Dunkles Erscheinungsbild
         values: { free: ja, pro: ja }
       # 1.1.0 und ausdruecklich kostenlos - das Erscheinungsbild hinter eine
@@ -204,54 +224,99 @@ media:
     alt: SnapFuchs – von FehlerFuchs
     width: 1583
     height: 397
-  # Bildschirmfotos aus dem Play-Store-Satz (Release_SnapFuchs_android/screenshots).
-  # Für die Website auf 620 Pixel Breite verkleinert – dargestellt werden sie mit
-  # 230 Pixeln, alles darüber wäre übertragene Datenmenge ohne Gegenwert.
-  # Die Beschreibungen stammen aus den Bildern selbst, nicht aus den Dateinamen.
+  # Bildschirmfotos aus dem Play-Store-Satz vom 21.07.2026
+  # (_Marke_und_IP\...\11_SnapFuchs\Play-Store\Store-Grafiken fertig\Handy).
+  #
+  # Es sind WERBEBILDER, keine nackten Bildschirmabzuege: Jedes traegt oben
+  # eine Ueberschrift und darunter das Handy im Rahmen. Die Alternativtexte
+  # sagen das auch so - wer sie hoert, soll nicht glauben, die App sehe selbst
+  # so aus.
+  #
+  # Von 1242x2688 auf 620 Pixel Breite verkleinert und auf 192 Farben
+  # reduziert: zusammen 8,2 MB -> 1,0 MB, ohne sichtbaren Verlust.
+  # Dargestellt werden sie mit rund 230 Pixeln.
+  #
+  # Die Beschreibungen stammen aus den Bildern selbst, nicht aus den
+  # Dateinamen - am 20.07. hatte ich Produktnamen einmal selbst getippt statt
+  # sie abzulesen, und die Pruefung hat es gefangen.
+  # Was Facebook, WhatsApp und Signal zeigen, wenn jemand diese Produktseite
+  # teilt. Ohne dieses Feld nimmt Basis.astro die FehlerFuchs-Bildmarke - die
+  # ist richtig, aber sie sagt nichts ueber SnapFuchs.
+  vorschaubild: /img/snapfuchs-vorschau.png
+
   screenshots:
     - src: /img/screenshots/snapfuchs/handy-01.png
-      alt: Startbildschirm von SnapFuchs mit Fuchskopf im Scanrahmen und dem Untertitel „100 % lokaler Dokumentenscanner"
+      alt: >-
+        Werbebild „100 % lokaler Dokumentenscanner – Kein Konto, keine Cloud,
+        keine Werbung". Darunter der Startbildschirm: der Fuchskopf in einem
+        orangefarbenen Scanrahmen.
       width: 620
-      height: 1102
+      height: 1342
       geraet: handy
       titel: Dunkel von Anfang an – ein heller Bildschirm blendet beim Scannen
     - src: /img/screenshots/snapfuchs/handy-02.png
-      alt: Übersicht mit zuletzt gespeicherten Dokumenten und großer Kamerataste am unteren Rand
+      alt: >-
+        Werbebild „Scannen mit einem Tipp". Darunter die Startseite mit der
+        Liste zuletzt gespeicherter PDFs und einer großen orangefarbenen
+        Kamerataste am unteren Rand, beschriftet „Tippen zum Scannen".
       width: 620
-      height: 1102
+      height: 1342
       geraet: handy
       titel: Tippen zum Scannen – mehr braucht der Anfang nicht
     - src: /img/screenshots/snapfuchs/handy-03.png
-      alt: Ein schräg fotografiertes Dokument, dessen vier Ecken die App automatisch erkannt hat und die sich einzeln verschieben lassen
+      alt: >-
+        Werbebild „Erkennt die Ränder von selbst". Darunter die Kameraansicht:
+        ein schräg auf dem Tisch liegendes Testblatt, um das die App einen
+        grünen Rahmen mit vier Eckpunkten gelegt hat.
       width: 620
-      height: 1102
+      height: 1342
       geraet: handy
-      titel: Ecken werden erkannt und lassen sich nachziehen
+      titel: Der Rahmen sitzt, bevor man auslöst
+    - src: /img/screenshots/snapfuchs/handy-04.png
+      alt: >-
+        Werbebild „Kanten selbst korrigieren". Darunter die Ansicht „Ecken
+        justieren": dasselbe Blatt mit vier großen Griffen an den Ecken und
+        einer Schaltfläche „Entzerren".
+      width: 620
+      height: 1342
+      geraet: handy
+      titel: Sitzt der Rahmen nicht, zieht man ihn zurecht
     - src: /img/screenshots/snapfuchs/handy-05.png
-      alt: "Menü mit den Ausgabewegen: durchsuchbares PDF mit unsichtbarer Textebene, Tabelle nach Excel oder CSV"
+      alt: >-
+        Werbebild „PDF-Werkzeuge an Bord". Darunter die Liste: Zusammenführen,
+        Drehen, Seiten löschen, Seiten neu ordnen, Aufteilen – mit dem Hinweis,
+        dass alle Vorgänge lokal auf dem Gerät laufen.
       width: 620
-      height: 1102
+      height: 1342
       geraet: handy
-      titel: Texterkennung und Tabellen – alles auf dem Gerät
+      titel: Zusammenführen, drehen, teilen – ohne Umweg über einen Dienst
     - src: /img/screenshots/snapfuchs/handy-06.png
-      alt: Liste der PDF-Werkzeuge – Zusammenführen, Drehen, Seiten löschen, neu ordnen, Aufteilen
+      alt: >-
+        Werbebild „QR- & Barcodes offline lesen". Darunter die Scanansicht mit
+        einem grünen Suchrahmen und dem Hinweis „Code in den grünen Rahmen
+        halten".
       width: 620
-      height: 1102
+      height: 1342
       geraet: handy
-      titel: PDF-Werkzeuge, ohne eine Datei aus der Hand zu geben
-    - src: /img/screenshots/snapfuchs/handy-09.png
-      alt: Einstellungen für das Wasserzeichen mit Schalter, Auswahl des Stils und der Position
+      titel: Codes lesen, ohne dass jemand mitliest
+    - src: /img/screenshots/snapfuchs/handy-07.png
+      alt: >-
+        Werbebild „Mehr können mit SnapFuchs Pro". Darunter die Übersicht der
+        freigeschalteten Funktionen: ohne Wasserzeichen, durchsuchbares PDF,
+        Tabelle nach Excel oder CSV, E-Signatur, PDF-Werkzeuge.
       width: 620
-      height: 1102
+      height: 1342
       geraet: handy
-      titel: Das Wasserzeichen ist einstellbar – abschalten kann es Pro
-    - src: /img/screenshots/snapfuchs/tablet10-02.png
-      alt: Dieselbe Ansicht auf einem Zehn-Zoll-Tablet im Hochformat
+      titel: Was Pro dazugibt – einmaliger Kauf, kein Abo
+    - src: /img/screenshots/snapfuchs/handy-08.png
+      alt: >-
+        Werbebild „100 % lokal. Kein Tracking." Darunter die Einstellungen mit
+        Erscheinungsbild, Wasserzeichen, Dateinamen und Seitenformat sowie
+        einem ausführlichen Datenschutzabschnitt.
       width: 620
-      height: 992
-      geraet: tablet
-      titel: Auf dem Tablet
-
+      height: 1342
+      geraet: handy
+      titel: Alles einstellbar – und nachlesbar, was wohin geht
 links:
   contact: /kontakt.html?app=SnapFuchs&topic=interesse
 
