@@ -2,7 +2,7 @@ slug: schichtfuchs
 name: SchichtFuchsHTML
 stand: "2026-07-19"
 geprueft_von: FehlerFuchs_SchichtFuchs
-fassung: "BETA 2.0 (UKJ-Edition) – in Erprobung, nicht veröffentlicht"
+fassung: "BETA 2.0 (Auftrags-Edition) – in Erprobung, nicht veröffentlicht"
 
 # Verlässt IRGENDEIN Datum das Gerät, wenn man nichts weiter einstellt?
 lokal_only: true
@@ -11,7 +11,7 @@ lokal_only: true
 auf_dem_geraet:
   - was: nichts dauerhaft – alle Eingaben (Plan, Meldungen, Stammdaten) liegen nur im Arbeitsspeicher der Browser-Sitzung und sind nach Neuladen/Schließen weg
     wo: Arbeitsspeicher des Browsers (keine Datenbank, kein dauerhafter Browser-Speicher, keine Cookies)
-    beleg: 02_Mockup/SchichtFuchsHTML_BETA_2.0_UKJ.html – Code enthält keinerlei localStorage/sessionStorage/indexedDB/document.cookie-Aufrufe (geprüft per Volltextsuche, 0 Treffer)
+    beleg: 02_Mockup/SchichtFuchsHTML_BETA_2.0.html – Code enthält keinerlei localStorage/sessionStorage/indexedDB/document.cookie-Aufrufe (geprüft per Volltextsuche, 0 Treffer)
 
 # Berechtigungen: keine. Es wird nichts angefordert (kein Standort, keine
 # Kamera, keine Benachrichtigungen).
@@ -22,7 +22,7 @@ uebertragungen:
     was: Abruf der JavaScript-Bibliothek SheetJS (xlsx 0.18.5); es werden keine Plan- oder Personendaten übertragen, der CDN-Betreiber sieht die übliche HTTP-Anfrage
     wann: nur wenn der Nutzer aktiv eine Excel-Datei (.xlsx) in den Stammdaten importiert und die Bibliothek noch nicht geladen ist; der CSV-Import kommt ohne jede Verbindung aus
     freiwillig: true
-    beleg: 02_Mockup/SchichtFuchsHTML_BETA_2.0_UKJ.html – change-Handler von #stamm-import, createElement("script") mit URL https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js
+    beleg: 02_Mockup/SchichtFuchsHTML_BETA_2.0.html – change-Handler von #stamm-import, createElement("script") mit URL https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js
   # Prototyp und BETA 1.0 enthalten überhaupt keine externen Adressen
   # (einzige URL im Code ist der SVG-Namespace http://www.w3.org/2000/svg).
 

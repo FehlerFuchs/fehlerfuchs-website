@@ -1720,6 +1720,60 @@ def meldungen_aus_aktionen(aktionen, meldungen):
     return sorted(meldungen + zusatz, key=lambda m: m["datum"], reverse=True)
 
 
+# ------------------------------------------------ Namen, die nicht hierhin duerfen
+#
+# Dieses Repository ist oeffentlich. Am 21.07.2026 stellte sich heraus, dass in
+# einem Steckbrief das Kuerzel eines Auftraggebers stand - in 'fassung' und in
+# zwei Belegpfaden. Es war zwei Commits lang veroeffentlicht, bevor es auffiel.
+#
+# WARUM HIER NUR PRUEFSUMMEN STEHEN
+# Eine Liste verbotener Woerter im Klartext waere selbst die Veroeffentlichung,
+# die sie verhindern soll - und zwar in derselben Datei, die jeder lesen kann.
+# Deshalb steht hier nur der SHA-256 des kleingeschriebenen Wortes. Der Pruefer
+# erkennt es damit, ohne es zu kennen.
+#
+# Eintragen: python3 -c "import hashlib;print(hashlib.sha256('wort'.lower().encode()).hexdigest())"
+# und die Zeile dann in 00_Steuerung/ vermerken - NICHT hier.
+GESPERRTE_WOERTER = {
+    "4b65e6600443ba9aa64d6031133670f0dca1e68606ed8eab3291dad87eb7d571":
+        "Kuerzel eines Auftraggebers (SchichtFuchsHTML). Bei dieser Anwendung "
+        "wird der Auftraggeber grundsaetzlich nicht benannt - weder auf der "
+        "Seite noch in Datenschutzdaten oder Abgleichdokumenten.",
+}
+
+
+def pruefe_gesperrte_woerter():
+    """Durchsucht alle Textquellen nach Woertern, die nicht veroeffentlicht werden.
+
+    Grob und absichtlich stumpf: Jedes Wort ab drei Zeichen wird gehasht und
+    gegen die Liste gehalten. Das kostet eine knappe Sekunde und faengt genau
+    den Fall, der am 21.07.2026 durchgerutscht ist - ein Kuerzel, das niemand
+    fuer heikel hielt, weil es nur drei Buchstaben sind.
+
+    Binaerdateien bleiben aussen vor: In komprimierten Bilddaten steht jede
+    kurze Buchstabenfolge irgendwann zufaellig, das gaebe nur Fehlalarme.
+    (Nachgeprueft am 21.07.: zwei PNGs enthielten die Bytefolge, die Bilder
+    selbst zeigten nichts dergleichen.)
+    """
+    if not GESPERRTE_WOERTER:
+        return
+    ordner = [SRC, ROOT / "data" / "schema"]
+    for basis in ordner:
+        if not basis.exists():
+            continue
+        for datei in basis.rglob("*"):
+            if not datei.is_file() or datei.suffix not in {".yaml", ".yml", ".json", ".md"}:
+                continue
+            text = datei.read_text(encoding="utf-8", errors="replace")
+            for wort in set(re.findall(r"[A-Za-zÄÖÜäöüß]{3,}", text)):
+                schluessel = hashlib.sha256(wort.lower().encode("utf-8")).hexdigest()
+                grund = GESPERRTE_WOERTER.get(schluessel)
+                if grund:
+                    melde(fehler, "gesperrt",
+                          f"{datei.relative_to(ROOT)}: enthaelt ein Wort, das nicht "
+                          f"veroeffentlicht werden darf. {grund}")
+
+
 def pruefe_steckbrief_sichtbar(steckbriefe):
     """Meldet Steckbrief-Angaben, die keine Seite jemals anzeigt.
 
@@ -2171,6 +2225,7 @@ def main():
         rohb = lies_yaml(SRC / "bedarf.yaml") or {}
         bedarf = pruefe_bedarf(rohb.get("bedarf", []))
 
+        pruefe_gesperrte_woerter()
         pruefe_steckbrief_sichtbar(steckbriefe)
         pruefe_alte_adressen(produkte)
         pruefe_altbestand()

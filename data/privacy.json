@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-21T17:43:25+02:00",
+  "generiert": "2026-07-22T15:14:58+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1476,13 +1476,13 @@
       "name": "SchichtFuchsHTML",
       "stand": "2026-07-19",
       "geprueft_von": "FehlerFuchs_SchichtFuchs",
-      "fassung": "BETA 2.0 (UKJ-Edition) – in Erprobung, nicht veröffentlicht",
+      "fassung": "BETA 2.0 (Auftrags-Edition) – in Erprobung, nicht veröffentlicht",
       "lokal_only": true,
       "auf_dem_geraet": [
         {
           "was": "nichts dauerhaft – alle Eingaben (Plan, Meldungen, Stammdaten) liegen nur im Arbeitsspeicher der Browser-Sitzung und sind nach Neuladen/Schließen weg",
           "wo": "Arbeitsspeicher des Browsers (keine Datenbank, kein dauerhafter Browser-Speicher, keine Cookies)",
-          "beleg": "02_Mockup/SchichtFuchsHTML_BETA_2.0_UKJ.html – Code enthält keinerlei localStorage/sessionStorage/indexedDB/document.cookie-Aufrufe (geprüft per Volltextsuche, 0 Treffer)"
+          "beleg": "02_Mockup/SchichtFuchsHTML_BETA_2.0.html – Code enthält keinerlei localStorage/sessionStorage/indexedDB/document.cookie-Aufrufe (geprüft per Volltextsuche, 0 Treffer)"
         }
       ],
       "uebertragungen": [
@@ -1491,7 +1491,7 @@
           "was": "Abruf der JavaScript-Bibliothek SheetJS (xlsx 0.18.5); es werden keine Plan- oder Personendaten übertragen, der CDN-Betreiber sieht die übliche HTTP-Anfrage",
           "wann": "nur wenn der Nutzer aktiv eine Excel-Datei (.xlsx) in den Stammdaten importiert und die Bibliothek noch nicht geladen ist; der CSV-Import kommt ohne jede Verbindung aus",
           "freiwillig": true,
-          "beleg": "02_Mockup/SchichtFuchsHTML_BETA_2.0_UKJ.html – change-Handler von"
+          "beleg": "02_Mockup/SchichtFuchsHTML_BETA_2.0.html – change-Handler von"
         }
       ],
       "fremde_dienste": [
