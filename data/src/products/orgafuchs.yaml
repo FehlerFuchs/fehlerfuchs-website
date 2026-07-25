@@ -30,11 +30,17 @@ platforms:
     distribution: play-store
     storeId: eu.fehlerfuchs.orgafuchs
 
-# Ein Umweg, der keiner ist: Es ging nichts zurück in die Entwicklung. Die App
-# liegt weiter beim Store, der Widerspruch läuft. 'von' und 'nach' sind deshalb
-# derselbe Schritt – eine Schleife. Sie kostet nur Zeit, und genau das soll man
-# sehen: Der Weg wird ein zweites Mal gegangen, ohne dass sich am Programm
-# etwas geändert hätte.
+# Zwei Umwege, die keine sind: Es ging nie etwas zurück in die Entwicklung. Die
+# App liegt weiter beim Store, das Programm blieb unverändert. 'von' und 'nach'
+# sind deshalb bei beiden derselbe Schritt – zwei Schleifen. Sie kosten nur
+# Zeit, und genau das soll man sehen: Der Weg wird zweimal ein zweites Mal
+# gegangen, ohne dass sich am Programm etwas geändert hätte.
+#
+# Beide Male dieselbe Ursache und dieselbe Lehre: Eine Prüfmaschine deutet eine
+# harmlose Funktion als etwas, das sie nicht ist – erst den Gruppen-Sync als
+# Bezahlschranke, dann die Ferien-Anzeige als Behördenauskunft. Repariert wurde
+# jeweils nicht die App, sondern das Missverständnis: einmal gab es nichts zu
+# ändern, einmal reichte eine geschärfte Beschreibung.
 umwege:
   - datum: "2026-07-18"
     os: android
@@ -50,6 +56,21 @@ umwege:
       gab nichts zu ändern. Ärgerlich ist nicht die Prüfung, sondern dass eine
       unsichere Maschine durchentscheidet, statt einen Menschen hinzuzuziehen.
       Ein Blick hätte gereicht; so kostet es sieben bis vierzehn Tage.
+
+  - datum: "2026-07-24"
+    os: android
+    von: pruefung
+    nach: pruefung
+    grund: Zweite Ablehnung – diesmal wegen der Ferien-Anzeige
+    text: >-
+      Die zweite Runde, ein anderer Vorwurf: „Missleading Claims". Weil die App
+      Feiertage und Schulferien je Bundesland anzeigt, hat die Prüfung
+      geschlossen, hier gebe jemand behördliche Auskünfte – eine Behörden-App
+      ohne Quellenangabe. Tatsächlich sind es Kalenderdaten für die
+      Familienplanung, wie sie jede Kalender-App führt. Ich habe die
+      Store-Beschreibung geschärft: eine Quelle für die Daten genannt und
+      klargestellt, dass OrgaFuchs keine Behörde ist und keine vertritt. Am
+      24. Juli erneut eingereicht, am Programm wieder nichts geändert.
 
 privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, kein-google, eigener-sync, offline-faehig]
 

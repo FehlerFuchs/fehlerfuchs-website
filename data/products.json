@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-22T15:14:58+02:00",
+  "generiert": "2026-07-25T09:49:13+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -820,6 +820,14 @@
           "nach": "pruefung",
           "grund": "Automatisch abgelehnt, kein Mensch beteiligt",
           "text": "Die Prüfsoftware hat die Einstellungsseite für den Gruppen-Sync als Bezahlschranke oder nicht deklarierten Login gewertet. Beides ist sie nicht: Dort trägt man eine Relay-Adresse und ein selbst gewähltes Gruppen-Passwort ein, um die eigenen Geräte zu verbinden. Kein Konto, keine Anmeldung, keine Zahlung. Am Programm wurde nichts geändert – es gab nichts zu ändern. Ärgerlich ist nicht die Prüfung, sondern dass eine unsichere Maschine durchentscheidet, statt einen Menschen hinzuzuziehen. Ein Blick hätte gereicht; so kostet es sieben bis vierzehn Tage."
+        },
+        {
+          "datum": "2026-07-24",
+          "os": "android",
+          "von": "pruefung",
+          "nach": "pruefung",
+          "grund": "Zweite Ablehnung – diesmal wegen der Ferien-Anzeige",
+          "text": "Die zweite Runde, ein anderer Vorwurf: „Missleading Claims\". Weil die App Feiertage und Schulferien je Bundesland anzeigt, hat die Prüfung geschlossen, hier gebe jemand behördliche Auskünfte – eine Behörden-App ohne Quellenangabe. Tatsächlich sind es Kalenderdaten für die Familienplanung, wie sie jede Kalender-App führt. Ich habe die Store-Beschreibung geschärft: eine Quelle für die Daten genannt und klargestellt, dass OrgaFuchs keine Behörde ist und keine vertritt. Am 24. Juli erneut eingereicht, am Programm wieder nichts geändert."
         }
       ],
       "privacy": [
