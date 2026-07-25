@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-25T09:49:13+02:00",
+  "generiert": "2026-07-25T10:51:42+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1123,6 +1123,12 @@
           "distribution": "play-store",
           "storeId": "eu.fehlerfuchs.pdfuchsreader",
           "since": "2026-07-18"
+        },
+        {
+          "os": "windows",
+          "status": "entwicklung",
+          "distribution": "keiner",
+          "requirements": "Windows 10/11 (64-bit)"
         }
       ],
       "privacy": [
@@ -2474,6 +2480,63 @@
       }
     },
     {
+      "slug": "coppicemail",
+      "name": "CoppiceMail",
+      "fullName": "FehlerFuchs CoppiceMail",
+      "kind": "produkt",
+      "tagline": "Das lokale, datensparsame E-Mail-Programm für Belege und Büropost – der Weg Mail, Anhang, Beleg, Archiv so kurz wie möglich.",
+      "description": "E-Mail-Programm mit Belegfokus: Nachricht öffnen, Anhang erkennen, als Beleg ablegen, archivieren – ohne Umwege und ohne Cloud-Zwang. Seit dem 24.07.2026 wird CoppiceMail als reine Flutter/Dart-App neu aufgebaut; der aktuelle Stand ist ein Grundgerüst.",
+      "audience": [
+        "selbststaendige",
+        "unternehmen"
+      ],
+      "accent": "#0F5132",
+      "status": "entwicklung",
+      "platforms": [
+        {
+          "os": "windows",
+          "status": "entwicklung",
+          "distribution": "keiner"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-tracking",
+        "werbefrei"
+      ],
+      "editions": [],
+      "releases": [],
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/coppicemail.svg",
+          "alt": "CoppiceMail – von FehlerFuchs",
+          "width": 1649,
+          "height": 360
+        },
+        "platzhalter": 4
+      },
+      "statusGrund": {
+        "wenn": "entwicklung",
+        "text": "Der Neuanfang mit Ansage: CoppiceMail war das anspruchsvollste Stück und lag eine Weile still. Seit dem 24. Juli baue ich es von Grund auf neu, als reine Flutter/Dart-App – der alte Stand ist archiviert. Es ist noch ein Grundgerüst; ich sage lieber ehrlich „im Aufbau\" als „bald fertig\"."
+      },
+      "theme": {
+        "modus": "hell",
+        "hintergrund": "#FBF7F2",
+        "flaeche": "#FFFFFF",
+        "rand": "#E7DACC",
+        "text": "#1A140F",
+        "textLeise": "#6B5B50",
+        "akzent": "#0F5132",
+        "quelle": "FehlerFuchs_CoppiceMail/app/ui/theme.py"
+      },
+      "links": {
+        "alt_html": "/apps/coppicemail.html",
+        "contact": "/kontakt.html?app=CoppiceMail&topic=interesse"
+      },
+      "notes": "Pausiert, nicht eingestellt. Die Seite bleibt erreichbar und ist auf produkte.html als „pausiert\" ausgezeichnet. Bei Wiederaufnahme genügt eine Statusänderung hier."
+    },
+    {
       "slug": "fuchsbau",
       "name": "FuchsBau",
       "fullName": "FehlerFuchs FuchsBau",
@@ -2535,6 +2598,190 @@
         "alt_html": "/apps/fuchsbau.html",
         "contact": "/kontakt.html?app=FuchsBau&topic=interesse"
       }
+    },
+    {
+      "slug": "gewerbepro-companion",
+      "name": "GewerbePro Companion",
+      "fullName": "FehlerFuchs GewerbePro Companion",
+      "kind": "produkt",
+      "parent": "gewerbepro",
+      "tagline": "Mobiler Erfassungs-Begleiter zu GewerbePro: Kunden, Auftrags-Entwürfe, Fahrten und Quittungen unterwegs aufnehmen – offline und ohne Konto.",
+      "description": "Die Companion-App ist die Android-Ergänzung zu GewerbePro und befindet sich in Entwicklung. Sie erfasst unterwegs Kunden, Auftrags-Entwürfe mit Positionen, Fahrten, Aufgaben, Termine und Quittungen und arbeitet dabei vollständig offline. Gerechnet wird nichts auf dem Handy: Die App sammelt Rohdaten und übergibt sie als Paket an GewerbePro auf dem PC, das daraus Angebote, Aufträge und Belege macht. Für Quittungen vor Ort kann sie das Firmen-Branding aus GewerbePro übernehmen und einen unterschriebenen Beleg als PDF erzeugen.",
+      "audience": [
+        "selbststaendige",
+        "unternehmen"
+      ],
+      "accent": "#9F1239",
+      "theme": {
+        "modus": "hell",
+        "hintergrund": "#FBF7F2",
+        "flaeche": "#FFFBF7",
+        "rand": "#EAD7DC",
+        "text": "#2B160B",
+        "textLeise": "#6F4F44",
+        "akzent": "#9F1239",
+        "quelle": "FehlerFuchs_GewerbePro_Companion/21_App_Flutter/gewerbepro_companion/lib/ui/ff_tokens.dart"
+      },
+      "media": {
+        "platzhalter": 4
+      },
+      "wordmark": [
+        {
+          "text": "FehlerFuchs ",
+          "color": "#7C3F16",
+          "weight": "normal"
+        },
+        {
+          "text": "GewerbePro ",
+          "color": "#7C3F16",
+          "weight": "bold"
+        },
+        {
+          "text": "Companion",
+          "color": "#9F1239",
+          "weight": "bold"
+        }
+      ],
+      "status": "entwicklung",
+      "platforms": [
+        {
+          "os": "android",
+          "status": "entwicklung",
+          "since": "2026-07-17",
+          "distribution": "keiner"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "GewerbePro Companion",
+          "public": true,
+          "summary": "Eine Ausbaustufe. Ob die App später kostenlos zu GewerbePro gehört oder getrennt angeboten wird, ist noch nicht entschieden.",
+          "price": {
+            "model": "offen"
+          }
+        }
+      ],
+      "features": [
+        {
+          "group": "Unterwegs erfassen",
+          "items": [
+            {
+              "name": "Kunden anlegen mit denselben Feldern wie am PC",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Anrede, Name/Firma, Anschrift, E-Mail, Telefon, USt-IdNr., Leitweg-ID."
+            },
+            {
+              "name": "Auftrags-Entwürfe mit Positionen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Positionen frei oder aus dem Katalog; Zwischensumme netto."
+            },
+            {
+              "name": "Fahrtenbuch mit Fahrzeug- und km-Stand-Merker",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Aufgaben, Fristen und Termine",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Quittung mit handschriftlicher Unterschrift",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Unterschrift im Vollbild quer, danach als PDF."
+            }
+          ]
+        },
+        {
+          "group": "Belege und Katalog",
+          "items": [
+            {
+              "name": "Fahrtenbuch als PDF (heute, laufendes Jahr, alle Einträge)",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Quittungs-PDF im Firmen-Branding aus GewerbePro",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Logo, Absender und Fußzeile werden einmalig vom PC übernommen."
+            },
+            {
+              "name": "Katalog mit Preisen nachschlagen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Nur lesen; wird aus GewerbePro gespiegelt."
+            }
+          ]
+        },
+        {
+          "group": "Zusammenspiel mit GewerbePro",
+          "items": [
+            {
+              "name": "Erfassungspaket für den Import in GewerbePro erzeugen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Fertiger Übertragungsweg zum PC (USB, Cloud, Server)",
+              "values": {
+                "standard": "geplant"
+              },
+              "note": "Das Paket wird bisher nur als Datei im App-Ordner abgelegt."
+            },
+            {
+              "name": "Rechnungen, Angebote, EÜR oder E-Rechnung auf dem Handy",
+              "values": {
+                "standard": "nein"
+              },
+              "note": "Bleibt bewusst in GewerbePro am PC."
+            }
+          ]
+        },
+        {
+          "group": "Grundsätzliches",
+          "items": [
+            {
+              "name": "Konto oder Registrierung nötig",
+              "values": {
+                "standard": "nein"
+              }
+            },
+            {
+              "name": "Arbeitet ohne Internet",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        }
+      ],
+      "releases": [],
+      "links": {
+        "contact": "/kontakt.html?app=GewerbePro-Companion&topic=interesse"
+      },
+      "notes": "Die App ruft die GewerbePro-Engine nicht auf und enthält keine Fachlogik; sie ist bewusst ein Erfassungs-Begleiter. Der Datenaustausch mit dem PC läuft über ein JSON-Paket, das GewerbePro mit dem Kommando companion.import einliest. Preis und Vertriebsweg stehen noch nicht fest; Bildmaterial für die Produktseite gibt es noch nicht."
     },
     {
       "slug": "pdfuchs",
@@ -2608,6 +2855,112 @@
       "notes": "Teile des PDFuchs-Funktionsumfangs sind bereits in GewerbePro enthalten (QR-Code-Generator, Scannen, Ausgabeordner). Die eigenständige Suite wird daraus weiterentwickelt."
     },
     {
+      "slug": "up2date",
+      "name": "Up2Date",
+      "fullName": "FehlerFuchs Up2Date",
+      "kind": "produkt",
+      "tagline": "Ein kleiner Helfer im Infobereich, der installierte FehlerFuchs-Programme im Blick behält und auf neue Fassungen hinweist.",
+      "description": "Up2Date ist in Entwicklung. Gedacht ist es als zentrale Stelle für alle FehlerFuchs-Programme auf einem Windows-Rechner: Es soll erkennen, welche davon installiert sind, deren Stand mit der Versionsliste auf fehlerfuchs.eu vergleichen und melden, wenn etwas Neues vorliegt. Dieser Abgleich braucht später einen Netzzugriff – den Abruf einer statischen Datei, kein Konto und kein Dienst. Heute läuft davon noch nichts: Der aktuelle Stand zeigt ein Symbol im Infobereich und ein Fenster, mehr nicht. Es ist kein allgemeiner Updater, sondern ausschließlich für FehlerFuchs-Programme gedacht.",
+      "audience": [
+        "privat",
+        "selbststaendige",
+        "unternehmen"
+      ],
+      "accent": "#935E27",
+      "theme": {
+        "modus": "dunkel",
+        "hintergrund": "#1A0F08",
+        "flaeche": "#241612",
+        "text": "#FFF7ED",
+        "textLeise": "#C9B7A6",
+        "akzent": "#F59E42",
+        "quelle": "FehlerFuchs_Up2Date/05_App/up2date/lib/theme.dart"
+      },
+      "wordmark": [
+        {
+          "text": "FehlerFuchs ",
+          "color": "#7C3F16",
+          "weight": "normal"
+        },
+        {
+          "text": "Up2Date",
+          "color": "#7C3F16",
+          "weight": "bold"
+        }
+      ],
+      "media": {
+        "platzhalter": 4
+      },
+      "status": "entwicklung",
+      "platforms": [
+        {
+          "os": "windows",
+          "status": "entwicklung",
+          "distribution": "keiner",
+          "requirements": "Windows 10/11 (64-bit)"
+        }
+      ],
+      "privacy": [
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "keine-cloud"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "Up2Date",
+          "public": true,
+          "summary": "Nach bisherigem Konzept kostenlos – entschieden ist es nicht.",
+          "price": {
+            "model": "offen"
+          }
+        }
+      ],
+      "features": [
+        {
+          "group": "Geplant",
+          "items": [
+            {
+              "name": "Installierte FehlerFuchs-Programme erkennen",
+              "values": {
+                "standard": "geplant"
+              }
+            },
+            {
+              "name": "Stand mit der Versionsliste auf fehlerfuchs.eu abgleichen",
+              "values": {
+                "standard": "geplant"
+              }
+            },
+            {
+              "name": "Installer der jeweiligen Fassung laden und starten",
+              "values": {
+                "standard": "geplant"
+              }
+            },
+            {
+              "name": "Hinweis im Infobereich bei neuer Fassung",
+              "values": {
+                "standard": "geplant"
+              }
+            },
+            {
+              "name": "Autostart mit Windows – nur nach ausdrücklicher Zustimmung",
+              "values": {
+                "standard": "geplant"
+              }
+            }
+          ]
+        }
+      ],
+      "releases": [],
+      "links": {
+        "contact": "/kontakt.html?app=Up2Date&topic=interesse"
+      },
+      "notes": "Up2Date liest künftig die öffentliche Datei versions.json der Website – ein Abruf einer statischen Datei, kein Dienst im Sinne von 'braucht_dienste'. Preis, Ausbaustufen und Vertriebsweg (eigener Download oder Mitinstallation durch andere FehlerFuchs-Installer) stehen nicht fest. Bildschirmfotos gibt es noch keine."
+    },
+    {
       "slug": "checkin-vita",
       "name": "CheckInVita",
       "fullName": "FehlerFuchs CheckInVita",
@@ -2677,61 +3030,146 @@
       "notes": "Gesundheitsdaten sind besonders schützenswert. Vor einer Veröffentlichung ist ein eigener, ausführlicher Datenschutzabschnitt nötig – die Merkmalsliste allein reicht hier nicht."
     },
     {
-      "slug": "coppicemail",
-      "name": "CoppiceMail",
-      "fullName": "FehlerFuchs CoppiceMail",
+      "slug": "einsatzfuchs",
+      "name": "EinsatzFuchs",
+      "fullName": "FehlerFuchs EinsatzFuchs",
       "kind": "produkt",
-      "tagline": "Das lokale, datensparsame E-Mail-Programm für Belege und Büropost – der Weg Mail, Anhang, Beleg, Archiv so kurz wie möglich.",
-      "description": "E-Mail-Programm mit Belegfokus: Nachricht öffnen, Anhang erkennen, als Beleg ablegen, archivieren – ohne Umwege und ohne Cloud-Zwang. Die Entwicklung ruht derzeit zugunsten von GewerbePro.",
+      "tagline": "Kostenlose, werbefreie Offline-App für die Freiwillige Feuerwehr: Einsatzrechner, Merksätze und Nachschlagewerke in einer App statt fünf.",
+      "description": "EinsatzFuchs ist eine geplante, nicht-kommerzielle Android-App für Angehörige der Freiwilligen Feuerwehr. Sie soll Einsatzwerkzeuge (Rechner und Checklisten), Nachschlagewerke, eine Lagekarte und Lernmodule in einer einzigen, offline nutzbaren App bündeln – statt fünf verschiedene Apps zu öffnen. Kein Abo, keine Werbung, keine Datenerhebung, kein Konto. Das Projekt steht in der Konzeptphase: Umfang, Technik und Marke sind festgelegt, die Umsetzung hat noch nicht begonnen. Ausdrücklich kein Alarmierungssystem und kein Cloud-Dienst; alle Ausgaben sind Orientierungshilfen ohne Gewähr.",
       "audience": [
-        "selbststaendige",
-        "unternehmen"
+        "ehrenamt",
+        "privat"
       ],
-      "accent": "#0F5132",
-      "status": "pausiert",
+      "vorwort": {
+        "von": "Matze",
+        "titel": "Warum es EinsatzFuchs gibt",
+        "portrait": true,
+        "absaetze": [
+          "Ich bin bei der Feuerwehr, seit ich zehn bin – heute als Gruppenführer und Ausbilder. Wie so viele im Ehrenamt habe ich zuletzt weniger Zeit für den aktiven Dienst, als ich gern hätte. EinsatzFuchs ist meine Art, trotzdem etwas beizutragen: mit dem, was ich kann.",
+          "Die App entsteht privat und in Eigenregie, in meiner Freizeit und ohne kommerzielle Absicht. Kein Abo, keine Werbung, keine Datenerhebung – und das bleibt so. Ich baue sie für die Kameradinnen und Kameraden, die im Einsatz schnell an die richtige Formel oder den richtigen Merksatz kommen wollen, ohne fünf Apps zu durchsuchen.",
+          "Sie ist noch nicht fertig – nicht einmal angefangen im Code. Erst kläre ich die Quellen und Lizenzen, damit jede Zahl stimmt und jede Karte genutzt werden darf. Lieber sorgfältig als schnell: Im Einsatz muss man sich darauf verlassen können.",
+          "Ein erster Baustein steht schon: Das EinsatzleiterWiki stellt mir seine frei lizenzierten Inhalte zur Verfügung – ein großes Geschenk für ein Projekt wie dieses. Dafür bin ich sehr dankbar."
+        ]
+      },
+      "accent": "#B0201E",
+      "theme": {
+        "modus": "hell",
+        "hintergrund": "#ECE1CB",
+        "flaeche": "#DCC9A4",
+        "rand": "#B79E72",
+        "text": "#2B160B",
+        "textLeise": "#7C3F16",
+        "akzent": "#B0201E",
+        "quelle": "FehlerFuchs_EinsatzFuchs/03_Doku/HANDOFF_Marke_Farbkonzept_EinsatzFuchs.md"
+      },
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/einsatzfuchs.svg",
+          "alt": "EinsatzFuchs – von FehlerFuchs",
+          "width": 1731,
+          "height": 397
+        },
+        "screenshots": []
+      },
+      "status": "idee",
       "platforms": [
         {
-          "os": "windows",
-          "status": "pausiert",
-          "distribution": "keiner"
+          "os": "android",
+          "status": "idee",
+          "distribution": "play-store",
+          "requirements": "Android (geplant: minSdk 21 / targetSdk 35)"
         }
       ],
+      "statusGrund": {
+        "wenn": "idee",
+        "text": "Erst das Fundament, dann der Code. Bei einer App für die Feuerwehr sitzt jede Rechnerformel und jeder Merksatz an einer benannten Quelle – und viele Nachschlagewerke und Karten hängen an Lizenzen, die geklärt sein müssen, bevor etwas gebaut wird. Genau das läuft gerade. Marke, Umfang und Technik stehen; die Umsetzung beginnt, sobald die Rechtefragen beantwortet sind."
+      },
+      "editions": [
+        {
+          "id": "standard",
+          "name": "EinsatzFuchs",
+          "public": true,
+          "summary": "Nicht-kommerziell, dauerhaft kostenlos und werbefrei.",
+          "price": {
+            "model": "kostenlos"
+          }
+        }
+      ],
+      "features": [
+        {
+          "group": "Geplant für den ersten Stand (v0.1)",
+          "items": [
+            {
+              "name": "16 Einsatzrechner und Werkzeuge",
+              "values": {
+                "standard": "geplant"
+              },
+              "note": "U. a. Schlauch-/Druckverlust, Wasserbedarf, Saughöhe, Strahlrohrdruck, Leiter-Anstellwinkel, Gefahrgut-Absperrbereich, AGT-Einsatzzeit, Koordinaten-Umrechner, Stoppuhr."
+            },
+            {
+              "name": "Abhakbare Merksätze und Checklisten",
+              "values": {
+                "standard": "geplant"
+              },
+              "note": "GAMS, ABC-Schema, AUTO, METHANE, xABCDE, 4S und weitere."
+            },
+            {
+              "name": "Vier Sektionen – Einsatzwerkzeuge, Einsatzwissen, Grundwissen, Lagekarte",
+              "values": {
+                "standard": "geplant"
+              }
+            },
+            {
+              "name": "Vollständig offline, alles lokal gespeichert",
+              "values": {
+                "standard": "geplant"
+              }
+            },
+            {
+              "name": "Quellen- und Haftungsseite zu jeder Ausgabe",
+              "values": {
+                "standard": "geplant"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Später, abhängig von Lizenzfreigaben (v0.2+)",
+          "items": [
+            {
+              "name": "Gefahrgut- und Schilder-Nachschlagewerke",
+              "values": {
+                "standard": "geplant"
+              }
+            },
+            {
+              "name": "FwDV-Lernmodule",
+              "values": {
+                "standard": "geplant"
+              }
+            },
+            {
+              "name": "Lagekarte auf OpenStreetMap mit Hydranten",
+              "values": {
+                "standard": "geplant"
+              }
+            }
+          ]
+        }
+      ],
+      "releases": [],
+      "links": {
+        "contact": "/kontakt.html?app=EinsatzFuchs&topic=interesse"
+      },
       "privacy": [
         "nur-lokal",
         "keine-cloud",
+        "kein-konto",
         "kein-tracking",
-        "werbefrei"
+        "werbefrei",
+        "offline-faehig"
       ],
-      "editions": [],
-      "releases": [],
-      "media": {
-        "lockup": {
-          "src": "/img/lockups/coppicemail.svg",
-          "alt": "CoppiceMail – von FehlerFuchs",
-          "width": 1649,
-          "height": 360
-        },
-        "platzhalter": 4
-      },
-      "statusGrund": {
-        "wenn": "pausiert",
-        "text": "Aufgeschoben ist nicht aufgehoben. CoppiceMail ist von allem, was hier steht, das anspruchsvollste Stück – ein E-Mail-Programm, das Belege wirklich versteht, ist kein Wochenendprojekt. Es kommt, aber gerade waren mir andere Babys wichtiger. Ich sage lieber ehrlich „später\" als „bald\" und halte es dann nicht."
-      },
-      "theme": {
-        "modus": "hell",
-        "hintergrund": "#FBF7F2",
-        "flaeche": "#FFFFFF",
-        "rand": "#E7DACC",
-        "text": "#1A140F",
-        "textLeise": "#6B5B50",
-        "akzent": "#0F5132",
-        "quelle": "FehlerFuchs_CoppiceMail/app/ui/theme.py"
-      },
-      "links": {
-        "alt_html": "/apps/coppicemail.html",
-        "contact": "/kontakt.html?app=CoppiceMail&topic=interesse"
-      },
-      "notes": "Pausiert, nicht eingestellt. Die Seite bleibt erreichbar und ist auf produkte.html als „pausiert\" ausgezeichnet. Bei Wiederaufnahme genügt eine Statusänderung hier."
+      "notes": "Konzeptphase; Fundament gelegt (Konzept, MVP-Schnitt v0.1, Technik- Entscheidung, Marke V2). Sicherheitsleitlinie: jede Rechnerformel wird vor der Umsetzung gegen eine benannte Quelle geprüft, jede Ausgabe ist eine Orientierungshilfe ohne Gewähr. Kein Alarmierungs- oder Einsatzleitsystem und kein Ersatz für Ausbildung, Dienstvorschrift oder Einsatzbefehl."
     }
   ]
 }

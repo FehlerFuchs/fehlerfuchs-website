@@ -1,0 +1,135 @@
+slug: gewerbepro-companion
+name: GewerbePro Companion
+fullName: FehlerFuchs GewerbePro Companion
+kind: produkt
+# Ausbaustufe von GewerbePro (Windows). Die Companion-App ist die mobile
+# Ergänzung – eigene Plattform, eigene Merkmale, deshalb ein eigener Slug mit
+# 'parent'. Eigentümer laut _SLUG-EIGENTUEMER.md: FehlerFuchs_GewerbePro_Companion.
+parent: gewerbepro
+
+tagline: >-
+  Mobiler Erfassungs-Begleiter zu GewerbePro: Kunden, Auftrags-Entwürfe,
+  Fahrten und Quittungen unterwegs aufnehmen – offline und ohne Konto.
+description: >-
+  Die Companion-App ist die Android-Ergänzung zu GewerbePro und befindet sich in
+  Entwicklung. Sie erfasst unterwegs Kunden, Auftrags-Entwürfe mit Positionen,
+  Fahrten, Aufgaben, Termine und Quittungen und arbeitet dabei vollständig
+  offline. Gerechnet wird nichts auf dem Handy: Die App sammelt Rohdaten und
+  übergibt sie als Paket an GewerbePro auf dem PC, das daraus Angebote,
+  Aufträge und Belege macht. Für Quittungen vor Ort kann sie das Firmen-Branding
+  aus GewerbePro übernehmen und einen unterschriebenen Beleg als PDF erzeugen.
+audience: [selbststaendige, unternehmen]
+
+# Akzent aus der App (theme.akzent, #9F1239). Kommt auf weißem Grund auf
+# Kontrast 8,0 und auf dem Seitengrund auf 7,5 – beides weit über 4,5.
+# Nachgerechnet, nicht geschätzt.
+accent: "#9F1239"
+
+# Werte 1:1 aus dem Quelltext der App (ff_tokens.dart). Helles Erscheinungsbild.
+theme:
+  modus: hell
+  hintergrund: "#FBF7F2"
+  flaeche: "#FFFBF7"
+  rand: "#EAD7DC"
+  text: "#2B160B"
+  textLeise: "#6F4F44"
+  akzent: "#9F1239"
+  quelle: FehlerFuchs_GewerbePro_Companion/21_App_Flutter/gewerbepro_companion/lib/ui/ff_tokens.dart
+
+# Noch keine Bildschirmfotos – die Werkstatt zeigt vier Platzhaltermotive,
+# damit die Galerie nicht leer ist. Sobald es echte Bilder gibt, ersetzen.
+media:
+  platzhalter: 4
+
+# Kein Bild-Lockup vorhanden – der Titel steht als Text in den Markenfarben.
+wordmark:
+  - { text: "FehlerFuchs ", color: "#7C3F16", weight: normal }
+  - { text: "GewerbePro ", color: "#7C3F16", weight: bold }
+  - { text: "Companion", color: "#9F1239", weight: bold }
+
+status: entwicklung
+
+platforms:
+  - os: android
+    status: entwicklung
+    since: "2026-07-17"
+    distribution: keiner
+    # Debug-Build auf einem Testgerät, kein veröffentlichtes Paket, kein
+    # Store-Eintrag. Die Android-Mindestversion ist noch nicht festgelegt.
+
+# 'nur-lokal': Das Erfassungspaket bleibt als Datei auf dem Gerät – der Weg zum
+# PC (USB/Cloud) ist geplant, nicht umgesetzt. Kein Store, kein In-App-Kauf,
+# keine Telemetrie; der Steckbrief listet keine Übertragung. Damit stimmt die
+# stärkste Zusage tatsächlich. Sobald ein Übertragungsweg oder ein Store dazu-
+# kommt, gehört sie geprüft. Steckbrief: gewerbepro-companion.yaml.
+privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
+
+editions:
+  - id: standard
+    name: GewerbePro Companion
+    public: true
+    summary: >-
+      Eine Ausbaustufe. Ob die App später kostenlos zu GewerbePro gehört oder
+      getrennt angeboten wird, ist noch nicht entschieden.
+    price: { model: offen }
+
+features:
+  - group: Unterwegs erfassen
+    items:
+      - name: Kunden anlegen mit denselben Feldern wie am PC
+        values: { standard: ja }
+        note: Anrede, Name/Firma, Anschrift, E-Mail, Telefon, USt-IdNr., Leitweg-ID.
+      - name: Auftrags-Entwürfe mit Positionen
+        values: { standard: ja }
+        note: Positionen frei oder aus dem Katalog; Zwischensumme netto.
+      - name: Fahrtenbuch mit Fahrzeug- und km-Stand-Merker
+        values: { standard: ja }
+      - name: Aufgaben, Fristen und Termine
+        values: { standard: ja }
+      - name: Quittung mit handschriftlicher Unterschrift
+        values: { standard: ja }
+        note: Unterschrift im Vollbild quer, danach als PDF.
+
+  - group: Belege und Katalog
+    items:
+      - name: Fahrtenbuch als PDF (heute, laufendes Jahr, alle Einträge)
+        values: { standard: ja }
+      - name: Quittungs-PDF im Firmen-Branding aus GewerbePro
+        values: { standard: ja }
+        note: Logo, Absender und Fußzeile werden einmalig vom PC übernommen.
+      - name: Katalog mit Preisen nachschlagen
+        values: { standard: ja }
+        note: Nur lesen; wird aus GewerbePro gespiegelt.
+
+  - group: Zusammenspiel mit GewerbePro
+    items:
+      - name: Erfassungspaket für den Import in GewerbePro erzeugen
+        values: { standard: ja }
+      - name: Fertiger Übertragungsweg zum PC (USB, Cloud, Server)
+        values: { standard: geplant }
+        note: Das Paket wird bisher nur als Datei im App-Ordner abgelegt.
+      - name: Rechnungen, Angebote, EÜR oder E-Rechnung auf dem Handy
+        values: { standard: nein }
+        note: Bleibt bewusst in GewerbePro am PC.
+
+  - group: Grundsätzliches
+    items:
+      - name: Konto oder Registrierung nötig
+        values: { standard: nein }
+      - name: Arbeitet ohne Internet
+        values: { standard: ja }
+
+releases: []
+
+links:
+  # Neu, keine alte Adresse – deshalb kein 'alt_html'. Der Kontaktweg ist der
+  # einzige Handlungsweg, solange es kein Paket und keinen Store gibt: Wer
+  # Interesse hat, meldet sich und wird benachrichtigt.
+  contact: /kontakt.html?app=GewerbePro-Companion&topic=interesse
+
+notes: >-
+  Die App ruft die GewerbePro-Engine nicht auf und enthält keine Fachlogik; sie
+  ist bewusst ein Erfassungs-Begleiter. Der Datenaustausch mit dem PC läuft über
+  ein JSON-Paket, das GewerbePro mit dem Kommando companion.import einliest.
+  Preis und Vertriebsweg stehen noch nicht fest; Bildmaterial für die
+  Produktseite gibt es noch nicht.

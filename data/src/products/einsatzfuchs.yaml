@@ -1,0 +1,168 @@
+slug: einsatzfuchs
+name: EinsatzFuchs
+fullName: FehlerFuchs EinsatzFuchs
+kind: produkt
+# Eigener Slug, Eigentümer FehlerFuchs_EinsatzFuchs (in _SLUG-EIGENTUEMER.md
+# eingetragen von ChefBüro, 24.07.2026). Einschreibung zusammengestellt aus
+# Konzept, MVP-Schnitt v0.1, Technik-Entscheidung und Marke V2.
+#
+# BEWUSST EINE KONZEPTSEITE. Die App gibt es noch nicht – es steht noch keine
+# Zeile Code, es läuft die Klärung von Umfang, Technik und vor allem der
+# Inhalts-Lizenzen (Nachschlagewerke, Karten). Die Seite zeigt das offen:
+# Status 'idee', alle Merkmale unter 'geplant', kein Download, keine
+# Bildschirmfotos. Was schon da ist – die Marke –, wird genutzt.
+
+tagline: >-
+  Kostenlose, werbefreie Offline-App für die Freiwillige Feuerwehr:
+  Einsatzrechner, Merksätze und Nachschlagewerke in einer App statt fünf.
+description: >-
+  EinsatzFuchs ist eine geplante, nicht-kommerzielle Android-App für Angehörige
+  der Freiwilligen Feuerwehr. Sie soll Einsatzwerkzeuge (Rechner und
+  Checklisten), Nachschlagewerke, eine Lagekarte und Lernmodule in einer
+  einzigen, offline nutzbaren App bündeln – statt fünf verschiedene Apps zu
+  öffnen. Kein Abo, keine Werbung, keine Datenerhebung, kein Konto. Das Projekt
+  steht in der Konzeptphase: Umfang, Technik und Marke sind festgelegt, die
+  Umsetzung hat noch nicht begonnen. Ausdrücklich kein Alarmierungssystem und
+  kein Cloud-Dienst; alle Ausgaben sind Orientierungshilfen ohne Gewähr.
+# 'ehrenamt' am 25.07.2026 neu ins audience-Vokabular aufgenommen – die
+# Freiwillige Feuerwehr ist ehrenamtlich, nicht Verein und nicht Gewerbe.
+audience: [ehrenamt, privat]
+
+# Ein persönliches Wort, ganz oben auf der Seite. Bewusst in Ich-Form und
+# deutlich abgesetzt vom übrigen, sachlichen Text: EinsatzFuchs ist kein
+# Firmenprodukt, sondern Matzes ehrenamtlicher Beitrag. Das darf man sehen.
+vorwort:
+  von: Matze
+  titel: Warum es EinsatzFuchs gibt
+  portrait: true
+  absaetze:
+    - >-
+      Ich bin bei der Feuerwehr, seit ich zehn bin – heute als Gruppenführer
+      und Ausbilder. Wie so viele im Ehrenamt habe ich zuletzt weniger Zeit für
+      den aktiven Dienst, als ich gern hätte. EinsatzFuchs ist meine Art, trotzdem
+      etwas beizutragen: mit dem, was ich kann.
+    - >-
+      Die App entsteht privat und in Eigenregie, in meiner Freizeit und ohne
+      kommerzielle Absicht. Kein Abo, keine Werbung, keine Datenerhebung – und
+      das bleibt so. Ich baue sie für die Kameradinnen und Kameraden, die im
+      Einsatz schnell an die richtige Formel oder den richtigen Merksatz kommen
+      wollen, ohne fünf Apps zu durchsuchen.
+    - >-
+      Sie ist noch nicht fertig – nicht einmal angefangen im Code. Erst kläre
+      ich die Quellen und Lizenzen, damit jede Zahl stimmt und jede Karte
+      genutzt werden darf. Lieber sorgfältig als schnell: Im Einsatz muss man
+      sich darauf verlassen können.
+    - >-
+      Ein erster Baustein steht schon: Das EinsatzleiterWiki stellt mir seine
+      frei lizenzierten Inhalte zur Verfügung – ein großes Geschenk für ein
+      Projekt wie dieses. Dafür bin ich sehr dankbar.
+
+# Feuerrot RAL 3000 aus dem verbindlichen Farb-Handoff (WCAG gerechnet, nicht
+# gepipettet). Kommt auf weißem Grund auf 6,8 und auf dem Seitengrund auf 6,4 –
+# beides weit über 4,5. Quelle: HANDOFF_Marke_Farbkonzept_EinsatzFuchs.md.
+accent: "#B0201E"
+
+# Aus dem Farb-Handoff, solange es keine theme.dart gibt (die wird der
+# kanonische Ort, sobald der erste Build steht – offene Frage der Einschreibung).
+# Sandtöne der Marke, dunkelbraune Schrift.
+theme:
+  modus: hell
+  hintergrund: "#ECE1CB"
+  flaeche: "#DCC9A4"
+  rand: "#B79E72"
+  text: "#2B160B"
+  textLeise: "#7C3F16"
+  akzent: "#B0201E"
+  quelle: FehlerFuchs_EinsatzFuchs/03_Doku/HANDOFF_Marke_Farbkonzept_EinsatzFuchs.md
+
+# Bild-Wortmarke aus dem Markenordner (V2). Ist sie gesetzt, ist SIE der
+# sichtbare Titel; die Überschrift steht nur für Vorlesegeräte.
+media:
+  lockup:
+    src: /img/lockups/einsatzfuchs.svg
+    alt: EinsatzFuchs – von FehlerFuchs
+    width: 1731
+    height: 397
+  # Keine Bildschirmfotos – die App existiert nicht. Bewusst KEINE Platzhalter:
+  # Bei companion und up2date gibt es wenigstens ein Grundgerüst, hier nicht
+  # einmal das. Eine Galerie mit Attrappen würde eine Reife vortäuschen, die
+  # es nicht gibt. Die leere Galerie ist hier die ehrlichere Angabe.
+  screenshots: []
+
+status: idee
+
+platforms:
+  - os: android
+    status: idee
+    distribution: play-store
+    requirements: "Android (geplant: minSdk 21 / targetSdk 35)"
+    # Geplante applicationId eu.fehlerfuchs.einsatzfuchs – noch nicht
+    # veröffentlicht, kein Store-Eintrag vorhanden.
+
+# Warum es gerade so steht – in eigenen Worten. Hängt unter 'wenn' am Status;
+# wird die Arbeit aufgenommen, passt der Satz nicht mehr und die Prüfung meldet
+# ihn. So wird aus der Erklärung keine veraltete Ausrede.
+statusGrund:
+  wenn: idee
+  text: >-
+    Erst das Fundament, dann der Code. Bei einer App für die Feuerwehr sitzt
+    jede Rechnerformel und jeder Merksatz an einer benannten Quelle – und viele
+    Nachschlagewerke und Karten hängen an Lizenzen, die geklärt sein müssen,
+    bevor etwas gebaut wird. Genau das läuft gerade. Marke, Umfang und Technik
+    stehen; die Umsetzung beginnt, sobald die Rechtefragen beantwortet sind.
+
+editions:
+  - id: standard
+    name: EinsatzFuchs
+    public: true
+    summary: Nicht-kommerziell, dauerhaft kostenlos und werbefrei.
+    price: { model: kostenlos }
+
+features:
+  # Alles 'geplant' – es gibt keinen Code. Die Übersicht zeigt ehrlich den
+  # vorgesehenen Umfang und dass noch nichts davon läuft. v0.1 zuerst, die
+  # lizenzabhängigen Teile (Nachschlagewerke, Karte) ausdrücklich später.
+  - group: Geplant für den ersten Stand (v0.1)
+    items:
+      - name: 16 Einsatzrechner und Werkzeuge
+        values: { standard: geplant }
+        note: U. a. Schlauch-/Druckverlust, Wasserbedarf, Saughöhe, Strahlrohrdruck, Leiter-Anstellwinkel, Gefahrgut-Absperrbereich, AGT-Einsatzzeit, Koordinaten-Umrechner, Stoppuhr.
+      - name: Abhakbare Merksätze und Checklisten
+        values: { standard: geplant }
+        note: GAMS, ABC-Schema, AUTO, METHANE, xABCDE, 4S und weitere.
+      - name: Vier Sektionen – Einsatzwerkzeuge, Einsatzwissen, Grundwissen, Lagekarte
+        values: { standard: geplant }
+      - name: Vollständig offline, alles lokal gespeichert
+        values: { standard: geplant }
+      - name: Quellen- und Haftungsseite zu jeder Ausgabe
+        values: { standard: geplant }
+
+  - group: Später, abhängig von Lizenzfreigaben (v0.2+)
+    items:
+      - name: Gefahrgut- und Schilder-Nachschlagewerke
+        values: { standard: geplant }
+      - name: FwDV-Lernmodule
+        values: { standard: geplant }
+      - name: Lagekarte auf OpenStreetMap mit Hydranten
+        values: { standard: geplant }
+
+releases: []
+
+links:
+  # Kein Download, kein Store, kein Quelltext-Link. Der Kontaktweg ist der
+  # einzige Handlungsweg: Wer die Idee unterstützen kann – etwa bei der
+  # Lizenzklärung oder als Testwehr –, meldet sich.
+  contact: /kontakt.html?app=EinsatzFuchs&topic=interesse
+
+# 'nur-lokal' und die weiteren Zusagen aus dem Steckbrief (lokal_only true,
+# kein Konto, kein Tracking, keine Werbung). Es gibt keinen Code, der etwas
+# senden könnte; die Angaben beschreiben den festgelegten Grundsatz und werden
+# beim ersten Build gegen den Code geprüft. Steckbrief: einsatzfuchs.yaml.
+privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
+
+notes: >-
+  Konzeptphase; Fundament gelegt (Konzept, MVP-Schnitt v0.1, Technik-
+  Entscheidung, Marke V2). Sicherheitsleitlinie: jede Rechnerformel wird vor
+  der Umsetzung gegen eine benannte Quelle geprüft, jede Ausgabe ist eine
+  Orientierungshilfe ohne Gewähr. Kein Alarmierungs- oder Einsatzleitsystem und
+  kein Ersatz für Ausbildung, Dienstvorschrift oder Einsatzbefehl.

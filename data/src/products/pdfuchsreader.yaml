@@ -17,6 +17,17 @@ platforms:
     distribution: play-store
     storeId: eu.fehlerfuchs.pdfuchsreader
     since: "2026-07-18"
+  # Windows-Teil, zugeliefert von FehlerFuchs_PDFuchs (Hinweis vom 19.07.2026,
+  # eingearbeitet 24.07.2026). Der Sonderfall aus _SLUG-EIGENTUEMER.md: EIN
+  # Slug, der Stand je Plattform getrennt. Unter Windows wird der Reader nicht
+  # einzeln verteilt, sondern als PDFuchsReader.exe mit dem PDFuchs-Paket
+  # installiert – deshalb 'distribution: keiner' und kein eigener Downloadweg.
+  # Eine Vorabfassung (v0.1.0_dev) ist gebaut, installiert und geprüft, aber
+  # nicht veröffentlicht.
+  - os: windows
+    status: entwicklung
+    distribution: keiner
+    requirements: Windows 10/11 (64-bit)
 
 privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
 

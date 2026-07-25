@@ -1,0 +1,36 @@
+slug: einsatzfuchs
+name: EinsatzFuchs
+stand: "2026-07-24"
+geprueft_von: FehlerFuchs_EinsatzFuchs
+fassung: "noch nicht veröffentlicht"
+
+# Verlaesst IRGENDEIN Datum das Geraet, wenn man nichts weiter einstellt?
+lokal_only: true
+
+# Ja/Nein-Angaben aus dem Konzept-Grundsatz (Konzept 2, 11). Werden beim ersten
+# echten Build gegen den Code geprueft.
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Alle Inhalte und Einstellungen liegen auf dem Geraet. Sie verschwinden,
+  wenn man die App deinstalliert.
+
+besonderheiten: >-
+  EinsatzFuchs ist eine offline-faehige App fuer die Freiwillige Feuerwehr,
+  nicht-kommerziell und ohne Konto. Sie ist in der Konzeptphase, es gibt
+  noch keinen Code.
+
+offene_fragen: >-
+  Die Anwendung ist in Entwicklung; Angaben folgen, sobald der Funktionsumfang
+  steht. Laut Konzept ist der einzige geplante Netzzugriff die Versionspruefung
+  und der Paket-Download von fehlerfuchs.eu (Inhaltsaktualisierung, vom Nutzer
+  ausgeloest); ausserdem ruft die Lagekarte OSM-/Overpass-Kartendaten ab, wenn
+  der Nutzer sie oeffnet. Beides ist noch nicht gebaut und daher hier nur als
+  geplant vermerkt, nicht als Tatsache.
+  Hinweis: Der Slug "einsatzfuchs" steht noch NICHT auf der Slug-Liste im
+  Datenschutz-Prompt (Stand 19.07.2026) - die Website-Liste muss um einsatzfuchs
+  ergaenzt werden.

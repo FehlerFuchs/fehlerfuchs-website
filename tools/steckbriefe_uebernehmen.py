@@ -102,10 +102,9 @@ PFAD = re.compile(r"\b[A-Za-z]:\\\\?[A-Za-z0-9_]")
 OHNE_PRODUKTSEITE = {
     "schichtfuchs": "Auftragsarbeit fuer einen Kunden, bekommt bewusst keine "
                     "Produktseite (Entscheidung Matze 19.07.2026).",
-    "up2date": "Als eigenes Produkt beschlossen, die Produkteinschreibung "
-               "steht noch aus.",
-    "gewerbepro-companion": "Ausbaustufe von gewerbepro (parent), eigene "
-                            "Produktdatei folgt mit der Einschreibung.",
+    # einsatzfuchs, up2date und gewerbepro-companion haben seit dem 24./25.07.2026 eigene
+    # Produktdateien und stehen deshalb NICHT mehr hier - sie sind ueber
+    # slugs_der_website() bekannt.
 }
 
 
@@ -189,6 +188,15 @@ def sammle(ordner, erlaubte, unterordner=""):
 
 def main():
     uebernehmen = "--uebernehmen" in sys.argv
+    # --nur=<slug>: uebernimmt AUSSCHLIESSLICH diesen einen Steckbrief. Gedacht
+    # fuer den Fall, dass im Modell schon eine bearbeitete Fassung liegt, die
+    # der Umlauf-Stand ueberschreiben wuerde. Ohne den Filter uebernimmt
+    # --uebernehmen jede Abweichung - und laesst still eine Aenderung fallen,
+    # die im Modell absichtlich anders ist.
+    nur = None
+    for arg in sys.argv[1:]:
+        if arg.startswith("--nur="):
+            nur = arg.split("=", 1)[1].strip()
 
     if not QUELLE.is_dir():
         print(f"\nEinreichordner nicht gefunden:\n  {QUELLE}\n")
@@ -239,6 +247,14 @@ def main():
             geaendert.append((datei, ziel))
         else:
             gleich.append((datei, ziel))
+
+    if nur:
+        vorher = (len(neu), len(geaendert))
+        neu = [x for x in neu if x[0].stem == nur]
+        geaendert = [x for x in geaendert if x[0].stem == nur]
+        print(f"  --nur={nur}: von {vorher[0]} neuen und {vorher[1]} geaenderten "
+              f"bleibt {len(neu)} neu, {len(geaendert)} geaendert.")
+        print()
 
     for bezeichnung, liste in (("NEU", neu), ("GEAENDERT", geaendert)):
         for quelle, _ in liste:

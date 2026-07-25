@@ -1,0 +1,107 @@
+slug: up2date
+name: Up2Date
+fullName: FehlerFuchs Up2Date
+kind: produkt
+# Eigener Slug laut _SLUG-EIGENTUEMER.md (aufgenommen 19.07.2026), Eigentümer
+# FehlerFuchs_Up2Date. Die Einschreibung fragt, ob Up2Date eine eigene Seite
+# bekommt oder nur auf anderen Seiten erwähnt wird – da es einen eigenen Slug
+# trägt und gepflegt werden soll, bekommt es eine eigene, mit dem klaren
+# Vermerk, dass erst das Grundgerüst steht.
+
+tagline: >-
+  Ein kleiner Helfer im Infobereich, der installierte FehlerFuchs-Programme
+  im Blick behält und auf neue Fassungen hinweist.
+description: >-
+  Up2Date ist in Entwicklung. Gedacht ist es als zentrale Stelle für alle
+  FehlerFuchs-Programme auf einem Windows-Rechner: Es soll erkennen, welche
+  davon installiert sind, deren Stand mit der Versionsliste auf
+  fehlerfuchs.eu vergleichen und melden, wenn etwas Neues vorliegt. Dieser
+  Abgleich braucht später einen Netzzugriff – den Abruf einer statischen Datei,
+  kein Konto und kein Dienst. Heute läuft davon noch nichts: Der aktuelle Stand
+  zeigt ein Symbol im Infobereich und ein Fenster, mehr nicht. Es ist kein
+  allgemeiner Updater, sondern ausschließlich für FehlerFuchs-Programme gedacht.
+audience: [privat, selbststaendige, unternehmen]
+
+# Akzent für hellen Grund. Die App ist dunkel (accentDark #F59E42, helles
+# Orange) – auf Weiß käme das nur auf Kontrast 2,1 und wäre unlesbar. #935E27
+# ist derselbe Ton abgedunkelt und kommt auf 5,4 gegen Weiß und 5,1 gegen den
+# Seitengrund. Nachgerechnet, nicht geschätzt.
+accent: "#935E27"
+
+# Werte 1:1 aus dem Quelltext (theme.dart / FfColors). Up2Date übernimmt den
+# warmen Dark-Mode der Dachmarke. 'rand' fehlt bewusst: Der Kartenrand entsteht
+# in der App aus einer teildeckenden Cremefläche, es gibt keinen eigenen Wert.
+theme:
+  modus: dunkel
+  hintergrund: "#1A0F08"
+  flaeche: "#241612"
+  text: "#FFF7ED"
+  textLeise: "#C9B7A6"
+  akzent: "#F59E42"
+  quelle: FehlerFuchs_Up2Date/05_App/up2date/lib/theme.dart
+
+# Kein eigenes Logo – Up2Date nutzt die Dachmarke, deshalb kein Lockup.
+wordmark:
+  - { text: "FehlerFuchs ", color: "#7C3F16", weight: normal }
+  - { text: "Up2Date", color: "#7C3F16", weight: bold }
+
+# Noch keine Bildschirmfotos – die Oberfläche zeigt keinen nutzbaren Inhalt.
+media:
+  platzhalter: 4
+
+status: entwicklung
+
+platforms:
+  - os: windows
+    status: entwicklung
+    distribution: keiner
+    requirements: Windows 10/11 (64-bit)
+    # Kein Download, kein Installer – gebaut wird bisher nur lokal aus dem
+    # Quelltext (Fassung 1.0.0+1, nur das Grundgerüst).
+
+# BEWUSST NICHT 'nur-lokal' oder 'offline-faehig', obwohl der heutige Stand
+# nichts sendet (Steckbrief: lokal_only true, keine Netzaufrufe im Code): Der
+# ZWECK von Up2Date ist der Online-Abgleich mit der Versionsliste. Eine
+# Zusage, die der erklärte Sinn der App in wenigen Wochen aufhebt, wäre keine
+# ehrliche Angabe. Der Netzaspekt steht in der Beschreibung. Was NICHT
+# passiert – Konto, Tracking, Werbung, Cloud-Speicher – steht hier.
+privacy: [kein-konto, kein-tracking, werbefrei, keine-cloud]
+
+editions:
+  - id: standard
+    name: Up2Date
+    public: true
+    summary: >-
+      Nach bisherigem Konzept kostenlos – entschieden ist es nicht.
+    price: { model: offen }
+
+features:
+  # Alles noch 'geplant': Umgesetzt ist bisher nur das Grundgerüst (Symbol im
+  # Infobereich, Fenster). Die Übersicht zeigt ehrlich, was kommen soll, und
+  # dass heute noch nichts davon läuft.
+  - group: Geplant
+    items:
+      - name: Installierte FehlerFuchs-Programme erkennen
+        values: { standard: geplant }
+      - name: Stand mit der Versionsliste auf fehlerfuchs.eu abgleichen
+        values: { standard: geplant }
+      - name: Installer der jeweiligen Fassung laden und starten
+        values: { standard: geplant }
+      - name: Hinweis im Infobereich bei neuer Fassung
+        values: { standard: geplant }
+      - name: Autostart mit Windows – nur nach ausdrücklicher Zustimmung
+        values: { standard: geplant }
+
+releases: []
+
+links:
+  # Neu, keine alte Adresse. Der Kontaktweg ist der einzige Handlungsweg,
+  # solange es keinen Installer gibt.
+  contact: /kontakt.html?app=Up2Date&topic=interesse
+
+notes: >-
+  Up2Date liest künftig die öffentliche Datei versions.json der Website – ein
+  Abruf einer statischen Datei, kein Dienst im Sinne von 'braucht_dienste'.
+  Preis, Ausbaustufen und Vertriebsweg (eigener Download oder Mitinstallation
+  durch andere FehlerFuchs-Installer) stehen nicht fest. Bildschirmfotos gibt
+  es noch keine.

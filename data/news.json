@@ -1,8 +1,38 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-25T09:49:13+02:00",
+  "generiert": "2026-07-25T10:51:42+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "orgafuchs-zweite-ablehnung",
+      "typ": "hinweis",
+      "produkt": "orgafuchs",
+      "datum": "2026-07-24",
+      "titel": "OrgaFuchs – zweite Ablehnung im Play Store",
+      "text": "OrgaFuchs ist erneut abgelehnt worden, diesmal wegen der automatischen Ferien- und Feiertagsanzeige: Die Prüfung wertete sie als behördliche Auskunft ohne Quellenangabe. Es sind Kalenderdaten für die Familienplanung wie in jeder Kalender-App. Die Store-Beschreibung ist geschärft – Quelle genannt, klargestellt, dass OrgaFuchs keine Behörde ist – und am 24. Juli erneut eingereicht. Am Programm wurde nichts geändert. Der ganze Weg steht auf der Produktseite.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
+      }
+    },
+    {
+      "id": "gewerbepro-companion-in-arbeit",
+      "typ": "hinweis",
+      "produkt": "gewerbepro-companion",
+      "datum": "2026-07-24",
+      "titel": "GewerbePro bekommt einen mobilen Begleiter",
+      "text": "In Arbeit: eine Android-App, die unterwegs Kunden, Auftrags-Entwürfe, Fahrten und Quittungen erfasst und als Paket an GewerbePro auf dem PC übergibt – offline und ohne Konto. Bisher läuft nur ein Testbau; einen Download gibt es noch nicht. Wer Bescheid bekommen möchte, meldet sich über die Produktseite.",
+      "datumQuelle": "eigene Angabe"
+    },
+    {
+      "id": "up2date-in-arbeit",
+      "typ": "hinweis",
+      "produkt": "up2date",
+      "datum": "2026-07-24",
+      "titel": "Up2Date – ein Update-Helfer für FehlerFuchs-Programme entsteht",
+      "text": "In Arbeit: ein kleines Windows-Programm im Infobereich, das installierte FehlerFuchs-Programme erkennt, ihren Stand mit fehlerfuchs.eu abgleicht und auf neue Fassungen hinweist. Heute steht erst das Grundgerüst. Es ist kein allgemeiner Updater, sondern nur für FehlerFuchs-Programme gedacht.",
+      "datumQuelle": "eigene Angabe"
+    },
     {
       "id": "snapfuchs-1-1-0",
       "typ": "update",

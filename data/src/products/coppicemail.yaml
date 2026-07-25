@@ -5,15 +5,16 @@ kind: produkt
 tagline: Das lokale, datensparsame E-Mail-Programm für Belege und Büropost – der Weg Mail, Anhang, Beleg, Archiv so kurz wie möglich.
 description: >-
   E-Mail-Programm mit Belegfokus: Nachricht öffnen, Anhang erkennen, als Beleg ablegen,
-  archivieren – ohne Umwege und ohne Cloud-Zwang. Die Entwicklung ruht derzeit
-  zugunsten von GewerbePro.
+  archivieren – ohne Umwege und ohne Cloud-Zwang. Seit dem 24.07.2026 wird
+  CoppiceMail als reine Flutter/Dart-App neu aufgebaut; der aktuelle Stand ist
+  ein Grundgerüst.
 audience: [selbststaendige, unternehmen]
 accent: "#0F5132"
-status: pausiert
+status: entwicklung
 
 platforms:
   - os: windows
-    status: pausiert
+    status: entwicklung
     distribution: keiner
 
 privacy: [nur-lokal, keine-cloud, kein-tracking, werbefrei]
@@ -35,17 +36,18 @@ media:
   platzhalter: 4
 # Warum es gerade so steht – in eigenen Worten.
 #
-# „Pausiert" allein liest sich, als sei das Projekt tot. Das ist es nicht, und
-# das darf man sagen. Der Satz hängt unter 'wenn' am Status: Wird die Arbeit
-# wieder aufgenommen, passt er nicht mehr, wird nicht angezeigt und die Prüfung
-# meldet ihn. So kann aus einer warmen Erklärung keine veraltete Ausrede werden.
+# Der Satz hängt unter 'wenn' am Status. Ändert sich der Status, passt er nicht
+# mehr, wird nicht angezeigt und die Prüfung meldet ihn – so kann aus einer
+# warmen Erklärung keine veraltete Ausrede werden. Bis zum 24.07.2026 stand
+# CoppiceMail auf „pausiert" mit einem „aufgeschoben ist nicht aufgehoben".
+# Jetzt wird wieder gebaut, deshalb der neue Text und der neue Status.
 statusGrund:
-  wenn: pausiert
+  wenn: entwicklung
   text: >-
-    Aufgeschoben ist nicht aufgehoben. CoppiceMail ist von allem, was hier steht,
-    das anspruchsvollste Stück – ein E-Mail-Programm, das Belege wirklich versteht,
-    ist kein Wochenendprojekt. Es kommt, aber gerade waren mir andere Babys
-    wichtiger. Ich sage lieber ehrlich „später" als „bald" und halte es dann nicht.
+    Der Neuanfang mit Ansage: CoppiceMail war das anspruchsvollste Stück und
+    lag eine Weile still. Seit dem 24. Juli baue ich es von Grund auf neu, als
+    reine Flutter/Dart-App – der alte Stand ist archiviert. Es ist noch ein
+    Grundgerüst; ich sage lieber ehrlich „im Aufbau" als „bald fertig".
 
 # Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
 # Was dort nicht steht, steht auch hier nicht – dann greift der Standard.

@@ -1,8 +1,8 @@
 slug: coppicemail
 name: CoppiceMail
-stand: "2026-07-19"
+stand: "2026-07-24"
 geprueft_von: FehlerFuchs_CoppiceMail
-fassung: "0.1.0-dev - nicht veroeffentlicht; Entwicklung ruht"
+fassung: "0.1.0-dev (Flutter/Dart-Neuaufbau) - nicht veroeffentlicht"
 
 # Heute verlaesst kein Datum das Geraet.
 lokal_only: true
@@ -38,19 +38,19 @@ loeschung: >-
   dem Loeschen nichts zurueck.
 
 besonderheiten: >-
-  Die Anwendung wurde nie veroeffentlicht und liegt als Entwicklervorschau vor; die
-  Entwicklung ruht seit dem 02.07.2026. Sie stellt heute keine Verbindung ins Internet
-  her: Es werden keine Nachrichten abgerufen und keine versendet, und es werden keine
-  Daten an andere Programme oder Dienste uebergeben. Alles, was die Vorschau anzeigt,
-  stammt aus Beispieldaten, die sie beim ersten Start selbst auf dem Geraet anlegt.
-  Ein Konto wird nicht benoetigt.
+  Die Anwendung wurde nie veroeffentlicht. Seit dem 24.07.2026 wird sie als reine
+  Flutter/Dart-App neu aufgebaut (vorheriger Stand archiviert). Der aktuelle Stand ist ein
+  Grundgeruest und stellt heute keine Verbindung ins Internet her: Es werden keine Nachrichten
+  abgerufen oder versendet und keine Daten an andere Programme oder Dienste uebergeben. Was
+  angezeigt wird, sind Beispieldaten in der Oberflaeche. Ein Konto wird nicht benoetigt.
 
 vorhandener_text: ""
 
 offene_fragen: >-
-  1) Ob und wann der Abruf und Versand von E-Mails tatsaechlich umgesetzt wird und
-  welche Serververbindungen dann entstehen, ist offen - das Projekt ruht.
-  2) Ob die im Projekt deklarierten, derzeit ungenutzten Zusatzpakete bei einer
-  Wiederaufnahme wirklich verwendet werden, ist unbekannt.
-  3) Wo Zugangsdaten fuer Mailkonten spaeter abgelegt werden, ist noch nicht
-  entschieden; der dafuer vorgesehene sichere Speicher ist bisher nicht umgesetzt.
+  1) Der Abruf/Versand von E-Mails wird ueber das Dart-Paket enough_mail (IMAP/SMTP) umgesetzt;
+  welche Serververbindungen dann konkret entstehen, ergibt sich aus den vom Nutzer angelegten
+  Konten. Heute besteht keine solche Verbindung.
+  2) Zugangsdaten werden kuenftig ueber den OS-Schluesselbund (flutter_secure_storage) abgelegt
+  (Modi: merken / bei jedem Start abfragen / aus Konfig-Datei); im Grundgeruest noch nicht aktiv.
+  3) Belege werden ueber offene Schnittstellen angebunden (Paperless-REST, PDFuchs-Handoff,
+  E-Rechnung); dabei entstehende Verbindungen werden ergaenzt, sobald umgesetzt.

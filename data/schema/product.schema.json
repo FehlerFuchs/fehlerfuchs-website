@@ -234,7 +234,8 @@
           "privat",
           "selbststaendige",
           "unternehmen",
-          "vereine"
+          "vereine",
+          "ehrenamt"
         ]
       }
     },
@@ -698,6 +699,35 @@
     },
     "customPage": {
       "type": "boolean"
+    },
+    "vorwort": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Ein persönlicher Textblock ganz oben auf der Produktseite – die Stimme des Machers, kein Werbetext. Optional; ohne das Feld gibt es keinen solchen Block.",
+      "required": [
+        "absaetze"
+      ],
+      "properties": {
+        "von": {
+          "type": "string",
+          "description": "Wer spricht, z. B. „Matze"
+        },
+        "titel": {
+          "type": "string",
+          "description": "Optionale Überschrift des Blocks"
+        },
+        "absaetze": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "portrait": {
+          "type": "boolean",
+          "description": "true zeigt das Marken-Portrait (schwarzweiss, rund) links neben dem Text, wie im Abschnitt Die Idee der Startseite."
+        }
+      }
     }
   },
   "$defs": {
