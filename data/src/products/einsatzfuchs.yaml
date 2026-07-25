@@ -34,7 +34,12 @@ audience: [ehrenamt, privat]
 vorwort:
   von: Matze
   titel: Warum es EinsatzFuchs gibt
-  portrait: true
+  # Eigenes Portrait statt des allgemeinen Marken-Bilds: Matze in Uniform.
+  # Bei einer Feuerwehr-App erzählt das die Geschichte des Vorworts sofort.
+  bild:
+    src: /img/matze-feuerwehr-sw.jpg
+    alt: Matze in Feuerwehruniform
+    fokus: 50% 22%
   absaetze:
     - >-
       Ich bin bei der Feuerwehr, seit ich zehn bin – heute als Gruppenführer

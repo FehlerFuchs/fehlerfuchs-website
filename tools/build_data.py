@@ -1742,6 +1742,54 @@ GESPERRTE_WOERTER = {
 }
 
 
+def pruefe_bild_metadaten():
+    """Meldet ausgelieferte Bilder mit personenbeziehbaren Metadaten.
+
+    Warum: Ein Foto traegt oft mehr, als man sieht - GPS-Koordinaten der
+    Aufnahme, Kameramodell, Aufnahmezeit, manchmal der Name im Autor-Feld.
+    Auf einer datensparsamen Seite hat das nichts verloren. Die Portraits und
+    Bildschirmfotos sind sauber (Pillow schreibt sie ohne EXIF neu), aber ein
+    kuenftig von Hand hinzugefuegtes Foto koennte es mitbringen.
+
+    Harmlose technische PNG-Parameter (Farbprofil, Gamma) loesen NICHT aus -
+    sie sagen nichts ueber eine Person. Angeschlagen wird bei echten
+    EXIF-Feldern und bei PNG-Textabschnitten mit Inhaltsschluesseln.
+    """
+    try:
+        from PIL import Image
+    except ImportError:
+        melde(warnungen, "bilder", "Pillow nicht installiert - Bild-Metadaten "
+                                   "ungeprueft. pip install pillow --break-system-packages")
+        return
+    HARMLOS = {"gamma", "chromaticity", "aspect", "icc_profile", "dpi",
+               "transparency", "srgb", "interlace", "compression"}
+    ordner = ROOT / "img"
+    if not ordner.exists():
+        return
+    for f in sorted(ordner.rglob("*")):
+        if f.suffix.lower() not in {".jpg", ".jpeg", ".png", ".webp"}:
+            continue
+        # Abgeloeste Altbestaende liegen in _abgeloest_* und werden nicht
+        # ausgeliefert - sie muessen nicht sauber sein.
+        if any(teil.startswith("_abgeloest") for teil in f.parts):
+            continue
+        try:
+            im = Image.open(f)
+            exif = im.getexif()
+            if exif.get(34853):  # GPS-IFD
+                melde(fehler, "bilder", f"{f.relative_to(ROOT)}: enthaelt GPS-Koordinaten "
+                                        f"der Aufnahme. Bitte Metadaten entfernen.")
+            elif len(exif) > 0:
+                melde(fehler, "bilder", f"{f.relative_to(ROOT)}: enthaelt EXIF-Daten "
+                                        f"(Kamera/Zeit/Ort moeglich). Bitte entfernen.")
+            heikel = [k for k in getattr(im, "text", {}) if k.lower() not in HARMLOS]
+            if heikel:
+                melde(fehler, "bilder", f"{f.relative_to(ROOT)}: PNG-Textfelder {heikel} "
+                                        f"- koennten Name/Software/Kommentar enthalten.")
+        except Exception as e:
+            melde(warnungen, "bilder", f"{f.relative_to(ROOT)}: nicht lesbar ({e}).")
+
+
 def pruefe_gesperrte_woerter():
     """Durchsucht alle Textquellen nach Woertern, die nicht veroeffentlicht werden.
 
@@ -2226,6 +2274,7 @@ def main():
         bedarf = pruefe_bedarf(rohb.get("bedarf", []))
 
         pruefe_gesperrte_woerter()
+        pruefe_bild_metadaten()
         pruefe_steckbrief_sichtbar(steckbriefe)
         pruefe_alte_adressen(produkte)
         pruefe_altbestand()

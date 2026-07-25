@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-25T10:51:42+02:00",
+  "generiert": "2026-07-25T13:12:38+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -3043,7 +3043,11 @@
       "vorwort": {
         "von": "Matze",
         "titel": "Warum es EinsatzFuchs gibt",
-        "portrait": true,
+        "bild": {
+          "src": "/img/matze-feuerwehr-sw.jpg",
+          "alt": "Matze in Feuerwehruniform",
+          "fokus": "50% 22%"
+        },
         "absaetze": [
           "Ich bin bei der Feuerwehr, seit ich zehn bin – heute als Gruppenführer und Ausbilder. Wie so viele im Ehrenamt habe ich zuletzt weniger Zeit für den aktiven Dienst, als ich gern hätte. EinsatzFuchs ist meine Art, trotzdem etwas beizutragen: mit dem, was ich kann.",
           "Die App entsteht privat und in Eigenregie, in meiner Freizeit und ohne kommerzielle Absicht. Kein Abo, keine Werbung, keine Datenerhebung – und das bleibt so. Ich baue sie für die Kameradinnen und Kameraden, die im Einsatz schnell an die richtige Formel oder den richtigen Merksatz kommen wollen, ohne fünf Apps zu durchsuchen.",

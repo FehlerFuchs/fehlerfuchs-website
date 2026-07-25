@@ -726,6 +726,28 @@
         "portrait": {
           "type": "boolean",
           "description": "true zeigt das Marken-Portrait (schwarzweiss, rund) links neben dem Text, wie im Abschnitt Die Idee der Startseite."
+        },
+        "bild": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "src",
+            "alt"
+          ],
+          "description": "Ein eigenes Bild fuer den Vorwort-Block (Vorrang vor 'portrait'). Fuer produktspezifische Portraets, z. B. Matze in Uniform bei einer Feuerwehr-App.",
+          "properties": {
+            "src": {
+              "type": "string",
+              "pattern": "^/img/"
+            },
+            "alt": {
+              "type": "string"
+            },
+            "fokus": {
+              "type": "string",
+              "description": "object-position, z. B. 50% 30%"
+            }
+          }
         }
       }
     }
