@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-19",
+  "updatedAt": "2026-07-26",
   "products": [
     {
       "slug": "gewerbepro",
@@ -14,8 +14,12 @@
       "sizeLabel": "114 MB",
       "sha256": "3ffd2fb6381549ae75de42d6cbcbbb8dd8541f78f515a6a2072fcbf1f4d2be9c",
       "signed": false,
-      "page": "https://fehlerfuchs.eu/apps/gewerbepro.html",
-      "notes": "GewerbePro 0.3.1 (Beta): Eigenes Firmenlogo auf allen Belegen und in der Seitenleiste, frei anpassbare Programmfarben (Pro), gemeinsame Beleg-Fußzeile mit hinterlegbarer Unterschrift. PDFuchs neu mit QR-Code-Generator (Pro) und Scannen (Windows-WIA), Ausgabeordner-Einstellung. Werkzeug-Diagnose (OCR/KoSIT/Java), Lizenzschlüssel anzeigen und kopieren. Behoben: Editionserkennung direkt nach dem Update."
+      "page": "https://fehlerfuchs.eu/produkte/gewerbepro/",
+      "notes": "GewerbePro 0.3.1 (Beta): Eigenes Firmenlogo auf allen Belegen und in der Seitenleiste, frei anpassbare Programmfarben (Pro), gemeinsame Beleg-Fußzeile mit hinterlegbarer Unterschrift. PDFuchs neu mit QR-Code-Generator (Pro) und Scannen (Windows-WIA), Ausgabeordner-Einstellung. Werkzeug-Diagnose (OCR/KoSIT/Java), Lizenzschlüssel anzeigen und kopieren. Behoben: Editionserkennung direkt nach dem Update.",
+      "windowsDisplayNames": [
+        "FehlerFuchs GewerbePro",
+        "FehlerFuchs Gewerbe"
+      ]
     },
     {
       "slug": "mobilereport-enterprise",
@@ -29,7 +33,7 @@
       "sizeLabel": "60,3 MB",
       "sha256": "3e990a428ed208be11587e779ce1eba02f8efbc81d192092a928270d75ca30a5",
       "signed": false,
-      "page": "https://fehlerfuchs.eu/apps/mobilereport-enterprise.html",
+      "page": "https://fehlerfuchs.eu/produkte/mobilereport-enterprise/",
       "notes": "1.0.1: Betreff für Meldungen, Fotos per Ziehen sortieren (erstes Bild = Hauptbild), Name als Pflichtfeld mit optionalem Standard-Speichern, einstellbare maximale Bildanzahl, Profil-Feld Position/Funktion, überarbeitete Einstellungen (Bereich \"Verwaltung\") und Fix für die Admin-/Branding-Übernahme."
     },
     {
@@ -44,8 +48,12 @@
       "sizeLabel": "15,3 MB",
       "sha256": "6bdd5322629f8e6053b0d8e92ac6a5cd04b38b536fbacc0355b34769c4ffa991",
       "signed": false,
-      "page": "https://fehlerfuchs.eu/apps/orgafuchs.html",
-      "notes": "Erstveröffentlichung. Wiederkehrende Serien, PDF als Monat/Jahr/Blanko, Feiertage und Schulferien je Bundesland, Geräte-Sync per QR-Code, Transparenz- und Open-Source-Seite in der App."
+      "page": "https://fehlerfuchs.eu/produkte/orgafuchs/",
+      "notes": "Erstveröffentlichung. Wiederkehrende Serien, PDF als Monat/Jahr/Blanko, Feiertage und Schulferien je Bundesland, Geräte-Sync per QR-Code, Transparenz- und Open-Source-Seite in der App.",
+      "windowsDisplayNames": [
+        "OrgaFuchs",
+        "FehlerFuchs OrgaFuchs"
+      ]
     }
   ]
 }

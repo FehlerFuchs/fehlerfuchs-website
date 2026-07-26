@@ -28,6 +28,13 @@ platforms:
 
 privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
+# Registry-DisplayNames der Windows-Installer (Free + Pro) für die Zuordnung im
+# Update-Helfer Up2Date. Deckungsgleich mit editions[].name; aus dem echten
+# Registry-Scan (Handoff Up2Date, 26.07.2026).
+windowsDisplayNames:
+  - FehlerFuchs GewerbePro
+  - FehlerFuchs Gewerbe
+
 editions:
   - id: free
     name: FehlerFuchs Gewerbe

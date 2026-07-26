@@ -1329,7 +1329,14 @@ def pruefe_fremdziele(rohd, produkte, marke):
                 gefunden.setdefault(treffer.lower(), set()).add(woher)
 
     for p in produkte:
-        suche(p, p.get("slug", "?"))
+        # Die Quellenangabe (produkt.quellen) nennt EXTERNE Belege wie die
+        # KMK-Ferienregelung. Das sind Zitate, keine Datenziele: Die Seite
+        # bindet nichts ein und sendet nichts dorthin; die Adresse steht nur als
+        # sichtbarer Beleg (kein anklickbarer Link). Sie gehört deshalb nicht in
+        # die Fremdziel-Liste der Datenschutzseite und wird vor der Suche
+        # herausgenommen. Alles andere am Produkt wird weiter durchsucht.
+        ohne_quellen = {k: v for k, v in p.items() if k != "quellen"}
+        suche(ohne_quellen, p.get("slug", "?"))
     suche(marke, "marke")
     # Die Dienste beschreiben sich selbst – dort steht die Erklärung des
     # Anbieters, und die IST das Fremdziel. Sie mitzuprüfen hieße, jede

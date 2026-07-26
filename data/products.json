@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-25T13:12:38+02:00",
+  "generiert": "2026-07-26T13:44:40+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -840,6 +840,10 @@
         "eigener-sync",
         "offline-faehig"
       ],
+      "windowsDisplayNames": [
+        "OrgaFuchs",
+        "FehlerFuchs OrgaFuchs"
+      ],
       "editions": [
         {
           "id": "standard",
@@ -1003,6 +1007,7 @@
         }
       ],
       "media": {
+        "vorschaubild": "/img/og-orgafuchs.png",
         "lockup": {
           "src": "/img/lockups/orgafuchs.svg",
           "alt": "OrgaFuchs – von FehlerFuchs",
@@ -1099,6 +1104,20 @@
         "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.0.0",
         "contact": "/kontakt.html?app=OrgaFuchs&topic=interesse",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
+      },
+      "quellen": {
+        "titel": "Quellen und Behörden-Hinweis",
+        "eintraege": [
+          {
+            "name": "Ferientermine: Ferienregelung der Kultusministerkonferenz (KMK)",
+            "url": "https://www.kmk.org/service/ferien.html"
+          },
+          {
+            "name": "Offene Daten: OpenHolidays",
+            "url": "https://www.openholidaysapi.org"
+          }
+        ],
+        "hinweis": "OrgaFuchs ist eine private App von FehlerFuchs und steht in keiner Verbindung zu einer Behörde, einem Ministerium oder einer staatlichen Stelle. Die App repräsentiert keine Regierungseinrichtung und bietet keine amtlichen Dienste an."
       },
       "notes": "Offen: Play-Store-Freigabe für Android. Ebenfalls offen ist der von der App erwartete Endpunkt data/schulferien/DE-XX.json auf fehlerfuchs.eu – bis dahin greift der eingebaute Datenbestand."
     },
@@ -1809,6 +1828,10 @@
         "kein-tracking",
         "werbefrei",
         "offline-faehig"
+      ],
+      "windowsDisplayNames": [
+        "FehlerFuchs GewerbePro",
+        "FehlerFuchs Gewerbe"
       ],
       "editions": [
         {
@@ -2816,6 +2839,10 @@
         "kein-tracking",
         "werbefrei",
         "offline-faehig"
+      ],
+      "windowsDisplayNames": [
+        "PDFuchs",
+        "PDFuchs Version 0.1.0"
       ],
       "editions": [
         {

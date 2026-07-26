@@ -170,7 +170,7 @@ def main():
         r = neuestes_release(p)
         if not r:
             continue
-        eintraege.append({
+        eintrag = {
             "slug": p["slug"],
             "name": p["fullName"],
             "version": r["version"],
@@ -188,7 +188,13 @@ def main():
             # nicht auf eine Weiterleitung zeigen.
             "page": f"https://fehlerfuchs.eu/produkte/{p['slug']}/",
             "notes": r.get("notes", ""),
-        })
+        }
+        # Namen, unter denen sich die Windows-Installer/Editionen in der Registry
+        # eintragen. Up2Date ordnet darueber ein installiertes Programm dem slug
+        # zu. Nur bei Windows-Produkten und nur, wenn im Datenmodell gepflegt.
+        if r["os"] == "windows" and p.get("windowsDisplayNames"):
+            eintrag["windowsDisplayNames"] = p["windowsDisplayNames"]
+        eintraege.append(eintrag)
     geplant.append((
         ROOT / "versions.json",
         {"schemaVersion": 1, "updatedAt": stand, "products": eintraege},

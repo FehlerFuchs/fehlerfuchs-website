@@ -697,6 +697,52 @@
     "notes": {
       "type": "string"
     },
+    "windowsDisplayNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Alle Namen, unter denen sich die Windows-Installer/Editionen dieses Produkts in der Registry als DisplayName eintragen. Der Update-Helfer Up2Date ordnet damit ein installiertes Programm dem slug zu (landet in versions.json). Bewusst explizit statt abgeleitet, weil Installer abweichen - z. B. traegt sich OrgaFuchs ohne 'FehlerFuchs'-Praefix ein, PDFuchs zusaetzlich mit Versionsnummer im Namen."
+    },
+    "quellen": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hinweis"
+      ],
+      "description": "Sichtbarer Quellen- und Behoerdenhinweis, wird als eigener Abschnitt auf der Produktseite gerendert. Pflicht, sobald die App behoerdliche Informationen zeigt (z. B. Feiertage/Schulferien) - sonst wertet ein Store das als nicht deklarierte Behoerdenauskunft ohne Quelle (OrgaFuchs, Google-Ablehnung 20.07.2026).",
+      "properties": {
+        "titel": {
+          "type": "string",
+          "description": "Ueberschrift des Abschnitts. Ohne Angabe steht 'Quellen und Hinweis'."
+        },
+        "eintraege": {
+          "type": "array",
+          "description": "Belegte Datenquellen mit Name und Adresse.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "url"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "pattern": "^https://"
+              }
+            }
+          }
+        },
+        "hinweis": {
+          "type": "string",
+          "description": "Der Klarstellungssatz (Disclaimer): dass die App privat ist und keine Behoerde vertritt."
+        }
+      }
+    },
     "customPage": {
       "type": "boolean"
     },

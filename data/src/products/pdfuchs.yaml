@@ -21,6 +21,14 @@ platforms:
 
 privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
+# Registry-DisplayNames der Windows-Installer für die Zuordnung im Update-Helfer
+# Up2Date. PDFuchs trägt sich unter zwei Namen ein (schlicht und mit
+# Versionsnummer), zusätzlich in verschiedenen Registry-Zweigen. Aus dem echten
+# Scan (Handoff Up2Date, 26.07.2026). Greift im Feed erst mit einem Release.
+windowsDisplayNames:
+  - PDFuchs
+  - PDFuchs Version 0.1.0
+
 editions:
   - id: standard
     name: PDFuchs

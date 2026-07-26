@@ -74,6 +74,14 @@ umwege:
 
 privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, kein-google, eigener-sync, offline-faehig]
 
+# Namen, unter denen sich die Windows-Installer in der Registry eintragen –
+# für die Zuordnung im Update-Helfer Up2Date (versions.json). OrgaFuchs trägt
+# sich ohne „FehlerFuchs"-Präfix ein; beide Schreibweisen aus dem echten
+# Registry-Scan (Handoff Up2Date, 26.07.2026).
+windowsDisplayNames:
+  - OrgaFuchs
+  - FehlerFuchs OrgaFuchs
+
 editions:
   - id: standard
     name: OrgaFuchs
@@ -156,6 +164,10 @@ features:
         values: { standard: ja }
 
 media:
+  # OG-Bild fuer geteilte Links (1200x630, OrgaFuchs Dark + Akzent-Orange).
+  # Nachgereicht vom OrgaFuchs-Projekt (26.07.2026); ersetzt die Bildmarke als
+  # Vorschaubild. Ohne dieses Feld waere das erste Bildschirmfoto das Vorschaubild.
+  vorschaubild: /img/og-orgafuchs.png
   lockup:
     src: /img/lockups/orgafuchs.svg
     alt: OrgaFuchs – von FehlerFuchs
@@ -256,6 +268,24 @@ links:
   alt_html: /apps/orgafuchs.html
   release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.0.0
   contact: /kontakt.html?app=OrgaFuchs&topic=interesse
+
+# Sichtbarer Quellen- und Behörden-Hinweis (Pflicht). Weil OrgaFuchs Feiertage
+# und Schulferien je Bundesland anzeigt, hat Google den ersten Store-Eintrag am
+# 20.07.2026 wegen fehlender Quelle als „Misleading Claims" zurückgewiesen.
+# Seither müssen Quelle und Disclaimer – wie im Store – auch auf der
+# Produktseite sichtbar stehen. Wortlaut aus RELEASE-TEXTE_OrgaFuchs.md, gleich
+# gehalten mit dem Play-Pendant STORE_TEXTE.md.
+quellen:
+  titel: Quellen und Behörden-Hinweis
+  eintraege:
+    - name: "Ferientermine: Ferienregelung der Kultusministerkonferenz (KMK)"
+      url: https://www.kmk.org/service/ferien.html
+    - name: "Offene Daten: OpenHolidays"
+      url: https://www.openholidaysapi.org
+  hinweis: >-
+    OrgaFuchs ist eine private App von FehlerFuchs und steht in keiner Verbindung
+    zu einer Behörde, einem Ministerium oder einer staatlichen Stelle. Die App
+    repräsentiert keine Regierungseinrichtung und bietet keine amtlichen Dienste an.
 
 notes: >-
   Offen: Play-Store-Freigabe für Android. Ebenfalls offen ist der von der App erwartete
