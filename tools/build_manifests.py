@@ -35,6 +35,10 @@ PRODUCTS = ROOT / "data" / "products.json"
 # auch abfragt. Sonst liegen tote Dateien herum, die niemand pflegt.
 UPDATE_FEEDS = {
     "gewerbepro": {"channel": "beta", "os": "windows"},
+    # MobileReport Enterprise ruft laut Prüfbericht F-004 auch
+    # /updates/mobilereport-enterprise/latest.json ab (neben dem fest
+    # verdrahteten /enterprise/latest.json). Beide werden jetzt erzeugt.
+    "mobilereport-enterprise": {"channel": "stable", "os": "android"},
 }
 
 unterschiede = []
@@ -144,8 +148,12 @@ def main():
             continue
         geplant.append((
             ROOT / "updates" / slug / "latest.json",
-            {"version": r["version"], "download_url": r["url"], "notes": r.get("notes", "")},
-            {"version", "download_url", "notes"},
+            {"version": r["version"], "download_url": r["url"],
+             # sha256 gehört ins per-App-Manifest (stand bisher nur im zentralen
+             # versions.json). Bei unsignierten Installern ist es die einzige
+             # Integritätsprüfung, die der Updater vor der Installation hat.
+             "sha256": r["sha256"], "notes": r.get("notes", "")},
+            {"version", "download_url", "sha256", "notes"},
         ))
 
     # ---------------------------------------------------------- enterprise/

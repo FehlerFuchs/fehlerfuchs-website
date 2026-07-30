@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-26T13:44:40+02:00",
+  "generiert": "2026-07-30T21:05:28+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -85,22 +85,8 @@
       "datum": "2026-07-18",
       "titel": "OrgaFuchs für Android – von der Prüfsoftware abgelehnt, Widerspruch läuft",
       "text": "Eingereicht und noch am selben Tag zurück. Die automatische Prüfung von Google hat die Einstellungsseite für den Gruppen-Sync als Bezahlschranke oder nicht deklarierten Login gewertet. Beides ist sie nicht: Dort trägt man eine Relay-Adresse und ein selbst gewähltes Gruppen-Passwort ein, um die eigenen Geräte zu verbinden. Kein Konto, keine Anmeldung, keine Zahlung. Der Widerspruch läuft; er kostet voraussichtlich sieben bis vierzehn Tage. Was mich dabei ärgert, ist nicht die Prüfung – die ist richtig –, sondern dass eine unsichere Maschine durchentscheidet, statt einen Menschen dazuzuholen. Windows bleibt verfügbar.",
-      "datumQuelle": "eigene Angabe",
+      "datumQuelle": "platforms[android].since",
       "wege": {
-        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
-      }
-    },
-    {
-      "id": "orgafuchs-1-0-0",
-      "typ": "veroeffentlichung",
-      "produkt": "orgafuchs",
-      "version": "1.0.0",
-      "titel": "OrgaFuchs 1.0.0 – für Windows da, Android in Arbeit",
-      "text": "Der lokale Familien- und Schichtplaner ist fertig für Windows. Monatskalender, Schnelleintrag, PDF als Monat, Jahr oder Blanko-Vorlage, dazu Feiertage und Schulferien je Bundesland. Die Geräte gleichen sich per QR-Code direkt untereinander ab – ohne Cloud, ohne Google, ohne Konto. Die Android-Fassung wird gerade gebaut.",
-      "datum": "2026-07-18",
-      "datumQuelle": "Release 1.0.0",
-      "wege": {
-        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.0.0/OrgaFuchs_Setup_1.0.0.exe",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
       }
     },

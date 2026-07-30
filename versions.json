@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-26",
+  "updatedAt": "2026-07-30",
   "products": [
     {
       "slug": "gewerbepro",
@@ -35,25 +35,6 @@
       "signed": false,
       "page": "https://fehlerfuchs.eu/produkte/mobilereport-enterprise/",
       "notes": "1.0.1: Betreff für Meldungen, Fotos per Ziehen sortieren (erstes Bild = Hauptbild), Name als Pflichtfeld mit optionalem Standard-Speichern, einstellbare maximale Bildanzahl, Profil-Feld Position/Funktion, überarbeitete Einstellungen (Bereich \"Verwaltung\") und Fix für die Admin-/Branding-Übernahme."
-    },
-    {
-      "slug": "orgafuchs",
-      "name": "FehlerFuchs OrgaFuchs",
-      "version": "1.0.0",
-      "date": "2026-07-18",
-      "channel": "stable",
-      "os": "windows",
-      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.0.0/OrgaFuchs_Setup_1.0.0.exe",
-      "filename": "OrgaFuchs_Setup_1.0.0.exe",
-      "sizeLabel": "15,3 MB",
-      "sha256": "6bdd5322629f8e6053b0d8e92ac6a5cd04b38b536fbacc0355b34769c4ffa991",
-      "signed": false,
-      "page": "https://fehlerfuchs.eu/produkte/orgafuchs/",
-      "notes": "Erstveröffentlichung. Wiederkehrende Serien, PDF als Monat/Jahr/Blanko, Feiertage und Schulferien je Bundesland, Geräte-Sync per QR-Code, Transparenz- und Open-Source-Seite in der App.",
-      "windowsDisplayNames": [
-        "OrgaFuchs",
-        "FehlerFuchs OrgaFuchs"
-      ]
     }
   ]
 }

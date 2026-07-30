@@ -16,6 +16,14 @@ platforms:
     status: verfuegbar
     distribution: play-store
     storeId: eu.fehlerfuchs.mobilereport
+    # Präzisierung nach MobileReport-Prüfbericht F-001 (30.07.2026): Seit dem
+    # In-App-Kauf meldet sich Googles Play-Billing-Bibliothek beim App-Start
+    # selbst (Telemetrie an Google). FehlerFuchs selbst trackt nicht – deshalb
+    # das flache Merkmal 'kein-tracking' entfernt und hier der ehrliche Satz.
+    hinweis:
+      wenn: verfuegbar
+      text: >-
+        FehlerFuchs trackt nicht; über Google Play Billing entsteht Google-Telemetrie.
 
 # 'nur-lokal' am 21.07.2026 gestrichen, ersetzt durch 'inhalte-lokal'.
 #
@@ -28,7 +36,12 @@ platforms:
 # 'inhalte-lokal' bleibt richtig und ist die Aussage, auf die es ankommt:
 # Meldungen, Fotos und PDFs verlassen das Geraet nur, wenn der Nutzer es
 # ausloest.
-privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
+#
+# 'kein-tracking' am 30.07.2026 gestrichen (Pruefbericht F-001): Als flaches
+# Merkmal ist es nicht mehr haltbar, seit Googles Play-Billing-Bibliothek beim
+# App-Start Telemetrie an Google sendet. FehlerFuchs trackt weiterhin nicht –
+# das steht jetzt praezise als Plattform-Hinweis (android) statt als Haekchen.
+privacy: [inhalte-lokal, keine-cloud, kein-konto, werbefrei, offline-faehig]
 
 editions:
   - id: free

@@ -125,18 +125,11 @@ meldungen:
       richtig –, sondern dass eine unsichere Maschine durchentscheidet, statt
       einen Menschen dazuzuholen. Windows bleibt verfügbar.
 
-  - id: orgafuchs-1-0-0
-    typ: veroeffentlichung
-    produkt: orgafuchs
-    version: "1.0.0"
-    # Kein datum: es steht beim Release und wird von dort geholt.
-    titel: OrgaFuchs 1.0.0 – für Windows da, Android in Arbeit
-    text: >-
-      Der lokale Familien- und Schichtplaner ist fertig für Windows. Monatskalender,
-      Schnelleintrag, PDF als Monat, Jahr oder Blanko-Vorlage, dazu Feiertage und
-      Schulferien je Bundesland. Die Geräte gleichen sich per QR-Code direkt
-      untereinander ab – ohne Cloud, ohne Google, ohne Konto. Die Android-Fassung
-      wird gerade gebaut.
+# Meldung 'orgafuchs-1-0-0' (typ veroeffentlichung) am 30.07.2026 entfernt:
+# Sie kündigte „für Windows da" an und hing am Release 1.0.0. Weil das
+# öffentliche GitHub-Release noch nicht hochgeladen ist, wurde OrgaFuchs aus
+# Feed/Download genommen (Entscheidung 2B) – die Meldung wäre damit falsch.
+# Sie kommt zurück, sobald der Release live ist.
 
   - id: pdfuchsreader-play-regulaer
     typ: store
