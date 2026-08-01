@@ -11,6 +11,9 @@ description: >-
 audience: [selbststaendige, unternehmen]
 accent: "#9F1239"   # Farbe der App
 status: beta
+# Sichtbarkeits-Ausnahme (Matthias, 01.08.2026): Die offene Beta ist bewusst
+# öffentlich und herunterladbar → voll sichtbar, nicht in den Ideen-/Pool.
+vorabSichtbar: true
 
 platforms:
   - os: windows

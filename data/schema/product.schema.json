@@ -746,6 +746,10 @@
     "customPage": {
       "type": "boolean"
     },
+    "vorabSichtbar": {
+      "type": "boolean",
+      "description": "Ausnahme zur Sichtbarkeitsregel: Trotz nicht-'verfuegbar'-Status bewusst voll sichtbar (eigene Detailseite, indexierbar, nicht im Ideen-/Entwicklungspool). Nur mit ausdruecklicher Freigabe von Matthias setzen. Ohne das Feld erscheinen nicht-'verfuegbar'-Produkte nur als Kachel im Pool ohne Detailseite."
+    },
     "vorwort": {
       "type": "object",
       "additionalProperties": false,

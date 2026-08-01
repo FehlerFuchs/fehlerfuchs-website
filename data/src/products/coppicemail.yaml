@@ -11,6 +11,10 @@ description: >-
 audience: [selbststaendige, unternehmen]
 accent: "#0F5132"
 status: entwicklung
+# Sichtbarkeits-Ausnahme (Matthias, 01.08.2026): 1.0.1 ist nahezu fertig →
+# Seite bleibt sichtbar wie OrgaFuchs (kein öffentlicher Download bis zur
+# Freigabe) → nicht in den Ideen-/Pool.
+vorabSichtbar: true
 
 platforms:
   - os: windows

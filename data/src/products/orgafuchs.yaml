@@ -17,6 +17,10 @@ accent: "#B4652A"   # Farbe der App
 # einen 404 (Entscheidung OrgaFuchs 2B, 28.07.2026). Sobald der Release live
 # ist: Status zurück auf 'verfuegbar' und den Release-Eintrag unten reaktivieren.
 status: pruefung
+# Sichtbarkeits-Ausnahme (Matthias, 01.08.2026): Seite bleibt vorerst voll
+# sichtbar, obwohl noch kein öffentlicher Release (Android in Prüfung,
+# Windows-Release folgt) → nicht in den Ideen-/Pool.
+vorabSichtbar: true
 
 platforms:
   - os: windows

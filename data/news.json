@@ -1,8 +1,16 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-30T21:05:28+02:00",
+  "generiert": "2026-08-01T19:06:03+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "pflege-statt-neues",
+      "typ": "hinweis",
+      "datum": "2026-08-01",
+      "titel": "Kurz erklärt – warum es zuletzt ruhiger war",
+      "text": "In den letzten Wochen ist hier bewusst wenig Neues erschienen. Die Zeit ist stattdessen in die bestehenden Produkte geflossen – geprüft, nachgebessert und abgesichert, damit verlässlich bleibt, was schon da ist. Gearbeitet haben wir zuletzt vor allem an OrgaFuchs, SnapFuchs, MobileReport und GewerbePro: Beschreibungen geschärft, Sicherheit und Datenschutz nachgezogen und den Update-Weg repariert. Neue Ankündigungen kommen wieder, sobald das Nächste wirklich fertig ist. — Matthias (Matze) von FehlerFuchs",
+      "datumQuelle": "eigene Angabe"
+    },
     {
       "id": "orgafuchs-zweite-ablehnung",
       "typ": "hinweis",

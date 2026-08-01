@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-07-30T21:05:28+02:00",
+  "generiert": "2026-08-01T19:06:03+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1471,6 +1471,7 @@
       ],
       "accent": "#B4652A",
       "status": "pruefung",
+      "vorabSichtbar": true,
       "platforms": [
         {
           "os": "windows",
@@ -1793,6 +1794,7 @@
       ],
       "accent": "#9F1239",
       "status": "beta",
+      "vorabSichtbar": true,
       "platforms": [
         {
           "os": "windows",
@@ -2502,6 +2504,7 @@
       ],
       "accent": "#0F5132",
       "status": "entwicklung",
+      "vorabSichtbar": true,
       "platforms": [
         {
           "os": "windows",

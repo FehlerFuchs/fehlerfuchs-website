@@ -29,6 +29,22 @@
 
 meldungen:
 
+  # Statusmeldung „warum es länger nichts Neues gab" (ChefBüro-Auftrag 2,
+  # 01.08.2026). Kein Changelog, keine Versionsnummern; Fakten aus dem
+  # Gesamt-Logbuch. Signatur mit Matzes Website-Ausnahme zur Namensregel.
+  - id: pflege-statt-neues
+    typ: hinweis
+    datum: "2026-08-01"
+    titel: Kurz erklärt – warum es zuletzt ruhiger war
+    text: >-
+      In den letzten Wochen ist hier bewusst wenig Neues erschienen. Die Zeit ist
+      stattdessen in die bestehenden Produkte geflossen – geprüft, nachgebessert und
+      abgesichert, damit verlässlich bleibt, was schon da ist. Gearbeitet haben wir
+      zuletzt vor allem an OrgaFuchs, SnapFuchs, MobileReport und GewerbePro:
+      Beschreibungen geschärft, Sicherheit und Datenschutz nachgezogen und den
+      Update-Weg repariert. Neue Ankündigungen kommen wieder, sobald das Nächste
+      wirklich fertig ist. — Matthias (Matze) von FehlerFuchs
+
   - id: orgafuchs-zweite-ablehnung
     typ: hinweis
     produkt: orgafuchs
