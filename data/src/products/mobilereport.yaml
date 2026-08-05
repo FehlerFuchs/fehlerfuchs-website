@@ -173,7 +173,7 @@ theme:
   flaeche: "#FFFFFF"      # white
   text: "#2B160B"         # darkBrown
   akzent: "#C2410C"       # action
-  quelle: FehlerFuchs Mobile Report/FehlerFuchsMR/lib/core/constants/app_colors.dart
+  quelle: FehlerFuchs_MobileReport/FehlerFuchsMR/lib/core/constants/app_colors.dart
 
 links:
   # Die ALTE Adresse dieses Produkts, von vor dem 20.07.2026. Sie steht hier

@@ -2,12 +2,18 @@ slug: belegwerk
 name: BelegWerk
 fullName: FehlerFuchs BelegWerk
 kind: produkt
-tagline: Belege scannen, ordnen und kontrolliert an Paperless übergeben.
+tagline: >-
+  Belege lokal prüfen, aufbereiten und kontrolliert an Paperless und die
+  eigene Dateiablage übergeben.
 description: >-
-  Nimmt Belege auf, sortiert und benennt sie nachvollziehbar und übergibt sie erst nach
-  Kontrolle an ein Paperless-Archiv. Der Zwischenschritt ist Absicht: Was einmal falsch
-  im Archiv liegt, findet man später nicht wieder.
-audience: [selbststaendige, unternehmen]
+  BelegWerk ist eine lokal-first Windows-Anwendung zwischen Scanner,
+  Paperless-ngx und der eigenen Dateiablage. Neue PDFs erscheinen in einem
+  kompakten Eingangskorb, können visuell geprüft, mit ASN versehen und mit
+  Paperless-Metadaten ergänzt werden. Paperless-Übernahme und zusätzliche
+  Dateiablage sind getrennte, nachvollziehbare Ziele mit eigenem Status und
+  eigener Wiederholung. Etiketten, mehrere frei konfigurierbare PDF-Stempel
+  und der Dokumentdruck sind direkt integriert; Originale bleiben unverändert.
+audience: [privat, selbststaendige, unternehmen]
 accent: "#C2410C"   # Farbe der App
 # Kein Bild-Lockup vorhanden – der Titel steht als Text und trägt
 # die Markenfarben, damit er trotzdem nach FehlerFuchs aussieht.
@@ -16,19 +22,180 @@ wordmark:
   - { text: "Beleg", color: "#7C3F16", weight: bold }
   - { text: "Werk", color: "#B45309", weight: bold }
 
-status: entwicklung
+# Auf 'pruefung' angehoben (BelegWerk bestätigt 28.07.2026; volles Onboarding aus
+# der Einschreibung am 05.08.2026). Release Candidate vorhanden, aber kein
+# öffentlicher, signierter Release. BEWUSST OHNE Versionsnummer auf der Seite
+# (ausdrücklicher Wunsch BelegWerk).
+status: pruefung
+# Sichtbarkeits-Ausnahme (Matthias, 05.08.2026): BelegWerk bekommt bewusst eine
+# volle RC-Seite (wie OrgaFuchs) statt nur einer Pool-Kachel – deshalb sichtbar,
+# obwohl noch nicht 'verfuegbar'. Kein öffentlicher Download bis zur Freigabe.
+vorabSichtbar: true
 
 platforms:
   - os: windows
-    status: entwicklung
+    status: pruefung
+    requirements: Windows 10/11, 64-Bit
+    since: "2026-07-27"
     distribution: keiner
+    hinweis:
+      wenn: pruefung
+      text: >-
+        Release Candidate, noch kein öffentlicher Download; digitale Signierung
+        und freigegebener Alltagstest stehen vor der Finalversion aus.
 
 privacy: [nur-lokal, kein-tracking, werbefrei]
 
-editions: []
+editions:
+  - id: standard
+    name: BelegWerk
+    public: true
+    summary: >-
+      Vollständige lokale Desktop-Anwendung. Preis und öffentlicher
+      Vertriebsweg sind noch nicht entschieden.
+    price: { model: offen }
+
 releases: []
 
-# Noch keine eigene Produktseite.
+# Funktionsübersicht 1:1 aus der Produkteinschreibung von BelegWerk (Stand
+# 2026-07-28) übernommen – eine Spalte, weil es eine Edition gibt.
+features:
+  - group: Eingang und Übersicht
+    items:
+      - name: Kompakter gemeinsamer Eingangskorb
+        values: { standard: ja }
+        note: Dokumentliste, zoombare Vorschau und Aufbereitung sind gleichzeitig sichtbar.
+      - name: Dokument im Ordner anzeigen oder drucken
+        values: { standard: ja }
+      - name: Bewusst nach „Prüfen“ verschieben
+        values: { standard: ja }
+        note: Getrennt von der technischen Quarantäne.
+      - name: Endgültiges Löschen nach deutlicher Rückfrage
+        values: { standard: ja }
+        note: Entfernt Eingang, Sidecars und verknüpfte Arbeitskopien; endgültige Zielkopien bleiben geschützt.
+      - name: Fertig geschriebene PDFs erkennen
+        values: { standard: ja }
+      - name: Eingang automatisch überwachen
+        values: { standard: ja }
+        note: Dateisystemereignis mit Beruhigungszeit und 30-Sekunden-Kontrolllauf für Netzlaufwerke, solange BelegWerk geöffnet ist.
+      - name: Doppelte und bereits bekannte Vorgänge erkennen
+        values: { standard: ja }
+      - name: Dashboard mit Kennzahlen, Dienststatus und Ordnerzugriffen
+        values: { standard: ja }
+  - group: Aufbereiten
+    items:
+      - name: Zoombare PDF-Vorschau und frei platzierbarer ASN-Stempel
+        values: { standard: ja }
+      - name: Individuelle Mehrfach-Stempel direkt in der Dokumentaufbereitung
+        values: { standard: ja }
+        note: Verwendet dieselben 13 Vorlagen wie die Stempelwerkstatt; bereits platzierte Stempel sind verschiebbar und an der Ecke skalierbar.
+      - name: Automatischer Vorschlag für eine freie Stempelposition
+        values: { standard: ja }
+      - name: Stapelscans trennen und Seiten drehen
+        values: { standard: ja }
+      - name: PDFuchs und PDF24 über geschützte Arbeitskopien
+        values: { standard: ja }
+        note: Das Eingangsoriginal wird nie an das externe Bearbeitungsprogramm übergeben.
+      - name: Barcode- und ASN-Erkennung
+        values: { standard: ja }
+      - name: Sidecar-Vorschläge für Profil, Titel, Metadaten, Tags und Ablage
+        values: { standard: ja }
+      - name: Texterkennung (OCR)
+        values: { standard: nein }
+        note: Bleibt Aufgabe der verbundenen Paperless-Instanz.
+  - group: Paperless und Dateiablage
+    items:
+      - name: Taxonomien aus mehreren Paperless-Instanzen laden
+        values: { standard: ja }
+      - name: Dokument mit Titel, Datum, ASN, Tags und Metadaten hochladen
+        values: { standard: ja }
+      - name: Bewusste Nur-Consume-Übergabe
+        values: { standard: ja }
+        note: Kein automatischer Fallback; die Aktion wird ausdrücklich gewählt.
+      - name: Unabhängige zusätzliche Dateiablage
+        values: { standard: ja }
+        note: Prozessisolierter nativer Windows-Ordnerpicker; nur innerhalb der freigegebenen Wurzel, kollisionsfrei und mit SHA-256-Prüfung.
+      - name: Getrennte Status- und Wiederholaktionen je Ziel
+        values: { standard: ja }
+      - name: Quarantäne bei Zweifelsfällen
+        values: { standard: ja }
+        note: Für technische Fehler; eigene fachliche Entscheidungen gehen nach „Prüfen“.
+  - group: ASN und Etiketten
+    items:
+      - name: Konfigurierbare ASN je Profil
+        values: { standard: ja }
+      - name: Fortlaufender Zähler und Drucklog
+        values: { standard: ja }
+      - name: Zähler und ASN-Format sicher bearbeiten
+        values: { standard: ja }
+      - name: ASN als Barcode auf eine Arbeitskopie stempeln
+        values: { standard: ja }
+      - name: Brother-Etikettendruck
+        values: { standard: ja }
+        note: Optional; setzt lokal installierte Brother-Software und Druckertreiber voraus.
+      - name: Installierte Drucker und `.lbx`-Vorlagen auswählen
+        values: { standard: ja }
+      - name: Maßstäbliche Code-128-Etikettenvorschau
+        values: { standard: ja }
+      - name: LBX-Medium und DK-Rolle vor dem Druck abgleichen
+        values: { standard: ja }
+        note: Abweichende Formate oder eine Vorlage ohne Barcode-Objekt sperren den Druck.
+  - group: PDF-Stempel
+    items:
+      - name: Mehrere farbige Textstempel auf einer Arbeitskopie
+        values: { standard: ja }
+      - name: Vorlagen mit Textfeldern, Farben und Größen bearbeiten
+        values: { standard: ja }
+      - name: Seite, Position und Drehung je Stempel festlegen
+        values: { standard: ja }
+      - name: Größe eines platzierten Stempels nachträglich anpassen
+        values: { standard: ja }
+        note: Sichtbarer Skaliergriff direkt auf der Seitenvorschau.
+      - name: Große Seitenvorschau mit klarer Zoomleiste
+        values: { standard: ja }
+        note: Prozentanzeige, Vergrößern, Verkleinern und ganze Seite einpassen.
+      - name: Ordnerzuordnung aus der profilspezifischen Dateiablage
+        values: { standard: ja }
+      - name: Familienzuordnung mit editierbaren Namen
+        values: { standard: ja }
+      - name: 13 direkt nutzbare Beispielstempel
+        values: { standard: ja }
+        note: Kleine zweispaltige Karten rechts neben der Seite mit sichtbarer vertikaler Scrollleiste.
+  - group: Betrieb und Nachvollziehbarkeit
+    items:
+      - name: Aktivitätsverlauf und Vorgangsjournal
+        values: { standard: ja }
+      - name: Direkter Status mehrerer Paperless-Instanzen
+        values: { standard: ja }
+        note: Zeigt API-, Token-, Dokument-, Aufgaben-, Container- und Consume-Status.
+      - name: Paperless-Consume-Überwachung prüfen
+        values: { standard: ja }
+        note: Paperless zieht aus seinen Consume-Wurzeln selbstständig; ungeprüfter BelegWerk-Unterordner bleibt bewusst getrennt.
+      - name: Echtes Paperless-Live-Protokoll aus Docker
+        values: { standard: ja }
+        note: Nach Instanz und Stufe filterbar; Zugangsdaten werden maskiert.
+      - name: Docker- und Dienststatus
+        values: { standard: ja }
+      - name: Bestätigungspflichtige Docker-Steuerung
+        values: { standard: ja }
+      - name: In-App-Diagnose für Core, Pfade, Konfiguration und Docker
+        values: { standard: ja }
+      - name: Paperless-Tokens im Windows Credential Manager
+        values: { standard: ja }
+  - group: Oberfläche und Hilfe
+    items:
+      - name: Vollständige kompakte Windows-Oberfläche
+        values: { standard: ja }
+      - name: Editierbare Einstellungen und Instanz-Erkennung
+        values: { standard: ja }
+      - name: Hilfe, Paperless-Einrichtung, Impressum und Datenschutz
+        values: { standard: ja }
+      - name: Freiwilliger Supportdialog mit Anhängen
+        values: { standard: ja }
+      - name: Konto oder Registrierung für BelegWerk
+        values: { standard: nein }
+      - name: Internetverbindung für lokale Belegverarbeitung
+        values: { standard: nein }
 
 # Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
 # Was dort nicht steht, steht auch hier nicht – dann greift der Standard.

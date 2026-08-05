@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-01T19:06:03+02:00",
+  "generiert": "2026-08-05T12:29:22+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -608,7 +608,7 @@
         "flaeche": "#FFFFFF",
         "text": "#2B160B",
         "akzent": "#C2410C",
-        "quelle": "FehlerFuchs Mobile Report/FehlerFuchsMR/lib/core/constants/app_colors.dart"
+        "quelle": "FehlerFuchs_MobileReport/FehlerFuchsMR/lib/core/constants/app_colors.dart"
       },
       "links": {
         "alt_html": "/apps/mobilereport.html",
@@ -773,7 +773,7 @@
         "text": "#1E293B",
         "textLeise": "#475569",
         "akzent": "#0C5E74",
-        "quelle": "FehlerFuchs Mobile Report/FehlerFuchsMR_Enterprise/01_App/lib/core/constants/app_colors.dart"
+        "quelle": "FehlerFuchs_MobileReport/FehlerFuchsMR_Enterprise/01_App/lib/core/constants/app_colors.dart"
       },
       "links": {
         "alt_html": "/apps/mobilereport-enterprise.html",
@@ -1456,6 +1456,459 @@
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.snapfuchs"
       },
       "notes": "Am 20.07.2026 im Play Store freigegeben. Offen: eine eigene Produktseite (derzeit wird die Vorlage benutzt) und die Bildschirmfotos gegen die veröffentlichte Fassung prüfen."
+    },
+    {
+      "slug": "belegwerk",
+      "name": "BelegWerk",
+      "fullName": "FehlerFuchs BelegWerk",
+      "kind": "produkt",
+      "tagline": "Belege lokal prüfen, aufbereiten und kontrolliert an Paperless und die eigene Dateiablage übergeben.",
+      "description": "BelegWerk ist eine lokal-first Windows-Anwendung zwischen Scanner, Paperless-ngx und der eigenen Dateiablage. Neue PDFs erscheinen in einem kompakten Eingangskorb, können visuell geprüft, mit ASN versehen und mit Paperless-Metadaten ergänzt werden. Paperless-Übernahme und zusätzliche Dateiablage sind getrennte, nachvollziehbare Ziele mit eigenem Status und eigener Wiederholung. Etiketten, mehrere frei konfigurierbare PDF-Stempel und der Dokumentdruck sind direkt integriert; Originale bleiben unverändert.",
+      "audience": [
+        "privat",
+        "selbststaendige",
+        "unternehmen"
+      ],
+      "accent": "#C2410C",
+      "wordmark": [
+        {
+          "text": "FehlerFuchs ",
+          "color": "#7C3F16",
+          "weight": "normal"
+        },
+        {
+          "text": "Beleg",
+          "color": "#7C3F16",
+          "weight": "bold"
+        },
+        {
+          "text": "Werk",
+          "color": "#B45309",
+          "weight": "bold"
+        }
+      ],
+      "status": "pruefung",
+      "vorabSichtbar": true,
+      "platforms": [
+        {
+          "os": "windows",
+          "status": "pruefung",
+          "requirements": "Windows 10/11, 64-Bit",
+          "since": "2026-07-27",
+          "distribution": "keiner",
+          "hinweis": {
+            "wenn": "pruefung",
+            "text": "Release Candidate, noch kein öffentlicher Download; digitale Signierung und freigegebener Alltagstest stehen vor der Finalversion aus."
+          }
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "kein-tracking",
+        "werbefrei"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "BelegWerk",
+          "public": true,
+          "summary": "Vollständige lokale Desktop-Anwendung. Preis und öffentlicher Vertriebsweg sind noch nicht entschieden.",
+          "price": {
+            "model": "offen"
+          }
+        }
+      ],
+      "releases": [],
+      "features": [
+        {
+          "group": "Eingang und Übersicht",
+          "items": [
+            {
+              "name": "Kompakter gemeinsamer Eingangskorb",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Dokumentliste, zoombare Vorschau und Aufbereitung sind gleichzeitig sichtbar."
+            },
+            {
+              "name": "Dokument im Ordner anzeigen oder drucken",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Bewusst nach „Prüfen“ verschieben",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Getrennt von der technischen Quarantäne."
+            },
+            {
+              "name": "Endgültiges Löschen nach deutlicher Rückfrage",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Entfernt Eingang, Sidecars und verknüpfte Arbeitskopien; endgültige Zielkopien bleiben geschützt."
+            },
+            {
+              "name": "Fertig geschriebene PDFs erkennen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Eingang automatisch überwachen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Dateisystemereignis mit Beruhigungszeit und 30-Sekunden-Kontrolllauf für Netzlaufwerke, solange BelegWerk geöffnet ist."
+            },
+            {
+              "name": "Doppelte und bereits bekannte Vorgänge erkennen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Dashboard mit Kennzahlen, Dienststatus und Ordnerzugriffen",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Aufbereiten",
+          "items": [
+            {
+              "name": "Zoombare PDF-Vorschau und frei platzierbarer ASN-Stempel",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Individuelle Mehrfach-Stempel direkt in der Dokumentaufbereitung",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Verwendet dieselben 13 Vorlagen wie die Stempelwerkstatt; bereits platzierte Stempel sind verschiebbar und an der Ecke skalierbar."
+            },
+            {
+              "name": "Automatischer Vorschlag für eine freie Stempelposition",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Stapelscans trennen und Seiten drehen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "PDFuchs und PDF24 über geschützte Arbeitskopien",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Das Eingangsoriginal wird nie an das externe Bearbeitungsprogramm übergeben."
+            },
+            {
+              "name": "Barcode- und ASN-Erkennung",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Sidecar-Vorschläge für Profil, Titel, Metadaten, Tags und Ablage",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Texterkennung (OCR)",
+              "values": {
+                "standard": "nein"
+              },
+              "note": "Bleibt Aufgabe der verbundenen Paperless-Instanz."
+            }
+          ]
+        },
+        {
+          "group": "Paperless und Dateiablage",
+          "items": [
+            {
+              "name": "Taxonomien aus mehreren Paperless-Instanzen laden",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Dokument mit Titel, Datum, ASN, Tags und Metadaten hochladen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Bewusste Nur-Consume-Übergabe",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Kein automatischer Fallback; die Aktion wird ausdrücklich gewählt."
+            },
+            {
+              "name": "Unabhängige zusätzliche Dateiablage",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Prozessisolierter nativer Windows-Ordnerpicker; nur innerhalb der freigegebenen Wurzel, kollisionsfrei und mit SHA-256-Prüfung."
+            },
+            {
+              "name": "Getrennte Status- und Wiederholaktionen je Ziel",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Quarantäne bei Zweifelsfällen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Für technische Fehler; eigene fachliche Entscheidungen gehen nach „Prüfen“."
+            }
+          ]
+        },
+        {
+          "group": "ASN und Etiketten",
+          "items": [
+            {
+              "name": "Konfigurierbare ASN je Profil",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Fortlaufender Zähler und Drucklog",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Zähler und ASN-Format sicher bearbeiten",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "ASN als Barcode auf eine Arbeitskopie stempeln",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Brother-Etikettendruck",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Optional; setzt lokal installierte Brother-Software und Druckertreiber voraus."
+            },
+            {
+              "name": "Installierte Drucker und `.lbx`-Vorlagen auswählen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Maßstäbliche Code-128-Etikettenvorschau",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "LBX-Medium und DK-Rolle vor dem Druck abgleichen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Abweichende Formate oder eine Vorlage ohne Barcode-Objekt sperren den Druck."
+            }
+          ]
+        },
+        {
+          "group": "PDF-Stempel",
+          "items": [
+            {
+              "name": "Mehrere farbige Textstempel auf einer Arbeitskopie",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Vorlagen mit Textfeldern, Farben und Größen bearbeiten",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Seite, Position und Drehung je Stempel festlegen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Größe eines platzierten Stempels nachträglich anpassen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Sichtbarer Skaliergriff direkt auf der Seitenvorschau."
+            },
+            {
+              "name": "Große Seitenvorschau mit klarer Zoomleiste",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Prozentanzeige, Vergrößern, Verkleinern und ganze Seite einpassen."
+            },
+            {
+              "name": "Ordnerzuordnung aus der profilspezifischen Dateiablage",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Familienzuordnung mit editierbaren Namen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "13 direkt nutzbare Beispielstempel",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Kleine zweispaltige Karten rechts neben der Seite mit sichtbarer vertikaler Scrollleiste."
+            }
+          ]
+        },
+        {
+          "group": "Betrieb und Nachvollziehbarkeit",
+          "items": [
+            {
+              "name": "Aktivitätsverlauf und Vorgangsjournal",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Direkter Status mehrerer Paperless-Instanzen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Zeigt API-, Token-, Dokument-, Aufgaben-, Container- und Consume-Status."
+            },
+            {
+              "name": "Paperless-Consume-Überwachung prüfen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Paperless zieht aus seinen Consume-Wurzeln selbstständig; ungeprüfter BelegWerk-Unterordner bleibt bewusst getrennt."
+            },
+            {
+              "name": "Echtes Paperless-Live-Protokoll aus Docker",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Nach Instanz und Stufe filterbar; Zugangsdaten werden maskiert."
+            },
+            {
+              "name": "Docker- und Dienststatus",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Bestätigungspflichtige Docker-Steuerung",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "In-App-Diagnose für Core, Pfade, Konfiguration und Docker",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Paperless-Tokens im Windows Credential Manager",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Oberfläche und Hilfe",
+          "items": [
+            {
+              "name": "Vollständige kompakte Windows-Oberfläche",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Editierbare Einstellungen und Instanz-Erkennung",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Hilfe, Paperless-Einrichtung, Impressum und Datenschutz",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Freiwilliger Supportdialog mit Anhängen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Konto oder Registrierung für BelegWerk",
+              "values": {
+                "standard": "nein"
+              }
+            },
+            {
+              "name": "Internetverbindung für lokale Belegverarbeitung",
+              "values": {
+                "standard": "nein"
+              }
+            }
+          ]
+        }
+      ],
+      "theme": {
+        "modus": "hell",
+        "hintergrund": "#FBF7F2",
+        "flaeche": "#FFFBF7",
+        "rand": "#E7D8C6",
+        "text": "#2B160B",
+        "textLeise": "#6F4F44",
+        "akzent": "#C2410C",
+        "quelle": "FehlerFuchs_BelegWerk/11_App_Flutter/belegwerk_desktop/lib/ui/ff_tokens.dart"
+      },
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/belegwerk.svg",
+          "alt": "BelegWerk – von FehlerFuchs",
+          "width": 1520,
+          "height": 380
+        },
+        "platzhalter": 4
+      },
+      "links": {
+        "contact": "/kontakt.html?app=BelegWerk&topic=interesse"
+      },
+      "notes": "Anbindung an Paperless bedeutet, dass Daten an ein selbst betriebenes Archiv gehen. Das Merkmal „keine-cloud\" ist deshalb bewusst nicht gesetzt – es hängt davon ab, wo der Nutzer sein Paperless betreibt."
     },
     {
       "slug": "orgafuchs",
@@ -2362,74 +2815,6 @@
         "alt_html": "/apps/appinsight.html",
         "contact": "/kontakt.html?app=AppInsight&topic=interesse"
       }
-    },
-    {
-      "slug": "belegwerk",
-      "name": "BelegWerk",
-      "fullName": "FehlerFuchs BelegWerk",
-      "kind": "produkt",
-      "tagline": "Belege scannen, ordnen und kontrolliert an Paperless übergeben.",
-      "description": "Nimmt Belege auf, sortiert und benennt sie nachvollziehbar und übergibt sie erst nach Kontrolle an ein Paperless-Archiv. Der Zwischenschritt ist Absicht: Was einmal falsch im Archiv liegt, findet man später nicht wieder.",
-      "audience": [
-        "selbststaendige",
-        "unternehmen"
-      ],
-      "accent": "#C2410C",
-      "wordmark": [
-        {
-          "text": "FehlerFuchs ",
-          "color": "#7C3F16",
-          "weight": "normal"
-        },
-        {
-          "text": "Beleg",
-          "color": "#7C3F16",
-          "weight": "bold"
-        },
-        {
-          "text": "Werk",
-          "color": "#B45309",
-          "weight": "bold"
-        }
-      ],
-      "status": "entwicklung",
-      "platforms": [
-        {
-          "os": "windows",
-          "status": "entwicklung",
-          "distribution": "keiner"
-        }
-      ],
-      "privacy": [
-        "nur-lokal",
-        "kein-tracking",
-        "werbefrei"
-      ],
-      "editions": [],
-      "releases": [],
-      "theme": {
-        "modus": "hell",
-        "hintergrund": "#FBF7F2",
-        "flaeche": "#FFFBF7",
-        "rand": "#E7D8C6",
-        "text": "#2B160B",
-        "textLeise": "#6F4F44",
-        "akzent": "#C2410C",
-        "quelle": "FehlerFuchs_BelegWerk/11_App_Flutter/belegwerk_desktop/lib/ui/ff_tokens.dart"
-      },
-      "media": {
-        "lockup": {
-          "src": "/img/lockups/belegwerk.svg",
-          "alt": "BelegWerk – von FehlerFuchs",
-          "width": 1520,
-          "height": 380
-        },
-        "platzhalter": 4
-      },
-      "links": {
-        "contact": "/kontakt.html?app=BelegWerk&topic=interesse"
-      },
-      "notes": "Anbindung an Paperless bedeutet, dass Daten an ein selbst betriebenes Archiv gehen. Das Merkmal „keine-cloud\" ist deshalb bewusst nicht gesetzt – es hängt davon ab, wo der Nutzer sein Paperless betreibt."
     },
     {
       "slug": "cleandesk",
