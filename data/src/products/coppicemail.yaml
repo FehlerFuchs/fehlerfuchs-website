@@ -5,7 +5,7 @@ kind: produkt
 tagline: Das lokale, datensparsame E-Mail-Programm für Belege und Büropost – der Weg Mail, Anhang, Beleg, Archiv so kurz wie möglich.
 description: >-
   E-Mail-Programm mit Belegfokus: Nachricht öffnen, Anhang erkennen, als Beleg ablegen,
-  archivieren – ohne Umwege und ohne Cloud-Zwang. CoppiceMail wurde als reine
+  archivieren – ohne Umwege. CoppiceMail wurde als reine
   Flutter/Dart-App neu aufgebaut; Version 1.0.1 ist funktional fertig und
   durchläuft vor der Freigabe die Sicherheits- und Stabilitätshärtung.
 audience: [selbststaendige, unternehmen]
@@ -26,7 +26,11 @@ platforms:
         1.0.1 als technischer Release-Kandidat gebaut; Sicherheits- und
         Stabilitätshärtung läuft. Noch kein öffentlicher Download.
 
-privacy: [nur-lokal, keine-cloud, kein-tracking, werbefrei]
+# An den realen 1.0-Datenfluss angepasst (05.08.2026, Datenschutz-Steckbrief v2:
+# lokal_only:false – ein E-Mail-Programm spricht mit den IMAP/SMTP-Servern des
+# Nutzers). 'nur-lokal' und 'keine-cloud' gestrichen; es bleiben die belegten
+# Zusagen aus dem Steckbrief (kein Konto bei FehlerFuchs, kein Tracking, werbefrei).
+privacy: [kein-konto, kein-tracking, werbefrei]
 
 editions: []
 releases: []

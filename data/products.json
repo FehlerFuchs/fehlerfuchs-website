@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-05T12:29:22+02:00",
+  "generiert": "2026-08-06T08:45:01+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -2882,7 +2882,7 @@
       "fullName": "FehlerFuchs CoppiceMail",
       "kind": "produkt",
       "tagline": "Das lokale, datensparsame E-Mail-Programm für Belege und Büropost – der Weg Mail, Anhang, Beleg, Archiv so kurz wie möglich.",
-      "description": "E-Mail-Programm mit Belegfokus: Nachricht öffnen, Anhang erkennen, als Beleg ablegen, archivieren – ohne Umwege und ohne Cloud-Zwang. CoppiceMail wurde als reine Flutter/Dart-App neu aufgebaut; Version 1.0.1 ist funktional fertig und durchläuft vor der Freigabe die Sicherheits- und Stabilitätshärtung.",
+      "description": "E-Mail-Programm mit Belegfokus: Nachricht öffnen, Anhang erkennen, als Beleg ablegen, archivieren – ohne Umwege. CoppiceMail wurde als reine Flutter/Dart-App neu aufgebaut; Version 1.0.1 ist funktional fertig und durchläuft vor der Freigabe die Sicherheits- und Stabilitätshärtung.",
       "audience": [
         "selbststaendige",
         "unternehmen"
@@ -2902,8 +2902,7 @@
         }
       ],
       "privacy": [
-        "nur-lokal",
-        "keine-cloud",
+        "kein-konto",
         "kein-tracking",
         "werbefrei"
       ],

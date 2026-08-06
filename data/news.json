@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-05T12:29:22+02:00",
+  "generiert": "2026-08-06T08:45:01+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -10,18 +10,6 @@
       "titel": "Kurz erklärt – warum es zuletzt ruhiger war",
       "text": "In den letzten Wochen ist hier bewusst wenig Neues erschienen. Die Zeit ist stattdessen in die bestehenden Produkte geflossen – geprüft, nachgebessert und abgesichert, damit verlässlich bleibt, was schon da ist. Gearbeitet haben wir zuletzt vor allem an OrgaFuchs, SnapFuchs, MobileReport und GewerbePro: Beschreibungen geschärft, Sicherheit und Datenschutz nachgezogen und den Update-Weg repariert. Neue Ankündigungen kommen wieder, sobald das Nächste wirklich fertig ist. — Matthias (Matze) von FehlerFuchs",
       "datumQuelle": "eigene Angabe"
-    },
-    {
-      "id": "orgafuchs-zweite-ablehnung",
-      "typ": "hinweis",
-      "produkt": "orgafuchs",
-      "datum": "2026-07-24",
-      "titel": "OrgaFuchs – zweite Ablehnung im Play Store",
-      "text": "OrgaFuchs ist erneut abgelehnt worden, diesmal wegen der automatischen Ferien- und Feiertagsanzeige: Die Prüfung wertete sie als behördliche Auskunft ohne Quellenangabe. Es sind Kalenderdaten für die Familienplanung wie in jeder Kalender-App. Die Store-Beschreibung ist geschärft – Quelle genannt, klargestellt, dass OrgaFuchs keine Behörde ist – und am 24. Juli erneut eingereicht. Am Programm wurde nichts geändert. Der ganze Weg steht auf der Produktseite.",
-      "datumQuelle": "eigene Angabe",
-      "wege": {
-        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
-      }
     },
     {
       "id": "gewerbepro-companion-in-arbeit",
@@ -84,18 +72,6 @@
       "hervorgehoben": true,
       "wege": {
         "aktion": "/aktion/snapfuchs-promo/"
-      }
-    },
-    {
-      "id": "orgafuchs-play-ablehnung-2026-07",
-      "typ": "store",
-      "produkt": "orgafuchs",
-      "datum": "2026-07-18",
-      "titel": "OrgaFuchs für Android – von der Prüfsoftware abgelehnt, Widerspruch läuft",
-      "text": "Eingereicht und noch am selben Tag zurück. Die automatische Prüfung von Google hat die Einstellungsseite für den Gruppen-Sync als Bezahlschranke oder nicht deklarierten Login gewertet. Beides ist sie nicht: Dort trägt man eine Relay-Adresse und ein selbst gewähltes Gruppen-Passwort ein, um die eigenen Geräte zu verbinden. Kein Konto, keine Anmeldung, keine Zahlung. Der Widerspruch läuft; er kostet voraussichtlich sieben bis vierzehn Tage. Was mich dabei ärgert, ist nicht die Prüfung – die ist richtig –, sondern dass eine unsichere Maschine durchentscheidet, statt einen Menschen dazuzuholen. Windows bleibt verfügbar.",
-      "datumQuelle": "platforms[android].since",
-      "wege": {
-        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
       }
     },
     {

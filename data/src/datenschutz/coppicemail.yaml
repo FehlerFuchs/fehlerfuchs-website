@@ -1,29 +1,113 @@
 slug: coppicemail
 name: CoppiceMail
-stand: "2026-07-24"
+stand: "2026-08-05"
 geprueft_von: FehlerFuchs_CoppiceMail
-fassung: "0.1.0-dev (Flutter/Dart-Neuaufbau) - nicht veroeffentlicht"
+fassung: "1.0.2-rc.1+5 (Flutter/Dart, Windows-Desktop) – interner technischer Release-Kandidat, nicht veroeffentlicht"
 
-# Heute verlaesst kein Datum das Geraet.
-lokal_only: true
+# WICHTIG: CoppiceMail ist ein E-Mail-Programm. "Lokal" heisst hier NICHT, dass keine
+# Daten das Geraet verlassen. Fuer Abruf und Versand verbindet sich die Anwendung mit
+# den Mailservern, die der Nutzer selbst einrichtet. Alles Weitere entsteht nur durch
+# Funktionen, die der Nutzer aktiv einschaltet oder ausloest.
+#
+# Diese Fassung 2 ersetzt den Steckbrief zum Stand 0.1.0-dev vom 24.07.2026. Jener
+# beschrieb ein Grundgeruest ohne Netzverbindung (lokal_only: true). Das trifft auf den
+# heutigen Funktionsstand nicht mehr zu.
+lokal_only: false
 
 auf_dem_geraet:
-  - was: E-Mail-Daten (Ordner, Nachrichten, Angaben zu Anhaengen, Vorlagen, Regeln)
-    wo: lokale Datenbank auf dem Geraet
-    beleg: app/data/repo.py (default_db_path, connect, init_db); app/data/schema_email.sql; Datei Daten/coppicemail.sqlite3
-  - was: Beispieldaten, die beim ersten Start angelegt werden (frei erfundene Absender und Betreffe, keine echten Nachrichten)
-    wo: dieselbe lokale Datenbank
-    beleg: app/data/repo.py (seed_demo)
-  - was: Lesestatus und Ordnerzuordnung der Nachrichten
-    wo: dieselbe lokale Datenbank
-    beleg: app/data/repo.py (mark_read, move_message)
+  - was: Arbeitskopie der Nachrichten (Betreff, Absender und Empfaenger, Text und HTML, Ordner, Lesestatus, Angaben zu Anhaengen), Kontakte, Stammdaten, Sende- und Textvorlagen, Regeln, Kategorien, Einstellungen
+    wo: SQLite-Datenbank im App-Datenordner des angemeldeten Windows-Benutzers; nicht anwendungsseitig verschluesselt
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/data/db.dart
+  - was: Zugangsdaten der Postfaecher (Passwoerter und Token)
+    wo: NICHT in der Datenbank. Die Windows-Umsetzung von flutter_secure_storage legt sie in einer mit DPAPI verschluesselten Datei im App-Datenbereich des angemeldeten Windows-Benutzers ab
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/data/secrets.dart
+  - was: Prozess- und Fehlerprotokoll (Zeitpunkt, Vorgang, Ergebnis). E-Mail-Adressen werden maskiert, Nachrichteninhalte nicht protokolliert. Konten erscheinen nur als lokale Nummer der Form "Konto#3", nicht mit Name oder Adresse
+    wo: rotierende Protokolldatei im App-Datenordner
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/services/log.dart, lib/mail/mail_service.dart
+  - was: Sicherheitsjournal der Automatik und Sperrprotokoll der Abwesenheitsantwort (Ziel nur als HMAC-SHA-256-Pseudonym, Postfachkennung, Aktion, Zustand, Zeitpunkt; keine Nachrichteninhalte)
+    wo: dieselbe SQLite-Datenbank; automatische Loeschung nach 30 Tagen, beim Start und im laufenden Betrieb. Der Schluessel fuer das Pseudonym liegt im DPAPI-geschuetzten Speicher, nicht in der Datenbank
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/data/db.dart (automation_actions, autoreply_log, purgeAutomationHistory)
+  - was: Konfigurationssicherung (JSON) mit Postfaechern ohne Passwoerter, Kontakten, Stammdaten, Regeln, Abwesenheitstexten, Vorlagen und Ordnerzuordnungen. Ohne Nachrichten, Anhaenge, Zugangsdaten und Automatikprotokolle
+    wo: an dem Ort, den der Nutzer beim Export auswaehlt
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/data/db.dart (exportData)
+  - was: Uebergabe- und Zwischendateien fuer Anhaenge, die an andere Programme weitergereicht werden
+    wo: Dokumente-Ordner des Nutzers bzw. Windows-Temp
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/mail/uebergabe.dart
+  - was: Sicherheitskopie der Datenbank unmittelbar vor einer notwendigen Schemaaenderung; bei fehlgeschlagener Aenderung zusaetzlich der fehlgeschlagene Zwischenstand zur Fehlersuche
+    wo: neben der Datenbank im App-Datenordner; hoechstens zwei Sicherungen und ein fehlgeschlagener Zwischenstand; nicht anwendungsseitig verschluesselt
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/data/database_upgrade_guard.dart
 
-# Desktop-Anwendung fuer Windows; es werden keine Systemberechtigungen angefordert.
-berechtigungen: []
+berechtigungen:
+  - name: Netzwerkzugriff
+    wofuer: Abruf und Versand ueber die vom Nutzer eingerichteten Mailserver; je nach Einstellung zusaetzlich Update-Pruefung und Beleguebergabe
+    pflicht: true
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/mail/mail_service.dart
+  - name: Automatischer Start mit Windows
+    wofuer: Hintergrundabgleich neuer Nachrichten. Eintrag im Benutzerbereich der Registrierung, per Einstellung an- und abschaltbar
+    pflicht: false
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/ui/home_screen.dart
+  - name: Windows-Benachrichtigungen
+    wofuer: Hinweis auf neu eingegangene Nachrichten
+    pflicht: false
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/main.dart, lib/ui/home_screen.dart
+  - name: Lesezugriff auf ein vorhandenes Thunderbird-Profil
+    wofuer: einmaliger Import bestehender Konteneinstellungen, nur auf ausdrueckliche Nutzeraktion
+    pflicht: false
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/mail/thunderbird_import.dart
+  - name: Nutzung der Microsoft-WebView2-Laufzeit
+    wofuer: Anzeige formatierter Nachrichten. JavaScript ist abgeschaltet und der Inhalt wird vorher bereinigt. Fehlt die Laufzeit, bleibt die Textansicht nutzbar
+    pflicht: false
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/services/webview_runtime.dart, lib/ui/mail_html_view.dart
 
-uebertragungen: []
+uebertragungen:
+  - wohin: die vom Nutzer eingerichteten Mailserver (IMAP und SMTP)
+    was: Zugangsdaten sowie Nachrichten und Anhaenge
+    wann: bei Abruf, automatischem Abgleich und Versand
+    freiwillig: false
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/mail/mail_service.dart
+  - wohin: Server Dritter, die der Absender einer HTML-Nachricht angegeben hat
+    was: Abruf externer Bilder. Standardmaessig blockiert; eine Freigabe gilt jeweils nur fuer die geoeffnete Nachricht
+    wann: nur nach Klick auf "Bilder laden"
+    freiwillig: true
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/ui/mail_html_view.dart, lib/mail/html_sanitizer.dart
+  - wohin: die Website, auf die ein Link in einer Nachricht verweist
+    was: Aufruf im Standardbrowser des Nutzers
+    wann: nur nach Klick auf den Link
+    freiwillig: true
+  - wohin: fehlerfuchs.eu
+    was: Abruf einer festen Versionsdatei, um auf eine neuere Fassung hinzuweisen. Kein Herunterladen und kein Ausfuehren eines Installationsprogramms aus der Anwendung heraus
+    wann: beim Start (abschaltbar) oder manuell
+    freiwillig: true
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/services/update_check.dart
+  - wohin: die vom Nutzer eingetragene Paperless-Instanz
+    was: der ausgewaehlte Anhang und das Zugangstoken
+    wann: nur nach Klick auf "An Paperless"
+    freiwillig: true
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/mail/uebergabe.dart
+  - wohin: lokales Programm oder lokaler Eingangsordner (PDFuchs, E-Rechnung, BelegWerk)
+    was: die Anhangdatei. Kein Empfaenger im Netz, solange der eingestellte Zielpfad lokal ist
+    wann: nur nach Nutzeraktion
+    freiwillig: true
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/mail/belegwerk_service.dart
+  - wohin: FehlerFuchs (Support- bzw. Info-Adresse)
+    was: die vom Nutzer verfasste Nachricht, auf Wunsch mit Diagnosetext oder Anhaengen. Der Inhalt wird vor dem Senden angezeigt
+    wann: nur wenn der Nutzer die Nachricht selbst absendet
+    freiwillig: true
+    beleg: 21_App_Flutter/coppicemail_desktop/lib/ui/info_support.dart
 
-fremde_dienste: []
+fremde_dienste:
+  - name: Mailanbieter des Nutzers
+    wofuer: Abruf und Versand der Nachrichten
+    wann: bei jedem Abruf und Versand
+  - name: Microsoft WebView2-Laufzeit
+    wofuer: Anzeige von HTML-Nachrichten auf dem Geraet
+    wann: beim Oeffnen einer HTML-Nachricht. Die Anzeige selbst baut keine eigene Netzverbindung auf, solange externe Bilder blockiert bleiben
+  - name: Paperless-Instanz des Nutzers
+    wofuer: Ablage von Belegen
+    wann: nur nach ausdruecklicher Uebergabe
+  - name: Bild- und Linkserver Dritter
+    wofuer: Inhalte, die in einer Nachricht verlinkt sind
+    wann: nur nach Nutzeraktion
 
 konto_noetig: false
 tracking: false
@@ -32,25 +116,40 @@ absturzberichte: false
 daten_an_dritte_verkauft: false
 
 loeschung: >-
-  Alle Daten liegen ausschliesslich lokal in einer einzigen Datenbankdatei im
-  Programmordner. Wird diese Datei oder der Programmordner geloescht, sind saemtliche
-  Daten vollstaendig entfernt. Es gibt keine Kopien auf Servern, und es bleibt nach
-  dem Loeschen nichts zurueck.
+  In der Anwendung entfernt "Lokale App-Daten zuruecksetzen" die Datenbankinhalte
+  (SQLite mit secure_delete und anschliessendem VACUUM), den DPAPI-geschuetzten Speicher
+  der Zugangsdaten und die Protokolle. Erfolg wird erst nach technischer Pruefung
+  gemeldet; schlaegt sie fehl, bleibt die Anwendung geoeffnet.
+  Der Deinstaller fragt getrennt "Daten behalten" oder "Daten entfernen".
+  "Daten behalten" ist die Vorgabe; eine unbeaufsichtigte Deinstallation fragt nicht und
+  behaelt den Profilordner immer. Nur ein ausdruecklich bestaetigtes "Daten entfernen"
+  loescht den Profilordner einschliesslich der unverschluesselten Sicherungen vor
+  Schemaaenderungen. Das wurde in einer vollstaendigen Deinstallations-Testreihe geprueft.
+  Wird ein einzelnes Postfach entfernt, verschwinden auch dessen Automatik- und
+  Antwortprotokolle. Nachrichten, die auf dem Server des Mailanbieters liegen, sowie
+  exportierte oder bereits an andere Programme uebergebene Dateien bleiben erhalten.
 
 besonderheiten: >-
-  Die Anwendung wurde nie veroeffentlicht. Seit dem 24.07.2026 wird sie als reine
-  Flutter/Dart-App neu aufgebaut (vorheriger Stand archiviert). Der aktuelle Stand ist ein
-  Grundgeruest und stellt heute keine Verbindung ins Internet her: Es werden keine Nachrichten
-  abgerufen oder versendet und keine Daten an andere Programme oder Dienste uebergeben. Was
-  angezeigt wird, sind Beispieldaten in der Oberflaeche. Ein Konto wird nicht benoetigt.
+  Die lokale Datenbank ist nicht anwendungsseitig verschluesselt; als Grundschutz wird
+  BitLocker oder eine gleichwertige Laufwerksverschluesselung empfohlen. Externe Bilder
+  sind standardmaessig blockiert, JavaScript in Nachrichten ist abgeschaltet und der
+  HTML-Inhalt wird vor der Anzeige bereinigt. Eine automatische Update-Installation gibt
+  es nicht: Die Anwendung prueft nur eine feste Versionsdatei und verweist auf die
+  Produktseite. Die Uebergabe an Paperless laesst unverschluesseltes HTTP ausschliesslich
+  zum eigenen Rechner zu; jede andere Adresse muss HTTPS verwenden. Die
+  Konfigurationssicherung enthaelt keine Zugangsdaten und keine Nachrichten; nach dem
+  Einlesen bleiben Regeln und Abwesenheitsantworten vorsichtshalber abgeschaltet. Fuer
+  Gmail und Outlook werden derzeit App-Passwoerter benoetigt, da moderne Anmeldeverfahren
+  noch nicht unterstuetzt werden.
 
-vorhandener_text: ""
+vorhandener_text: In der Anwendung unter "Info & Hilfe" sowie im Impressum; eine eigenstaendige Datenschutzdatei im Projekt gibt es bisher nicht.
 
 offene_fragen: >-
-  1) Der Abruf/Versand von E-Mails wird ueber das Dart-Paket enough_mail (IMAP/SMTP) umgesetzt;
-  welche Serververbindungen dann konkret entstehen, ergibt sich aus den vom Nutzer angelegten
-  Konten. Heute besteht keine solche Verbindung.
-  2) Zugangsdaten werden kuenftig ueber den OS-Schluesselbund (flutter_secure_storage) abgelegt
-  (Modi: merken / bei jedem Start abfragen / aus Konfig-Datei); im Grundgeruest noch nicht aktiv.
-  3) Belege werden ueber offene Schnittstellen angebunden (Paperless-REST, PDFuchs-Handoff,
-  E-Rechnung); dabei entstehende Verbindungen werden ergaenzt, sobald umgesetzt.
+  1) Impressum, Datenschutzerklaerung und Haftungshinweise sind noch nicht juristisch
+  abgenommen.
+  2) Eine verschluesselte lokale Ablage und eine verschluesselte Sicherung sind
+  vorgesehen, aber noch nicht umgesetzt.
+  3) Die Auslieferung ist derzeit nicht signiert; signierte Verteilung und signierte
+  Update-Informationen sind vorbereitet, aber noch nicht wirksam.
+  4) Ob und wie lange der Mailanbieter Verbindungsdaten wie die IP-Adresse
+  protokolliert, haengt vom Anbieter ab und nicht von CoppiceMail.

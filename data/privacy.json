@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-05T12:29:22+02:00",
+  "generiert": "2026-08-06T08:45:01+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -277,45 +277,166 @@
     {
       "slug": "coppicemail",
       "name": "CoppiceMail",
-      "stand": "2026-07-24",
+      "stand": "2026-08-05",
       "geprueft_von": "FehlerFuchs_CoppiceMail",
-      "fassung": "0.1.0-dev (Flutter/Dart-Neuaufbau) - nicht veroeffentlicht",
-      "lokal_only": true,
+      "fassung": "1.0.2-rc.1+5 (Flutter/Dart, Windows-Desktop) – interner technischer Release-Kandidat, nicht veroeffentlicht",
+      "lokal_only": false,
       "auf_dem_geraet": [
         {
-          "was": "E-Mail-Daten (Ordner, Nachrichten, Angaben zu Anhaengen, Vorlagen, Regeln)",
-          "wo": "lokale Datenbank auf dem Geraet",
-          "beleg": "app/data/repo.py (default_db_path, connect, init_db); app/data/schema_email.sql; Datei Daten/coppicemail.sqlite3"
+          "was": "Arbeitskopie der Nachrichten (Betreff, Absender und Empfaenger, Text und HTML, Ordner, Lesestatus, Angaben zu Anhaengen), Kontakte, Stammdaten, Sende- und Textvorlagen, Regeln, Kategorien, Einstellungen",
+          "wo": "SQLite-Datenbank im App-Datenordner des angemeldeten Windows-Benutzers; nicht anwendungsseitig verschluesselt",
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/data/db.dart"
         },
         {
-          "was": "Beispieldaten, die beim ersten Start angelegt werden (frei erfundene Absender und Betreffe, keine echten Nachrichten)",
-          "wo": "dieselbe lokale Datenbank",
-          "beleg": "app/data/repo.py (seed_demo)"
+          "was": "Zugangsdaten der Postfaecher (Passwoerter und Token)",
+          "wo": "NICHT in der Datenbank. Die Windows-Umsetzung von flutter_secure_storage legt sie in einer mit DPAPI verschluesselten Datei im App-Datenbereich des angemeldeten Windows-Benutzers ab",
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/data/secrets.dart"
         },
         {
-          "was": "Lesestatus und Ordnerzuordnung der Nachrichten",
-          "wo": "dieselbe lokale Datenbank",
-          "beleg": "app/data/repo.py (mark_read, move_message)"
+          "was": "Prozess- und Fehlerprotokoll (Zeitpunkt, Vorgang, Ergebnis). E-Mail-Adressen werden maskiert, Nachrichteninhalte nicht protokolliert. Konten erscheinen nur als lokale Nummer der Form \"Konto#3\", nicht mit Name oder Adresse",
+          "wo": "rotierende Protokolldatei im App-Datenordner",
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/services/log.dart, lib/mail/mail_service.dart"
+        },
+        {
+          "was": "Sicherheitsjournal der Automatik und Sperrprotokoll der Abwesenheitsantwort (Ziel nur als HMAC-SHA-256-Pseudonym, Postfachkennung, Aktion, Zustand, Zeitpunkt; keine Nachrichteninhalte)",
+          "wo": "dieselbe SQLite-Datenbank; automatische Loeschung nach 30 Tagen, beim Start und im laufenden Betrieb. Der Schluessel fuer das Pseudonym liegt im DPAPI-geschuetzten Speicher, nicht in der Datenbank",
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/data/db.dart (automation_actions, autoreply_log, purgeAutomationHistory)"
+        },
+        {
+          "was": "Konfigurationssicherung (JSON) mit Postfaechern ohne Passwoerter, Kontakten, Stammdaten, Regeln, Abwesenheitstexten, Vorlagen und Ordnerzuordnungen. Ohne Nachrichten, Anhaenge, Zugangsdaten und Automatikprotokolle",
+          "wo": "an dem Ort, den der Nutzer beim Export auswaehlt",
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/data/db.dart (exportData)"
+        },
+        {
+          "was": "Uebergabe- und Zwischendateien fuer Anhaenge, die an andere Programme weitergereicht werden",
+          "wo": "Dokumente-Ordner des Nutzers bzw. Windows-Temp",
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/mail/uebergabe.dart"
+        },
+        {
+          "was": "Sicherheitskopie der Datenbank unmittelbar vor einer notwendigen Schemaaenderung; bei fehlgeschlagener Aenderung zusaetzlich der fehlgeschlagene Zwischenstand zur Fehlersuche",
+          "wo": "neben der Datenbank im App-Datenordner; hoechstens zwei Sicherungen und ein fehlgeschlagener Zwischenstand; nicht anwendungsseitig verschluesselt",
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/data/database_upgrade_guard.dart"
         }
       ],
-      "berechtigungen": [],
-      "uebertragungen": [],
-      "fremde_dienste": [],
+      "berechtigungen": [
+        {
+          "name": "Netzwerkzugriff",
+          "wofuer": "Abruf und Versand ueber die vom Nutzer eingerichteten Mailserver; je nach Einstellung zusaetzlich Update-Pruefung und Beleguebergabe",
+          "pflicht": true,
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/mail/mail_service.dart"
+        },
+        {
+          "name": "Automatischer Start mit Windows",
+          "wofuer": "Hintergrundabgleich neuer Nachrichten. Eintrag im Benutzerbereich der Registrierung, per Einstellung an- und abschaltbar",
+          "pflicht": false,
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/ui/home_screen.dart"
+        },
+        {
+          "name": "Windows-Benachrichtigungen",
+          "wofuer": "Hinweis auf neu eingegangene Nachrichten",
+          "pflicht": false,
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/main.dart, lib/ui/home_screen.dart"
+        },
+        {
+          "name": "Lesezugriff auf ein vorhandenes Thunderbird-Profil",
+          "wofuer": "einmaliger Import bestehender Konteneinstellungen, nur auf ausdrueckliche Nutzeraktion",
+          "pflicht": false,
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/mail/thunderbird_import.dart"
+        },
+        {
+          "name": "Nutzung der Microsoft-WebView2-Laufzeit",
+          "wofuer": "Anzeige formatierter Nachrichten. JavaScript ist abgeschaltet und der Inhalt wird vorher bereinigt. Fehlt die Laufzeit, bleibt die Textansicht nutzbar",
+          "pflicht": false,
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/services/webview_runtime.dart, lib/ui/mail_html_view.dart"
+        }
+      ],
+      "uebertragungen": [
+        {
+          "wohin": "die vom Nutzer eingerichteten Mailserver (IMAP und SMTP)",
+          "was": "Zugangsdaten sowie Nachrichten und Anhaenge",
+          "wann": "bei Abruf, automatischem Abgleich und Versand",
+          "freiwillig": false,
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/mail/mail_service.dart"
+        },
+        {
+          "wohin": "Server Dritter, die der Absender einer HTML-Nachricht angegeben hat",
+          "was": "Abruf externer Bilder. Standardmaessig blockiert; eine Freigabe gilt jeweils nur fuer die geoeffnete Nachricht",
+          "wann": "nur nach Klick auf \"Bilder laden\"",
+          "freiwillig": true,
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/ui/mail_html_view.dart, lib/mail/html_sanitizer.dart"
+        },
+        {
+          "wohin": "die Website, auf die ein Link in einer Nachricht verweist",
+          "was": "Aufruf im Standardbrowser des Nutzers",
+          "wann": "nur nach Klick auf den Link",
+          "freiwillig": true
+        },
+        {
+          "wohin": "fehlerfuchs.eu",
+          "was": "Abruf einer festen Versionsdatei, um auf eine neuere Fassung hinzuweisen. Kein Herunterladen und kein Ausfuehren eines Installationsprogramms aus der Anwendung heraus",
+          "wann": "beim Start (abschaltbar) oder manuell",
+          "freiwillig": true,
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/services/update_check.dart"
+        },
+        {
+          "wohin": "die vom Nutzer eingetragene Paperless-Instanz",
+          "was": "der ausgewaehlte Anhang und das Zugangstoken",
+          "wann": "nur nach Klick auf \"An Paperless\"",
+          "freiwillig": true,
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/mail/uebergabe.dart"
+        },
+        {
+          "wohin": "lokales Programm oder lokaler Eingangsordner (PDFuchs, E-Rechnung, BelegWerk)",
+          "was": "die Anhangdatei. Kein Empfaenger im Netz, solange der eingestellte Zielpfad lokal ist",
+          "wann": "nur nach Nutzeraktion",
+          "freiwillig": true,
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/mail/belegwerk_service.dart"
+        },
+        {
+          "wohin": "FehlerFuchs (Support- bzw. Info-Adresse)",
+          "was": "die vom Nutzer verfasste Nachricht, auf Wunsch mit Diagnosetext oder Anhaengen. Der Inhalt wird vor dem Senden angezeigt",
+          "wann": "nur wenn der Nutzer die Nachricht selbst absendet",
+          "freiwillig": true,
+          "beleg": "21_App_Flutter/coppicemail_desktop/lib/ui/info_support.dart"
+        }
+      ],
+      "fremde_dienste": [
+        {
+          "name": "Mailanbieter des Nutzers",
+          "wofuer": "Abruf und Versand der Nachrichten",
+          "wann": "bei jedem Abruf und Versand"
+        },
+        {
+          "name": "Microsoft WebView2-Laufzeit",
+          "wofuer": "Anzeige von HTML-Nachrichten auf dem Geraet",
+          "wann": "beim Oeffnen einer HTML-Nachricht. Die Anzeige selbst baut keine eigene Netzverbindung auf, solange externe Bilder blockiert bleiben"
+        },
+        {
+          "name": "Paperless-Instanz des Nutzers",
+          "wofuer": "Ablage von Belegen",
+          "wann": "nur nach ausdruecklicher Uebergabe"
+        },
+        {
+          "name": "Bild- und Linkserver Dritter",
+          "wofuer": "Inhalte, die in einer Nachricht verlinkt sind",
+          "wann": "nur nach Nutzeraktion"
+        }
+      ],
       "konto_noetig": false,
       "tracking": false,
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen ausschliesslich lokal in einer einzigen Datenbankdatei im Programmordner. Wird diese Datei oder der Programmordner geloescht, sind saemtliche Daten vollstaendig entfernt. Es gibt keine Kopien auf Servern, und es bleibt nach dem Loeschen nichts zurueck.",
-      "besonderheiten": "Die Anwendung wurde nie veroeffentlicht. Seit dem 24.07.2026 wird sie als reine Flutter/Dart-App neu aufgebaut (vorheriger Stand archiviert). Der aktuelle Stand ist ein Grundgeruest und stellt heute keine Verbindung ins Internet her: Es werden keine Nachrichten abgerufen oder versendet und keine Daten an andere Programme oder Dienste uebergeben. Was angezeigt wird, sind Beispieldaten in der Oberflaeche. Ein Konto wird nicht benoetigt.",
-      "vorhandener_text": "",
-      "offene_fragen": "1) Der Abruf/Versand von E-Mails wird ueber das Dart-Paket enough_mail (IMAP/SMTP) umgesetzt; welche Serververbindungen dann konkret entstehen, ergibt sich aus den vom Nutzer angelegten Konten. Heute besteht keine solche Verbindung. 2) Zugangsdaten werden kuenftig ueber den OS-Schluesselbund (flutter_secure_storage) abgelegt (Modi: merken / bei jedem Start abfragen / aus Konfig-Datei); im Grundgeruest noch nicht aktiv. 3) Belege werden ueber offene Schnittstellen angebunden (Paperless-REST, PDFuchs-Handoff, E-Rechnung); dabei entstehende Verbindungen werden ergaenzt, sobald umgesetzt.",
+      "loeschung": "In der Anwendung entfernt \"Lokale App-Daten zuruecksetzen\" die Datenbankinhalte (SQLite mit secure_delete und anschliessendem VACUUM), den DPAPI-geschuetzten Speicher der Zugangsdaten und die Protokolle. Erfolg wird erst nach technischer Pruefung gemeldet; schlaegt sie fehl, bleibt die Anwendung geoeffnet. Der Deinstaller fragt getrennt \"Daten behalten\" oder \"Daten entfernen\". \"Daten behalten\" ist die Vorgabe; eine unbeaufsichtigte Deinstallation fragt nicht und behaelt den Profilordner immer. Nur ein ausdruecklich bestaetigtes \"Daten entfernen\" loescht den Profilordner einschliesslich der unverschluesselten Sicherungen vor Schemaaenderungen. Das wurde in einer vollstaendigen Deinstallations-Testreihe geprueft. Wird ein einzelnes Postfach entfernt, verschwinden auch dessen Automatik- und Antwortprotokolle. Nachrichten, die auf dem Server des Mailanbieters liegen, sowie exportierte oder bereits an andere Programme uebergebene Dateien bleiben erhalten.",
+      "besonderheiten": "Die lokale Datenbank ist nicht anwendungsseitig verschluesselt; als Grundschutz wird BitLocker oder eine gleichwertige Laufwerksverschluesselung empfohlen. Externe Bilder sind standardmaessig blockiert, JavaScript in Nachrichten ist abgeschaltet und der HTML-Inhalt wird vor der Anzeige bereinigt. Eine automatische Update-Installation gibt es nicht: Die Anwendung prueft nur eine feste Versionsdatei und verweist auf die Produktseite. Die Uebergabe an Paperless laesst unverschluesseltes HTTP ausschliesslich zum eigenen Rechner zu; jede andere Adresse muss HTTPS verwenden. Die Konfigurationssicherung enthaelt keine Zugangsdaten und keine Nachrichten; nach dem Einlesen bleiben Regeln und Abwesenheitsantworten vorsichtshalber abgeschaltet. Fuer Gmail und Outlook werden derzeit App-Passwoerter benoetigt, da moderne Anmeldeverfahren noch nicht unterstuetzt werden.",
+      "vorhandener_text": "In der Anwendung unter \"Info & Hilfe\" sowie im Impressum; eine eigenstaendige Datenschutzdatei im Projekt gibt es bisher nicht.",
+      "offene_fragen": "1) Impressum, Datenschutzerklaerung und Haftungshinweise sind noch nicht juristisch abgenommen. 2) Eine verschluesselte lokale Ablage und eine verschluesselte Sicherung sind vorgesehen, aber noch nicht umgesetzt. 3) Die Auslieferung ist derzeit nicht signiert; signierte Verteilung und signierte Update-Informationen sind vorbereitet, aber noch nicht wirksam. 4) Ob und wie lange der Mailanbieter Verbindungsdaten wie die IP-Adresse protokolliert, haengt vom Anbieter ab und nicht von CoppiceMail.",
       "art": "anwendung"
     },
     {
       "slug": "einsatzfuchs",
       "name": "EinsatzFuchs",
-      "stand": "2026-07-24",
+      "stand": "2026-08-05",
       "geprueft_von": "FehlerFuchs_EinsatzFuchs",
       "fassung": "noch nicht veröffentlicht",
       "lokal_only": true,
@@ -325,8 +446,8 @@
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
       "loeschung": "Alle Inhalte und Einstellungen liegen auf dem Geraet. Sie verschwinden, wenn man die App deinstalliert.",
-      "besonderheiten": "EinsatzFuchs ist eine offline-faehige App fuer die Freiwillige Feuerwehr, nicht-kommerziell und ohne Konto. Sie ist in der Konzeptphase, es gibt noch keinen Code.",
-      "offene_fragen": "Die Anwendung ist in Entwicklung; Angaben folgen, sobald der Funktionsumfang steht. Laut Konzept ist der einzige geplante Netzzugriff die Versionspruefung und der Paket-Download von fehlerfuchs.eu (Inhaltsaktualisierung, vom Nutzer ausgeloest); ausserdem ruft die Lagekarte OSM-/Overpass-Kartendaten ab, wenn der Nutzer sie oeffnet. Beides ist noch nicht gebaut und daher hier nur als geplant vermerkt, nicht als Tatsache. Hinweis: Der Slug \"einsatzfuchs\" steht noch NICHT auf der Slug-Liste im Datenschutz-Prompt (Stand 19.07.2026) - die Website-Liste muss um einsatzfuchs ergaenzt werden.",
+      "besonderheiten": "EinsatzFuchs ist eine offline-faehige App fuer die Freiwillige Feuerwehr, nicht-kommerziell und ohne Konto. Sie ist in der Konzeptphase, es gibt noch keinen Code. Stand 26.07.2026 geprueft: seit dem 24.07. hat sich datenschutzrechtlich nichts geaendert. Der MVP-Schnitt v0.1 ist am 25.07. abgenommen und die Formel-Verifikation (Block 0.5) laeuft - beides betrifft nur den fachlichen Inhalt der Rechner, nicht die Datenverarbeitung. v0.1 bleibt ausdruecklich ohne jeden Netzzugriff. Stand 05.08.2026 geprueft: seit dem 26.07. hat sich datenschutzrechtlich nichts geaendert. Geaendert wurde nur der Fachinhalt der Formelbank (FORMELN_EinsatzFuchs.md, Fassung 4) - Rechenwege und Quellenbelege, keine Datenverarbeitung. Es gibt weiterhin keinen Code.",
+      "offene_fragen": "Die Anwendung ist in Entwicklung; Angaben folgen, sobald der Funktionsumfang steht. Laut Konzept ist der einzige geplante Netzzugriff die Versionspruefung und der Paket-Download von fehlerfuchs.eu (Inhaltsaktualisierung, vom Nutzer ausgeloest); ausserdem ruft die Lagekarte OSM-/Overpass-Kartendaten ab, wenn der Nutzer sie oeffnet. Beides ist noch nicht gebaut und daher hier nur als geplant vermerkt, nicht als Tatsache. Erledigt am 05.08.2026: Der frueher hier vermerkte offene Punkt zum Slug ist gegenstandslos. Der Slug \"einsatzfuchs\" steht seit 24.07.2026 in _SLUG-EIGENTUEMER.md (Eigentuemer FehlerFuchs_EinsatzFuchs); eine Slug-Liste im Datenschutz-Prompt gibt es nicht - der Prompt fuehrt keine.",
       "art": "anwendung"
     },
     {
@@ -1491,7 +1612,7 @@
     {
       "slug": "schichtfuchs",
       "name": "SchichtFuchsHTML",
-      "stand": "2026-07-19",
+      "stand": "2026-08-05",
       "geprueft_von": "FehlerFuchs_SchichtFuchs",
       "fassung": "BETA 2.0 (Auftrags-Edition) – in Erprobung, nicht veröffentlicht",
       "lokal_only": true,
@@ -1532,9 +1653,9 @@
     {
       "slug": "snapfuchs",
       "name": "SnapFuchs",
-      "stand": "2026-07-21",
+      "stand": "2026-08-05",
       "geprueft_von": "FehlerFuchs_SnapFuchs",
-      "fassung": "1.1.0 (versionCode 6)",
+      "fassung": "1.1.1 (versionCode 8)",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -1563,6 +1684,10 @@
           "beleg": "android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt"
         }
       ],
+      "backup_ausgeschlossen": {
+        "wo": "android:allowBackup=\"false\", fullBackupContent=\"false\", dataExtractionRules",
+        "beleg": "android/app/src/main/AndroidManifest.xml, android/app/src/main/res/xml/data_extraction_rules.xml"
+      },
       "berechtigungen": [
         {
           "name": "Kamera",
@@ -1581,12 +1706,6 @@
           "wofuer": "einmaliger Kauf der Pro-Fassung",
           "pflicht": false,
           "beleg": "com.android.vending.BILLING, vom Paket in_app_purchase ergaenzt, im gemergten Release-Manifest enthalten"
-        },
-        {
-          "name": "Schreiben auf den geteilten Speicher, nur auf Android 9 und aelter",
-          "wofuer": "alter Weg fuer den Export; eigene Dokumente werden im Bereich der App abgelegt",
-          "pflicht": false,
-          "beleg": "WRITE_EXTERNAL_STORAGE mit maxSdkVersion 28 in android/app/src/main/AndroidManifest.xml"
         },
         {
           "name": "Netzwerkstatus",
@@ -1648,8 +1767,7 @@
         {
           "name": "Google Play Billing (Paket in_app_purchase)",
           "wofuer": "einmaliger In-App-Kauf der Pro-Fassung und dessen Wiederherstellung",
-          "wann": "beim App-Start (Statusabfrage) und beim Kauf",
-          "telemetrie": "Die Abrechnungsbibliothek meldet beim Start eigene Betriebsdaten an Google (firebaselogging.googleapis.com). Das sind technische Ereignisse zum Kaufvorgang – keine Scans, keine Dokumente, keine Nutzungsdaten von SnapFuchs. Abschalten ließe sich das nur durch einen Eingriff in die Bibliothek, an der die Kaufabwicklung hängt. Darauf verzichten wir bewusst: Ein ungetesteter Eingriff in den Kaufweg wäre das größere Risiko. Wir benennen es stattdessen – in der App unter Einstellungen und in der Transparenz-Anzeige."
+          "wann": "beim App-Start (Statusabfrage) und beim Kauf"
         },
         {
           "name": "Kontakt-Weiterleitung auf dem FehlerFuchs-Lizenzserver (EU, IONOS)",
@@ -1671,60 +1789,85 @@
     {
       "slug": "up2date",
       "name": "Up2Date – FehlerFuchs Update-Helfer",
-      "stand": "2026-07-19",
+      "stand": "2026-07-26",
       "geprueft_von": "FehlerFuchs_Up2Date",
-      "fassung": "1.0.0 (MVP-Grundgeruest, noch nicht veroeffentlicht)",
-      "lokal_only": true,
+      "fassung": "1.0.0 (MVP: Tray, App-Erkennung, Versionsabgleich, Autostart, Feedback; noch nicht veroeffentlicht)",
+      "lokal_only": false,
       "auf_dem_geraet": [
         {
-          "was": "keine Daten",
-          "wo": "entfaellt – die Anwendung legt im aktuellen Stand nichts auf dem Geraet ab",
-          "beleg": "lib/main.dart und lib/theme.dart sind die einzigen Quelldateien; keine Treffer fuer File(), Directory() oder shared_preferences"
+          "was": "Einstellungen (Schalter \"Beta-Fassungen anbieten\")",
+          "wo": "lokaler App-Einstellungsspeicher (shared_preferences)",
+          "beleg": "lib/settings.dart"
+        },
+        {
+          "was": "Autostart-Eintrag, nur wenn der Nutzer ihn einschaltet",
+          "wo": "Windows-Registry des eigenen Benutzers (HKCU, Autostart)",
+          "beleg": "lib/settings.dart (Paket launch_at_startup)"
+        },
+        {
+          "was": "keine persoenlichen oder inhaltlichen Nutzerdaten",
+          "wo": "es gibt keine Datenbank, keine Dokumente, keine Konten",
+          "beleg": "keine Datei-/DB-Schreibzugriffe ausser den Einstellungen oben"
         }
       ],
       "berechtigungen": [
         {
           "name": "Lesen der Liste installierter Programme",
-          "wofuer": "spaeter geplant – Erkennen, welche FehlerFuchs-Programme vorhanden sind",
+          "wofuer": "Erkennen, welche FehlerFuchs-Programme installiert sind (Name + Fassung)",
           "pflicht": false,
-          "beleg": "pubspec.yaml – Paket win32_registry deklariert, 0 Verwendungen in lib/"
+          "beleg": "lib/app_scan.dart (Paket win32_registry), nur lesend, Uninstall-Eintraege"
         },
         {
           "name": "Automatischer Start mit Windows",
-          "wofuer": "spaeter geplant – nur nach ausdruecklicher Zustimmung, jederzeit abschaltbar",
+          "wofuer": "optionaler Start im Infobereich – nur nach Zustimmung, jederzeit abschaltbar",
           "pflicht": false,
-          "beleg": "pubspec.yaml – Paket launch_at_startup deklariert, 0 Verwendungen in lib/"
+          "beleg": "lib/settings.dart (Paket launch_at_startup, HKCU); kein Eintrag durch den Installer"
         },
         {
           "name": "Zugriff auf das Internet",
-          "wofuer": "spaeter geplant – Abruf der Liste aktueller Fassungen von fehlerfuchs.eu",
+          "wofuer": "Abruf der Fassungsliste (automatisch beim Start) und Senden von Feedback (nur nutzerausgeloest)",
           "pflicht": false,
-          "beleg": "pubspec.yaml – Paket http deklariert, 0 Verwendungen in lib/"
+          "beleg": "lib/version_check.dart (GET versions.json) und lib/support.dart (POST /v1/contact)"
         },
         {
           "name": "Windows-Benachrichtigungen",
-          "wofuer": "spaeter geplant – Hinweis, wenn eine neue Fassung vorliegt",
+          "wofuer": "geplant – Hinweis, wenn eine neue Fassung vorliegt",
           "pflicht": false,
           "beleg": "pubspec.yaml – Paket local_notifier deklariert, 0 Verwendungen in lib/"
         },
         {
           "name": "Speichern von Einstellungen",
-          "wofuer": "spaeter geplant – Merken der eigenen Einstellungen",
+          "wofuer": "Merken des Beta-Schalters",
           "pflicht": false,
-          "beleg": "pubspec.yaml – Paket shared_preferences deklariert, 0 Verwendungen in lib/"
+          "beleg": "lib/settings.dart (Paket shared_preferences)"
         }
       ],
-      "uebertragungen": [],
+      "uebertragungen": [
+        {
+          "wohin": "fehlerfuchs.eu",
+          "was": "nichts vom Nutzer – es wird nur die oeffentliche Datei versions.json abgerufen (lesend). Der Server sieht die Anfrage und damit die IP-Adresse.",
+          "wann": "automatisch beim Start und beim Klick auf \"Erneut suchen\"",
+          "freiwillig": false,
+          "beleg": "lib/version_check.dart – GET https://fehlerfuchs.eu/versions.json (Paket http)"
+        },
+        {
+          "wohin": "Server von FehlerFuchs (EU, IONOS)",
+          "was": "die eingegebene Nachricht sowie – nur wenn angegeben – Name und E-Mail; auf ausdruecklichen Wunsch zusaetzlich eine technische Diagnose (App-Version, Betriebssystem, Spracheinstellung), keine persoenlichen Daten",
+          "wann": "nur wenn der Nutzer im Feedback-Fenster aktiv auf \"Senden\" tippt",
+          "freiwillig": true,
+          "beleg": "lib/support.dart – POST an license.fehlerfuchs.eu/v1/contact (Paket http)"
+        }
+      ],
       "fremde_dienste": [],
       "konto_noetig": false,
       "tracking": false,
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Die Anwendung speichert im aktuellen Stand keine Daten. Es genuegt, das Programm zu entfernen; es bleibt nichts zurueck.",
-      "besonderheiten": "Up2Date ist der zentrale Update-Helfer fuer FehlerFuchs-Anwendungen und laeuft als Symbol im Windows-Infobereich. Im geprueften Stand zeigt die Anwendung lediglich dieses Symbol und ein Fenster; sie verarbeitet noch keine Daten. Kuenftig soll sie erkennen, welche FehlerFuchs-Programme installiert sind, und deren Stand mit einer oeffentlich abrufbaren Liste aktueller Fassungen auf fehlerfuchs.eu vergleichen. Beides geschieht heute nicht. Ein Konto ist nicht vorgesehen, ebenso wenig Telemetrie oder Werbung.",
+      "loeschung": "Die Anwendung speichert nur die eigenen Einstellungen und – wenn eingeschaltet – einen Autostart-Eintrag. Beim Entfernen des Programms verschwinden diese; der Autostart-Schalter laesst sich jederzeit in den Einstellungen ausschalten. Eine gesendete Feedback-Nachricht wird bei uns als E-Mail bearbeitet und nicht dauerhaft in einer Datenbank abgelegt.",
+      "besonderheiten": "Up2Date ist der zentrale Update-Helfer fuer FehlerFuchs-Anwendungen und laeuft als Symbol im Windows-Infobereich. Es erkennt installierte FehlerFuchs-Programme ueber die Windows-Registry (nur lesend) und vergleicht deren Fassung mit einer oeffentlich abrufbaren Liste auf fehlerfuchs.eu. Der Abruf dieser Liste ist der einzige automatische Kontakt nach draussen und uebertraegt keine Nutzerdaten. Kein Konto, keine Telemetrie, keine Werbung. Der Autostart ist ausdrueckliches Opt-in und wird nicht vom Installer gesetzt.",
       "vorhandener_text": "",
-      "offene_fragen": "1) Sobald der Versionsabgleich umgesetzt ist, ruft die Anwendung fehlerfuchs.eu auf; ob der Server dabei IP-Adressen protokolliert, haengt vom Server ab und ist von hier aus nicht feststellbar. 2) Ob und welche Einstellungen kuenftig lokal gespeichert werden, steht noch nicht fest. 3) Der geplante Abgleich liest Herstellerangabe und Version installierter Programme; die Auswertung soll rein lokal bleiben, ist aber noch nicht gebaut und daher nicht ueberpruefbar. 4) Es existiert noch kein Installer; ob dieser spaeter Eintraege ausserhalb des Programmordners anlegt, ist offen. (Erledigt am 19.07.2026: Der Slug \"up2date\" ist in _SLUG-EIGENTUEMER.md offiziell aufgenommen und damit bestaetigt.)",
+      "offene_fragen": "1) Ob der Server beim Abruf der Fassungsliste IP-Adressen protokolliert, haengt vom Server ab und ist von der App aus nicht feststellbar. 2) Es existiert noch kein Installer; ob dieser spaeter Eintraege ausserhalb des Programmordners anlegt, ist offen. 3) Der Download und Start von Update-Installern ist noch nicht gebaut – wenn er kommt, laedt die App ausfuehrbare Dateien von fehlerfuchs.eu bzw. dem GitHub-Release-Repo; das wird dann hier ergaenzt.",
       "art": "anwendung"
     },
     {

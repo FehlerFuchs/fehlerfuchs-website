@@ -1,53 +1,66 @@
 slug: up2date
 name: Up2Date – FehlerFuchs Update-Helfer
-stand: "2026-07-19"
+stand: "2026-07-26"
 geprueft_von: FehlerFuchs_Up2Date
-fassung: "1.0.0 (MVP-Grundgeruest, noch nicht veroeffentlicht)"
+fassung: "1.0.0 (MVP: Tray, App-Erkennung, Versionsabgleich, Autostart, Feedback; noch nicht veroeffentlicht)"
 
-# Geprueft wurde der Quellstand in 05_App/up2date, nicht die Produktbeschreibung.
-# Heute enthaelt der Code ausschliesslich das Tray-/Fenster-Grundgeruest.
+# Geprueft wurde der Quellstand in 05_App/up2date (lib/), nicht die Beschreibung.
 
-lokal_only: true
+# Ohne Zutun nimmt die Anwendung beim Start EINE Verbindung nach draussen auf:
+# den Abruf der oeffentlichen Fassungsliste. Dabei werden keine Nutzerdaten
+# gesendet, der Server sieht aber die Anfrage. Deshalb nicht rein lokal.
+lokal_only: false
 
-# Die Anwendung legt derzeit NICHTS ab. Es gibt keinen Datei-, Datenbank- oder
-# Einstellungszugriff im Code (geprueft: keine Treffer fuer File(), Directory(),
-# shared_preferences in lib/).
 auf_dem_geraet:
-  - was: keine Daten
-    wo: entfaellt – die Anwendung legt im aktuellen Stand nichts auf dem Geraet ab
-    beleg: lib/main.dart und lib/theme.dart sind die einzigen Quelldateien; keine
-      Treffer fuer File(), Directory() oder shared_preferences
+  - was: Einstellungen (Schalter "Beta-Fassungen anbieten")
+    wo: lokaler App-Einstellungsspeicher (shared_preferences)
+    beleg: lib/settings.dart
+  - was: Autostart-Eintrag, nur wenn der Nutzer ihn einschaltet
+    wo: Windows-Registry des eigenen Benutzers (HKCU, Autostart)
+    beleg: lib/settings.dart (Paket launch_at_startup)
+  - was: keine persoenlichen oder inhaltlichen Nutzerdaten
+    wo: es gibt keine Datenbank, keine Dokumente, keine Konten
+    beleg: keine Datei-/DB-Schreibzugriffe ausser den Einstellungen oben
 
-# Windows-Desktop-Anwendung: es gibt kein Berechtigungsmanifest wie unter Android.
-# Nach Regel 1 hier trotzdem die Pakete, die entsprechende Faehigkeiten mitbringen,
-# im aktuellen Stand aber NICHT benutzt werden.
+# Windows-Desktop: kein Berechtigungsmanifest wie unter Android. Aufgefuehrt sind
+# die Faehigkeiten, die die Anwendung nutzt (bzw. mitbringt, aber nicht nutzt).
 berechtigungen:
   - name: Lesen der Liste installierter Programme
-    wofuer: spaeter geplant – Erkennen, welche FehlerFuchs-Programme vorhanden sind
+    wofuer: Erkennen, welche FehlerFuchs-Programme installiert sind (Name + Fassung)
     pflicht: false
-    beleg: pubspec.yaml – Paket win32_registry deklariert, 0 Verwendungen in lib/
+    beleg: lib/app_scan.dart (Paket win32_registry), nur lesend, Uninstall-Eintraege
   - name: Automatischer Start mit Windows
-    wofuer: spaeter geplant – nur nach ausdruecklicher Zustimmung, jederzeit abschaltbar
+    wofuer: optionaler Start im Infobereich – nur nach Zustimmung, jederzeit abschaltbar
     pflicht: false
-    beleg: pubspec.yaml – Paket launch_at_startup deklariert, 0 Verwendungen in lib/
+    beleg: lib/settings.dart (Paket launch_at_startup, HKCU); kein Eintrag durch den Installer
   - name: Zugriff auf das Internet
-    wofuer: spaeter geplant – Abruf der Liste aktueller Fassungen von fehlerfuchs.eu
+    wofuer: Abruf der Fassungsliste (automatisch beim Start) und Senden von Feedback
+      (nur nutzerausgeloest)
     pflicht: false
-    beleg: pubspec.yaml – Paket http deklariert, 0 Verwendungen in lib/
+    beleg: lib/version_check.dart (GET versions.json) und lib/support.dart (POST /v1/contact)
   - name: Windows-Benachrichtigungen
-    wofuer: spaeter geplant – Hinweis, wenn eine neue Fassung vorliegt
+    wofuer: geplant – Hinweis, wenn eine neue Fassung vorliegt
     pflicht: false
     beleg: pubspec.yaml – Paket local_notifier deklariert, 0 Verwendungen in lib/
   - name: Speichern von Einstellungen
-    wofuer: spaeter geplant – Merken der eigenen Einstellungen
+    wofuer: Merken des Beta-Schalters
     pflicht: false
-    beleg: pubspec.yaml – Paket shared_preferences deklariert, 0 Verwendungen in lib/
+    beleg: lib/settings.dart (Paket shared_preferences)
 
-# Im aktuellen Stand verlaesst KEIN Datum das Geraet. Es gibt keinen einzigen
-# Netzwerkaufruf im Code (geprueft: keine Treffer fuer http://, https://, Uri.,
-# get(), post() in lib/). Auch der Windows-Runner ist unveraendert (keine Treffer
-# fuer winhttp, wininet, socket, telemetry, analytics in windows/).
-uebertragungen: []
+uebertragungen:
+  - wohin: fehlerfuchs.eu
+    was: nichts vom Nutzer – es wird nur die oeffentliche Datei versions.json
+      abgerufen (lesend). Der Server sieht die Anfrage und damit die IP-Adresse.
+    wann: automatisch beim Start und beim Klick auf "Erneut suchen"
+    freiwillig: false
+    beleg: lib/version_check.dart – GET https://fehlerfuchs.eu/versions.json (Paket http)
+  - wohin: Server von FehlerFuchs (EU, IONOS)
+    was: die eingegebene Nachricht sowie – nur wenn angegeben – Name und E-Mail;
+      auf ausdruecklichen Wunsch zusaetzlich eine technische Diagnose
+      (App-Version, Betriebssystem, Spracheinstellung), keine persoenlichen Daten
+    wann: nur wenn der Nutzer im Feedback-Fenster aktiv auf "Senden" tippt
+    freiwillig: true
+    beleg: lib/support.dart – POST an license.fehlerfuchs.eu/v1/contact (Paket http)
 
 fremde_dienste: []
 
@@ -58,28 +71,27 @@ absturzberichte: false
 daten_an_dritte_verkauft: false
 
 loeschung: >-
-  Die Anwendung speichert im aktuellen Stand keine Daten. Es genuegt, das
-  Programm zu entfernen; es bleibt nichts zurueck.
+  Die Anwendung speichert nur die eigenen Einstellungen und – wenn eingeschaltet –
+  einen Autostart-Eintrag. Beim Entfernen des Programms verschwinden diese; der
+  Autostart-Schalter laesst sich jederzeit in den Einstellungen ausschalten. Eine
+  gesendete Feedback-Nachricht wird bei uns als E-Mail bearbeitet und nicht
+  dauerhaft in einer Datenbank abgelegt.
 
 besonderheiten: >-
   Up2Date ist der zentrale Update-Helfer fuer FehlerFuchs-Anwendungen und laeuft
-  als Symbol im Windows-Infobereich. Im geprueften Stand zeigt die Anwendung
-  lediglich dieses Symbol und ein Fenster; sie verarbeitet noch keine Daten.
-  Kuenftig soll sie erkennen, welche FehlerFuchs-Programme installiert sind, und
-  deren Stand mit einer oeffentlich abrufbaren Liste aktueller Fassungen auf
-  fehlerfuchs.eu vergleichen. Beides geschieht heute nicht. Ein Konto ist nicht
-  vorgesehen, ebenso wenig Telemetrie oder Werbung.
+  als Symbol im Windows-Infobereich. Es erkennt installierte FehlerFuchs-Programme
+  ueber die Windows-Registry (nur lesend) und vergleicht deren Fassung mit einer
+  oeffentlich abrufbaren Liste auf fehlerfuchs.eu. Der Abruf dieser Liste ist der
+  einzige automatische Kontakt nach draussen und uebertraegt keine Nutzerdaten.
+  Kein Konto, keine Telemetrie, keine Werbung. Der Autostart ist ausdrueckliches
+  Opt-in und wird nicht vom Installer gesetzt.
 
 vorhandener_text: ""
 
 offene_fragen: >-
-  1) Sobald der Versionsabgleich umgesetzt ist, ruft die Anwendung
-  fehlerfuchs.eu auf; ob der Server dabei IP-Adressen protokolliert, haengt vom
-  Server ab und ist von hier aus nicht feststellbar. 2) Ob und welche
-  Einstellungen kuenftig lokal gespeichert werden, steht noch nicht fest.
-  3) Der geplante Abgleich liest Herstellerangabe und Version installierter
-  Programme; die Auswertung soll rein lokal bleiben, ist aber noch nicht gebaut
-  und daher nicht ueberpruefbar. 4) Es existiert noch kein Installer; ob dieser
-  spaeter Eintraege ausserhalb des Programmordners anlegt, ist offen.
-  (Erledigt am 19.07.2026: Der Slug "up2date" ist in _SLUG-EIGENTUEMER.md
-  offiziell aufgenommen und damit bestaetigt.)
+  1) Ob der Server beim Abruf der Fassungsliste IP-Adressen protokolliert, haengt
+  vom Server ab und ist von der App aus nicht feststellbar. 2) Es existiert noch
+  kein Installer; ob dieser spaeter Eintraege ausserhalb des Programmordners
+  anlegt, ist offen. 3) Der Download und Start von Update-Installern ist noch
+  nicht gebaut – wenn er kommt, laedt die App ausfuehrbare Dateien von
+  fehlerfuchs.eu bzw. dem GitHub-Release-Repo; das wird dann hier ergaenzt.

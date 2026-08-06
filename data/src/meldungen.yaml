@@ -45,19 +45,11 @@ meldungen:
       Update-Weg repariert. Neue Ankündigungen kommen wieder, sobald das Nächste
       wirklich fertig ist. — Matthias (Matze) von FehlerFuchs
 
-  - id: orgafuchs-zweite-ablehnung
-    typ: hinweis
-    produkt: orgafuchs
-    datum: "2026-07-24"
-    titel: OrgaFuchs – zweite Ablehnung im Play Store
-    text: >-
-      OrgaFuchs ist erneut abgelehnt worden, diesmal wegen der automatischen
-      Ferien- und Feiertagsanzeige: Die Prüfung wertete sie als behördliche
-      Auskunft ohne Quellenangabe. Es sind Kalenderdaten für die Familienplanung
-      wie in jeder Kalender-App. Die Store-Beschreibung ist geschärft – Quelle
-      genannt, klargestellt, dass OrgaFuchs keine Behörde ist – und am 24. Juli
-      erneut eingereicht. Am Programm wurde nichts geändert. Der ganze Weg steht
-      auf der Produktseite.
+  # Die zwei OrgaFuchs-Play-Ablehnungsmeldungen (18.07. + 24.07.) am 05.08.2026
+  # aus dem Feed entfernt: Der ganze Weg steht bereits als Zeitleiste (umwege)
+  # auf der Produktseite – der Feed soll Produkt-Fakten nicht doppeln
+  # (Grundsatz dieser Datei). Zudem war OrgaFuchs aus Feed/Download genommen,
+  # womit „Windows bleibt verfügbar" der älteren Meldung überholt war.
 
   - id: gewerbepro-companion-in-arbeit
     typ: hinweis
@@ -125,21 +117,7 @@ meldungen:
       einem Scan-Dienst und ohne Anmeldung. Die Pro-Fassung ist ein einmaliger
       Kauf, kein Abo; das Wesentliche steckt in der kostenlosen Fassung.
 
-  - id: orgafuchs-play-ablehnung-2026-07
-    typ: store
-    produkt: orgafuchs
-    datum: "2026-07-18"
-    titel: OrgaFuchs für Android – von der Prüfsoftware abgelehnt, Widerspruch läuft
-    text: >-
-      Eingereicht und noch am selben Tag zurück. Die automatische Prüfung von
-      Google hat die Einstellungsseite für den Gruppen-Sync als Bezahlschranke
-      oder nicht deklarierten Login gewertet. Beides ist sie nicht: Dort trägt
-      man eine Relay-Adresse und ein selbst gewähltes Gruppen-Passwort ein, um
-      die eigenen Geräte zu verbinden. Kein Konto, keine Anmeldung, keine
-      Zahlung. Der Widerspruch läuft; er kostet voraussichtlich sieben bis
-      vierzehn Tage. Was mich dabei ärgert, ist nicht die Prüfung – die ist
-      richtig –, sondern dass eine unsichere Maschine durchentscheidet, statt
-      einen Menschen dazuzuholen. Windows bleibt verfügbar.
+  # (OrgaFuchs-Play-Ablehnung 18.07. hier entfernt – siehe Sammelkommentar oben.)
 
 # Meldung 'orgafuchs-1-0-0' (typ veroeffentlichung) am 30.07.2026 entfernt:
 # Sie kündigte „für Windows da" an und hing am Release 1.0.0. Weil das
