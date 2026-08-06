@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-06T08:45:01+02:00",
+  "generiert": "2026-08-06T09:02:20+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "orgafuchs-1-4-3-in-pruefung",
+      "typ": "hinweis",
+      "produkt": "orgafuchs",
+      "datum": "2026-08-05",
+      "titel": "OrgaFuchs – finale Tests bestanden, weiter in der Play-Prüfung",
+      "text": "Die finalen Tests und die Sicherheitshärtung sind durch (202 Tests bestanden); die erste öffentliche Fassung liegt jetzt beim Google Play Store in Prüfung. Bis dahin hat sich viel getan: sicherer, Ende-zu-Ende-verschlüsselter Live-Sync über ein gehärtetes Relais (OFSP/1, Kopplung per QR-Code), geführter Wechsel des Hauptgeräts und Notfall-Wiederherstellung; optimierte Kalenderansichten mit Startbildschirm- Widgets für Tag, Woche und Monat; klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; Hintergrundbetrieb im Windows-Infobereich; größere Küchen- und Kiosk-Ansicht; Datenschutz und „Was ist neu\" direkt in der App.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
+      }
+    },
     {
       "id": "pflege-statt-neues",
       "typ": "hinweis",
