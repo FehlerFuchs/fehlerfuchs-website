@@ -10,17 +10,12 @@ description: >-
   Heimnetz oder einen selbst gehosteten Relay – ohne Google, ohne Cloud, ohne Konto.
 audience: [privat, vereine, unternehmen]
 accent: "#B4652A"   # Farbe der App
-# Windows 1.0.0 ist fertig, aber der öffentliche GitHub-Release (Tag
-# orgafuchs-v1.0.0) ist noch nicht hochgeladen (macht Matthias über den
-# GitHub-Tab). Bis dahin bewusst OHNE öffentlichen Download und aus dem
-# Update-Feed genommen – sonst zeigen versions.json und der Download-Link auf
-# einen 404 (Entscheidung OrgaFuchs 2B, 28.07.2026). Sobald der Release live
-# ist: Status zurück auf 'verfuegbar' und den Release-Eintrag unten reaktivieren.
-status: pruefung
-# Sichtbarkeits-Ausnahme (Matthias, 01.08.2026): Seite bleibt vorerst voll
-# sichtbar, obwohl noch kein öffentlicher Release (Android in Prüfung,
-# Windows-Release folgt) → nicht in den Ideen-/Pool.
-vorabSichtbar: true
+# Android ist seit 08.08.2026 regulär im Google Play Store → Gesamtstatus
+# 'verfuegbar' (folgt der weitesten Plattform). Der öffentliche WINDOWS-Download
+# hängt weiter am GitHub-Release (siehe Windows-Plattform + auskommentierter
+# Release-Eintrag unten), deshalb steht Windows noch auf 'pruefung'.
+# 'vorabSichtbar' ist mit 'verfuegbar' überflüssig und daher entfernt.
+status: verfuegbar
 
 platforms:
   - os: windows
@@ -33,12 +28,11 @@ platforms:
         1.0.0 ist fertig; der öffentliche Windows-Download wird noch als
         GitHub-Release veröffentlicht.
   - os: android
-    # Am 18.07.2026 bei Google eingereicht und noch am selben Tag abgelehnt.
-    # Der Status bleibt 'pruefung': Die App liegt weiterhin beim Store, der
-    # Widerspruch wird dort bearbeitet. Ein Umweg ist es NICHT – es ging
-    # nichts zurueck in die Entwicklung, es steht still.
-    status: pruefung
-    since: "2026-07-18"
+    # Zweimal von der Play-Prüfsoftware abgelehnt (18.07. + 24.07., siehe umwege),
+    # dann durch: seit 08.08.2026 regulär im Google Play Store. 'since' ist das
+    # Veröffentlichungsdatum und steuert Datum bzw. Meldung in der Zeitleiste.
+    status: verfuegbar
+    since: "2026-08-08"
     distribution: play-store
     storeId: eu.fehlerfuchs.orgafuchs
 

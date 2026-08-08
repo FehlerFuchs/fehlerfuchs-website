@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-06T09:02:20+02:00",
+  "generiert": "2026-08-08T17:14:08+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -784,6 +784,329 @@
         "updateFeed": "enterprise/latest.json"
       },
       "notes": "Kauf und Lizenzausgabe laufen über Digistore24 (Reseller/Merchant of Record), Rückgabefrist 30 Tage. Die Kassenlinks stehen bewusst hier im Modell: Ohne sie zeigt die Seite zwar Preise, führt aber nirgendwohin."
+    },
+    {
+      "slug": "orgafuchs",
+      "name": "OrgaFuchs",
+      "fullName": "FehlerFuchs OrgaFuchs",
+      "kind": "produkt",
+      "tagline": "Der lokale Familien- und Team-Planer für Schicht- und Dienstpläne – offline, mit eigenem Sync ohne Cloud.",
+      "description": "Plant Dienste, Schichten, Termine und Notizen für die ganze Familie oder ein kleines Team: Monatskalender, Schnelleintrag, PDF-Export als Monat, Jahr oder Blanko-Vorlage. Alle Daten bleiben auf den eigenen Geräten; die Synchronisation läuft über das eigene Heimnetz oder einen selbst gehosteten Relay – ohne Google, ohne Cloud, ohne Konto.",
+      "audience": [
+        "privat",
+        "vereine",
+        "unternehmen"
+      ],
+      "accent": "#B4652A",
+      "status": "verfuegbar",
+      "platforms": [
+        {
+          "os": "windows",
+          "status": "pruefung",
+          "requirements": "Windows 10/11 (64-bit)",
+          "distribution": "github-release",
+          "hinweis": {
+            "wenn": "pruefung",
+            "text": "1.0.0 ist fertig; der öffentliche Windows-Download wird noch als GitHub-Release veröffentlicht."
+          }
+        },
+        {
+          "os": "android",
+          "status": "verfuegbar",
+          "since": "2026-08-08",
+          "distribution": "play-store",
+          "storeId": "eu.fehlerfuchs.orgafuchs"
+        }
+      ],
+      "umwege": [
+        {
+          "datum": "2026-07-18",
+          "os": "android",
+          "von": "pruefung",
+          "nach": "pruefung",
+          "grund": "Automatisch abgelehnt, kein Mensch beteiligt",
+          "text": "Die Prüfsoftware hat die Einstellungsseite für den Gruppen-Sync als Bezahlschranke oder nicht deklarierten Login gewertet. Beides ist sie nicht: Dort trägt man eine Relay-Adresse und ein selbst gewähltes Gruppen-Passwort ein, um die eigenen Geräte zu verbinden. Kein Konto, keine Anmeldung, keine Zahlung. Am Programm wurde nichts geändert – es gab nichts zu ändern. Ärgerlich ist nicht die Prüfung, sondern dass eine unsichere Maschine durchentscheidet, statt einen Menschen hinzuzuziehen. Ein Blick hätte gereicht; so kostet es sieben bis vierzehn Tage."
+        },
+        {
+          "datum": "2026-07-24",
+          "os": "android",
+          "von": "pruefung",
+          "nach": "pruefung",
+          "grund": "Zweite Ablehnung – diesmal wegen der Ferien-Anzeige",
+          "text": "Die zweite Runde, ein anderer Vorwurf: „Missleading Claims\". Weil die App Feiertage und Schulferien je Bundesland anzeigt, hat die Prüfung geschlossen, hier gebe jemand behördliche Auskünfte – eine Behörden-App ohne Quellenangabe. Tatsächlich sind es Kalenderdaten für die Familienplanung, wie sie jede Kalender-App führt. Ich habe die Store-Beschreibung geschärft: eine Quelle für die Daten genannt und klargestellt, dass OrgaFuchs keine Behörde ist und keine vertritt. Am 24. Juli erneut eingereicht, am Programm wieder nichts geändert."
+        }
+      ],
+      "privacy": [
+        "inhalte-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "kein-google",
+        "eigener-sync",
+        "offline-faehig"
+      ],
+      "windowsDisplayNames": [
+        "OrgaFuchs"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "OrgaFuchs",
+          "public": true,
+          "summary": "Voller Funktionsumfang, dauerhaft kostenlos.",
+          "price": {
+            "model": "kostenlos"
+          }
+        }
+      ],
+      "releases": [],
+      "features": [
+        {
+          "group": "Planen",
+          "items": [
+            {
+              "name": "Monatskalender für Dienste, Schichten, Termine und Notizen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Schnelleintrag – ganze Monate im Sekundentakt eintippen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Frei definierbare Dienste mit eigenen Kürzeln, Farben und Zeiten",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Mit Vorlagen für gängige Branchen – Früh/Spät/Nacht, Bereitschaft, Urlaub, Kinderbetreuung."
+            },
+            {
+              "name": "Wiederkehrende Serien (täglich, wöchentlich, eigenes Muster)",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Notizen und Termine mit Personenbezug",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Ausgeben",
+          "items": [
+            {
+              "name": "PDF-Übersicht: Monat",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "PDF-Übersicht: Jahr",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "PDF-Vorlage: Blanko zum Ausdrucken",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Farbig oder schlicht in Schwarzweiß drucken",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Terminexport als ICS",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Jahresauswertung",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Geräte und Daten",
+          "items": [
+            {
+              "name": "Alle Daten ausschließlich auf dem Gerät (SQLite)",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Eigener Sync statt Cloud – Beitritt per QR-Code oder Passwort",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Im Heimnetz oder über einen selbst gehosteten Relay, Ende-zu-Ende-verschlüsselt."
+            },
+            {
+              "name": "Konto oder Registrierung nötig",
+              "values": {
+                "standard": "nein"
+              }
+            },
+            {
+              "name": "Backup und Wiederherstellung",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Logbuch in der App",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Beiwerk",
+          "items": [
+            {
+              "name": "Feiertage und Schulferien je Bundesland",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Mit Selbstaktualisierung; bis der Endpunkt auf fehlerfuchs.eu steht, greift der eingebaute Bestand."
+            },
+            {
+              "name": "Transparenz- und Open-Source-Seite in der App",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        }
+      ],
+      "media": {
+        "vorschaubild": "/img/og-orgafuchs.png",
+        "lockup": {
+          "src": "/img/lockups/orgafuchs.svg",
+          "alt": "OrgaFuchs – von FehlerFuchs",
+          "width": 1656,
+          "height": 460
+        },
+        "screenshots": [
+          {
+            "src": "/img/screenshots/orgafuchs/handy-01-start.png",
+            "alt": "Werbebild „Dein Familien-Alltag an einem Ort“ mit dem Startbildschirm: Sync-Stand, die Dienste des Tages, Termine und Notizen sowie die zuletzt erzeugten PDFs",
+            "width": 620,
+            "height": 1342,
+            "geraet": "handy",
+            "titel": "Alles an einem Ort"
+          },
+          {
+            "src": "/img/screenshots/orgafuchs/handy-02-monat.png",
+            "alt": "Werbebild „Der ganze Monat auf einen Blick“ mit dem Monatskalender Juli 2026 – je Tag mehrere Personen mit farbigen Dienstkürzeln",
+            "width": 620,
+            "height": 1342,
+            "geraet": "handy",
+            "titel": "Der ganze Monat auf einen Blick"
+          },
+          {
+            "src": "/img/screenshots/orgafuchs/handy-03-woche.png",
+            "alt": "Werbebild „Wer wann arbeitet, klar im Blick“ mit der Wochenansicht: je Tag die Personen mit Dienst, Kürzel und Uhrzeit, dazu der Ferienhinweis",
+            "width": 620,
+            "height": 1342,
+            "geraet": "handy",
+            "titel": "Wochenansicht"
+          },
+          {
+            "src": "/img/screenshots/orgafuchs/handy-04-einstellungen.png",
+            "alt": "Werbebild „Feiertage und Schulferien je Bundesland“ mit den Einstellungen: Design hell, dunkel oder System, Startansicht, Wochenbeginn, PDF-Stil und Bundesland",
+            "width": 620,
+            "height": 1342,
+            "geraet": "handy",
+            "titel": "Feiertage und Ferien"
+          },
+          {
+            "src": "/img/screenshots/orgafuchs/handy-05-dunkelmodus.png",
+            "alt": "Werbebild „Auch elegant im Dunkelmodus“ mit demselben Monatskalender auf dunklem Grund",
+            "width": 620,
+            "height": 1342,
+            "geraet": "handy",
+            "titel": "Auch im Dunkelmodus"
+          },
+          {
+            "src": "/img/screenshots/orgafuchs/handy-06-sync.png",
+            "alt": "Werbebild „Sync ohne Cloud, Ende-zu-Ende verschlüsselt“ mit der Geräteseite: Hauptgerät oder Beitreten, QR-Scan, Wahl zwischen eigenem Netz und Relay",
+            "width": 620,
+            "height": 1342,
+            "geraet": "handy",
+            "titel": "Sync ohne Cloud"
+          },
+          {
+            "src": "/img/screenshots/orgafuchs/handy-07-einrichtung.png",
+            "alt": "Werbebild „In wenigen Minuten eingerichtet“ mit der Einrichtungshilfe und ihren vier abgehakten Schritten",
+            "width": 620,
+            "height": 1342,
+            "geraet": "handy",
+            "titel": "Schritt für Schritt startklar"
+          },
+          {
+            "src": "/img/screenshots/orgafuchs/handy-08-windows.png",
+            "alt": "Werbebild „Auch für Windows-PC, gleiche Daten, gleicher Sync“ mit der Info-Seite der App: Version, Hinweis auf die Windows-Fassung, Unterstützen, Kontakt und Transparenz",
+            "width": 620,
+            "height": 1342,
+            "geraet": "handy",
+            "titel": "Auch für Windows"
+          },
+          {
+            "src": "/img/screenshots/orgafuchs/tablet10-monat.png",
+            "alt": "Dasselbe Werbebild im Querformat: links die Zeile „Der ganze Monat auf einen Blick“, rechts der Monatskalender",
+            "width": 1200,
+            "height": 750,
+            "geraet": "desktop",
+            "titel": "Im Querformat"
+          }
+        ]
+      },
+      "theme": {
+        "modus": "hell",
+        "hintergrund": "#F7F3EC",
+        "flaeche": "#FFFFFF",
+        "rand": "#EDE6DA",
+        "text": "#241C14",
+        "textLeise": "#6B5D4C",
+        "akzent": "#B4652A",
+        "quelle": "FehlerFuchs_OrgaFuchs/05_App/orgafuchs/lib/core/theme/app_colors.dart"
+      },
+      "links": {
+        "alt_html": "/apps/orgafuchs.html",
+        "contact": "/kontakt.html?app=OrgaFuchs&topic=interesse",
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
+      },
+      "quellen": {
+        "titel": "Quellen und Behörden-Hinweis",
+        "eintraege": [
+          {
+            "name": "Ferientermine: Ferienregelung der Kultusministerkonferenz (KMK)",
+            "url": "https://www.kmk.org/service/ferien.html"
+          },
+          {
+            "name": "Offene Daten: OpenHolidays",
+            "url": "https://www.openholidaysapi.org"
+          }
+        ],
+        "hinweis": "OrgaFuchs ist eine private App von FehlerFuchs und steht in keiner Verbindung zu einer Behörde, einem Ministerium oder einer staatlichen Stelle. Die App repräsentiert keine Regierungseinrichtung und bietet keine amtlichen Dienste an."
+      },
+      "notes": "Offen: Play-Store-Freigabe für Android. Ebenfalls offen ist der von der App erwartete Endpunkt data/schulferien/DE-XX.json auf fehlerfuchs.eu – bis dahin greift der eingebaute Datenbestand."
     },
     {
       "slug": "pdfuchsreader",
@@ -1909,330 +2232,6 @@
         "contact": "/kontakt.html?app=BelegWerk&topic=interesse"
       },
       "notes": "Anbindung an Paperless bedeutet, dass Daten an ein selbst betriebenes Archiv gehen. Das Merkmal „keine-cloud\" ist deshalb bewusst nicht gesetzt – es hängt davon ab, wo der Nutzer sein Paperless betreibt."
-    },
-    {
-      "slug": "orgafuchs",
-      "name": "OrgaFuchs",
-      "fullName": "FehlerFuchs OrgaFuchs",
-      "kind": "produkt",
-      "tagline": "Der lokale Familien- und Team-Planer für Schicht- und Dienstpläne – offline, mit eigenem Sync ohne Cloud.",
-      "description": "Plant Dienste, Schichten, Termine und Notizen für die ganze Familie oder ein kleines Team: Monatskalender, Schnelleintrag, PDF-Export als Monat, Jahr oder Blanko-Vorlage. Alle Daten bleiben auf den eigenen Geräten; die Synchronisation läuft über das eigene Heimnetz oder einen selbst gehosteten Relay – ohne Google, ohne Cloud, ohne Konto.",
-      "audience": [
-        "privat",
-        "vereine",
-        "unternehmen"
-      ],
-      "accent": "#B4652A",
-      "status": "pruefung",
-      "vorabSichtbar": true,
-      "platforms": [
-        {
-          "os": "windows",
-          "status": "pruefung",
-          "requirements": "Windows 10/11 (64-bit)",
-          "distribution": "github-release",
-          "hinweis": {
-            "wenn": "pruefung",
-            "text": "1.0.0 ist fertig; der öffentliche Windows-Download wird noch als GitHub-Release veröffentlicht."
-          }
-        },
-        {
-          "os": "android",
-          "status": "pruefung",
-          "since": "2026-07-18",
-          "distribution": "play-store",
-          "storeId": "eu.fehlerfuchs.orgafuchs"
-        }
-      ],
-      "umwege": [
-        {
-          "datum": "2026-07-18",
-          "os": "android",
-          "von": "pruefung",
-          "nach": "pruefung",
-          "grund": "Automatisch abgelehnt, kein Mensch beteiligt",
-          "text": "Die Prüfsoftware hat die Einstellungsseite für den Gruppen-Sync als Bezahlschranke oder nicht deklarierten Login gewertet. Beides ist sie nicht: Dort trägt man eine Relay-Adresse und ein selbst gewähltes Gruppen-Passwort ein, um die eigenen Geräte zu verbinden. Kein Konto, keine Anmeldung, keine Zahlung. Am Programm wurde nichts geändert – es gab nichts zu ändern. Ärgerlich ist nicht die Prüfung, sondern dass eine unsichere Maschine durchentscheidet, statt einen Menschen hinzuzuziehen. Ein Blick hätte gereicht; so kostet es sieben bis vierzehn Tage."
-        },
-        {
-          "datum": "2026-07-24",
-          "os": "android",
-          "von": "pruefung",
-          "nach": "pruefung",
-          "grund": "Zweite Ablehnung – diesmal wegen der Ferien-Anzeige",
-          "text": "Die zweite Runde, ein anderer Vorwurf: „Missleading Claims\". Weil die App Feiertage und Schulferien je Bundesland anzeigt, hat die Prüfung geschlossen, hier gebe jemand behördliche Auskünfte – eine Behörden-App ohne Quellenangabe. Tatsächlich sind es Kalenderdaten für die Familienplanung, wie sie jede Kalender-App führt. Ich habe die Store-Beschreibung geschärft: eine Quelle für die Daten genannt und klargestellt, dass OrgaFuchs keine Behörde ist und keine vertritt. Am 24. Juli erneut eingereicht, am Programm wieder nichts geändert."
-        }
-      ],
-      "privacy": [
-        "inhalte-lokal",
-        "keine-cloud",
-        "kein-konto",
-        "kein-tracking",
-        "werbefrei",
-        "kein-google",
-        "eigener-sync",
-        "offline-faehig"
-      ],
-      "windowsDisplayNames": [
-        "OrgaFuchs"
-      ],
-      "editions": [
-        {
-          "id": "standard",
-          "name": "OrgaFuchs",
-          "public": true,
-          "summary": "Voller Funktionsumfang, dauerhaft kostenlos.",
-          "price": {
-            "model": "kostenlos"
-          }
-        }
-      ],
-      "releases": [],
-      "features": [
-        {
-          "group": "Planen",
-          "items": [
-            {
-              "name": "Monatskalender für Dienste, Schichten, Termine und Notizen",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Schnelleintrag – ganze Monate im Sekundentakt eintippen",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Frei definierbare Dienste mit eigenen Kürzeln, Farben und Zeiten",
-              "values": {
-                "standard": "ja"
-              },
-              "note": "Mit Vorlagen für gängige Branchen – Früh/Spät/Nacht, Bereitschaft, Urlaub, Kinderbetreuung."
-            },
-            {
-              "name": "Wiederkehrende Serien (täglich, wöchentlich, eigenes Muster)",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Notizen und Termine mit Personenbezug",
-              "values": {
-                "standard": "ja"
-              }
-            }
-          ]
-        },
-        {
-          "group": "Ausgeben",
-          "items": [
-            {
-              "name": "PDF-Übersicht: Monat",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "PDF-Übersicht: Jahr",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "PDF-Vorlage: Blanko zum Ausdrucken",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Farbig oder schlicht in Schwarzweiß drucken",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Terminexport als ICS",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Jahresauswertung",
-              "values": {
-                "standard": "ja"
-              }
-            }
-          ]
-        },
-        {
-          "group": "Geräte und Daten",
-          "items": [
-            {
-              "name": "Alle Daten ausschließlich auf dem Gerät (SQLite)",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Eigener Sync statt Cloud – Beitritt per QR-Code oder Passwort",
-              "values": {
-                "standard": "ja"
-              },
-              "note": "Im Heimnetz oder über einen selbst gehosteten Relay, Ende-zu-Ende-verschlüsselt."
-            },
-            {
-              "name": "Konto oder Registrierung nötig",
-              "values": {
-                "standard": "nein"
-              }
-            },
-            {
-              "name": "Backup und Wiederherstellung",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Logbuch in der App",
-              "values": {
-                "standard": "ja"
-              }
-            }
-          ]
-        },
-        {
-          "group": "Beiwerk",
-          "items": [
-            {
-              "name": "Feiertage und Schulferien je Bundesland",
-              "values": {
-                "standard": "ja"
-              },
-              "note": "Mit Selbstaktualisierung; bis der Endpunkt auf fehlerfuchs.eu steht, greift der eingebaute Bestand."
-            },
-            {
-              "name": "Transparenz- und Open-Source-Seite in der App",
-              "values": {
-                "standard": "ja"
-              }
-            }
-          ]
-        }
-      ],
-      "media": {
-        "vorschaubild": "/img/og-orgafuchs.png",
-        "lockup": {
-          "src": "/img/lockups/orgafuchs.svg",
-          "alt": "OrgaFuchs – von FehlerFuchs",
-          "width": 1656,
-          "height": 460
-        },
-        "screenshots": [
-          {
-            "src": "/img/screenshots/orgafuchs/handy-01-start.png",
-            "alt": "Werbebild „Dein Familien-Alltag an einem Ort“ mit dem Startbildschirm: Sync-Stand, die Dienste des Tages, Termine und Notizen sowie die zuletzt erzeugten PDFs",
-            "width": 620,
-            "height": 1342,
-            "geraet": "handy",
-            "titel": "Alles an einem Ort"
-          },
-          {
-            "src": "/img/screenshots/orgafuchs/handy-02-monat.png",
-            "alt": "Werbebild „Der ganze Monat auf einen Blick“ mit dem Monatskalender Juli 2026 – je Tag mehrere Personen mit farbigen Dienstkürzeln",
-            "width": 620,
-            "height": 1342,
-            "geraet": "handy",
-            "titel": "Der ganze Monat auf einen Blick"
-          },
-          {
-            "src": "/img/screenshots/orgafuchs/handy-03-woche.png",
-            "alt": "Werbebild „Wer wann arbeitet, klar im Blick“ mit der Wochenansicht: je Tag die Personen mit Dienst, Kürzel und Uhrzeit, dazu der Ferienhinweis",
-            "width": 620,
-            "height": 1342,
-            "geraet": "handy",
-            "titel": "Wochenansicht"
-          },
-          {
-            "src": "/img/screenshots/orgafuchs/handy-04-einstellungen.png",
-            "alt": "Werbebild „Feiertage und Schulferien je Bundesland“ mit den Einstellungen: Design hell, dunkel oder System, Startansicht, Wochenbeginn, PDF-Stil und Bundesland",
-            "width": 620,
-            "height": 1342,
-            "geraet": "handy",
-            "titel": "Feiertage und Ferien"
-          },
-          {
-            "src": "/img/screenshots/orgafuchs/handy-05-dunkelmodus.png",
-            "alt": "Werbebild „Auch elegant im Dunkelmodus“ mit demselben Monatskalender auf dunklem Grund",
-            "width": 620,
-            "height": 1342,
-            "geraet": "handy",
-            "titel": "Auch im Dunkelmodus"
-          },
-          {
-            "src": "/img/screenshots/orgafuchs/handy-06-sync.png",
-            "alt": "Werbebild „Sync ohne Cloud, Ende-zu-Ende verschlüsselt“ mit der Geräteseite: Hauptgerät oder Beitreten, QR-Scan, Wahl zwischen eigenem Netz und Relay",
-            "width": 620,
-            "height": 1342,
-            "geraet": "handy",
-            "titel": "Sync ohne Cloud"
-          },
-          {
-            "src": "/img/screenshots/orgafuchs/handy-07-einrichtung.png",
-            "alt": "Werbebild „In wenigen Minuten eingerichtet“ mit der Einrichtungshilfe und ihren vier abgehakten Schritten",
-            "width": 620,
-            "height": 1342,
-            "geraet": "handy",
-            "titel": "Schritt für Schritt startklar"
-          },
-          {
-            "src": "/img/screenshots/orgafuchs/handy-08-windows.png",
-            "alt": "Werbebild „Auch für Windows-PC, gleiche Daten, gleicher Sync“ mit der Info-Seite der App: Version, Hinweis auf die Windows-Fassung, Unterstützen, Kontakt und Transparenz",
-            "width": 620,
-            "height": 1342,
-            "geraet": "handy",
-            "titel": "Auch für Windows"
-          },
-          {
-            "src": "/img/screenshots/orgafuchs/tablet10-monat.png",
-            "alt": "Dasselbe Werbebild im Querformat: links die Zeile „Der ganze Monat auf einen Blick“, rechts der Monatskalender",
-            "width": 1200,
-            "height": 750,
-            "geraet": "desktop",
-            "titel": "Im Querformat"
-          }
-        ]
-      },
-      "theme": {
-        "modus": "hell",
-        "hintergrund": "#F7F3EC",
-        "flaeche": "#FFFFFF",
-        "rand": "#EDE6DA",
-        "text": "#241C14",
-        "textLeise": "#6B5D4C",
-        "akzent": "#B4652A",
-        "quelle": "FehlerFuchs_OrgaFuchs/05_App/orgafuchs/lib/core/theme/app_colors.dart"
-      },
-      "links": {
-        "alt_html": "/apps/orgafuchs.html",
-        "contact": "/kontakt.html?app=OrgaFuchs&topic=interesse",
-        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
-      },
-      "quellen": {
-        "titel": "Quellen und Behörden-Hinweis",
-        "eintraege": [
-          {
-            "name": "Ferientermine: Ferienregelung der Kultusministerkonferenz (KMK)",
-            "url": "https://www.kmk.org/service/ferien.html"
-          },
-          {
-            "name": "Offene Daten: OpenHolidays",
-            "url": "https://www.openholidaysapi.org"
-          }
-        ],
-        "hinweis": "OrgaFuchs ist eine private App von FehlerFuchs und steht in keiner Verbindung zu einer Behörde, einem Ministerium oder einer staatlichen Stelle. Die App repräsentiert keine Regierungseinrichtung und bietet keine amtlichen Dienste an."
-      },
-      "notes": "Offen: Play-Store-Freigabe für Android. Ebenfalls offen ist der von der App erwartete Endpunkt data/schulferien/DE-XX.json auf fehlerfuchs.eu – bis dahin greift der eingebaute Datenbestand."
     },
     {
       "slug": "gewerbepro",

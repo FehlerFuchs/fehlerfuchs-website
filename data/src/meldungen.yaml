@@ -29,24 +29,21 @@
 
 meldungen:
 
-  # OrgaFuchs-Statusmeldung (05.08.2026): finale Tests/Härtung durch, weiter in
-  # Play-Prüfung. Changelog-Highlights aus CHANGELOG_OrgaFuchs.md (1.0.0 → 1.4.3)
-  # abgelesen. Bewusst KEIN version-Feld und keine Versionsnummer im Titel: Es
-  # gibt (noch) kein öffentliches Release im Modell, deshalb typ 'hinweis'.
-  - id: orgafuchs-1-4-3-in-pruefung
-    typ: hinweis
+  # OrgaFuchs ist am 08.08.2026 im Play Store veröffentlicht (nach zwei Ablehnungen).
+  # typ 'store' ohne datum/wege: Datum kommt aus platforms[android].since, der
+  # Play-Link aus storeId. Ersetzt die frühere „in Prüfung"-Meldung (überholt).
+  - id: orgafuchs-play-veroeffentlichung
+    typ: store
     produkt: orgafuchs
-    datum: "2026-08-05"
-    titel: OrgaFuchs – finale Tests bestanden, weiter in der Play-Prüfung
+    titel: OrgaFuchs ist im Play Store
     text: >-
-      Die finalen Tests und die Sicherheitshärtung sind durch (202 Tests bestanden); die
-      erste öffentliche Fassung liegt jetzt beim Google Play Store in Prüfung. Bis dahin
-      hat sich viel getan: sicherer, Ende-zu-Ende-verschlüsselter Live-Sync über ein
-      gehärtetes Relais (OFSP/1, Kopplung per QR-Code), geführter Wechsel des Hauptgeräts
-      und Notfall-Wiederherstellung; optimierte Kalenderansichten mit Startbildschirm-
-      Widgets für Tag, Woche und Monat; klarere Benachrichtigungen mit Gerätenamen;
-      wiederkehrende Termine; Hintergrundbetrieb im Windows-Infobereich; größere Küchen-
-      und Kiosk-Ansicht; Datenschutz und „Was ist neu" direkt in der App.
+      Der lokale Familien- und Schichtplaner ist da – kostenlos, werbefrei und ohne
+      Konto. Nach den finalen Tests und der Sicherheitshärtung ist einiges dazugekommen:
+      ein Ende-zu-Ende-verschlüsselter Live-Sync über ein gehärtetes Relais (OFSP/1,
+      Kopplung per QR-Code) mit sicherem Gerätewechsel und Notfall-Wiederherstellung;
+      optimierte Kalenderansichten mit Startbildschirm-Widgets für Tag, Woche und Monat;
+      klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz
+      und „Was ist neu" direkt in der App. Alle Daten bleiben auf dem Gerät.
 
   # Statusmeldung „warum es länger nichts Neues gab" (ChefBüro-Auftrag 2,
   # 01.08.2026). Kein Changelog, keine Versionsnummern; Fakten aus dem
