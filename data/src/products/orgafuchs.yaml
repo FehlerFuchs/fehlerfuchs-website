@@ -10,23 +10,20 @@ description: >-
   Heimnetz oder einen selbst gehosteten Relay – ohne Google, ohne Cloud, ohne Konto.
 audience: [privat, vereine, unternehmen]
 accent: "#B4652A"   # Farbe der App
-# Android ist seit 08.08.2026 regulär im Google Play Store → Gesamtstatus
-# 'verfuegbar' (folgt der weitesten Plattform). Der öffentliche WINDOWS-Download
-# hängt weiter am GitHub-Release (siehe Windows-Plattform + auskommentierter
-# Release-Eintrag unten), deshalb steht Windows noch auf 'pruefung'.
+# Android ist seit 08.08.2026 regulär im Google Play Store, der Windows-Download
+# seit 08.08.2026 als GitHub-Release 'orgafuchs-v1.4.3' (löst die frühere 1.0.0
+# ab). Beide Plattformen 'verfuegbar' → Gesamtstatus 'verfuegbar'.
 # 'vorabSichtbar' ist mit 'verfuegbar' überflüssig und daher entfernt.
 status: verfuegbar
 
 platforms:
+    # Kein 'since' hier: Das Windows-Datum liefert der releases-Eintrag (date
+    # 2026-08-08). Zusätzlich würde 'since' die Datumsableitung der Store-Meldung
+    # brechen – die verlangt genau EINE Plattform mit 'since' (das ist android).
   - os: windows
-    status: pruefung
+    status: verfuegbar
     requirements: Windows 10/11 (64-bit)
     distribution: github-release
-    hinweis:
-      wenn: pruefung
-      text: >-
-        1.0.0 ist fertig; der öffentliche Windows-Download wird noch als
-        GitHub-Release veröffentlicht.
   - os: android
     # Zweimal von der Play-Prüfsoftware abgelehnt (18.07. + 24.07., siehe umwege),
     # dann durch: seit 08.08.2026 regulär im Google Play Store. 'since' ist das
@@ -94,31 +91,28 @@ editions:
     summary: Voller Funktionsumfang, dauerhaft kostenlos.
     price: { model: kostenlos }
 
-# Kein öffentliches Release, solange der GitHub-Tag orgafuchs-v1.0.0 fehlt –
-# sonst zeigt der Download-Link ins Leere (404). Deshalb bewusst leer; das
-# Produkt erscheint damit auch nicht in versions.json (Vertriebsstandard:
-# nur mit echtem Artefakt). Der fertige Eintrag zum REAKTIVIEREN, sobald
-# Matthias den Release hochgeladen hat (Dateiname auf Standard umgestellt,
-# sha256/Bytes von OrgaFuchs bestätigt am 28.07.2026):
-#
-# releases:
-#   - version: "1.0.0"
-#     date: "2026-07-18"
-#     channel: stable
-#     os: windows
-#     url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.0.0/FehlerFuchs_OrgaFuchs_Setup_1.0.0.exe
-#     filename: FehlerFuchs_OrgaFuchs_Setup_1.0.0.exe
-#     size:
-#       bytes: 16013797
-#       label: "15,3 MB"
-#       source: GitHub-Release-Asset
-#     sha256: "6bdd5322629f8e6053b0d8e92ac6a5cd04b38b536fbacc0355b34769c4ffa991"
-#     signed: false
-#     notes: >-
-#       Erstveröffentlichung. Wiederkehrende Serien, PDF als Monat/Jahr/Blanko,
-#       Feiertage und Schulferien je Bundesland, Geräte-Sync per QR-Code,
-#       Transparenz- und Open-Source-Seite in der App.
-releases: []
+# Öffentlicher Windows-Download seit 08.08.2026: GitHub-Release
+# 'orgafuchs-v1.4.3' (verifiziert live, Asset FehlerFuchs_OrgaFuchs_Setup_1.4.3.exe,
+# sha256/Bytes lokal geprüft). Löst die frühere 1.0.0 ab (deren Release bleibt als
+# älterer Eintrag im Downloads-Repo bestehen).
+releases:
+  - version: "1.4.3"
+    date: "2026-08-08"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.4.3/FehlerFuchs_OrgaFuchs_Setup_1.4.3.exe
+    filename: FehlerFuchs_OrgaFuchs_Setup_1.4.3.exe
+    size:
+      bytes: 16357127
+      label: "15,6 MB"
+      source: GitHub-Release-Asset
+    sha256: "8ed225ed5bed1d3e45665bf805fea5d26aef55d37d3d0238786f32eb715530a8"
+    signed: false
+    notes: >-
+      Aktuelle Windows-Fassung, löst 1.0.0 ab. Sicherer Live-Sync (OFSP/1,
+      Ende-zu-Ende, gehärtetes Relais), sicherer Wechsel des Hauptgeräts,
+      Notfall-Wiederherstellung, wiederkehrende Termine und Notizen,
+      Tag/Woche/Monat-Feinschliff, Windows-Tray, datenerhaltendes Update.
 
 # Funktionsübersicht. Übernommen aus dem Abschnitt „Funktionen" auf
 # apps/orgafuchs.html – also aus dem, was heute schon veröffentlicht ist.
@@ -279,9 +273,8 @@ links:
   # Fehlt das Feld, gab es vorher keine eigene Seite - dann ist auch nichts
   # weiterzuleiten.
   alt_html: /apps/orgafuchs.html
-  # 'release'-Link (Tag-Seite orgafuchs-v1.0.0) entfernt, solange der Tag im
-  # Downloads-Repo fehlt – er lief sonst auf einen 404. Zurück, sobald der
-  # Release live ist.
+  # Tag-Seite des aktuellen Windows-Releases (verifiziert live, 08.08.2026).
+  release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.4.3
   contact: /kontakt.html?app=OrgaFuchs&topic=interesse
 
 # Sichtbarer Quellen- und Behörden-Hinweis (Pflicht). Weil OrgaFuchs Feiertage

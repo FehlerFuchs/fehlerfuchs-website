@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-30",
+  "updatedAt": "2026-08-08",
   "products": [
     {
       "slug": "gewerbepro",
@@ -35,6 +35,24 @@
       "signed": false,
       "page": "https://fehlerfuchs.eu/produkte/mobilereport-enterprise/",
       "notes": "1.0.1: Betreff für Meldungen, Fotos per Ziehen sortieren (erstes Bild = Hauptbild), Name als Pflichtfeld mit optionalem Standard-Speichern, einstellbare maximale Bildanzahl, Profil-Feld Position/Funktion, überarbeitete Einstellungen (Bereich \"Verwaltung\") und Fix für die Admin-/Branding-Übernahme."
+    },
+    {
+      "slug": "orgafuchs",
+      "name": "FehlerFuchs OrgaFuchs",
+      "version": "1.4.3",
+      "date": "2026-08-08",
+      "channel": "stable",
+      "os": "windows",
+      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.4.3/FehlerFuchs_OrgaFuchs_Setup_1.4.3.exe",
+      "filename": "FehlerFuchs_OrgaFuchs_Setup_1.4.3.exe",
+      "sizeLabel": "15,6 MB",
+      "sha256": "8ed225ed5bed1d3e45665bf805fea5d26aef55d37d3d0238786f32eb715530a8",
+      "signed": false,
+      "page": "https://fehlerfuchs.eu/produkte/orgafuchs/",
+      "notes": "Aktuelle Windows-Fassung, löst 1.0.0 ab. Sicherer Live-Sync (OFSP/1, Ende-zu-Ende, gehärtetes Relais), sicherer Wechsel des Hauptgeräts, Notfall-Wiederherstellung, wiederkehrende Termine und Notizen, Tag/Woche/Monat-Feinschliff, Windows-Tray, datenerhaltendes Update.",
+      "windowsDisplayNames": [
+        "OrgaFuchs"
+      ]
     }
   ]
 }

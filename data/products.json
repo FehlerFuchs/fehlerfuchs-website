@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-08T17:14:08+02:00",
+  "generiert": "2026-08-08T17:48:06+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -802,13 +802,9 @@
       "platforms": [
         {
           "os": "windows",
-          "status": "pruefung",
+          "status": "verfuegbar",
           "requirements": "Windows 10/11 (64-bit)",
-          "distribution": "github-release",
-          "hinweis": {
-            "wenn": "pruefung",
-            "text": "1.0.0 ist fertig; der öffentliche Windows-Download wird noch als GitHub-Release veröffentlicht."
-          }
+          "distribution": "github-release"
         },
         {
           "os": "android",
@@ -860,7 +856,24 @@
           }
         }
       ],
-      "releases": [],
+      "releases": [
+        {
+          "version": "1.4.3",
+          "date": "2026-08-08",
+          "channel": "stable",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.4.3/FehlerFuchs_OrgaFuchs_Setup_1.4.3.exe",
+          "filename": "FehlerFuchs_OrgaFuchs_Setup_1.4.3.exe",
+          "size": {
+            "bytes": 16357127,
+            "label": "15,6 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "8ed225ed5bed1d3e45665bf805fea5d26aef55d37d3d0238786f32eb715530a8",
+          "signed": false,
+          "notes": "Aktuelle Windows-Fassung, löst 1.0.0 ab. Sicherer Live-Sync (OFSP/1, Ende-zu-Ende, gehärtetes Relais), sicherer Wechsel des Hauptgeräts, Notfall-Wiederherstellung, wiederkehrende Termine und Notizen, Tag/Woche/Monat-Feinschliff, Windows-Tray, datenerhaltendes Update."
+        }
+      ],
       "features": [
         {
           "group": "Planen",
@@ -1089,6 +1102,7 @@
       },
       "links": {
         "alt_html": "/apps/orgafuchs.html",
+        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.4.3",
         "contact": "/kontakt.html?app=OrgaFuchs&topic=interesse",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
       },

@@ -45,6 +45,21 @@ meldungen:
       klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz
       und „Was ist neu" direkt in der App. Alle Daten bleiben auf dem Gerät.
 
+  # Windows-Download zur Play-Veröffentlichung. 'version: 1.4.3' bindet die Meldung
+  # an den releases-Eintrag – Datum und Download-Weg leiten sich daraus ab.
+  - id: orgafuchs-1-4-3-windows
+    typ: veroeffentlichung
+    produkt: orgafuchs
+    version: "1.4.3"
+    titel: OrgaFuchs jetzt auch als Windows-Download
+    text: >-
+      OrgaFuchs gibt es jetzt auch für Windows – gleiche Daten, gleicher Sync wie auf
+      dem Handy. Plane Dienste, Schichten, Termine und Notizen am PC, exportiere Monats-,
+      Jahres- und Blanko-PDFs und halte deine Geräte per Ende-zu-Ende-verschlüsseltem
+      Sync zusammen. Alle Daten bleiben auf deinem Gerät. Das Setup ist noch nicht
+      signiert; beim ersten Start kann Windows SmartScreen warnen – über „Weitere
+      Informationen" lässt sich die Installation fortsetzen.
+
   # Statusmeldung „warum es länger nichts Neues gab" (ChefBüro-Auftrag 2,
   # 01.08.2026). Kein Changelog, keine Versionsnummern; Fakten aus dem
   # Gesamt-Logbuch. Signatur mit Matzes Website-Ausnahme zur Namensregel.
