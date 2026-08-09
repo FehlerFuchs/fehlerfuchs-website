@@ -1,6 +1,10 @@
 slug: einsatzfuchs
 name: EinsatzFuchs
 fullName: FehlerFuchs EinsatzFuchs
+# SEO (2026-08-09): vorbereitet – wirkt erst bei Sichtbarschaltung (Status).
+seoTitel: "EinsatzFuchs – Offline-App für die Freiwillige Feuerwehr"
+seoBeschreibung: "Kostenlose, werbefreie Offline-App für die Freiwillige Feuerwehr: Einsatzrechner, Merksätze und Nachschlagewerke in einer App statt fünf."
+tags: ["Feuerwehr", "Einsatzrechner", "Freiwillige Feuerwehr", "Android", "offline", "werbefrei"]
 kind: produkt
 # Eigener Slug, Eigentümer FehlerFuchs_EinsatzFuchs (in _SLUG-EIGENTUEMER.md
 # eingetragen von ChefBüro, 24.07.2026). Einschreibung zusammengestellt aus

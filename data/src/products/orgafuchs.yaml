@@ -1,6 +1,10 @@
 slug: orgafuchs
 name: OrgaFuchs
 fullName: FehlerFuchs OrgaFuchs
+# SEO (2026-08-09): Windows 1.4.3 + Android seit 08.08. verfügbar.
+seoTitel: "OrgaFuchs – Familien- & Schichtplaner, offline für Windows & Android"
+seoBeschreibung: "Familien- und Schichtplaner für Dienste, Termine und Notizen: Monatskalender, PDF-Export, Sync übers eigene Heimnetz – für Windows & Android, ohne Cloud, ohne Konto."
+tags: ["Schichtplaner", "Familienplaner", "Dienstplan", "Kalender", "Windows", "Android", "offline", "ohne Cloud"]
 kind: produkt
 tagline: Der lokale Familien- und Team-Planer für Schicht- und Dienstpläne – offline, mit eigenem Sync ohne Cloud.
 description: >-

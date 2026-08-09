@@ -1,6 +1,10 @@
 slug: coppicemail
 name: CoppiceMail
 fullName: FehlerFuchs CoppiceMail
+# SEO (2026-08-09)
+seoTitel: "CoppiceMail – datensparsames E-Mail-Programm für Belege & Büropost"
+seoBeschreibung: "Lokales, datensparsames E-Mail-Programm mit Belegfokus: Mail öffnen, Anhang als Beleg ablegen, archivieren – kurze Wege, ohne Cloud, ohne Tracking."
+tags: ["E-Mail-Programm", "Belege", "Büropost", "datensparsam", "Windows", "ohne Cloud"]
 kind: produkt
 tagline: Das lokale, datensparsame E-Mail-Programm für Belege und Büropost – der Weg Mail, Anhang, Beleg, Archiv so kurz wie möglich.
 description: >-

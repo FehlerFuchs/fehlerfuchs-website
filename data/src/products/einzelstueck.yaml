@@ -1,6 +1,10 @@
 slug: einzelstueck
 name: EinzelStück
 fullName: FehlerFuchs EinzelStück
+# SEO (2026-08-09): Dienstleistung, Kunden-Ansprache "Sie".
+seoTitel: "EinzelStück – individuelle Software nach Maß (Windows, Web, Android)"
+seoBeschreibung: "Software nach Maß: eine Anwendung, die genau eine Aufgabe löst – Ihre. Als Windows-Programm, Browser-Werkzeug oder Android-App. Ehrlich, lokal, ohne Ballast."
+tags: ["Individualsoftware", "Software nach Maß", "Auftragsentwicklung", "Windows", "Web", "Android"]
 # Keine fertige App, sondern eine Leistung: Sie entsteht erst, wenn jemand
 # ein Problem mitbringt. Deshalb kein Download, keine Version, kein Store –
 # und deshalb die eigene Art 'dienstleistung'.

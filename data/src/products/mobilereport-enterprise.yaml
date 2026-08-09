@@ -11,6 +11,10 @@
 slug: mobilereport-enterprise
 name: MobileReport Enterprise
 fullName: FehlerFuchs MobileReport Enterprise
+# SEO (2026-08-09)
+seoTitel: "MobileReport Enterprise – Fotodoku-App für Firmen, ohne Play Store"
+seoBeschreibung: "Fotodokumentation und PDF-Berichte für Unternehmen: Verteilung als APK außerhalb Google Play, eigenes Branding, Lizenz je Arbeitsplatz – strikt lokal."
+tags: ["Fotodokumentation", "Baustellendokumentation", "Firmen", "APK", "Lizenz je Arbeitsplatz", "Branding", "lokal"]
 kind: edition
 parent: mobilereport
 

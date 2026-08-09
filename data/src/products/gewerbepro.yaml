@@ -1,6 +1,10 @@
 slug: gewerbepro
 name: GewerbePro
 fullName: FehlerFuchs GewerbePro
+# SEO (2026-08-09): eigener Suchmaschinen-Titel, Meta-Description, Schlagworte.
+seoTitel: "GewerbePro – Rechnungsprogramm fürs Kleingewerbe, ohne Abo"
+seoBeschreibung: "Büro- und Rechnungsprogramm für Kleingewerbe und Kleinunternehmer: Angebote, Rechnungen, E-Rechnung (ZUGFeRD/XRechnung), EÜR – lokal, ohne Cloud, ohne Abo."
+tags: ["Rechnung", "E-Rechnung", "ZUGFeRD", "XRechnung", "Kleingewerbe", "Kleinunternehmer", "Büro-Software", "Windows", "ohne Cloud", "ohne Abo"]
 kind: produkt
 tagline: Das Multitool des fuchs-schlauen Selbstständigen – lokal auf dem Windows-PC, ohne Cloud und ohne Konto.
 description: >-

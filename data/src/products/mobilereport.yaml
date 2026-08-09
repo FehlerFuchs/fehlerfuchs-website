@@ -1,6 +1,11 @@
 slug: mobilereport
 name: MobileReport
 fullName: FehlerFuchs MobileReport
+# SEO (2026-08-09): deutsche Begriffe (Namenskollision "MobileReport ApS");
+# Guardrail – kein absolutes "kein Google/kein Tracking" (Play Billing).
+seoTitel: "MobileReport – Fotodokumentation & Berichte als PDF, lokal"
+seoBeschreibung: "Meldungen und Fotos zu Geräten und Anlagen unterwegs erfassen und als sauberes PDF per Mail versenden – lokal auf dem Gerät, ohne Cloud, ohne Konto."
+tags: ["Fotodokumentation", "Berichte", "PDF", "Mängel", "Melde-App", "Android", "lokal"]
 kind: produkt
 tagline: Das kleine, lokale Melde-Logbuch für Geräte – schnell erfasst, sauber als PDF, direkt per Mail vorbereitet.
 description: >-

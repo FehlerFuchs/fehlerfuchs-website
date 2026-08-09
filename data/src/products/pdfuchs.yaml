@@ -1,6 +1,10 @@
 slug: pdfuchs
 name: PDFuchs
 fullName: FehlerFuchs PDFuchs
+# SEO (2026-08-09): vorbereitet – wirkt erst bei Sichtbarschaltung (Status).
+seoTitel: "PDFuchs – PDF-Programm für Windows, ohne Abo und ohne Cloud"
+seoBeschreibung: "PDF-Werkzeugkasten für Windows: zusammenfügen, teilen, Text erkennen und aus Word ausfüllbare PDF-Formulare erzeugen – lokal, ohne Cloud, ohne Abo."
+tags: ["PDF", "PDF-Formulare", "Word zu PDF", "zusammenfügen", "Windows", "ohne Abo", "ohne Cloud"]
 kind: produkt
 tagline: Die lokale, verständliche PDF-Vollsuite – Kernstück sind komfortabel ausfüllbare PDF-Formulare aus Word-Dateien.
 description: >-

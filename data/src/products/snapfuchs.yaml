@@ -1,6 +1,10 @@
 slug: snapfuchs
 name: SnapFuchs
 fullName: FehlerFuchs SnapFuchs
+# SEO (2026-08-09): Guardrail – kein absolutes "kein Google/kein Tracking" (Play Billing).
+seoTitel: "SnapFuchs – Dokumentenscanner-App ohne Cloud fürs Handy"
+seoBeschreibung: "Dokumente scannen, per OCR erkennen und als PDF ablegen – alles auf dem Gerät, ohne Cloud. Die datenschutzfreundliche CamScanner-Alternative für Android."
+tags: ["Dokumentenscanner", "OCR", "PDF", "Scanner-App", "Android", "offline", "ohne Cloud"]
 kind: produkt
 # „ohne Google" am 20.07.2026 gestrichen — dieselbe Begründung wie beim
 # Merkmal weiter unten: Die App fragt beim Start den Kaufstatus der

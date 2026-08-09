@@ -1,6 +1,10 @@
 slug: up2date
 name: Up2Date
 fullName: FehlerFuchs Up2Date
+# SEO (2026-08-09): vorbereitet – wirkt erst bei Sichtbarschaltung (Status).
+seoTitel: "Up2Date – hält FehlerFuchs-Programme auf dem neuesten Stand"
+seoBeschreibung: "Kleiner Helfer im Windows-Infobereich: behält installierte FehlerFuchs-Programme im Blick und weist auf neue Fassungen hin."
+tags: ["Updates", "Versionsprüfung", "Windows", "Infobereich", "FehlerFuchs"]
 kind: produkt
 # Eigener Slug laut _SLUG-EIGENTUEMER.md (aufgenommen 19.07.2026), Eigentümer
 # FehlerFuchs_Up2Date. Die Einschreibung fragt, ob Up2Date eine eigene Seite

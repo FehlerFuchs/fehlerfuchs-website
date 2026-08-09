@@ -1,6 +1,10 @@
 slug: mobilereport-konfigurator
 name: Branding-Konfigurator
 fullName: FehlerFuchs Branding-Konfigurator für MobileReport Enterprise
+# SEO (2026-08-09): customPage – Titel/Meta/keywords wirken über die eigene Astro-Datei.
+seoTitel: "Branding-Konfigurator – MobileReport Enterprise anpassen im Browser"
+seoBeschreibung: "Firmenname, Logo und Farben für MobileReport Enterprise im Browser zusammenstellen, live in App- und PDF-Vorschau prüfen und als .mrbrand-Datei laden – ohne Upload."
+tags: ["Branding", "MobileReport", "Logo & Farben", "Browser-Werkzeug", ".mrbrand"]
 kind: werkzeug
 parent: mobilereport-enterprise
 tagline: Name, Logo und Farben zusammenstellen, live in App- und PDF-Vorschau ansehen und als .mrbrand-Datei laden.

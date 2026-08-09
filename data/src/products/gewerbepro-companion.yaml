@@ -1,6 +1,10 @@
 slug: gewerbepro-companion
 name: GewerbePro Companion
 fullName: FehlerFuchs GewerbePro Companion
+# SEO (2026-08-09): vorbereitet – wirkt erst bei Sichtbarschaltung (Status).
+seoTitel: "GewerbePro Companion – mobile Erfassung für unterwegs (Android)"
+seoBeschreibung: "Android-Ergänzung zu GewerbePro: Kunden, Auftrags-Entwürfe, Fahrten und Quittungen unterwegs erfassen – offline und ohne Konto."
+tags: ["Companion", "mobile Erfassung", "Aufträge", "Fahrten", "Android", "offline"]
 kind: produkt
 # Ausbaustufe von GewerbePro (Windows). Die Companion-App ist die mobile
 # Ergänzung – eigene Plattform, eigene Merkmale, deshalb ein eigener Slug mit

@@ -1,6 +1,10 @@
 slug: belegwerk
 name: BelegWerk
 fullName: FehlerFuchs BelegWerk
+# SEO (2026-08-09)
+seoTitel: "BelegWerk – lokale Belegverwaltung für Windows (mit Paperless-ngx)"
+seoBeschreibung: "Belege und PDFs lokal verwalten: Eingangskorb, visuelle Prüfung, ASN und Ablage zwischen Scanner, Paperless-ngx und Dateiablage – auf dem eigenen Windows-PC, ohne Cloud."
+tags: ["Belegverwaltung", "Dokumentenverwaltung", "Paperless-ngx", "Scanner", "Windows", "ohne Cloud"]
 kind: produkt
 tagline: >-
   Belege lokal prüfen, aufbereiten und kontrolliert an Paperless und die

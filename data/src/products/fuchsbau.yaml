@@ -1,6 +1,10 @@
 slug: fuchsbau
 name: FuchsBau
 fullName: FehlerFuchs FuchsBau
+# SEO (2026-08-09): vorbereitet – wirkt erst bei Sichtbarschaltung (Status).
+seoTitel: "FuchsBau – Passwort-Generator & lokaler Tresor, ohne Cloud"
+seoBeschreibung: "Erzeugt merkbare Passwörter und verwahrt sie in einem einfachen, lokalen Tresor – kein Konto, keine Cloud, keine Synchronisation über fremde Server."
+tags: ["Passwort-Generator", "Passwort-Tresor", "Passwort-Manager", "lokal", "ohne Cloud"]
 kind: produkt
 tagline: Passwort-Generator mit einfachem Tresor – menschlich merkbare Passwörter erzeugen und sicher verwahren.
 description: >-

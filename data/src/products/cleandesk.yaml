@@ -1,6 +1,10 @@
 slug: cleandesk
 name: CleanDesk
 fullName: FehlerFuchs CleanDesk
+# SEO (2026-08-09): vorbereitet – wirkt erst bei Sichtbarschaltung (Status).
+seoTitel: "CleanDesk – Duplikate & große Dateien finden unter Windows"
+seoBeschreibung: "Findet Duplikate, große und alte Dateien sowie leere Ordner und zeigt, was Platz belegt – sicher: gelöscht wird nur, was du bestätigst. Für Windows, lokal."
+tags: ["Duplikate", "große Dateien", "aufräumen", "Speicherplatz", "Windows", "ohne Cloud"]
 kind: produkt
 tagline: Der sichere Ordnungshelfer für Windows – findet Duplikate, große und alte Dateien, leere Ordner. Löscht nie von selbst.
 description: >-
