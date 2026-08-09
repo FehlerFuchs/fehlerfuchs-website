@@ -1,16 +1,16 @@
 name: Website 2.0 bauen und deployen
 
-# NOCH NICHT SCHARF.
-#
-# Dieser Ablauf laeuft ausschliesslich auf Knopfdruck (workflow_dispatch).
-# Der alte Ablauf deploy.yml bleibt aktiv und liefert weiter die bestehende
-# Website. Erst wenn hier ein Durchlauf zufriedenstellend war, wird
-# umgeschaltet: unten steht, wie.
+# AKTIV/SCHARF: Dies ist der EINZIGE Deploy-Ablauf. Er laeuft bei jedem Push
+# nach 'main' und zusaetzlich auf Knopfdruck (workflow_dispatch). Eine fruehere
+# deploy.yml existiert nicht mehr.
 #
 # WAS HIER PASSIERT
 #   1. Beide Repositories auschecken - website (Datenmodell und Bilder) und
 #      astro (Vorlagen). Sie muessen NEBENEINANDER liegen, weil die
-#      Datenschicht mit '../website' arbeitet.
+#      Datenschicht mit '../website' arbeitet. Das astro-Repo wird REMOTE
+#      ausgecheckt (Branch main). Folge: Ein Push NUR ins astro-Repo loest hier
+#      NICHTS aus - erst ein Push nach website:main (oder ein manueller
+#      Dispatch) baut neu und zieht dabei den aktuellen astro-Stand.
 #   2. Datenmodell erzeugen und pruefen. Meldet build_data.py einen Fehler,
 #      bricht der Ablauf ab - es geht nichts kaputt live.
 #   3. Alle Oberflaechenpruefungen. Auch sie duerfen den Bau anhalten.
@@ -22,12 +22,6 @@ name: Website 2.0 bauen und deployen
 #   Access Token mit NUR Lesezugriff auf 'Contents' des Repositories
 #   fehlerfuchs-website-astro, hinterlegt unter
 #   Settings -> Secrets and variables -> Actions -> New repository secret.
-#
-# UMSCHALTEN, wenn es soweit ist:
-#   - hier den Block 'push' unter 'on:' einkommentieren
-#   - in deploy.yml den Block 'push' auskommentieren
-#   Zwei aktive Ablaeufe auf dieselbe Pages-Umgebung wuerden sich sonst
-#   gegenseitig ueberschreiben, und welcher gewinnt, entscheidet der Zufall.
 
 on:
   workflow_dispatch:
