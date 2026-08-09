@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-09T02:51:45+02:00",
+  "generiert": "2026-08-09T07:14:16+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1521,7 +1521,7 @@
           "summary": "Voller Funktionsumfang, freigeschaltet per einmaligem In-App-Kauf.",
           "price": {
             "model": "iap",
-            "amount": 3.0,
+            "amount": 5.0,
             "currency": "EUR",
             "vatIncluded": true,
             "recurring": false
@@ -1607,7 +1607,7 @@
             {
               "name": "Bilder aus der Galerie übernehmen",
               "values": {
-                "free": "nein",
+                "free": "ja",
                 "pro": "ja"
               }
             },

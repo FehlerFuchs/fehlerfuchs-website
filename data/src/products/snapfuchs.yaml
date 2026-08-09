@@ -81,7 +81,7 @@ editions:
     # einmaliges Kaufprodukt, kein Abo. Der Preis ist der deutsche
     # Endkundenpreis inklusive Mehrwertsteuer; Google rechnet je Land um.
     summary: Voller Funktionsumfang, freigeschaltet per einmaligem In-App-Kauf.
-    price: { model: iap, amount: 3.00, currency: EUR, vatIncluded: true, recurring: false }
+    price: { model: iap, amount: 5.00, currency: EUR, vatIncluded: true, recurring: false }
 
 releases: []
 
@@ -124,7 +124,7 @@ features:
       - name: Mehrseitige Dokumente
         values: { free: "bis 5 Seiten", pro: "ohne Begrenzung" }
       - name: Bilder aus der Galerie übernehmen
-        values: { free: nein, pro: ja }
+        values: { free: ja, pro: ja }
       # 1.1.0: Handy ablegen, Seite auflegen - sobald der Rahmen gruen steht,
       # loest die App selbst aus.
       - name: Stapelscan – löst automatisch aus, sobald der Rahmen sitzt
