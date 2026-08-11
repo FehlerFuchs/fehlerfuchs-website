@@ -1,0 +1,96 @@
+slug: haushaltsmanager        # Vorschlag; noch nicht in _SLUG-EIGENTUEMER.md eingetragen – Eintragung läuft parallel
+slug_vorschlag: true
+name: HaushaltsManager
+stand: "2026-08-09"
+geprueft_von: FehlerFuchs_HaushaltsManager
+fassung: >-
+  Am gebauten Produkt 0.11.1+35 geprüft (Produktfassung ohne private Daten, sauberer
+  Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Code-Signing und Vertrieb
+  stehen noch aus.
+
+lokal_only: false   # drei optionale, standardmäßig ausgeschaltete Außenverbindungen, siehe uebertragungen
+
+auf_dem_geraet:
+  - "Vollständige Haushaltsdaten in einer lokalen SQLite-Datenbank – Zählerstände (Strom/Gas/Wasser), Verträge inkl. Kündigungsfristen, Haushaltsbuch, Vorhaben/Projekte, Solar & Speicher – lokal, %APPDATA%\\HaushaltsManager\\"
+  - "Erzeugte PDF-Dokumente (Vertrags-/Kündigungsschreiben, Monats-/Jahresberichte) und JSON-Exporte – lokal, dort wo der Nutzer sie speichert"
+  - "Datenbank-Sicherungen (Backups) – lokal, vom Nutzer angelegt"
+  - "Optionale anonyme Beispieldaten zum Ausprobieren – lokal, jederzeit entfernbar"
+
+berechtigungen:
+  - "Lesen/Schreiben der eigenen SQLite-Datenbank und der vom Nutzer gewählten Export-/PDF-/Backup-Ordner (lokal)"
+  - "Optionaler per-user Autostart-Eintrag (HKCU\\...\\Run, ohne Administratorrechte), nur wenn der Nutzer den Hintergrunddienst einschaltet – startet die App versteckt im Tray"
+  # Ausdrücklich NICHT: Kamera/Mikro/Kontakte; keine Administratorrechte. Standortkoordinaten
+  # nur, wenn der Nutzer die optionale Wetterfunktion einschaltet und einen Standort wählt.
+
+uebertragungen:
+  - zweck: "Wetterdaten zur wetterbereinigten Erklärung von Heizperioden"
+    ziel: "Open-Meteo (api.open-meteo.com, archive-api.open-meteo.com)"
+    daten: >-
+      Nur die vom Nutzer gewählten Koordinaten (Standort). Kein Schlüssel, kein Konto.
+      Sonst werden keine Nutzerdaten gesendet; IP-Adresse und Zeitpunkt fallen wie bei
+      jedem Web-Abruf technisch an.
+    haeufigkeit: "nur bei aktivierter Wetterfunktion, beim Abruf durch den Nutzer"
+    abschaltbar: true
+    beleg: "Standardmäßig aus, opt-in; einzeln abschaltbar"
+  - zweck: "Abruf eigener Zähler-/Verbrauchsdaten aus dem PowerFox-Konto des Nutzers"
+    ziel: "PowerFox Cloud-API (offizielle Kunden-API 2.0, HTTPS, HTTP Basic Auth)"
+    daten: >-
+      Nutzt die EIGENEN Zugangsdaten des Nutzers (E-Mail + Passwort seines PowerFox-Kontos).
+      Das Passwort liegt ausschließlich im Windows-Anmeldespeicher. Abgerufen werden die
+      Verbrauchsdaten des eigenen Kontos.
+    haeufigkeit: "nur bei aktivierter PowerFox-Anbindung, beim Abruf/Sync durch den Nutzer"
+    abschaltbar: true
+    beleg: "Standardmäßig aus, opt-in; vom Nutzer selbst beauftragte Verbindung zu seinem eigenen Konto"
+  - zweck: "Abruf von Solar-/Speicherdaten aus der ENPAL-/InfluxDB-Instanz im Heimnetz"
+    ziel: "ENPAL / InfluxDB im eigenen Heimnetz (lokale IP + Token)"
+    daten: >-
+      Nur lokale Verbindung im eigenen Netz per IP und Token. Verlässt das Heimnetz nicht.
+      Der Token liegt ausschließlich im Windows-Anmeldespeicher.
+    haeufigkeit: "nur bei aktivierter Anbindung, beim Abruf/Sync durch den Nutzer"
+    abschaltbar: true
+    beleg: "Standardmäßig aus, opt-in; reine Heimnetz-Verbindung, verlässt das lokale Netz nicht"
+
+fremde_dienste:
+  - "Open-Meteo – genutzter Wetterdienst (nur bei aktivierter Wetterfunktion; ohne Schlüssel/Konto, es werden nur die gewählten Koordinaten gesendet)"
+  - "PowerFox Cloud – vom Nutzer beauftragte Verbindung zu seinem EIGENEN PowerFox-Konto (offizielle Kunden-API 2.0, mit den eigenen Zugangsdaten des Nutzers)"
+  # ENPAL/InfluxDB ist kein fremder Cloud-Dienst, sondern eine reine Verbindung im eigenen Heimnetz.
+  # Komponenten-Update erfolgt rein lokal aus einer vom Nutzer gewählten JSON-Datei – KEINE Netzverbindung.
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Alle Daten liegen ausschließlich lokal in der SQLite-Datenbank unter
+  %APPDATA%\\HaushaltsManager\\. Es werden keine Daten an FehlerFuchs oder Dritte übertragen.
+  Die Datenbank sowie erzeugte PDFs, Exporte und Backups kann der Nutzer jederzeit selbst
+  löschen; der Deinstaller entfernt das Programm. Optionale Beispieldaten lassen sich in der
+  App wieder entfernen. Zugangsdaten (PowerFox, ENPAL) stehen nur im Windows-Anmeldespeicher
+  und werden dort vom Nutzer entfernt.
+
+besonderheiten: >-
+  Kernversprechen: „Alle Daten bleiben auf diesem Gerät.“ HaushaltsManager ist privacy-first
+  und offline-first – kein Konto, kein Tracking, keine Werbung, keine Telemetrie, keine
+  automatischen Absturzberichte. Alle drei Außenverbindungen (Open-Meteo, PowerFox-Cloud,
+  ENPAL/InfluxDB im Heimnetz) sind standardmäßig AUS und einzeln zuschalt- bzw. abschaltbar.
+  Ein optionaler Hintergrunddienst (Tray-Symbol, standardmäßig aus) hält – nur wenn der Nutzer
+  ihn und die jeweilige Verbindung aktiviert – die aktivierten Abrufe (PowerFox/Wetter/ENPAL)
+  auch bei geschlossenem Fenster und auf Wunsch ab Windows-Start am Laufen; ohne Aktivierung
+  bestehen keinerlei Hintergrundverbindungen.
+  Das Komponenten-Update läuft ausschließlich über eine lokal vom Nutzer ausgewählte
+  JSON-Datei ohne jede Netzverbindung; Zugangsdaten in solchen Paketen sind ausdrücklich
+  verboten. Secrets (PowerFox-Passwort, ENPAL-Token) liegen ausschließlich im
+  Windows-Anmeldespeicher (flutter_secure_storage), nichts hartcodiert, nichts in Dateien
+  oder Git. Anbieterkennzeichnung in der App (Impressum): FehlerFuchs,
+  Geschäftsbezeichnung/Marke von Matthias Schacht, E-Mail admin@fehlerfuchs.eu.
+
+vorhandener_text: ""
+
+offene_fragen: >-
+  1) Der Slug „haushaltsmanager“ steht noch nicht in `_SLUG-EIGENTUEMER.md`; die Eintragung
+  läuft parallel (deshalb slug_vorschlag: true). 2) Monetarisierung/Preis und die Frage, ob ein
+  Lizenzserver oder IAP genutzt wird, sind NOCH NICHT entschieden. 3) Code-Signing
+  (Azure Trusted Signing) und der Vertriebskanal (GitHub-Releases/Digistore) stehen ebenfalls
+  noch aus.

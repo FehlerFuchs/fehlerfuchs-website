@@ -1,0 +1,64 @@
+slug: dateiwaechter
+name: DateiWächter
+fullName: FehlerFuchs DateiWächter
+kind: produkt
+tagline: >-
+  Windows-Tray-Tool: überwacht Ordner und verschiebt abgelegte Dateien mit
+  Prüfsumme sicher ans Ziel – plus ein Aufräum-Modul mit Vorschau und
+  Bestätigung. Kostenlos, kein Konto, kein Tracking.
+description: >-
+  Leg die Datei ab – um den Rest kümmert sich der Fuchs. DateiWächter beobachtet
+  beliebig viele Ordner und bringt alles, was dort landet, sicher ans Ziel:
+  zweite Platte, Netzlaufwerk, NAS. Sicher heißt wirklich sicher – erst
+  kopieren, dann eine SHA256-Prüfsumme über Quelle und Ziel, und das Original
+  nur löschen, wenn beide identisch sind; ist das Ziel offline, bleibt die Datei
+  liegen. Das Aufräum-Modul räumt benutzer-level auf (Temp, Papierkorb, Caches)
+  – erst Vorschau, dann Löschen nur nach Bestätigung, nie Systempfade. In
+  Entwicklung – noch kein öffentlicher Download.
+audience: [privat, selbststaendige, unternehmen]
+accent: "#C2410C"   # Platzhalter: FehlerFuchs-Hausfarbe, bis die App-Farbe geliefert wird
+
+# Pool-Kachel (in Entwicklung) – Entscheidung Matze 11.08.2026. Keine Detailseite,
+# kein Download; erscheint im Ideen- und Entwicklungspool.
+status: entwicklung
+
+platforms:
+  - os: windows
+    status: entwicklung
+    requirements: Windows 10/11 (64-bit)
+    distribution: keiner
+    hinweis:
+      wenn: entwicklung
+      text: >-
+        Geplant als signierte .exe mit Inno-Setup-Installer (per-user, ohne
+        Administratorrechte). Noch nicht veröffentlicht, kein Download vorhanden.
+
+privacy: [inhalte-lokal, kein-konto, kein-tracking, werbefrei, offline-faehig]
+
+editions:
+  - id: standard
+    name: FehlerFuchs DateiWächter
+    public: true
+    summary: >-
+      Voller Funktionsumfang: Ordner-Wächter mit verifiziertem Verschieben und
+      Aufräum-Modul mit Vorschau. Keine Free-/Pro-Trennung, keine
+      Funktionssperren, keine Werbung.
+    price: { model: kostenlos }
+
+releases: []
+
+# Platzhalter-Motive, bis das Projekt echte Screenshots liefert.
+media:
+  platzhalter: 4
+
+links:
+  contact: /kontakt.html?app=DateiWächter&topic=interesse
+
+notes: >-
+  Pool-Kachel (in Entwicklung, Entscheidung Matze 11.08.2026). Öffentliches
+  FehlerFuchs-Windows-Produkt in C#/.NET (Tray, signierbare .exe). Slug am
+  08.08.2026 entschieden; Eintrag in _SLUG-EIGENTUEMER.md bei ChefBüro
+  angefragt. App-Farbe und Screenshots werden vom Projekt nachgeliefert; bei
+  öffentlichem, signiertem Release wird die Kachel zur vollen Seite mit
+  Download. Die Android-Schwester (DateiWächterMobil) wird später auf DIESER
+  Seite mit integriert, keine eigene Seite.

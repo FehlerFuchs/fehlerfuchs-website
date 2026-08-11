@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-09T07:14:16+02:00",
+  "generiert": "2026-08-11T08:25:24+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -431,6 +431,52 @@
       "besonderheiten": "Die lokale Datenbank ist nicht anwendungsseitig verschluesselt; als Grundschutz wird BitLocker oder eine gleichwertige Laufwerksverschluesselung empfohlen. Externe Bilder sind standardmaessig blockiert, JavaScript in Nachrichten ist abgeschaltet und der HTML-Inhalt wird vor der Anzeige bereinigt. Eine automatische Update-Installation gibt es nicht: Die Anwendung prueft nur eine feste Versionsdatei und verweist auf die Produktseite. Die Uebergabe an Paperless laesst unverschluesseltes HTTP ausschliesslich zum eigenen Rechner zu; jede andere Adresse muss HTTPS verwenden. Die Konfigurationssicherung enthaelt keine Zugangsdaten und keine Nachrichten; nach dem Einlesen bleiben Regeln und Abwesenheitsantworten vorsichtshalber abgeschaltet. Fuer Gmail und Outlook werden derzeit App-Passwoerter benoetigt, da moderne Anmeldeverfahren noch nicht unterstuetzt werden.",
       "vorhandener_text": "In der Anwendung unter \"Info & Hilfe\" sowie im Impressum; eine eigenstaendige Datenschutzdatei im Projekt gibt es bisher nicht.",
       "offene_fragen": "1) Impressum, Datenschutzerklaerung und Haftungshinweise sind noch nicht juristisch abgenommen. 2) Eine verschluesselte lokale Ablage und eine verschluesselte Sicherung sind vorgesehen, aber noch nicht umgesetzt. 3) Die Auslieferung ist derzeit nicht signiert; signierte Verteilung und signierte Update-Informationen sind vorbereitet, aber noch nicht wirksam. 4) Ob und wie lange der Mailanbieter Verbindungsdaten wie die IP-Adresse protokolliert, haengt vom Anbieter ab und nicht von CoppiceMail.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "dateiwaechter",
+      "name": "DateiWächter",
+      "stand": "2026-08-08",
+      "geprueft_von": "FehlerFuchs_DateiWächter",
+      "fassung": "Konzeptphase – App noch nicht gebaut. Angaben aus dem ausdefinierten Konzept v1.0 vom 08.08.2026 (Planungsstand, nicht am Code geprüft – es gibt noch keinen Code). Windows-Desktop-Tool, lokal.",
+      "lokal_only": false,
+      "auf_dem_geraet": [
+        "JSON-Konfiguration der Wächter-Regeln (Quell-/Zielordner, Optionen) – lokal, %APPDATA%\\FehlerFuchs\\DateiWaechter\\",
+        "Lokale Protokolldateien (verschobene/übersprungene Dateien, Fehler) – lokal, Aufbewahrung 30 Tage, dann automatisch entfernt"
+      ],
+      "berechtigungen": [
+        "Lesen/Schreiben in den vom Nutzer AUSGEWÄHLTEN Quell- und Zielordnern (lokal und Netzlaufwerk/SMB, z. B. NAS)",
+        "Löschen im Aufräum-Modul – nur benutzer-level, Whitelist, NUR nach Analyse und ausdrücklicher Bestätigung; nie System-/Nutzerdokumente/Projektdaten",
+        "Per-user Autostart-Eintrag (HKCU\\...\\Run, non-admin), damit der Wächter mit Windows startet"
+      ],
+      "uebertragungen": [
+        {
+          "zweck": "Versionsprüfung (Update-Hinweis)",
+          "ziel": "https://fehlerfuchs.eu/updates/dateiwaechter/latest.json",
+          "daten": "Reiner lesender HTTP-Abruf einer statischen Datei. Es werden keine Nutzerdaten gesendet; IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.",
+          "haeufigkeit": "beim Start, danach höchstens einmal täglich",
+          "abschaltbar": true,
+          "beleg": "Konzept v1.0 §8.1 – Einstellung „Nach Updates suchen“; ist der Haken aus, entfällt die Anfrage vollständig"
+        },
+        {
+          "zweck": "Support- und Kontaktformular",
+          "ziel": "https://license.fehlerfuchs.eu/v1/contact",
+          "daten": "Nur was der Nutzer eingibt: Nachricht (Pflicht), Name und E-Mail (optional), optionale Anhänge sowie – nur wenn der Nutzer das Häkchen setzt – eine vorher einsehbare Diagnosedatei mit nicht personenbezogenen Technikdaten (App-/Windows-/.NET-Version, Anzahl Regeln, Zählerstände, Fehlerlog-Auszug). Pfade, Dateinamen und Benutzername werden vor Anzeige und Versand bereinigt.",
+          "haeufigkeit": "nur wenn der Nutzer „Senden“ drückt – nie automatisch, nie im Hintergrund",
+          "abschaltbar": "entfällt (rein nutzerinitiiert)",
+          "beleg": "Konzept v1.0 §7; Hausstandard KONZEPT_Support-Anbindung_Apps.md"
+        }
+      ],
+      "fremde_dienste": [],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Es werden keine personenbezogenen Daten erhoben oder gespeichert. Konfiguration und Protokolldateien liegen lokal; der Deinstaller fragt, ob sie mit entfernt werden sollen (Vorgabe: behalten). Protokolle werden ohnehin nach 30 Tagen automatisch gelöscht. Die verschobenen Dateien sind die eigenen Dateien des Nutzers und bleiben beim Nutzer (nur lokal bzw. auf das eigene Netzlaufwerk verschoben).",
+      "besonderheiten": "Kernversprechen: „Deine Dateien verlassen deinen Rechner nicht.“ Der Wächter verschiebt VERIFIZIERT (Copy → SHA256 Quelle==Ziel → erst dann Quelle löschen); bei Abweichung oder nicht erreichbarem Ziel bleibt die Quelle erhalten. Gelöscht wird bevorzugt in den Papierkorb. Das Aufräum-Modul löscht ausschließlich benutzer-level Kandidaten (Temp/Papierkorb/Caches) nach Analyse und Bestätigung, Whitelist-basiert, niemals Systempfade und niemals Nutzerdokumente. Keine Telemetrie – bewusst entschieden am 08.08.2026. Die pauschale Aussage „keine Cloud, keine Telemetrie“ wird auf der Produktseite bewusst präzisiert, weil die abschaltbare Versionsprüfung eine Verbindung darstellt.",
+      "vorhandener_text": "",
+      "offene_fragen": "1) Der Slug „dateiwaechter“ steht noch nicht in `_SLUG-EIGENTUEMER.md`; Eintragung ist bei ChefBüro angefragt. 2) Dieser Steckbrief beschreibt den PLANUNGSSTAND – es existiert noch kein Code. Vor der ersten Veröffentlichung ist er am gebauten Programm gegenzuprüfen (Regel „Nur Tatsachen, keine Absichten“). 3) Die genaue Feldliste der Diagnosedatei steht im Konzept §7 und ist beim Bau gegen die tatsächliche Implementierung abzugleichen.",
       "art": "anwendung"
     },
     {
@@ -973,6 +1019,65 @@
       "besonderheiten": "Die App ist ein reiner Erfassungs-Begleiter zu GewerbePro. Gerechnet und endgültig erzeugt wird alles am PC. Sie arbeitet vollständig offline und benötigt kein Konto. Der Datenaustausch mit dem PC ist ein bewusster Schritt des Nutzers: Die App legt die erfassten Daten als Paket in ihrem eigenen Speicherbereich ab, ein automatischer Versand findet nicht statt. Firmenlogo, Absenderangaben und Unterschrift werden aus GewerbePro übernommen, damit Belege vor Ort im gewohnten Aussehen erzeugt werden können. Da Kundendaten und Unterschriften erfasst werden, verarbeitet der Nutzer mit dieser App personenbezogene Daten seiner eigenen Kunden in eigener Verantwortung.",
       "vorhandener_text": "",
       "offene_fragen": "1. Die App ist noch nicht veröffentlicht. Ein Play-Store-Eintrag und das dortige Datensicherheitsformular existieren nicht; Berechtigungen können sich bis zum Release noch ändern. 2. Geprüft wurde der Quelltext und die Quell-Manifeste. Ob die Bibliotheken \"printing\" und \"file_picker\" beim Zusammenbauen des Release-APK zusätzliche Manifest-Einträge ergänzen, wurde an einem fertigen APK nicht nachgemessen. 3. Der geplante Sync über USB, eigene Cloud oder späteren Server ist noch nicht umgesetzt. Sobald er kommt, entstehen neue Übertragungen, die hier nachgetragen werden müssen. (Die frühere Frage zum Slug ist erledigt: \"gewerbepro-companion\" ist am 19.07.2026 in _SLUG-EIGENTUEMER.md bestätigt.)",
+      "art": "anwendung"
+    },
+    {
+      "slug": "haushaltsmanager",
+      "slug_vorschlag": true,
+      "name": "HaushaltsManager",
+      "stand": "2026-08-09",
+      "geprueft_von": "FehlerFuchs_HaushaltsManager",
+      "fassung": "Am gebauten Produkt 0.11.1+35 geprüft (Produktfassung ohne private Daten, sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Code-Signing und Vertrieb stehen noch aus.",
+      "lokal_only": false,
+      "auf_dem_geraet": [
+        "Vollständige Haushaltsdaten in einer lokalen SQLite-Datenbank – Zählerstände (Strom/Gas/Wasser), Verträge inkl. Kündigungsfristen, Haushaltsbuch, Vorhaben/Projekte, Solar & Speicher – lokal, %APPDATA%\\HaushaltsManager\\",
+        "Erzeugte PDF-Dokumente (Vertrags-/Kündigungsschreiben, Monats-/Jahresberichte) und JSON-Exporte – lokal, dort wo der Nutzer sie speichert",
+        "Datenbank-Sicherungen (Backups) – lokal, vom Nutzer angelegt",
+        "Optionale anonyme Beispieldaten zum Ausprobieren – lokal, jederzeit entfernbar"
+      ],
+      "berechtigungen": [
+        "Lesen/Schreiben der eigenen SQLite-Datenbank und der vom Nutzer gewählten Export-/PDF-/Backup-Ordner (lokal)",
+        "Optionaler per-user Autostart-Eintrag (HKCU\\...\\Run, ohne Administratorrechte), nur wenn der Nutzer den Hintergrunddienst einschaltet – startet die App versteckt im Tray"
+      ],
+      "uebertragungen": [
+        {
+          "zweck": "Wetterdaten zur wetterbereinigten Erklärung von Heizperioden",
+          "ziel": "Open-Meteo (api.open-meteo.com, archive-api.open-meteo.com)",
+          "daten": "Nur die vom Nutzer gewählten Koordinaten (Standort). Kein Schlüssel, kein Konto. Sonst werden keine Nutzerdaten gesendet; IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.",
+          "haeufigkeit": "nur bei aktivierter Wetterfunktion, beim Abruf durch den Nutzer",
+          "abschaltbar": true,
+          "beleg": "Standardmäßig aus, opt-in; einzeln abschaltbar"
+        },
+        {
+          "zweck": "Abruf eigener Zähler-/Verbrauchsdaten aus dem PowerFox-Konto des Nutzers",
+          "ziel": "PowerFox Cloud-API (offizielle Kunden-API 2.0, HTTPS, HTTP Basic Auth)",
+          "daten": "Nutzt die EIGENEN Zugangsdaten des Nutzers (E-Mail + Passwort seines PowerFox-Kontos). Das Passwort liegt ausschließlich im Windows-Anmeldespeicher. Abgerufen werden die Verbrauchsdaten des eigenen Kontos.",
+          "haeufigkeit": "nur bei aktivierter PowerFox-Anbindung, beim Abruf/Sync durch den Nutzer",
+          "abschaltbar": true,
+          "beleg": "Standardmäßig aus, opt-in; vom Nutzer selbst beauftragte Verbindung zu seinem eigenen Konto"
+        },
+        {
+          "zweck": "Abruf von Solar-/Speicherdaten aus der ENPAL-/InfluxDB-Instanz im Heimnetz",
+          "ziel": "ENPAL / InfluxDB im eigenen Heimnetz (lokale IP + Token)",
+          "daten": "Nur lokale Verbindung im eigenen Netz per IP und Token. Verlässt das Heimnetz nicht. Der Token liegt ausschließlich im Windows-Anmeldespeicher.",
+          "haeufigkeit": "nur bei aktivierter Anbindung, beim Abruf/Sync durch den Nutzer",
+          "abschaltbar": true,
+          "beleg": "Standardmäßig aus, opt-in; reine Heimnetz-Verbindung, verlässt das lokale Netz nicht"
+        }
+      ],
+      "fremde_dienste": [
+        "Open-Meteo – genutzter Wetterdienst (nur bei aktivierter Wetterfunktion; ohne Schlüssel/Konto, es werden nur die gewählten Koordinaten gesendet)",
+        "PowerFox Cloud – vom Nutzer beauftragte Verbindung zu seinem EIGENEN PowerFox-Konto (offizielle Kunden-API 2.0, mit den eigenen Zugangsdaten des Nutzers)"
+      ],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Alle Daten liegen ausschließlich lokal in der SQLite-Datenbank unter %APPDATA%\\\\HaushaltsManager\\\\. Es werden keine Daten an FehlerFuchs oder Dritte übertragen. Die Datenbank sowie erzeugte PDFs, Exporte und Backups kann der Nutzer jederzeit selbst löschen; der Deinstaller entfernt das Programm. Optionale Beispieldaten lassen sich in der App wieder entfernen. Zugangsdaten (PowerFox, ENPAL) stehen nur im Windows-Anmeldespeicher und werden dort vom Nutzer entfernt.",
+      "besonderheiten": "Kernversprechen: „Alle Daten bleiben auf diesem Gerät.“ HaushaltsManager ist privacy-first und offline-first – kein Konto, kein Tracking, keine Werbung, keine Telemetrie, keine automatischen Absturzberichte. Alle drei Außenverbindungen (Open-Meteo, PowerFox-Cloud, ENPAL/InfluxDB im Heimnetz) sind standardmäßig AUS und einzeln zuschalt- bzw. abschaltbar. Ein optionaler Hintergrunddienst (Tray-Symbol, standardmäßig aus) hält – nur wenn der Nutzer ihn und die jeweilige Verbindung aktiviert – die aktivierten Abrufe (PowerFox/Wetter/ENPAL) auch bei geschlossenem Fenster und auf Wunsch ab Windows-Start am Laufen; ohne Aktivierung bestehen keinerlei Hintergrundverbindungen. Das Komponenten-Update läuft ausschließlich über eine lokal vom Nutzer ausgewählte JSON-Datei ohne jede Netzverbindung; Zugangsdaten in solchen Paketen sind ausdrücklich verboten. Secrets (PowerFox-Passwort, ENPAL-Token) liegen ausschließlich im Windows-Anmeldespeicher (flutter_secure_storage), nichts hartcodiert, nichts in Dateien oder Git. Anbieterkennzeichnung in der App (Impressum): FehlerFuchs, Geschäftsbezeichnung/Marke von Matthias Schacht, E-Mail admin@fehlerfuchs.eu.",
+      "vorhandener_text": "",
+      "offene_fragen": "1) Der Slug „haushaltsmanager“ steht noch nicht in `_SLUG-EIGENTUEMER.md`; die Eintragung läuft parallel (deshalb slug_vorschlag: true). 2) Monetarisierung/Preis und die Frage, ob ein Lizenzserver oder IAP genutzt wird, sind NOCH NICHT entschieden. 3) Code-Signing (Azure Trusted Signing) und der Vertriebskanal (GitHub-Releases/Digistore) stehen ebenfalls noch aus.",
       "art": "anwendung"
     },
     {

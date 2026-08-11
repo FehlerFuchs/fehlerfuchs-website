@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-09T07:14:16+02:00",
+  "generiert": "2026-08-11T08:25:24+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -2332,6 +2332,161 @@
       "notes": "Anbindung an Paperless bedeutet, dass Daten an ein selbst betriebenes Archiv gehen. Das Merkmal „keine-cloud\" ist deshalb bewusst nicht gesetzt – es hängt davon ab, wo der Nutzer sein Paperless betreibt."
     },
     {
+      "slug": "haushaltsmanager",
+      "name": "HaushaltsManager",
+      "fullName": "FehlerFuchs HaushaltsManager",
+      "kind": "produkt",
+      "tagline": "Lokales Windows-Werkzeug für den ganzen Haushalt: Zählerstände, Verträge mit Kündigungsfristen, Haushaltsbuch, Auswertungen. Alle Daten bleiben auf deinem Gerät – kein Konto, kein Tracking.",
+      "description": "HaushaltsManager bündelt die Haushaltsverwaltung auf dem eigenen Rechner: Zählerstände für Strom, Gas und Wasser mit Verbrauchsverlauf, Verträge samt Kündigungsfristen, ein vollständiges Haushaltsbuch sowie Vorhaben und Projekte. Auswertungen mit Diagrammen und Von-bis-Filter machen Entwicklungen sichtbar; Solar- und Speicherdaten lassen sich einbeziehen. Aus den Daten entstehen Vertrags- und Kündigungsschreiben sowie Monats- und Jahresberichte als PDF, dazu JSON-Export und Backup. Die Daten liegen lokal – kein Konto, kein Tracking, keine Werbung. In Prüfung – noch kein öffentlicher Download.",
+      "audience": [
+        "privat",
+        "selbststaendige"
+      ],
+      "accent": "#C2410C",
+      "status": "pruefung",
+      "platforms": [
+        {
+          "os": "windows",
+          "status": "pruefung",
+          "requirements": "Windows 10/11 (64-bit)",
+          "distribution": "keiner",
+          "hinweis": {
+            "wenn": "pruefung",
+            "text": "Funktionsfertig gebaut (0.11.1+35). Noch nicht signiert und noch nicht veröffentlicht; Preis, Vertrieb und Code-Signing stehen aus."
+          }
+        }
+      ],
+      "privacy": [
+        "inhalte-lokal",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "FehlerFuchs HaushaltsManager",
+          "public": true,
+          "summary": "Voller Funktionsumfang in einer Edition: Zählerstände, Verträge, Haushaltsbuch, Vorhaben/Projekte, Auswertungen, Solar & Speicher, PDF-Kommunikation und -Berichte, Export und Sicherung.",
+          "price": {
+            "model": "offen"
+          }
+        }
+      ],
+      "releases": [],
+      "features": [
+        {
+          "group": "Erfassen und verwalten",
+          "items": [
+            {
+              "name": "Zählerstände für Strom, Gas und Wasser erfassen und Verbrauch nachverfolgen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Verträge verwalten inkl. Kündigungsfristen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Vollständiges Haushaltsbuch (Einnahmen und Ausgaben)",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Vorhaben und Projekte planen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Optionale anonyme Beispieldaten zum Ausprobieren",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Auswerten",
+          "items": [
+            {
+              "name": "Auswertungen mit Linien- und Balkendiagrammen und Von-bis-Filter",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Solar und Speicher einbeziehen (Solarertrag und Speicherdaten)",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Ausgeben",
+          "items": [
+            {
+              "name": "Vertrags- und Kündigungsschreiben als PDF erzeugen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Monats- und Jahresberichte als PDF",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "JSON-Export und Datenbank-Sicherung (Backup)",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Optionale Verbindungen (standardmäßig aus)",
+          "items": [
+            {
+              "name": "Wetterdaten über Open-Meteo (opt-in)",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Sendet nur die gewählten Koordinaten, ohne Schlüssel oder Konto."
+            },
+            {
+              "name": "Eigenes PowerFox-Konto anbinden (opt-in)",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Mit den eigenen Zugangsdaten des Nutzers; das Passwort bleibt im Windows-Anmeldespeicher."
+            },
+            {
+              "name": "Solar und Speicher im Heimnetz über ENPAL/InfluxDB (opt-in)",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Reine Verbindung im eigenen Heimnetz, verlässt das lokale Netz nicht."
+            }
+          ]
+        }
+      ],
+      "media": {
+        "platzhalter": 4
+      },
+      "links": {
+        "contact": "/kontakt.html?app=HaushaltsManager&topic=interesse"
+      },
+      "notes": "Pool-Kachel (in Prüfung, ohne Preis/Download, Entscheidung Matze 11.08.2026). Öffentliche Produktfassung (sauberer Fork) des privaten HaushaltsManagers; Produkt-Code FehlerFuchs_HaushaltsManager_Markt. Offen und beim Projekt/ChefBüro zu klären: Slug-Eintrag in _SLUG-EIGENTUEMER.md, die geprueft_von-Kollision (FehlerFuchs_HaushaltsManager statt _Markt), die Preis-/Vertriebsentscheidung, Code-Signing sowie App-Farbe und Screenshots."
+    },
+    {
       "slug": "gewerbepro",
       "name": "GewerbePro",
       "fullName": "FehlerFuchs GewerbePro",
@@ -3077,6 +3232,59 @@
         "contact": "/kontakt.html?app=CoppiceMail&topic=interesse"
       },
       "notes": "1.0.1 als Release-Kandidat gebaut, in Härtung; noch kein öffentlicher Download. Regel (CoppiceMail 28.07.2026): Status, Download und Datenschutz nur GEMEINSAM in einem Release-Schritt freischalten. OFFEN für WEB vor dem Release: Datenschutz- Steckbrief v2 (realer 1.0-Datenfluss, lokal_only:false) über den Einreichordner nachziehen und die privacy-Merkmale (aktuell noch inkl. 'nur-lokal') entsprechend korrigieren. Bis dahin bewusst unverändert."
+    },
+    {
+      "slug": "dateiwaechter",
+      "name": "DateiWächter",
+      "fullName": "FehlerFuchs DateiWächter",
+      "kind": "produkt",
+      "tagline": "Windows-Tray-Tool: überwacht Ordner und verschiebt abgelegte Dateien mit Prüfsumme sicher ans Ziel – plus ein Aufräum-Modul mit Vorschau und Bestätigung. Kostenlos, kein Konto, kein Tracking.",
+      "description": "Leg die Datei ab – um den Rest kümmert sich der Fuchs. DateiWächter beobachtet beliebig viele Ordner und bringt alles, was dort landet, sicher ans Ziel: zweite Platte, Netzlaufwerk, NAS. Sicher heißt wirklich sicher – erst kopieren, dann eine SHA256-Prüfsumme über Quelle und Ziel, und das Original nur löschen, wenn beide identisch sind; ist das Ziel offline, bleibt die Datei liegen. Das Aufräum-Modul räumt benutzer-level auf (Temp, Papierkorb, Caches) – erst Vorschau, dann Löschen nur nach Bestätigung, nie Systempfade. In Entwicklung – noch kein öffentlicher Download.",
+      "audience": [
+        "privat",
+        "selbststaendige",
+        "unternehmen"
+      ],
+      "accent": "#C2410C",
+      "status": "entwicklung",
+      "platforms": [
+        {
+          "os": "windows",
+          "status": "entwicklung",
+          "requirements": "Windows 10/11 (64-bit)",
+          "distribution": "keiner",
+          "hinweis": {
+            "wenn": "entwicklung",
+            "text": "Geplant als signierte .exe mit Inno-Setup-Installer (per-user, ohne Administratorrechte). Noch nicht veröffentlicht, kein Download vorhanden."
+          }
+        }
+      ],
+      "privacy": [
+        "inhalte-lokal",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "FehlerFuchs DateiWächter",
+          "public": true,
+          "summary": "Voller Funktionsumfang: Ordner-Wächter mit verifiziertem Verschieben und Aufräum-Modul mit Vorschau. Keine Free-/Pro-Trennung, keine Funktionssperren, keine Werbung.",
+          "price": {
+            "model": "kostenlos"
+          }
+        }
+      ],
+      "releases": [],
+      "media": {
+        "platzhalter": 4
+      },
+      "links": {
+        "contact": "/kontakt.html?app=DateiWächter&topic=interesse"
+      },
+      "notes": "Pool-Kachel (in Entwicklung, Entscheidung Matze 11.08.2026). Öffentliches FehlerFuchs-Windows-Produkt in C#/.NET (Tray, signierbare .exe). Slug am 08.08.2026 entschieden; Eintrag in _SLUG-EIGENTUEMER.md bei ChefBüro angefragt. App-Farbe und Screenshots werden vom Projekt nachgeliefert; bei öffentlichem, signiertem Release wird die Kachel zur vollen Seite mit Download. Die Android-Schwester (DateiWächterMobil) wird später auf DIESER Seite mit integriert, keine eigene Seite."
     },
     {
       "slug": "fuchsbau",

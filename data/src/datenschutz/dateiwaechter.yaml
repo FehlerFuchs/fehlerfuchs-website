@@ -1,0 +1,77 @@
+slug: dateiwaechter          # entschieden 08.08.2026; noch nicht in _SLUG-EIGENTUEMER.md eingetragen
+name: DateiWächter
+stand: "2026-08-08"
+geprueft_von: FehlerFuchs_DateiWächter
+fassung: >-
+  Konzeptphase – App noch nicht gebaut. Angaben aus dem ausdefinierten Konzept v1.0 vom
+  08.08.2026 (Planungsstand, nicht am Code geprüft – es gibt noch keinen Code).
+  Windows-Desktop-Tool, lokal.
+
+lokal_only: false   # zwei eng begrenzte Außenverbindungen, siehe uebertragungen
+
+auf_dem_geraet:
+  - "JSON-Konfiguration der Wächter-Regeln (Quell-/Zielordner, Optionen) – lokal, %APPDATA%\\FehlerFuchs\\DateiWaechter\\"
+  - "Lokale Protokolldateien (verschobene/übersprungene Dateien, Fehler) – lokal, Aufbewahrung 30 Tage, dann automatisch entfernt"
+
+berechtigungen:
+  - "Lesen/Schreiben in den vom Nutzer AUSGEWÄHLTEN Quell- und Zielordnern (lokal und Netzlaufwerk/SMB, z. B. NAS)"
+  - "Löschen im Aufräum-Modul – nur benutzer-level, Whitelist, NUR nach Analyse und ausdrücklicher Bestätigung; nie System-/Nutzerdokumente/Projektdaten"
+  - "Per-user Autostart-Eintrag (HKCU\\...\\Run, non-admin), damit der Wächter mit Windows startet"
+  # Ausdrücklich NICHT: Kamera/Mikro/Standort/Kontakte; keine Administratorrechte; kein Zugriff
+  # jenseits der vom Nutzer gewählten Ordner und der Aufräum-Whitelist.
+
+uebertragungen:
+  - zweck: "Versionsprüfung (Update-Hinweis)"
+    ziel: "https://fehlerfuchs.eu/updates/dateiwaechter/latest.json"
+    daten: >-
+      Reiner lesender HTTP-Abruf einer statischen Datei. Es werden keine Nutzerdaten gesendet;
+      IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.
+    haeufigkeit: "beim Start, danach höchstens einmal täglich"
+    abschaltbar: true
+    beleg: "Konzept v1.0 §8.1 – Einstellung „Nach Updates suchen“; ist der Haken aus, entfällt die Anfrage vollständig"
+  - zweck: "Support- und Kontaktformular"
+    ziel: "https://license.fehlerfuchs.eu/v1/contact"
+    daten: >-
+      Nur was der Nutzer eingibt: Nachricht (Pflicht), Name und E-Mail (optional), optionale
+      Anhänge sowie – nur wenn der Nutzer das Häkchen setzt – eine vorher einsehbare
+      Diagnosedatei mit nicht personenbezogenen Technikdaten (App-/Windows-/.NET-Version,
+      Anzahl Regeln, Zählerstände, Fehlerlog-Auszug). Pfade, Dateinamen und Benutzername
+      werden vor Anzeige und Versand bereinigt.
+    haeufigkeit: "nur wenn der Nutzer „Senden“ drückt – nie automatisch, nie im Hintergrund"
+    abschaltbar: "entfällt (rein nutzerinitiiert)"
+    beleg: "Konzept v1.0 §7; Hausstandard KONZEPT_Support-Anbindung_Apps.md"
+
+fremde_dienste: []
+  # Keine. Keine Cloud-Speicherung, keine Telemetrie, keine Analytics, keine Werbenetzwerke.
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false      # keine automatischen; nur der nutzerinitiierte Support-Versand
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Es werden keine personenbezogenen Daten erhoben oder gespeichert. Konfiguration und
+  Protokolldateien liegen lokal; der Deinstaller fragt, ob sie mit entfernt werden sollen
+  (Vorgabe: behalten). Protokolle werden ohnehin nach 30 Tagen automatisch gelöscht. Die
+  verschobenen Dateien sind die eigenen Dateien des Nutzers und bleiben beim Nutzer
+  (nur lokal bzw. auf das eigene Netzlaufwerk verschoben).
+
+besonderheiten: >-
+  Kernversprechen: „Deine Dateien verlassen deinen Rechner nicht.“ Der Wächter verschiebt
+  VERIFIZIERT (Copy → SHA256 Quelle==Ziel → erst dann Quelle löschen); bei Abweichung oder
+  nicht erreichbarem Ziel bleibt die Quelle erhalten. Gelöscht wird bevorzugt in den
+  Papierkorb. Das Aufräum-Modul löscht ausschließlich benutzer-level Kandidaten
+  (Temp/Papierkorb/Caches) nach Analyse und Bestätigung, Whitelist-basiert, niemals
+  Systempfade und niemals Nutzerdokumente. Keine Telemetrie – bewusst entschieden am
+  08.08.2026. Die pauschale Aussage „keine Cloud, keine Telemetrie“ wird auf der Produktseite
+  bewusst präzisiert, weil die abschaltbare Versionsprüfung eine Verbindung darstellt.
+
+vorhandener_text: ""
+
+offene_fragen: >-
+  1) Der Slug „dateiwaechter“ steht noch nicht in `_SLUG-EIGENTUEMER.md`; Eintragung ist bei
+  ChefBüro angefragt. 2) Dieser Steckbrief beschreibt den PLANUNGSSTAND – es existiert noch
+  kein Code. Vor der ersten Veröffentlichung ist er am gebauten Programm gegenzuprüfen
+  (Regel „Nur Tatsachen, keine Absichten“). 3) Die genaue Feldliste der Diagnosedatei steht im
+  Konzept §7 und ist beim Bau gegen die tatsächliche Implementierung abzugleichen.
