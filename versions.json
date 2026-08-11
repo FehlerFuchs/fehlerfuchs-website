@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-08",
+  "updatedAt": "2026-08-11",
   "products": [
     {
       "slug": "gewerbepro",
       "name": "FehlerFuchs GewerbePro",
-      "version": "0.3.1",
-      "date": "2026-07-16",
+      "version": "0.3.2",
+      "date": "2026-08-11",
       "channel": "beta",
       "os": "windows",
-      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.1/FehlerFuchs_GewerbePro_Setup_0.3.1.exe",
-      "filename": "FehlerFuchs_GewerbePro_Setup_0.3.1.exe",
+      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.2/FehlerFuchs_GewerbePro_Setup_0.3.2.exe",
+      "filename": "FehlerFuchs_GewerbePro_Setup_0.3.2.exe",
       "sizeLabel": "114 MB",
-      "sha256": "3ffd2fb6381549ae75de42d6cbcbbb8dd8541f78f515a6a2072fcbf1f4d2be9c",
-      "signed": false,
+      "sha256": "fe6841ecb6bfda17ab138f8ec62a00ef927036d4766c5e3277b2b95d42450200",
+      "signed": true,
       "page": "https://fehlerfuchs.eu/produkte/gewerbepro/",
-      "notes": "GewerbePro 0.3.1 (Beta): Eigenes Firmenlogo auf allen Belegen und in der Seitenleiste, frei anpassbare Programmfarben (Pro), gemeinsame Beleg-Fußzeile mit hinterlegbarer Unterschrift. PDFuchs neu mit QR-Code-Generator (Pro) und Scannen (Windows-WIA), Ausgabeordner-Einstellung. Werkzeug-Diagnose (OCR/KoSIT/Java), Lizenzschlüssel anzeigen und kopieren. Behoben: Editionserkennung direkt nach dem Update.",
+      "notes": "GewerbePro 0.3.2 (Beta): Erste digital signierte Fassung (Herausgeber FehlerFuchs) – bei Installation erscheint der verifizierte Herausgebername. Dazu Korrekturen aus dem internen Prüfbericht gegenüber 0.3.1.",
       "windowsDisplayNames": [
         "FehlerFuchs GewerbePro",
         "FehlerFuchs Gewerbe"
@@ -39,17 +39,17 @@
     {
       "slug": "orgafuchs",
       "name": "FehlerFuchs OrgaFuchs",
-      "version": "1.4.3",
-      "date": "2026-08-08",
+      "version": "1.4.4",
+      "date": "2026-08-11",
       "channel": "stable",
       "os": "windows",
-      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.4.3/FehlerFuchs_OrgaFuchs_Setup_1.4.3.exe",
-      "filename": "FehlerFuchs_OrgaFuchs_Setup_1.4.3.exe",
+      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.4.4/FehlerFuchs_OrgaFuchs_Setup_1.4.4.exe",
+      "filename": "FehlerFuchs_OrgaFuchs_Setup_1.4.4.exe",
       "sizeLabel": "15,6 MB",
-      "sha256": "8ed225ed5bed1d3e45665bf805fea5d26aef55d37d3d0238786f32eb715530a8",
-      "signed": false,
+      "sha256": "bd2721126e9490800bb9276f02fb2d9fd5dcd48bcffdcae6ccb081bafd51901a",
+      "signed": true,
       "page": "https://fehlerfuchs.eu/produkte/orgafuchs/",
-      "notes": "Aktuelle Windows-Fassung, löst 1.0.0 ab. Sicherer Live-Sync (OFSP/1, Ende-zu-Ende, gehärtetes Relais), sicherer Wechsel des Hauptgeräts, Notfall-Wiederherstellung, wiederkehrende Termine und Notizen, Tag/Woche/Monat-Feinschliff, Windows-Tray, datenerhaltendes Update.",
+      "notes": "Erste digital signierte Windows-Fassung (Herausgeber FehlerFuchs); löst den unsignierten Stand 1.4.3 ab – bei Installation und Update erscheint jetzt der verifizierte Herausgebername. Funktionsstand wie 1.4.3: sicherer Live-Sync (OFSP/1, Ende-zu-Ende, gehärtetes Relais), sicherer Wechsel des Hauptgeräts, Notfall-Wiederherstellung, wiederkehrende Termine und Notizen, Windows-Tray, datenerhaltendes Update.",
       "windowsDisplayNames": [
         "OrgaFuchs"
       ]

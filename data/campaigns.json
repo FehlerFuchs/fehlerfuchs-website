@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-11T08:25:24+02:00",
+  "generiert": "2026-08-11T22:48:53+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "aktionen": [
     {
@@ -40,8 +40,8 @@
       "frage": "Wie lautet der Leitspruch von FehlerFuchs?",
       "antworten": [
         "Deine Daten, deine Cloud.",
-        "Digital. Einfach. Besser.",
         "Software, die mitdenkt.",
+        "Digital. Einfach. Besser.",
         "Einfach kleine Helfer."
       ],
       "fehltext": "Nicht ganz. Schau nochmal auf die Startseite.",

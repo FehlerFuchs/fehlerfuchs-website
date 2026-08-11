@@ -1,7 +1,7 @@
 slug: orgafuchs
 name: OrgaFuchs
 fullName: FehlerFuchs OrgaFuchs
-# SEO (2026-08-09): Windows 1.4.3 + Android seit 08.08. verfügbar.
+# SEO (2026-08-09): Windows (signiert, 1.4.4) + Android seit 08.08. verfügbar.
 seoTitel: "OrgaFuchs – Familien- & Schichtplaner, offline für Windows & Android"
 seoBeschreibung: "Familien- und Schichtplaner für Dienste, Termine und Notizen: Monatskalender, PDF-Export, Sync übers eigene Heimnetz – für Windows & Android, ohne Cloud, ohne Konto."
 tags: ["Schichtplaner", "Familienplaner", "Dienstplan", "Kalender", "Windows", "Android", "offline", "ohne Cloud"]
@@ -15,8 +15,8 @@ description: >-
 audience: [privat, vereine, unternehmen]
 accent: "#B4652A"   # Farbe der App
 # Android ist seit 08.08.2026 regulär im Google Play Store, der Windows-Download
-# seit 08.08.2026 als GitHub-Release 'orgafuchs-v1.4.3' (löst die frühere 1.0.0
-# ab). Beide Plattformen 'verfuegbar' → Gesamtstatus 'verfuegbar'.
+# als GitHub-Release 'orgafuchs-v1.4.4' (signiert, 11.08.2026; löst das
+# unsignierte 1.4.3 ab). Beide Plattformen 'verfuegbar' → Gesamtstatus 'verfuegbar'.
 # 'vorabSichtbar' ist mit 'verfuegbar' überflüssig und daher entfernt.
 status: verfuegbar
 
@@ -95,28 +95,31 @@ editions:
     summary: Voller Funktionsumfang, dauerhaft kostenlos.
     price: { model: kostenlos }
 
-# Öffentlicher Windows-Download seit 08.08.2026: GitHub-Release
-# 'orgafuchs-v1.4.3' (verifiziert live, Asset FehlerFuchs_OrgaFuchs_Setup_1.4.3.exe,
-# sha256/Bytes lokal geprüft). Löst die frühere 1.0.0 ab (deren Release bleibt als
-# älterer Eintrag im Downloads-Repo bestehen).
+# Öffentlicher Windows-Download: GitHub-Release 'orgafuchs-v1.4.4' – erste
+# digital signierte Fassung (Azure Trusted Signing, Herausgeber FehlerFuchs,
+# 11.08.2026). Löst den unsignierten Stand 1.4.3 ab (dessen Release bleibt als
+# älterer Eintrag im Downloads-Repo bestehen). sha256/Bytes lokal am signierten
+# Artefakt gegengeprüft (09_Releases\Windows, signtool verify /pa OK).
 releases:
-  - version: "1.4.3"
-    date: "2026-08-08"
+  - version: "1.4.4"
+    date: "2026-08-11"
     channel: stable
     os: windows
-    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.4.3/FehlerFuchs_OrgaFuchs_Setup_1.4.3.exe
-    filename: FehlerFuchs_OrgaFuchs_Setup_1.4.3.exe
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.4.4/FehlerFuchs_OrgaFuchs_Setup_1.4.4.exe
+    filename: FehlerFuchs_OrgaFuchs_Setup_1.4.4.exe
     size:
-      bytes: 16357127
+      bytes: 16376560
       label: "15,6 MB"
       source: GitHub-Release-Asset
-    sha256: "8ed225ed5bed1d3e45665bf805fea5d26aef55d37d3d0238786f32eb715530a8"
-    signed: false
+    sha256: "bd2721126e9490800bb9276f02fb2d9fd5dcd48bcffdcae6ccb081bafd51901a"
+    signed: true
     notes: >-
-      Aktuelle Windows-Fassung, löst 1.0.0 ab. Sicherer Live-Sync (OFSP/1,
-      Ende-zu-Ende, gehärtetes Relais), sicherer Wechsel des Hauptgeräts,
-      Notfall-Wiederherstellung, wiederkehrende Termine und Notizen,
-      Tag/Woche/Monat-Feinschliff, Windows-Tray, datenerhaltendes Update.
+      Erste digital signierte Windows-Fassung (Herausgeber FehlerFuchs); löst den
+      unsignierten Stand 1.4.3 ab – bei Installation und Update erscheint jetzt der
+      verifizierte Herausgebername. Funktionsstand wie 1.4.3: sicherer Live-Sync
+      (OFSP/1, Ende-zu-Ende, gehärtetes Relais), sicherer Wechsel des Hauptgeräts,
+      Notfall-Wiederherstellung, wiederkehrende Termine und Notizen, Windows-Tray,
+      datenerhaltendes Update.
 
 # Funktionsübersicht. Übernommen aus dem Abschnitt „Funktionen" auf
 # apps/orgafuchs.html – also aus dem, was heute schon veröffentlicht ist.
@@ -277,8 +280,8 @@ links:
   # Fehlt das Feld, gab es vorher keine eigene Seite - dann ist auch nichts
   # weiterzuleiten.
   alt_html: /apps/orgafuchs.html
-  # Tag-Seite des aktuellen Windows-Releases (verifiziert live, 08.08.2026).
-  release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.4.3
+  # Tag-Seite des aktuellen Windows-Releases (signiert, 11.08.2026).
+  release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.4.4
   contact: /kontakt.html?app=OrgaFuchs&topic=interesse
 
 # Sichtbarer Quellen- und Behörden-Hinweis (Pflicht). Weil OrgaFuchs Feiertage

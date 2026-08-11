@@ -1,8 +1,35 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-11T08:25:24+02:00",
+  "generiert": "2026-08-11T22:48:53+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "orgafuchs-1-4-4-signiert",
+      "typ": "update",
+      "produkt": "orgafuchs",
+      "version": "1.4.4",
+      "titel": "OrgaFuchs für Windows – jetzt digital signiert",
+      "text": "Die Windows-Fassung von OrgaFuchs ist ab sofort digital signiert (Herausgeber FehlerFuchs): Bei Installation und Update ist der geprüfte Herausgeber sichtbar. Am Funktionsumfang ändert sich nichts – gleiche Daten, gleicher Ende-zu-Ende- verschlüsselter Sync wie bisher, alle Daten bleiben auf deinem Gerät. Wer die Windows-Version schon nutzt, bekommt das Update direkt in der App angeboten.",
+      "datum": "2026-08-11",
+      "datumQuelle": "Release 1.4.4",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.4.4/FehlerFuchs_OrgaFuchs_Setup_1.4.4.exe",
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
+      }
+    },
+    {
+      "id": "gewerbepro-0-3-2",
+      "typ": "update",
+      "produkt": "gewerbepro",
+      "version": "0.3.2",
+      "titel": "GewerbePro 0.3.2 – jetzt digital signiert",
+      "text": "Die offene Beta ist ab sofort digital signiert (Herausgeber FehlerFuchs): Bei der Installation ist der geprüfte Herausgeber sichtbar. Dazu stecken Korrekturen aus dem internen Prüfbericht drin. Wer die Beta schon nutzt, findet das Update in der App unter „Auf Updates prüfen\".",
+      "datum": "2026-08-11",
+      "datumQuelle": "Release 0.3.2",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.2/FehlerFuchs_GewerbePro_Setup_0.3.2.exe"
+      }
+    },
     {
       "id": "orgafuchs-play-veroeffentlichung",
       "typ": "store",
@@ -12,20 +39,6 @@
       "datum": "2026-08-08",
       "datumQuelle": "platforms[android].since",
       "wege": {
-        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
-      }
-    },
-    {
-      "id": "orgafuchs-1-4-3-windows",
-      "typ": "veroeffentlichung",
-      "produkt": "orgafuchs",
-      "version": "1.4.3",
-      "titel": "OrgaFuchs jetzt auch als Windows-Download",
-      "text": "OrgaFuchs gibt es jetzt auch für Windows – gleiche Daten, gleicher Sync wie auf dem Handy. Plane Dienste, Schichten, Termine und Notizen am PC, exportiere Monats-, Jahres- und Blanko-PDFs und halte deine Geräte per Ende-zu-Ende-verschlüsseltem Sync zusammen. Alle Daten bleiben auf deinem Gerät. Das Setup ist noch nicht signiert; beim ersten Start kann Windows SmartScreen warnen – über „Weitere Informationen\" lässt sich die Installation fortsetzen.",
-      "datum": "2026-08-08",
-      "datumQuelle": "Release 1.4.3",
-      "wege": {
-        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.4.3/FehlerFuchs_OrgaFuchs_Setup_1.4.3.exe",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
       }
     },

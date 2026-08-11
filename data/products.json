@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-11T08:25:24+02:00",
+  "generiert": "2026-08-11T22:48:53+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -911,20 +911,20 @@
       ],
       "releases": [
         {
-          "version": "1.4.3",
-          "date": "2026-08-08",
+          "version": "1.4.4",
+          "date": "2026-08-11",
           "channel": "stable",
           "os": "windows",
-          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.4.3/FehlerFuchs_OrgaFuchs_Setup_1.4.3.exe",
-          "filename": "FehlerFuchs_OrgaFuchs_Setup_1.4.3.exe",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.4.4/FehlerFuchs_OrgaFuchs_Setup_1.4.4.exe",
+          "filename": "FehlerFuchs_OrgaFuchs_Setup_1.4.4.exe",
           "size": {
-            "bytes": 16357127,
+            "bytes": 16376560,
             "label": "15,6 MB",
             "source": "GitHub-Release-Asset"
           },
-          "sha256": "8ed225ed5bed1d3e45665bf805fea5d26aef55d37d3d0238786f32eb715530a8",
-          "signed": false,
-          "notes": "Aktuelle Windows-Fassung, löst 1.0.0 ab. Sicherer Live-Sync (OFSP/1, Ende-zu-Ende, gehärtetes Relais), sicherer Wechsel des Hauptgeräts, Notfall-Wiederherstellung, wiederkehrende Termine und Notizen, Tag/Woche/Monat-Feinschliff, Windows-Tray, datenerhaltendes Update."
+          "sha256": "bd2721126e9490800bb9276f02fb2d9fd5dcd48bcffdcae6ccb081bafd51901a",
+          "signed": true,
+          "notes": "Erste digital signierte Windows-Fassung (Herausgeber FehlerFuchs); löst den unsignierten Stand 1.4.3 ab – bei Installation und Update erscheint jetzt der verifizierte Herausgebername. Funktionsstand wie 1.4.3: sicherer Live-Sync (OFSP/1, Ende-zu-Ende, gehärtetes Relais), sicherer Wechsel des Hauptgeräts, Notfall-Wiederherstellung, wiederkehrende Termine und Notizen, Windows-Tray, datenerhaltendes Update."
         }
       ],
       "features": [
@@ -1155,7 +1155,7 @@
       },
       "links": {
         "alt_html": "/apps/orgafuchs.html",
-        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.4.3",
+        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.4.4",
         "contact": "/kontakt.html?app=OrgaFuchs&topic=interesse",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
       },
@@ -2604,6 +2604,22 @@
       ],
       "releases": [
         {
+          "version": "0.3.2",
+          "date": "2026-08-11",
+          "channel": "beta",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.2/FehlerFuchs_GewerbePro_Setup_0.3.2.exe",
+          "filename": "FehlerFuchs_GewerbePro_Setup_0.3.2.exe",
+          "size": {
+            "bytes": 119790368,
+            "label": "114 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "fe6841ecb6bfda17ab138f8ec62a00ef927036d4766c5e3277b2b95d42450200",
+          "signed": true,
+          "notes": "GewerbePro 0.3.2 (Beta): Erste digital signierte Fassung (Herausgeber FehlerFuchs) – bei Installation erscheint der verifizierte Herausgebername. Dazu Korrekturen aus dem internen Prüfbericht gegenüber 0.3.1."
+        },
+        {
           "version": "0.3.1",
           "date": "2026-07-16",
           "channel": "beta",
@@ -3012,7 +3028,7 @@
       },
       "links": {
         "alt_html": "/apps/gewerbepro.html",
-        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/gewerbepro-v0.3.1",
+        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/gewerbepro-v0.3.2",
         "betaSignup": "https://license.fehlerfuchs.eu/v1/providers/tester/gewerbepro",
         "contact": "/kontakt.html?app=GewerbePro&topic=interesse"
       },

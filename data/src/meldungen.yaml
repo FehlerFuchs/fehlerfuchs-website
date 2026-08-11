@@ -45,20 +45,22 @@ meldungen:
       klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz
       und „Was ist neu" direkt in der App. Alle Daten bleiben auf dem Gerät.
 
-  # Windows-Download zur Play-Veröffentlichung. 'version: 1.4.3' bindet die Meldung
-  # an den releases-Eintrag – Datum und Download-Weg leiten sich daraus ab.
-  - id: orgafuchs-1-4-3-windows
-    typ: veroeffentlichung
+  # Windows-Fassung jetzt signiert. 'version: 1.4.4' bindet die Meldung an den
+  # releases-Eintrag – Datum (11.08.) und Download-Weg leiten sich daraus ab.
+  # Löst die frühere „jetzt auch als Windows-Download"-Meldung (1.4.3, unsigniert)
+  # ab; der Windows-Download selbst besteht seit 08.08. Keine Zusage sofortiger
+  # SmartScreen-Warnfreiheit (Reputation baut sich über Zeit auf).
+  - id: orgafuchs-1-4-4-signiert
+    typ: update
     produkt: orgafuchs
-    version: "1.4.3"
-    titel: OrgaFuchs jetzt auch als Windows-Download
+    version: "1.4.4"
+    titel: OrgaFuchs für Windows – jetzt digital signiert
     text: >-
-      OrgaFuchs gibt es jetzt auch für Windows – gleiche Daten, gleicher Sync wie auf
-      dem Handy. Plane Dienste, Schichten, Termine und Notizen am PC, exportiere Monats-,
-      Jahres- und Blanko-PDFs und halte deine Geräte per Ende-zu-Ende-verschlüsseltem
-      Sync zusammen. Alle Daten bleiben auf deinem Gerät. Das Setup ist noch nicht
-      signiert; beim ersten Start kann Windows SmartScreen warnen – über „Weitere
-      Informationen" lässt sich die Installation fortsetzen.
+      Die Windows-Fassung von OrgaFuchs ist ab sofort digital signiert (Herausgeber
+      FehlerFuchs): Bei Installation und Update ist der geprüfte Herausgeber sichtbar.
+      Am Funktionsumfang ändert sich nichts – gleiche Daten, gleicher Ende-zu-Ende-
+      verschlüsselter Sync wie bisher, alle Daten bleiben auf deinem Gerät. Wer die
+      Windows-Version schon nutzt, bekommt das Update direkt in der App angeboten.
 
   # Statusmeldung „warum es länger nichts Neues gab" (ChefBüro-Auftrag 2,
   # 01.08.2026). Kein Changelog, keine Versionsnummern; Fakten aus dem
@@ -165,6 +167,17 @@ meldungen:
       Der offene Test ist vorbei: Der kostenlose, werbefreie PDF-Reader für Android
       steht ab sofort regulär im Google Play Store. Lesen, suchen, teilen, drucken
       und Seiten leicht bearbeiten – alles bleibt auf dem Gerät.
+
+  - id: gewerbepro-0-3-2
+    typ: update
+    produkt: gewerbepro
+    version: "0.3.2"
+    titel: GewerbePro 0.3.2 – jetzt digital signiert
+    text: >-
+      Die offene Beta ist ab sofort digital signiert (Herausgeber FehlerFuchs): Bei der
+      Installation ist der geprüfte Herausgeber sichtbar. Dazu stecken Korrekturen aus
+      dem internen Prüfbericht drin. Wer die Beta schon nutzt, findet das Update in der
+      App unter „Auf Updates prüfen".
 
   - id: gewerbepro-0-3-1
     typ: update
