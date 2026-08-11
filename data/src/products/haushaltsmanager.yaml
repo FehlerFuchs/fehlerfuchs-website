@@ -1,6 +1,10 @@
 slug: haushaltsmanager
 name: HaushaltsManager
 fullName: FehlerFuchs HaushaltsManager
+# SEO (2026-08-11): volle Produktseite freigegeben.
+seoTitel: "HaushaltsManager – Zählerstände, Verträge & Haushaltsbuch für Windows"
+seoBeschreibung: "Lokales Windows-Programm für den Haushalt: Zählerstände (Strom/Gas/Wasser), Verträge mit Kündigungsfristen, Haushaltsbuch, Auswertungen, PDF-Berichte – ohne Konto, ohne Tracking."
+tags: ["Haushaltsbuch", "Zählerstände", "Verträge", "Kündigungsfristen", "Energieverbrauch", "Solar", "Windows", "offline", "ohne Konto"]
 kind: produkt
 tagline: >-
   Lokales Windows-Werkzeug für den ganzen Haushalt: Zählerstände, Verträge mit
@@ -14,13 +18,17 @@ description: >-
   sichtbar; Solar- und Speicherdaten lassen sich einbeziehen. Aus den Daten
   entstehen Vertrags- und Kündigungsschreiben sowie Monats- und Jahresberichte
   als PDF, dazu JSON-Export und Backup. Die Daten liegen lokal – kein Konto,
-  kein Tracking, keine Werbung. In Prüfung – noch kein öffentlicher Download.
+  kein Tracking, keine Werbung; optionale Außenverbindungen nur auf Wunsch.
 audience: [privat, selbststaendige]
-accent: "#C2410C"   # Platzhalter: FehlerFuchs-Hausfarbe, bis die App-Farbe geliefert wird
+accent: "#6F9E1B"   # Marken-Limette (HaushaltsManager-Markensatz 28.07.2026)
 
-# Pool-Kachel (in Prüfung, ohne Preis/Download) – Entscheidung Matze 11.08.2026.
-# Keine Detailseite, solange Monetarisierung/Preis offen sind.
+# Volle Produktseite trotz Status 'pruefung' – Freigabe Matze 11.08.2026
+# ("Veröffentlichung vorbereiten"): Preis (20 € Einmalkauf, Digistore24) steht,
+# Funktionen sind gepflegt. Download und Kaufweg bleiben bewusst NICHT scharf
+# (keine releases, kein links.checkout/store), bis die signierte Release-Fassung
+# vorliegt (Code-Signing läuft).
 status: pruefung
+vorabSichtbar: true
 
 platforms:
   - os: windows
@@ -30,8 +38,9 @@ platforms:
     hinweis:
       wenn: pruefung
       text: >-
-        Funktionsfertig gebaut (0.11.1+35). Noch nicht signiert und noch nicht
-        veröffentlicht; Preis, Vertrieb und Code-Signing stehen aus.
+        Funktionsfertig gebaut (0.11.1+35). Preis (Einmalkauf 20 €) und Vertrieb
+        (Digistore24) stehen fest; der Download folgt mit der signierten
+        Release-Fassung – Code-Signing läuft. Noch kein öffentlicher Download.
 
 privacy: [inhalte-lokal, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
@@ -43,7 +52,14 @@ editions:
       Voller Funktionsumfang in einer Edition: Zählerstände, Verträge,
       Haushaltsbuch, Vorhaben/Projekte, Auswertungen, Solar & Speicher,
       PDF-Kommunikation und -Berichte, Export und Sicherung.
-    price: { model: offen }
+    # Entschieden 11.08.2026: Einmalkauf 20,00 € (Brutto, glatter Endkundenpreis)
+    # über Digistore24. Kein Kauf-Button, solange links.checkout fehlt (Shop-Listing
+    # + signierter Download werden vorbereitet).
+    price:
+      model: einmalig
+      amount: 20
+      currency: EUR
+      vatIncluded: true
 
 releases: []
 
@@ -89,6 +105,15 @@ features:
         values: { standard: ja }
         note: Reine Verbindung im eigenen Heimnetz, verlässt das lokale Netz nicht.
 
+# Nur Akzent + Modus aus dem Markensatz; übrige Farben bleiben heller Standard,
+# bis eine vollständige App-Palette vorliegt.
+theme:
+  modus: hell
+  # Marken-Limette #6F9E1B liegt auf hellem Grund minimal unter dem AA-Kontrast
+  # (2,99 statt 3,0) – als SEITEN-Akzent eine Spur dunkler, damit Überschriften/
+  # Rahmen lesbar sind. Top-Level 'accent' bleibt die Marken-Limette #6F9E1B.
+  akzent: "#5E8717"
+
 # Platzhalter-Motive, bis das Projekt echte Screenshots liefert.
 media:
   platzhalter: 4
@@ -97,9 +122,11 @@ links:
   contact: /kontakt.html?app=HaushaltsManager&topic=interesse
 
 notes: >-
-  Pool-Kachel (in Prüfung, ohne Preis/Download, Entscheidung Matze 11.08.2026).
+  Volle Produktseite (Freigabe Matze 11.08.2026, "Veröffentlichung vorbereiten").
   Öffentliche Produktfassung (sauberer Fork) des privaten HaushaltsManagers;
-  Produkt-Code FehlerFuchs_HaushaltsManager_Markt. Offen und beim Projekt/ChefBüro
-  zu klären: Slug-Eintrag in _SLUG-EIGENTUEMER.md, die geprueft_von-Kollision
-  (FehlerFuchs_HaushaltsManager statt _Markt), die Preis-/Vertriebsentscheidung,
-  Code-Signing sowie App-Farbe und Screenshots.
+  Produkt-Code FehlerFuchs_HaushaltsManager_Markt. Der private Ordner
+  FehlerFuchs_HaushaltsManager (echte Daten) bleibt gesperrt und wird nie
+  veröffentlicht. Slug und geprueft_von sind projektseitig geklärt (Eigentümer
+  _Markt). Offen vom Projekt: echte Screenshots und die signierte Release-Fassung
+  (sha256/URL) – erst danach werden Download und Kaufweg (Digistore24) scharf
+  geschaltet.

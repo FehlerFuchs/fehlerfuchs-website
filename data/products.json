@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-11T22:48:53+02:00",
+  "generiert": "2026-08-11T23:18:54+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -2335,15 +2335,29 @@
       "slug": "haushaltsmanager",
       "name": "HaushaltsManager",
       "fullName": "FehlerFuchs HaushaltsManager",
+      "seoTitel": "HaushaltsManager – Zählerstände, Verträge & Haushaltsbuch für Windows",
+      "seoBeschreibung": "Lokales Windows-Programm für den Haushalt: Zählerstände (Strom/Gas/Wasser), Verträge mit Kündigungsfristen, Haushaltsbuch, Auswertungen, PDF-Berichte – ohne Konto, ohne Tracking.",
+      "tags": [
+        "Haushaltsbuch",
+        "Zählerstände",
+        "Verträge",
+        "Kündigungsfristen",
+        "Energieverbrauch",
+        "Solar",
+        "Windows",
+        "offline",
+        "ohne Konto"
+      ],
       "kind": "produkt",
       "tagline": "Lokales Windows-Werkzeug für den ganzen Haushalt: Zählerstände, Verträge mit Kündigungsfristen, Haushaltsbuch, Auswertungen. Alle Daten bleiben auf deinem Gerät – kein Konto, kein Tracking.",
-      "description": "HaushaltsManager bündelt die Haushaltsverwaltung auf dem eigenen Rechner: Zählerstände für Strom, Gas und Wasser mit Verbrauchsverlauf, Verträge samt Kündigungsfristen, ein vollständiges Haushaltsbuch sowie Vorhaben und Projekte. Auswertungen mit Diagrammen und Von-bis-Filter machen Entwicklungen sichtbar; Solar- und Speicherdaten lassen sich einbeziehen. Aus den Daten entstehen Vertrags- und Kündigungsschreiben sowie Monats- und Jahresberichte als PDF, dazu JSON-Export und Backup. Die Daten liegen lokal – kein Konto, kein Tracking, keine Werbung. In Prüfung – noch kein öffentlicher Download.",
+      "description": "HaushaltsManager bündelt die Haushaltsverwaltung auf dem eigenen Rechner: Zählerstände für Strom, Gas und Wasser mit Verbrauchsverlauf, Verträge samt Kündigungsfristen, ein vollständiges Haushaltsbuch sowie Vorhaben und Projekte. Auswertungen mit Diagrammen und Von-bis-Filter machen Entwicklungen sichtbar; Solar- und Speicherdaten lassen sich einbeziehen. Aus den Daten entstehen Vertrags- und Kündigungsschreiben sowie Monats- und Jahresberichte als PDF, dazu JSON-Export und Backup. Die Daten liegen lokal – kein Konto, kein Tracking, keine Werbung; optionale Außenverbindungen nur auf Wunsch.",
       "audience": [
         "privat",
         "selbststaendige"
       ],
-      "accent": "#C2410C",
+      "accent": "#6F9E1B",
       "status": "pruefung",
+      "vorabSichtbar": true,
       "platforms": [
         {
           "os": "windows",
@@ -2352,7 +2366,7 @@
           "distribution": "keiner",
           "hinweis": {
             "wenn": "pruefung",
-            "text": "Funktionsfertig gebaut (0.11.1+35). Noch nicht signiert und noch nicht veröffentlicht; Preis, Vertrieb und Code-Signing stehen aus."
+            "text": "Funktionsfertig gebaut (0.11.1+35). Preis (Einmalkauf 20 €) und Vertrieb (Digistore24) stehen fest; der Download folgt mit der signierten Release-Fassung – Code-Signing läuft. Noch kein öffentlicher Download."
           }
         }
       ],
@@ -2370,7 +2384,10 @@
           "public": true,
           "summary": "Voller Funktionsumfang in einer Edition: Zählerstände, Verträge, Haushaltsbuch, Vorhaben/Projekte, Auswertungen, Solar & Speicher, PDF-Kommunikation und -Berichte, Export und Sicherung.",
           "price": {
-            "model": "offen"
+            "model": "einmalig",
+            "amount": 20,
+            "currency": "EUR",
+            "vatIncluded": true
           }
         }
       ],
@@ -2478,13 +2495,17 @@
           ]
         }
       ],
+      "theme": {
+        "modus": "hell",
+        "akzent": "#5E8717"
+      },
       "media": {
         "platzhalter": 4
       },
       "links": {
         "contact": "/kontakt.html?app=HaushaltsManager&topic=interesse"
       },
-      "notes": "Pool-Kachel (in Prüfung, ohne Preis/Download, Entscheidung Matze 11.08.2026). Öffentliche Produktfassung (sauberer Fork) des privaten HaushaltsManagers; Produkt-Code FehlerFuchs_HaushaltsManager_Markt. Offen und beim Projekt/ChefBüro zu klären: Slug-Eintrag in _SLUG-EIGENTUEMER.md, die geprueft_von-Kollision (FehlerFuchs_HaushaltsManager statt _Markt), die Preis-/Vertriebsentscheidung, Code-Signing sowie App-Farbe und Screenshots."
+      "notes": "Volle Produktseite (Freigabe Matze 11.08.2026, \"Veröffentlichung vorbereiten\"). Öffentliche Produktfassung (sauberer Fork) des privaten HaushaltsManagers; Produkt-Code FehlerFuchs_HaushaltsManager_Markt. Der private Ordner FehlerFuchs_HaushaltsManager (echte Daten) bleibt gesperrt und wird nie veröffentlicht. Slug und geprueft_von sind projektseitig geklärt (Eigentümer _Markt). Offen vom Projekt: echte Screenshots und die signierte Release-Fassung (sha256/URL) – erst danach werden Download und Kaufweg (Digistore24) scharf geschaltet."
     },
     {
       "slug": "gewerbepro",
@@ -3261,7 +3282,7 @@
         "selbststaendige",
         "unternehmen"
       ],
-      "accent": "#C2410C",
+      "accent": "#146E63",
       "status": "entwicklung",
       "platforms": [
         {

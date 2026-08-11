@@ -16,7 +16,7 @@ description: >-
   – erst Vorschau, dann Löschen nur nach Bestätigung, nie Systempfade. In
   Entwicklung – noch kein öffentlicher Download.
 audience: [privat, selbststaendige, unternehmen]
-accent: "#C2410C"   # Platzhalter: FehlerFuchs-Hausfarbe, bis die App-Farbe geliefert wird
+accent: "#146E63"   # App-Akzent (Teal), geliefert vom DateiWächter-Projekt 11.08.2026 (hellere Variante #3AA495, Aktion #C2410C)
 
 # Pool-Kachel (in Entwicklung) – Entscheidung Matze 11.08.2026. Keine Detailseite,
 # kein Download; erscheint im Ideen- und Entwicklungspool.
