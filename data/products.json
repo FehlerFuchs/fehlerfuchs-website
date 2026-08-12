@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-12T22:52:34+02:00",
+  "generiert": "2026-08-12T23:10:45+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -586,6 +586,12 @@
         "akzent": "#5E8717"
       },
       "media": {
+        "lockup": {
+          "src": "/img/lockups/haushaltsmanager.svg",
+          "alt": "HaushaltsManager – von FehlerFuchs",
+          "width": 2350,
+          "height": 372
+        },
         "platzhalter": 4
       },
       "links": {

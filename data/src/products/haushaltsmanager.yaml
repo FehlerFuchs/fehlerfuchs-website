@@ -144,8 +144,15 @@ theme:
   # Rahmen lesbar sind. Top-Level 'accent' bleibt die Marken-Limette #6F9E1B.
   akzent: "#5E8717"
 
-# Platzhalter-Motive, bis das Projekt echte Screenshots liefert.
+# Bild-Wortmarke als Seitentitel (Markensatz HaushaltsManager, „von FehlerFuchs",
+# helle Fassung – passt zum hellen Seiten-Theme). Screenshots folgen vom Projekt;
+# bis dahin Platzhalter-Motive in der Galerie.
 media:
+  lockup:
+    src: /img/lockups/haushaltsmanager.svg
+    alt: HaushaltsManager – von FehlerFuchs
+    width: 2350
+    height: 372
   platzhalter: 4
 
 links:
