@@ -1,33 +1,47 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-11T23:18:54+02:00",
+  "generiert": "2026-08-12T13:20:26+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
-      "id": "orgafuchs-1-4-4-signiert",
+      "id": "orgafuchs-1-5-0-signiert",
       "typ": "update",
       "produkt": "orgafuchs",
-      "version": "1.4.4",
-      "titel": "OrgaFuchs für Windows – jetzt digital signiert",
-      "text": "Die Windows-Fassung von OrgaFuchs ist ab sofort digital signiert (Herausgeber FehlerFuchs): Bei Installation und Update ist der geprüfte Herausgeber sichtbar. Am Funktionsumfang ändert sich nichts – gleiche Daten, gleicher Ende-zu-Ende- verschlüsselter Sync wie bisher, alle Daten bleiben auf deinem Gerät. Wer die Windows-Version schon nutzt, bekommt das Update direkt in der App angeboten.",
-      "datum": "2026-08-11",
-      "datumQuelle": "Release 1.4.4",
+      "version": "1.5.0",
+      "titel": "OrgaFuchs für Windows – signiert und mit Update",
+      "text": "Die Windows-Fassung von OrgaFuchs ist digital signiert (Herausgeber FehlerFuchs): Bei Installation und Update ist der geprüfte Herausgeber sichtbar. Neu in 1.5.0 ist eine Fehlerbehebung bei der Zeiterfassung. Sonst alles wie gewohnt – gleiche Daten, gleicher Ende-zu-Ende-verschlüsselter Sync, alles bleibt auf deinem Gerät. Wer die Windows-Version schon nutzt, bekommt das Update direkt in der App angeboten.",
+      "datum": "2026-08-12",
+      "datumQuelle": "Release 1.5.0",
       "wege": {
-        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.4.4/FehlerFuchs_OrgaFuchs_Setup_1.4.4.exe",
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.5.0/FehlerFuchs_OrgaFuchs_Setup_1.5.0.exe",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
       }
     },
     {
-      "id": "gewerbepro-0-3-2",
+      "id": "haushaltsmanager-1-0-0-launch",
+      "typ": "veroeffentlichung",
+      "produkt": "haushaltsmanager",
+      "version": "1.0.0",
+      "titel": "Neu: FehlerFuchs HaushaltsManager für Windows",
+      "text": "Der HaushaltsManager ist da – ein lokales Windows-Programm für den ganzen Haushalt: Zählerstände für Strom, Gas und Wasser, Verträge mit Kündigungsfristen, ein vollständiges Haushaltsbuch, Auswertungen und PDF-Berichte. Alle Daten bleiben auf deinem Gerät – kein Konto, kein Tracking. Frei herunterladen und mit Testphase ausprobieren; die Vollversion gibt es als Einmalkauf (20 €, 5 Arbeitsplätze) über Digistore24.",
+      "datum": "2026-08-12",
+      "datumQuelle": "Release 1.0.0",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.0.0/FehlerFuchs_HaushaltsManager_Setup_1.0.0.exe",
+        "kauf": "https://www.checkout-ds24.com/product/721203"
+      }
+    },
+    {
+      "id": "gewerbepro-0-3-3",
       "typ": "update",
       "produkt": "gewerbepro",
-      "version": "0.3.2",
-      "titel": "GewerbePro 0.3.2 – jetzt digital signiert",
-      "text": "Die offene Beta ist ab sofort digital signiert (Herausgeber FehlerFuchs): Bei der Installation ist der geprüfte Herausgeber sichtbar. Dazu stecken Korrekturen aus dem internen Prüfbericht drin. Wer die Beta schon nutzt, findet das Update in der App unter „Auf Updates prüfen\".",
-      "datum": "2026-08-11",
-      "datumQuelle": "Release 0.3.2",
+      "version": "0.3.3",
+      "titel": "GewerbePro 0.3.3 – digital signiert",
+      "text": "Die offene Beta ist digital signiert (Herausgeber FehlerFuchs): Bei der Installation ist der geprüfte Herausgeber sichtbar. Neu in 0.3.3 ist die Zustimmung zur EULA im Setup. Wer die Beta schon nutzt, findet das Update in der App unter „Auf Updates prüfen\".",
+      "datum": "2026-08-12",
+      "datumQuelle": "Release 0.3.3",
       "wege": {
-        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.2/FehlerFuchs_GewerbePro_Setup_0.3.2.exe"
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.3/FehlerFuchs_GewerbePro_Setup_0.3.3.exe"
       }
     },
     {

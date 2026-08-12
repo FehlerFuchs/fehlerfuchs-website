@@ -36,10 +36,13 @@ PRODUCTS = ROOT / "data" / "products.json"
 UPDATE_FEEDS = {
     "gewerbepro": {"channel": "beta", "os": "windows"},
     # OrgaFuchs Windows-Updater (11.08.2026): Bis dahin fehlte
-    # updates/orgafuchs/latest.json, eine 1.4.3-Installation bekam also kein
-    # In-App-Update. Mit dem signierten 1.4.4 wird der Feed aufgenommen, damit
-    # 1.4.3-Installationen das Update angeboten bekommen.
+    # updates/orgafuchs/latest.json, eine ältere Installation bekam also kein
+    # In-App-Update. Mit dem signierten Build wird der Feed aufgenommen, damit
+    # bestehende Installationen das Update angeboten bekommen.
     "orgafuchs": {"channel": "stable", "os": "windows"},
+    # HaushaltsManager Windows-Updater (12.08.2026, Freigabe Matze): die HM-App
+    # fragt beim Start nach Updates -> updates/haushaltsmanager/latest.json.
+    "haushaltsmanager": {"channel": "stable", "os": "windows"},
     # MobileReport Enterprise ruft laut Prüfbericht F-004 auch
     # /updates/mobilereport-enterprise/latest.json ab (neben dem fest
     # verdrahteten /enterprise/latest.json). Beide werden jetzt erzeugt.

@@ -22,27 +22,35 @@ description: >-
 audience: [privat, selbststaendige]
 accent: "#6F9E1B"   # Marken-Limette (HaushaltsManager-Markensatz 28.07.2026)
 
-# Volle Produktseite trotz Status 'pruefung' – Freigabe Matze 11.08.2026
-# ("Veröffentlichung vorbereiten"): Preis (20 € Einmalkauf, Digistore24) steht,
-# Funktionen sind gepflegt. Download und Kaufweg bleiben bewusst NICHT scharf
-# (keine releases, kein links.checkout/store), bis die signierte Release-Fassung
-# vorliegt (Code-Signing läuft).
-status: pruefung
-vorabSichtbar: true
+# Modell wie MobileReport (Entscheidung Matze 12.08.2026): die App ist ein
+# freier, öffentlicher Download (releases[] -> signierte .exe als GitHub-Release),
+# gekauft wird der Lizenzschlüssel über Digistore24 (links.checkout, Produkt
+# 721203). Status 'verfuegbar' schaltet beide CTAs frei (statuses.yaml:
+# cta [download, kauf]); die Seite zeigt "Herunterladen" UND "Kaufen".
+# 'vorabSichtbar' entfällt (mit 'verfuegbar' überflüssig). Der signierte Release
+# 1.0.0 ist eingetragen -> die Seite zeigt "Herunterladen" UND "Kaufen". Das
+# Digistore-Produkt bleibt vorerst "Aktiv = Nein" (Freischaltung + Testkauf);
+# nach bestandenem Testkauf schaltet der Vertrieb auf "Aktiv = Ja".
+status: verfuegbar
 
 platforms:
   - os: windows
-    status: pruefung
+    status: verfuegbar
     requirements: Windows 10/11 (64-bit)
-    distribution: keiner
+    distribution: github-release
     hinweis:
-      wenn: pruefung
+      wenn: verfuegbar
       text: >-
-        Funktionsfertig gebaut (0.11.1+35). Preis (Einmalkauf 20 €) und Vertrieb
-        (Digistore24) stehen fest; der Download folgt mit der signierten
-        Release-Fassung – Code-Signing läuft. Noch kein öffentlicher Download.
+        Das Programm frei herunterladen und mit enthaltener Testphase ausprobieren;
+        zum dauerhaften Freischalten den Lizenzschlüssel (Einmalkauf 20 €,
+        Dauerlizenz, 5 Arbeitsplätze) über Digistore24 kaufen und in der App eingeben.
 
 privacy: [inhalte-lokal, kein-konto, kein-tracking, werbefrei, offline-faehig]
+
+# Uninstall-Anzeigename des Windows-Installers (Inno UninstallDisplayName) für die
+# Zuordnung im Update-Helfer Up2Date (versions.json).
+windowsDisplayNames:
+  - FehlerFuchs HaushaltsManager
 
 editions:
   - id: standard
@@ -61,7 +69,26 @@ editions:
       currency: EUR
       vatIncluded: true
 
-releases: []
+# Erste öffentliche, signierte Windows-Fassung. sha256/Bytes lokal am signierten
+# Artefakt UND gegen das GitHub-Asset gegengeprüft (byte-identisch, signtool /pa OK).
+releases:
+  - version: "1.0.0"
+    date: "2026-08-12"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.0.0/FehlerFuchs_HaushaltsManager_Setup_1.0.0.exe
+    filename: FehlerFuchs_HaushaltsManager_Setup_1.0.0.exe
+    size:
+      bytes: 21072744
+      label: "20,1 MB"
+      source: GitHub-Release-Asset
+    sha256: "a9a420a77fd7990275872f7a225dde77fef55e91eb628f00a3ca3e9829d4589b"
+    signed: true
+    notes: >-
+      Erste öffentliche, signierte Windows-Fassung (Herausgeber FehlerFuchs).
+      Kaufprodukt über Digistore24 (Einmalkauf 20 €, Dauerlizenz, 5 Arbeitsplätze):
+      Download frei mit enthaltener Testphase, Vollnutzung per Lizenzschlüssel.
+      EULA im Setup.
 
 features:
   - group: Erfassen und verwalten
@@ -119,14 +146,19 @@ media:
   platzhalter: 4
 
 links:
+  # Digistore24-Kasse, Produkt 721203 (Einmalkauf 20 €). Speist den "Kaufen"-Knopf
+  # ([slug].astro liest produkt.links.checkout). Digistore-Produkt bleibt bis zur
+  # Signierung "Aktiv = Nein" – bis dahin dient der Knopf der Freischaltung/dem
+  # Testkauf, nicht dem öffentlichen Verkauf.
+  checkout: "https://www.checkout-ds24.com/product/721203"
   contact: /kontakt.html?app=HaushaltsManager&topic=interesse
 
 notes: >-
-  Volle Produktseite (Freigabe Matze 11.08.2026, "Veröffentlichung vorbereiten").
   Öffentliche Produktfassung (sauberer Fork) des privaten HaushaltsManagers;
   Produkt-Code FehlerFuchs_HaushaltsManager_Markt. Der private Ordner
   FehlerFuchs_HaushaltsManager (echte Daten) bleibt gesperrt und wird nie
   veröffentlicht. Slug und geprueft_von sind projektseitig geklärt (Eigentümer
-  _Markt). Offen vom Projekt: echte Screenshots und die signierte Release-Fassung
-  (sha256/URL) – erst danach werden Download und Kaufweg (Digistore24) scharf
-  geschaltet.
+  _Markt). Vertriebsmodell wie MobileReport: freier öffentlicher Download der
+  signierten .exe (GitHub-Release, 1.0.0 eingetragen), Lizenzschlüssel (20 €,
+  5 Arbeitsplätze) über Digistore24 (Produkt 721203). Offen: Testkauf +
+  Digistore "Aktiv = Ja" (Vertrieb/Lizenzserver), echte Screenshots (Projekt).

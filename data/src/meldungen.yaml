@@ -45,22 +45,37 @@ meldungen:
       klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz
       und „Was ist neu" direkt in der App. Alle Daten bleiben auf dem Gerät.
 
-  # Windows-Fassung jetzt signiert. 'version: 1.4.4' bindet die Meldung an den
-  # releases-Eintrag – Datum (11.08.) und Download-Weg leiten sich daraus ab.
-  # Löst die frühere „jetzt auch als Windows-Download"-Meldung (1.4.3, unsigniert)
-  # ab; der Windows-Download selbst besteht seit 08.08. Keine Zusage sofortiger
-  # SmartScreen-Warnfreiheit (Reputation baut sich über Zeit auf).
-  - id: orgafuchs-1-4-4-signiert
+  # Windows-Fassung signiert + Update. 'version: 1.5.0' bindet die Meldung an den
+  # releases-Eintrag – Datum (12.08.) und Download-Weg leiten sich daraus ab.
+  # Der Windows-Download selbst besteht seit 08.08.; digital signiert seit dem
+  # Azure-Signing (12.08.). Keine Zusage sofortiger SmartScreen-Warnfreiheit.
+  - id: orgafuchs-1-5-0-signiert
     typ: update
     produkt: orgafuchs
-    version: "1.4.4"
-    titel: OrgaFuchs für Windows – jetzt digital signiert
+    version: "1.5.0"
+    titel: OrgaFuchs für Windows – signiert und mit Update
     text: >-
-      Die Windows-Fassung von OrgaFuchs ist ab sofort digital signiert (Herausgeber
+      Die Windows-Fassung von OrgaFuchs ist digital signiert (Herausgeber
       FehlerFuchs): Bei Installation und Update ist der geprüfte Herausgeber sichtbar.
-      Am Funktionsumfang ändert sich nichts – gleiche Daten, gleicher Ende-zu-Ende-
-      verschlüsselter Sync wie bisher, alle Daten bleiben auf deinem Gerät. Wer die
-      Windows-Version schon nutzt, bekommt das Update direkt in der App angeboten.
+      Neu in 1.5.0 ist eine Fehlerbehebung bei der Zeiterfassung. Sonst alles wie
+      gewohnt – gleiche Daten, gleicher Ende-zu-Ende-verschlüsselter Sync, alles
+      bleibt auf deinem Gerät. Wer die Windows-Version schon nutzt, bekommt das
+      Update direkt in der App angeboten.
+
+  # HaushaltsManager: erste öffentliche Veröffentlichung. 'version: 1.0.0' bindet
+  # die Meldung an den releases-Eintrag (Datum 12.08.).
+  - id: haushaltsmanager-1-0-0-launch
+    typ: veroeffentlichung
+    produkt: haushaltsmanager
+    version: "1.0.0"
+    titel: "Neu: FehlerFuchs HaushaltsManager für Windows"
+    text: >-
+      Der HaushaltsManager ist da – ein lokales Windows-Programm für den ganzen
+      Haushalt: Zählerstände für Strom, Gas und Wasser, Verträge mit
+      Kündigungsfristen, ein vollständiges Haushaltsbuch, Auswertungen und
+      PDF-Berichte. Alle Daten bleiben auf deinem Gerät – kein Konto, kein Tracking.
+      Frei herunterladen und mit Testphase ausprobieren; die Vollversion gibt es als
+      Einmalkauf (20 €, 5 Arbeitsplätze) über Digistore24.
 
   # Statusmeldung „warum es länger nichts Neues gab" (ChefBüro-Auftrag 2,
   # 01.08.2026). Kein Changelog, keine Versionsnummern; Fakten aus dem
@@ -168,16 +183,16 @@ meldungen:
       steht ab sofort regulär im Google Play Store. Lesen, suchen, teilen, drucken
       und Seiten leicht bearbeiten – alles bleibt auf dem Gerät.
 
-  - id: gewerbepro-0-3-2
+  - id: gewerbepro-0-3-3
     typ: update
     produkt: gewerbepro
-    version: "0.3.2"
-    titel: GewerbePro 0.3.2 – jetzt digital signiert
+    version: "0.3.3"
+    titel: GewerbePro 0.3.3 – digital signiert
     text: >-
-      Die offene Beta ist ab sofort digital signiert (Herausgeber FehlerFuchs): Bei der
-      Installation ist der geprüfte Herausgeber sichtbar. Dazu stecken Korrekturen aus
-      dem internen Prüfbericht drin. Wer die Beta schon nutzt, findet das Update in der
-      App unter „Auf Updates prüfen".
+      Die offene Beta ist digital signiert (Herausgeber FehlerFuchs): Bei der
+      Installation ist der geprüfte Herausgeber sichtbar. Neu in 0.3.3 ist die
+      Zustimmung zur EULA im Setup. Wer die Beta schon nutzt, findet das Update in
+      der App unter „Auf Updates prüfen".
 
   - id: gewerbepro-0-3-1
     typ: update

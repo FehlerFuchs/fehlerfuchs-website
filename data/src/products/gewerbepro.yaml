@@ -76,9 +76,25 @@ editions:
     price: { model: offen }
 
 releases:
-  # Erste digital signierte Beta (Azure Trusted Signing, Herausgeber FehlerFuchs,
-  # 11.08.2026). sha256/Bytes lokal am signierten Artefakt gegengeprüft
-  # (Release\FehlerFuchs_GewerbePro_Setup_0.3.2.exe, signtool verify /pa OK).
+  # Signierte Beta 0.3.3 (Azure Trusted Signing, Herausgeber FehlerFuchs,
+  # 12.08.2026; neu ggü. 0.3.2: EULA-Zustimmung im Setup). sha256/Bytes lokal
+  # UND gegen das GitHub-Asset gegengeprüft (byte-identisch, signtool verify /pa OK).
+  - version: "0.3.3"
+    date: "2026-08-12"
+    channel: beta
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.3/FehlerFuchs_GewerbePro_Setup_0.3.3.exe
+    filename: FehlerFuchs_GewerbePro_Setup_0.3.3.exe
+    size:
+      bytes: 119799352
+      label: "114 MB"
+      source: GitHub-Release-Asset
+    sha256: "80bf503349438945cbbd42d5ba29d27cab4ccbd37859616521dec000bc82f424"
+    signed: true
+    # Wortlaut identisch zu updates/gewerbepro/latest.json — die App zeigt diesen
+    # Text wörtlich im Update-Hinweis an.
+    notes: "GewerbePro 0.3.3 (Beta): Digital signiert (Herausgeber FehlerFuchs). Neu gegenüber 0.3.2: Zustimmung zur EULA im Setup."
+  # Signierte Beta 0.3.2 (11.08.2026); bleibt als Release-Historie.
   - version: "0.3.2"
     date: "2026-08-11"
     channel: beta
@@ -354,7 +370,7 @@ links:
   # Fehlt das Feld, gab es vorher keine eigene Seite - dann ist auch nichts
   # weiterzuleiten.
   alt_html: /apps/gewerbepro.html
-  release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/gewerbepro-v0.3.2
+  release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/gewerbepro-v0.3.3
   betaSignup: https://license.fehlerfuchs.eu/v1/providers/tester/gewerbepro
   contact: /kontakt.html?app=GewerbePro&topic=interesse
 
