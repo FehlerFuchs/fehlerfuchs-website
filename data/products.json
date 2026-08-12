@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-12T13:20:26+02:00",
+  "generiert": "2026-08-12T22:52:34+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -392,7 +392,7 @@
       "name": "HaushaltsManager",
       "fullName": "FehlerFuchs HaushaltsManager",
       "seoTitel": "HaushaltsManager – Zählerstände, Verträge & Haushaltsbuch für Windows",
-      "seoBeschreibung": "Lokales Windows-Programm für den Haushalt: Zählerstände (Strom/Gas/Wasser), Verträge mit Kündigungsfristen, Haushaltsbuch, Auswertungen, PDF-Berichte – ohne Konto, ohne Tracking.",
+      "seoBeschreibung": "Lokales Windows-Programm für den Haushalt: Zählerstände, Verträge, Haushaltsbuch, Solar & Energiedaten (ENPAL, PowerFox), Auswertungen, PDF – ohne Konto, ohne Tracking.",
       "tags": [
         "Haushaltsbuch",
         "Zählerstände",
@@ -400,13 +400,17 @@
         "Kündigungsfristen",
         "Energieverbrauch",
         "Solar",
+        "Photovoltaik",
+        "ENPAL",
+        "PowerFox",
+        "poweropti",
         "Windows",
         "offline",
         "ohne Konto"
       ],
       "kind": "produkt",
       "tagline": "Lokales Windows-Werkzeug für den ganzen Haushalt: Zählerstände, Verträge mit Kündigungsfristen, Haushaltsbuch, Auswertungen. Alle Daten bleiben auf deinem Gerät – kein Konto, kein Tracking.",
-      "description": "HaushaltsManager bündelt die Haushaltsverwaltung auf dem eigenen Rechner: Zählerstände für Strom, Gas und Wasser mit Verbrauchsverlauf, Verträge samt Kündigungsfristen, ein vollständiges Haushaltsbuch sowie Vorhaben und Projekte. Auswertungen mit Diagrammen und Von-bis-Filter machen Entwicklungen sichtbar; Solar- und Speicherdaten lassen sich einbeziehen. Aus den Daten entstehen Vertrags- und Kündigungsschreiben sowie Monats- und Jahresberichte als PDF, dazu JSON-Export und Backup. Die Daten liegen lokal – kein Konto, kein Tracking, keine Werbung; optionale Außenverbindungen nur auf Wunsch.",
+      "description": "HaushaltsManager bündelt die Haushaltsverwaltung auf dem eigenen Rechner: Zählerstände für Strom, Gas und Wasser, Verträge samt Kündigungsfristen, ein vollständiges Haushaltsbuch, Vorhaben und Auswertungen mit Diagrammen. Ein Schwerpunkt sind die Energiedaten: die Solaranlage lässt sich über ENPAL (InfluxDB im Heimnetz) einbinden, der Stromzähler über PowerFox/poweropti – beides optional und nur auf Wunsch. Aus den Daten entstehen Schreiben und PDF-Berichte, dazu Export und Backup. Alle Daten liegen lokal – kein Konto, kein Tracking, keine Werbung.",
       "audience": [
         "privat",
         "selbststaendige"
@@ -544,28 +548,35 @@
           ]
         },
         {
-          "group": "Optionale Verbindungen (standardmäßig aus)",
+          "group": "Energie & Solar anbinden (optional, standardmäßig aus)",
           "items": [
             {
-              "name": "Wetterdaten über Open-Meteo (opt-in)",
+              "name": "Solaranlage über ENPAL (InfluxDB) einbinden",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Reine Verbindung im eigenen Heimnetz – die Daten verlassen das lokale Netz nicht."
+            },
+            {
+              "name": "Stromzähler über PowerFox/poweropti auslesen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Der poweropti-Lesekopf am Zähler, per PowerFox-Cloud-API 2.0 oder direkt lokal; mit den eigenen Zugangsdaten, das Passwort bleibt im Windows-Anmeldespeicher."
+            },
+            {
+              "name": "Wetterdaten über Open-Meteo (wetterbereinigte Auswertung)",
               "values": {
                 "standard": "ja"
               },
               "note": "Sendet nur die gewählten Koordinaten, ohne Schlüssel oder Konto."
             },
             {
-              "name": "Eigenes PowerFox-Konto anbinden (opt-in)",
+              "name": "Weitere Anbieter/Datenquellen auf Wunsch – über Updates",
               "values": {
-                "standard": "ja"
+                "standard": "geplant"
               },
-              "note": "Mit den eigenen Zugangsdaten des Nutzers; das Passwort bleibt im Windows-Anmeldespeicher."
-            },
-            {
-              "name": "Solar und Speicher im Heimnetz über ENPAL/InfluxDB (opt-in)",
-              "values": {
-                "standard": "ja"
-              },
-              "note": "Reine Verbindung im eigenen Heimnetz, verlässt das lokale Netz nicht."
+              "note": "Sag uns, welcher Anbieter (z. B. Wechselrichter, Speicher, Energieportal) und auf welche Art – wir prüfen die Anbindung und liefern sie per Update nach. PowerFox/poweropti und ENPAL sind Marken der jeweiligen Anbieter."
             }
           ]
         }
