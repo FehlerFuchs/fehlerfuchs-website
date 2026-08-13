@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-13T09:11:06+02:00",
+  "generiert": "2026-08-13T10:18:39+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -8,8 +8,8 @@
       "typ": "update",
       "produkt": "orgafuchs",
       "version": "1.5.0",
-      "titel": "OrgaFuchs für Windows – signiert und mit Update",
-      "text": "Die Windows-Fassung von OrgaFuchs ist digital signiert (Herausgeber FehlerFuchs): Bei Installation und Update ist der geprüfte Herausgeber sichtbar. Neu in 1.5.0 ist eine Fehlerbehebung bei der Zeiterfassung. Sonst alles wie gewohnt – gleiche Daten, gleicher Ende-zu-Ende-verschlüsselter Sync, alles bleibt auf deinem Gerät. Wer die Windows-Version schon nutzt, bekommt das Update direkt in der App angeboten.",
+      "titel": "OrgaFuchs 1.5.0: Benachrichtigungen im Hintergrund",
+      "text": "OrgaFuchs 1.5.0 bringt vor allem zuverlässige Benachrichtigungen im Hintergrund: Planänderungen erreichen dich jetzt auch, wenn die App geschlossen war oder das Handy im Energiesparmodus ist – egal, von welchem Gerät die Änderung kam. Nach Verbindungsabbruch, Netzwechsel oder Neustart verbindet sich die App von selbst neu und holt den Stand nach; auf Wunsch springst du direkt in die Akku- und (auf Xiaomi/POCO) Autostart-Einstellungen. Dazu schnellere Bedienung: „1000“ wird zu 10:00, „einer Gruppe beitreten“ ist bei der Einrichtung gut sichtbar, das Hauptgerät kann Geräte wieder entfernen, und nach dem Update erklärt ein kurzer Hinweis das Neue. Dazu viele kleine Fehlerbehebungen.",
       "datum": "2026-08-12",
       "datumQuelle": "Release 1.5.0",
       "wege": {

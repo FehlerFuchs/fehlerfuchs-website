@@ -45,22 +45,27 @@ meldungen:
       klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz
       und „Was ist neu" direkt in der App. Alle Daten bleiben auf dem Gerät.
 
-  # Windows-Fassung signiert + Update. 'version: 1.5.0' bindet die Meldung an den
-  # releases-Eintrag – Datum (12.08.) und Download-Weg leiten sich daraus ab.
-  # Der Windows-Download selbst besteht seit 08.08.; digital signiert seit dem
-  # Azure-Signing (12.08.). Keine Zusage sofortiger SmartScreen-Warnfreiheit.
+  # OrgaFuchs 1.5.0 (Changelog seit 1.4.3). 'version: 1.5.0' bindet die Meldung an
+  # den releases-Eintrag – Datum (12.08.) leitet sich daraus ab. id bleibt stabil
+  # (Sprungziel). Bewusst KEIN "im Play Store" – die Android-Fassung ist noch in
+  # der Play-Vorprüfung; die Windows-Fassung ist bereits signiert live.
+  # FCM/Technik bewusst nicht im Feed (gehört in den Datenschutz-Steckbrief).
   - id: orgafuchs-1-5-0-signiert
     typ: update
     produkt: orgafuchs
     version: "1.5.0"
-    titel: OrgaFuchs für Windows – signiert und mit Update
+    titel: "OrgaFuchs 1.5.0: Benachrichtigungen im Hintergrund"
     text: >-
-      Die Windows-Fassung von OrgaFuchs ist digital signiert (Herausgeber
-      FehlerFuchs): Bei Installation und Update ist der geprüfte Herausgeber sichtbar.
-      Neu in 1.5.0 ist eine Fehlerbehebung bei der Zeiterfassung. Sonst alles wie
-      gewohnt – gleiche Daten, gleicher Ende-zu-Ende-verschlüsselter Sync, alles
-      bleibt auf deinem Gerät. Wer die Windows-Version schon nutzt, bekommt das
-      Update direkt in der App angeboten.
+      OrgaFuchs 1.5.0 bringt vor allem zuverlässige Benachrichtigungen im
+      Hintergrund: Planänderungen erreichen dich jetzt auch, wenn die App
+      geschlossen war oder das Handy im Energiesparmodus ist – egal, von welchem
+      Gerät die Änderung kam. Nach Verbindungsabbruch, Netzwechsel oder Neustart
+      verbindet sich die App von selbst neu und holt den Stand nach; auf Wunsch
+      springst du direkt in die Akku- und (auf Xiaomi/POCO) Autostart-Einstellungen.
+      Dazu schnellere Bedienung: „1000“ wird zu 10:00, „einer Gruppe beitreten“ ist
+      bei der Einrichtung gut sichtbar, das Hauptgerät kann Geräte wieder entfernen,
+      und nach dem Update erklärt ein kurzer Hinweis das Neue. Dazu viele kleine
+      Fehlerbehebungen.
 
   # HaushaltsManager: erste öffentliche Veröffentlichung. 'version: 1.0.0' bindet
   # die Meldung an den releases-Eintrag (Datum 12.08.).
