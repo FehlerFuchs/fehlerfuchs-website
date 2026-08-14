@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-14T12:25:43+02:00",
+  "generiert": "2026-08-15T00:18:19+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1124,20 +1124,20 @@
       ],
       "releases": [
         {
-          "version": "1.5.0",
-          "date": "2026-08-12",
+          "version": "1.6.1",
+          "date": "2026-08-14",
           "channel": "stable",
           "os": "windows",
-          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.5.0/FehlerFuchs_OrgaFuchs_Setup_1.5.0.exe",
-          "filename": "FehlerFuchs_OrgaFuchs_Setup_1.5.0.exe",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.6.1/FehlerFuchs_OrgaFuchs_Setup_1.6.1.exe",
+          "filename": "FehlerFuchs_OrgaFuchs_Setup_1.6.1.exe",
           "size": {
-            "bytes": 16946112,
+            "bytes": 16962896,
             "label": "16,2 MB",
             "source": "GitHub-Release-Asset"
           },
-          "sha256": "8bd3bad3b9f89248898d11113c16fb3224bfd23635960fdc9257fc48ef18a463",
+          "sha256": "3ff1f3eeec65d331f16c9551a2dd034af08cfa2b400c6793dd470692d241696b",
           "signed": true,
-          "notes": "Signierte Windows-Fassung (Herausgeber FehlerFuchs). Neu gegenüber 1.4.x: Fehlerbehebung bei der Zeiterfassung; In-App-Updater aktiv (seit 1.4.5). Sicherer Live-Sync (OFSP/1, Ende-zu-Ende, gehärtetes Relais), sicherer Wechsel des Hauptgeräts, Notfall-Wiederherstellung, wiederkehrende Termine und Notizen, Windows-Tray, datenerhaltendes Update."
+          "notes": "Signierte Windows-Fassung (Herausgeber FehlerFuchs). Neu: „Nachricht an alle\" mit Postfach – kurze Nachrichten an die Gruppe, Ende-zu-Ende über den eigenen Relay verteilt; empfangene Nachrichten werden zuverlässig angezeigt. Dazu Feiertage und Ferien im Kalender farblich hervorgehoben und „zuletzt aktiv\" in der Geräteliste. Löst 1.5.0/1.6.0 ab."
         }
       ],
       "features": [
@@ -1235,6 +1235,20 @@
               "note": "Im Heimnetz oder über einen selbst gehosteten Relay, Ende-zu-Ende-verschlüsselt."
             },
             {
+              "name": "Nachrichten an alle – mit Postfach, Ende-zu-Ende verschlüsselt",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Kurze Klartext-Nachrichten an die Gruppe; sie landen bei allen im Postfach und als Benachrichtigung, verteilt über den eigenen Relay statt über fremde Server. Ungelesenes bleibt markiert."
+            },
+            {
+              "name": "Geräteliste zeigt „zuletzt aktiv\"",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Auf dem Hauptgerät erkennst du so alte, ungenutzte Geräte leichter."
+            },
+            {
               "name": "Konto oder Registrierung nötig",
               "values": {
                 "standard": "nein"
@@ -1262,7 +1276,7 @@
               "values": {
                 "standard": "ja"
               },
-              "note": "Mit Selbstaktualisierung; bis der Endpunkt auf fehlerfuchs.eu steht, greift der eingebaute Bestand."
+              "note": "Im Kalender farblich hervorgehoben – Sonn-/Feiertage rot, Ferien dezent (Tag/Woche/Monat). Mit Selbstaktualisierung; bis der Endpunkt auf fehlerfuchs.eu steht, greift der eingebaute Bestand."
             },
             {
               "name": "Transparenz- und Open-Source-Seite in der App",
@@ -1368,7 +1382,7 @@
       },
       "links": {
         "alt_html": "/apps/orgafuchs.html",
-        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.5.0",
+        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.6.1",
         "contact": "/kontakt.html?app=OrgaFuchs&topic=interesse",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
       },

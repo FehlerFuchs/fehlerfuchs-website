@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-12",
+  "updatedAt": "2026-08-15",
   "products": [
     {
       "slug": "gewerbepro",
@@ -34,7 +34,7 @@
       "sha256": "a9a420a77fd7990275872f7a225dde77fef55e91eb628f00a3ca3e9829d4589b",
       "signed": true,
       "page": "https://fehlerfuchs.eu/produkte/haushaltsmanager/",
-      "notes": "Erste öffentliche, signierte Windows-Fassung (Herausgeber FehlerFuchs). Kaufprodukt über Digistore24 (Einmalkauf 20 €, Dauerlizenz, 5 Arbeitsplätze): Download frei mit enthaltener Testphase, Vollnutzung per Lizenzschlüssel. EULA im Setup.",
+      "notes": "Erste öffentliche, signierte Windows-Fassung (Herausgeber FehlerFuchs). Kaufprodukt über Digistore24 (Einmalkauf 20 €, 5 Arbeitsplätze, kein Abo): Download frei mit enthaltener Testphase, Vollnutzung per Lizenzschlüssel. EULA im Setup.",
       "windowsDisplayNames": [
         "FehlerFuchs HaushaltsManager"
       ]
@@ -57,17 +57,17 @@
     {
       "slug": "orgafuchs",
       "name": "FehlerFuchs OrgaFuchs",
-      "version": "1.5.0",
-      "date": "2026-08-12",
+      "version": "1.6.1",
+      "date": "2026-08-14",
       "channel": "stable",
       "os": "windows",
-      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.5.0/FehlerFuchs_OrgaFuchs_Setup_1.5.0.exe",
-      "filename": "FehlerFuchs_OrgaFuchs_Setup_1.5.0.exe",
+      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.6.1/FehlerFuchs_OrgaFuchs_Setup_1.6.1.exe",
+      "filename": "FehlerFuchs_OrgaFuchs_Setup_1.6.1.exe",
       "sizeLabel": "16,2 MB",
-      "sha256": "8bd3bad3b9f89248898d11113c16fb3224bfd23635960fdc9257fc48ef18a463",
+      "sha256": "3ff1f3eeec65d331f16c9551a2dd034af08cfa2b400c6793dd470692d241696b",
       "signed": true,
       "page": "https://fehlerfuchs.eu/produkte/orgafuchs/",
-      "notes": "Signierte Windows-Fassung (Herausgeber FehlerFuchs). Neu gegenüber 1.4.x: Fehlerbehebung bei der Zeiterfassung; In-App-Updater aktiv (seit 1.4.5). Sicherer Live-Sync (OFSP/1, Ende-zu-Ende, gehärtetes Relais), sicherer Wechsel des Hauptgeräts, Notfall-Wiederherstellung, wiederkehrende Termine und Notizen, Windows-Tray, datenerhaltendes Update.",
+      "notes": "Signierte Windows-Fassung (Herausgeber FehlerFuchs). Neu: „Nachricht an alle\" mit Postfach – kurze Nachrichten an die Gruppe, Ende-zu-Ende über den eigenen Relay verteilt; empfangene Nachrichten werden zuverlässig angezeigt. Dazu Feiertage und Ferien im Kalender farblich hervorgehoben und „zuletzt aktiv\" in der Geräteliste. Löst 1.5.0/1.6.0 ab.",
       "windowsDisplayNames": [
         "OrgaFuchs"
       ]

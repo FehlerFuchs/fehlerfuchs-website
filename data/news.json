@@ -1,19 +1,19 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-14T12:25:43+02:00",
+  "generiert": "2026-08-15T00:18:19+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
-      "id": "orgafuchs-1-5-0-signiert",
+      "id": "orgafuchs-1-6-1",
       "typ": "update",
       "produkt": "orgafuchs",
-      "version": "1.5.0",
-      "titel": "OrgaFuchs 1.5.0: Benachrichtigungen im Hintergrund",
-      "text": "OrgaFuchs 1.5.0 bringt vor allem zuverlässige Benachrichtigungen im Hintergrund: Planänderungen erreichen dich jetzt auch, wenn die App geschlossen war oder das Handy im Energiesparmodus ist – egal, von welchem Gerät die Änderung kam. Nach Verbindungsabbruch, Netzwechsel oder Neustart verbindet sich die App von selbst neu und holt den Stand nach; auf Wunsch springst du direkt in die Akku- und (auf Xiaomi/POCO) Autostart-Einstellungen. Dazu schnellere Bedienung: „1000“ wird zu 10:00, „einer Gruppe beitreten“ ist bei der Einrichtung gut sichtbar, das Hauptgerät kann Geräte wieder entfernen, und nach dem Update erklärt ein kurzer Hinweis das Neue. Dazu viele kleine Fehlerbehebungen.",
-      "datum": "2026-08-12",
-      "datumQuelle": "Release 1.5.0",
+      "version": "1.6.1",
+      "titel": "OrgaFuchs 1.6.1: Nachrichten an alle – mit Postfach",
+      "text": "Neu in OrgaFuchs 1.6.1: „Nachricht an alle\" – schick der ganzen Familie in Sekunden eine kurze Nachricht. Sie landet bei allen im Postfach und als Benachrichtigung, Ende-zu-Ende über deinen eigenen Relay verteilt, nicht über fremde Server; Ungelesenes bleibt markiert, bis du es liest. Außerdem sind Sonn-/Feiertage und Ferien im Kalender jetzt farblich hervorgehoben (Tag, Woche, Monat), die Geräteliste zeigt „zuletzt aktiv\", und der Hintergrund- Empfang läuft auf Android 14/15 stabiler. Dazu viele kleinere Verbesserungen.",
+      "datum": "2026-08-14",
+      "datumQuelle": "Release 1.6.1",
       "wege": {
-        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.5.0/FehlerFuchs_OrgaFuchs_Setup_1.5.0.exe",
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.6.1/FehlerFuchs_OrgaFuchs_Setup_1.6.1.exe",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
       }
     },

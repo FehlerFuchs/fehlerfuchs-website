@@ -1,7 +1,7 @@
 slug: orgafuchs
 name: OrgaFuchs
 fullName: FehlerFuchs OrgaFuchs
-# SEO (2026-08-09): Windows (signiert, 1.5.0) + Android seit 08.08. verfügbar.
+# SEO (2026-08-09): Windows (signiert, 1.6.1) + Android seit 08.08. verfügbar.
 seoTitel: "OrgaFuchs – Familien- & Schichtplaner, offline für Windows & Android"
 seoBeschreibung: "Familien- und Schichtplaner für Dienste, Termine und Notizen: Monatskalender, PDF-Export, Sync übers eigene Heimnetz – für Windows & Android, ohne Cloud, ohne Konto."
 tags: ["Schichtplaner", "Familienplaner", "Dienstplan", "Kalender", "Windows", "Android", "offline", "ohne Cloud"]
@@ -15,8 +15,8 @@ description: >-
 audience: [privat, vereine, unternehmen]
 accent: "#B4652A"   # Farbe der App
 # Android ist seit 08.08.2026 regulär im Google Play Store, der Windows-Download
-# als GitHub-Release 'orgafuchs-v1.5.0' (signiert, 12.08.2026; Zeiterfassungs-
-# Bugfix, löst 1.4.4 ab). Beide Plattformen 'verfuegbar' → Gesamtstatus 'verfuegbar'.
+# als GitHub-Release 'orgafuchs-v1.6.1' (signiert, 14.08.2026; „Nachricht an alle"
+# + Postfach, löst 1.5.0/1.6.0 ab). Beide Plattformen 'verfuegbar' → Gesamtstatus 'verfuegbar'.
 # 'vorabSichtbar' ist mit 'verfuegbar' überflüssig und daher entfernt.
 status: verfuegbar
 
@@ -95,30 +95,30 @@ editions:
     summary: Voller Funktionsumfang, dauerhaft kostenlos.
     price: { model: kostenlos }
 
-# Öffentlicher Windows-Download: GitHub-Release 'orgafuchs-v1.5.0' – signierte
-# Fassung (Azure Trusted Signing, Herausgeber FehlerFuchs, 12.08.2026) mit
-# Zeiterfassungs-Bugfix. Löst 1.4.4 ab (1.4.4/1.4.3 bleiben als ältere Releases
-# im Downloads-Repo). sha256/Bytes lokal am signierten Artefakt UND gegen das
+# Öffentlicher Windows-Download: GitHub-Release 'orgafuchs-v1.6.1' – signierte
+# Fassung (Azure Trusted Signing, Herausgeber FehlerFuchs, 14.08.2026) mit
+# „Nachricht an alle" + Postfach. Löst 1.5.0/1.6.0 ab (ältere Releases bleiben im
+# Downloads-Repo). sha256/Bytes lokal am signierten Artefakt UND gegen das
 # GitHub-Asset gegengeprüft (byte-identisch, signtool verify /pa OK).
 releases:
-  - version: "1.5.0"
-    date: "2026-08-12"
+  - version: "1.6.1"
+    date: "2026-08-14"
     channel: stable
     os: windows
-    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.5.0/FehlerFuchs_OrgaFuchs_Setup_1.5.0.exe
-    filename: FehlerFuchs_OrgaFuchs_Setup_1.5.0.exe
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.6.1/FehlerFuchs_OrgaFuchs_Setup_1.6.1.exe
+    filename: FehlerFuchs_OrgaFuchs_Setup_1.6.1.exe
     size:
-      bytes: 16946112
+      bytes: 16962896
       label: "16,2 MB"
       source: GitHub-Release-Asset
-    sha256: "8bd3bad3b9f89248898d11113c16fb3224bfd23635960fdc9257fc48ef18a463"
+    sha256: "3ff1f3eeec65d331f16c9551a2dd034af08cfa2b400c6793dd470692d241696b"
     signed: true
     notes: >-
-      Signierte Windows-Fassung (Herausgeber FehlerFuchs). Neu gegenüber 1.4.x:
-      Fehlerbehebung bei der Zeiterfassung; In-App-Updater aktiv (seit 1.4.5).
-      Sicherer Live-Sync (OFSP/1, Ende-zu-Ende, gehärtetes Relais), sicherer
-      Wechsel des Hauptgeräts, Notfall-Wiederherstellung, wiederkehrende Termine
-      und Notizen, Windows-Tray, datenerhaltendes Update.
+      Signierte Windows-Fassung (Herausgeber FehlerFuchs). Neu: „Nachricht an
+      alle" mit Postfach – kurze Nachrichten an die Gruppe, Ende-zu-Ende über den
+      eigenen Relay verteilt; empfangene Nachrichten werden zuverlässig angezeigt.
+      Dazu Feiertage und Ferien im Kalender farblich hervorgehoben und „zuletzt
+      aktiv" in der Geräteliste. Löst 1.5.0/1.6.0 ab.
 
 # Funktionsübersicht. Übernommen aus dem Abschnitt „Funktionen" auf
 # apps/orgafuchs.html – also aus dem, was heute schon veröffentlicht ist.
@@ -161,6 +161,12 @@ features:
       - name: Eigener Sync statt Cloud – Beitritt per QR-Code oder Passwort
         values: { standard: ja }
         note: Im Heimnetz oder über einen selbst gehosteten Relay, Ende-zu-Ende-verschlüsselt.
+      - name: Nachrichten an alle – mit Postfach, Ende-zu-Ende verschlüsselt
+        values: { standard: ja }
+        note: Kurze Klartext-Nachrichten an die Gruppe; sie landen bei allen im Postfach und als Benachrichtigung, verteilt über den eigenen Relay statt über fremde Server. Ungelesenes bleibt markiert.
+      - name: Geräteliste zeigt „zuletzt aktiv"
+        values: { standard: ja }
+        note: Auf dem Hauptgerät erkennst du so alte, ungenutzte Geräte leichter.
       - name: Konto oder Registrierung nötig
         values: { standard: nein }
       - name: Backup und Wiederherstellung
@@ -172,7 +178,7 @@ features:
     items:
       - name: Feiertage und Schulferien je Bundesland
         values: { standard: ja }
-        note: Mit Selbstaktualisierung; bis der Endpunkt auf fehlerfuchs.eu steht, greift der eingebaute Bestand.
+        note: Im Kalender farblich hervorgehoben – Sonn-/Feiertage rot, Ferien dezent (Tag/Woche/Monat). Mit Selbstaktualisierung; bis der Endpunkt auf fehlerfuchs.eu steht, greift der eingebaute Bestand.
       - name: Transparenz- und Open-Source-Seite in der App
         values: { standard: ja }
 
@@ -279,8 +285,8 @@ links:
   # Fehlt das Feld, gab es vorher keine eigene Seite - dann ist auch nichts
   # weiterzuleiten.
   alt_html: /apps/orgafuchs.html
-  # Tag-Seite des aktuellen Windows-Releases (signiert, 12.08.2026).
-  release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.5.0
+  # Tag-Seite des aktuellen Windows-Releases (signiert, 14.08.2026).
+  release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.6.1
   contact: /kontakt.html?app=OrgaFuchs&topic=interesse
 
 # Sichtbarer Quellen- und Behörden-Hinweis (Pflicht). Weil OrgaFuchs Feiertage

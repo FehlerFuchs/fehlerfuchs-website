@@ -45,27 +45,23 @@ meldungen:
       klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz
       und „Was ist neu" direkt in der App. Alle Daten bleiben auf dem Gerät.
 
-  # OrgaFuchs 1.5.0 (Changelog seit 1.4.3). 'version: 1.5.0' bindet die Meldung an
-  # den releases-Eintrag – Datum (12.08.) leitet sich daraus ab. id bleibt stabil
-  # (Sprungziel). Bewusst KEIN "im Play Store" – die Android-Fassung ist noch in
-  # der Play-Vorprüfung; die Windows-Fassung ist bereits signiert live.
-  # FCM/Technik bewusst nicht im Feed (gehört in den Datenschutz-Steckbrief).
-  - id: orgafuchs-1-5-0-signiert
+  # OrgaFuchs 1.6.1 (Changelog). 'version: 1.6.1' bindet die Meldung an den
+  # releases-Eintrag – Datum (14.08.) leitet sich daraus ab. Von Matthias zur
+  # Veröffentlichung freigegeben (14.08.). Löst die 1.5.0-Meldung ab. Nachrichten
+  # laufen E2E über den eigenen Relay (nicht Google/FCM) – kein FCM-Bezug nötig.
+  - id: orgafuchs-1-6-1
     typ: update
     produkt: orgafuchs
-    version: "1.5.0"
-    titel: "OrgaFuchs 1.5.0: Benachrichtigungen im Hintergrund"
+    version: "1.6.1"
+    titel: "OrgaFuchs 1.6.1: Nachrichten an alle – mit Postfach"
     text: >-
-      OrgaFuchs 1.5.0 bringt vor allem zuverlässige Benachrichtigungen im
-      Hintergrund: Planänderungen erreichen dich jetzt auch, wenn die App
-      geschlossen war oder das Handy im Energiesparmodus ist – egal, von welchem
-      Gerät die Änderung kam. Nach Verbindungsabbruch, Netzwechsel oder Neustart
-      verbindet sich die App von selbst neu und holt den Stand nach; auf Wunsch
-      springst du direkt in die Akku- und (auf Xiaomi/POCO) Autostart-Einstellungen.
-      Dazu schnellere Bedienung: „1000“ wird zu 10:00, „einer Gruppe beitreten“ ist
-      bei der Einrichtung gut sichtbar, das Hauptgerät kann Geräte wieder entfernen,
-      und nach dem Update erklärt ein kurzer Hinweis das Neue. Dazu viele kleine
-      Fehlerbehebungen.
+      Neu in OrgaFuchs 1.6.1: „Nachricht an alle" – schick der ganzen Familie in
+      Sekunden eine kurze Nachricht. Sie landet bei allen im Postfach und als
+      Benachrichtigung, Ende-zu-Ende über deinen eigenen Relay verteilt, nicht über
+      fremde Server; Ungelesenes bleibt markiert, bis du es liest. Außerdem sind
+      Sonn-/Feiertage und Ferien im Kalender jetzt farblich hervorgehoben (Tag,
+      Woche, Monat), die Geräteliste zeigt „zuletzt aktiv", und der Hintergrund-
+      Empfang läuft auf Android 14/15 stabiler. Dazu viele kleinere Verbesserungen.
 
   # HaushaltsManager: erste öffentliche Veröffentlichung. 'version: 1.0.0' bindet
   # die Meldung an den releases-Eintrag (Datum 12.08.).
