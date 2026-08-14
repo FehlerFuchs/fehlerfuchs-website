@@ -42,8 +42,8 @@ platforms:
       wenn: verfuegbar
       text: >-
         Das Programm frei herunterladen und mit enthaltener Testphase ausprobieren;
-        zum dauerhaften Freischalten den Lizenzschlüssel (Einmalkauf 20 €,
-        Dauerlizenz, 5 Arbeitsplätze) über Digistore24 kaufen und in der App eingeben.
+        den Lizenzschlüssel (Einmalkauf 20 €, 5 Arbeitsplätze, kein Abo) jederzeit
+        über Digistore24 kaufen und in der App eingeben.
 
 privacy: [inhalte-lokal, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
@@ -86,7 +86,7 @@ releases:
     signed: true
     notes: >-
       Erste öffentliche, signierte Windows-Fassung (Herausgeber FehlerFuchs).
-      Kaufprodukt über Digistore24 (Einmalkauf 20 €, Dauerlizenz, 5 Arbeitsplätze):
+      Kaufprodukt über Digistore24 (Einmalkauf 20 €, 5 Arbeitsplätze, kein Abo):
       Download frei mit enthaltener Testphase, Vollnutzung per Lizenzschlüssel.
       EULA im Setup.
 

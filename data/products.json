@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-13T10:18:39+02:00",
+  "generiert": "2026-08-14T12:25:43+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -425,7 +425,7 @@
           "distribution": "github-release",
           "hinweis": {
             "wenn": "verfuegbar",
-            "text": "Das Programm frei herunterladen und mit enthaltener Testphase ausprobieren; zum dauerhaften Freischalten den Lizenzschlüssel (Einmalkauf 20 €, Dauerlizenz, 5 Arbeitsplätze) über Digistore24 kaufen und in der App eingeben."
+            "text": "Das Programm frei herunterladen und mit enthaltener Testphase ausprobieren; den Lizenzschlüssel (Einmalkauf 20 €, 5 Arbeitsplätze, kein Abo) jederzeit über Digistore24 kaufen und in der App eingeben."
           }
         }
       ],
@@ -468,7 +468,7 @@
           },
           "sha256": "a9a420a77fd7990275872f7a225dde77fef55e91eb628f00a3ca3e9829d4589b",
           "signed": true,
-          "notes": "Erste öffentliche, signierte Windows-Fassung (Herausgeber FehlerFuchs). Kaufprodukt über Digistore24 (Einmalkauf 20 €, Dauerlizenz, 5 Arbeitsplätze): Download frei mit enthaltener Testphase, Vollnutzung per Lizenzschlüssel. EULA im Setup."
+          "notes": "Erste öffentliche, signierte Windows-Fassung (Herausgeber FehlerFuchs). Kaufprodukt über Digistore24 (Einmalkauf 20 €, 5 Arbeitsplätze, kein Abo): Download frei mit enthaltener Testphase, Vollnutzung per Lizenzschlüssel. EULA im Setup."
         }
       ],
       "features": [
