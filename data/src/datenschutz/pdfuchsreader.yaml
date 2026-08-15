@@ -1,6 +1,6 @@
 slug: pdfuchsreader
 name: PDFuchs Reader
-stand: "2026-07-19"
+stand: "2026-08-07"
 geprueft_von: >-
   FehlerFuchs_PDFuchsReader_Mobile (Eigentümer des Slugs, Android-Teil).
   Windows-Teil geprüft und belegt zugeliefert von FehlerFuchs_PDFuchs am
@@ -82,9 +82,9 @@ berechtigungen:
     beleg: >-
       Gemergtes Manifest des gebauten Release-AAB vollständig ausgelesen; enthält
       nur INTERNET und die app-interne Systemberechtigung. Randnotiz für die
-      Pflege, nicht zur Anzeige: das Paket permission_handler ist in pubspec.yaml
-      (Zeile 32) deklariert, wird nirgends verwendet und fügt keine Berechtigung
-      hinzu.
+      Pflege, nicht zur Anzeige: das ungenutzte Paket permission_handler wurde
+      mit Version 1.0.1 (07.08.2026) aus den Abhängigkeiten entfernt; es hatte
+      keine Berechtigung hinzugefügt.
   - name: (Windows) Zugriff auf lokale Dateien
     wofuer: Öffnen und Speichern der vom Nutzer gewählten PDF-Dateien
     pflicht: true
@@ -195,9 +195,8 @@ offene_fragen: >-
   2. Ob der Kontakt-Endpunkt auf license.fehlerfuchs.eu IP-Adressen oder
   Zeitstempel protokolliert, hängt vom Server ab und ist aus der App heraus
   nicht feststellbar - unbekannt.
-  3. Das Paket permission_handler ist in der Android-Fassung deklariert, aber
-  ungenutzt. Es hat heute keine Datenschutzwirkung; ob es aus den Abhängigkeiten
-  entfernt wird, ist noch nicht entschieden.
+  3. (erledigt) Das ungenutzte Paket permission_handler wurde mit Version 1.0.1
+  (07.08.2026) entfernt; es hatte ohnehin keine Datenschutzwirkung.
   4. (aus der Windows-Zulieferung) Das Netzverhalten der mitgelieferten
   Tesseract-Binary selbst wurde nicht per Mitschnitt geprüft; geprüft wurde nur,
   was PDFuchs aufruft und übergibt.

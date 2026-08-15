@@ -102,6 +102,8 @@ PFAD = re.compile(r"\b[A-Za-z]:\\\\?[A-Za-z0-9_]")
 OHNE_PRODUKTSEITE = {
     "schichtfuchs": "Auftragsarbeit fuer einen Kunden, bekommt bewusst keine "
                     "Produktseite (Entscheidung Matze 19.07.2026).",
+    "dateiwaechter-mobil": "Bekommt bewusst keine eigene Produktseite - wird spaeter "
+                           "auf der DateiWaechter-Seite integriert (Entscheidung Matze 11.08.2026).",
     # einsatzfuchs, up2date und gewerbepro-companion haben seit dem 24./25.07.2026 eigene
     # Produktdateien und stehen deshalb NICHT mehr hier - sie sind ueber
     # slugs_der_website() bekannt.

@@ -1,14 +1,16 @@
 slug: haushaltsmanager        # Vorschlag; noch nicht in _SLUG-EIGENTUEMER.md eingetragen – Eintragung läuft parallel
-slug_vorschlag: true
+slug_vorschlag: false
 name: HaushaltsManager
-stand: "2026-08-09"
-geprueft_von: FehlerFuchs_HaushaltsManager
+stand: "2026-08-11"
+geprueft_von: FehlerFuchs_HaushaltsManager_Markt
 fassung: >-
-  Am gebauten Produkt 0.11.1+35 geprüft (Produktfassung ohne private Daten, sauberer
-  Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Code-Signing und Vertrieb
-  stehen noch aus.
+  Am gebauten Produkt 1.0.0 geprüft (Produktfassung ohne private Daten, sauberer
+  Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Neu ggü. 0.11.1: Lizenz-
+  Aktivierung gegen den FehlerFuchs-Lizenzserver (nur Schlüssel + anonyme Geräte-Kennung) nach
+  einer kostenlosen Testphase sowie ein nutzerinitiierter App-Update-Check (liest nur eine
+  öffentliche Versionsliste). Code-Signing steht noch aus.
 
-lokal_only: false   # drei optionale, standardmäßig ausgeschaltete Außenverbindungen, siehe uebertragungen
+lokal_only: false   # optionale, standardmäßig ausgeschaltete Datenverbindungen + eine minimale Lizenzprüfung, siehe uebertragungen
 
 auf_dem_geraet:
   - "Vollständige Haushaltsdaten in einer lokalen SQLite-Datenbank – Zählerstände (Strom/Gas/Wasser), Verträge inkl. Kündigungsfristen, Haushaltsbuch, Vorhaben/Projekte, Solar & Speicher – lokal, %APPDATA%\\HaushaltsManager\\"
@@ -49,10 +51,31 @@ uebertragungen:
     haeufigkeit: "nur bei aktivierter Anbindung, beim Abruf/Sync durch den Nutzer"
     abschaltbar: true
     beleg: "Standardmäßig aus, opt-in; reine Heimnetz-Verbindung, verlässt das lokale Netz nicht"
+  - zweck: "Lizenzaktivierung und -prüfung (Kaufschutz nach der kostenlosen Testphase)"
+    ziel: "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU/Deutschland, HTTPS)"
+    daten: >-
+      Es werden AUSSCHLIESSLICH der Lizenzschlüssel und eine anonyme, zufällig erzeugte
+      Geräte-Kennung übertragen (Aktivieren/Prüfen/Freigeben). KEINE Haushalts-, Zähler-,
+      Vertrags- oder sonstigen Nutzerdaten. Nach der Aktivierung läuft die App offline weiter;
+      nur in größeren Abständen ist eine kurze Online-Prüfung nötig. IP-Adresse und Zeitpunkt
+      fallen wie bei jedem Web-Abruf technisch an.
+    haeufigkeit: "bei der Aktivierung sowie in größeren Abständen zur Gültigkeitsprüfung"
+    abschaltbar: false
+    beleg: "Notwendige Kaufabsicherung nach der Testphase; minimaler Datenumfang (nur Schlüssel + anonyme Kennung)"
+  - zweck: "Freiwillige Suche nach einer neueren App-Version"
+    ziel: "Öffentliche Versionsliste auf fehlerfuchs.eu (versions.json, HTTPS)"
+    daten: >-
+      Nur ein lesender Abruf einer öffentlichen Datei; es werden KEINE Nutzerdaten gesendet.
+      Kein automatischer Download/Install – die App meldet nur, ob eine neuere Version vorliegt.
+    haeufigkeit: "nur wenn der Nutzer „Nach App-Updates suchen“ anklickt"
+    abschaltbar: true
+    beleg: "Nutzerinitiiert; reiner Lesezugriff auf eine öffentliche Liste, keine Telemetrie"
 
 fremde_dienste:
   - "Open-Meteo – genutzter Wetterdienst (nur bei aktivierter Wetterfunktion; ohne Schlüssel/Konto, es werden nur die gewählten Koordinaten gesendet)"
   - "PowerFox Cloud – vom Nutzer beauftragte Verbindung zu seinem EIGENEN PowerFox-Konto (offizielle Kunden-API 2.0, mit den eigenen Zugangsdaten des Nutzers)"
+  - "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU) – Lizenzaktivierung/-prüfung; überträgt nur Lizenzschlüssel + anonyme Geräte-Kennung, keine Nutzerdaten"
+  - "Digistore24 – Verkaufs-/Zahlungsabwicklung (Kauf der Lizenz; die App selbst spricht nicht mit Digistore, sondern nur mit dem Lizenzserver)"
   # ENPAL/InfluxDB ist kein fremder Cloud-Dienst, sondern eine reine Verbindung im eigenen Heimnetz.
   # Komponenten-Update erfolgt rein lokal aus einer vom Nutzer gewählten JSON-Datei – KEINE Netzverbindung.
 
@@ -81,16 +104,25 @@ besonderheiten: >-
   bestehen keinerlei Hintergrundverbindungen.
   Das Komponenten-Update läuft ausschließlich über eine lokal vom Nutzer ausgewählte
   JSON-Datei ohne jede Netzverbindung; Zugangsdaten in solchen Paketen sind ausdrücklich
-  verboten. Secrets (PowerFox-Passwort, ENPAL-Token) liegen ausschließlich im
-  Windows-Anmeldespeicher (flutter_secure_storage), nichts hartcodiert, nichts in Dateien
-  oder Git. Anbieterkennzeichnung in der App (Impressum): FehlerFuchs,
+  verboten. Secrets (PowerFox-Passwort, ENPAL-Token, Lizenzschlüssel/Offline-Token) liegen
+  ausschließlich im Windows-Anmeldespeicher (flutter_secure_storage), nichts hartcodiert,
+  nichts in Dateien oder Git.
+  Kaufabsicherung: Nach einer kostenlosen Testphase wird die App mit einem Lizenzschlüssel
+  aktiviert. Dabei verlassen NUR der Schlüssel und eine anonyme, zufällige Geräte-Kennung das
+  Gerät (Ziel: license.fehlerfuchs.eu, EU); es werden keinerlei Haushaltsdaten übertragen. Der
+  Server stellt ein Ed25519-signiertes Offline-Token aus, sodass die App anschließend offline
+  läuft und nur in größeren Abständen kurz online prüft. Eine Lizenz gilt für bis zu fünf
+  Geräte; ein Gerät kann in der App wieder freigegeben werden. Der App-Update-Check ist
+  nutzerinitiiert und liest nur eine öffentliche Versionsliste (keine Telemetrie).
+  Anbieterkennzeichnung in der App (Impressum): FehlerFuchs,
   Geschäftsbezeichnung/Marke von Matthias Schacht, E-Mail admin@fehlerfuchs.eu.
 
 vorhandener_text: ""
 
 offene_fragen: >-
   1) Der Slug „haushaltsmanager“ steht noch nicht in `_SLUG-EIGENTUEMER.md`; die Eintragung
-  läuft parallel (deshalb slug_vorschlag: true). 2) Monetarisierung/Preis und die Frage, ob ein
-  Lizenzserver oder IAP genutzt wird, sind NOCH NICHT entschieden. 3) Code-Signing
-  (Azure Trusted Signing) und der Vertriebskanal (GitHub-Releases/Digistore) stehen ebenfalls
-  noch aus.
+  läuft parallel (deshalb slug_vorschlag: false). 2) Monetarisierung entschieden: Einmalkauf
+  20,00 € (Brutto) über Digistore24, Lizenzaktivierung über den FehlerFuchs-Lizenzserver,
+  fünf Arbeitsplätze je Lizenz. 3) Offen bleibt das Code-Signing (Azure Trusted Signing) –
+  danach signierte Datei + sha256 + Download-URL nachreichen. 4) Serverseitig zu bestätigen:
+  Produktkennung „HaushaltsManager“ (App-Feld) und 30-Tage-Offline-Karenz je Produkt.

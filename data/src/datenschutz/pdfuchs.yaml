@@ -1,6 +1,6 @@
 slug: pdfuchs
 name: PDFuchs
-stand: "2026-07-19"
+stand: "2026-08-11"
 geprueft_von: FehlerFuchs_PDFuchs
 fassung: "v0.1.0_dev (Vorabfassung, noch nicht veroeffentlicht)"
 
@@ -33,10 +33,19 @@ berechtigungen:
     pflicht: false
     beleg: 05_Engine/pdfuchs_core/pdfuchs_core/scanner.py (WIA/TWAIN)
 
-# Keine Uebertragung nach draussen.
-# Beleg: im Programmkern wurden keine Aufrufe nach draussen gefunden;
-# die einzige URL ist ein angezeigter Hinweistext.
-uebertragungen: []
+# Von sich aus baut die Anwendung KEINE Verbindung auf. Es gibt genau eine
+# nutzerinitiierte Uebertragung: das Support-/Kontaktformular (nur beim Absenden).
+# (Korrigiert 2026-08-07: die fruehere Fassung "uebertragungen: []" pruefte nur
+#  den Python-Programmkern und uebersah die spaeter ergaenzte Support-Anbindung
+#  in der Flutter-Oberflaeche.)
+uebertragungen:
+  - was: Nutzerinitiierte Support-/Kontaktnachricht (freiwillige Angaben - Name,
+      E-Mail, Nachricht, App-Version, Betriebssystem-Angabe; optional vom Nutzer
+      ausgewaehlte Dateianhaenge)
+    wohin: license.fehlerfuchs.eu (FehlerFuchs-Kontakt-Bridge, EU/IONOS), per HTTPS
+    wann: ausschliesslich beim ausdruecklichen Absenden des Support-Formulars;
+      sonst besteht keine Verbindung (Fallback bei Fehler - lokales E-Mail-Programm)
+    beleg: 11_App_Flutter/pdfuchs_desktop/lib/support/kontakt_service.dart:20-58
 
 # Laufen alle lokal auf dem Geraet. Sie sehen den Dokumentinhalt, weil sie ihn
 # verarbeiten; sie geben nichts weiter.
@@ -50,10 +59,10 @@ fremde_dienste:
   - name: PDFium (Bibliothek zur Anzeige)
     wofuer: Darstellung der PDF-Seiten
     wann: lokal, bei jeder Vorschau
-  - name: veraPDF (nicht mitgeliefert, extern)
-    wofuer: optionale Pruefung von PDF/A
-    wann: nur wenn der Nutzer es selbst installiert und eintraegt
-    beleg: 05_Engine/pdfuchs_core/pdfuchs_core/pdfa.py:88 (nur Hinweistext mit Downloadadresse)
+  - name: veraPDF (mitgeliefert, inkl. schlanker OpenJDK-Laufzeit)
+    wofuer: optionale Pruefung, ob eine PDF-Datei den PDF/A-Standard einhaelt
+    wann: lokal, nur wenn der Nutzer die PDF/A-Pruefung ausloest; keine Verbindung nach draussen
+    beleg: 92_Tools/bundle/verapdf (Wrapper + app + jre), Anbindung 05_Engine/pdfuchs_core/pdfuchs_core/pdfa.py:82
 
 konto_noetig: false
 tracking: false
@@ -72,9 +81,12 @@ loeschung: >-
 
 besonderheiten: >-
   PDFuchs verarbeitet Dokumente vollstaendig auf dem eigenen Rechner. Die
-  Anwendung stellt von sich aus keine Verbindung ins Internet her und uebertraegt
-  keine Daten an FehlerFuchs oder an Dritte; ein Konto oder eine Anmeldung gibt
-  es nicht. Die Angaben zur Testphase und zur Zahl erstellter Formulare bleiben
+  Anwendung stellt von sich aus keine Verbindung ins Internet her. Eine
+  Uebertragung erfolgt nur, wenn der Nutzer das Support-/Kontaktformular
+  ausdruecklich absendet; dann gehen die dort eingegebenen freiwilligen Angaben
+  (und optionale Dateianhaenge) per HTTPS an die FehlerFuchs-Kontakt-Bridge
+  (license.fehlerfuchs.eu, EU/IONOS). Ein Konto oder eine Anmeldung gibt es
+  nicht. Die Angaben zur Testphase und zur Zahl erstellter Formulare bleiben
   ausschliesslich auf dem Geraet. Wird ein Scanner benutzt, werden Angaben zum
   angeschlossenen Geraet lokal gespeichert, damit die Scanprofile dazu passen.
   Der beschriebene Stand ist eine Vorabfassung, die noch nicht veroeffentlicht

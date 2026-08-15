@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-15T00:18:19+02:00",
+  "generiert": "2026-08-15T12:06:22+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -436,18 +436,23 @@
     {
       "slug": "dateiwaechter",
       "name": "DateiWächter",
-      "stand": "2026-08-08",
+      "stand": "2026-08-11",
       "geprueft_von": "FehlerFuchs_DateiWächter",
-      "fassung": "Konzeptphase – App noch nicht gebaut. Angaben aus dem ausdefinierten Konzept v1.0 vom 08.08.2026 (Planungsstand, nicht am Code geprüft – es gibt noch keinen Code). Windows-Desktop-Tool, lokal.",
+      "fassung": "App gebaut und ausgeliefert (v0.5.4). Angaben am tatsächlichen Code geprüft. Windows-Desktop-Tool, überwiegend lokal; seit v0.4 zusätzlich eine optionale, ausdrücklich zu koppelnde Handy-Verbindung zum verschlüsselten Dateitransfer (siehe uebertragungen/besonderheiten).",
       "lokal_only": false,
       "auf_dem_geraet": [
         "JSON-Konfiguration der Wächter-Regeln (Quell-/Zielordner, Optionen) – lokal, %APPDATA%\\FehlerFuchs\\DateiWaechter\\",
-        "Lokale Protokolldateien (verschobene/übersprungene Dateien, Fehler) – lokal, Aufbewahrung 30 Tage, dann automatisch entfernt"
+        "Lokale Protokolldateien (verschobene/übersprungene Dateien, Fehler) – lokal, Aufbewahrung 30 Tage, dann automatisch entfernt",
+        "Handy-Kopplung: DWTP/1-Identität dieses PCs (privater Ed25519-Schlüssel + Paar-Geheimnis) – lokal, DPAPI-verschlüsselt (Windows-Benutzerbindung), nie im Klartext (dwtp-identitaet.bin)",
+        "Handy-Eingang: vom gekoppelten Handy empfangene Dateien – lokal im vom Nutzer gewählten Ordner (Vorgabe im Benutzerprofil)",
+        "Handy-Übertragungsverlauf: nur Metadaten (Dateiname, Größe, Zeit, Richtung, Ergebnis), lokal, letzte 200 Einträge (handy-verlauf.json)"
       ],
       "berechtigungen": [
         "Lesen/Schreiben in den vom Nutzer AUSGEWÄHLTEN Quell- und Zielordnern (lokal und Netzlaufwerk/SMB, z. B. NAS)",
         "Löschen im Aufräum-Modul – nur benutzer-level, Whitelist, NUR nach Analyse und ausdrücklicher Bestätigung; nie System-/Nutzerdokumente/Projektdaten",
-        "Per-user Autostart-Eintrag (HKCU\\...\\Run, non-admin), damit der Wächter mit Windows startet"
+        "Per-user Autostart-Eintrag (HKCU\\...\\Run, non-admin), damit der Wächter mit Windows startet",
+        "Handy-Verbindung (optional, nur nach Kopplung): ausgehende Verbindung zum Vermittlungsdienst; bei aktivem Direktweg zusätzlich ein lokaler TCP-Listener im eigenen Netz (LAN/USB-Tethering), non-admin",
+        "USB-Erkennung: rein lesende Abfrage angeschlossener Mobilgeräte (WMI, Windows Portable Devices), nur zur Anzeige; kein Datenzugriff aufs Handy"
       ],
       "uebertragungen": [
         {
@@ -465,6 +470,14 @@
           "haeufigkeit": "nur wenn der Nutzer „Senden“ drückt – nie automatisch, nie im Hintergrund",
           "abschaltbar": "entfällt (rein nutzerinitiiert)",
           "beleg": "Konzept v1.0 §7; Hausstandard KONZEPT_Support-Anbindung_Apps.md"
+        },
+        {
+          "zweck": "Handy-Verbindung – verschlüsselter Dateitransfer zwischen gekoppeltem Handy und PC",
+          "ziel": "wss://dateiwaechter.relais.fehlerfuchs.eu/ws (inhaltsblinder Vermittlungsdienst) bzw. bei aktivem Direktweg direkt im lokalen Netz/über USB-Tethering, ohne Vermittlungsdienst",
+          "daten": "Nur die Dateien, die der Nutzer ausdrücklich sendet/empfängt, plus die zugehörigen Protokoll-Metadaten (Dateiname, Größe, Prüfsumme). Übertragung ist Ende-zu-Ende verschlüsselt (AES-256-GCM, Ed25519-signiert); der Vermittlungsdienst ist inhaltsblind (sieht nur verschlüsselte Datenblöcke, keine Klartext-Inhalte). Kopplung erforderlich (QR + sechsstelliger Bestätigungscode); ohne Kopplung passiert nichts.",
+          "haeufigkeit": "nur bei aktivem Empfang (standardmäßig AUS) bzw. wenn der Nutzer Dateien sendet – nie ohne Kopplung",
+          "abschaltbar": true,
+          "beleg": "Spezifikation dateiwaechter-transfer-v1 (DWTP/1); Empfang Opt-in; Direktweg Opt-in; App v0.5.4"
         }
       ],
       "fremde_dienste": [],
@@ -474,9 +487,9 @@
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
       "loeschung": "Es werden keine personenbezogenen Daten erhoben oder gespeichert. Konfiguration und Protokolldateien liegen lokal; der Deinstaller fragt, ob sie mit entfernt werden sollen (Vorgabe: behalten). Protokolle werden ohnehin nach 30 Tagen automatisch gelöscht. Die verschobenen Dateien sind die eigenen Dateien des Nutzers und bleiben beim Nutzer (nur lokal bzw. auf das eigene Netzlaufwerk verschoben).",
-      "besonderheiten": "Kernversprechen: „Deine Dateien verlassen deinen Rechner nicht.“ Der Wächter verschiebt VERIFIZIERT (Copy → SHA256 Quelle==Ziel → erst dann Quelle löschen); bei Abweichung oder nicht erreichbarem Ziel bleibt die Quelle erhalten. Gelöscht wird bevorzugt in den Papierkorb. Das Aufräum-Modul löscht ausschließlich benutzer-level Kandidaten (Temp/Papierkorb/Caches) nach Analyse und Bestätigung, Whitelist-basiert, niemals Systempfade und niemals Nutzerdokumente. Keine Telemetrie – bewusst entschieden am 08.08.2026. Die pauschale Aussage „keine Cloud, keine Telemetrie“ wird auf der Produktseite bewusst präzisiert, weil die abschaltbare Versionsprüfung eine Verbindung darstellt.",
+      "besonderheiten": "Kernversprechen: „Deine Dateien verlassen deinen Rechner nicht.“ Der Wächter verschiebt VERIFIZIERT (Copy → SHA256 Quelle==Ziel → erst dann Quelle löschen); bei Abweichung oder nicht erreichbarem Ziel bleibt die Quelle erhalten. Gelöscht wird bevorzugt in den Papierkorb. Das Aufräum-Modul löscht ausschließlich benutzer-level Kandidaten (Temp/Papierkorb/Caches) nach Analyse und Bestätigung, Whitelist-basiert, niemals Systempfade und niemals Nutzerdokumente. Keine Telemetrie – bewusst entschieden am 08.08.2026. Die pauschale Aussage „keine Cloud, keine Telemetrie“ wird auf der Produktseite bewusst präzisiert, weil die abschaltbare Versionsprüfung eine Verbindung darstellt. Präzisierung zur Handy-Verbindung (seit v0.4): „Deine Dateien verlassen deinen Rechner nicht“ gilt für den Wächter-/Aufräum-Betrieb; die Handy-Verbindung überträgt Dateien nur, wenn der Nutzer sie ausdrücklich koppelt und sendet/empfängt – dann Ende-zu-Ende verschlüsselt über einen inhaltsblinden Vermittlungsdienst oder direkt im lokalen Netz. Empfang und Direktweg sind Opt-in.",
       "vorhandener_text": "",
-      "offene_fragen": "1) Der Slug „dateiwaechter“ steht noch nicht in `_SLUG-EIGENTUEMER.md`; Eintragung ist bei ChefBüro angefragt. 2) Dieser Steckbrief beschreibt den PLANUNGSSTAND – es existiert noch kein Code. Vor der ersten Veröffentlichung ist er am gebauten Programm gegenzuprüfen (Regel „Nur Tatsachen, keine Absichten“). 3) Die genaue Feldliste der Diagnosedatei steht im Konzept §7 und ist beim Bau gegen die tatsächliche Implementierung abzugleichen.",
+      "offene_fragen": "1) Feinabgleich der genauen Feldliste der Support-Diagnosedatei (Konzept §7) gegen die Implementierung ist erledigt; bei künftigen Änderungen hier nachziehen. 2) Der Handy-seitige Gegenpart (FehlerFuchs_DateiWächterMobil, Slug „dateiwaechter-mobil“) führt einen eigenen Steckbrief; dort ist zusätzlich Google Play Billing (Pro-Einmalkauf) zu berücksichtigen – betrifft den PC-Steckbrief NICHT (auf dem PC kein Kauf, keine Lizenzprüfung).",
       "art": "anwendung"
     },
     {
@@ -671,6 +684,52 @@
       "besonderheiten": "Der Scan ist reine Analyse und veraendert nichts. Veraendernde Aktionen laufen nur nach Bestaetigung und ausschliesslich ueber den Papierkorb; endgueltiges Loeschen gibt es in diesem Stand nicht. Verschoben wird immer in drei Schritten: Die Datei wird zuerst an den Zielort kopiert, die Kopie wird ueber Groesse und Pruefsumme mit dem Original verglichen, und erst danach wandert das Original in den Papierkorb. Bei Namensgleichheit wird umbenannt, nie ueberschrieben. Geschuetzte Bereiche des Betriebssystems und der Programme sowie versteckte Anwendungsdaten werden nicht gelesen; Verknuepfungen auf andere Orte werden nicht verfolgt. Datenschutzrelevant: Berichte und Protokolle enthalten vollstaendige Dateipfade und Dateinamen des Nutzers und koennen dadurch personenbezogene Angaben in Pfadnamen enthalten; sie verbleiben lokal und werden nicht versendet.",
       "vorhandener_text": "src/CleanDesk/Views/InfoView.xaml (Seite \"Info / Datenschutz\" in der App)",
       "offene_fragen": "1) Die Anwendung ist nicht veroeffentlicht und besitzt keine Installations- oder Update-Funktion. Ob eine spaetere Verteilung (Installer, Signierung, Update-Pruefung) Verbindungen nach draussen mit sich bringt, ist heute offen. 2) Beim Oeffnen eines Berichts oder des Berichtsordners uebergibt CleanDesk den Vorgang an Windows. Was die dort registrierte Standardanwendung anschliessend tut, liegt ausserhalb von CleanDesk und ist von hier aus nicht bewertbar.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "dateiwaechter-mobil",
+      "slug_vorschlag": false,
+      "name": "FehlerFuchs DateiWächter Mobil",
+      "stand": "2026-08-11",
+      "geprueft_von": "FehlerFuchs_DateiWächterMobil",
+      "fassung": "Am gebauten Stand geprüft (11.08.2026). Vollwertiger On-Device-Datei-Manager (kostenlos); PC-Anbindung als Pro-Einmalkauf (Subsystem). Auf zwei Testgeräten verifiziert.",
+      "lokal_only": false,
+      "auf_dem_geraet": [
+        "Aktivitäts-Verlauf der lokalen Aktionen (kopiert/verschoben/Papierkorb/aufgeräumt/sortiert) – lokal, löschbar",
+        "App-Papierkorb (verschobene/gelöschte Dateien, wiederherstellbar) – lokal",
+        "Fehlerprotokoll (technische Absturzdetails) – NUR lokal, wird nirgends gesendet, löschbar",
+        "Geräte-Kopplung / Signaturschlüssel des gekoppelten PC (Identität) – lokal im Android Keystore",
+        "Transfer-Verlauf/Nachweis der PC-Übertragungen (Zeit, Name, Größe, SHA-256, Richtung, Ergebnis) – lokal",
+        "App-eigener Cache – lokal, über „Aufräumen“ entfernbar"
+      ],
+      "berechtigungen": [
+        "Voller Dateizugriff (MANAGE_EXTERNAL_STORAGE) – nötig für den Datei-Manager (durchsuchen, sortieren, aufräumen, verschieben); von Google Play für Datei-Manager erlaubt. App-/Systemordner (Android/) sind standardmäßig ausgeblendet.",
+        "Zugriff auf Fotos/Videos (READ_MEDIA_IMAGES/READ_MEDIA_VIDEO) – für „Fotos sortieren“ (EXIF-Datum/GPS lesen)",
+        "Kamera – ausschließlich zum Scannen des Kopplungs-QR-Codes (optional; Code auch manuell eingebbar)",
+        "Internet – nur für die PC-Anbindung (Pro): inhaltsblinder Relay bzw. Direktweg im lokalen Netz"
+      ],
+      "uebertragungen": [
+        {
+          "zweck": "Verifizierter, bidirektionaler Datei-Transfer mit dem gekoppelten PC (senden UND vom PC holen) — Pro-Funktion",
+          "ziel": "Der gekoppelte PC (DateiWächter-Empfänger/Sender) – direkt (WLAN/USB-Tethering) oder über den inhaltsblinden Relay",
+          "daten": "Die vom Nutzer gewählten bzw. am PC bereitgestellten Dateien selbst (eigene Inhalte), Ende-zu-Ende-verschlüsselt (AES-256-GCM), plus ein Manifest (Namen/Größen/SHA-256) und signierte Empfangsbestätigungen. Der Relay sieht nur verschlüsselte Frames (inhaltsblind, flüchtig, keine Persistenz). Nur an gekoppelte, signatur-geprüfte Geräte.",
+          "abschaltbar": "entfällt (rein nutzerinitiiert; ohne Pro/ohne Kopplung findet keine Übertragung statt)",
+          "beleg": "Konzeptbrief §3.3/§3.4; DWTP/1 (OrgaFuchs-Relay OFSP/1, inhaltsblind); am Gerät verifiziert"
+        }
+      ],
+      "fremde_dienste": [
+        "FehlerFuchs Relaisserver / OrgaFuchs-Relay (eigen, IONOS-VPS DE) – inhaltsblinder, flüchtiger Fallback-Transport, sieht keine Klardaten; nur bei genutzter PC-Anbindung",
+        "Google Play (Auslieferung) – Store-übliche Kaufabwicklung nur beim Pro-Einmalkauf (Play Billing)"
+      ],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Es gibt kein Konto und keine serverseitige Nutzerdatenablage. Die verwalteten/übertragenen Dateien sind die eigenen Dateien des Nutzers und liegen auf seinem Gerät bzw. PC. Kopplung, Verläufe, Fehlerprotokoll, App-Papierkorb und Cache liegen lokal auf dem Handy und werden mit der Deinstallation entfernt. Der Relay speichert keine Nutzdaten.",
+      "besonderheiten": "Kern ist die Ordnung auf dem Gerät selbst – nichts verlässt das Handy. Sicheres Löschen/Verschieben geschieht verifiziert (kopieren → SHA-256 prüfen → Original erst dann in den wiederherstellbaren Papierkorb). Die optionale PC-Anbindung (Pro) überträgt Ende-zu-Ende-verschlüsselt: SHA-256-Prüfsumme + Geräte-Signatur, das grüne Häkchen erscheint erst nach bestandener Prüfung am Ziel; bei Abbruch/Abweichung bleibt die Datei beim Absender. Verschlüsselung nativ/hardwarebeschleunigt.",
+      "vorhandener_text": "",
+      "offene_fragen": "Play-Data-Safety-Formular aus dieser Liste ableiten; MANAGE_EXTERNAL_STORAGE-Begründung für die Play-Prüfung (Datei-Manager) vorbereiten. Play Billing für die Pro-Option steht noch aus. Kein Store-Eintrag/keine Veröffentlichung bisher.",
       "art": "anwendung"
     },
     {
@@ -1023,11 +1082,11 @@
     },
     {
       "slug": "haushaltsmanager",
-      "slug_vorschlag": true,
+      "slug_vorschlag": false,
       "name": "HaushaltsManager",
-      "stand": "2026-08-09",
-      "geprueft_von": "FehlerFuchs_HaushaltsManager",
-      "fassung": "Am gebauten Produkt 0.11.1+35 geprüft (Produktfassung ohne private Daten, sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Code-Signing und Vertrieb stehen noch aus.",
+      "stand": "2026-08-11",
+      "geprueft_von": "FehlerFuchs_HaushaltsManager_Markt",
+      "fassung": "Am gebauten Produkt 1.0.0 geprüft (Produktfassung ohne private Daten, sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Neu ggü. 0.11.1: Lizenz- Aktivierung gegen den FehlerFuchs-Lizenzserver (nur Schlüssel + anonyme Geräte-Kennung) nach einer kostenlosen Testphase sowie ein nutzerinitiierter App-Update-Check (liest nur eine öffentliche Versionsliste). Code-Signing steht noch aus.",
       "lokal_only": false,
       "auf_dem_geraet": [
         "Vollständige Haushaltsdaten in einer lokalen SQLite-Datenbank – Zählerstände (Strom/Gas/Wasser), Verträge inkl. Kündigungsfristen, Haushaltsbuch, Vorhaben/Projekte, Solar & Speicher – lokal, %APPDATA%\\HaushaltsManager\\",
@@ -1063,11 +1122,29 @@
           "haeufigkeit": "nur bei aktivierter Anbindung, beim Abruf/Sync durch den Nutzer",
           "abschaltbar": true,
           "beleg": "Standardmäßig aus, opt-in; reine Heimnetz-Verbindung, verlässt das lokale Netz nicht"
+        },
+        {
+          "zweck": "Lizenzaktivierung und -prüfung (Kaufschutz nach der kostenlosen Testphase)",
+          "ziel": "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU/Deutschland, HTTPS)",
+          "daten": "Es werden AUSSCHLIESSLICH der Lizenzschlüssel und eine anonyme, zufällig erzeugte Geräte-Kennung übertragen (Aktivieren/Prüfen/Freigeben). KEINE Haushalts-, Zähler-, Vertrags- oder sonstigen Nutzerdaten. Nach der Aktivierung läuft die App offline weiter; nur in größeren Abständen ist eine kurze Online-Prüfung nötig. IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.",
+          "haeufigkeit": "bei der Aktivierung sowie in größeren Abständen zur Gültigkeitsprüfung",
+          "abschaltbar": false,
+          "beleg": "Notwendige Kaufabsicherung nach der Testphase; minimaler Datenumfang (nur Schlüssel + anonyme Kennung)"
+        },
+        {
+          "zweck": "Freiwillige Suche nach einer neueren App-Version",
+          "ziel": "Öffentliche Versionsliste auf fehlerfuchs.eu (versions.json, HTTPS)",
+          "daten": "Nur ein lesender Abruf einer öffentlichen Datei; es werden KEINE Nutzerdaten gesendet. Kein automatischer Download/Install – die App meldet nur, ob eine neuere Version vorliegt.",
+          "haeufigkeit": "nur wenn der Nutzer „Nach App-Updates suchen“ anklickt",
+          "abschaltbar": true,
+          "beleg": "Nutzerinitiiert; reiner Lesezugriff auf eine öffentliche Liste, keine Telemetrie"
         }
       ],
       "fremde_dienste": [
         "Open-Meteo – genutzter Wetterdienst (nur bei aktivierter Wetterfunktion; ohne Schlüssel/Konto, es werden nur die gewählten Koordinaten gesendet)",
-        "PowerFox Cloud – vom Nutzer beauftragte Verbindung zu seinem EIGENEN PowerFox-Konto (offizielle Kunden-API 2.0, mit den eigenen Zugangsdaten des Nutzers)"
+        "PowerFox Cloud – vom Nutzer beauftragte Verbindung zu seinem EIGENEN PowerFox-Konto (offizielle Kunden-API 2.0, mit den eigenen Zugangsdaten des Nutzers)",
+        "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU) – Lizenzaktivierung/-prüfung; überträgt nur Lizenzschlüssel + anonyme Geräte-Kennung, keine Nutzerdaten",
+        "Digistore24 – Verkaufs-/Zahlungsabwicklung (Kauf der Lizenz; die App selbst spricht nicht mit Digistore, sondern nur mit dem Lizenzserver)"
       ],
       "konto_noetig": false,
       "tracking": false,
@@ -1075,9 +1152,9 @@
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
       "loeschung": "Alle Daten liegen ausschließlich lokal in der SQLite-Datenbank unter %APPDATA%\\\\HaushaltsManager\\\\. Es werden keine Daten an FehlerFuchs oder Dritte übertragen. Die Datenbank sowie erzeugte PDFs, Exporte und Backups kann der Nutzer jederzeit selbst löschen; der Deinstaller entfernt das Programm. Optionale Beispieldaten lassen sich in der App wieder entfernen. Zugangsdaten (PowerFox, ENPAL) stehen nur im Windows-Anmeldespeicher und werden dort vom Nutzer entfernt.",
-      "besonderheiten": "Kernversprechen: „Alle Daten bleiben auf diesem Gerät.“ HaushaltsManager ist privacy-first und offline-first – kein Konto, kein Tracking, keine Werbung, keine Telemetrie, keine automatischen Absturzberichte. Alle drei Außenverbindungen (Open-Meteo, PowerFox-Cloud, ENPAL/InfluxDB im Heimnetz) sind standardmäßig AUS und einzeln zuschalt- bzw. abschaltbar. Ein optionaler Hintergrunddienst (Tray-Symbol, standardmäßig aus) hält – nur wenn der Nutzer ihn und die jeweilige Verbindung aktiviert – die aktivierten Abrufe (PowerFox/Wetter/ENPAL) auch bei geschlossenem Fenster und auf Wunsch ab Windows-Start am Laufen; ohne Aktivierung bestehen keinerlei Hintergrundverbindungen. Das Komponenten-Update läuft ausschließlich über eine lokal vom Nutzer ausgewählte JSON-Datei ohne jede Netzverbindung; Zugangsdaten in solchen Paketen sind ausdrücklich verboten. Secrets (PowerFox-Passwort, ENPAL-Token) liegen ausschließlich im Windows-Anmeldespeicher (flutter_secure_storage), nichts hartcodiert, nichts in Dateien oder Git. Anbieterkennzeichnung in der App (Impressum): FehlerFuchs, Geschäftsbezeichnung/Marke von Matthias Schacht, E-Mail admin@fehlerfuchs.eu.",
+      "besonderheiten": "Kernversprechen: „Alle Daten bleiben auf diesem Gerät.“ HaushaltsManager ist privacy-first und offline-first – kein Konto, kein Tracking, keine Werbung, keine Telemetrie, keine automatischen Absturzberichte. Alle drei Außenverbindungen (Open-Meteo, PowerFox-Cloud, ENPAL/InfluxDB im Heimnetz) sind standardmäßig AUS und einzeln zuschalt- bzw. abschaltbar. Ein optionaler Hintergrunddienst (Tray-Symbol, standardmäßig aus) hält – nur wenn der Nutzer ihn und die jeweilige Verbindung aktiviert – die aktivierten Abrufe (PowerFox/Wetter/ENPAL) auch bei geschlossenem Fenster und auf Wunsch ab Windows-Start am Laufen; ohne Aktivierung bestehen keinerlei Hintergrundverbindungen. Das Komponenten-Update läuft ausschließlich über eine lokal vom Nutzer ausgewählte JSON-Datei ohne jede Netzverbindung; Zugangsdaten in solchen Paketen sind ausdrücklich verboten. Secrets (PowerFox-Passwort, ENPAL-Token, Lizenzschlüssel/Offline-Token) liegen ausschließlich im Windows-Anmeldespeicher (flutter_secure_storage), nichts hartcodiert, nichts in Dateien oder Git. Kaufabsicherung: Nach einer kostenlosen Testphase wird die App mit einem Lizenzschlüssel aktiviert. Dabei verlassen NUR der Schlüssel und eine anonyme, zufällige Geräte-Kennung das Gerät (Ziel: license.fehlerfuchs.eu, EU); es werden keinerlei Haushaltsdaten übertragen. Der Server stellt ein Ed25519-signiertes Offline-Token aus, sodass die App anschließend offline läuft und nur in größeren Abständen kurz online prüft. Eine Lizenz gilt für bis zu fünf Geräte; ein Gerät kann in der App wieder freigegeben werden. Der App-Update-Check ist nutzerinitiiert und liest nur eine öffentliche Versionsliste (keine Telemetrie). Anbieterkennzeichnung in der App (Impressum): FehlerFuchs, Geschäftsbezeichnung/Marke von Matthias Schacht, E-Mail admin@fehlerfuchs.eu.",
       "vorhandener_text": "",
-      "offene_fragen": "1) Der Slug „haushaltsmanager“ steht noch nicht in `_SLUG-EIGENTUEMER.md`; die Eintragung läuft parallel (deshalb slug_vorschlag: true). 2) Monetarisierung/Preis und die Frage, ob ein Lizenzserver oder IAP genutzt wird, sind NOCH NICHT entschieden. 3) Code-Signing (Azure Trusted Signing) und der Vertriebskanal (GitHub-Releases/Digistore) stehen ebenfalls noch aus.",
+      "offene_fragen": "1) Der Slug „haushaltsmanager“ steht noch nicht in `_SLUG-EIGENTUEMER.md`; die Eintragung läuft parallel (deshalb slug_vorschlag: false). 2) Monetarisierung entschieden: Einmalkauf 20,00 € (Brutto) über Digistore24, Lizenzaktivierung über den FehlerFuchs-Lizenzserver, fünf Arbeitsplätze je Lizenz. 3) Offen bleibt das Code-Signing (Azure Trusted Signing) – danach signierte Datei + sha256 + Download-URL nachreichen. 4) Serverseitig zu bestätigen: Produktkennung „HaushaltsManager“ (App-Feld) und 30-Tage-Offline-Karenz je Produkt.",
       "art": "anwendung"
     },
     {
@@ -1485,7 +1562,7 @@
     {
       "slug": "pdfuchs",
       "name": "PDFuchs",
-      "stand": "2026-07-19",
+      "stand": "2026-08-11",
       "geprueft_von": "FehlerFuchs_PDFuchs",
       "fassung": "v0.1.0_dev (Vorabfassung, noch nicht veroeffentlicht)",
       "lokal_only": true,
@@ -1525,7 +1602,14 @@
           "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/scanner.py (WIA/TWAIN)"
         }
       ],
-      "uebertragungen": [],
+      "uebertragungen": [
+        {
+          "was": "Nutzerinitiierte Support-/Kontaktnachricht (freiwillige Angaben - Name, E-Mail, Nachricht, App-Version, Betriebssystem-Angabe; optional vom Nutzer ausgewaehlte Dateianhaenge)",
+          "wohin": "license.fehlerfuchs.eu (FehlerFuchs-Kontakt-Bridge, EU/IONOS), per HTTPS",
+          "wann": "ausschliesslich beim ausdruecklichen Absenden des Support-Formulars; sonst besteht keine Verbindung (Fallback bei Fehler - lokales E-Mail-Programm)",
+          "beleg": "11_App_Flutter/pdfuchs_desktop/lib/support/kontakt_service.dart:20-58"
+        }
+      ],
       "fremde_dienste": [
         {
           "name": "LibreOffice (mitgeliefert)",
@@ -1543,10 +1627,10 @@
           "wann": "lokal, bei jeder Vorschau"
         },
         {
-          "name": "veraPDF (nicht mitgeliefert, extern)",
-          "wofuer": "optionale Pruefung von PDF/A",
-          "wann": "nur wenn der Nutzer es selbst installiert und eintraegt",
-          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/pdfa.py:88 (nur Hinweistext mit Downloadadresse)"
+          "name": "veraPDF (mitgeliefert, inkl. schlanker OpenJDK-Laufzeit)",
+          "wofuer": "optionale Pruefung, ob eine PDF-Datei den PDF/A-Standard einhaelt",
+          "wann": "lokal, nur wenn der Nutzer die PDF/A-Pruefung ausloest; keine Verbindung nach draussen",
+          "beleg": "92_Tools/bundle/verapdf (Wrapper + app + jre), Anbindung 05_Engine/pdfuchs_core/pdfuchs_core/pdfa.py:82"
         }
       ],
       "konto_noetig": false,
@@ -1555,7 +1639,7 @@
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
       "loeschung": "Alle Daten liegen auf dem Geraet. Selbst erzeugte oder bearbeitete PDFs liegen dort, wo der Nutzer sie gespeichert hat, und lassen sich wie jede andere Datei loeschen. Beim Deinstallieren wird das Programm entfernt; eigene Dokumente bleiben erhalten. Die kleine Datei mit den Angaben zur Testphase im Anwendungsdatenordner des Benutzers wird beim Deinstallieren nicht mit entfernt und bleibt auf dem Geraet; sie kann jederzeit von Hand geloescht werden.",
-      "besonderheiten": "PDFuchs verarbeitet Dokumente vollstaendig auf dem eigenen Rechner. Die Anwendung stellt von sich aus keine Verbindung ins Internet her und uebertraegt keine Daten an FehlerFuchs oder an Dritte; ein Konto oder eine Anmeldung gibt es nicht. Die Angaben zur Testphase und zur Zahl erstellter Formulare bleiben ausschliesslich auf dem Geraet. Wird ein Scanner benutzt, werden Angaben zum angeschlossenen Geraet lokal gespeichert, damit die Scanprofile dazu passen. Der beschriebene Stand ist eine Vorabfassung, die noch nicht veroeffentlicht wurde.",
+      "besonderheiten": "PDFuchs verarbeitet Dokumente vollstaendig auf dem eigenen Rechner. Die Anwendung stellt von sich aus keine Verbindung ins Internet her. Eine Uebertragung erfolgt nur, wenn der Nutzer das Support-/Kontaktformular ausdruecklich absendet; dann gehen die dort eingegebenen freiwilligen Angaben (und optionale Dateianhaenge) per HTTPS an die FehlerFuchs-Kontakt-Bridge (license.fehlerfuchs.eu, EU/IONOS). Ein Konto oder eine Anmeldung gibt es nicht. Die Angaben zur Testphase und zur Zahl erstellter Formulare bleiben ausschliesslich auf dem Geraet. Wird ein Scanner benutzt, werden Angaben zum angeschlossenen Geraet lokal gespeichert, damit die Scanprofile dazu passen. Der beschriebene Stand ist eine Vorabfassung, die noch nicht veroeffentlicht wurde.",
       "vorhandener_text": "09_Releases/Datenschutz_Lokalhinweis_01072026.md",
       "offene_fragen": "1. Ob die mitgelieferten Zusatzwerkzeuge LibreOffice und Tesseract bei ihrer Ausfuehrung von sich aus Netzverbindungen aufbauen (etwa eine Updatepruefung von LibreOffice): PDFuchs loest nichts dergleichen aus; das Verhalten der Werkzeuge selbst wurde nicht per Mitschnitt geprueft. 2. Ob die beim Einrichten gesetzte Windows-Dateizuordnung ueber die Systemeintraege hinaus etwas nach aussen meldet: dafuer wurde kein Hinweis gefunden, es wurde aber nicht abschliessend geprueft.",
       "art": "anwendung"
@@ -1563,7 +1647,7 @@
     {
       "slug": "pdfuchsreader",
       "name": "PDFuchs Reader",
-      "stand": "2026-07-19",
+      "stand": "2026-08-07",
       "geprueft_von": "FehlerFuchs_PDFuchsReader_Mobile (Eigentümer des Slugs, Android-Teil). Windows-Teil geprüft und belegt zugeliefert von FehlerFuchs_PDFuchs am 19.07.2026, hier eingearbeitet.",
       "fassung": "Zweite Fassung vom 19.07.2026 - gegenüber der ersten Einreichung desselben Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt. Zwei Fassungen tragen heute diesen Slug. (A) Android-Fassung 1.0.0 (versionCode 1, Paket eu.fehlerfuchs.pdfuchsreader): signierter Release-AAB ist gebaut und am Gerät getestet, aber noch NICHT im Play Store veröffentlicht (geplant als Offener Test). Geprüft am echten Code, Manifest und am gemergten Manifest des gebauten Release-AAB. (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, NSIS-Installerskript. Kein Laufzeit-Mitschnitt des Netzwerkverkehrs - siehe offene Frage 4.",
       "lokal_only": true,
@@ -1636,7 +1720,7 @@
           "name": "(Android - keine weiteren)",
           "wofuer": "Die App fordert keine weiteren Berechtigungen an - insbesondere keinen Zugriff auf Speicher, Kamera, Standort, Kontakte oder Mikrofon.",
           "pflicht": false,
-          "beleg": "Gemergtes Manifest des gebauten Release-AAB vollständig ausgelesen; enthält nur INTERNET und die app-interne Systemberechtigung. Randnotiz für die Pflege, nicht zur Anzeige: das Paket permission_handler ist in pubspec.yaml (Zeile 32) deklariert, wird nirgends verwendet und fügt keine Berechtigung hinzu."
+          "beleg": "Gemergtes Manifest des gebauten Release-AAB vollständig ausgelesen; enthält nur INTERNET und die app-interne Systemberechtigung. Randnotiz für die Pflege, nicht zur Anzeige: das ungenutzte Paket permission_handler wurde mit Version 1.0.1 (07.08.2026) aus den Abhängigkeiten entfernt; es hatte keine Berechtigung hinzugefügt."
         },
         {
           "name": "(Windows) Zugriff auf lokale Dateien",
@@ -1711,7 +1795,7 @@
       "loeschung": "Android: Alle Daten liegen auf dem Gerät. Einträge der Liste „Zuletzt geöffnet\" lassen sich einzeln entfernen oder komplett leeren. Beim Deinstallieren verschwinden App-Einstellungen, Zuletzt-Liste, Handbuch-Kopie, im App-Ordner erzeugte bearbeitete Kopien und der Zwischenspeicher. Windows: Das Deinstallieren entfernt das Programmverzeichnis, die Desktop- und Startmenü-Verknüpfungen sowie die bei der Installation gesetzten Einträge. Eine Datei bleibt dabei zurück: license_state.json im lokalen Anwendungsdatenordner unter %LOCALAPPDATA%\\PDFuchs. Sie enthält einen lokalen Zählerstand zur Programmnutzung und keine personenbezogenen Angaben. Wer sie entfernen möchte, kann sie von Hand löschen. In beiden Fassungen bleiben die eigenen Dokumente des Nutzers unangetastet - Originale werden nie überschrieben.",
       "besonderheiten": "Beide Fassungen sind offline voll benutzbar; ohne Zutun des Nutzers entsteht keine Verbindung nach draußen. Es gibt kein Konto, keine Anmeldung, keine Werbung, keine Nutzungsmessung und keine In-App-Käufe. Die Windows-Fassung stellt überhaupt keine Verbindung ins Internet her und sucht auch nicht selbsttätig nach Aktualisierungen. Die einzige Verbindung, die überhaupt aufgebaut wird, ist der Versand des Support-Formulars in der Android-Fassung, und den löst der Nutzer bewusst selbst aus. Bearbeitete PDF-Dateien werden immer als neue Kopie gespeichert, die Ursprungsdatei bleibt unverändert. Die Android-Fassung soll über Google Play vertrieben werden; Google erhält dabei die üblichen Installations- und Kontodaten des Store-Vorgangs, worauf die App selbst keinen Einfluss hat.",
       "vorhandener_text": "Android: 05_App/pdfuchsreader_mobile/lib/features/legal/datenschutz_screen.dart (Datenschutztext in der App, verweist auf https://fehlerfuchs.eu/datenschutz.html). Windows: 09_Releases/Datenschutz_Lokalhinweis_01072026.md",
-      "offene_fragen": "1. Slug-Zuordnung: Windows-Reader und Android-Reader teilen sich denselben Slug „pdfuchsreader\"; in der Liste gibt es keinen eigenen Slug für die mobile Fassung. Unklar, ob die Website beide Fassungen getrennt darstellen möchte - dann wäre ein zusätzlicher Slug nötig. Slugs werden nicht selbst erfunden, daher stehen hier beide Fassungen in einer Datei. 2. Ob der Kontakt-Endpunkt auf license.fehlerfuchs.eu IP-Adressen oder Zeitstempel protokolliert, hängt vom Server ab und ist aus der App heraus nicht feststellbar - unbekannt. 3. Das Paket permission_handler ist in der Android-Fassung deklariert, aber ungenutzt. Es hat heute keine Datenschutzwirkung; ob es aus den Abhängigkeiten entfernt wird, ist noch nicht entschieden. 4. (aus der Windows-Zulieferung) Das Netzverhalten der mitgelieferten Tesseract-Binary selbst wurde nicht per Mitschnitt geprüft; geprüft wurde nur, was PDFuchs aufruft und übergibt. 5. (aus der Windows-Zulieferung) Ob Aktionen, die im Reader ausgelöst werden, den lokalen Zähler in license_state.json mitschreiben, wurde nicht abschließend geprüft: Reader und Suite nutzen denselben Programmkern, ein reader-eigener Schreibzugriff wurde jedoch nicht gefunden.",
+      "offene_fragen": "1. Slug-Zuordnung: Windows-Reader und Android-Reader teilen sich denselben Slug „pdfuchsreader\"; in der Liste gibt es keinen eigenen Slug für die mobile Fassung. Unklar, ob die Website beide Fassungen getrennt darstellen möchte - dann wäre ein zusätzlicher Slug nötig. Slugs werden nicht selbst erfunden, daher stehen hier beide Fassungen in einer Datei. 2. Ob der Kontakt-Endpunkt auf license.fehlerfuchs.eu IP-Adressen oder Zeitstempel protokolliert, hängt vom Server ab und ist aus der App heraus nicht feststellbar - unbekannt. 3. (erledigt) Das ungenutzte Paket permission_handler wurde mit Version 1.0.1 (07.08.2026) entfernt; es hatte ohnehin keine Datenschutzwirkung. 4. (aus der Windows-Zulieferung) Das Netzverhalten der mitgelieferten Tesseract-Binary selbst wurde nicht per Mitschnitt geprüft; geprüft wurde nur, was PDFuchs aufruft und übergibt. 5. (aus der Windows-Zulieferung) Ob Aktionen, die im Reader ausgelöst werden, den lokalen Zähler in license_state.json mitschreiben, wurde nicht abschließend geprüft: Reader und Suite nutzen denselben Programmkern, ein reader-eigener Schreibzugriff wurde jedoch nicht gefunden.",
       "art": "anwendung"
     },
     {

@@ -1,0 +1,69 @@
+slug: dateiwaechter-mobil
+slug_vorschlag: false          # Slug steht fest in _SLUG-EIGENTUEMER.md (parent: dateiwaechter)
+name: FehlerFuchs DateiWächter Mobil
+stand: "2026-08-11"
+geprueft_von: FehlerFuchs_DateiWächterMobil
+fassung: "Am gebauten Stand geprüft (11.08.2026). Vollwertiger On-Device-Datei-Manager (kostenlos); PC-Anbindung als Pro-Einmalkauf (Subsystem). Auf zwei Testgeräten verifiziert."
+
+# Zwei Ebenen: (1) KERN = Ordnung auf dem Gerät (Datei-Manager, Fotos sortieren, Duplikate, Speicher-
+# Analyse, Aufräumen, Regeln/Verteilen, Papierkorb) — läuft komplett lokal, nichts verlässt das Gerät.
+# (2) PRO-SUBSYSTEM = verifizierter Datei-Transfer mit dem gekoppelten PC (senden/holen), Einmalkauf.
+# Kein Konto, keine Cloud-Ablage, kein Tracking.
+lokal_only: false              # Kern ist lokal; nur die Pro-PC-Anbindung überträgt (E2E, nutzerinitiiert)
+
+auf_dem_geraet:
+  - "Aktivitäts-Verlauf der lokalen Aktionen (kopiert/verschoben/Papierkorb/aufgeräumt/sortiert) – lokal, löschbar"
+  - "App-Papierkorb (verschobene/gelöschte Dateien, wiederherstellbar) – lokal"
+  - "Fehlerprotokoll (technische Absturzdetails) – NUR lokal, wird nirgends gesendet, löschbar"
+  - "Geräte-Kopplung / Signaturschlüssel des gekoppelten PC (Identität) – lokal im Android Keystore"
+  - "Transfer-Verlauf/Nachweis der PC-Übertragungen (Zeit, Name, Größe, SHA-256, Richtung, Ergebnis) – lokal"
+  - "App-eigener Cache – lokal, über „Aufräumen“ entfernbar"
+
+berechtigungen:
+  - "Voller Dateizugriff (MANAGE_EXTERNAL_STORAGE) – nötig für den Datei-Manager (durchsuchen, sortieren, aufräumen, verschieben); von Google Play für Datei-Manager erlaubt. App-/Systemordner (Android/) sind standardmäßig ausgeblendet."
+  - "Zugriff auf Fotos/Videos (READ_MEDIA_IMAGES/READ_MEDIA_VIDEO) – für „Fotos sortieren“ (EXIF-Datum/GPS lesen)"
+  - "Kamera – ausschließlich zum Scannen des Kopplungs-QR-Codes (optional; Code auch manuell eingebbar)"
+  - "Internet – nur für die PC-Anbindung (Pro): inhaltsblinder Relay bzw. Direktweg im lokalen Netz"
+  # Ausdrücklich NICHT: Kontakte/Standort/Mikrofon; kein Konto; kein Dauer-Hintergrunddienst.
+
+uebertragungen:
+  - zweck: "Verifizierter, bidirektionaler Datei-Transfer mit dem gekoppelten PC (senden UND vom PC holen) — Pro-Funktion"
+    ziel: "Der gekoppelte PC (DateiWächter-Empfänger/Sender) – direkt (WLAN/USB-Tethering) oder über den inhaltsblinden Relay"
+    daten: >-
+      Die vom Nutzer gewählten bzw. am PC bereitgestellten Dateien selbst (eigene Inhalte),
+      Ende-zu-Ende-verschlüsselt (AES-256-GCM), plus ein Manifest (Namen/Größen/SHA-256) und
+      signierte Empfangsbestätigungen. Der Relay sieht nur verschlüsselte Frames (inhaltsblind,
+      flüchtig, keine Persistenz). Nur an gekoppelte, signatur-geprüfte Geräte.
+    abschaltbar: "entfällt (rein nutzerinitiiert; ohne Pro/ohne Kopplung findet keine Übertragung statt)"
+    beleg: "Konzeptbrief §3.3/§3.4; DWTP/1 (OrgaFuchs-Relay OFSP/1, inhaltsblind); am Gerät verifiziert"
+
+fremde_dienste:
+  - "FehlerFuchs Relaisserver / OrgaFuchs-Relay (eigen, IONOS-VPS DE) – inhaltsblinder, flüchtiger Fallback-Transport, sieht keine Klardaten; nur bei genutzter PC-Anbindung"
+  - "Google Play (Auslieferung) – Store-übliche Kaufabwicklung nur beim Pro-Einmalkauf (Play Billing)"
+  # Ausdrücklich NICHT: Analytics, Crash-Reporting mit Kennung, Werbe-ID, Cloud-Speicher.
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false          # In-App-Fehlerprotokoll bleibt lokal auf dem Gerät; kein Versand
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Es gibt kein Konto und keine serverseitige Nutzerdatenablage. Die verwalteten/übertragenen Dateien
+  sind die eigenen Dateien des Nutzers und liegen auf seinem Gerät bzw. PC. Kopplung, Verläufe,
+  Fehlerprotokoll, App-Papierkorb und Cache liegen lokal auf dem Handy und werden mit der
+  Deinstallation entfernt. Der Relay speichert keine Nutzdaten.
+
+besonderheiten: >-
+  Kern ist die Ordnung auf dem Gerät selbst – nichts verlässt das Handy. Sicheres Löschen/Verschieben
+  geschieht verifiziert (kopieren → SHA-256 prüfen → Original erst dann in den wiederherstellbaren
+  Papierkorb). Die optionale PC-Anbindung (Pro) überträgt Ende-zu-Ende-verschlüsselt: SHA-256-Prüfsumme
+  + Geräte-Signatur, das grüne Häkchen erscheint erst nach bestandener Prüfung am Ziel; bei
+  Abbruch/Abweichung bleibt die Datei beim Absender. Verschlüsselung nativ/hardwarebeschleunigt.
+
+vorhandener_text: ""
+
+offene_fragen: >-
+  Play-Data-Safety-Formular aus dieser Liste ableiten; MANAGE_EXTERNAL_STORAGE-Begründung für die
+  Play-Prüfung (Datei-Manager) vorbereiten. Play Billing für die Pro-Option steht noch aus. Kein
+  Store-Eintrag/keine Veröffentlichung bisher.
