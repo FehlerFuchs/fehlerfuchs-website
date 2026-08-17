@@ -1,6 +1,6 @@
 {
-  "version": "0.3.3",
-  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.3/FehlerFuchs_GewerbePro_Setup_0.3.3.exe",
-  "sha256": "80bf503349438945cbbd42d5ba29d27cab4ccbd37859616521dec000bc82f424",
-  "notes": "GewerbePro 0.3.3 (Beta): Digital signiert (Herausgeber FehlerFuchs). Neu gegenüber 0.3.2: Zustimmung zur EULA im Setup."
+  "version": "1.0.0",
+  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.0.0/FehlerFuchs_GewerbePro_Setup_1.0.0.exe",
+  "sha256": "48c7351dc9314d011897a7f26703ea07311d72f30ca2835e52ca79942277316b",
+  "notes": "GewerbePro 1.0.0: Erstes Stable-Release (löst die 0.3.x-Beta ab). Großer Oberflächen-Umbau mit Cockpit-Dashboard, Dokumenteneingang und geführten Touren. Digital signiert (Herausgeber FehlerFuchs); die Visual-C++-Runtime ist im Installer gebündelt (kein separater Download nötig)."
 }

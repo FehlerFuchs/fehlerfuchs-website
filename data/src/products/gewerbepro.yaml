@@ -8,30 +8,29 @@ tags: ["Rechnung", "E-Rechnung", "ZUGFeRD", "XRechnung", "Kleingewerbe", "Kleinu
 kind: produkt
 tagline: Das Multitool des fuchs-schlauen Selbstständigen – lokal auf dem Windows-PC, ohne Cloud und ohne Konto.
 description: >-
-  Büro-Software für Kleingewerbe, Selbstständige und Nebengewerbe: Kunden, Angebote,
-  Aufträge, Rechnungen, E-Rechnung nach EN 16931 (ZUGFeRD/XRechnung), Belege und
-  EÜR-Vorbereitung, Kalender und Postfach. Komplett lokal auf dem eigenen Rechner –
-  ohne Cloud-Zwang, ohne Konto, ohne Telemetrie.
+  Büro-Software für Kleingewerbe, Selbstständige und Nebengewerbe: Cockpit-Dashboard,
+  Kunden, Angebote, Aufträge, Rechnungen, E-Rechnung nach EN 16931 (ZUGFeRD/XRechnung),
+  Mahnwesen, Belege und Dokumenteneingang, EÜR-Vorbereitung, Kalender und
+  Companion-App. Komplett lokal auf dem eigenen Rechner – ohne Cloud-Zwang, ohne Konto,
+  ohne Telemetrie.
 audience: [selbststaendige, unternehmen]
 accent: "#9F1239"   # Farbe der App
-status: beta
-# Sichtbarkeits-Ausnahme (Matthias, 01.08.2026): Die offene Beta ist bewusst
-# öffentlich und herunterladbar → voll sichtbar, nicht in den Ideen-/Pool.
-vorabSichtbar: true
+# 17.08.2026: 1.0.0 signiert & veröffentlicht (löst die offene Beta ab) → verfügbar.
+status: verfuegbar
 
 platforms:
   - os: windows
-    status: beta
-    requirements: Windows 10/11 (64-bit)
+    status: verfuegbar
+    requirements: Windows 10 / 11 (64-bit), keine Administratorrechte nötig
     distribution: github-release
-    since: "2026-07-15"        # erste öffentliche Beta 0.3.0
-  # Companion-App „GewerbePro Mobil": lauffähig, letzte Details offen.
-  # Bewusst NICHT über Google Play, sondern als APK zum Direkt-Download –
-  # derselbe Weg wie bei MobileReport Enterprise.
+    since: "2026-08-17"        # 1.0.0 – erstes Stable-Release (Beta lief ab 15.07.)
+  # Companion-App „GewerbePro Mobil": in der Vollversion enthalten, Freischaltung
+  # per Lizenzcode (belegt einen der 3 Arbeitsplätze). Bezug über Google Play –
+  # die frühere APK-außerhalb-des-Stores-Angabe ist überholt.
   - os: android
     status: entwicklung
-    requirements: Android, Installation außerhalb des Play Stores
-    distribution: github-release
+    requirements: Android, Bezug über Google Play; Freischaltung per Lizenzcode
+    distribution: play-store
 
 privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
@@ -65,10 +64,16 @@ editions:
     # Hervorgehobene Spalte in der Merkmalsmatrix.
     emphasis: true
     summary: >-
-      Vollversion mit E-Rechnung, Mahnwesen, Projekten, E-Mail-Versand und eigenem Branding.
-    # Preis ist bewusst noch nicht festgelegt – der Kauf-Button auf der Produktseite
-    # ist deshalb ausgegraut. Sobald der Betrag steht: model auf "einmalig" ändern.
-    price: { model: offen }
+      Vollversion: E-Rechnung, Mahnwesen, Projekte, E-Mail-Versand, PDFuchs, Datenimport
+      und eigenes Branding. Einführungspreis 89,00 € statt regulär 129,00 € (einmalig,
+      kein Abo), 3 Arbeitsplätze für Desktop und Companion-App zusammen. Kauf über
+      Digistore24, 30 Tage Rückgaberecht.
+    # Einführungspreis 89 € (Streichpreis 129 €), Einmalzahlung. Digistore24-Produkt
+    # 723253 (angelegt 17.08.2026, „Aktiv = Nein" bis Testkauf/Freigabe durch Matthias
+    # Schacht). Der Kauf-Button steht bewusst schon jetzt: Digistore prüft die
+    # Live-Verkaufsseite als Teil der Genehmigung (DS24-Handoff LOG-083). Kaufweg unten
+    # in links.checkout.
+    price: { model: einmalig, amount: 89, currency: EUR }
   - id: vather
     name: Vather
     public: false
@@ -76,6 +81,24 @@ editions:
     price: { model: offen }
 
 releases:
+  # Erstes Stable-Release 1.0.0 (17.08.2026, Herausgeber FehlerFuchs). sha256/Bytes
+  # gegen das GitHub-Asset gegengeprüft (byte-identisch: 48c7351d…316b, 120.206.512 B),
+  # signtool verify /pa OK, Zeitstempel gesetzt. Signatur-Meldung von Claude Code [Signierung].
+  - version: "1.0.0"
+    date: "2026-08-17"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.0.0/FehlerFuchs_GewerbePro_Setup_1.0.0.exe
+    filename: FehlerFuchs_GewerbePro_Setup_1.0.0.exe
+    size:
+      bytes: 120206512
+      label: "115 MB"
+      source: GitHub-Release-Asset
+    sha256: "48c7351dc9314d011897a7f26703ea07311d72f30ca2835e52ca79942277316b"
+    signed: true
+    # Wortlaut identisch zu updates/gewerbepro/latest.json — die App zeigt diesen
+    # Text wörtlich im Update-Hinweis an.
+    notes: "GewerbePro 1.0.0: Erstes Stable-Release (löst die 0.3.x-Beta ab). Großer Oberflächen-Umbau mit Cockpit-Dashboard, Dokumenteneingang und geführten Touren. Digital signiert (Herausgeber FehlerFuchs); die Visual-C++-Runtime ist im Installer gebündelt (kein separater Download nötig)."
   # Signierte Beta 0.3.3 (Azure Trusted Signing, Herausgeber FehlerFuchs,
   # 12.08.2026; neu ggü. 0.3.2: EULA-Zustimmung im Setup). sha256/Bytes lokal
   # UND gegen das GitHub-Asset gegengeprüft (byte-identisch, signtool verify /pa OK).
@@ -150,7 +173,7 @@ features:
       - name: Projekte, Gutschriften und Stornos
         values: { free: ja, pro: ja, vather: ja }
       - name: Datenimport (Stammdaten und Bestände)
-        values: { free: ja, pro: ja, vather: ja }
+        values: { free: nein, pro: ja, vather: ja }
 
   - group: Steuern und Auswertung
     items:
@@ -158,9 +181,10 @@ features:
         values: { free: ja, pro: ja, vather: ja }
       - name: Steuermodelle (§ 19, Regelbesteuerung Soll/Ist, gemeinnützig, § 24 · USt 0/7/19 %)
         values: { free: ja, pro: ja, vather: ja }
-      - name: "Berichte: EÜR, Steuerbericht, Offene Posten, Dashboard (PDF/CSV)"
-        values: { free: ja, pro: ja, vather: ja }
-      - name: Logbuch, Statistik und Auswertungen
+      - name: "Berichte und Auswertungen (EÜR, Steuerbericht, Offene Posten, Dashboard)"
+        values: { free: "Basis", pro: "erweitert", vather: "erweitert" }
+        note: Free erzeugt die Grundberichte; Pro die vollständigen Auswertungen als PDF/CSV.
+      - name: Logbuch und Statistik
         values: { free: ja, pro: ja, vather: ja }
       - name: Fahrtenbuch, Anlagen und AfA
         values: { free: ja, pro: ja, vather: ja }
@@ -190,15 +214,14 @@ features:
 
   - group: E-Mail
     items:
-      - name: E-Mail-Entwürfe und lokales Postfach (IMAP/SMTP)
+      - name: E-Mail-Entwurf öffnen und Beleg/Rechnung per E-Mail versenden
         values: { free: nein, pro: ja, vather: ja }
-      - name: E-Mail-Versand
-        values: { free: nein, pro: ja, vather: ja }
+        note: Öffnet dein eigenes E-Mail-Programm mit vorbereitetem Entwurf und Anhang.
 
   - group: Ausgabe und Erscheinungsbild
     items:
-      - name: Exporte (CSV/EÜR) und Branding
-        values: { free: "Export + Logo", pro: "ja, inkl. Farben", vather: ja }
+      - name: Eigenes Branding (Logo & Farben) und Exporte
+        values: { free: nein, pro: ja, vather: ja }
       - name: Hinweis „Erstellt mit FehlerFuchs Gewerbe" auf Belegen
         values: { free: ja, pro: nein, vather: nein }
         note: In der Free-Edition steht dieser Hinweis auf allen Belegen.
@@ -208,22 +231,23 @@ features:
       - name: Modulare Erweiterungspakete per Installer
         values: { free: nein, pro: in-arbeit, vather: "alle Module" }
       - name: GewerbePro Mobil (Companion-App für Android)
-        values: { free: nein, pro: fast-fertig, vather: fast-fertig }
+        values: { free: nein, pro: ja, vather: ja }
         note: >-
-          Lauffähig, es fehlen noch Kleinigkeiten. Erscheint als APK zum
-          Direkt-Download, nicht über den Google Play Store.
-      - name: Passwort-Tresor und Account-Verwaltung
-        values: { free: nein, pro: teilweise, vather: ja }
+          In der Vollversion enthalten. Freischaltung per Lizenzcode (belegt einen der
+          3 Arbeitsplätze), Bezug über Google Play, Datenabgleich mit dem PC per USB.
       - name: Voll editierbar, Entwickler-Werkzeuge und Selbsttest
         values: { free: nein, pro: nein, vather: ja }
 
 faq:
   - question: Was kostet das Programm?
     answer: >-
-      Die Basisversion FehlerFuchs Gewerbe ist kostenlos. GewerbePro wird später optional
-      kostenpflichtig – das Grundlegende bleibt frei. Der Kauf läuft künftig über die
-      sichere Kasse, sobald Shop und Lizenzserver live sind; bis dahin gibt es noch keine
-      Kauf-Schaltflächen.
+      Die Basisversion FehlerFuchs Gewerbe ist kostenlos. GewerbePro kostet zum
+      Einführungspreis 89,00 € statt regulär 129,00 € – einmalig, kein Abo und keine
+      Folgekosten. Eine Lizenz gilt für das Windows-Programm und die Companion-App
+      zusammen und deckt 3 Arbeitsplätze ab (zum Beispiel zwei PCs und ein Handy). Der
+      Kauf läuft über die sichere Kasse Digistore24, mit 30 Tagen Rückgaberecht.
+      Gegenüber Abo-Programmen, die oft 100 bis 360 € im Jahr kosten, zahlst du einmal –
+      und die Ausgabe ist als Betriebsausgabe absetzbar.
   - question: Was ist die „Vather"-Version?
     answer: >-
       Die interne Entwicklerversion: alle Funktionen freigeschaltet und voll editierbar.
@@ -253,24 +277,35 @@ faq:
       Der stabile Weg ist derzeit der lokale ICS-Export. Das funktioniert mit Outlook,
       Apple Kalender, Google Kalender und vielen anderen – ohne Cloud-Zwang und ohne
       Kontoanmeldung bei FehlerFuchs.
-  - question: Wie weit ist das Programm?
+  - question: Ist das noch Beta – und was wird aus meiner Test-Lizenz?
     answer: >-
-      Die offene Beta läuft. Die kostenlose Gewerbe-Edition läuft sofort; für die Pro- und
-      Beta-Funktionen registrierst du dich als Beta-Tester und bekommst eine
-      90-Tage-Testlizenz per E-Mail. Die alten Free- und Pro-Beta-ZIPs sind ersetzt.
+      Nein. Mit Version 1.0.0 ist GewerbePro aus der offenen Beta heraus und regulär
+      veröffentlicht. Die kostenlose Gewerbe-Edition läuft sofort. Wer in der Beta bereits
+      eine (Test-)Lizenz erhalten hat, behält sie – diese Lizenzen bleiben gültig. Neue
+      Beta-Test-Lizenzen werden nicht mehr ausgegeben; die Pro-Funktionen schaltest du
+      künftig mit einer gekauften Lizenz frei.
   - question: Gibt es das auch für Android?
     answer: >-
-      Ja, als GewerbePro Mobil. Die Companion-App ist bereits lauffähig, es fehlen nur
-      noch Kleinigkeiten. Sie gehört zur Pro-Edition und wird nicht separat verkauft:
-      Freischaltung mit demselben Lizenzschlüssel, Abgleich per USB oder eigener Cloud.
-      Vor Ort nutzbar sind Auftragsentwürfe, Kunden, Katalog, Kalender, Aufgaben und
-      Quittungsblock.
+      Ja, als Companion-App „GewerbePro Mobil". Sie gehört zur Pro-Edition und wird nicht
+      separat verkauft: Freischaltung mit demselben Lizenzschlüssel, wobei die App einen
+      der drei Arbeitsplätze belegt. Der Datenabgleich mit dem PC läuft per USB. Vor Ort
+      nutzbar sind Auftragsentwürfe, Kunden, Katalog, Kalender, Aufgaben und Quittungsblock.
   - question: Wie bekomme ich GewerbePro Mobil auf mein Handy?
     answer: >-
-      Als APK zum Direkt-Download von dieser Website – bewusst nicht über den Google
-      Play Store. Android fragt beim Installieren aus einer anderen Quelle nach: Die
-      Installation muss für den Browser oder die Dateien-App einmalig erlaubt werden.
-      Wer den Play Store vermeiden möchte, bekommt die App damit auch ohne Google-Konto.
+      Über Google Play – der Download dort ist kostenlos. Freigeschaltet wird die App mit
+      deinem GewerbePro-Lizenzschlüssel; sie belegt dann einen der drei Arbeitsplätze
+      deiner Lizenz. Ohne Lizenzcode startet die App nicht – es ist also keine gratis
+      Zusatz-App, sondern der mobile Arm deiner Vollversion.
+  - question: Welche Systemvoraussetzungen hat GewerbePro?
+    answer: >-
+      Windows 10 oder 11 (64-bit). Die Installation läuft im Benutzerprofil und braucht
+      keine Administratorrechte. Zusätzliche Software ist nicht nötig: Die erforderliche
+      Visual-C++-Runtime ist im Installer enthalten (auf frischem Windows getestet). Für
+      den Betrieb ist kein Internet nötig – Updates prüft das Programm nur, wenn du es
+      möchtest. Der Installer ist rund 120 MB groß; deine Daten liegen lokal im Programm-
+      beziehungsweise Nutzerordner. Das Programm ist digital signiert (Herausgeber
+      FehlerFuchs); bei einem neuen Download kann Windows SmartScreen anfangs trotzdem
+      warnen, bis sich die Bekanntheit aufgebaut hat.
 
 # Bild-Wortmarke. Ist sie gesetzt, ist SIE der sichtbare Titel und die
 # Überschrift steht nur für Screenreader da – sonst stünde der Name doppelt.
@@ -280,68 +315,66 @@ media:
     alt: GewerbePro – von FehlerFuchs
     width: 1614
     height: 360
-  # Aus Marketing_Facebook/Tablet_10Zoll des Projekts übernommen und auf
-  # Webgröße gerechnet. Werbebilder mit Überschrift, keine nackten
-  # Bildschirmabzüge – der Alternativtext sagt das auch so.
-  #
-  # Tablet_10_Beta bleibt draußen: „Pro 90 Tage als Beta-Tester" ist ein
-  # befristetes Angebot. Ein Bild, das eine Frist behauptet, veraltet
-  # still – und die Seite hat ihre eigenen Handlungsknöpfe.
+  # Echte Bildschirmabzüge der 1.0.0-Oberfläche (Pro, mit Testdaten), aus dem
+  # 4K-Rohmaterial von GewerbePro (Handoff 17.08.2026) auf Web-Größe gerechnet.
+  # 1200 px breit, native Seitenverhältnisse. Bewusst weggelassen: die
+  # Diagnose-/Selbsthilfe-Seite (zeigt internen Lizenzstatus + DB-Pfad) und die
+  # leeren Demo-Seiten (Aufträge, Quittungen, Anlagen, Fahrten, Dokumenteneingang).
   screenshots:
-    - src: /img/screenshots/gewerbepro/desktop-01-startseite.png
-      alt: "Werbebild „Dein Büro. Immer startklar.“ mit der Startseite von GewerbePro: Schnellzugriff-Knöpfe, Kurzübersicht mit Kunden, offenen Rechnungen und offenem Betrag, darunter der Tagesüberblick"
+    - src: /img/screenshots/gewerbepro/desktop-01-dashboard.png
+      alt: "Bildschirmabzug des Cockpit-Dashboards von GewerbePro: Kennzahlen, offene Rechnungen, anstehende Termine und Aufgaben sowie ein konfigurierbarer Schnellstart"
       width: 1200
-      height: 750
+      height: 638
       geraet: desktop
-      titel: "Immer startklar"
-    - src: /img/screenshots/gewerbepro/desktop-02-rechnungen.png
-      alt: "Werbebild „Rechnung raus. Geld rein.“ mit zwei Fenstern: der Rechnungsliste mit Zahlungsstatus und darüber dem Mahnwesen mit fälligen Posten"
+      titel: "Cockpit-Dashboard"
+    - src: /img/screenshots/gewerbepro/desktop-02-kalender.png
+      alt: "Bildschirmabzug des Auftragskalenders im Monatsraster mit farbig markierten Terminen und Fristen; umschaltbar zwischen Tag, Woche, Monat, Jahr und Liste"
       width: 1200
-      height: 750
-      geraet: desktop
-      titel: "Rechnungen und Mahnwesen"
-    - src: /img/screenshots/gewerbepro/desktop-03-angebote.png
-      alt: "Werbebild „Vom Angebot zur Rechnung.“ mit der Angebotsliste – Nummer, Kunde, Gültigkeit, Betrag und Status offen oder angenommen"
-      width: 1200
-      height: 750
-      geraet: desktop
-      titel: "Angebot, Auftrag, Rechnung"
-    - src: /img/screenshots/gewerbepro/desktop-04-erechnung.png
-      alt: "Werbebild „E-Rechnung? Pflicht erfüllt.“ mit der Prüfansicht: eine Rechnung wird als nicht konform gemeldet, daneben vergrößert der zugehörige Regeltext"
-      width: 1200
-      height: 750
-      geraet: desktop
-      titel: "ZUGFeRD und XRechnung"
-    - src: /img/screenshots/gewerbepro/desktop-05-quittung.png
-      alt: "Werbebild „Quittung. Unterschrift. Fertig.“ mit dem Quittungsformular samt handschriftlicher Unterschrift und darunter dem fertigen PDF-Beleg"
-      width: 1200
-      height: 750
-      geraet: desktop
-      titel: "Quittung mit Unterschrift"
-    - src: /img/screenshots/gewerbepro/desktop-06-steuer.png
-      alt: "Werbebild „Einnahmen. Ausgaben. Steuer-fertig.“ mit der EÜR-Übersicht und dem erzeugten Steuerbericht samt Haftungsausschluss"
-      width: 1200
-      height: 750
-      geraet: desktop
-      titel: "EÜR und Steuerbericht"
-    - src: /img/screenshots/gewerbepro/desktop-07-kalender.png
-      alt: "Werbebild „Termine. Fristen. Nichts vergessen.“ mit der Aufgabenliste und dem farbigen Auftragskalender im Monatsblick"
-      width: 1200
-      height: 750
+      height: 638
       geraet: desktop
       titel: "Auftragskalender"
-    - src: /img/screenshots/gewerbepro/desktop-08-pdfuchs.png
-      alt: "Werbebild „PDFs? Direkt eingebaut.“ mit dem PDFuchs-Werkzeugkasten in GewerbePro: PDF öffnen, Zusammenführen, Teilen, Drehen, OCR und Formulare anzeigen"
+    - src: /img/screenshots/gewerbepro/desktop-03-kunden.png
+      alt: "Bildschirmabzug der Kundenliste von GewerbePro mit kompakten Einträgen aus Name, Anschrift und Kontaktdaten"
       width: 1200
-      height: 750
+      height: 638
+      geraet: desktop
+      titel: "Kunden im Blick"
+    - src: /img/screenshots/gewerbepro/desktop-04-katalog.png
+      alt: "Bildschirmabzug des Leistungs- und Artikelkatalogs mit Positionen, Beschreibungen und Preisen"
+      width: 1200
+      height: 638
+      geraet: desktop
+      titel: "Katalog und Preise"
+    - src: /img/screenshots/gewerbepro/desktop-05-rechnungen.png
+      alt: "Bildschirmabzug der Rechnungsliste mit Rechnungsnummer, Kunde, Betrag sowie Zahlungs- und Mahnstatus"
+      width: 1200
+      height: 638
+      geraet: desktop
+      titel: "Rechnungen und Zahlungen"
+    - src: /img/screenshots/gewerbepro/desktop-06-erechnung.png
+      alt: "Bildschirmabzug der E-Rechnungsprüfung: eine Rechnung wird gegen die Vorgaben für ZUGFeRD und XRechnung nach EN 16931 geprüft, mit Prüfliste und Ergebnis"
+      width: 1200
+      height: 638
+      geraet: desktop
+      titel: "E-Rechnung: Pflicht erfüllt"
+    - src: /img/screenshots/gewerbepro/desktop-07-steuer.png
+      alt: "Bildschirmabzug der Finanz- und Steuerübersicht: Einnahmen, Ausgaben und Gewinn der EÜR mit einer Aufschlüsselung der Ausgaben als Balken"
+      width: 1200
+      height: 638
+      geraet: desktop
+      titel: "EÜR und Steuer"
+    - src: /img/screenshots/gewerbepro/desktop-08-pdfuchs.png
+      alt: "Bildschirmabzug des eingebauten PDFuchs-Werkzeugkastens mit Kacheln für OCR, Zusammenführen, Teilen, Drehen und QR-Code"
+      width: 1200
+      height: 638
       geraet: desktop
       titel: "PDFuchs ist an Bord"
-    - src: /img/screenshots/gewerbepro/desktop-09-offline.png
-      alt: "Werbebild „Deine Daten. Dein Rechner.“ mit den Grundlagen-Einstellungen: Update-Prüfung, Speicherort für Datenbank und Dateien, Sicherung und Datenpflege"
+    - src: /img/screenshots/gewerbepro/desktop-09-hilfe.png
+      alt: "Bildschirmabzug der Hilfe- und Tutorial-Seite mit App-Rundgang, ersten Schritten und thematischen Touren"
       width: 1200
-      height: 750
+      height: 638
       geraet: desktop
-      titel: "Offline-first"
+      titel: "Hilfe und geführte Touren"
 # Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
 # Was dort nicht steht, steht auch hier nicht – dann greift der Standard.
 # Alle Kontraste rechnet das Prüfskript, sie sind nicht geschätzt.
@@ -370,8 +403,14 @@ links:
   # Fehlt das Feld, gab es vorher keine eigene Seite - dann ist auch nichts
   # weiterzuleiten.
   alt_html: /apps/gewerbepro.html
-  release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/gewerbepro-v0.3.3
-  betaSignup: https://license.fehlerfuchs.eu/v1/providers/tester/gewerbepro
+  release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/gewerbepro-v1.0.0
+  # Kauf-Weg: Digistore24-Produkt 723253 (89 €, Streichpreis 129 €). Muster wie
+  # HaushaltsManager (checkout-ds24.com/product/<ID>). Produkt ist bis zur
+  # Freigabe/Testkauf durch Matthias „Aktiv = Nein"; der Button steht laut
+  # DS24-Handoff LOG-083 trotzdem schon, weil Digistore die Live-Seite prüft.
+  checkout: "https://www.checkout-ds24.com/product/723253"
+  # betaSignup entfernt (17.08.2026): Der Beta-Tester-Weg ist beendet, der Endpunkt
+  # /v1/providers/tester/gewerbepro für die Website stillgelegt.
   contact: /kontakt.html?app=GewerbePro&topic=interesse
 
 manifests:

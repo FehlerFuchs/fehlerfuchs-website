@@ -1,8 +1,22 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-17T10:35:48+02:00",
+  "generiert": "2026-08-17T18:34:44+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "gewerbepro-1-0-0-launch",
+      "typ": "veroeffentlichung",
+      "produkt": "gewerbepro",
+      "version": "1.0.0",
+      "titel": "GewerbePro 1.0.0 ist da",
+      "text": "Aus der offenen Beta wird die Vollversion: GewerbePro ist runderneuert. Ein neues Cockpit-Dashboard bündelt Kennzahlen, offene Rechnungen und anstehende Termine; dazu kamen ein Dokumenteneingang mit Belegbuchung, geführte Touren und eine übersichtlichere Oberfläche. Die kostenlose Gewerbe-Edition läuft sofort; die Pro-Funktionen – E-Rechnung nach EN 16931, Mahnwesen, PDFuchs und die Companion-App – schaltet eine Lizenz frei. Bestehende Beta-Lizenzen bleiben gültig. Alles bleibt lokal auf dem eigenen Rechner, ohne Cloud und ohne Konto.",
+      "datum": "2026-08-17",
+      "datumQuelle": "Release 1.0.0",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.0.0/FehlerFuchs_GewerbePro_Setup_1.0.0.exe",
+        "kauf": "https://www.checkout-ds24.com/product/723253"
+      }
+    },
     {
       "id": "orgafuchs-1-6-1",
       "typ": "update",
@@ -41,7 +55,8 @@
       "datum": "2026-08-12",
       "datumQuelle": "Release 0.3.3",
       "wege": {
-        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.3/FehlerFuchs_GewerbePro_Setup_0.3.3.exe"
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.3/FehlerFuchs_GewerbePro_Setup_0.3.3.exe",
+        "kauf": "https://www.checkout-ds24.com/product/723253"
       }
     },
     {
@@ -149,7 +164,8 @@
       "datum": "2026-07-16",
       "datumQuelle": "Release 0.3.1",
       "wege": {
-        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.1/FehlerFuchs_GewerbePro_Setup_0.3.1.exe"
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.1/FehlerFuchs_GewerbePro_Setup_0.3.1.exe",
+        "kauf": "https://www.checkout-ds24.com/product/723253"
       }
     },
     {
@@ -162,7 +178,8 @@
       "datum": "2026-07-15",
       "datumQuelle": "Release 0.3.0",
       "wege": {
-        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.0/FehlerFuchs_GewerbePro_Setup_0.3.0.exe"
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.0/FehlerFuchs_GewerbePro_Setup_0.3.0.exe",
+        "kauf": "https://www.checkout-ds24.com/product/723253"
       }
     },
     {

@@ -27,6 +27,17 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+# Auf einer Windows-Konsole (cp1252) bricht print() an Zeichen wie „←" mit einem
+# UnicodeEncodeError ab – MITTEN in der Diff-Ausgabe, also VOR dem Schreiben. Die
+# Folge ist ein stiller Fehlgriff: „Geschrieben" wird nie erreicht, das Manifest
+# bleibt veraltet (genau der Updater-Nachhänger, vor dem ChefBüro warnt). Deshalb
+# hier die Ausgabe fest auf UTF-8 stellen, unabhängig von der Konsolen-Codepage.
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8")
+    except (AttributeError, ValueError):
+        pass
+
 ROOT = Path(__file__).resolve().parent.parent
 PRODUCTS = ROOT / "data" / "products.json"
 
@@ -34,7 +45,11 @@ PRODUCTS = ROOT / "data" / "products.json"
 # Bewusst eine ausdrückliche Liste: ein Manifest entsteht nur, wenn die App es
 # auch abfragt. Sonst liegen tote Dateien herum, die niemand pflegt.
 UPDATE_FEEDS = {
-    "gewerbepro": {"channel": "beta", "os": "windows"},
+    # 17.08.2026: von "beta" auf "stable" umgestellt – mit 1.0.0 (erstes Stable-
+    # Release) sollen bestehende 0.3.x-Installationen das Update angeboten bekommen.
+    # Zuvor filterte der Feed auf Beta und blieb bei 0.3.3, während versions.json
+    # schon 1.0.0 führte (genau der Updater-Nachhänger, vor dem ChefBüro warnte).
+    "gewerbepro": {"channel": "stable", "os": "windows"},
     # OrgaFuchs Windows-Updater (11.08.2026): Bis dahin fehlte
     # updates/orgafuchs/latest.json, eine ältere Installation bekam also kein
     # In-App-Update. Mit dem signierten Build wird der Feed aufgenommen, damit

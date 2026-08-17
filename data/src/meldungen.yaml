@@ -29,6 +29,23 @@
 
 meldungen:
 
+  # GewerbePro 1.0.0: Übergang aus der offenen Beta in die Vollversion (17.08.2026,
+  # signiert). 'version: 1.0.0' bindet die Meldung an den releases-Eintrag – Datum,
+  # Version und Download kommen von dort und stehen bewusst NICHT im Text.
+  - id: gewerbepro-1-0-0-launch
+    typ: veroeffentlichung
+    produkt: gewerbepro
+    version: "1.0.0"
+    titel: "GewerbePro 1.0.0 ist da"
+    text: >-
+      Aus der offenen Beta wird die Vollversion: GewerbePro ist runderneuert. Ein neues
+      Cockpit-Dashboard bündelt Kennzahlen, offene Rechnungen und anstehende Termine; dazu
+      kamen ein Dokumenteneingang mit Belegbuchung, geführte Touren und eine
+      übersichtlichere Oberfläche. Die kostenlose Gewerbe-Edition läuft sofort; die
+      Pro-Funktionen – E-Rechnung nach EN 16931, Mahnwesen, PDFuchs und die
+      Companion-App – schaltet eine Lizenz frei. Bestehende Beta-Lizenzen bleiben gültig.
+      Alles bleibt lokal auf dem eigenen Rechner, ohne Cloud und ohne Konto.
+
   # OrgaFuchs ist am 08.08.2026 im Play Store veröffentlicht (nach zwei Ablehnungen).
   # typ 'store' ohne datum/wege: Datum kommt aus platforms[android].since, der
   # Play-Link aus storeId. Ersetzt die frühere „in Prüfung"-Meldung (überholt).

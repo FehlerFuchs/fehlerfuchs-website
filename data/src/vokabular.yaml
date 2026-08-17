@@ -154,6 +154,14 @@ featureWerte:
     label: nach Absprache
     erklaerung: Möglich, wird im Einzelfall vereinbart.
     art: teilweise
+  Basis:
+    label: Basis
+    erklaerung: Grundumfang enthalten – die vollständige Fassung gibt es in der Pro-Edition.
+    art: teilweise
+  erweitert:
+    label: erweitert
+    erklaerung: Vollständiger Umfang der Pro-Edition.
+    art: enthalten
 
 # Wunscherfüller: Status eines eingereichten Wunsches.
 # Farben wie bei den Produktstatus – dieselbe Sprache für dasselbe Konzept.

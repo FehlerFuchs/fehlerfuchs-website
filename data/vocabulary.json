@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-17T10:35:48+02:00",
+  "generiert": "2026-08-17T18:34:44+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "privacy": {
     "nur-lokal": {
@@ -130,6 +130,16 @@
       "label": "nach Absprache",
       "erklaerung": "Möglich, wird im Einzelfall vereinbart.",
       "art": "teilweise"
+    },
+    "Basis": {
+      "label": "Basis",
+      "erklaerung": "Grundumfang enthalten – die vollständige Fassung gibt es in der Pro-Edition.",
+      "art": "teilweise"
+    },
+    "erweitert": {
+      "label": "erweitert",
+      "erklaerung": "Vollständiger Umfang der Pro-Edition.",
+      "art": "enthalten"
     }
   },
   "wunschStatus": {
