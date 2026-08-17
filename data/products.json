@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-17T18:47:05+02:00",
+  "generiert": "2026-08-17T18:51:58+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -650,7 +650,7 @@
                 "pro": "erweitert",
                 "vather": "erweitert"
               },
-              "note": "Free erzeugt die Grundberichte; Pro die vollständigen Auswertungen als PDF/CSV."
+              "note": "Free erzeugt die Grundberichte; Pro die vollständigen Auswertungen als PDF."
             },
             {
               "name": "Logbuch und Statistik",
@@ -763,7 +763,16 @@
           "group": "Ausgabe und Erscheinungsbild",
           "items": [
             {
-              "name": "Eigenes Branding (Logo & Farben) und Exporte",
+              "name": "Export – Kontakte (vCard) und Kalender (ICS)",
+              "values": {
+                "free": "ja",
+                "pro": "ja",
+                "vather": "ja"
+              },
+              "note": "CSV-Import/Export ist in Vorbereitung – derzeit in keiner Edition enthalten."
+            },
+            {
+              "name": "Gebrandete Beleg-PDFs (eigenes Logo & Farben, ohne „Erstellt mit\"-Hinweis)",
               "values": {
                 "free": "nein",
                 "pro": "ja",
