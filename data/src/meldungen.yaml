@@ -29,6 +29,18 @@
 
 meldungen:
 
+  - id: snapfuchs-1-2-0
+    typ: veroeffentlichung
+    produkt: snapfuchs
+    datum: "2026-08-17"
+    titel: "SnapFuchs 1.2.0: Name vergeben, Ablage selbst bestimmt"
+    text: >-
+      Zwei kleine Handgriffe, die im Alltag viel ausmachen — und beide kostenlos:
+      Ein Dokument bekommt jetzt schon beim Scannen seinen Namen, der dann auch der
+      Dateiname beim Teilen ist. Und wer möchte, legt einen eigenen Ordner auf dem
+      Gerät fest, in den jeder Export zusätzlich wandert. Der Ordner wird einmal
+      ausgewählt; eine Speicher-Berechtigung braucht SnapFuchs dafür nicht.
+
   # GewerbePro 1.0.0: Übergang aus der offenen Beta in die Vollversion (17.08.2026,
   # signiert). 'version: 1.0.0' bindet die Meldung an den releases-Eintrag – Datum,
   # Version und Download kommen von dort und stehen bewusst NICHT im Text.

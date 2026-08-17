@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-17T18:51:58+02:00",
+  "generiert": "2026-08-17T21:02:09+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "snapfuchs-1-2-0",
+      "typ": "veroeffentlichung",
+      "produkt": "snapfuchs",
+      "datum": "2026-08-17",
+      "titel": "SnapFuchs 1.2.0: Name vergeben, Ablage selbst bestimmt",
+      "text": "Zwei kleine Handgriffe, die im Alltag viel ausmachen — und beide kostenlos: Ein Dokument bekommt jetzt schon beim Scannen seinen Namen, der dann auch der Dateiname beim Teilen ist. Und wer möchte, legt einen eigenen Ordner auf dem Gerät fest, in den jeder Export zusätzlich wandert. Der Ordner wird einmal ausgewählt; eine Speicher-Berechtigung braucht SnapFuchs dafür nicht.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.snapfuchs"
+      }
+    },
     {
       "id": "gewerbepro-1-0-0-launch",
       "typ": "veroeffentlichung",
