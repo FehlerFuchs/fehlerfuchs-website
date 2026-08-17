@@ -165,6 +165,12 @@ features:
       - name: Seiten nachträglich umsortieren, ersetzen und löschen
         values: { free: teilweise, pro: ja }
         note: Löschen ist kostenlos; neu aufnehmen und umsortieren gehören zu Pro.
+      # 1.2.0 (17.08.2026), beide kostenlos.
+      - name: Dokument schon beim Scannen benennen (der Name wird zum Dateinamen)
+        values: { free: ja, pro: ja }
+      - name: Standardablage – Exporte zusätzlich in einen selbst gewählten Ordner
+        values: { free: ja, pro: ja }
+        note: Über den Android-Ordnerauswahl-Dialog, ohne zusätzliche Speicher-Berechtigung.
 
   # 1.1.0: Hilfe, Rundgang und Kontakt sind in der App selbst - wer nicht
   # weiterkommt, muss dafuer nicht die Website suchen.

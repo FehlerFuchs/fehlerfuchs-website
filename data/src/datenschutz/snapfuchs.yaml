@@ -1,8 +1,8 @@
 slug: snapfuchs
 name: SnapFuchs
-stand: "2026-08-05"
+stand: "2026-08-17"
 geprueft_von: FehlerFuchs_SnapFuchs
-fassung: "1.1.1 (versionCode 8)"
+fassung: "1.2.0 (versionCode 9)"
 
 # Beim App-Start fragt die Pro-Freischaltung automatisch den Kaufstatus bei
 # Google Play ab (restorePurchases). Nutzerinhalte (Scans, PDFs, erkannter
@@ -13,6 +13,14 @@ auf_dem_geraet:
   - was: Exportierte PDFs (auch in selbst angelegten Ordnern)
     wo: App-eigenes Dokumentenverzeichnis, Unterordner "SnapFuchs"
     beleg: lib/core/storage/dokument_speicher.dart
+  # 2026-08-17 (Fassung 1.2.0): Optionale Standardablage. Der Nutzer kann einen
+  # eigenen Ordner auf dem Geraet bestimmen; Exporte werden dann ZUSAETZLICH
+  # dorthin geschrieben und sind im Dateimanager sichtbar. Der Ordner wird ueber
+  # den Android-Ordnerauswahl-Dialog (Storage Access Framework) gewaehlt -- KEINE
+  # Speicher-Berechtigung, der Zugriff gilt nur fuer genau diesen Ordner.
+  - was: Kopien der Exporte in einer selbst gewaehlten Standardablage (optional, nur wenn eingerichtet)
+    wo: vom Nutzer per Android-Ordnerauswahl (SAF) bestimmter Ordner auf dem Geraet, z. B. in "Dateien"; sichtbar im Dateimanager
+    beleg: lib/core/storage/extern_ablage.dart, lib/models/extern_ablage_ziel.dart, android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt
   - was: Einstellungen (Wasserzeichen-Stil und -Position, Kaufstatus)
     wo: Geraeteeinstellungen der App
     beleg: lib/models/watermark_config.dart, lib/utils/pro_check.dart
@@ -47,9 +55,16 @@ berechtigungen:
     wofuer: einmaliger Kauf der Pro-Fassung
     pflicht: false
     beleg: com.android.vending.BILLING, vom Paket in_app_purchase ergaenzt, im gemergten Release-Manifest enthalten
-  # 2026-07-31 (Audit F-025): WRITE_EXTERNAL_STORAGE ENTFERNT. Das Speichern
-  # laeuft ausschliesslich ueber App-interne Verzeichnisse; die Legacy-
+  # 2026-07-31 (Audit F-025): WRITE_EXTERNAL_STORAGE ENTFERNT. Das Speichern in
+  # App-interne Verzeichnisse braucht keine Berechtigung; die Legacy-
   # Schreibberechtigung war ungenutzt und ist per tools:node="remove" gestrichen.
+  # 2026-08-17 (Fassung 1.2.0): Auch das optionale Schreiben in eine selbst
+  # gewaehlte Standardablage laeuft ueber das Storage Access Framework und
+  # braucht KEINE Speicher-Berechtigung.
+  - name: Ordnerzugriff fuer die Standardablage (Storage Access Framework)
+    wofuer: Exporte zusaetzlich in einen selbst gewaehlten Ordner schreiben; keine Speicher-Berechtigung noetig, der Zugriff gilt nur fuer genau den vom Nutzer gewaehlten Ordner (persistierbare URI-Freigabe) und ist jederzeit widerrufbar
+    pflicht: false
+    beleg: ACTION_OPEN_DOCUMENT_TREE + takePersistableUriPermission in android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt
   - name: Netzwerkstatus
     wofuer: wird von der App nicht abgefragt; stammt aus eingebundenen Bausteinen
     pflicht: false
@@ -119,6 +134,11 @@ besonderheiten: >-
   Videos an. In der kostenlosen Fassung tragen die erzeugten PDFs ein
   Wasserzeichen, das nach dem einmaligen Kauf entfaellt. Der Kaufstatus wird
   auf dem Geraet gespeichert und zusaetzlich bei Google Play abgefragt.
+  Optional laesst sich eine Standardablage einrichten: Exporte werden dann
+  zusaetzlich in einen selbst gewaehlten Ordner auf dem Geraet geschrieben; die
+  Ordnerwahl laeuft ueber den Android-Ordnerauswahl-Dialog (SAF) und braucht
+  keine Speicher-Berechtigung. Der beim Scannen vergebene Dokumentname bleibt
+  nur im Arbeitsspeicher und bestimmt lediglich den Dateinamen beim Export.
 
 vorhandener_text: >-
   Kein eigenes Dokument. Ein Datenschutz-Abschnitt steht in der App unter

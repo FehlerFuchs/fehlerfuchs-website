@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-17T09:46:31+02:00",
+  "generiert": "2026-08-17T10:35:48+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1932,6 +1932,21 @@
                 "pro": "ja"
               },
               "note": "Löschen ist kostenlos; neu aufnehmen und umsortieren gehören zu Pro."
+            },
+            {
+              "name": "Dokument schon beim Scannen benennen (der Name wird zum Dateinamen)",
+              "values": {
+                "free": "ja",
+                "pro": "ja"
+              }
+            },
+            {
+              "name": "Standardablage – Exporte zusätzlich in einen selbst gewählten Ordner",
+              "values": {
+                "free": "ja",
+                "pro": "ja"
+              },
+              "note": "Über den Android-Ordnerauswahl-Dialog, ohne zusätzliche Speicher-Berechtigung."
             }
           ]
         },

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-17T09:46:31+02:00",
+  "generiert": "2026-08-17T10:35:48+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1922,15 +1922,20 @@
     {
       "slug": "snapfuchs",
       "name": "SnapFuchs",
-      "stand": "2026-08-05",
+      "stand": "2026-08-17",
       "geprueft_von": "FehlerFuchs_SnapFuchs",
-      "fassung": "1.1.1 (versionCode 8)",
+      "fassung": "1.2.0 (versionCode 9)",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
           "was": "Exportierte PDFs (auch in selbst angelegten Ordnern)",
           "wo": "App-eigenes Dokumentenverzeichnis, Unterordner \"SnapFuchs\"",
           "beleg": "lib/core/storage/dokument_speicher.dart"
+        },
+        {
+          "was": "Kopien der Exporte in einer selbst gewaehlten Standardablage (optional, nur wenn eingerichtet)",
+          "wo": "vom Nutzer per Android-Ordnerauswahl (SAF) bestimmter Ordner auf dem Geraet, z. B. in \"Dateien\"; sichtbar im Dateimanager",
+          "beleg": "lib/core/storage/extern_ablage.dart, lib/models/extern_ablage_ziel.dart, android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt"
         },
         {
           "was": "Einstellungen (Wasserzeichen-Stil und -Position, Kaufstatus)",
@@ -1975,6 +1980,12 @@
           "wofuer": "einmaliger Kauf der Pro-Fassung",
           "pflicht": false,
           "beleg": "com.android.vending.BILLING, vom Paket in_app_purchase ergaenzt, im gemergten Release-Manifest enthalten"
+        },
+        {
+          "name": "Ordnerzugriff fuer die Standardablage (Storage Access Framework)",
+          "wofuer": "Exporte zusaetzlich in einen selbst gewaehlten Ordner schreiben; keine Speicher-Berechtigung noetig, der Zugriff gilt nur fuer genau den vom Nutzer gewaehlten Ordner (persistierbare URI-Freigabe) und ist jederzeit widerrufbar",
+          "pflicht": false,
+          "beleg": "ACTION_OPEN_DOCUMENT_TREE + takePersistableUriPermission in android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt"
         },
         {
           "name": "Netzwerkstatus",
@@ -2050,7 +2061,7 @@
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
       "loeschung": "Alle Inhalte liegen auf dem Geraet. Einzelne Dokumente und Ordner lassen sich in der App loeschen; alles Uebrige (Einstellungen, Fehlerlog, Cache) verschwindet mit der Deinstallation. Per Feedback gesendete Nachrichten liegen im Support-Postfach und werden auf Anfrage geloescht.",
-      "besonderheiten": "Texterkennung, Tabellenerkennung, das Lesen von QR-Codes und Barcodes sowie alle PDF-Werkzeuge laufen vollstaendig auf dem Geraet und bauen dafuer keine Verbindung nach aussen auf. Es gibt kein Konto und keine Registrierung. Bilder aus der Galerie werden ueber den Android-Fotoauswahl-Dialog ausgewaehlt; deshalb fordert die App keine Berechtigung fuer Fotos oder Videos an. In der kostenlosen Fassung tragen die erzeugten PDFs ein Wasserzeichen, das nach dem einmaligen Kauf entfaellt. Der Kaufstatus wird auf dem Geraet gespeichert und zusaetzlich bei Google Play abgefragt.",
+      "besonderheiten": "Texterkennung, Tabellenerkennung, das Lesen von QR-Codes und Barcodes sowie alle PDF-Werkzeuge laufen vollstaendig auf dem Geraet und bauen dafuer keine Verbindung nach aussen auf. Es gibt kein Konto und keine Registrierung. Bilder aus der Galerie werden ueber den Android-Fotoauswahl-Dialog ausgewaehlt; deshalb fordert die App keine Berechtigung fuer Fotos oder Videos an. In der kostenlosen Fassung tragen die erzeugten PDFs ein Wasserzeichen, das nach dem einmaligen Kauf entfaellt. Der Kaufstatus wird auf dem Geraet gespeichert und zusaetzlich bei Google Play abgefragt. Optional laesst sich eine Standardablage einrichten: Exporte werden dann zusaetzlich in einen selbst gewaehlten Ordner auf dem Geraet geschrieben; die Ordnerwahl laeuft ueber den Android-Ordnerauswahl-Dialog (SAF) und braucht keine Speicher-Berechtigung. Der beim Scannen vergebene Dokumentname bleibt nur im Arbeitsspeicher und bestimmt lediglich den Dateinamen beim Export.",
       "vorhandener_text": "Kein eigenes Dokument. Ein Datenschutz-Abschnitt steht in der App unter Einstellungen (lib/features/settings/settings_screen.dart); das Impressum verweist auf die Website.",
       "offene_fragen": "1) ACCESS_NETWORK_STATE steht nur wegen eingebundener Bausteine im Manifest; im eigenen Code wird der Netzwerkstatus nirgends abgefragt. Die Berechtigung bleibt vorerst drin, weil die Kaufabwicklung sie voraussetzen duerfte; sie ist nicht sensibel und wird dem Nutzer nicht angezeigt. 2) Ob und wie lange der Kontakt-Server IP-Adressen protokolliert, haengt vom Server ab und ist aus dem App-Code nicht feststellbar.",
       "art": "anwendung"
