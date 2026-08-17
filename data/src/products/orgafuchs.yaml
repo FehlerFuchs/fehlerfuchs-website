@@ -84,9 +84,13 @@ privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, eige
 # Namen, unter denen sich die Windows-Installer in der Registry eintragen –
 # für die Zuordnung im Update-Helfer Up2Date (versions.json). OrgaFuchs trägt
 # sich ohne „FehlerFuchs"-Präfix ein; beide Schreibweisen aus dem echten
-# Registry-Scan (Handoff Up2Date, 26.07.2026).
+# Registry-Scan (Handoff Up2Date, 26.07.2026). Die zweite Schreibweise
+# „FehlerFuchs OrgaFuchs" war am 08.08.2026 versehentlich mit einem OG-Bild-Commit
+# (ef234cd) entfernt worden und ist am 17.08.2026 wiederhergestellt – ohne sie
+# fallen Alt-Installationen mit diesem Registry-Namen aus der Exakt-Zuordnung.
 windowsDisplayNames:
   - OrgaFuchs
+  - FehlerFuchs OrgaFuchs
 
 editions:
   - id: standard

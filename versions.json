@@ -69,7 +69,8 @@
       "page": "https://fehlerfuchs.eu/produkte/orgafuchs/",
       "notes": "Signierte Windows-Fassung (Herausgeber FehlerFuchs). Neu: „Nachricht an alle\" mit Postfach – kurze Nachrichten an die Gruppe, Ende-zu-Ende über den eigenen Relay verteilt; empfangene Nachrichten werden zuverlässig angezeigt. Dazu Feiertage und Ferien im Kalender farblich hervorgehoben und „zuletzt aktiv\" in der Geräteliste. Löst 1.5.0/1.6.0 ab.",
       "windowsDisplayNames": [
-        "OrgaFuchs"
+        "OrgaFuchs",
+        "FehlerFuchs OrgaFuchs"
       ]
     }
   ]
