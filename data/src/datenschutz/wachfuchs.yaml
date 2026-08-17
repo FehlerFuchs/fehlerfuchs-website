@@ -1,0 +1,69 @@
+slug: wachfuchs
+name: WachFuchs
+stand: "2026-08-16"
+geprueft_von: FehlerFuchs_WachFuchs
+fassung: "Entwicklungsphase – App-Geruest steht (flutter create 03.08.2026, gemeinsamer Kern fehlerfuchs_kern eingebunden), noch kein Store-Eintrag. Angaben aus Architektur-Konzept (Entwurf 1, Abschnitt 7), ergaenzt um die Entscheidungen vom 02.–04.08.2026 (Vertriebsmodell, Korrekturkanal, Pruefvermerke)"
+
+# App vorhanden, aber ohne Konto und ohne personenbezogene Daten.
+# Internet nur fuer Inhalts-Abruf und den freiwilligen Melde-Knopf.
+lokal_only: false
+
+# Was auf dem Geraet liegt (alles ohne Personenbezug):
+auf_dem_geraet:
+  - "Lernstand (Leitner-Faecher je Frage) – lokal, verlaesst das Geraet nicht"
+  - "Inhaltspakete (SQLite mit Fragen/Antworten/Fundstellen) – heruntergeladen, lokal gespeichert"
+  - "Zufaellige Installations-ID (lokal erzeugt, kein Personenbezug) – nur fuer Rate-Limit/Melde-Bezug"
+  - "Merker, welche Fragen gemeldet wurden – lokal, fuer den Bearbeitet-Hinweis"
+
+# Nur Internet; bewusst KEINE Kamera/Kontakte/Standort/Speicher-Vollzugriff.
+berechtigungen:
+  - "Internet – Inhaltspakete abrufen und (freiwillig) Meldungen senden"
+
+# Verbindungen nach draussen:
+uebertragungen:
+  - "Katalog/Inhaltspakete vom Relaisserver abrufen (nur lesen, signiert, kein Personenbezug)"
+  - "Korrekturkanal: regelmaessiger Abruf einer kleinen signierten Datei 'korrekturen.json' vom Relaisserver (reiner GET, keine Kennung, keine Nutzerdaten, keine Parameter) – sperrt oder ersetzt einzelne fehlerhafte Fragen, ohne dass die App neu ausgeliefert werden muss (Konzept 6.3). Die technische Abruftaktung ist eine Architektureigenschaft und keine Servicezusage."
+  - "Freiwillige Meldung ueber 'Frage melden': paketId, frageId, inhaltsVersion, appVersion, Grund, optionaler Text (max. 500 Zeichen), gewaehlte Antwort, zufaellige Installations-ID – kein Name, keine E-Mail, kein Standort, kein Lernstand"
+  - "Kaufabwicklung ueber Google Play Billing (laeuft ueber Google, nicht ueber eigene Server)"
+
+# Eingebundene Fremddienste:
+fremde_dienste:
+  - "Google Play Billing (Kaufabwicklung) – Google verarbeitet die Kaufdaten; WachFuchs erhaelt keine Google-Konto-Kennung"
+  - "FehlerFuchs Relaisserver [11-2] (eigen, IONOS-VPS Deutschland) – Auslieferung signierter Pakete + Meldungs-Endpunkt; Zugriffs-Logs ohne volle IP, kurze Aufbewahrung"
+  # Ausdruecklich NICHT: Analytics, Crash-Reporting mit Kennung, Werbe-ID, Tracking-SDKs.
+
+konto_noetig: false
+tracking: false
+werbung: false
+absturzberichte: false
+daten_an_dritte_verkauft: false
+
+loeschung: >-
+  Es gibt kein Nutzerkonto und keine serverseitig gespeicherten Nutzerdaten. Alle lokalen
+  Daten (Lernstand, Pakete, Installations-ID) werden mit der Deinstallation der App entfernt.
+  Freiwillige Meldungen enthalten keinen Personenbezug; serverseitig werden sie ohne volle
+  IP und nur kurz aufbewahrt. Wer seinen Lernstand sichern will, exportiert eine lokale Datei.
+
+besonderheiten: >-
+  Kostenpflichtige Lern-App fuer die Feuerwehr-Ausbildung. Grundsatz: was nicht erhoben
+  wird, kann nicht verloren gehen – kein Konto, kein Login, kein Analytics, keine Werbe-ID.
+  Lernstand bleibt auf dem Geraet; der Server ist Komfort, keine Voraussetzung (offline-first).
+  Inhaltspakete sind Ed25519-signiert; die App laedt keinen ausfuehrbaren Code nach.
+  Jede Aussage traegt ihre Fundstelle mit Ausgabestand und Abrufdatum sowie einen sichtbaren
+  Pruefvermerk (durch KI geprueft / durch Autor / durch die Community geprueft) – das sind
+  Angaben zum Inhalt, keine Nutzerdaten.
+  Play-Datensicherheitsangaben sind mit dieser Architektur kurz auszufuellen.
+
+vorhandener_text: ""
+
+offene_fragen: >-
+  1) Serverseitige Aufbewahrungsfristen des Meldungs-Endpunkts final festzurren.
+  2) Vor der ersten bezahlten Version einmal anwaltlich pruefen (Konzept 3/11).
+  3) Zugriffs-Logs des Korrekturkanals: durch den haeufigen Abruf entstehen mehr Logzeilen
+  als beim taeglichen Katalogabruf – Kuerzung der IP und kurze Aufbewahrung gelten
+  unveraendert, die Fristen gehoeren zu Punkt 1.
+  4) Community-Pruefvermerk: sobald Nutzer Bestaetigungen abgeben koennen, ist zu klaeren,
+  ob dabei ueber die zufaellige Installations-ID hinaus etwas erhoben wird – Ziel ist nein.
+  Erledigt am 02.08.2026: Vertriebsmodell dem Grunde nach entschieden (Kauf ueber Google Play
+  Billing, freier Einstiegsblock) – betrifft nur Play-Kauf-/Widerrufsangaben, nicht die
+  Datenerhebung. Der Zuschnitt der Kaufobjekte wurde am 03.08.2026 auf Bloecke umgestellt.

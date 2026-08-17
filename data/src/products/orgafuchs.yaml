@@ -11,7 +11,7 @@ description: >-
   Plant Dienste, Schichten, Termine und Notizen für die ganze Familie oder ein kleines
   Team: Monatskalender, Schnelleintrag, PDF-Export als Monat, Jahr oder Blanko-Vorlage.
   Alle Daten bleiben auf den eigenen Geräten; die Synchronisation läuft über das eigene
-  Heimnetz oder einen selbst gehosteten Relay – ohne Google, ohne Cloud, ohne Konto.
+  Heimnetz oder einen selbst gehosteten Relay – ohne Cloud, ohne Konto.
 audience: [privat, vereine, unternehmen]
 accent: "#B4652A"   # Farbe der App
 # Android ist seit 08.08.2026 regulär im Google Play Store, der Windows-Download
@@ -79,7 +79,7 @@ umwege:
       klargestellt, dass OrgaFuchs keine Behörde ist und keine vertritt. Am
       24. Juli erneut eingereicht, am Programm wieder nichts geändert.
 
-privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, kein-google, eigener-sync, offline-faehig]
+privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, eigener-sync, offline-faehig]
 
 # Namen, unter denen sich die Windows-Installer in der Registry eintragen –
 # für die Zuordnung im Update-Helfer Up2Date (versions.json). OrgaFuchs trägt

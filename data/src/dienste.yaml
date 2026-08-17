@@ -108,16 +108,56 @@ dienste:
     adresse: ntfy.relais.fehlerfuchs.eu
     zweck: >-
       Schickt kurze Hinweise auf Geräte einer Gruppe, etwa wenn sich ein Plan
-      geändert hat. Selbst betrieben, nicht über einen Anbieterdienst.
+      geändert hat. Dieser Weg (ntfy) ist selbst betrieben.
     betreiber: eigen
     standort: Deutschland
-    stand: "2026-07-14"
+    stand: "2026-08-15"
     uebermittelt:
       - Themenkennung der Gruppe
       - der Hinweistext
     aufbewahrung: >-
       Hinweise werden zugestellt und danach verworfen.
     produkte: [orgafuchs]
+    # Ergaenzt am 15.08.2026 (E1: eigener fcm-Eintrag). Der ntfy-Weg bleibt der
+    # ehrliche "Briefkasten"; der zuverlaessige Weck-Push ueber Google steht als
+    # eigener Dienst 'fcm' daneben, damit keine Aussage sich widerspricht.
+    hinweis: >-
+      Zum zuverlässigen Wecken der App aus dem Ruhezustand kommt auf Android
+      zusätzlich ein inhaltsloser Weck-Push über Google Firebase (siehe Eintrag
+      „Weck-Push"). Wer Benachrichtigungen aus lässt, spricht beides nicht an.
+
+  # Seit dem FCM-Livegang 13.08.2026 (Android). Bewusst als eigener Eintrag neben
+  # 'push'/'relaisserver' (Entscheidung Matze 17.08.2026, E1): Betreiber der Registry
+  # eigen, Empfaenger der Zustellung Google. Die rechtliche Einordnung von Google
+  # (Verantwortlicher/Auftragsverarbeiter, Google-Entitaet, Rechtsgrundlage) ist
+  # bewusst NICHT hier getroffen - offener Punkt fuer Matthias/Anwalt.
+  - id: fcm
+    name: Weck-Push (Firebase Cloud Messaging)
+    adresse: relais.fehlerfuchs.eu (Registry) · Google Firebase Cloud Messaging (Zustellung)
+    zweck: >-
+      Weckt die Android-App zuverlässig aus dem Ruhezustand, damit Änderungen auch
+      bei geschlossener App ankommen. Übertragen wird nur ein inhaltsloses
+      Wecksignal – kein Termin, kein Text, keine Namen. Zugestellt wird über Google
+      (Firebase Cloud Messaging); die Geräte-Registry liegt auf dem eigenen
+      Relaisserver.
+    betreiber: eigen
+    standort: Deutschland (Registry); Zustellung über Google
+    stand: "2026-08-15"
+    uebermittelt:
+      - an Google die Push-Zustelladresse des Geräts (FCM-Token) und ein leeres Wecksignal (ein einziges Feld „wakeup")
+      - in der Registry auf dem Relaisserver eine pseudonyme Geräte-Kennung, der Gruppen-Hash (sha256 des Sync-Kennworts, nicht rückrechenbar), das FCM-Token, die Plattform, die Kennung des auslösenden Geräts (nur zum Selbst-Ausschluss) und ein Zeitstempel
+    aufbewahrung: >-
+      Pro Gerät eine Zeile in der Registry, solange das Gerät angemeldet ist; bei
+      Abmeldung sofort gelöscht, bei einem von Google als ungültig gemeldeten Token
+      automatisch beim nächsten Weckversuch. Keine feste Frist, keine Namen, keine
+      Konten. Was Google mit Token und Zustellmetadaten macht, regelt Google.
+    produkte: [orgafuchs]
+    hinweis: >-
+      Nur auf Android und nur bei eingeschalteten Benachrichtigungen. Der Weckruf
+      ist inhaltsblind: Was sich geändert hat, erfährt weder der Weckpfad noch
+      Google – der eigentliche Abgleich läuft Ende-zu-Ende über das Relais. Die
+      selbst betriebene ntfy-Variante („Benachrichtigungen") ist die Alternative
+      ohne Google.
 
   - id: digistore24
     name: Zahlungsabwicklung (Digistore24)

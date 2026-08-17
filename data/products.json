@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-15T12:06:22+02:00",
+  "generiert": "2026-08-17T09:46:31+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1057,7 +1057,7 @@
       ],
       "kind": "produkt",
       "tagline": "Der lokale Familien- und Team-Planer für Schicht- und Dienstpläne – offline, mit eigenem Sync ohne Cloud.",
-      "description": "Plant Dienste, Schichten, Termine und Notizen für die ganze Familie oder ein kleines Team: Monatskalender, Schnelleintrag, PDF-Export als Monat, Jahr oder Blanko-Vorlage. Alle Daten bleiben auf den eigenen Geräten; die Synchronisation läuft über das eigene Heimnetz oder einen selbst gehosteten Relay – ohne Google, ohne Cloud, ohne Konto.",
+      "description": "Plant Dienste, Schichten, Termine und Notizen für die ganze Familie oder ein kleines Team: Monatskalender, Schnelleintrag, PDF-Export als Monat, Jahr oder Blanko-Vorlage. Alle Daten bleiben auf den eigenen Geräten; die Synchronisation läuft über das eigene Heimnetz oder einen selbst gehosteten Relay – ohne Cloud, ohne Konto.",
       "audience": [
         "privat",
         "vereine",
@@ -1104,7 +1104,6 @@
         "kein-konto",
         "kein-tracking",
         "werbefrei",
-        "kein-google",
         "eigener-sync",
         "offline-faehig"
       ],
@@ -2151,7 +2150,7 @@
         }
       ],
       "privacy": [
-        "nur-lokal",
+        "inhalte-lokal",
         "kein-tracking",
         "werbefrei"
       ],
@@ -3856,6 +3855,94 @@
         "contact": "/kontakt.html?app=Up2Date&topic=interesse"
       },
       "notes": "Up2Date liest künftig die öffentliche Datei versions.json der Website – ein Abruf einer statischen Datei, kein Dienst im Sinne von 'braucht_dienste'. Preis, Ausbaustufen und Vertriebsweg (eigener Download oder Mitinstallation durch andere FehlerFuchs-Installer) stehen nicht fest. Bildschirmfotos gibt es noch keine."
+    },
+    {
+      "slug": "wachfuchs",
+      "name": "WachFuchs",
+      "fullName": "FehlerFuchs WachFuchs",
+      "kind": "produkt",
+      "tagline": "Lern-App für die Feuerwehr-Ausbildung: üben in kleinen Lektionen mit Wiederholung nach Lernstand, Prüfungsmodus und einer nachprüfbaren Fundstelle zu jeder Antwort.",
+      "description": "WachFuchs zerlegt den Stoff der Feuerwehr-Ausbildung entlang der FwDV-2- Lernabschnitte in kleine, geführte Lektionen: Wiederholung nach Lernstand (Leitner), Prüfungsmodus mit Gewichtung nach Ausbildungsstunden, Fortschritt und ein Rückwärtsplaner zum Prüfungstermin. Unter jeder Antwort steht ihre Herkunft – Quelle, Fundstelle, Ausgabestand und Abrufdatum – und wie verbindlich sie ist. Inhalte stammen ausschließlich aus eigenen Formulierungen und amtlichen Werken. Offline nutzbar, kein Konto, keine Werbung, keine Datenerhebung. Kein Ersatz für Ausbildung, Dienstvorschrift oder Prüfung.",
+      "audience": [
+        "ehrenamt",
+        "vereine"
+      ],
+      "accent": "#B0201E",
+      "status": "entwicklung",
+      "platforms": [
+        {
+          "os": "android",
+          "status": "entwicklung",
+          "requirements": "Android",
+          "distribution": "play-store",
+          "hinweis": {
+            "wenn": "entwicklung",
+            "text": "App-Gerüst vorhanden (eu.fehlerfuchs.wachfuchs), noch nicht veröffentlicht, kein Store-Eintrag. Preis und Vertriebsmodell offen."
+          }
+        }
+      ],
+      "privacy": [
+        "inhalte-lokal",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "einstieg",
+          "name": "Einstiegsblock",
+          "public": true,
+          "summary": "Der erste Lernabschnitt – kostenlos, ohne Konto, mit vollem Funktionsumfang. Als Qualitätsprobe vor dem Kauf.",
+          "price": {
+            "model": "kostenlos"
+          }
+        },
+        {
+          "id": "grundausbildung",
+          "name": "Grundausbildung",
+          "public": true,
+          "summary": "Truppmann Teil 1 und 2, Sprechfunker und Atemschutzgeräteträger – die Lehrgänge der Grundausbildung.",
+          "price": {
+            "model": "offen"
+          }
+        },
+        {
+          "id": "truppfuehrer",
+          "name": "Truppführer",
+          "public": true,
+          "summary": "Der Truppführerlehrgang nach FwDV 2.",
+          "price": {
+            "model": "offen"
+          }
+        },
+        {
+          "id": "technik",
+          "name": "Technik",
+          "public": true,
+          "summary": "Maschinist, Technische Hilfeleistung, Gerätewart und Atemschutzgerätewart.",
+          "price": {
+            "model": "offen"
+          }
+        },
+        {
+          "id": "abc",
+          "name": "ABC-Einsatz",
+          "public": true,
+          "summary": "ABC-Einsatz und ABC-Erkundung.",
+          "price": {
+            "model": "offen"
+          }
+        }
+      ],
+      "releases": [],
+      "media": {
+        "platzhalter": 4
+      },
+      "links": {
+        "contact": "/kontakt.html?app=WachFuchs&topic=interesse"
+      },
+      "notes": "Pool-Kachel (in Entwicklung, Freigabe Matze 17.08.2026). Kostenpflichtige Android-Lern-App für die Feuerwehr-Ausbildung; speist sich nur aus eigenen Formulierungen und amtlichen Werken (FwDV), scharf abgegrenzt zu EinsatzFuchs (gemeinsam ist allein der Code-/Gestaltungskern fehlerfuchs_kern, Farben von EinsatzFuchs). Zuschnitt in Blöcken statt Einzellehrgängen; Preise und Vertriebsmodell noch offen (Kauf über Google Play Billing, freier Einstieg). Führung/Sonderausbildung noch nicht öffentlich. Audience auf gültige Enums gemappt (Original: feuerwehr/ausbildung/… → ehrenamt, vereine)."
     },
     {
       "slug": "checkin-vita",

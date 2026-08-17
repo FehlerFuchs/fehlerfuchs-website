@@ -48,7 +48,7 @@ platforms:
         Release Candidate, noch kein öffentlicher Download; digitale Signierung
         und freigegebener Alltagstest stehen vor der Finalversion aus.
 
-privacy: [nur-lokal, kein-tracking, werbefrei]
+privacy: [inhalte-lokal, kein-tracking, werbefrei]
 
 editions:
   - id: standard

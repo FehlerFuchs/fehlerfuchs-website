@@ -1,0 +1,86 @@
+slug: wachfuchs
+name: WachFuchs
+fullName: FehlerFuchs WachFuchs
+kind: produkt
+tagline: >-
+  Lern-App für die Feuerwehr-Ausbildung: üben in kleinen Lektionen mit
+  Wiederholung nach Lernstand, Prüfungsmodus und einer nachprüfbaren
+  Fundstelle zu jeder Antwort.
+description: >-
+  WachFuchs zerlegt den Stoff der Feuerwehr-Ausbildung entlang der FwDV-2-
+  Lernabschnitte in kleine, geführte Lektionen: Wiederholung nach Lernstand
+  (Leitner), Prüfungsmodus mit Gewichtung nach Ausbildungsstunden, Fortschritt
+  und ein Rückwärtsplaner zum Prüfungstermin. Unter jeder Antwort steht ihre
+  Herkunft – Quelle, Fundstelle, Ausgabestand und Abrufdatum – und wie
+  verbindlich sie ist. Inhalte stammen ausschließlich aus eigenen Formulierungen
+  und amtlichen Werken. Offline nutzbar, kein Konto, keine Werbung, keine
+  Datenerhebung. Kein Ersatz für Ausbildung, Dienstvorschrift oder Prüfung.
+audience: [ehrenamt, vereine]
+accent: "#B0201E"   # von EinsatzFuchs übernommen (fehlerfuchs_kern, Entscheidung 02.08.2026)
+
+# Pool-Kachel (in Entwicklung) – Freigabe Matze 17.08.2026. Keine Detailseite,
+# kein Download; erscheint im Ideen- und Entwicklungspool.
+status: entwicklung
+
+platforms:
+  - os: android
+    status: entwicklung
+    requirements: Android
+    distribution: play-store
+    hinweis:
+      wenn: entwicklung
+      text: >-
+        App-Gerüst vorhanden (eu.fehlerfuchs.wachfuchs), noch nicht
+        veröffentlicht, kein Store-Eintrag. Preis und Vertriebsmodell offen.
+
+privacy: [inhalte-lokal, kein-konto, kein-tracking, werbefrei, offline-faehig]
+
+editions:
+  - id: einstieg
+    name: Einstiegsblock
+    public: true
+    summary: >-
+      Der erste Lernabschnitt – kostenlos, ohne Konto, mit vollem
+      Funktionsumfang. Als Qualitätsprobe vor dem Kauf.
+    price: { model: kostenlos }
+  - id: grundausbildung
+    name: Grundausbildung
+    public: true
+    summary: >-
+      Truppmann Teil 1 und 2, Sprechfunker und Atemschutzgeräteträger –
+      die Lehrgänge der Grundausbildung.
+    price: { model: offen }
+  - id: truppfuehrer
+    name: Truppführer
+    public: true
+    summary: Der Truppführerlehrgang nach FwDV 2.
+    price: { model: offen }
+  - id: technik
+    name: Technik
+    public: true
+    summary: Maschinist, Technische Hilfeleistung, Gerätewart und Atemschutzgerätewart.
+    price: { model: offen }
+  - id: abc
+    name: ABC-Einsatz
+    public: true
+    summary: ABC-Einsatz und ABC-Erkundung.
+    price: { model: offen }
+
+releases: []
+
+# Platzhalter-Motive, bis das Projekt echte Screenshots liefert.
+media:
+  platzhalter: 4
+
+links:
+  contact: /kontakt.html?app=WachFuchs&topic=interesse
+
+notes: >-
+  Pool-Kachel (in Entwicklung, Freigabe Matze 17.08.2026). Kostenpflichtige
+  Android-Lern-App für die Feuerwehr-Ausbildung; speist sich nur aus eigenen
+  Formulierungen und amtlichen Werken (FwDV), scharf abgegrenzt zu EinsatzFuchs
+  (gemeinsam ist allein der Code-/Gestaltungskern fehlerfuchs_kern, Farben von
+  EinsatzFuchs). Zuschnitt in Blöcken statt Einzellehrgängen; Preise und
+  Vertriebsmodell noch offen (Kauf über Google Play Billing, freier Einstieg).
+  Führung/Sonderausbildung noch nicht öffentlich. Audience auf gültige Enums
+  gemappt (Original: feuerwehr/ausbildung/… → ehrenamt, vereine).

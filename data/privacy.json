@@ -1,103 +1,154 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-15T12:06:22+02:00",
+  "generiert": "2026-08-17T09:46:31+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
       "slug": "belegwerk",
       "name": "BelegWerk",
-      "stand": "2026-07-19",
+      "stand": "2026-08-15",
       "geprueft_von": "FehlerFuchs_BelegWerk",
-      "fassung": "0.1.0 – Entwicklungsstand, nicht veroeffentlicht",
-      "lokal_only": true,
+      "fassung": "0.9.0-rc.12 – lokaler Release Candidate",
+      "lokal_only": false,
       "auf_dem_geraet": [
         {
-          "was": "Konfiguration und Profile (Zielordner, ASN-Vorlage, Uebergabeart)",
+          "was": "Konfiguration und Profile",
           "wo": "JSON-Datei im Benutzer-Konfigurationsordner",
-          "beleg": "05_Engine/belegwerk_core/belegwerk_core/config/service.py (default_config_path, user_config_dir)"
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/config/service.py"
         },
         {
-          "was": "Vorgangsjournal je Scan (Dateiname, Pruefsumme, Status, Zeitstempel, erkannte ASN)",
-          "wo": "lokale SQLite-Datenbank im Benutzer-Datenordner",
-          "beleg": "05_Engine/belegwerk_core/belegwerk_core/journal/service.py"
+          "was": "Paperless-Zugangstokens",
+          "wo": "Windows-Anmeldeinformationsverwaltung des angemeldeten Benutzers",
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/credentials/store.py"
         },
         {
-          "was": "Zaehlerstaende der ASN je Profil",
-          "wo": "JSON-Dateien im Unterordner \"counters\" des Datenordners",
-          "beleg": "05_Engine/belegwerk_core/belegwerk_core/label/asn.py (AsnCounterStore)"
+          "was": "Vorgangsjournal und datensparsamer Aktivitätsverlauf",
+          "wo": "lokale SQLite-Datenbanken im Benutzer-Datenordner",
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/journal/service.py, belegwerk_core/activity/service.py"
         },
         {
-          "was": "Drucklog der erzeugten ASN (Zeitstempel, Profil, ASN)",
-          "wo": "CSV-Datei im Unterordner \"logs\" des Datenordners",
-          "beleg": "05_Engine/belegwerk_core/belegwerk_core/label/service.py (_log_path)"
+          "was": "ASN-Zählerstände und Drucklog",
+          "wo": "lokale Dateien im Benutzer-Datenordner",
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/label/asn.py, belegwerk_core/etikett/service.py"
         },
         {
-          "was": "Vorschaubilder von PDF-Seiten",
-          "wo": "Cache-Ordner im Datenordner",
+          "was": "PDF-Vorschaubilder",
+          "wo": "lokaler Cache-Ordner der Anwendung",
           "beleg": "05_Engine/belegwerk_core/belegwerk_core/preview/service.py"
         },
         {
-          "was": "Arbeitskopien (getrennte, gedrehte oder mit Barcode versehene PDFs)",
-          "wo": "vom Nutzer festgelegter Arbeitsordner; Originale bleiben unveraendert",
-          "beleg": "05_Engine/belegwerk_core/belegwerk_core/prepare/, label/stamp.py"
+          "was": "Arbeitskopien und optional gestempelte PDFs",
+          "wo": "vom Nutzer gewählter lokaler Arbeitsordner",
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/prepare, belegwerk_core/label/stamp.py, belegwerk_core/stamps/service.py"
         },
         {
-          "was": "Kopien von Belegen in Quarantaene",
-          "wo": "Unterordner \"quarantine\" des Datenordners",
-          "beleg": "05_Engine/belegwerk_core/belegwerk_core/routing/service.py (quarantine_entry)"
+          "was": "Eigene Stempelvorlagen",
+          "wo": "lokale JSON-Datei im Benutzer-Datenordner",
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/stamps/service.py"
         },
         {
-          "was": "uebergebene Belegkopien",
-          "wo": "vom Nutzer konfigurierte lokale Zielordner (Paperless-Eingangsordner, optional zusaetzlicher Archivordner)",
-          "beleg": "05_Engine/belegwerk_core/belegwerk_core/routing/service.py (route_entry)"
+          "was": "Belegkopien für Consume, Dateiablage, Prüfung oder Quarantäne",
+          "wo": "ausschließlich vom Nutzer konfigurierte lokale Zielordner",
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/routing/service.py, belegwerk_core/filing/service.py, belegwerk_core/review/service.py"
+        },
+        {
+          "was": "optionale Sidecar-Metadaten",
+          "wo": "neben dem jeweiligen Eingangs-PDF; nur freigegebene Felder werden gelesen",
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/intake/sidecar.py"
         }
       ],
       "berechtigungen": [
         {
-          "name": "Lesender und schreibender Zugriff auf vom Nutzer festgelegte Ordner",
-          "wofuer": "Scans einlesen, Arbeitskopien erzeugen, Belege in Zielordner uebergeben",
+          "name": "Lesen und Schreiben in ausdrücklich konfigurierte Ordner",
+          "wofuer": "Scans lesen, Arbeitskopien erzeugen und bestätigte Ziele beschreiben",
           "pflicht": true,
-          "beleg": "05_Engine/belegwerk_core/belegwerk_core/scaninput/service.py, routing/service.py"
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/scaninput/service.py, belegwerk_core/filing/service.py"
         },
         {
-          "name": "Ausfuehren des lokalen Programms \"docker\"",
-          "wofuer": "Statusanzeige laufender Container; Start/Stop nur nach ausdruecklicher Bestaetigung",
+          "name": "Zugriff auf die Windows-Anmeldeinformationsverwaltung",
+          "wofuer": "Paperless-API-Tokens sicher speichern und abrufen",
           "pflicht": false,
-          "beleg": "05_Engine/belegwerk_core/belegwerk_core/docker/service.py, docker/control.py"
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/credentials/store.py"
         },
         {
-          "name": "Ausfuehren des mitgelieferten lokalen Programmteils",
-          "wofuer": "Verarbeitung der Belege auf dem Geraet",
+          "name": "Ausführen des mitgelieferten lokalen Core-Programms",
+          "wofuer": "Belegverarbeitung auf dem Gerät",
           "pflicht": true,
-          "beleg": "11_App_Flutter/belegwerk_desktop/lib/core/core_bridge.dart (Process.run)"
+          "beleg": "11_App_Flutter/belegwerk_desktop/lib/core/core_bridge.dart"
+        },
+        {
+          "name": "Ausführen von Docker bzw. Docker Desktop",
+          "wofuer": "Status und lokale Paperless-Protokolle lesen; Start, Stopp oder Neustart nur nach ausdrücklicher Bestätigung",
+          "pflicht": false,
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/docker/service.py, belegwerk_core/docker/control.py"
+        },
+        {
+          "name": "Zugriff auf einen lokal installierten Etikettendrucker",
+          "wofuer": "vom Nutzer ausgelöster Druck von ASN-Etiketten",
+          "pflicht": false,
+          "beleg": "11_App_Flutter/belegwerk_desktop/lib/core/etikett_printer.dart, 92_Tools/etiketten/Print-Etikett.ps1"
+        },
+        {
+          "name": "Zugriff auf einen lokal installierten Dokumentdrucker",
+          "wofuer": "unveränderte Original-PDF nach Nutzeraktion an den Windows-Druckdialog übergeben",
+          "pflicht": false,
+          "beleg": "11_App_Flutter/belegwerk_desktop/lib/core/document_print.dart"
+        },
+        {
+          "name": "Ausführen eines lokal installierten PDF-Werkzeugs",
+          "wofuer": "geschützte Arbeitskopie nach Nutzeraktion an PDFuchs oder PDF24 zur Bearbeitung übergeben",
+          "pflicht": false,
+          "beleg": "11_App_Flutter/belegwerk_desktop/lib/core/external_pdf_tools.dart"
         }
       ],
       "uebertragungen": [
         {
-          "wohin": "lokaler Rechner bzw. vom Nutzer eingetragener Host (Voreinstellung 127.0.0.1)",
-          "was": "reiner TCP-Verbindungstest auf einen Port, es werden keine Inhalte gesendet",
-          "wann": "wenn die Dienstuebersicht aufgerufen wird",
+          "wohin": "vom Nutzer konfigurierter Dienst-Host (lokal, im Heimnetz oder auf einem NAS)",
+          "was": "reiner TCP-Erreichbarkeitstest auf den konfigurierten Dienst-Port, ohne Dokumentinhalt, ohne Zugangsdaten und ohne Auswertung",
+          "wann": "automatisch beim Laden der Dienstübersicht oder Diagnose",
           "freiwillig": false,
-          "beleg": "05_Engine/belegwerk_core/belegwerk_core/docker/probes.py (is_port_open)"
+          "beleg": "05_Engine/belegwerk_core/belegwerk_core/docker/probes.py"
         },
         {
-          "wohin": "vom Nutzer eingetragene Paperless-Adresse (typischerweise eigener Rechner oder eigenes Netz)",
-          "was": "lesende Suchanfrage nach einer Archiv-Seriennummer bzw. einem Suchbegriff; Zugangstoken im Anfragekopf",
-          "wann": "nur wenn der optionale Paperless-Abgleich benutzt wird; heute nicht aus Oberflaeche oder Kommandozeile aufrufbar",
+          "wohin": "vom Nutzer konfigurierte Paperless-ngx-Instanz",
+          "was": "Zugangstoken, Taxonomieabfragen sowie bei bestätigter Übergabe PDF, Titel, Datum, ASN, Tags und gewählte Metadaten",
+          "wann": "beim Laden der Aufbereitung bzw. nach Klick auf die Paperless-Übergabe",
           "freiwillig": true,
           "beleg": "05_Engine/belegwerk_core/belegwerk_core/paperless/api.py"
+        },
+        {
+          "wohin": "FehlerFuchs Support-Bridge auf einem EU-Server",
+          "was": "freiwillige Nachricht, Name, Rückfrage-E-Mail, Betreff, Fehlercode, App-Version, Betriebssystem und bewusst ausgewählte Anhänge",
+          "wann": "ausschließlich nach Klick auf \"Senden\" im Dialog \"Hilfe & Feedback\"",
+          "freiwillig": true,
+          "beleg": "11_App_Flutter/belegwerk_desktop/lib/core/support_bridge.dart"
         }
       ],
       "fremde_dienste": [
         {
-          "name": "Paperless-ngx (eigene Installation des Nutzers)",
-          "wofuer": "Zielablage der Belege; optionaler lesender Statusabgleich",
-          "wann": "nur wenn der Nutzer ein Paperless-Profil einrichtet"
+          "name": "Paperless-ngx",
+          "wofuer": "selbst betriebene Dokumentenablage, Taxonomien und Dokumentübernahme",
+          "wann": "nur bei eingerichteter Instanz"
         },
         {
-          "name": "Docker bzw. Docker Desktop (lokal installiert)",
-          "wofuer": "Anzeige des Dienststatus; Steuerung nur nach Bestaetigung",
-          "wann": "nur wenn lokal vorhanden"
+          "name": "Docker bzw. Docker Desktop",
+          "wofuer": "optionaler lokaler Containerbetrieb",
+          "wann": "nur wenn lokal installiert"
+        },
+        {
+          "name": "Brother P-touch / b-PAC",
+          "wofuer": "optionaler lokaler Etikettendruck",
+          "wann": "nur wenn vom Nutzer installiert und ein Druck ausgelöst wird"
+        },
+        {
+          "name": "PDFuchs oder PDF24",
+          "wofuer": "optionale lokale PDF-Korrektur, Seitentrennung oder Neuordnung",
+          "wann": "nur nach ausdrücklicher Auswahl im PDF-Werkzeugmenü"
+        },
+        {
+          "name": "FehlerFuchs Support-Bridge",
+          "wofuer": "freiwillige Support- oder Kontaktanfrage",
+          "wann": "nur nach ausdrücklichem Absenden"
         }
       ],
       "konto_noetig": false,
@@ -105,10 +156,10 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen auf dem Geraet. Konfiguration, Journal, Zaehler, Drucklog, Vorschau-Cache und Quarantaene liegen in den Benutzerordnern der Anwendung und koennen dort geloescht werden; mit dem Entfernen der Anwendung und dieser Ordner ist nichts mehr vorhanden. Arbeitskopien und uebergebene Belege liegen in den vom Nutzer selbst gewaehlten Ordnern und werden dort geloescht.",
-      "besonderheiten": "BelegWerk arbeitet bewusst als lokaler Vorraum vor der eigenen Dokumentenablage. Originale werden nie veraendert oder verschoben; die Uebergabe erfolgt in der Voreinstellung als Kopie. Ein Zugangstoken fuer die optionale Paperless-Abfrage wird nicht gespeichert und nicht protokolliert. In angezeigten Logausschnitten werden token- und passwortartige Werte unkenntlich gemacht. Angezeigte Pruefberichte nennen nur Speicherorte und Erreichbarkeit, keine Dateiinhalte.",
+      "loeschung": "Die Deinstallation entfernt das Programm, nicht aber absichtlich die Benutzerdokumente. Konfiguration, Journal, Aktivitätslog, Zähler, Drucklog, Stempelvorlagen, Vorschau-Cache und Quarantäne können im lokalen BelegWerk-Benutzerordner gelöscht werden. Im Eingang können Belege nach deutlicher Rückfrage samt Sidecars und verknüpften Arbeitskopien dauerhaft gelöscht werden; bereits übergebene Zielkopien und der Journalnachweis bleiben erhalten. Paperless-Tokens werden getrennt in der Windows-Anmeldeinformationsverwaltung entfernt. Arbeitskopien, Consume- Übergaben und Dateiablagen löscht der Nutzer in den von ihm gewählten Zielordnern. Daten in Paperless werden in der jeweiligen Instanz gelöscht.",
+      "besonderheiten": "Originale werden nicht überschrieben. Consume- und Dateiablage verwenden kollisionsfreie Namen; die zusätzliche Dateiablage prüft Quelle und Ziel per SHA-256. PDF-Stempel und externe PDF-Werkzeuge arbeiten ausschließlich mit neuen Arbeitskopien im lokalen BelegWerk-Datenordner. Paperless und Dateiablage haben getrennte Status- und Wiederholaktionen. Sidecars sind auf 64 KiB und eine Positivliste unkritischer Metadaten begrenzt; unbekannte geheime Felder werden ignoriert. Tokens erscheinen weder in UI-Ausgaben noch in Diagnoseberichten. Der Aktivitätsverlauf speichert keine Dateinamen, Pfade, E-Mail-Adressen, Dokumentinhalte oder externen Aufgabenkennungen. Technische Korrelationskennungen werden mit einem zufälligen lokalen Schlüssel gebildet; ältere ungeschützte Kurzkennungen werden entfernt. Bestehende Einträge werden über eine versionierte Einmalmigration in eine sichere Ereignisform überführt; jeder Eintrag erhält eine verständliche Erklärung und einen nächsten Schritt. Der direkte Paperless-Status arbeitet lesend. Lokale Docker-Protokolle werden vor der Anzeige auf Zugangsdaten geprüft und maskiert. Der Support-Dialog nennt die Übertragung vor dem Absenden und begrenzt Anhänge auf fünf Dateien und zusammen 10 MB.",
       "vorhandener_text": "",
-      "offene_fragen": "1) Der lesende Paperless-Client ist im Kern vorhanden, aber noch nicht aus Oberflaeche oder Kommandozeile aufrufbar; ob und wie ein Zugangstoken spaeter dauerhaft hinterlegt wird, ist noch nicht entschieden. 2) Ob die spaetere Auslieferung als Installer zusaetzliche Bestandteile mitbringt (etwa Texterkennung), ist offen; der heutige Code nutzt keine Texterkennung. 3) Ob eine angesprochene Paperless-Installation Zugriffe oder IP-Adressen protokolliert, haengt vom jeweiligen Server ab und nicht von BelegWerk. 4) Die Etikettenausgabe an einen Drucker ist noch nicht angebunden; ein Datenfluss dorthin besteht heute nicht.",
+      "offene_fragen": "Vor einer öffentlichen Finalfreigabe sind die tatsächlichen Lösch- und Aufbewahrungsfristen der zentralen Support-Bridge nochmals mit dem Serverbetrieb abzugleichen. Protokollierung und Aufbewahrung einer vom Nutzer selbst betriebenen Paperless-Instanz liegen außerhalb von BelegWerk.",
       "art": "anwendung"
     },
     {
@@ -1375,9 +1426,9 @@
     {
       "slug": "orgafuchs",
       "name": "OrgaFuchs",
-      "stand": "2026-07-19",
+      "stand": "2026-08-15",
       "geprueft_von": "FehlerFuchs_OrgaFuchs",
-      "fassung": "1.0.0 (versionCode 1); signierter Release-AAB am 18.07.2026 gebaut, Veroeffentlichung im Play Store zum Pruefzeitpunkt nicht bestaetigt",
+      "fassung": "1.6.1 (versionCode 15): Windows signiert+veroeffentlicht (Release orgafuchs-v1.6.1), Android 1.6.1 im Play-Rollout. Enthaelt Firebase Cloud Messaging (Google) als inhaltslosen Weck-Push (seit 1.5.0; nur Android, nur bei eingeschalteten Benachrichtigungen), Windows-Update-Pruefung (github.com) sowie NEU 'Nachricht an alle' + Postfach: kurze Klartext-Nachrichten an die Gruppe reisen Ende-zu-Ende ueber den Relais-Kanal (NICHT ueber Google), Postfach zeigt sie lokal im Nachgang. KEIN neues Uebertragungsziel/keine neue Datenkategorie ggü. 1.5.0. Play-Data-Safety unveraendert (Firebase/Geraetekennungen bereits deklariert).",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -1426,6 +1477,11 @@
           "beleg": "lib/app.dart:106, lib/services/push_controller.dart:42-43"
         },
         {
+          "was": "fuer Android-Home-Screen-Widgets ausgewaehlte lokale Plandaten (Tag, Woche oder Monat)",
+          "wo": "im lokalen App-/Widget-Speicher des Geraets; fuer andere Personen am sichtbaren Startbildschirm lesbar, ohne Netzuebertragung",
+          "beleg": "lib/services/home_widgets.dart; android/app/src/main/kotlin/eu/fehlerfuchs/orgafuchs/OrgaFuchsWidgetProvider.kt"
+        },
+        {
           "was": "das Gruppen-Passwort bzw. das daraus abgeleitete Zugangsmerkmal fuer den Abgleich",
           "wo": "in der lokalen Datenbank der App auf dem Geraet",
           "beleg": "lib/data/database.dart (Tabelle konfiguration)"
@@ -1434,7 +1490,7 @@
       "berechtigungen": [
         {
           "name": "Internet",
-          "wofuer": "Schulferien-Abruf, optionaler Sync, optionaler Push, nutzerinitiiertes Support-Formular, Oeffnen von Weblinks",
+          "wofuer": "Schulferien-Abruf, Update-Pruefung der Windows-Fassung, optionaler Sync, optionaler Push, nutzerinitiiertes Support-Formular, Oeffnen von Weblinks",
           "pflicht": false,
           "beleg": "android/app/src/main/AndroidManifest.xml (INTERNET)"
         },
@@ -1470,7 +1526,7 @@
         },
         {
           "name": "Geraet wachhalten",
-          "wofuer": "wird vom mitgelieferten Baustein fuer den Hintergrundbetrieb angefordert",
+          "wofuer": "haelt auf Wunsch den Bildschirm nur waehrend der geoeffneten Kiosk-/Kuechenansicht eingeschaltet; wird beim Verlassen freigegeben",
           "pflicht": false,
           "beleg": "zusammengefuehrtes AndroidManifest (WAKE_LOCK) - steht nicht in der App-eigenen Manifestdatei"
         },
@@ -1497,10 +1553,17 @@
         },
         {
           "wohin": "orgafuchs.relais.fehlerfuchs.eu (Vorbelegung; frei aenderbar, auch selbst hostbar)",
-          "was": "Ende-zu-Ende-verschluesselte Sync-Nachrichten (Plan-, Personen- und Termindaten im verschluesselten Umschlag) samt Gruppen- und Geraetekennung zur Adressierung",
+          "was": "Ende-zu-Ende-verschluesselte Sync-Nachrichten (Plan-, Personen- und Termindaten sowie kurze Klartext-Nachrichten an die Gruppe - \"Nachricht an alle\" - im verschluesselten Umschlag) samt Gruppen- und Geraetekennung zur Adressierung",
           "wann": "nur wenn der Nutzer den Sync ueber Relais einschaltet (ab Werk aus)",
           "freiwillig": true,
           "beleg": "lib/sync/relay.dart, lib/features/sync/sync_page.dart:25, lib/core/server_dropdown.dart:102, lib/sync/host_wiederherstellung.dart:31"
+        },
+        {
+          "wohin": "anderes Geraet im selben Netz (lokale Adresse, kein Internet)",
+          "was": "Sync-Daten zwischen Hauptgeraet und Mitgliedsgeraeten ueber HTTP im Heimnetz oder Hotspot",
+          "wann": "nur bei eingerichtetem Heimnetz-Sync",
+          "freiwillig": true,
+          "beleg": "lib/sync/sync_server.dart, lib/sync/sync_client.dart:25 (HTTP-Port 7842)"
         },
         {
           "wohin": "ntfy.relais.fehlerfuchs.eu (Vorbelegung), wahlweise ntfy.sh oder eine selbst eingetragene Adresse",
@@ -1517,18 +1580,25 @@
           "beleg": "lib/services/kontakt_service.dart:20-58, lib/features/info/kontakt_page.dart"
         },
         {
-          "wohin": "anderes Geraet im selben Netz (lokale Adresse, kein Internet)",
-          "was": "Sync-Daten zwischen Hauptgeraet und Mitgliedsgeraeten ueber HTTP im Heimnetz/Hotspot, Port 7842",
-          "wann": "nur bei eingerichtetem Heimnetz-Sync",
-          "freiwillig": true,
-          "beleg": "lib/sync/sync_server.dart, lib/sync/sync_client.dart:25"
-        },
-        {
           "wohin": "fehlerfuchs.eu (im externen Browser des Nutzers)",
           "was": "Aufruf von Impressum, Datenschutz, Kontakt, Unterstuetzen und der Windows-Produktseite; die App sendet dabei selbst keine Daten",
           "wann": "nur bei Antippen des jeweiligen Verweises",
           "freiwillig": true,
           "beleg": "lib/features/info/info_page.dart:13-17"
+        },
+        {
+          "wohin": "github.com / api.github.com (nur Windows-Fassung)",
+          "was": "Abruf der oeffentlichen Versionsliste der FehlerFuchs-Downloads und - auf Nutzerwunsch - Download der signierten Setup-Datei; gesendet wird nur die Anfrage, keine Nutzerinhalte (GitHub sieht technisch die IP-Adresse)",
+          "wann": "nur in der Windows-Fassung; beim App-Start hoechstens einmal taeglich sowie manuell ueber \"Nach Updates suchen\". Die Android-Fassung aktualisiert ueber den Play Store und baut dafuer keine eigene Verbindung auf",
+          "freiwillig": false,
+          "beleg": "lib/services/update_service.dart, lib/services/update_ui.dart, lib/features/info/info_page.dart, lib/features/home/home_screen.dart"
+        },
+        {
+          "wohin": "Firebase Cloud Messaging / Google (nur Android)",
+          "was": "Registrierung des Geraets mit einer Push-Kennung bei Google und Empfang reiner Weck-Nachrichten; KEINE Termine/Namen/Planinhalte (nur Signal \"es gibt Aenderungen\"). Google sieht technisch die Push-Kennung, die IP-Adresse und den Zeitpunkt",
+          "wann": "nur wenn Benachrichtigungen eingeschaltet sind; die Wecknachricht loest der Relay aus, nicht die App",
+          "freiwillig": true,
+          "beleg": "lib/services/fcm_dienst.dart, android/app/google-services.json, android/app/src/main/AndroidManifest.xml"
         }
       ],
       "fremde_dienste": [
@@ -1543,8 +1613,18 @@
           "wann": "nur bei eingeschaltetem Push"
         },
         {
-          "name": "Kein Google-Konto, kein Firebase/Analytics, kein Play Billing, keine Karten, keine Schriften aus dem Netz",
-          "wofuer": "nicht eingebunden (App ist kostenlos, keine In-App-Kaeufe)",
+          "name": "GitHub (Microsoft) - Auslieferung der Windows-Aktualisierungen",
+          "wofuer": "stellt die oeffentliche Versionsliste und die signierte Setup-Datei fuer die Selbst-Aktualisierung der Windows-Fassung bereit; kein Konto, keine Anmeldung, keine Nutzerinhalte",
+          "wann": "nur bei der Windows-Update-Pruefung (automatisch hoechstens taeglich beim Start oder manuell)"
+        },
+        {
+          "name": "Firebase Cloud Messaging (Google) - zuverlaessiger Weck-Push (nur Android)",
+          "wofuer": "weckt die App aus Doze/geschlossenem Zustand fuer den Empfang von Aenderungen; das Geraet registriert sich mit einer Push-Kennung bei Google. In der Nachricht KEINE Termine/Namen/Planinhalte (nur Wecksignal) - der eigentliche Abgleich bleibt Ende-zu-Ende-verschluesselt ueber das Relais",
+          "wann": "nur bei eingeschalteten Benachrichtigungen (Android)"
+        },
+        {
+          "name": "Kein Google-Konto, kein Analytics, kein Play Billing, keine Karten, keine Schriften aus dem Netz",
+          "wofuer": "nicht eingebunden (App ist kostenlos, keine In-App-Kaeufe). Firebase wird ausschliesslich fuer den Weck-Push genutzt (s. o.), NICHT fuer Analytics/Werbung/Tracking",
           "wann": "entfaellt"
         }
       ],
@@ -1554,9 +1634,9 @@
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
       "loeschung": "Alle Inhalte liegen auf dem Geraet. Einzelne Eintraege, Personen und Dienste lassen sich in der App loeschen; der Einrichtungsassistent kann im Modus \"Komplett neu\" den gesamten Bestand zuruecksetzen. Mit der Deinstallation verschwinden Datenbank, Protokolle, PDF-Ablage und Sicherungen im App-Ordner. Beim Sync ueber Relais liegen dort nur verschluesselte, kurzlebige Nachrichten; ohne das Gruppen-Passwort sind sie nicht lesbar. Ueber das Support-Formular gesendete Nachrichten werden auf Anfrage per E-Mail geloescht.",
-      "besonderheiten": "Der Abgleich zwischen mehreren Geraeten kommt ohne Konto und ohne Registrierung aus: Ein Geraet ist \"Hauptgeraet\", weitere treten per QR-Code und einem selbst gewaehlten Gruppen-Passwort bei. Aus diesem Passwort wird der Schluessel fuer die Ende-zu-Ende-Verschluesselung abgeleitet; ein Relais sieht daher nur verschluesselte Daten und die Angabe, an welche Gruppe sie gehen - weder Namen noch Inhalte noch die Mitglieder der Gruppe. Beim Abgleich im eigenen Netz nimmt das Hauptgeraet die Anfragen der anderen Geraete direkt entgegen und antwortet nur, wenn das Zugangsmerkmal der Gruppe stimmt; auf diesem Weg werden die Daten innerhalb des lokalen Netzes unverschluesselt uebertragen und verlassen es nicht. Welcher Relais- und welcher Benachrichtigungsserver verwendet wird, ist frei einstellbar; beide lassen sich auch selbst betreiben. Die App zeigt eine Uebersicht der verwendeten Open-Source-Bausteine und Datenquellen. Da Dienstplaene mittelbar Rueckschluesse auf Arbeits- und Abwesenheitszeiten mehrerer Personen zulassen, koennen die lokal gespeicherten Inhalte sensibel sein.",
-      "vorhandener_text": "Kein eigener veroeffentlichter Datenschutztext im Projekt. In der App: Einstellungen -> Info & Rechtliches mit Impressum und Verweis auf https://fehlerfuchs.eu/datenschutz.html (lib/features/info/info_page.dart:13-17) sowie die Transparenzseite lib/features/info/open_source_page.dart. Als interner Entwurf fuer die Play-Console existiert 01_Konzept/OrgaFuchs_Release_Store-und-DataSafety.md.",
-      "offene_fragen": "1) Unklar, ob und wie lange die angefragten Server (fehlerfuchs.eu fuer die Schulferien, das Relais, der ntfy-Server, license.fehlerfuchs.eu) IP-Adressen oder Zugriffe protokollieren - das haengt vom Serverbetrieb ab, nicht von der App. 2) Unklar, ob das mitgelieferte Google-ML-Kit-Barcodemodul eigene Verbindungen zu Google aufbaut (etwa Modell- oder Telemetriezugriffe); aus dem App-Code ist keine solche Verbindung ersichtlich, die Bibliothek wurde nicht im Netzwerkmitschnitt geprueft. 3) Unklar, welche Daten der Endpunkt license.fehlerfuchs.eu nach Empfang einer Support-Anfrage speichert und wie lange. 4) Nicht geprueft, ob die dem Support-Formular optional angehaengte Diagnosedatei in Einzelfaellen Inhalte aus Dienstplaenen enthalten kann; sie ist als rein technische Zusammenfassung angelegt (lib/core/diagnose/diagnose.dart).",
+      "besonderheiten": "Der Abgleich zwischen mehreren Geraeten kommt ohne Konto und ohne Registrierung aus: Ein Geraet ist \"Hauptgeraet\", weitere treten per QR-Code und einem selbst gewaehlten Gruppen-Passwort bei. Aus diesem Passwort wird der Schluessel fuer die Ende-zu-Ende-Verschluesselung abgeleitet; ein Relais sieht daher nur verschluesselte Daten und die Angabe, an welche Gruppe sie gehen - weder Namen noch Inhalte noch die Mitglieder der Gruppe. Welcher Relais- und welcher Benachrichtigungsserver verwendet wird, ist frei einstellbar; beide lassen sich auch selbst betreiben. Alternativ läuft der Abgleich ganz ohne Server direkt im eigenen Heimnetz oder Hotspot zwischen den Geräten. Die App zeigt eine Uebersicht der verwendeten Open-Source-Bausteine und Datenquellen. Da Dienstplaene mittelbar Rueckschluesse auf Arbeits- und Abwesenheitszeiten mehrerer Personen zulassen, koennen die lokal gespeicherten Inhalte sensibel sein.",
+      "vorhandener_text": "Vollstaendige Offline-Datenschutzerklaerung in lib/features/info/datenschutz_page.dart, erreichbar ueber Einstellungen -> Info & Rechtliches; zusaetzlicher Link auf die kanonische Online-Fassung https://fehlerfuchs.eu/datenschutz/. In-App-Impressum mit Anschrift und Telefon, Transparenzseite lib/features/info/open_source_page.dart und Offline-Changelog.",
+      "offene_fragen": "1) Unklar, ob und wie lange die angefragten Server (fehlerfuchs.eu fuer die Schulferien, das Relais, der ntfy-Server, license.fehlerfuchs.eu sowie github.com fuer die Windows-Update-Pruefung) IP-Adressen oder Zugriffe protokollieren - das haengt vom Serverbetrieb ab, nicht von der App. 2) Unklar, ob das mitgelieferte Google-ML-Kit-Barcodemodul eigene Verbindungen zu Google aufbaut (etwa Modell- oder Telemetriezugriffe); aus dem App-Code ist keine solche Verbindung ersichtlich, die Bibliothek wurde nicht im Netzwerkmitschnitt geprueft. 3) Unklar, welche Daten der Endpunkt license.fehlerfuchs.eu nach Empfang einer Support-Anfrage speichert und wie lange. 4) Nicht geprueft, ob die dem Support-Formular optional angehaengte Diagnosedatei in Einzelfaellen Inhalte aus Dienstplaenen enthalten kann; sie ist als rein technische Zusammenfassung angelegt (lib/core/diagnose/diagnose.dart).",
       "art": "anwendung"
     },
     {
@@ -2057,6 +2137,43 @@
       "besonderheiten": "Up2Date ist der zentrale Update-Helfer fuer FehlerFuchs-Anwendungen und laeuft als Symbol im Windows-Infobereich. Es erkennt installierte FehlerFuchs-Programme ueber die Windows-Registry (nur lesend) und vergleicht deren Fassung mit einer oeffentlich abrufbaren Liste auf fehlerfuchs.eu. Der Abruf dieser Liste ist der einzige automatische Kontakt nach draussen und uebertraegt keine Nutzerdaten. Kein Konto, keine Telemetrie, keine Werbung. Der Autostart ist ausdrueckliches Opt-in und wird nicht vom Installer gesetzt.",
       "vorhandener_text": "",
       "offene_fragen": "1) Ob der Server beim Abruf der Fassungsliste IP-Adressen protokolliert, haengt vom Server ab und ist von der App aus nicht feststellbar. 2) Es existiert noch kein Installer; ob dieser spaeter Eintraege ausserhalb des Programmordners anlegt, ist offen. 3) Der Download und Start von Update-Installern ist noch nicht gebaut – wenn er kommt, laedt die App ausfuehrbare Dateien von fehlerfuchs.eu bzw. dem GitHub-Release-Repo; das wird dann hier ergaenzt.",
+      "art": "anwendung"
+    },
+    {
+      "slug": "wachfuchs",
+      "name": "WachFuchs",
+      "stand": "2026-08-16",
+      "geprueft_von": "FehlerFuchs_WachFuchs",
+      "fassung": "Entwicklungsphase – App-Geruest steht (flutter create 03.08.2026, gemeinsamer Kern fehlerfuchs_kern eingebunden), noch kein Store-Eintrag. Angaben aus Architektur-Konzept (Entwurf 1, Abschnitt 7), ergaenzt um die Entscheidungen vom 02.–04.08.2026 (Vertriebsmodell, Korrekturkanal, Pruefvermerke)",
+      "lokal_only": false,
+      "auf_dem_geraet": [
+        "Lernstand (Leitner-Faecher je Frage) – lokal, verlaesst das Geraet nicht",
+        "Inhaltspakete (SQLite mit Fragen/Antworten/Fundstellen) – heruntergeladen, lokal gespeichert",
+        "Zufaellige Installations-ID (lokal erzeugt, kein Personenbezug) – nur fuer Rate-Limit/Melde-Bezug",
+        "Merker, welche Fragen gemeldet wurden – lokal, fuer den Bearbeitet-Hinweis"
+      ],
+      "berechtigungen": [
+        "Internet – Inhaltspakete abrufen und (freiwillig) Meldungen senden"
+      ],
+      "uebertragungen": [
+        "Katalog/Inhaltspakete vom Relaisserver abrufen (nur lesen, signiert, kein Personenbezug)",
+        "Korrekturkanal: regelmaessiger Abruf einer kleinen signierten Datei 'korrekturen.json' vom Relaisserver (reiner GET, keine Kennung, keine Nutzerdaten, keine Parameter) – sperrt oder ersetzt einzelne fehlerhafte Fragen, ohne dass die App neu ausgeliefert werden muss (Konzept 6.3). Die technische Abruftaktung ist eine Architektureigenschaft und keine Servicezusage.",
+        "Freiwillige Meldung ueber 'Frage melden': paketId, frageId, inhaltsVersion, appVersion, Grund, optionaler Text (max. 500 Zeichen), gewaehlte Antwort, zufaellige Installations-ID – kein Name, keine E-Mail, kein Standort, kein Lernstand",
+        "Kaufabwicklung ueber Google Play Billing (laeuft ueber Google, nicht ueber eigene Server)"
+      ],
+      "fremde_dienste": [
+        "Google Play Billing (Kaufabwicklung) – Google verarbeitet die Kaufdaten; WachFuchs erhaelt keine Google-Konto-Kennung",
+        "FehlerFuchs Relaisserver [11-2] (eigen, IONOS-VPS Deutschland) – Auslieferung signierter Pakete + Meldungs-Endpunkt; Zugriffs-Logs ohne volle IP, kurze Aufbewahrung"
+      ],
+      "konto_noetig": false,
+      "tracking": false,
+      "werbung": false,
+      "absturzberichte": false,
+      "daten_an_dritte_verkauft": false,
+      "loeschung": "Es gibt kein Nutzerkonto und keine serverseitig gespeicherten Nutzerdaten. Alle lokalen Daten (Lernstand, Pakete, Installations-ID) werden mit der Deinstallation der App entfernt. Freiwillige Meldungen enthalten keinen Personenbezug; serverseitig werden sie ohne volle IP und nur kurz aufbewahrt. Wer seinen Lernstand sichern will, exportiert eine lokale Datei.",
+      "besonderheiten": "Kostenpflichtige Lern-App fuer die Feuerwehr-Ausbildung. Grundsatz: was nicht erhoben wird, kann nicht verloren gehen – kein Konto, kein Login, kein Analytics, keine Werbe-ID. Lernstand bleibt auf dem Geraet; der Server ist Komfort, keine Voraussetzung (offline-first). Inhaltspakete sind Ed25519-signiert; die App laedt keinen ausfuehrbaren Code nach. Jede Aussage traegt ihre Fundstelle mit Ausgabestand und Abrufdatum sowie einen sichtbaren Pruefvermerk (durch KI geprueft / durch Autor / durch die Community geprueft) – das sind Angaben zum Inhalt, keine Nutzerdaten. Play-Datensicherheitsangaben sind mit dieser Architektur kurz auszufuellen.",
+      "vorhandener_text": "",
+      "offene_fragen": "1) Serverseitige Aufbewahrungsfristen des Meldungs-Endpunkts final festzurren. 2) Vor der ersten bezahlten Version einmal anwaltlich pruefen (Konzept 3/11). 3) Zugriffs-Logs des Korrekturkanals: durch den haeufigen Abruf entstehen mehr Logzeilen als beim taeglichen Katalogabruf – Kuerzung der IP und kurze Aufbewahrung gelten unveraendert, die Fristen gehoeren zu Punkt 1. 4) Community-Pruefvermerk: sobald Nutzer Bestaetigungen abgeben koennen, ist zu klaeren, ob dabei ueber die zufaellige Installations-ID hinaus etwas erhoben wird – Ziel ist nein. Erledigt am 02.08.2026: Vertriebsmodell dem Grunde nach entschieden (Kauf ueber Google Play Billing, freier Einstiegsblock) – betrifft nur Play-Kauf-/Widerrufsangaben, nicht die Datenerhebung. Der Zuschnitt der Kaufobjekte wurde am 03.08.2026 auf Bloecke umgestellt.",
       "art": "anwendung"
     },
     {
