@@ -25,10 +25,11 @@ tagline: "Die Firmen-Stufe der Foto-Meldeapp MobileReport – mit eigenem Brandi
 description: >-
   Fotodokumentation und Berichte für Unternehmen: Meldungen zu Geräten, Anlagen und
   Baustellen unterwegs erfassen – Beschreibung, Fotos, Ort und Zeitpunkt – und daraus ein
-  sauberes PDF samt vorbereiteter E-Mail machen. Alles bleibt lokal auf dem Gerät, ohne
-  Cloud und ohne Konto. Die Firmen-Stufe ergänzt das um eigenes Branding, Freischaltung über
-  Lizenzschlüssel je Arbeitsplatz (mit Offline-Karenz) und zwei Bezugswege: Direkt-Download
-  (APK) oder Managed Google Play (private Auslieferung an die Organisation des Kunden).
+  sauberes PDF samt vorbereiteter E-Mail machen. Fügt sich nahtlos in größere
+  Firmenumgebungen ein, in denen Meldungen ohnehin per E-Mail laufen: als Mängelmelder oder
+  Störmelde-Bericht sofort einsatzbereit, mit sehr einfacher Einrichtung – kein Server,
+  keine Cloud, kein Konto. Die Firmen-Stufe ergänzt eigenes Branding, Lizenz je Arbeitsplatz
+  und zwei Bezugswege (Direkt-Download oder Managed Google Play).
 audience: [unternehmen]
 accent: "#0C5E74"   # Farbe der App
 
@@ -79,11 +80,12 @@ editions:
         - { seats: 500, amount: 1250, perSeat: 2.5, discountPercent: 50, checkout: "https://www.checkout-ds24.com/product/709331" }
         - { seats: 1000, amount: 2000, perSeat: 2, discountPercent: 60, badge: Bestpreis, checkout: "https://www.checkout-ds24.com/product/709333" }
   - id: custom
-    name: Custom-Branding
+    name: Custom-App
     public: true
     summary: >-
-      Wir richten das Branding ein. Aufpreis je nach Aufwand, separat in Rechnung
-      gestellt.
+      Eine komplett eigene, nur für euch gebaute App: individuelle APK/AAB mit fest
+      einprogrammiertem Branding und vordefinierten Einstellungen, ausgeliefert über
+      Managed Google Play. Preis auf Anfrage, je nach Umfang.
     price: { model: auf-anfrage }
 
 # ACHTUNG: Aus diesen Angaben entstehen die Manifeste, die ausgelieferte

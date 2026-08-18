@@ -106,7 +106,7 @@ features:
           pro: "Firmenlogo · 15 Vorlagen"
           mobilereport-enterprise: "frei wählbar: Logo, Farben, Name"
       - name: App unter eigenem Namen und Symbol
-        values: { free: nein, pro: nein, mobilereport-enterprise: "nur Custom-Branding" }
+        values: { free: nein, pro: nein, mobilereport-enterprise: "nur Custom-App" }
 
   - group: Verteilung und Freischaltung
     items:
@@ -121,7 +121,7 @@ features:
           pro: "einmaliger Kauf, geräteübergreifend"
           mobilereport-enterprise: "Lizenzschlüssel je Arbeitsplatz"
       - name: Anbindung an eigene Systeme
-        values: { free: nein, pro: nein, mobilereport-enterprise: "nur Custom-Branding" }
+        values: { free: nein, pro: nein, mobilereport-enterprise: "nur Custom-App" }
 
 # Play-Store-Apps haben bei uns keine Release-Einträge: Version, Datum und Größe
 # verwaltet der Store. Eine zweite Angabe hier wäre sofort veraltet.

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-18T22:51:55+02:00",
+  "generiert": "2026-08-18T22:57:17+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1342,7 +1342,7 @@
               "values": {
                 "free": "nein",
                 "pro": "nein",
-                "mobilereport-enterprise": "nur Custom-Branding"
+                "mobilereport-enterprise": "nur Custom-App"
               }
             }
           ]
@@ -1371,7 +1371,7 @@
               "values": {
                 "free": "nein",
                 "pro": "nein",
-                "mobilereport-enterprise": "nur Custom-Branding"
+                "mobilereport-enterprise": "nur Custom-App"
               }
             }
           ]
@@ -1462,7 +1462,7 @@
       "parent": "mobilereport",
       "standalone": true,
       "tagline": "Die Firmen-Stufe der Foto-Meldeapp MobileReport – mit eigenem Branding, Lizenz je Arbeitsplatz und zwei Bezugswegen.",
-      "description": "Fotodokumentation und Berichte für Unternehmen: Meldungen zu Geräten, Anlagen und Baustellen unterwegs erfassen – Beschreibung, Fotos, Ort und Zeitpunkt – und daraus ein sauberes PDF samt vorbereiteter E-Mail machen. Alles bleibt lokal auf dem Gerät, ohne Cloud und ohne Konto. Die Firmen-Stufe ergänzt das um eigenes Branding, Freischaltung über Lizenzschlüssel je Arbeitsplatz (mit Offline-Karenz) und zwei Bezugswege: Direkt-Download (APK) oder Managed Google Play (private Auslieferung an die Organisation des Kunden).",
+      "description": "Fotodokumentation und Berichte für Unternehmen: Meldungen zu Geräten, Anlagen und Baustellen unterwegs erfassen – Beschreibung, Fotos, Ort und Zeitpunkt – und daraus ein sauberes PDF samt vorbereiteter E-Mail machen. Fügt sich nahtlos in größere Firmenumgebungen ein, in denen Meldungen ohnehin per E-Mail laufen: als Mängelmelder oder Störmelde-Bericht sofort einsatzbereit, mit sehr einfacher Einrichtung – kein Server, keine Cloud, kein Konto. Die Firmen-Stufe ergänzt eigenes Branding, Lizenz je Arbeitsplatz und zwei Bezugswege (Direkt-Download oder Managed Google Play).",
       "audience": [
         "unternehmen"
       ],
@@ -1560,9 +1560,9 @@
         },
         {
           "id": "custom",
-          "name": "Custom-Branding",
+          "name": "Custom-App",
           "public": true,
-          "summary": "Wir richten das Branding ein. Aufpreis je nach Aufwand, separat in Rechnung gestellt.",
+          "summary": "Eine komplett eigene, nur für euch gebaute App: individuelle APK/AAB mit fest einprogrammiertem Branding und vordefinierten Einstellungen, ausgeliefert über Managed Google Play. Preis auf Anfrage, je nach Umfang.",
           "price": {
             "model": "auf-anfrage"
           }
