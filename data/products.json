@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-18T22:38:53+02:00",
+  "generiert": "2026-08-18T22:49:09+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1355,7 +1355,7 @@
               "values": {
                 "free": "Google Play · kostenlos",
                 "pro": "In-App-Kauf in der App",
-                "mobilereport-enterprise": "Direkt-Download außerhalb von Play"
+                "mobilereport-enterprise": "Direkt-Download oder Managed Google Play"
               }
             },
             {
