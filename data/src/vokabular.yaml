@@ -90,6 +90,8 @@ privacy:
 distribution:
   play-store:
     label: Google Play
+  managed-google-play:
+    label: Managed Google Play
   github-release:
     label: GitHub-Release
   digistore24:

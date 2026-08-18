@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-17T21:02:09+02:00",
+  "generiert": "2026-08-18T22:38:53+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1446,13 +1446,14 @@
       "slug": "mobilereport-enterprise",
       "name": "MobileReport Enterprise",
       "fullName": "FehlerFuchs MobileReport Enterprise",
-      "seoTitel": "MobileReport Enterprise – Fotodoku-App für Firmen, ohne Play Store",
-      "seoBeschreibung": "Fotodokumentation und PDF-Berichte für Unternehmen: Verteilung als APK außerhalb Google Play, eigenes Branding, Lizenz je Arbeitsplatz – strikt lokal.",
+      "seoTitel": "MobileReport Enterprise – Fotodoku-App für Firmen, Managed Google Play",
+      "seoBeschreibung": "Fotodoku und PDF-Berichte für Unternehmen: Bezug als Direkt-Download (APK) oder über Managed Google Play, eigenes Branding, Lizenz je Arbeitsplatz – strikt lokal.",
       "tags": [
         "Fotodokumentation",
         "Baustellendokumentation",
         "Firmen",
         "APK",
+        "Managed Google Play",
         "Lizenz je Arbeitsplatz",
         "Branding",
         "lokal"
@@ -1460,8 +1461,8 @@
       "kind": "edition",
       "parent": "mobilereport",
       "standalone": true,
-      "tagline": "Die Firmen-Stufe – Direkt-Download außerhalb von Google Play, eigenes Branding und Lizenz je Arbeitsplatz.",
-      "description": "MobileReport für Unternehmen: Verteilung als APK außerhalb des Play Stores, eigenes Branding per .mrbrand-Datei oder als Dienstleistung, Freischaltung über Lizenzschlüssel je Arbeitsplatz mit Offline-Karenz. Strikt lokal, ohne Cloud-Zwang.",
+      "tagline": "Die Firmen-Stufe – als Direkt-Download (APK) oder über Managed Google Play, mit eigenem Branding und Lizenz je Arbeitsplatz.",
+      "description": "MobileReport für Unternehmen mit zwei Bezugswegen: Direkt-Download (APK) oder Managed Google Play (private Auslieferung an die Organisation des Kunden). Eigenes Branding per .mrbrand-Datei oder als Dienstleistung, Freischaltung über Lizenzschlüssel je Arbeitsplatz mit Offline-Karenz. Strikt lokal, ohne Cloud-Zwang.",
       "audience": [
         "unternehmen"
       ],
@@ -1471,9 +1472,16 @@
         {
           "os": "android",
           "status": "verfuegbar",
-          "requirements": "Android, Installation außerhalb des Play Stores",
+          "requirements": "Android — Direkt-Download (APK), Installation außerhalb des Play Stores",
           "distribution": "github-release",
           "since": "2026-07-06"
+        },
+        {
+          "os": "android",
+          "status": "verfuegbar",
+          "requirements": "Managed Google Play — private Auslieferung an die Organisation des Kunden (Android Enterprise), auf Anfrage",
+          "distribution": "managed-google-play",
+          "storeId": "eu.fehlerfuchs.mobilereport.enterprise"
         }
       ],
       "privacy": [
@@ -1561,6 +1569,22 @@
       ],
       "releases": [
         {
+          "version": "1.0.2",
+          "date": "2026-08-18",
+          "channel": "stable",
+          "os": "android",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.0.2/MobileReport-Enterprise-1.0.2.apk",
+          "filename": "MobileReport-Enterprise-1.0.2.apk",
+          "size": {
+            "bytes": 63371113,
+            "label": "60,4 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "059be7e3060195c3ff7a4761638dd9744e43c7b5d67c14a89c1132ed4489734e",
+          "signed": false,
+          "notes": "1.0.2: Sicherheits- und Datenschutz-Überarbeitung nach externer Prüfung. Automatische Android-Sicherung abgeschaltet, „Alle Daten löschen\" räumt vollständig auf, Wiederherstellung und Import prüfen Dateien vor dem Schreiben, stärkerer Admin-Passwortschutz (PBKDF2), Lizenzlaufzeit auch offline strikt eingehalten."
+        },
+        {
           "version": "1.0.1",
           "date": "2026-07-09",
           "channel": "stable",
@@ -1614,7 +1638,7 @@
       },
       "links": {
         "alt_html": "/apps/mobilereport-enterprise.html",
-        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mr-ent-v1.0.1",
+        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mobilereport-enterprise-v1.0.2",
         "contact": "/kontakt.html?app=MobileReport%20Enterprise&topic=angebot"
       },
       "manifests": {

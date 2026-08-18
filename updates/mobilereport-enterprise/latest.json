@@ -1,6 +1,6 @@
 {
-  "version": "1.0.1",
-  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v1.0.1/MobileReport-Enterprise-1.0.1.apk",
-  "sha256": "3e990a428ed208be11587e779ce1eba02f8efbc81d192092a928270d75ca30a5",
-  "notes": "1.0.1: Betreff für Meldungen, Fotos per Ziehen sortieren (erstes Bild = Hauptbild), Name als Pflichtfeld mit optionalem Standard-Speichern, einstellbare maximale Bildanzahl, Profil-Feld Position/Funktion, überarbeitete Einstellungen (Bereich \"Verwaltung\") und Fix für die Admin-/Branding-Übernahme."
+  "version": "1.0.2",
+  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.0.2/MobileReport-Enterprise-1.0.2.apk",
+  "sha256": "059be7e3060195c3ff7a4761638dd9744e43c7b5d67c14a89c1132ed4489734e",
+  "notes": "1.0.2: Sicherheits- und Datenschutz-Überarbeitung nach externer Prüfung. Automatische Android-Sicherung abgeschaltet, „Alle Daten löschen\" räumt vollständig auf, Wiederherstellung und Import prüfen Dateien vor dem Schreiben, stärkerer Admin-Passwortschutz (PBKDF2), Lizenzlaufzeit auch offline strikt eingehalten."
 }

@@ -12,20 +12,21 @@ slug: mobilereport-enterprise
 name: MobileReport Enterprise
 fullName: FehlerFuchs MobileReport Enterprise
 # SEO (2026-08-09)
-seoTitel: "MobileReport Enterprise – Fotodoku-App für Firmen, ohne Play Store"
-seoBeschreibung: "Fotodokumentation und PDF-Berichte für Unternehmen: Verteilung als APK außerhalb Google Play, eigenes Branding, Lizenz je Arbeitsplatz – strikt lokal."
-tags: ["Fotodokumentation", "Baustellendokumentation", "Firmen", "APK", "Lizenz je Arbeitsplatz", "Branding", "lokal"]
+seoTitel: "MobileReport Enterprise – Fotodoku-App für Firmen, Managed Google Play"
+seoBeschreibung: "Fotodoku und PDF-Berichte für Unternehmen: Bezug als Direkt-Download (APK) oder über Managed Google Play, eigenes Branding, Lizenz je Arbeitsplatz – strikt lokal."
+tags: ["Fotodokumentation", "Baustellendokumentation", "Firmen", "APK", "Managed Google Play", "Lizenz je Arbeitsplatz", "Branding", "lokal"]
 kind: edition
 parent: mobilereport
 
 # Wird eigenständig verkauft und erscheint deshalb trotzdem in der
 # Produktübersicht – auch wenn es fachlich eine Ausbaustufe ist.
 standalone: true
-tagline: "Die Firmen-Stufe – Direkt-Download außerhalb von Google Play, eigenes Branding und Lizenz je Arbeitsplatz."
+tagline: "Die Firmen-Stufe – als Direkt-Download (APK) oder über Managed Google Play, mit eigenem Branding und Lizenz je Arbeitsplatz."
 description: >-
-  MobileReport für Unternehmen: Verteilung als APK außerhalb des Play Stores, eigenes
-  Branding per .mrbrand-Datei oder als Dienstleistung, Freischaltung über
-  Lizenzschlüssel je Arbeitsplatz mit Offline-Karenz. Strikt lokal, ohne Cloud-Zwang.
+  MobileReport für Unternehmen mit zwei Bezugswegen: Direkt-Download (APK) oder Managed
+  Google Play (private Auslieferung an die Organisation des Kunden). Eigenes Branding per
+  .mrbrand-Datei oder als Dienstleistung, Freischaltung über Lizenzschlüssel je Arbeitsplatz
+  mit Offline-Karenz. Strikt lokal, ohne Cloud-Zwang.
 audience: [unternehmen]
 accent: "#0C5E74"   # Farbe der App
 
@@ -34,11 +35,22 @@ accent: "#0C5E74"   # Farbe der App
 status: verfuegbar
 
 platforms:
+  # Weg 1: Direkt-Download der APK (unsigniert, sha256-geprüft), Installation außerhalb Play.
   - os: android
     status: verfuegbar
-    requirements: "Android, Installation außerhalb des Play Stores"
+    requirements: "Android — Direkt-Download (APK), Installation außerhalb des Play Stores"
     distribution: github-release
     since: "2026-07-06"
+  # Weg 2 (18.08.2026, Entscheidung Matthias): Managed Google Play – private Auslieferung
+  # an die Organisation des Kunden (Android Enterprise). Die Play-Listing-URL existiert
+  # (App-ID eu.fehlerfuchs.mobilereport.enterprise), ist aber NUR für Mitglieder der
+  # Kundenorganisation installierbar → kein öffentlicher „kostenlos"-Store-Knopf; storeId
+  # nur als Beleg/Referenz, kein links.store gesetzt.
+  - os: android
+    status: verfuegbar
+    requirements: "Managed Google Play — private Auslieferung an die Organisation des Kunden (Android Enterprise), auf Anfrage"
+    distribution: managed-google-play
+    storeId: eu.fehlerfuchs.mobilereport.enterprise
 
 privacy: [inhalte-lokal, keine-cloud, kein-tracking, werbefrei, kein-google, offline-faehig]
 
@@ -75,6 +87,25 @@ editions:
 # ACHTUNG: Aus diesen Angaben entstehen die Manifeste, die ausgelieferte
 # Apps lesen. Der Text unter notes erscheint WÖRTLICH im Update-Hinweis.
 releases:
+  # 1.0.2 (18.08.2026): Sicherheits-/Datenschutz-Überarbeitung nach externer Prüfung.
+  # Release öffentlich in fehlerfuchs-downloads (Tag mobilereport-enterprise-v1.0.2),
+  # Asset byteverifiziert: 63.371.113 B, sha256 059be7e3…734e. Weiterhin unsigniert
+  # (direkt ausgelieferte APK) → sha256 ist die Prüfgröße. Anderer Signaturschlüssel
+  # als 1.0.1 (neuer Enterprise-Auslieferungsschlüssel) – Bestandsupdate ggf. Neuinstallation.
+  - version: "1.0.2"
+    date: "2026-08-18"
+    channel: stable
+    os: android
+    url: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.0.2/MobileReport-Enterprise-1.0.2.apk"
+    filename: MobileReport-Enterprise-1.0.2.apk
+    size: { bytes: 63371113, label: "60,4 MB", source: GitHub-Release-Asset }
+    sha256: 059be7e3060195c3ff7a4761638dd9744e43c7b5d67c14a89c1132ed4489734e
+    signed: false
+    notes: >-
+      1.0.2: Sicherheits- und Datenschutz-Überarbeitung nach externer Prüfung. Automatische
+      Android-Sicherung abgeschaltet, „Alle Daten löschen" räumt vollständig auf, Wiederherstellung
+      und Import prüfen Dateien vor dem Schreiben, stärkerer Admin-Passwortschutz (PBKDF2),
+      Lizenzlaufzeit auch offline strikt eingehalten.
   - version: "1.0.1"
     date: "2026-07-09"
     channel: stable
@@ -142,7 +173,7 @@ links:
   # Fehlt das Feld, gab es vorher keine eigene Seite - dann ist auch nichts
   # weiterzuleiten.
   alt_html: /apps/mobilereport-enterprise.html
-  release: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mr-ent-v1.0.1"
+  release: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mobilereport-enterprise-v1.0.2"
   contact: "/kontakt.html?app=MobileReport%20Enterprise&topic=angebot"
 
 manifests:

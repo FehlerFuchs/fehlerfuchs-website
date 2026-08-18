@@ -322,6 +322,7 @@
           "distribution": {
             "enum": [
               "play-store",
+              "managed-google-play",
               "github-release",
               "digistore24",
               "im-browser",
