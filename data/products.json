@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-18T22:57:17+02:00",
+  "generiert": "2026-08-18T23:08:10+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1466,6 +1466,7 @@
       "audience": [
         "unternehmen"
       ],
+      "ansprache": "sie",
       "accent": "#0C5E74",
       "status": "verfuegbar",
       "platforms": [
@@ -1562,7 +1563,7 @@
           "id": "custom",
           "name": "Custom-App",
           "public": true,
-          "summary": "Eine komplett eigene, nur für euch gebaute App: individuelle APK/AAB mit fest einprogrammiertem Branding und vordefinierten Einstellungen, ausgeliefert über Managed Google Play. Preis auf Anfrage, je nach Umfang.",
+          "summary": "Eine komplett eigene, nur für Ihr Unternehmen gebaute App: individuelle APK/AAB mit fest einprogrammiertem Branding und vordefinierten Einstellungen, ausgeliefert über Managed Google Play. Preis auf Anfrage, je nach Umfang.",
           "price": {
             "model": "auf-anfrage"
           }
@@ -1616,6 +1617,12 @@
           "sha256": null,
           "signed": false,
           "notes": "Erste Enterprise-Version – Branding-Import, Lizenz je Arbeitsplatz, Backup, PDF-Export."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Komplizierte Gebäude- oder Raumstruktur in Ihrer Firma?",
+          "answer": "Kein Problem: Die Struktur wird einmal als Tabelle beziehungsweise CSV eingespielt und gespeichert – danach stehen Bereiche, Standorte und Räume dauerhaft zur Auswahl, und jede Meldung lässt sich sofort korrekt zuordnen."
         }
       ],
       "media": {

@@ -31,6 +31,9 @@ description: >-
   keine Cloud, kein Konto. Die Firmen-Stufe ergänzt eigenes Branding, Lizenz je Arbeitsplatz
   und zwei Bezugswege (Direkt-Download oder Managed Google Play).
 audience: [unternehmen]
+# Firmenversion → förmliche Anrede (Sie); steuert Template-Texte wie den
+# Handlungswege-Titel. Consumer-Produkte ohne dieses Feld bleiben beim „du".
+ansprache: sie
 accent: "#0C5E74"   # Farbe der App
 
 # Der Gesamtstatus folgt der WEITESTEN Plattform. Das Prüfskript rechnet
@@ -83,7 +86,7 @@ editions:
     name: Custom-App
     public: true
     summary: >-
-      Eine komplett eigene, nur für euch gebaute App: individuelle APK/AAB mit fest
+      Eine komplett eigene, nur für Ihr Unternehmen gebaute App: individuelle APK/AAB mit fest
       einprogrammiertem Branding und vordefinierten Einstellungen, ausgeliefert über
       Managed Google Play. Preis auf Anfrage, je nach Umfang.
     price: { model: auf-anfrage }
@@ -136,6 +139,13 @@ releases:
     notes: >-
       Erste Enterprise-Version – Branding-Import, Lizenz je Arbeitsplatz, Backup,
       PDF-Export.
+
+faq:
+  - question: Komplizierte Gebäude- oder Raumstruktur in Ihrer Firma?
+    answer: >-
+      Kein Problem: Die Struktur wird einmal als Tabelle beziehungsweise CSV eingespielt und
+      gespeichert – danach stehen Bereiche, Standorte und Räume dauerhaft zur Auswahl, und jede
+      Meldung lässt sich sofort korrekt zuordnen.
 
 # Bildmarke. Ist sie gesetzt, ist SIE der sichtbare Titel; die Überschrift
 # bleibt für Screenreader im Dokument, nur unsichtbar.

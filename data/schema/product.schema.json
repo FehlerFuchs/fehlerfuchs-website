@@ -265,6 +265,10 @@
       "type": "string",
       "pattern": "^#[0-9A-Fa-f]{6}$"
     },
+    "ansprache": {
+      "enum": ["du", "sie", "neutral"],
+      "description": "Anrede-Ton der Produktseite. Ohne Feld gilt der Standard „du\" (Consumer). „sie\" für Firmen-/Enterprise-Produkte schaltet Template-Texte wie den Handlungswege-Titel auf die förmliche Form."
+    },
     "wordmark": {
       "$ref": "#/$defs/wortmarke"
     },
