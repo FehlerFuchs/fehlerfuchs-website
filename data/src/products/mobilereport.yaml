@@ -86,8 +86,9 @@ features:
         values: { free: nein, pro: ja, mobilereport-enterprise: ja }
       - name: Admin-Bereich mit Master-Passwort (geschütztes Berichtsformat)
         values: { free: nein, pro: ja, mobilereport-enterprise: ja }
-      - name: Vorkonfiguration per CSV (Bereiche, Standorte, Empfänger)
+      - name: Empfänger- und Verteilerlisten per CSV importieren
         values: { free: nein, pro: ja, mobilereport-enterprise: ja }
+        note: Bereiche und Standorte werden in der App angelegt (nicht per CSV).
 
   - group: Logbuch
     items:

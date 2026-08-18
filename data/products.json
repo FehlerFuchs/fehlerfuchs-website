@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-18T23:19:15+02:00",
+  "generiert": "2026-08-18T23:30:31+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1294,12 +1294,13 @@
               }
             },
             {
-              "name": "Vorkonfiguration per CSV (Bereiche, Standorte, Empfänger)",
+              "name": "Empfänger- und Verteilerlisten per CSV importieren",
               "values": {
                 "free": "nein",
                 "pro": "ja",
                 "mobilereport-enterprise": "ja"
-              }
+              },
+              "note": "Bereiche und Standorte werden in der App angelegt (nicht per CSV)."
             }
           ]
         },
@@ -1621,32 +1622,48 @@
       ],
       "faq": [
         {
-          "question": "Funktioniert die App auch ohne Internet – auf der Baustelle oder im Keller?",
-          "answer": "Für die eigentliche Arbeit ja: Meldungen erfassen, Fotos anhängen und den Bericht als PDF erzeugen läuft vollständig offline auf dem Gerät – auch ohne Empfang. Nur das Versenden selbst braucht eine Verbindung: Die vorbereitete E-Mail übergibt die App an Ihr E-Mail-Programm, das sie verschickt, sobald das Gerät wieder online ist. Netz brauchen Sie außerdem einmalig zum Freischalten der Lizenz."
+          "question": "Funktioniert die App auch ohne Internet – auf der Baustelle, im Keller oder in der Halle?",
+          "answer": "Ja, im Kern. Meldungen erfassen, fotografieren und das PDF erzeugen läuft vollständig offline auf dem Gerät. Nur zwei Dinge brauchen eine Verbindung: der Versand (die App übergibt die fertige E-Mail an Ihr E-Mail-Programm, das sie verschickt, sobald Sie wieder online sind) und die einmalige Lizenz-Freischaltung. Danach läuft die App im Feld bis zu 7 Tage offline weiter (Karenz); erst dann ist wieder eine kurze Online-Prüfung nötig."
         },
         {
-          "question": "Bekommen wir die App im eigenen Firmen-Branding?",
-          "answer": "Ja, auf zwei Wegen. Als White-Label stellen Sie Logo und Farben selbst zusammen (über den kostenlosen Branding-Konfigurator, als .mrbrand-Datei importiert). Oder als Custom-App – eine komplett eigene, nur für Ihr Unternehmen gebaute App mit fest einprogrammiertem Branding und vordefinierten Einstellungen, ausgeliefert über Managed Google Play."
+          "question": "Können wir die App in unserem eigenen Firmen-Branding bekommen?",
+          "answer": "Ja, auf zwei Wegen. White-Label: Sie bauen Ihr Branding im Web-Konfigurator auf fehlerfuchs.eu (Farben, Logo, Name) und importieren es als .mrbrand-Datei – es prägt App und PDF. Custom-App: Für eine vollständig eigene Fassung liefern wir eine eigene App (über Managed Google Play), in der Branding und Vorgaben fest hinterlegt sind. Ein eigener App-Name und ein eigenes Symbol auf dem Startbildschirm sind der Custom-App vorbehalten; das White-Label prägt das Erscheinungsbild innerhalb der App und im PDF."
         },
         {
-          "question": "Wie kommen die Berichte in unsere bestehenden Abläufe?",
-          "answer": "Aus jeder Meldung entsteht ein sauberes PDF samt vorbereiteter E-Mail – die geht an Ihre gewohnten Verteiler. Gerade in Firmen, in denen Meldungen ohnehin per E-Mail laufen, fügt sich die App nahtlos ein: kein Systemumbau, keine neue Plattform, in die sich alle erst einarbeiten müssen."
+          "question": "Fügen sich die Berichte in unsere bestehenden Abläufe ein?",
+          "answer": "Ja. Jede Meldung wird zu einem PDF und einer vorbereiteten E-Mail an Ihre gewohnten Verteiler – kein neues Portal, kein zusätzliches Konto. Der Versand läuft über Ihr vorhandenes E-Mail-Programm."
         },
         {
-          "question": "Komplizierte Gebäude- oder Raumstruktur in Ihrer Firma?",
-          "answer": "Kein Problem: Die Struktur wird einmal als Tabelle beziehungsweise CSV eingespielt und gespeichert – danach stehen Bereiche, Standorte und Räume dauerhaft zur Auswahl, und jede Meldung lässt sich sofort korrekt zuordnen."
+          "question": "Wir haben viele Bereiche und Standorte – müssen wir alles einzeln eintippen?",
+          "answer": "Sie legen Bereiche und Standorte einmalig in der App an; dabei helfen eine aufklappbare A–Z-Liste, die Vorschau bereits vorhandener Einträge und eine Tippfehler-Warnung. Für Empfänger- und Verteilerlisten gibt es zusätzlich einen CSV-Import: Sie fügen eine Tabelle ein (die Spalte E-Mail ist Pflicht; optional Bereich, Funktion, Vorname, Nachname, Standard) – alles bleibt lokal auf dem Gerät. Eine Import-Anleitung liegt als PDF in der App."
         },
         {
           "question": "Wo liegen unsere Daten?",
-          "answer": "Ausschließlich lokal auf dem jeweiligen Gerät: Meldungen, Fotos und PDFs verlassen es nicht. Kein Cloud-Speicher, kein Benutzerkonto, kein Tracking durch FehlerFuchs. Nach außen gehen nur technische Abfragen – die Lizenzprüfung und der Hinweis auf eine neuere Fassung. Die Einzelheiten stehen auf der Datenschutzseite."
+          "answer": "Ausschließlich lokal auf dem Gerät – keine Cloud, kein Konto, kein Tracking durch FehlerFuchs. Nach außen gehen nur die Lizenzprüfung (Lizenzschlüssel und eine anonyme Geräte-Kennung) und ein Update-Hinweis. Anders als die Consumer-App enthält Enterprise keinen In-App-Kauf und damit auch keine Abrechnungs-Telemetrie."
         },
         {
-          "question": "Wie funktioniert die Lizenzierung bei mehreren Mitarbeitenden?",
-          "answer": "Lizenziert wird je Arbeitsplatz. Einen Arbeitsplatz können Sie in der App wieder freigeben und auf einem anderen Gerät neu belegen – etwa bei einem Gerätewechsel. Die Staffelpreise werden mit der Zahl der Arbeitsplätze je Platz günstiger; Einmalkauf, kein Abo."
+          "question": "Wie funktioniert die Lizenzierung für mehrere Mitarbeitende?",
+          "answer": "Einmalkauf je Arbeitsplatz, mit Staffelpreisen. Ein Arbeitsplatz ist umbelegbar: Über „Deaktivieren\" geben Sie ihn auf einem Gerät frei, danach lässt er sich auf einem anderen Gerät aktivieren – praktisch bei Geräte- oder Personalwechsel."
         },
         {
           "question": "Wie schnell sind wir startklar?",
-          "answer": "Sehr schnell. Es gibt keinen Server aufzusetzen und keine Cloud einzurichten: App installieren, Lizenz freischalten, optional die Bereichs- und Gebäudestruktur als CSV einspielen – fertig."
+          "answer": "Sehr schnell: installieren, freischalten, Stammdaten anlegen (Empfänger optional per CSV) – fertig. Kein Server, keine Cloud-Einrichtung."
+        },
+        {
+          "question": "Was passiert bei Gerätewechsel oder -verlust?",
+          "answer": "Beim geplanten Wechsel geben Sie den Arbeitsplatz auf dem alten Gerät frei („Deaktivieren\") und aktivieren ihn auf dem neuen. Ist ein Gerät verloren, geben wir den Arbeitsplatz auf Anfrage über den Support frei. Ihre Meldungen liegen lokal auf dem jeweiligen Gerät – für die Übernahme nutzen Sie die Datensicherung."
+        },
+        {
+          "question": "Können wir Daten sichern und übertragen?",
+          "answer": "Ja. Die App erstellt eine lokale Datensicherung (.mrbak) mit allen Meldungen, Bildern und PDFs und stellt sie wieder her – auch auf einem anderen Gerät. Zusätzlich ist jede Meldung als PDF weitergebbar."
+        },
+        {
+          "question": "Für welche Einsätze ist MobileReport Enterprise gedacht?",
+          "answer": "Für Teams, die vor Ort Defekte, Auffälligkeiten oder Prüfergebnisse dokumentieren und weitergeben – zum Beispiel Facility-Management, Instandhaltung, Haustechnik sowie Prüf- und Wartungsdienste."
+        },
+        {
+          "question": "An wen gehen die Berichte?",
+          "answer": "An frei definierbare Empfänger – mit Standard-Empfänger, An/CC und Verteilerlisten (per CSV einspielbar). So landet jede Meldung ohne Nachdenken bei den richtigen Stellen."
         }
       ],
       "media": {
