@@ -141,11 +141,45 @@ releases:
       PDF-Export.
 
 faq:
+  - question: Funktioniert die App auch ohne Internet – auf der Baustelle oder im Keller?
+    answer: >-
+      Ja. Nach dem Freischalten der Lizenz arbeitet MobileReport vollständig offline: Meldungen
+      erfassen, Fotos anhängen, den Bericht als PDF erzeugen – alles direkt auf dem Gerät. Eine
+      Netzverbindung brauchen Sie nur für die einmalige Freischaltung, nicht für die tägliche
+      Arbeit. Damit ist die App auch dort einsatzbereit, wo es keinen Empfang gibt.
+  - question: Bekommen wir die App im eigenen Firmen-Branding?
+    answer: >-
+      Ja, auf zwei Wegen. Als White-Label stellen Sie Logo und Farben selbst zusammen (über den
+      kostenlosen Branding-Konfigurator, als .mrbrand-Datei importiert). Oder als Custom-App –
+      eine komplett eigene, nur für Ihr Unternehmen gebaute App mit fest einprogrammiertem
+      Branding und vordefinierten Einstellungen, ausgeliefert über Managed Google Play.
+  - question: Wie kommen die Berichte in unsere bestehenden Abläufe?
+    answer: >-
+      Aus jeder Meldung entsteht ein sauberes PDF samt vorbereiteter E-Mail – die geht an Ihre
+      gewohnten Verteiler. Gerade in Firmen, in denen Meldungen ohnehin per E-Mail laufen, fügt
+      sich die App nahtlos ein: kein Systemumbau, keine neue Plattform, in die sich alle erst
+      einarbeiten müssen.
   - question: Komplizierte Gebäude- oder Raumstruktur in Ihrer Firma?
     answer: >-
       Kein Problem: Die Struktur wird einmal als Tabelle beziehungsweise CSV eingespielt und
       gespeichert – danach stehen Bereiche, Standorte und Räume dauerhaft zur Auswahl, und jede
       Meldung lässt sich sofort korrekt zuordnen.
+  - question: Wo liegen unsere Daten?
+    answer: >-
+      Ausschließlich lokal auf dem jeweiligen Gerät: Meldungen, Fotos und PDFs verlassen es nicht.
+      Kein Cloud-Speicher, kein Benutzerkonto, kein Tracking durch FehlerFuchs. Nach außen gehen
+      nur technische Abfragen – die Lizenzprüfung und der Hinweis auf eine neuere Fassung. Die
+      Einzelheiten stehen auf der Datenschutzseite.
+  - question: Wie funktioniert die Lizenzierung bei mehreren Mitarbeitenden?
+    answer: >-
+      Lizenziert wird je Arbeitsplatz. Einen Arbeitsplatz können Sie in der App wieder freigeben
+      und auf einem anderen Gerät neu belegen – etwa bei einem Gerätewechsel. Die Staffelpreise
+      werden mit der Zahl der Arbeitsplätze je Platz günstiger; Einmalkauf, kein Abo.
+  - question: Wie schnell sind wir startklar?
+    answer: >-
+      Sehr schnell. Es gibt keinen Server aufzusetzen und keine Cloud einzurichten: App
+      installieren, Lizenz freischalten, optional die Bereichs- und Gebäudestruktur als CSV
+      einspielen – fertig.
 
 # Bildmarke. Ist sie gesetzt, ist SIE der sichtbare Titel; die Überschrift
 # bleibt für Screenreader im Dokument, nur unsichtbar.
