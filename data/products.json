@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-18T22:49:09+02:00",
+  "generiert": "2026-08-18T22:51:55+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1461,8 +1461,8 @@
       "kind": "edition",
       "parent": "mobilereport",
       "standalone": true,
-      "tagline": "Die Firmen-Stufe – als Direkt-Download (APK) oder über Managed Google Play, mit eigenem Branding und Lizenz je Arbeitsplatz.",
-      "description": "MobileReport für Unternehmen mit zwei Bezugswegen: Direkt-Download (APK) oder Managed Google Play (private Auslieferung an die Organisation des Kunden). Eigenes Branding per .mrbrand-Datei oder als Dienstleistung, Freischaltung über Lizenzschlüssel je Arbeitsplatz mit Offline-Karenz. Strikt lokal, ohne Cloud-Zwang.",
+      "tagline": "Die Firmen-Stufe der Foto-Meldeapp MobileReport – mit eigenem Branding, Lizenz je Arbeitsplatz und zwei Bezugswegen.",
+      "description": "Fotodokumentation und Berichte für Unternehmen: Meldungen zu Geräten, Anlagen und Baustellen unterwegs erfassen – Beschreibung, Fotos, Ort und Zeitpunkt – und daraus ein sauberes PDF samt vorbereiteter E-Mail machen. Alles bleibt lokal auf dem Gerät, ohne Cloud und ohne Konto. Die Firmen-Stufe ergänzt das um eigenes Branding, Freischaltung über Lizenzschlüssel je Arbeitsplatz (mit Offline-Karenz) und zwei Bezugswege: Direkt-Download (APK) oder Managed Google Play (private Auslieferung an die Organisation des Kunden).",
       "audience": [
         "unternehmen"
       ],
@@ -1487,6 +1487,7 @@
       "privacy": [
         "inhalte-lokal",
         "keine-cloud",
+        "kein-konto",
         "kein-tracking",
         "werbefrei",
         "kein-google",

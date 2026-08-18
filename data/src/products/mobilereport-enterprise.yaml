@@ -21,12 +21,14 @@ parent: mobilereport
 # Wird eigenständig verkauft und erscheint deshalb trotzdem in der
 # Produktübersicht – auch wenn es fachlich eine Ausbaustufe ist.
 standalone: true
-tagline: "Die Firmen-Stufe – als Direkt-Download (APK) oder über Managed Google Play, mit eigenem Branding und Lizenz je Arbeitsplatz."
+tagline: "Die Firmen-Stufe der Foto-Meldeapp MobileReport – mit eigenem Branding, Lizenz je Arbeitsplatz und zwei Bezugswegen."
 description: >-
-  MobileReport für Unternehmen mit zwei Bezugswegen: Direkt-Download (APK) oder Managed
-  Google Play (private Auslieferung an die Organisation des Kunden). Eigenes Branding per
-  .mrbrand-Datei oder als Dienstleistung, Freischaltung über Lizenzschlüssel je Arbeitsplatz
-  mit Offline-Karenz. Strikt lokal, ohne Cloud-Zwang.
+  Fotodokumentation und Berichte für Unternehmen: Meldungen zu Geräten, Anlagen und
+  Baustellen unterwegs erfassen – Beschreibung, Fotos, Ort und Zeitpunkt – und daraus ein
+  sauberes PDF samt vorbereiteter E-Mail machen. Alles bleibt lokal auf dem Gerät, ohne
+  Cloud und ohne Konto. Die Firmen-Stufe ergänzt das um eigenes Branding, Freischaltung über
+  Lizenzschlüssel je Arbeitsplatz (mit Offline-Karenz) und zwei Bezugswege: Direkt-Download
+  (APK) oder Managed Google Play (private Auslieferung an die Organisation des Kunden).
 audience: [unternehmen]
 accent: "#0C5E74"   # Farbe der App
 
@@ -52,7 +54,7 @@ platforms:
     distribution: managed-google-play
     storeId: eu.fehlerfuchs.mobilereport.enterprise
 
-privacy: [inhalte-lokal, keine-cloud, kein-tracking, werbefrei, kein-google, offline-faehig]
+privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, kein-google, offline-faehig]
 
 editions:
   - id: white-label
