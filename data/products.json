@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-18T23:15:24+02:00",
+  "generiert": "2026-08-18T23:19:15+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1622,7 +1622,7 @@
       "faq": [
         {
           "question": "Funktioniert die App auch ohne Internet – auf der Baustelle oder im Keller?",
-          "answer": "Ja. Nach dem Freischalten der Lizenz arbeitet MobileReport vollständig offline: Meldungen erfassen, Fotos anhängen, den Bericht als PDF erzeugen – alles direkt auf dem Gerät. Eine Netzverbindung brauchen Sie nur für die einmalige Freischaltung, nicht für die tägliche Arbeit. Damit ist die App auch dort einsatzbereit, wo es keinen Empfang gibt."
+          "answer": "Für die eigentliche Arbeit ja: Meldungen erfassen, Fotos anhängen und den Bericht als PDF erzeugen läuft vollständig offline auf dem Gerät – auch ohne Empfang. Nur das Versenden selbst braucht eine Verbindung: Die vorbereitete E-Mail übergibt die App an Ihr E-Mail-Programm, das sie verschickt, sobald das Gerät wieder online ist. Netz brauchen Sie außerdem einmalig zum Freischalten der Lizenz."
         },
         {
           "question": "Bekommen wir die App im eigenen Firmen-Branding?",
