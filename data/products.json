@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-18T23:30:31+02:00",
+  "generiert": "2026-08-19T13:19:17+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -2062,10 +2062,12 @@
       "slug": "pdfuchsreader",
       "name": "PDFuchs Reader",
       "fullName": "FehlerFuchs PDFuchs Reader",
-      "seoTitel": "PDFuchs Reader – kostenloser PDF-Reader für Android, ohne Werbung",
-      "seoBeschreibung": "Kostenloser, werbefreier PDF-Reader für Android: lesen, suchen, teilen, drucken und Seiten bearbeiten – ohne Konto, alles lokal auf dem Gerät.",
+      "seoTitel": "PDFuchs Reader – PDF- & E-Book-Reader (EPUB) für Android, werbefrei",
+      "seoBeschreibung": "Kostenloser, werbefreier PDF- & E-Book-Reader für Android: PDF und EPUB lesen, Lesezeichen, Volltextsuche, teilen, drucken – ohne Konto, alles lokal auf dem Gerät.",
       "tags": [
         "PDF-Reader",
+        "E-Book-Reader",
+        "EPUB",
         "PDF-Viewer",
         "Android",
         "werbefrei",
@@ -2073,8 +2075,8 @@
         "ohne Konto"
       ],
       "kind": "produkt",
-      "tagline": "Der kostenlose, werbefreie PDF-Reader für Android – lesen, suchen, teilen, drucken, Seiten bearbeiten.",
-      "description": "PDF-Viewer für Android, der ohne Konto und ohne Werbung auskommt: lesen, durchsuchen, teilen, drucken und Seiten leicht bearbeiten. Alles passiert lokal auf dem Gerät. Der mobile Zwilling der PDFuchs-Familie.",
+      "tagline": "Der kostenlose, werbefreie PDF- & E-Book-Reader für Android – PDFs und EPUBs lesen, mit Lesezeichen, Suche und Seitenbearbeitung.",
+      "description": "PDF- und E-Book-Reader für Android, der ohne Konto und ohne Werbung auskommt: PDFs lesen, durchsuchen, teilen, drucken und Seiten bearbeiten – und EPUB-E-Books mit anpassbarem Textfluss, Schriftgröße, Lesethema und Lesezeichen. Alles passiert lokal auf dem Gerät. Der mobile Zwilling der PDFuchs-Familie.",
       "audience": [
         "privat",
         "selbststaendige",
@@ -2088,7 +2090,7 @@
           "status": "verfuegbar",
           "distribution": "play-store",
           "storeId": "eu.fehlerfuchs.pdfuchsreader",
-          "since": "2026-07-18"
+          "since": "2026-07-17"
         },
         {
           "os": "windows",
@@ -2142,6 +2144,42 @@
             },
             {
               "name": "Miniaturübersicht und schneller Seitensprung",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Lesezeichen im PDF setzen und die Stelle wiederfinden",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "E-Books (EPUB)",
+          "items": [
+            {
+              "name": "EPUB-Dateien öffnen – der Text fließt in die Bildschirmbreite",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Reflow – der Text bricht passend zur Breite um, kein starres Seitenbild."
+            },
+            {
+              "name": "Schriftgröße und Lesethema (hell, sepia, dunkel) frei wählbar",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Inhaltsverzeichnis führt direkt zum Kapitel",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Lesezeichen merken sich die Stelle – je Buch",
               "values": {
                 "standard": "ja"
               }
@@ -2316,7 +2354,7 @@
         "contact": "/kontakt.html?app=PDFuchs%20Reader&topic=interesse",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader"
       },
-      "notes": "Seit 18.07.2026 regulär im Play Store, davor offener Test."
+      "notes": "Seit 17.07.2026 regulär im Play Store, davor offener Test."
     },
     {
       "slug": "snapfuchs",

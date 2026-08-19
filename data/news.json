@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-18T23:30:31+02:00",
+  "generiert": "2026-08-19T13:19:17+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "pdfuchsreader-1-1-0-ebook",
+      "typ": "update",
+      "produkt": "pdfuchsreader",
+      "datum": "2026-08-19",
+      "titel": "PDFuchs Reader liest jetzt auch E-Books",
+      "text": "Die neue Fassung öffnet neben PDF auch EPUB-Dateien: Der Text passt sich der Bildschirmbreite an, Schriftgröße und Lesethema (hell, sepia, dunkel) sind frei wählbar, das Inhaltsverzeichnis führt direkt zum Kapitel, und Lesezeichen merken sich die Stelle je Buch. Auch der PDF-Teil bekommt eigene Lesezeichen. Kostenlos, werbefrei, offline — wie gehabt.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader"
+      }
+    },
     {
       "id": "snapfuchs-1-2-0",
       "typ": "veroeffentlichung",
@@ -160,7 +172,7 @@
       "produkt": "pdfuchsreader",
       "titel": "PDFuchs Reader ist jetzt regulär im Play Store",
       "text": "Der offene Test ist vorbei: Der kostenlose, werbefreie PDF-Reader für Android steht ab sofort regulär im Google Play Store. Lesen, suchen, teilen, drucken und Seiten leicht bearbeiten – alles bleibt auf dem Gerät.",
-      "datum": "2026-07-18",
+      "datum": "2026-07-17",
       "datumQuelle": "platforms[android].since",
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader"

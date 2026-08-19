@@ -2,14 +2,15 @@ slug: pdfuchsreader
 name: PDFuchs Reader
 fullName: FehlerFuchs PDFuchs Reader
 # SEO (2026-08-09)
-seoTitel: "PDFuchs Reader – kostenloser PDF-Reader für Android, ohne Werbung"
-seoBeschreibung: "Kostenloser, werbefreier PDF-Reader für Android: lesen, suchen, teilen, drucken und Seiten bearbeiten – ohne Konto, alles lokal auf dem Gerät."
-tags: ["PDF-Reader", "PDF-Viewer", "Android", "werbefrei", "kostenlos", "ohne Konto"]
+seoTitel: "PDFuchs Reader – PDF- & E-Book-Reader (EPUB) für Android, werbefrei"
+seoBeschreibung: "Kostenloser, werbefreier PDF- & E-Book-Reader für Android: PDF und EPUB lesen, Lesezeichen, Volltextsuche, teilen, drucken – ohne Konto, alles lokal auf dem Gerät."
+tags: ["PDF-Reader", "E-Book-Reader", "EPUB", "PDF-Viewer", "Android", "werbefrei", "kostenlos", "ohne Konto"]
 kind: produkt
-tagline: Der kostenlose, werbefreie PDF-Reader für Android – lesen, suchen, teilen, drucken, Seiten bearbeiten.
+tagline: Der kostenlose, werbefreie PDF- & E-Book-Reader für Android – PDFs und EPUBs lesen, mit Lesezeichen, Suche und Seitenbearbeitung.
 description: >-
-  PDF-Viewer für Android, der ohne Konto und ohne Werbung auskommt: lesen, durchsuchen,
-  teilen, drucken und Seiten leicht bearbeiten. Alles passiert lokal auf dem Gerät.
+  PDF- und E-Book-Reader für Android, der ohne Konto und ohne Werbung auskommt: PDFs lesen,
+  durchsuchen, teilen, drucken und Seiten bearbeiten – und EPUB-E-Books mit anpassbarem
+  Textfluss, Schriftgröße, Lesethema und Lesezeichen. Alles passiert lokal auf dem Gerät.
   Der mobile Zwilling der PDFuchs-Familie.
 audience: [privat, selbststaendige, unternehmen]
 accent: "#9F1239"
@@ -20,7 +21,7 @@ platforms:
     status: verfuegbar
     distribution: play-store
     storeId: eu.fehlerfuchs.pdfuchsreader
-    since: "2026-07-18"
+    since: "2026-07-17"
   # Windows-Teil, zugeliefert von FehlerFuchs_PDFuchs (Hinweis vom 19.07.2026,
   # eingearbeitet 24.07.2026). Der Sonderfall aus _SLUG-EIGENTUEMER.md: EIN
   # Slug, der Stand je Plattform getrennt. Unter Windows wird der Reader nicht
@@ -60,6 +61,20 @@ features:
       - name: Volltextsuche mit hervorgehobenen Treffern
         values: { standard: ja }
       - name: Miniaturübersicht und schneller Seitensprung
+        values: { standard: ja }
+      - name: Lesezeichen im PDF setzen und die Stelle wiederfinden
+        values: { standard: ja }
+
+  - group: E-Books (EPUB)
+    items:
+      - name: EPUB-Dateien öffnen – der Text fließt in die Bildschirmbreite
+        values: { standard: ja }
+        note: Reflow – der Text bricht passend zur Breite um, kein starres Seitenbild.
+      - name: Schriftgröße und Lesethema (hell, sepia, dunkel) frei wählbar
+        values: { standard: ja }
+      - name: Inhaltsverzeichnis führt direkt zum Kapitel
+        values: { standard: ja }
+      - name: Lesezeichen merken sich die Stelle – je Buch
         values: { standard: ja }
 
   - group: Weitergeben
@@ -184,4 +199,4 @@ links:
   alt_html: /apps/pdfuchsreader.html
   contact: /kontakt.html?app=PDFuchs%20Reader&topic=interesse
 
-notes: Seit 18.07.2026 regulär im Play Store, davor offener Test.
+notes: Seit 17.07.2026 regulär im Play Store, davor offener Test.

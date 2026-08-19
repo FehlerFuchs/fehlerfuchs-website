@@ -29,6 +29,18 @@
 
 meldungen:
 
+  - id: pdfuchsreader-1-1-0-ebook
+    typ: update
+    produkt: pdfuchsreader
+    datum: "2026-08-19"
+    titel: "PDFuchs Reader liest jetzt auch E-Books"
+    text: >-
+      Die neue Fassung öffnet neben PDF auch EPUB-Dateien: Der Text passt sich der
+      Bildschirmbreite an, Schriftgröße und Lesethema (hell, sepia, dunkel) sind frei
+      wählbar, das Inhaltsverzeichnis führt direkt zum Kapitel, und Lesezeichen merken
+      sich die Stelle je Buch. Auch der PDF-Teil bekommt eigene Lesezeichen. Kostenlos,
+      werbefrei, offline — wie gehabt.
+
   - id: snapfuchs-1-2-0
     typ: veroeffentlichung
     produkt: snapfuchs
