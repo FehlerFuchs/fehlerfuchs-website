@@ -41,6 +41,19 @@ meldungen:
       sich die Stelle je Buch. Auch der PDF-Teil bekommt eigene Lesezeichen. Kostenlos,
       werbefrei, offline — wie gehabt.
 
+  - id: mobilereport-enterprise-1-0-2
+    typ: update
+    produkt: mobilereport-enterprise
+    version: "1.0.2"
+    titel: MobileReport Enterprise 1.0.2
+    text: >-
+      Eine Sicherheits- und Datenschutz-Überarbeitung nach externer Prüfung: Die automatische
+      Android-Sicherung ist abgeschaltet, sodass alles gezielt in der App bleibt; „Alle Daten
+      löschen" räumt jetzt vollständig auf; Wiederherstellung und Import prüfen jede Datei vor
+      dem Schreiben; der Admin-Passwortschutz ist stärker (PBKDF2); und die Lizenzlaufzeit wird
+      auch offline strikt eingehalten. Die Firmenfassung ist zudem ab sofort auch über Managed
+      Google Play zu beziehen – zusätzlich zum Direkt-Download.
+
   - id: snapfuchs-1-2-0
     typ: veroeffentlichung
     produkt: snapfuchs

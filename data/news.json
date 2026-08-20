@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-19T13:19:17+02:00",
+  "generiert": "2026-08-20T08:07:46+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -13,6 +13,19 @@
       "datumQuelle": "eigene Angabe",
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader"
+      }
+    },
+    {
+      "id": "mobilereport-enterprise-1-0-2",
+      "typ": "update",
+      "produkt": "mobilereport-enterprise",
+      "version": "1.0.2",
+      "titel": "MobileReport Enterprise 1.0.2",
+      "text": "Eine Sicherheits- und Datenschutz-Überarbeitung nach externer Prüfung: Die automatische Android-Sicherung ist abgeschaltet, sodass alles gezielt in der App bleibt; „Alle Daten löschen\" räumt jetzt vollständig auf; Wiederherstellung und Import prüfen jede Datei vor dem Schreiben; der Admin-Passwortschutz ist stärker (PBKDF2); und die Lizenzlaufzeit wird auch offline strikt eingehalten. Die Firmenfassung ist zudem ab sofort auch über Managed Google Play zu beziehen – zusätzlich zum Direkt-Download.",
+      "datum": "2026-08-18",
+      "datumQuelle": "Release 1.0.2",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.0.2/MobileReport-Enterprise-1.0.2.apk"
       }
     },
     {

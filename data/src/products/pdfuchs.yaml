@@ -23,7 +23,7 @@ platforms:
     status: konzept
     distribution: keiner
 
-privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
+privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
 # Registry-DisplayNames der Windows-Installer für die Zuordnung im Update-Helfer
 # Up2Date. PDFuchs trägt sich unter zwei Namen ein (schlicht und mit

@@ -1,13 +1,16 @@
 slug: pdfuchs
 name: PDFuchs
-stand: "2026-08-11"
+stand: "2026-08-19"
 geprueft_von: FehlerFuchs_PDFuchs
 fassung: "v0.1.0_dev (Vorabfassung, noch nicht veroeffentlicht)"
 
 # Hinweis fuer die Pflege: Die angezeigten Felder (auf_dem_geraet,
 # berechtigungen, loeschung, besonderheiten) beschreiben, WAS mit Daten
 # geschieht. Technische Nachweise gehoeren ausschliesslich in "beleg".
-lokal_only: true
+# lokal_only: false (Haus-Konvention, analog DateiWaechter/HaushaltsManager) -
+# die einzige Aussenverbindung ist der nutzerinitiierte Support-/Kontaktversand
+# an license.fehlerfuchs.eu; ohne ausdrueckliches Absenden passiert nichts.
+lokal_only: false
 
 auf_dem_geraet:
   - was: Vom Nutzer geoeffnete und erzeugte PDFs sowie Zwischenergebnisse (Vorschauen, korrigierte Scans, ausfuellbare Formulare, Ergebnisse der Texterkennung)

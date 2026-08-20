@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-19T13:19:17+02:00",
+  "generiert": "2026-08-20T08:07:46+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1646,6 +1646,10 @@
           "answer": "Einmalkauf je Arbeitsplatz, mit Staffelpreisen. Ein Arbeitsplatz ist umbelegbar: Über „Deaktivieren\" geben Sie ihn auf einem Gerät frei, danach lässt er sich auf einem anderen Gerät aktivieren – praktisch bei Geräte- oder Personalwechsel."
         },
         {
+          "question": "Was brauchen wir für die Auslieferung über Managed Google Play?",
+          "answer": "Ihr Betrieb benötigt Android Enterprise mit erweiterter Geräteverwaltung. Je nach Google-Workspace-Tarif ist das bereits enthalten; andernfalls können dafür zusätzliche Kosten bei Google entstehen. Diese werden direkt mit Google abgerechnet, nicht über FehlerFuchs. Alternativ steht Ihnen der Direkt-Download offen – mit vollem Funktionsumfang und identischer App."
+        },
+        {
           "question": "Wie schnell sind wir startklar?",
           "answer": "Sehr schnell: installieren, freischalten, Stammdaten anlegen (Empfänger optional per CSV) – fertig. Kein Server, keine Cloud-Einrichtung."
         },
@@ -2100,7 +2104,7 @@
         }
       ],
       "privacy": [
-        "nur-lokal",
+        "inhalte-lokal",
         "keine-cloud",
         "kein-konto",
         "kein-tracking",
@@ -3836,7 +3840,7 @@
         }
       ],
       "privacy": [
-        "nur-lokal",
+        "inhalte-lokal",
         "keine-cloud",
         "kein-konto",
         "kein-tracking",

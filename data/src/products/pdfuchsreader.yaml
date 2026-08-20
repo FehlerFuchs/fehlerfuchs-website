@@ -34,7 +34,7 @@ platforms:
     distribution: keiner
     requirements: Windows 10/11 (64-bit)
 
-privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
+privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
 editions:
   - id: standard
