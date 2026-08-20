@@ -124,56 +124,62 @@ media:
     alt: "Format-Kennzeichen: liest EPUB-E-Books"
     width: 198
     height: 82
-  # Aus dem Play-Store-Satz des Projekts übernommen und auf Webgröße
-  # gerechnet. Es sind Werbebilder mit Überschrift, keine nackten
-  # Bildschirmabzüge - der Alternativtext sagt das auch so.
+  # Werbebilder mit Überschrift (kein nackter Bildschirmabzug – der Alt-Text sagt
+  # das auch). 1.1-Serie von Marke & IP (20.08.2026), Titelbild „Jetzt auch
+  # E-Books". Telefon 1080×1920, Tablet 2560×1600; Quelle Play-Store-Satz 1.1.
   screenshots:
-    - src: /img/screenshots/pdfuchsreader/handy-01-start.png
-      alt: "Werbebild „Kostenlos, werbefrei, ohne Tracking“ mit dem Startbildschirm: Knopf PDF öffnen und die Liste zuletzt geöffneter Dateien"
-      width: 620
-      height: 1342
+    - src: /img/screenshots/pdfuchsreader/handy-01-ebooks.png
+      alt: "Werbebild „Jetzt auch E-Books“ – der Reader zeigt „Faust“ als EPUB im hellen Lesethema, unten die Regler für Schriftgröße und Thema"
+      width: 1080
+      height: 1920
       geraet: handy
-      titel: "Kostenlos, werbefrei, ohne Tracking"
-    - src: /img/screenshots/pdfuchsreader/handy-02-lesen.png
-      alt: "Werbebild „PDFs schnell öffnen und flüssig lesen“ mit einem geöffneten Handbuch und der Seitenanzeige am unteren Rand"
-      width: 620
-      height: 1342
+      titel: "Jetzt auch E-Books"
+    - src: /img/screenshots/pdfuchsreader/handy-02-pdf-lesen.png
+      alt: "Werbebild „PDFs flüssig lesen“ mit einem geöffneten Handbuch-PDF und der Seitenanzeige am unteren Rand"
+      width: 1080
+      height: 1920
       geraet: handy
-      titel: "Schnell öffnen, flüssig lesen"
-    - src: /img/screenshots/pdfuchsreader/handy-03-suche.png
-      alt: "Werbebild „Volltextsuche mit Trefferhervorhebung“ – im Suchfeld steht „werbe“, daneben die Trefferzahl, im Text sind die Fundstellen gelb markiert"
-      width: 620
-      height: 1342
+      titel: "PDFs flüssig lesen"
+    - src: /img/screenshots/pdfuchsreader/handy-03-lesethema.png
+      alt: "Werbebild „Hell · Sepia · Dunkel“ mit demselben E-Book im dunklen Lesethema"
+      width: 1080
+      height: 1920
       geraet: handy
-      titel: "Volltextsuche mit Hervorhebung"
-    - src: /img/screenshots/pdfuchsreader/handy-04-seiten.png
-      alt: "Werbebild „Seitenübersicht und Sprung zu jeder Seite“ mit den Seitenminiaturen als aufgezogenem Blatt ueber dem Dokument"
-      width: 620
-      height: 1342
+      titel: "Hell · Sepia · Dunkel"
+    - src: /img/screenshots/pdfuchsreader/handy-04-kapitel.png
+      alt: "Werbebild „Schnell zum Kapitel“ mit dem aufgeklappten Inhaltsverzeichnis eines E-Books, das direkt zum Kapitel führt"
+      width: 1080
+      height: 1920
       geraet: handy
-      titel: "Seitenübersicht"
-    - src: /img/screenshots/pdfuchsreader/handy-05-bearbeiten.png
-      alt: "Werbebild „Drehen, löschen, neu ordnen“ mit der Seitenliste, in der jede Seite Knöpfe zum Drehen, Löschen und Verschieben hat"
-      width: 620
-      height: 1342
+      titel: "Schnell zum Kapitel"
+    - src: /img/screenshots/pdfuchsreader/handy-05-suche.png
+      alt: "Werbebild „Sofort finden“ – die Volltextsuche zeigt 31 Treffer für „Fuchs“, im Text gelb hervorgehoben"
+      width: 1080
+      height: 1920
       geraet: handy
-      titel: "Seiten bearbeiten"
-    - src: /img/screenshots/pdfuchsreader/handy-06-datenschutz.png
-      alt: "Werbebild „Datenschutz zuerst“ mit der Datenschutzseite in der App: Abschnitte zu Dateien, Support, Systemfunktionen und Verantwortlichem"
-      width: 620
-      height: 1342
+      titel: "Sofort finden"
+    - src: /img/screenshots/pdfuchsreader/handy-06-ueberblick.png
+      alt: "Werbebild „Überblick behalten“ mit der Seitenübersicht als Miniaturen aller Seiten"
+      width: 1080
+      height: 1920
       geraet: handy
-      titel: "Datenschutz zuerst"
-    - src: /img/screenshots/pdfuchsreader/handy-07-unterstuetzen.png
-      alt: "Werbebild „Von FehlerFuchs“ mit dem Fenster Projekt unterstützen ueber dem Startbildschirm"
-      width: 620
-      height: 1342
+      titel: "Überblick behalten"
+    - src: /img/screenshots/pdfuchsreader/handy-07-lesefluss.png
+      alt: "Werbebild „Reiner Lesefluss“ – die Text-Ansicht bricht ein PDF für angenehmes Lesen auf Handygröße um"
+      width: 1080
+      height: 1920
       geraet: handy
-      titel: "Freiwillig unterstützbar"
-    - src: /img/screenshots/pdfuchsreader/tablet10-lesen.png
-      alt: "Dieselbe Leseansicht auf einem 10-Zoll-Tablet im Querformat"
-      width: 1200
-      height: 750
+      titel: "Reiner Lesefluss"
+    - src: /img/screenshots/pdfuchsreader/handy-08-datenschutz.png
+      alt: "Werbebild „Alles bleibt auf dem Gerät“ mit der Datenschutzseite in der App: Abschnitte zu Dateien, Support und Systemfunktionen"
+      width: 1080
+      height: 1920
+      geraet: handy
+      titel: "Alles bleibt auf dem Gerät"
+    - src: /img/screenshots/pdfuchsreader/tablet10-ebooks.png
+      alt: "Dieselbe E-Book-Leseansicht auf einem 10-Zoll-Tablet im Querformat"
+      width: 2560
+      height: 1600
       geraet: desktop
       titel: "Auch auf dem Tablet"
 # Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
