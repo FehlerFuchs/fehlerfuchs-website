@@ -68,7 +68,7 @@ dienste:
       Lizenz und zugehörige Gerätekennung, solange die Lizenz gilt.
       Kaufabwicklung und Rechnungsdaten liegen beim Zahlungsdienstleister,
       nicht hier.
-    produkte: [mobilereport, mobilereport-enterprise, gewerbepro]
+    produkte: [mobilereport, mobilereport-enterprise, gewerbepro, gewerbepro-companion]
     # Korrigiert am 19.07.2026: Hier stand "der Dienst ist im Aufbau, bis er in
     # Betrieb geht baut keine veröffentlichte Anwendung eine Verbindung dorthin
     # auf". Beides war falsch – der Dienst läuft, und die veröffentlichte

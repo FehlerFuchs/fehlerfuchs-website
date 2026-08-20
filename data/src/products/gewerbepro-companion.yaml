@@ -61,12 +61,13 @@ platforms:
     # Debug-Build auf einem Testgerät, kein veröffentlichtes Paket, kein
     # Store-Eintrag. Die Android-Mindestversion ist noch nicht festgelegt.
 
-# 'nur-lokal': Das Erfassungspaket bleibt als Datei auf dem Gerät – der Weg zum
-# PC (USB/Cloud) ist geplant, nicht umgesetzt. Kein Store, kein In-App-Kauf,
-# keine Telemetrie; der Steckbrief listet keine Übertragung. Damit stimmt die
-# stärkste Zusage tatsächlich. Sobald ein Übertragungsweg oder ein Store dazu-
-# kommt, gehört sie geprüft. Steckbrief: gewerbepro-companion.yaml.
-privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
+# 'inhalte-lokal' statt 'nur-lokal': Geschäfts-/Kundendaten bleiben auf dem Gerät
+# und gehen beim Datenaustausch nur verschlüsselt an den vom Nutzer bestimmten PC
+# (USB/Dateiablage) – nie an FehlerFuchs. Nicht mehr rein lokal ist aber die
+# Lizenz: seit die App lizenzgeschützt ist, kontaktiert sie zur Aktivierung/Prüfung
+# den Lizenzserver (nur Lizenzschlüssel + zufällige Gerätekennung). Kein Store,
+# kein In-App-Kauf, keine Telemetrie. Steckbrief: gewerbepro-companion.yaml.
+privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
 editions:
   - id: standard
