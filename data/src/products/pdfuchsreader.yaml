@@ -117,6 +117,13 @@ media:
     alt: PDFuchs Reader – von FehlerFuchs
     width: 2036
     height: 360
+  # Dezentes Format-Kennzeichen neben der Tagline: markiert, dass der Reader
+  # jetzt auch EPUB-E-Books liest. Grafik von Marke & IP (offene Fassung).
+  badge:
+    src: /img/badges/pdfuchsreader-epub.svg
+    alt: "Format-Kennzeichen: liest EPUB-E-Books"
+    width: 198
+    height: 82
   # Aus dem Play-Store-Satz des Projekts übernommen und auf Webgröße
   # gerechnet. Es sind Werbebilder mit Überschrift, keine nackten
   # Bildschirmabzüge - der Alternativtext sagt das auch so.

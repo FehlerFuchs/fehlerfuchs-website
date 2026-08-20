@@ -645,6 +645,10 @@
         "lockup": {
           "$ref": "#/$defs/bild"
         },
+        "badge": {
+          "$ref": "#/$defs/bild",
+          "description": "Kleines Kennzeichen (Pille/Chip) neben der Tagline, z. B. ein Format-Badge wie EPUB. Dezent, keine neue Aussage."
+        },
         "og": {
           "$ref": "#/$defs/bild"
         },

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-20T09:03:01+02:00",
+  "generiert": "2026-08-20T09:24:51+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -2275,6 +2275,12 @@
           "alt": "PDFuchs Reader – von FehlerFuchs",
           "width": 2036,
           "height": 360
+        },
+        "badge": {
+          "src": "/img/badges/pdfuchsreader-epub.svg",
+          "alt": "Format-Kennzeichen: liest EPUB-E-Books",
+          "width": 198,
+          "height": 82
         },
         "screenshots": [
           {
