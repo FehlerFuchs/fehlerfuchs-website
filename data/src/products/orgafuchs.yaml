@@ -272,7 +272,7 @@ theme:
   text: "#241C14"
   textLeise: "#6B5D4C"
   akzent: "#B4652A"
-  quelle: FehlerFuchs_OrgaFuchs/05_App/orgafuchs/lib/core/theme/app_colors.dart
+  quelle: 32_OrgaFuchs/05_App/orgafuchs/lib/core/theme/app_colors.dart
 
 links:
   # Die ALTE Adresse dieses Produkts, von vor dem 20.07.2026. Sie steht hier

@@ -165,8 +165,8 @@ links:
 
 notes: >-
   Öffentliche Produktfassung (sauberer Fork) des privaten HaushaltsManagers;
-  Produkt-Code FehlerFuchs_HaushaltsManager_Markt. Der private Ordner
-  FehlerFuchs_HaushaltsManager (echte Daten) bleibt gesperrt und wird nie
+  Produkt-Code 36_HaushaltsManager Markt. Der private Ordner
+  HaushaltsManager_PRIVAT (echte Daten) bleibt gesperrt und wird nie
   veröffentlicht. Slug und geprueft_von sind projektseitig geklärt (Eigentümer
   _Markt). Vertriebsmodell wie MobileReport: freier öffentlicher Download der
   signierten .exe (GitHub-Release, 1.0.0 eingetragen), Lizenzschlüssel (20 €,

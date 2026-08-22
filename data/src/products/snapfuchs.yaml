@@ -42,7 +42,7 @@ theme:
   text: "#F0E8DC"             # textPrimaer
   textLeise: "#B0A090"        # textSekundaer
   akzent: "#F4A261"           # akzentOrange
-  quelle: FehlerFuchs_SnapFuchs/05_App/snapfuchs/lib/app/theme.dart
+  quelle: 30_SnapFuchs/05_App/snapfuchs/lib/app/theme.dart
 # Kein Bild-Lockup vorhanden – der Titel steht als Text und trägt
 # die Markenfarben, damit er trotzdem nach FehlerFuchs aussieht.
 wordmark:

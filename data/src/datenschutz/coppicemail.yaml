@@ -1,7 +1,7 @@
 slug: coppicemail
 name: CoppiceMail
 stand: "2026-08-05"
-geprueft_von: FehlerFuchs_CoppiceMail
+geprueft_von: 21_CoppiceMail
 fassung: "1.0.2-rc.1+5 (Flutter/Dart, Windows-Desktop) – interner technischer Release-Kandidat, nicht veroeffentlicht"
 
 # WICHTIG: CoppiceMail ist ein E-Mail-Programm. "Lokal" heisst hier NICHT, dass keine

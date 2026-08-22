@@ -1,7 +1,7 @@
 slug: cleandesk
 name: FehlerFuchs CleanDesk
 stand: "2026-07-19"
-geprueft_von: FehlerFuchs_CleanDesk
+geprueft_von: 24_CleanDesk
 fassung: "0.1.0 (csproj) - Entwicklungsstand v0.2, noch nicht veroeffentlicht"
 
 # Windows-Desktop-Anwendung (.NET 8 / WPF, net8.0-windows). Im gesamten

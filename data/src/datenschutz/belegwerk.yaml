@@ -1,7 +1,7 @@
 slug: belegwerk
 name: BelegWerk
 stand: "2026-08-15"
-geprueft_von: FehlerFuchs_BelegWerk
+geprueft_von: 28_BelegWerk
 fassung: "0.9.0-rc.12 – lokaler Release Candidate"
 
 # Die Belegverarbeitung läuft lokal. Alle inhaltlichen Übertragungen (Paperless,

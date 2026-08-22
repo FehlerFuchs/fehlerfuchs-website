@@ -1,7 +1,7 @@
 slug: up2date
 name: Up2Date – FehlerFuchs Update-Helfer
 stand: "2026-07-26"
-geprueft_von: FehlerFuchs_Up2Date
+geprueft_von: 31_Up2Date
 fassung: "1.0.0 (MVP: Tray, App-Erkennung, Versionsabgleich, Autostart, Feedback; noch nicht veroeffentlicht)"
 
 # Geprueft wurde der Quellstand in 05_App/up2date (lib/), nicht die Beschreibung.

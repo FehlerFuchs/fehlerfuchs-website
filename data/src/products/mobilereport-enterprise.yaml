@@ -234,7 +234,7 @@ theme:
   text: "#1E293B"
   textLeise: "#475569"
   akzent: "#0C5E74"
-  quelle: FehlerFuchs_MobileReport/FehlerFuchsMR_Enterprise/01_App/lib/core/constants/app_colors.dart
+  quelle: 20_MobileReport/FehlerFuchsMR_Enterprise/01_App/lib/core/constants/app_colors.dart
 
 links:
   # Die ALTE Adresse dieses Produkts, von vor dem 20.07.2026. Sie steht hier

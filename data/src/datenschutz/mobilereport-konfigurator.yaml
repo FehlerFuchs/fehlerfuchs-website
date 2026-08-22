@@ -1,7 +1,7 @@
 slug: mobilereport-konfigurator
 name: Branding-Konfigurator
 stand: "2026-07-19"
-geprueft_von: FehlerFuchs_WEBSEITE
+geprueft_von: 10_WEBSEITE
 fassung: >-
   Zwei Fassungen, beide am 19.07.2026 im Quelltext geprüft und inhaltlich
   gleich. (A) Maßgeblich künftig: die Astro-Fassung
@@ -11,13 +11,13 @@ fassung: >-
   HTML-Fassung trägt dieselben Funktionsnamen.
 
 # ---------------------------------------------------------------------------
-# EIGENTÜMER: FehlerFuchs_WEBSEITE.
+# EIGENTÜMER: 10_WEBSEITE.
 # Der Konfigurator ist keine App des MobileReport-Projekts, sondern eine Seite
 # auf fehlerfuchs.eu ohne Serverlogik. Das Enterprise-Whitelabel-Konzept ordnet
 # ihn ausdrücklich dem Website-Projekt zu („statisch, kein Backend"). Das
 # MobileReport-Projekt hat zu Recht gemeldet, bei sich nichts zu finden; seine
 # Meldung liegt daneben als
-#   mobilereport-konfigurator_HINWEIS_von_FehlerFuchs_MobileReport.yaml
+#   mobilereport-konfigurator_HINWEIS_von_20_MobileReport.yaml
 # und ist damit erledigt.
 # ---------------------------------------------------------------------------
 lokal_only: true

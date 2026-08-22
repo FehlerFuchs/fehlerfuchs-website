@@ -26,7 +26,7 @@ WAS GEPRUEFT WIRD (Fund = Abbruch, es wird NICHTS kopiert)
 Aufruf (PowerShell). 'py -3' statt 'python' - auf diesem Rechner zeigt
 'python' auf den Store-Alias und laeuft ins Leere:
 
-    cd D:\\Claude-Projekte\\FehlerFuchs\\FehlerFuchs_WEBSEITE\\website
+    cd D:\\Claude-Projekte\\FehlerFuchs\\10_WEBSEITE\\website
     py -3 tools\\steckbriefe_uebernehmen.py            # nur zeigen
     py -3 tools\\steckbriefe_uebernehmen.py --uebernehmen
     py -3 tools\\build_data.py                         # danach neu bauen
@@ -56,9 +56,9 @@ def finde_quelle():
             return Path(arg.split("=", 1)[1])
 
     kandidaten = [
-        WEBSITE.parent.parent / "_Produktdoku_und_Vertrieb",
-        WEBSITE.parent.parent.parent / "FehlerFuchs" / "_Produktdoku_und_Vertrieb",
-        WEBSITE.parent.parent / "FehlerFuchs" / "_Produktdoku_und_Vertrieb",
+        WEBSITE.parent.parent / "00-1_Produktdoku - Vertrieb und Recht",
+        WEBSITE.parent.parent.parent / "FehlerFuchs" / "00-1_Produktdoku - Vertrieb und Recht",
+        WEBSITE.parent.parent / "FehlerFuchs" / "00-1_Produktdoku - Vertrieb und Recht",
     ]
     for k in kandidaten:
         ordner = k / "Datenschutz-Steckbriefe"

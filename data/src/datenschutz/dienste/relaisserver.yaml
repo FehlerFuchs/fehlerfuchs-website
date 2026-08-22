@@ -1,7 +1,7 @@
 slug: relaisserver
 name: FehlerFuchs Relaisserver (Dienst - Relais und Push)
 stand: "2026-07-19"
-geprueft_von: FehlerFuchs_Relaisserver
+geprueft_von: 11-2_Relaisserver
 fassung: "Stand 19.07.2026 - relay-orgafuchs, ntfy v2.9.0, relay-admin, Caddy 2"
 
 # Hinweis: Dies ist die DIENST-Ebene (dritte Schicht), kein Endnutzer-Produkt.

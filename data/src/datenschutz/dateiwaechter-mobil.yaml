@@ -2,7 +2,7 @@ slug: dateiwaechter-mobil
 slug_vorschlag: false          # Slug steht fest in _SLUG-EIGENTUEMER.md (parent: dateiwaechter)
 name: FehlerFuchs DateiWächter Mobil
 stand: "2026-08-11"
-geprueft_von: FehlerFuchs_DateiWächterMobil
+geprueft_von: 35-1_DateiWächterMobil
 fassung: "Am gebauten Stand geprüft (11.08.2026). Vollwertiger On-Device-Datei-Manager (kostenlos); PC-Anbindung als Pro-Einmalkauf (Subsystem). Auf zwei Testgeräten verifiziert."
 
 # Zwei Ebenen: (1) KERN = Ordnung auf dem Gerät (Datei-Manager, Fotos sortieren, Duplikate, Speicher-

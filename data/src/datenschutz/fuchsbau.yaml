@@ -1,7 +1,7 @@
 slug: fuchsbau
 name: FuchsBau Passwortmanager
 stand: "2026-07-19"
-geprueft_von: FehlerFuchs_FuchsBau
+geprueft_von: 25_FuchsBau
 fassung: "0.6.2+17 (Entwicklungsstand, noch nicht veroeffentlicht)"
 
 # Die App fordert in der Veroeffentlichungsfassung keine Internet-Berechtigung an

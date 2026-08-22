@@ -8,7 +8,7 @@ tags: ["Companion", "mobile Erfassung", "Aufträge", "Fahrten", "Android", "offl
 kind: produkt
 # Ausbaustufe von GewerbePro (Windows). Die Companion-App ist die mobile
 # Ergänzung – eigene Plattform, eigene Merkmale, deshalb ein eigener Slug mit
-# 'parent'. Eigentümer laut _SLUG-EIGENTUEMER.md: FehlerFuchs_GewerbePro_Companion.
+# 'parent'. Eigentümer laut _SLUG-EIGENTUEMER.md: 29-1_GewerbePro Companion.
 parent: gewerbepro
 
 tagline: >-
@@ -38,7 +38,7 @@ theme:
   text: "#2B160B"
   textLeise: "#6F4F44"
   akzent: "#9F1239"
-  quelle: FehlerFuchs_GewerbePro_Companion/21_App_Flutter/gewerbepro_companion/lib/ui/ff_tokens.dart
+  quelle: 29-1_GewerbePro Companion/21_App_Flutter/gewerbepro_companion/lib/ui/ff_tokens.dart
 
 # Noch keine Bildschirmfotos – die Werkstatt zeigt vier Platzhaltermotive,
 # damit die Galerie nicht leer ist. Sobald es echte Bilder gibt, ersetzen.

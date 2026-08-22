@@ -53,7 +53,7 @@ theme:
   text: "#7C3F16"
   textLeise: "#6B5B50"
   akzent: "#C2410C"
-  quelle: FehlerFuchs_AppInsight/lib/core/theme/app_colors.dart
+  quelle: 22_AppInsight/lib/core/theme/app_colors.dart
 
 links:
   # Die ALTE Adresse dieses Produkts, von vor dem 20.07.2026. Sie steht hier

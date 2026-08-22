@@ -2,7 +2,7 @@ slug: haushaltsmanager        # Vorschlag; noch nicht in _SLUG-EIGENTUEMER.md ei
 slug_vorschlag: false
 name: HaushaltsManager
 stand: "2026-08-11"
-geprueft_von: FehlerFuchs_HaushaltsManager_Markt
+geprueft_von: 36_HaushaltsManager Markt
 fassung: >-
   Am gebauten Produkt 1.0.0 geprüft (Produktfassung ohne private Daten, sauberer
   Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Neu ggü. 0.11.1: Lizenz-

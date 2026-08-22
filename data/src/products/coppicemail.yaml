@@ -77,7 +77,7 @@ theme:
   text: "#1A140F"         # ink
   textLeise: "#6B5B50"    # muted
   akzent: "#0F5132"       # primary – Tanne
-  quelle: FehlerFuchs_CoppiceMail/app/ui/theme.py
+  quelle: 21_CoppiceMail/app/ui/theme.py
 
 links:
   # Die ALTE Adresse dieses Produkts, von vor dem 20.07.2026. Sie steht hier

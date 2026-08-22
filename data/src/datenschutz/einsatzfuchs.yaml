@@ -1,7 +1,7 @@
 slug: einsatzfuchs
 name: EinsatzFuchs
 stand: "2026-08-05"
-geprueft_von: FehlerFuchs_EinsatzFuchs
+geprueft_von: 33_EinsatzFuchs
 fassung: "noch nicht veröffentlicht"
 
 # Verlaesst IRGENDEIN Datum das Geraet, wenn man nichts weiter einstellt?
@@ -42,5 +42,5 @@ offene_fragen: >-
   geplant vermerkt, nicht als Tatsache.
   Erledigt am 05.08.2026: Der frueher hier vermerkte offene Punkt zum Slug ist
   gegenstandslos. Der Slug "einsatzfuchs" steht seit 24.07.2026 in
-  _SLUG-EIGENTUEMER.md (Eigentuemer FehlerFuchs_EinsatzFuchs); eine Slug-Liste
+  _SLUG-EIGENTUEMER.md (Eigentuemer 33_EinsatzFuchs); eine Slug-Liste
   im Datenschutz-Prompt gibt es nicht - der Prompt fuehrt keine.

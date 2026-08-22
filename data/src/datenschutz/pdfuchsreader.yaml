@@ -2,7 +2,7 @@ slug: pdfuchsreader
 name: PDFuchs Reader
 stand: "2026-08-19"
 geprueft_von: >-
-  FehlerFuchs_PDFuchs (Slug-Eigentümer seit 18.08.2026; führt Android- und
+  26_PDFuchs (Slug-Eigentümer seit 18.08.2026; führt Android- und
   Windows-Teil). Windows-Teil am 19.08.2026 gegen den aktuellen Quellstand
   gegengeprüft und korrigiert: (a) das Netzverhalten ist nicht mehr
   netzwerkfrei, sondern hat einen NUTZERINITIIERTEN Support-/Kontaktweg
@@ -49,7 +49,7 @@ auf_dem_geraet:
   - was: Per „Öffnen mit"/Teilen hereingereichte PDFs (Arbeitskopie)
     wo: Zwischenspeicher (Cache) der App
     beleg: 05_App/pdfuchsreader_mobile/android/app/src/main/kotlin/com/example/pdfuchsreader_mobile/MainActivity.kt (kopiereNachCache)
-  # --- Windows-Fassung (geprüft, Zulieferung FehlerFuchs_PDFuchs 19.07.2026) ---
+  # --- Windows-Fassung (geprüft, Zulieferung 26_PDFuchs 19.07.2026) ---
   - was: Vom Nutzer geöffnete PDFs und daraus erzeugte Ausgaben
     wo: der vom Nutzer gewählte Speicherort
     beleg: (Windows) 05_Engine/pdfuchs_core/pdfuchs_core/config.py:61

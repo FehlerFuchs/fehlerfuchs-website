@@ -26,11 +26,11 @@ wordmark:
   - { text: "Beleg", color: "#7C3F16", weight: bold }
   - { text: "Werk", color: "#B45309", weight: bold }
 
-# Auf 'pruefung' angehoben (BelegWerk bestätigt 28.07.2026; volles Onboarding aus
-# der Einschreibung am 05.08.2026). Release Candidate vorhanden, aber kein
-# öffentlicher, signierter Release. BEWUSST OHNE Versionsnummer auf der Seite
-# (ausdrücklicher Wunsch BelegWerk).
-status: pruefung
+# Auf 'entwicklung' korrigiert (BelegWerk-Bitte vom 05.08.2026, bestätigt Matthias
+# 22.08.2026): 'pruefung' suggerierte eine Reife, die es nicht gibt — RC vorhanden,
+# aber nicht signiert, kein öffentlicher Release, dazu ein offener P1 (unsichtbares
+# WebView-Fenster). BEWUSST OHNE Versionsnummer auf der Seite (Wunsch BelegWerk).
+status: entwicklung
 # Sichtbarkeits-Ausnahme (Matthias, 05.08.2026): BelegWerk bekommt bewusst eine
 # volle RC-Seite (wie OrgaFuchs) statt nur einer Pool-Kachel – deshalb sichtbar,
 # obwohl noch nicht 'verfuegbar'. Kein öffentlicher Download bis zur Freigabe.
@@ -38,12 +38,12 @@ vorabSichtbar: true
 
 platforms:
   - os: windows
-    status: pruefung
+    status: entwicklung
     requirements: Windows 10/11, 64-Bit
     since: "2026-07-27"
     distribution: keiner
     hinweis:
-      wenn: pruefung
+      wenn: entwicklung
       text: >-
         Release Candidate, noch kein öffentlicher Download; digitale Signierung
         und freigegebener Alltagstest stehen vor der Finalversion aus.
@@ -212,7 +212,7 @@ theme:
   text: "#2B160B"         # ink
   textLeise: "#6F4F44"    # textSecondary
   akzent: "#C2410C"       # primary – Aktion-Orange
-  quelle: FehlerFuchs_BelegWerk/11_App_Flutter/belegwerk_desktop/lib/ui/ff_tokens.dart
+  quelle: 28_BelegWerk/11_App_Flutter/belegwerk_desktop/lib/ui/ff_tokens.dart
 
 media:
   lockup:

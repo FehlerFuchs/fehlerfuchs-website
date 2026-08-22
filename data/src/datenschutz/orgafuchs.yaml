@@ -1,7 +1,7 @@
 slug: orgafuchs
 name: OrgaFuchs
 stand: "2026-08-15"
-geprueft_von: FehlerFuchs_OrgaFuchs
+geprueft_von: 32_OrgaFuchs
 # NACHTRAG 1.6.0/1.6.1 (14./15.08.2026): KEIN neues Uebertragungsziel, KEINE neue
 # Datenkategorie, KEINE Weitergabe an Dritte. Relevante Aenderungen:
 #  - "Nachricht an alle" (frueher "Erinnerung an alle"): kurze Klartext-Nachrichten an die

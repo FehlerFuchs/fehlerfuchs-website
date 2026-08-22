@@ -1,7 +1,7 @@
 slug: lizenzserver
 name: FehlerFuchs Lizenzserver
 stand: "2026-07-20"
-geprueft_von: FehlerFuchs_Lizenzserver
+geprueft_von: 11_Lizenzserver
 fassung: "Adapter-Stand 20.07.2026 (kein Versionsschema); Admin-API 1.0; mit Löschlauf und Wunscherfüller"
 
 # Kein Endnutzer-Programm, sondern ein Server-Dienst. Daten verlassen das Gerät

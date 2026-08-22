@@ -217,7 +217,7 @@ theme:
   modus: hell
   text: "#2B160B"    # Markenschwarz, ausdrücklich nicht #000000
   akzent: "#8A6A1E"  # verbindlich – Kontrast 5,1:1 gegen Weiß
-  quelle: FehlerFuchs_EinzelStueck/04_Marke/MARKE_EinzelStueck.md
+  quelle: 37_EinzelStueck/04_Marke/MARKE_EinzelStueck.md
 
 links:
   # Auf der bestehenden Website gibt es dieses Angebot noch nicht; bis dahin

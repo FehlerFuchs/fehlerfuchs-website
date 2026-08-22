@@ -7,7 +7,7 @@ seoBeschreibung: "Kleiner Helfer im Windows-Infobereich: behält installierte Fe
 tags: ["Updates", "Versionsprüfung", "Windows", "Infobereich", "FehlerFuchs"]
 kind: produkt
 # Eigener Slug laut _SLUG-EIGENTUEMER.md (aufgenommen 19.07.2026), Eigentümer
-# FehlerFuchs_Up2Date. Die Einschreibung fragt, ob Up2Date eine eigene Seite
+# 31_Up2Date. Die Einschreibung fragt, ob Up2Date eine eigene Seite
 # bekommt oder nur auf anderen Seiten erwähnt wird – da es einen eigenen Slug
 # trägt und gepflegt werden soll, bekommt es eine eigene, mit dem klaren
 # Vermerk, dass erst das Grundgerüst steht.
@@ -42,7 +42,7 @@ theme:
   text: "#FFF7ED"
   textLeise: "#C9B7A6"
   akzent: "#F59E42"
-  quelle: FehlerFuchs_Up2Date/05_App/up2date/lib/theme.dart
+  quelle: 31_Up2Date/05_App/up2date/lib/theme.dart
 
 # Kein eigenes Logo – Up2Date nutzt die Dachmarke, deshalb kein Lockup.
 wordmark:

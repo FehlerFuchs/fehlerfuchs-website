@@ -1,7 +1,7 @@
 slug: wachfuchs
 name: WachFuchs
 stand: "2026-08-16"
-geprueft_von: FehlerFuchs_WachFuchs
+geprueft_von: 34_WachFuchs
 fassung: "Entwicklungsphase – App-Geruest steht (flutter create 03.08.2026, gemeinsamer Kern fehlerfuchs_kern eingebunden), noch kein Store-Eintrag. Angaben aus Architektur-Konzept (Entwurf 1, Abschnitt 7), ergaenzt um die Entscheidungen vom 02.–04.08.2026 (Vertriebsmodell, Korrekturkanal, Pruefvermerke)"
 
 # App vorhanden, aber ohne Konto und ohne personenbezogene Daten.

@@ -1,7 +1,7 @@
 slug: dateiwaechter          # entschieden 08.08.2026; in _SLUG-EIGENTUEMER.md eingetragen (11.08.2026)
 name: DateiWächter
 stand: "2026-08-11"
-geprueft_von: FehlerFuchs_DateiWächter
+geprueft_von: 35_DateiWächter
 fassung: >-
   App gebaut und ausgeliefert (v0.5.4). Angaben am tatsächlichen Code geprüft. Windows-Desktop-Tool,
   überwiegend lokal; seit v0.4 zusätzlich eine optionale, ausdrücklich zu koppelnde Handy-Verbindung
@@ -94,6 +94,6 @@ vorhandener_text: ""
 offene_fragen: >-
   1) Feinabgleich der genauen Feldliste der Support-Diagnosedatei (Konzept §7) gegen die
   Implementierung ist erledigt; bei künftigen Änderungen hier nachziehen. 2) Der Handy-seitige
-  Gegenpart (FehlerFuchs_DateiWächterMobil, Slug „dateiwaechter-mobil“) führt einen eigenen
+  Gegenpart (35-1_DateiWächterMobil, Slug „dateiwaechter-mobil“) führt einen eigenen
   Steckbrief; dort ist zusätzlich Google Play Billing (Pro-Einmalkauf) zu berücksichtigen –
   betrifft den PC-Steckbrief NICHT (auf dem PC kein Kauf, keine Lizenzprüfung).

@@ -52,7 +52,7 @@ theme:
   text: "#2B241C"
   textLeise: "#6E6657"
   akzent: "#2C5740"
-  quelle: FehlerFuchs_FuchsBau/fuchsbau/lib/core/theme/app_theme.dart
+  quelle: 25_FuchsBau/fuchsbau/lib/core/theme/app_theme.dart
 
 links:
   # Die ALTE Adresse dieses Produkts, von vor dem 20.07.2026. Sie steht hier

@@ -1,7 +1,7 @@
 slug: snapfuchs
 name: SnapFuchs
 stand: "2026-08-17"
-geprueft_von: FehlerFuchs_SnapFuchs
+geprueft_von: 30_SnapFuchs
 fassung: "1.2.0 (versionCode 9)"
 
 # Beim App-Start fragt die Pro-Freischaltung automatisch den Kaufstatus bei

@@ -57,7 +57,7 @@ theme:
   text: "#2B160B"         # ink
   textLeise: "#6B5544"    # lightTextSoft
   akzent: "#5B8A72"       # sage
-  quelle: FehlerFuchs_CheckIn_Vita/src/lib/core/theme/app_colors.dart
+  quelle: 23_CheckInVita/src/lib/core/theme/app_colors.dart
 
 links:
   # Die ALTE Adresse dieses Produkts, von vor dem 20.07.2026. Sie steht hier

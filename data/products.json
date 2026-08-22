@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-20T09:36:25+02:00",
+  "generiert": "2026-08-22T16:35:26+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -380,7 +380,7 @@
         "modus": "hell",
         "text": "#2B160B",
         "akzent": "#8A6A1E",
-        "quelle": "FehlerFuchs_EinzelStueck/04_Marke/MARKE_EinzelStueck.md"
+        "quelle": "37_EinzelStueck/04_Marke/MARKE_EinzelStueck.md"
       },
       "links": {
         "contact": "/kontakt.html?topic=einzelstueck"
@@ -957,7 +957,7 @@
         "text": "#2B160B",
         "textLeise": "#6F4F44",
         "akzent": "#9F1239",
-        "quelle": "FehlerFuchs_GewerbePro/21_App_Flutter/gewerbepro_desktop/lib/ui/ff_tokens.dart"
+        "quelle": "29_GewerbePro/21_App_Flutter/gewerbepro_desktop/lib/ui/ff_tokens.dart"
       },
       "links": {
         "alt_html": "/apps/gewerbepro.html",
@@ -1181,7 +1181,7 @@
         "checkout": "https://www.checkout-ds24.com/product/721203",
         "contact": "/kontakt.html?app=HaushaltsManager&topic=interesse"
       },
-      "notes": "Öffentliche Produktfassung (sauberer Fork) des privaten HaushaltsManagers; Produkt-Code FehlerFuchs_HaushaltsManager_Markt. Der private Ordner FehlerFuchs_HaushaltsManager (echte Daten) bleibt gesperrt und wird nie veröffentlicht. Slug und geprueft_von sind projektseitig geklärt (Eigentümer _Markt). Vertriebsmodell wie MobileReport: freier öffentlicher Download der signierten .exe (GitHub-Release, 1.0.0 eingetragen), Lizenzschlüssel (20 €, 5 Arbeitsplätze) über Digistore24 (Produkt 721203). Offen: Testkauf + Digistore \"Aktiv = Ja\" (Vertrieb/Lizenzserver), echte Screenshots (Projekt)."
+      "notes": "Öffentliche Produktfassung (sauberer Fork) des privaten HaushaltsManagers; Produkt-Code 36_HaushaltsManager Markt. Der private Ordner HaushaltsManager_PRIVAT (echte Daten) bleibt gesperrt und wird nie veröffentlicht. Slug und geprueft_von sind projektseitig geklärt (Eigentümer _Markt). Vertriebsmodell wie MobileReport: freier öffentlicher Download der signierten .exe (GitHub-Release, 1.0.0 eingetragen), Lizenzschlüssel (20 €, 5 Arbeitsplätze) über Digistore24 (Produkt 721203). Offen: Testkauf + Digistore \"Aktiv = Ja\" (Vertrieb/Lizenzserver), echte Screenshots (Projekt)."
     },
     {
       "slug": "mobilereport",
@@ -1435,7 +1435,7 @@
         "flaeche": "#FFFFFF",
         "text": "#2B160B",
         "akzent": "#C2410C",
-        "quelle": "FehlerFuchs_MobileReport/FehlerFuchsMR/lib/core/constants/app_colors.dart"
+        "quelle": "20_MobileReport/FehlerFuchsMR/lib/core/constants/app_colors.dart"
       },
       "links": {
         "alt_html": "/apps/mobilereport.html",
@@ -1687,7 +1687,7 @@
         "text": "#1E293B",
         "textLeise": "#475569",
         "akzent": "#0C5E74",
-        "quelle": "FehlerFuchs_MobileReport/FehlerFuchsMR_Enterprise/01_App/lib/core/constants/app_colors.dart"
+        "quelle": "20_MobileReport/FehlerFuchsMR_Enterprise/01_App/lib/core/constants/app_colors.dart"
       },
       "links": {
         "alt_html": "/apps/mobilereport-enterprise.html",
@@ -2038,7 +2038,7 @@
         "text": "#241C14",
         "textLeise": "#6B5D4C",
         "akzent": "#B4652A",
-        "quelle": "FehlerFuchs_OrgaFuchs/05_App/orgafuchs/lib/core/theme/app_colors.dart"
+        "quelle": "32_OrgaFuchs/05_App/orgafuchs/lib/core/theme/app_colors.dart"
       },
       "links": {
         "alt_html": "/apps/orgafuchs.html",
@@ -2365,7 +2365,7 @@
         "text": "#2B160B",
         "textLeise": "#6F4F44",
         "akzent": "#9F1239",
-        "quelle": "FehlerFuchs_PDFuchsReader_Mobile/05_App/pdfuchsreader_mobile/lib/ui/ff_tokens.dart"
+        "quelle": "26-1_PDFuchsReader Mobile/05_App/pdfuchsreader_mobile/lib/ui/ff_tokens.dart"
       },
       "links": {
         "alt_html": "/apps/pdfuchsreader.html",
@@ -2405,7 +2405,7 @@
         "text": "#F0E8DC",
         "textLeise": "#B0A090",
         "akzent": "#F4A261",
-        "quelle": "FehlerFuchs_SnapFuchs/05_App/snapfuchs/lib/app/theme.dart"
+        "quelle": "30_SnapFuchs/05_App/snapfuchs/lib/app/theme.dart"
       },
       "wordmark": [
         {
@@ -2823,6 +2823,77 @@
       "notes": "Am 20.07.2026 im Play Store freigegeben. Offen: eine eigene Produktseite (derzeit wird die Vorlage benutzt) und die Bildschirmfotos gegen die veröffentlichte Fassung prüfen."
     },
     {
+      "slug": "appinsight",
+      "name": "AppInsight",
+      "fullName": "FehlerFuchs AppInsight",
+      "seoTitel": "AppInsight – App-Berechtigungen & Tracker verständlich sehen (Android)",
+      "seoBeschreibung": "Sieh verständlich, was installierte Apps tun: Berechtigungen, Tracker, Datenverbrauch und Server-Kontakte – auf einen Blick, lokal auf dem Android-Gerät.",
+      "tags": [
+        "App-Berechtigungen",
+        "Tracker",
+        "Datenschutz",
+        "Android",
+        "App-Analyse",
+        "lokal"
+      ],
+      "kind": "produkt",
+      "tagline": "Sieh verständlich, was installierte Apps wirklich tun – Berechtigungen, Tracker, Verbrauch und Server-Kontakte.",
+      "description": "Zeigt in klarer Sprache, welche Berechtigungen installierte Apps haben, welche Tracker sie enthalten, wie viel sie verbrauchen und mit welchen Servern sie sprechen – mit einer Ampel-Einordnung statt pauschaler Urteile.",
+      "audience": [
+        "privat"
+      ],
+      "accent": "#C2410C",
+      "status": "entwicklung",
+      "platforms": [
+        {
+          "os": "android",
+          "status": "entwicklung",
+          "distribution": "keiner"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "AppInsight",
+          "public": true,
+          "price": {
+            "model": "offen"
+          }
+        }
+      ],
+      "releases": [],
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/appinsight.svg",
+          "alt": "AppInsight – von FehlerFuchs",
+          "width": 1500,
+          "height": 360
+        },
+        "platzhalter": 4
+      },
+      "theme": {
+        "modus": "hell",
+        "hintergrund": "#FFF7ED",
+        "flaeche": "#FFFFFF",
+        "rand": "#F0DFC9",
+        "text": "#7C3F16",
+        "textLeise": "#6B5B50",
+        "akzent": "#C2410C",
+        "quelle": "22_AppInsight/lib/core/theme/app_colors.dart"
+      },
+      "links": {
+        "alt_html": "/apps/appinsight.html",
+        "contact": "/kontakt.html?app=AppInsight&topic=interesse"
+      }
+    },
+    {
       "slug": "belegwerk",
       "name": "BelegWerk",
       "fullName": "FehlerFuchs BelegWerk",
@@ -2862,17 +2933,17 @@
           "weight": "bold"
         }
       ],
-      "status": "pruefung",
+      "status": "entwicklung",
       "vorabSichtbar": true,
       "platforms": [
         {
           "os": "windows",
-          "status": "pruefung",
+          "status": "entwicklung",
           "requirements": "Windows 10/11, 64-Bit",
           "since": "2026-07-27",
           "distribution": "keiner",
           "hinweis": {
-            "wenn": "pruefung",
+            "wenn": "entwicklung",
             "text": "Release Candidate, noch kein öffentlicher Download; digitale Signierung und freigegebener Alltagstest stehen vor der Finalversion aus."
           }
         }
@@ -3269,7 +3340,7 @@
         "text": "#2B160B",
         "textLeise": "#6F4F44",
         "akzent": "#C2410C",
-        "quelle": "FehlerFuchs_BelegWerk/11_App_Flutter/belegwerk_desktop/lib/ui/ff_tokens.dart"
+        "quelle": "28_BelegWerk/11_App_Flutter/belegwerk_desktop/lib/ui/ff_tokens.dart"
       },
       "media": {
         "lockup": {
@@ -3284,77 +3355,6 @@
         "contact": "/kontakt.html?app=BelegWerk&topic=interesse"
       },
       "notes": "Anbindung an Paperless bedeutet, dass Daten an ein selbst betriebenes Archiv gehen. Das Merkmal „keine-cloud\" ist deshalb bewusst nicht gesetzt – es hängt davon ab, wo der Nutzer sein Paperless betreibt."
-    },
-    {
-      "slug": "appinsight",
-      "name": "AppInsight",
-      "fullName": "FehlerFuchs AppInsight",
-      "seoTitel": "AppInsight – App-Berechtigungen & Tracker verständlich sehen (Android)",
-      "seoBeschreibung": "Sieh verständlich, was installierte Apps tun: Berechtigungen, Tracker, Datenverbrauch und Server-Kontakte – auf einen Blick, lokal auf dem Android-Gerät.",
-      "tags": [
-        "App-Berechtigungen",
-        "Tracker",
-        "Datenschutz",
-        "Android",
-        "App-Analyse",
-        "lokal"
-      ],
-      "kind": "produkt",
-      "tagline": "Sieh verständlich, was installierte Apps wirklich tun – Berechtigungen, Tracker, Verbrauch und Server-Kontakte.",
-      "description": "Zeigt in klarer Sprache, welche Berechtigungen installierte Apps haben, welche Tracker sie enthalten, wie viel sie verbrauchen und mit welchen Servern sie sprechen – mit einer Ampel-Einordnung statt pauschaler Urteile.",
-      "audience": [
-        "privat"
-      ],
-      "accent": "#C2410C",
-      "status": "entwicklung",
-      "platforms": [
-        {
-          "os": "android",
-          "status": "entwicklung",
-          "distribution": "keiner"
-        }
-      ],
-      "privacy": [
-        "nur-lokal",
-        "keine-cloud",
-        "kein-konto",
-        "kein-tracking",
-        "werbefrei"
-      ],
-      "editions": [
-        {
-          "id": "standard",
-          "name": "AppInsight",
-          "public": true,
-          "price": {
-            "model": "offen"
-          }
-        }
-      ],
-      "releases": [],
-      "media": {
-        "lockup": {
-          "src": "/img/lockups/appinsight.svg",
-          "alt": "AppInsight – von FehlerFuchs",
-          "width": 1500,
-          "height": 360
-        },
-        "platzhalter": 4
-      },
-      "theme": {
-        "modus": "hell",
-        "hintergrund": "#FFF7ED",
-        "flaeche": "#FFFFFF",
-        "rand": "#F0DFC9",
-        "text": "#7C3F16",
-        "textLeise": "#6B5B50",
-        "akzent": "#C2410C",
-        "quelle": "FehlerFuchs_AppInsight/lib/core/theme/app_colors.dart"
-      },
-      "links": {
-        "alt_html": "/apps/appinsight.html",
-        "contact": "/kontakt.html?app=AppInsight&topic=interesse"
-      }
     },
     {
       "slug": "cleandesk",
@@ -3419,7 +3419,7 @@
         "hintergrund": "#0B2A30",
         "text": "#FFF7ED",
         "akzent": "#34B3CE",
-        "quelle": "FehlerFuchs_CleanDesk/01_Branding/Branding-Notizen.md"
+        "quelle": "24_CleanDesk/01_Branding/Branding-Notizen.md"
       },
       "links": {
         "alt_html": "/apps/cleandesk.html",
@@ -3489,7 +3489,7 @@
         "text": "#1A140F",
         "textLeise": "#6B5B50",
         "akzent": "#0F5132",
-        "quelle": "FehlerFuchs_CoppiceMail/app/ui/theme.py"
+        "quelle": "21_CoppiceMail/app/ui/theme.py"
       },
       "links": {
         "alt_html": "/apps/coppicemail.html",
@@ -3615,7 +3615,7 @@
         "text": "#2B241C",
         "textLeise": "#6E6657",
         "akzent": "#2C5740",
-        "quelle": "FehlerFuchs_FuchsBau/fuchsbau/lib/core/theme/app_theme.dart"
+        "quelle": "25_FuchsBau/fuchsbau/lib/core/theme/app_theme.dart"
       },
       "links": {
         "alt_html": "/apps/fuchsbau.html",
@@ -3653,7 +3653,7 @@
         "text": "#2B160B",
         "textLeise": "#6F4F44",
         "akzent": "#9F1239",
-        "quelle": "FehlerFuchs_GewerbePro_Companion/21_App_Flutter/gewerbepro_companion/lib/ui/ff_tokens.dart"
+        "quelle": "29-1_GewerbePro Companion/21_App_Flutter/gewerbepro_companion/lib/ui/ff_tokens.dart"
       },
       "media": {
         "platzhalter": 4
@@ -3894,7 +3894,7 @@
         "text": "#2B160B",
         "textLeise": "#6F4F44",
         "akzent": "#9F1239",
-        "quelle": "FehlerFuchs_PDFuchs/11_App_Flutter/pdfuchs_desktop/lib/ui/ff_tokens.dart"
+        "quelle": "26_PDFuchs/11_App_Flutter/pdfuchs_desktop/lib/ui/ff_tokens.dart"
       },
       "links": {
         "alt_html": "/apps/pdfuchs.html",
@@ -3931,7 +3931,7 @@
         "text": "#FFF7ED",
         "textLeise": "#C9B7A6",
         "akzent": "#F59E42",
-        "quelle": "FehlerFuchs_Up2Date/05_App/up2date/lib/theme.dart"
+        "quelle": "31_Up2Date/05_App/up2date/lib/theme.dart"
       },
       "wordmark": [
         {
@@ -4176,7 +4176,7 @@
         "text": "#2B160B",
         "textLeise": "#6B5544",
         "akzent": "#5B8A72",
-        "quelle": "FehlerFuchs_CheckIn_Vita/src/lib/core/theme/app_colors.dart"
+        "quelle": "23_CheckInVita/src/lib/core/theme/app_colors.dart"
       },
       "links": {
         "alt_html": "/apps/checkin-vita.html",
@@ -4229,7 +4229,7 @@
         "text": "#2B160B",
         "textLeise": "#7C3F16",
         "akzent": "#B0201E",
-        "quelle": "FehlerFuchs_EinsatzFuchs/03_Doku/HANDOFF_Marke_Farbkonzept_EinsatzFuchs.md"
+        "quelle": "33_EinsatzFuchs/03_Doku/HANDOFF_Marke_Farbkonzept_EinsatzFuchs.md"
       },
       "media": {
         "lockup": {

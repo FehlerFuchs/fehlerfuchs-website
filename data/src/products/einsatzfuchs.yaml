@@ -6,7 +6,7 @@ seoTitel: "EinsatzFuchs – Offline-App für die Freiwillige Feuerwehr"
 seoBeschreibung: "Kostenlose, werbefreie Offline-App für die Freiwillige Feuerwehr: Einsatzrechner, Merksätze und Nachschlagewerke in einer App statt fünf."
 tags: ["Feuerwehr", "Einsatzrechner", "Freiwillige Feuerwehr", "Android", "offline", "werbefrei"]
 kind: produkt
-# Eigener Slug, Eigentümer FehlerFuchs_EinsatzFuchs (in _SLUG-EIGENTUEMER.md
+# Eigener Slug, Eigentümer 33_EinsatzFuchs (in _SLUG-EIGENTUEMER.md
 # eingetragen von ChefBüro, 24.07.2026). Einschreibung zusammengestellt aus
 # Konzept, MVP-Schnitt v0.1, Technik-Entscheidung und Marke V2.
 #
@@ -82,7 +82,7 @@ theme:
   text: "#2B160B"
   textLeise: "#7C3F16"
   akzent: "#B0201E"
-  quelle: FehlerFuchs_EinsatzFuchs/03_Doku/HANDOFF_Marke_Farbkonzept_EinsatzFuchs.md
+  quelle: 33_EinsatzFuchs/03_Doku/HANDOFF_Marke_Farbkonzept_EinsatzFuchs.md
 
 # Bild-Wortmarke aus dem Markenordner (V2). Ist sie gesetzt, ist SIE der
 # sichtbare Titel; die Überschrift steht nur für Vorlesegeräte.

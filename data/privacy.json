@@ -1,13 +1,13 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-20T09:36:25+02:00",
+  "generiert": "2026-08-22T16:35:26+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
       "slug": "belegwerk",
       "name": "BelegWerk",
       "stand": "2026-08-15",
-      "geprueft_von": "FehlerFuchs_BelegWerk",
+      "geprueft_von": "28_BelegWerk",
       "fassung": "0.9.0-rc.12 – lokaler Release Candidate",
       "lokal_only": false,
       "auf_dem_geraet": [
@@ -166,7 +166,7 @@
       "slug": "mobilereport-konfigurator",
       "name": "Branding-Konfigurator",
       "stand": "2026-07-19",
-      "geprueft_von": "FehlerFuchs_WEBSEITE",
+      "geprueft_von": "10_WEBSEITE",
       "fassung": "Zwei Fassungen, beide am 19.07.2026 im Quelltext geprüft und inhaltlich gleich. (A) Maßgeblich künftig: die Astro-Fassung astro/src/pages/produkte/mobilereport-konfigurator.astro. (B) Derzeit über fehlerfuchs.eu ausgeliefert: website/apps/mobilereport-konfigurator.html (Commit 0e09025). Die Belege unten nennen die Astro-Fassung; die HTML-Fassung trägt dieselben Funktionsnamen.",
       "lokal_only": true,
       "auf_dem_geraet": [
@@ -208,7 +208,7 @@
       "slug": "checkin-vita",
       "name": "CheckInVita",
       "stand": "2026-07-19",
-      "geprueft_von": "FehlerFuchs_CheckIn_Vita",
+      "geprueft_von": "23_CheckInVita",
       "fassung": "0.2.0+1 – Android-Stand, noch nicht veröffentlicht (Windows-Fassung baut, ebenfalls unveröffentlicht)",
       "lokal_only": true,
       "auf_dem_geraet": [
@@ -329,7 +329,7 @@
       "slug": "coppicemail",
       "name": "CoppiceMail",
       "stand": "2026-08-05",
-      "geprueft_von": "FehlerFuchs_CoppiceMail",
+      "geprueft_von": "21_CoppiceMail",
       "fassung": "1.0.2-rc.1+5 (Flutter/Dart, Windows-Desktop) – interner technischer Release-Kandidat, nicht veroeffentlicht",
       "lokal_only": false,
       "auf_dem_geraet": [
@@ -488,7 +488,7 @@
       "slug": "dateiwaechter",
       "name": "DateiWächter",
       "stand": "2026-08-11",
-      "geprueft_von": "FehlerFuchs_DateiWächter",
+      "geprueft_von": "35_DateiWächter",
       "fassung": "App gebaut und ausgeliefert (v0.5.4). Angaben am tatsächlichen Code geprüft. Windows-Desktop-Tool, überwiegend lokal; seit v0.4 zusätzlich eine optionale, ausdrücklich zu koppelnde Handy-Verbindung zum verschlüsselten Dateitransfer (siehe uebertragungen/besonderheiten).",
       "lokal_only": false,
       "auf_dem_geraet": [
@@ -540,14 +540,14 @@
       "loeschung": "Es werden keine personenbezogenen Daten erhoben oder gespeichert. Konfiguration und Protokolldateien liegen lokal; der Deinstaller fragt, ob sie mit entfernt werden sollen (Vorgabe: behalten). Protokolle werden ohnehin nach 30 Tagen automatisch gelöscht. Die verschobenen Dateien sind die eigenen Dateien des Nutzers und bleiben beim Nutzer (nur lokal bzw. auf das eigene Netzlaufwerk verschoben).",
       "besonderheiten": "Kernversprechen: „Deine Dateien verlassen deinen Rechner nicht.“ Der Wächter verschiebt VERIFIZIERT (Copy → SHA256 Quelle==Ziel → erst dann Quelle löschen); bei Abweichung oder nicht erreichbarem Ziel bleibt die Quelle erhalten. Gelöscht wird bevorzugt in den Papierkorb. Das Aufräum-Modul löscht ausschließlich benutzer-level Kandidaten (Temp/Papierkorb/Caches) nach Analyse und Bestätigung, Whitelist-basiert, niemals Systempfade und niemals Nutzerdokumente. Keine Telemetrie – bewusst entschieden am 08.08.2026. Die pauschale Aussage „keine Cloud, keine Telemetrie“ wird auf der Produktseite bewusst präzisiert, weil die abschaltbare Versionsprüfung eine Verbindung darstellt. Präzisierung zur Handy-Verbindung (seit v0.4): „Deine Dateien verlassen deinen Rechner nicht“ gilt für den Wächter-/Aufräum-Betrieb; die Handy-Verbindung überträgt Dateien nur, wenn der Nutzer sie ausdrücklich koppelt und sendet/empfängt – dann Ende-zu-Ende verschlüsselt über einen inhaltsblinden Vermittlungsdienst oder direkt im lokalen Netz. Empfang und Direktweg sind Opt-in.",
       "vorhandener_text": "",
-      "offene_fragen": "1) Feinabgleich der genauen Feldliste der Support-Diagnosedatei (Konzept §7) gegen die Implementierung ist erledigt; bei künftigen Änderungen hier nachziehen. 2) Der Handy-seitige Gegenpart (FehlerFuchs_DateiWächterMobil, Slug „dateiwaechter-mobil“) führt einen eigenen Steckbrief; dort ist zusätzlich Google Play Billing (Pro-Einmalkauf) zu berücksichtigen – betrifft den PC-Steckbrief NICHT (auf dem PC kein Kauf, keine Lizenzprüfung).",
+      "offene_fragen": "1) Feinabgleich der genauen Feldliste der Support-Diagnosedatei (Konzept §7) gegen die Implementierung ist erledigt; bei künftigen Änderungen hier nachziehen. 2) Der Handy-seitige Gegenpart (35-1_DateiWächterMobil, Slug „dateiwaechter-mobil“) führt einen eigenen Steckbrief; dort ist zusätzlich Google Play Billing (Pro-Einmalkauf) zu berücksichtigen – betrifft den PC-Steckbrief NICHT (auf dem PC kein Kauf, keine Lizenzprüfung).",
       "art": "anwendung"
     },
     {
       "slug": "einsatzfuchs",
       "name": "EinsatzFuchs",
       "stand": "2026-08-05",
-      "geprueft_von": "FehlerFuchs_EinsatzFuchs",
+      "geprueft_von": "33_EinsatzFuchs",
       "fassung": "noch nicht veröffentlicht",
       "lokal_only": true,
       "konto_noetig": false,
@@ -557,14 +557,14 @@
       "daten_an_dritte_verkauft": false,
       "loeschung": "Alle Inhalte und Einstellungen liegen auf dem Geraet. Sie verschwinden, wenn man die App deinstalliert.",
       "besonderheiten": "EinsatzFuchs ist eine offline-faehige App fuer die Freiwillige Feuerwehr, nicht-kommerziell und ohne Konto. Sie ist in der Konzeptphase, es gibt noch keinen Code. Stand 26.07.2026 geprueft: seit dem 24.07. hat sich datenschutzrechtlich nichts geaendert. Der MVP-Schnitt v0.1 ist am 25.07. abgenommen und die Formel-Verifikation (Block 0.5) laeuft - beides betrifft nur den fachlichen Inhalt der Rechner, nicht die Datenverarbeitung. v0.1 bleibt ausdruecklich ohne jeden Netzzugriff. Stand 05.08.2026 geprueft: seit dem 26.07. hat sich datenschutzrechtlich nichts geaendert. Geaendert wurde nur der Fachinhalt der Formelbank (FORMELN_EinsatzFuchs.md, Fassung 4) - Rechenwege und Quellenbelege, keine Datenverarbeitung. Es gibt weiterhin keinen Code.",
-      "offene_fragen": "Die Anwendung ist in Entwicklung; Angaben folgen, sobald der Funktionsumfang steht. Laut Konzept ist der einzige geplante Netzzugriff die Versionspruefung und der Paket-Download von fehlerfuchs.eu (Inhaltsaktualisierung, vom Nutzer ausgeloest); ausserdem ruft die Lagekarte OSM-/Overpass-Kartendaten ab, wenn der Nutzer sie oeffnet. Beides ist noch nicht gebaut und daher hier nur als geplant vermerkt, nicht als Tatsache. Erledigt am 05.08.2026: Der frueher hier vermerkte offene Punkt zum Slug ist gegenstandslos. Der Slug \"einsatzfuchs\" steht seit 24.07.2026 in _SLUG-EIGENTUEMER.md (Eigentuemer FehlerFuchs_EinsatzFuchs); eine Slug-Liste im Datenschutz-Prompt gibt es nicht - der Prompt fuehrt keine.",
+      "offene_fragen": "Die Anwendung ist in Entwicklung; Angaben folgen, sobald der Funktionsumfang steht. Laut Konzept ist der einzige geplante Netzzugriff die Versionspruefung und der Paket-Download von fehlerfuchs.eu (Inhaltsaktualisierung, vom Nutzer ausgeloest); ausserdem ruft die Lagekarte OSM-/Overpass-Kartendaten ab, wenn der Nutzer sie oeffnet. Beides ist noch nicht gebaut und daher hier nur als geplant vermerkt, nicht als Tatsache. Erledigt am 05.08.2026: Der frueher hier vermerkte offene Punkt zum Slug ist gegenstandslos. Der Slug \"einsatzfuchs\" steht seit 24.07.2026 in _SLUG-EIGENTUEMER.md (Eigentuemer 33_EinsatzFuchs); eine Slug-Liste im Datenschutz-Prompt gibt es nicht - der Prompt fuehrt keine.",
       "art": "anwendung"
     },
     {
       "slug": "einzelstueck",
       "name": "EinzelStück",
       "stand": "2026-07-19",
-      "geprueft_von": "FehlerFuchs_ChefBüro",
+      "geprueft_von": "00-0_ChefBüro",
       "fassung": "keine Anwendung vorhanden – Dienstleistung, Angebot im Aufbau",
       "lokal_only": true,
       "auf_dem_geraet": [],
@@ -586,7 +586,7 @@
       "slug": "appinsight",
       "name": "FehlerFuchs AppInsight",
       "stand": "2026-07-19",
-      "geprueft_von": "FehlerFuchs_AppInsight",
+      "geprueft_von": "22_AppInsight",
       "fassung": "1.0.0-beta.1 (noch nicht veroeffentlicht)",
       "lokal_only": true,
       "auf_dem_geraet": [
@@ -680,7 +680,7 @@
       "slug": "cleandesk",
       "name": "FehlerFuchs CleanDesk",
       "stand": "2026-07-19",
-      "geprueft_von": "FehlerFuchs_CleanDesk",
+      "geprueft_von": "24_CleanDesk",
       "fassung": "0.1.0 (csproj) - Entwicklungsstand v0.2, noch nicht veroeffentlicht",
       "lokal_only": true,
       "auf_dem_geraet": [
@@ -742,7 +742,7 @@
       "slug_vorschlag": false,
       "name": "FehlerFuchs DateiWächter Mobil",
       "stand": "2026-08-11",
-      "geprueft_von": "FehlerFuchs_DateiWächterMobil",
+      "geprueft_von": "35-1_DateiWächterMobil",
       "fassung": "Am gebauten Stand geprüft (11.08.2026). Vollwertiger On-Device-Datei-Manager (kostenlos); PC-Anbindung als Pro-Einmalkauf (Subsystem). Auf zwei Testgeräten verifiziert.",
       "lokal_only": false,
       "auf_dem_geraet": [
@@ -787,7 +787,7 @@
       "slug": "gewerbepro",
       "name": "FehlerFuchs GewerbePro",
       "stand": "2026-08-20",
-      "geprueft_von": "FehlerFuchs_GewerbePro",
+      "geprueft_von": "29_GewerbePro",
       "fassung": "1.0.0 (ausgelieferte Vollversion, signiert und veröffentlicht am 17.08.2026)",
       "lokal_only": false,
       "auf_dem_geraet": [
@@ -940,7 +940,7 @@
       "slug": "fuchsbau",
       "name": "FuchsBau Passwortmanager",
       "stand": "2026-07-19",
-      "geprueft_von": "FehlerFuchs_FuchsBau",
+      "geprueft_von": "25_FuchsBau",
       "fassung": "0.6.2+17 (Entwicklungsstand, noch nicht veroeffentlicht)",
       "lokal_only": true,
       "auf_dem_geraet": [
@@ -1016,7 +1016,7 @@
       "slug": "gewerbepro-companion",
       "name": "GewerbePro Companion",
       "stand": "2026-08-20",
-      "geprueft_von": "FehlerFuchs_GewerbePro_Companion",
+      "geprueft_von": "29-1_GewerbePro Companion",
       "fassung": "0.1.0+1 – in Entwicklung, nicht veröffentlicht (Code-Stand 20.08.2026)",
       "lokal_only": false,
       "auf_dem_geraet": [
@@ -1146,7 +1146,7 @@
       "slug_vorschlag": false,
       "name": "HaushaltsManager",
       "stand": "2026-08-11",
-      "geprueft_von": "FehlerFuchs_HaushaltsManager_Markt",
+      "geprueft_von": "36_HaushaltsManager Markt",
       "fassung": "Am gebauten Produkt 1.0.0 geprüft (Produktfassung ohne private Daten, sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Neu ggü. 0.11.1: Lizenz- Aktivierung gegen den FehlerFuchs-Lizenzserver (nur Schlüssel + anonyme Geräte-Kennung) nach einer kostenlosen Testphase sowie ein nutzerinitiierter App-Update-Check (liest nur eine öffentliche Versionsliste). Code-Signing steht noch aus.",
       "lokal_only": false,
       "auf_dem_geraet": [
@@ -1222,7 +1222,7 @@
       "slug": "mobilereport",
       "name": "MobileReport",
       "stand": "2026-07-21",
-      "geprueft_von": "FehlerFuchs_MobileReport",
+      "geprueft_von": "20_MobileReport",
       "fassung": "1.1.0+39 (zusammengefuehrte Free/Pro-App mit In-App-Kauf; geprueft im Ordner FehlerFuchsMR_Pro\\01_App)",
       "lokal_only": false,
       "auf_dem_geraet": [
@@ -1347,7 +1347,7 @@
       "slug": "mobilereport-enterprise",
       "name": "MobileReport Enterprise",
       "stand": "2026-07-19",
-      "geprueft_von": "FehlerFuchs_MobileReport",
+      "geprueft_von": "20_MobileReport",
       "fassung": "1.0.1+4 (Arbeitsstand im Ordner FehlerFuchsMR_Enterprise\\01_App; nicht im Play Store)",
       "lokal_only": false,
       "auf_dem_geraet": [
@@ -1437,7 +1437,7 @@
       "slug": "orgafuchs",
       "name": "OrgaFuchs",
       "stand": "2026-08-15",
-      "geprueft_von": "FehlerFuchs_OrgaFuchs",
+      "geprueft_von": "32_OrgaFuchs",
       "fassung": "1.6.1 (versionCode 15): Windows signiert+veroeffentlicht (Release orgafuchs-v1.6.1), Android 1.6.1 im Play-Rollout. Enthaelt Firebase Cloud Messaging (Google) als inhaltslosen Weck-Push (seit 1.5.0; nur Android, nur bei eingeschalteten Benachrichtigungen), Windows-Update-Pruefung (github.com) sowie NEU 'Nachricht an alle' + Postfach: kurze Klartext-Nachrichten an die Gruppe reisen Ende-zu-Ende ueber den Relais-Kanal (NICHT ueber Google), Postfach zeigt sie lokal im Nachgang. KEIN neues Uebertragungsziel/keine neue Datenkategorie ggü. 1.5.0. Play-Data-Safety unveraendert (Firebase/Geraetekennungen bereits deklariert).",
       "lokal_only": false,
       "auf_dem_geraet": [
@@ -1653,7 +1653,7 @@
       "slug": "pdfuchs",
       "name": "PDFuchs",
       "stand": "2026-08-19",
-      "geprueft_von": "FehlerFuchs_PDFuchs",
+      "geprueft_von": "26_PDFuchs",
       "fassung": "v0.1.0_dev (Vorabfassung, noch nicht veroeffentlicht)",
       "lokal_only": false,
       "auf_dem_geraet": [
@@ -1738,7 +1738,7 @@
       "slug": "pdfuchsreader",
       "name": "PDFuchs Reader",
       "stand": "2026-08-19",
-      "geprueft_von": "FehlerFuchs_PDFuchs (Slug-Eigentümer seit 18.08.2026; führt Android- und Windows-Teil). Windows-Teil am 19.08.2026 gegen den aktuellen Quellstand gegengeprüft und korrigiert: (a) das Netzverhalten ist nicht mehr netzwerkfrei, sondern hat einen NUTZERINITIIERTEN Support-/Kontaktweg (seit 25.07.2026); (b) es gibt inzwischen eine lokale Einstellungsdatei (settings.json) inkl. „Zuletzt geöffnet\"; (c) Installer ist Inno Setup (installer_flutter.iss), nicht mehr NSIS. Frühere Angaben entsprechend berichtigt.",
+      "geprueft_von": "26_PDFuchs (Slug-Eigentümer seit 18.08.2026; führt Android- und Windows-Teil). Windows-Teil am 19.08.2026 gegen den aktuellen Quellstand gegengeprüft und korrigiert: (a) das Netzverhalten ist nicht mehr netzwerkfrei, sondern hat einen NUTZERINITIIERTEN Support-/Kontaktweg (seit 25.07.2026); (b) es gibt inzwischen eine lokale Einstellungsdatei (settings.json) inkl. „Zuletzt geöffnet\"; (c) Installer ist Inno Setup (installer_flutter.iss), nicht mehr NSIS. Frühere Angaben entsprechend berichtigt.",
       "fassung": "Zweite Fassung vom 19.07.2026 - gegenüber der ersten Einreichung desselben Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt. Zwei Fassungen tragen heute diesen Slug. (A) Android-Fassung 1.0.0 (versionCode 1, Paket eu.fehlerfuchs.pdfuchsreader): signierter Release-AAB ist gebaut und am Gerät getestet, aber noch NICHT im Play Store veröffentlicht (geplant als Offener Test). Geprüft am echten Code, Manifest und am gemergten Manifest des gebauten Release-AAB. (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, Inno-Setup-Skript (installer_flutter.iss). Kein Laufzeit-Mitschnitt des Netzwerkverkehrs - siehe offene Frage 4. Windows-Teil am 19.08.2026 gegen den aktuellen Stand gegengeprüft und berichtigt (Netzverhalten, Einstellungsdatei, Installer).",
       "lokal_only": false,
       "auf_dem_geraet": [
@@ -1913,7 +1913,7 @@
       "slug": "schichtfuchs",
       "name": "SchichtFuchsHTML",
       "stand": "2026-08-05",
-      "geprueft_von": "FehlerFuchs_SchichtFuchs",
+      "geprueft_von": "27_SchichtFuchs",
       "fassung": "BETA 2.0 (Auftrags-Edition) – in Erprobung, nicht veröffentlicht",
       "lokal_only": true,
       "auf_dem_geraet": [
@@ -1954,7 +1954,7 @@
       "slug": "snapfuchs",
       "name": "SnapFuchs",
       "stand": "2026-08-17",
-      "geprueft_von": "FehlerFuchs_SnapFuchs",
+      "geprueft_von": "30_SnapFuchs",
       "fassung": "1.2.0 (versionCode 9)",
       "lokal_only": false,
       "auf_dem_geraet": [
@@ -2101,7 +2101,7 @@
       "slug": "up2date",
       "name": "Up2Date – FehlerFuchs Update-Helfer",
       "stand": "2026-07-26",
-      "geprueft_von": "FehlerFuchs_Up2Date",
+      "geprueft_von": "31_Up2Date",
       "fassung": "1.0.0 (MVP: Tray, App-Erkennung, Versionsabgleich, Autostart, Feedback; noch nicht veroeffentlicht)",
       "lokal_only": false,
       "auf_dem_geraet": [
@@ -2185,7 +2185,7 @@
       "slug": "wachfuchs",
       "name": "WachFuchs",
       "stand": "2026-08-16",
-      "geprueft_von": "FehlerFuchs_WachFuchs",
+      "geprueft_von": "34_WachFuchs",
       "fassung": "Entwicklungsphase – App-Geruest steht (flutter create 03.08.2026, gemeinsamer Kern fehlerfuchs_kern eingebunden), noch kein Store-Eintrag. Angaben aus Architektur-Konzept (Entwurf 1, Abschnitt 7), ergaenzt um die Entscheidungen vom 02.–04.08.2026 (Vertriebsmodell, Korrekturkanal, Pruefvermerke)",
       "lokal_only": false,
       "auf_dem_geraet": [
@@ -2222,7 +2222,7 @@
       "slug": "lizenzserver",
       "name": "FehlerFuchs Lizenzserver",
       "stand": "2026-07-20",
-      "geprueft_von": "FehlerFuchs_Lizenzserver",
+      "geprueft_von": "11_Lizenzserver",
       "fassung": "Adapter-Stand 20.07.2026 (kein Versionsschema); Admin-API 1.0; mit Löschlauf und Wunscherfüller",
       "lokal_only": false,
       "auf_dem_geraet": [
@@ -2377,7 +2377,7 @@
       "slug": "relaisserver",
       "name": "FehlerFuchs Relaisserver (Dienst - Relais und Push)",
       "stand": "2026-07-19",
-      "geprueft_von": "FehlerFuchs_Relaisserver",
+      "geprueft_von": "11-2_Relaisserver",
       "fassung": "Stand 19.07.2026 - relay-orgafuchs, ntfy v2.9.0, relay-admin, Caddy 2",
       "lokal_only": false,
       "serverseitig": [

@@ -1,7 +1,7 @@
 slug: mobilereport
 name: MobileReport
 stand: "2026-07-21"
-geprueft_von: FehlerFuchs_MobileReport
+geprueft_von: 20_MobileReport
 fassung: "1.1.0+39 (zusammengefuehrte Free/Pro-App mit In-App-Kauf; geprueft im Ordner FehlerFuchsMR_Pro\\01_App)"
 
 # Korrigiert am 21.07.2026: Die Google-Abrechnungsbibliothek bringt eine eigene

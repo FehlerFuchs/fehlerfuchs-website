@@ -19,3 +19,28 @@ Thumbs.db
 *.log
 .vscode/
 .idea/
+
+# ---------------------------------------------------------------------------
+# Geheimnistraeger - Pflichtliste aus Regel R1 der HAUSORDNUNG.
+# Zentral ergaenzt von ChefBuero am 21.08.2026, Freigabe Matthias.
+# Geprueft wurde die WIRKUNG mit "git check-ignore --no-index", nicht die
+# blosse Existenz dieser Datei. Aenderungen bitte in R1, nicht hier.
+#
+# KEINE Wortfragmente wie *secret* oder *token*: Die schliessen echten
+# Quelltext von Sicherung und Pruefung aus. Inhalte findet R2, Schritt 2.
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.pem
+*.p12
+*.pfx
+*.ppk
+key.properties
+id_rsa*
+id_ed25519*
+.netrc
+credentials.json
+service-account*.json

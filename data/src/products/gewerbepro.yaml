@@ -389,7 +389,7 @@ theme:
   text: "#2B160B"         # ink
   textLeise: "#6F4F44"    # textSecondary
   akzent: "#9F1239"       # primary – Bordeaux
-  quelle: FehlerFuchs_GewerbePro/21_App_Flutter/gewerbepro_desktop/lib/ui/ff_tokens.dart
+  quelle: 29_GewerbePro/21_App_Flutter/gewerbepro_desktop/lib/ui/ff_tokens.dart
 
 links:
   # Die ALTE Adresse dieses Produkts, von vor dem 20.07.2026. Sie steht hier
