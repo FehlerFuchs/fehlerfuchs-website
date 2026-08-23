@@ -207,9 +207,16 @@ def main():
     anwendungen = sammle(QUELLE, slugs_der_website())
     dienste = sammle(QUELLE / "Dienste", dienst_kennungen(), "dienste")
     alle = anwendungen + dienste
+    # Ein gezielter Lauf darf nur den angeforderten Steckbrief prüfen. Zuvor
+    # wurde erst der gesamte Eingang validiert und `--nur` viel später auf die
+    # Kopierliste angewandt; dadurch blockierten fremde Zulieferungen selbst
+    # eine isolierte, bereits geprüfte Übernahme.
+    if nur:
+        alle = [x for x in alle if x[0].stem == nur]
 
     if not alle:
-        print("\nKeine Steckbriefe im Einreichordner.\n")
+        zusatz = f" fuer --nur={nur}" if nur else ""
+        print(f"\nKeine Steckbriefe{zusatz} im Einreichordner.\n")
         return 1
 
     beanstandet = [x for x in alle if x[3]]
@@ -251,11 +258,7 @@ def main():
             gleich.append((datei, ziel))
 
     if nur:
-        vorher = (len(neu), len(geaendert))
-        neu = [x for x in neu if x[0].stem == nur]
-        geaendert = [x for x in geaendert if x[0].stem == nur]
-        print(f"  --nur={nur}: von {vorher[0]} neuen und {vorher[1]} geaenderten "
-              f"bleibt {len(neu)} neu, {len(geaendert)} geaendert.")
+        print(f"  --nur={nur}: genau dieser Steckbrief wurde geprüft.")
         print()
 
     for bezeichnung, liste in (("NEU", neu), ("GEAENDERT", geaendert)):

@@ -1,8 +1,8 @@
 slug: checkin-vita
 name: CheckInVita
-stand: "2026-07-19"
+stand: "2026-08-23"
 geprueft_von: 23_CheckInVita
-fassung: "0.2.0+1 – Android-Stand, noch nicht veröffentlicht (Windows-Fassung baut, ebenfalls unveröffentlicht)"
+fassung: "0.2.0+1 – Android-Stand, noch nicht veröffentlicht; Windows-Port vorhanden, Build derzeit paketbedingt blockiert"
 
 # Ohne aktives Zutun des Nutzers verlässt kein Datum das Gerät.
 lokal_only: true

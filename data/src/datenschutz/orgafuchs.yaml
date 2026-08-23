@@ -1,7 +1,9 @@
 slug: orgafuchs
 name: OrgaFuchs
-stand: "2026-08-15"
+stand: "2026-08-23"
 geprueft_von: 32_OrgaFuchs
+# PRUEFUNG 23.08.2026: Telefonnummer gemaess Vorgabe aus dem In-App-Impressum entfernt;
+# Anschrift, E-Mail und Verweis auf das vollstaendige Online-Impressum bleiben vorhanden.
 # NACHTRAG 1.6.0/1.6.1 (14./15.08.2026): KEIN neues Uebertragungsziel, KEINE neue
 # Datenkategorie, KEINE Weitergabe an Dritte. Relevante Aenderungen:
 #  - "Nachricht an alle" (frueher "Erinnerung an alle"): kurze Klartext-Nachrichten an die
@@ -228,7 +230,8 @@ vorhandener_text: >-
   Vollstaendige Offline-Datenschutzerklaerung in
   lib/features/info/datenschutz_page.dart, erreichbar ueber Einstellungen ->
   Info & Rechtliches; zusaetzlicher Link auf die kanonische Online-Fassung
-  https://fehlerfuchs.eu/datenschutz/. In-App-Impressum mit Anschrift und Telefon,
+  https://fehlerfuchs.eu/datenschutz/. In-App-Impressum mit Anschrift und E-Mail,
+  ohne Telefonnummer,
   Transparenzseite lib/features/info/open_source_page.dart und Offline-Changelog.
 
 offene_fragen: >-

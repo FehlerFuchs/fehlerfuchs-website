@@ -1,8 +1,8 @@
 slug: coppicemail
 name: CoppiceMail
-stand: "2026-08-05"
-geprueft_von: 21_CoppiceMail
-fassung: "1.0.2-rc.1+5 (Flutter/Dart, Windows-Desktop) – interner technischer Release-Kandidat, nicht veroeffentlicht"
+stand: "2026-08-23"
+geprueft_von: 21_CoppiceMail + Codex_Umzugsreparatur
+fassung: "1.0.2-rc.1+6 (Flutter/Dart, Windows-Desktop) – pausierter interner technischer Release-Kandidat, nicht veroeffentlicht"
 
 # WICHTIG: CoppiceMail ist ein E-Mail-Programm. "Lokal" heisst hier NICHT, dass keine
 # Daten das Geraet verlassen. Fuer Abruf und Versand verbindet sich die Anwendung mit

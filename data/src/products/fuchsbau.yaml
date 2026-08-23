@@ -27,6 +27,33 @@ editions:
     public: true
     price: { model: offen }
 
+features:
+  - group: Passwörter erzeugen
+    items:
+      - name: Passphrasen aus mitgelieferter deutscher Wortliste
+        values: { standard: ja }
+      - name: Zeichenketten, Silben und Merksätze mit Stärkeanzeige
+        values: { standard: ja }
+      - name: Eigene Wörter lokal ergänzen
+        values: { standard: ja }
+  - group: Lokaler Tresor
+    items:
+      - name: Einträge verschlüsselt auf dem Gerät verwahren
+        values: { standard: ja }
+      - name: Zugang aus mindestens zwei gewählten Faktoren
+        values: { standard: ja }
+        note: PIN, Biometrie und Tresor-Passwort stehen zur Auswahl.
+      - name: Einzelne Einträge zusätzlich mit Offline-Sicherheitsschlüssel schützen
+        values: { standard: ja }
+      - name: Konto, Cloud oder Synchronisierung erforderlich
+        values: { standard: nein }
+  - group: Sichern
+    items:
+      - name: Passphrasenverschlüsselten Backup-Text erzeugen und wiederherstellen
+        values: { standard: ja }
+      - name: Automatisches Ausfüllen in Browsern oder anderen Apps
+        values: { standard: nein }
+
 releases: []
 
 # Bild-Wortmarke. Ist sie gesetzt, ist SIE der sichtbare Titel und die

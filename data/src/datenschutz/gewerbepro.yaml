@@ -1,6 +1,6 @@
 slug: gewerbepro
 name: FehlerFuchs GewerbePro
-stand: "2026-08-20"
+stand: "2026-08-23"
 geprueft_von: 29_GewerbePro
 fassung: "1.0.0 (ausgelieferte Vollversion, signiert und veröffentlicht am 17.08.2026)"
 
@@ -26,8 +26,11 @@ auf_dem_geraet:
       pdf_gen.py _logo_src / _stored_signature
   - was: Zugangsdaten der E-Mail-Konten (Servername, Benutzername, Passwort) –
       nur wenn ein Postfach eingerichtet wurde
-    wo: in der lokalen Datenbank, ohne gesonderte Verschlüsselung
-    beleg: 20_Engine/gewerbepro_core/mail.py (Anmeldung mit k["passwort"])
+    wo: Servername und Benutzername in der lokalen Datenbank; das Passwort wird
+      Windows-benutzergebunden mit DPAPI verschlüsselt. Ältere Klartextwerte
+      werden beim nächsten Zugriff automatisch migriert.
+    beleg: 20_Engine/gewerbepro_core/db.py mail_accounts_get/mail_accounts_save;
+      secure_store.py (Windows DPAPI)
   - was: Lizenzschlüssel, Freischaltnachweis und eine zufällig erzeugte
       Gerätekennung, die keine Hardware-Merkmale enthält
     wo: in der lokalen Datenbank
@@ -160,6 +163,3 @@ offene_fragen: >-
   von der Anwendung aus nicht feststellbar.
   3) Welche Daten GitHub beim Herunterladen der Installationsdatei sieht –
   serverseitig, nicht von der Anwendung bestimmbar.
-  4) Ob die in der lokalen Datenbank abgelegten E-Mail-Zugangsdaten zusätzlich
-  verschlüsselt werden sollen – derzeit ist keine gesonderte Verschlüsselung
-  vorhanden; eine Entscheidung dazu steht aus.

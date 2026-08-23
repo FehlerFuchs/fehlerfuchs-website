@@ -3,15 +3,15 @@ name: CoppiceMail
 fullName: FehlerFuchs CoppiceMail
 # SEO (2026-08-09)
 seoTitel: "CoppiceMail – datensparsames E-Mail-Programm für Belege & Büropost"
-seoBeschreibung: "Lokales, datensparsames E-Mail-Programm mit Belegfokus: Mail öffnen, Anhang als Beleg ablegen, archivieren – kurze Wege, ohne Cloud, ohne Tracking."
-tags: ["E-Mail-Programm", "Belege", "Büropost", "datensparsam", "Windows", "ohne Cloud"]
+seoBeschreibung: "Lokales, datensparsames E-Mail-Programm mit Belegfokus: Mail öffnen, Anhang als Beleg ablegen, archivieren – kurze Wege, ohne FehlerFuchs-Cloud und ohne Tracking."
+tags: ["E-Mail-Programm", "Belege", "Büropost", "datensparsam", "Windows", "lokale Datenhaltung"]
 kind: produkt
 tagline: Das lokale, datensparsame E-Mail-Programm für Belege und Büropost – der Weg Mail, Anhang, Beleg, Archiv so kurz wie möglich.
 description: >-
   E-Mail-Programm mit Belegfokus: Nachricht öffnen, Anhang erkennen, als Beleg ablegen,
   archivieren – ohne Umwege. CoppiceMail wurde als reine
-  Flutter/Dart-App neu aufgebaut; Version 1.0.1 ist funktional fertig und
-  durchläuft vor der Freigabe die Sicherheits- und Stabilitätshärtung.
+  Flutter/Dart-App neu aufgebaut; der technische RC 1.0.2-rc.1+6 ist funktional
+  weitgehend fertig und geprüft. Das Projekt ist derzeit pausiert und nicht veröffentlicht.
 audience: [selbststaendige, unternehmen]
 accent: "#0F5132"
 status: entwicklung
@@ -27,8 +27,8 @@ platforms:
     hinweis:
       wenn: entwicklung
       text: >-
-        1.0.1 als technischer Release-Kandidat gebaut; Sicherheits- und
-        Stabilitätshärtung läuft. Noch kein öffentlicher Download.
+        1.0.2-rc.1+6 als technischer Release-Kandidat gebaut und am Host geprüft.
+        Das Projekt ist derzeit pausiert. Noch kein öffentlicher Download.
 
 # An den realen 1.0-Datenfluss angepasst (05.08.2026, Datenschutz-Steckbrief v2:
 # lokal_only:false – ein E-Mail-Programm spricht mit den IMAP/SMTP-Servern des
@@ -61,10 +61,9 @@ media:
 statusGrund:
   wenn: entwicklung
   text: >-
-    Fertig gebaut, aber bewusst noch nicht öffentlich: CoppiceMail wurde von
-    Grund auf neu als reine Flutter/Dart-App aufgebaut, Version 1.0.1 ist
-    funktional fertig. Jetzt läuft die Sicherheits-, Datenschutz- und
-    Doku-Härtung vor der Freigabe – lieber sorgfältig als schnell.
+    Technischer RC gebaut und am Host geprüft, aber bewusst noch nicht öffentlich:
+    CoppiceMail ist derzeit pausiert. Vor einer späteren Freigabe bleiben Signierung,
+    Geräte-/Clean-System-Gegenprobe und Rechtsprüfung – lieber sorgfältig als schnell.
 
 # Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
 # Was dort nicht steht, steht auch hier nicht – dann greift der Standard.
@@ -77,7 +76,7 @@ theme:
   text: "#1A140F"         # ink
   textLeise: "#6B5B50"    # muted
   akzent: "#0F5132"       # primary – Tanne
-  quelle: 21_CoppiceMail/app/ui/theme.py
+  quelle: 21_CoppiceMail/21_App_Flutter/coppicemail_desktop/lib/theme/app_colors.dart
 
 links:
   # Die ALTE Adresse dieses Produkts, von vor dem 20.07.2026. Sie steht hier
@@ -97,9 +96,8 @@ links:
   contact: /kontakt.html?app=CoppiceMail&topic=interesse
 
 notes: >-
-  1.0.1 als Release-Kandidat gebaut, in Härtung; noch kein öffentlicher Download.
+  1.0.2-rc.1+6 als technischer Release-Kandidat gebaut und am Host geprüft; Projekt
+  pausiert, noch kein öffentlicher Download.
   Regel (CoppiceMail 28.07.2026): Status, Download und Datenschutz nur GEMEINSAM in
-  einem Release-Schritt freischalten. OFFEN für WEB vor dem Release: Datenschutz-
-  Steckbrief v2 (realer 1.0-Datenfluss, lokal_only:false) über den Einreichordner
-  nachziehen und die privacy-Merkmale (aktuell noch inkl. 'nur-lokal') entsprechend
-  korrigieren. Bis dahin bewusst unverändert.
+  einem Release-Schritt freischalten. Datenschutz-Steckbrief v2 und die dazu passenden
+  privacy-Merkmale sind bereits übernommen; offen bleibt die eigentliche Release-Freigabe.

@@ -1,14 +1,14 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-22T16:35:26+02:00",
+  "generiert": "2026-08-23T15:48:32+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
       "slug": "belegwerk",
       "name": "BelegWerk",
-      "stand": "2026-08-15",
+      "stand": "2026-08-23",
       "geprueft_von": "28_BelegWerk",
-      "fassung": "0.9.0-rc.12 – lokaler Release Candidate",
+      "fassung": "0.9.0-rc.16 – lokaler, nicht veröffentlichter Release Candidate",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -207,9 +207,9 @@
     {
       "slug": "checkin-vita",
       "name": "CheckInVita",
-      "stand": "2026-07-19",
+      "stand": "2026-08-23",
       "geprueft_von": "23_CheckInVita",
-      "fassung": "0.2.0+1 – Android-Stand, noch nicht veröffentlicht (Windows-Fassung baut, ebenfalls unveröffentlicht)",
+      "fassung": "0.2.0+1 – Android-Stand, noch nicht veröffentlicht; Windows-Port vorhanden, Build derzeit paketbedingt blockiert",
       "lokal_only": true,
       "auf_dem_geraet": [
         {
@@ -328,9 +328,9 @@
     {
       "slug": "coppicemail",
       "name": "CoppiceMail",
-      "stand": "2026-08-05",
-      "geprueft_von": "21_CoppiceMail",
-      "fassung": "1.0.2-rc.1+5 (Flutter/Dart, Windows-Desktop) – interner technischer Release-Kandidat, nicht veroeffentlicht",
+      "stand": "2026-08-23",
+      "geprueft_von": "21_CoppiceMail + Codex_Umzugsreparatur",
+      "fassung": "1.0.2-rc.1+6 (Flutter/Dart, Windows-Desktop) – pausierter interner technischer Release-Kandidat, nicht veroeffentlicht",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -585,7 +585,7 @@
     {
       "slug": "appinsight",
       "name": "FehlerFuchs AppInsight",
-      "stand": "2026-07-19",
+      "stand": "2026-08-23",
       "geprueft_von": "22_AppInsight",
       "fassung": "1.0.0-beta.1 (noch nicht veroeffentlicht)",
       "lokal_only": true,
@@ -679,9 +679,9 @@
     {
       "slug": "cleandesk",
       "name": "FehlerFuchs CleanDesk",
-      "stand": "2026-07-19",
-      "geprueft_von": "24_CleanDesk",
-      "fassung": "0.1.0 (csproj) - Entwicklungsstand v0.2, noch nicht veroeffentlicht",
+      "stand": "2026-08-23",
+      "geprueft_von": "24_CleanDesk (Codex-Reparatur)",
+      "fassung": "0.2.0 (csproj) - Entwicklungsstand, noch nicht veroeffentlicht",
       "lokal_only": true,
       "auf_dem_geraet": [
         {
@@ -732,7 +732,7 @@
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
       "loeschung": "Alle Daten liegen auf dem Geraet. Berichte und Protokolle lassen sich einzeln loeschen; der gesamte App-Datenordner %LOCALAPPDATA%\\FehlerFuchs\\CleanDesk kann jederzeit von Hand entfernt werden. Dateien, die CleanDesk in den Papierkorb verschoben hat, lassen sich ueber den Windows-Papierkorb wiederherstellen oder dort endgueltig loeschen.",
-      "besonderheiten": "Der Scan ist reine Analyse und veraendert nichts. Veraendernde Aktionen laufen nur nach Bestaetigung und ausschliesslich ueber den Papierkorb; endgueltiges Loeschen gibt es in diesem Stand nicht. Verschoben wird immer in drei Schritten: Die Datei wird zuerst an den Zielort kopiert, die Kopie wird ueber Groesse und Pruefsumme mit dem Original verglichen, und erst danach wandert das Original in den Papierkorb. Bei Namensgleichheit wird umbenannt, nie ueberschrieben. Geschuetzte Bereiche des Betriebssystems und der Programme sowie versteckte Anwendungsdaten werden nicht gelesen; Verknuepfungen auf andere Orte werden nicht verfolgt. Datenschutzrelevant: Berichte und Protokolle enthalten vollstaendige Dateipfade und Dateinamen des Nutzers und koennen dadurch personenbezogene Angaben in Pfadnamen enthalten; sie verbleiben lokal und werden nicht versendet.",
+      "besonderheiten": "Der Scan ist reine Analyse und veraendert nichts. Veraendernde Aktionen laufen nur nach Bestaetigung und ausschliesslich ueber den Papierkorb; endgueltiges Loeschen gibt es in diesem Stand nicht. Verschoben wird immer in drei Schritten: Die Datei wird zuerst an den Zielort kopiert, die Kopie wird ueber Groesse und Pruefsumme mit dem Original verglichen, und erst danach wandert das Original in den Papierkorb. Bei Namensgleichheit wird umbenannt, nie ueberschrieben. Geschuetzte Bereiche des Betriebssystems und der Programme sowie versteckte Anwendungsdaten werden nicht gelesen; Laufwerkswurzeln und Verknuepfungen auf andere Orte werden nicht verfolgt. Eigene Sortierregeln koennen nur einzelne Unterordnernamen erzeugen. Vor dem Papierkorb prueft CleanDesk Kandidat und Behalten-Datei erneut gegen denselben SHA-256 aus dem Scan; fehlt oder aendert sich eine der Dateien, wird abgebrochen. Schreibende Dateiaktionen werden auch abgebrochen, wenn ihr vorheriger Protokolleintrag nicht geschrieben werden kann. Datenschutzrelevant: Berichte und Protokolle enthalten vollstaendige Dateipfade und Dateinamen des Nutzers und koennen dadurch personenbezogene Angaben in Pfadnamen enthalten; sie verbleiben lokal und werden nicht versendet.",
       "vorhandener_text": "src/CleanDesk/Views/InfoView.xaml (Seite \"Info / Datenschutz\" in der App)",
       "offene_fragen": "1) Die Anwendung ist nicht veroeffentlicht und besitzt keine Installations- oder Update-Funktion. Ob eine spaetere Verteilung (Installer, Signierung, Update-Pruefung) Verbindungen nach draussen mit sich bringt, ist heute offen. 2) Beim Oeffnen eines Berichts oder des Berichtsordners uebergibt CleanDesk den Vorgang an Windows. Was die dort registrierte Standardanwendung anschliessend tut, liegt ausserhalb von CleanDesk und ist von hier aus nicht bewertbar.",
       "art": "anwendung"
@@ -786,7 +786,7 @@
     {
       "slug": "gewerbepro",
       "name": "FehlerFuchs GewerbePro",
-      "stand": "2026-08-20",
+      "stand": "2026-08-23",
       "geprueft_von": "29_GewerbePro",
       "fassung": "1.0.0 (ausgelieferte Vollversion, signiert und veröffentlicht am 17.08.2026)",
       "lokal_only": false,
@@ -808,8 +808,8 @@
         },
         {
           "was": "Zugangsdaten der E-Mail-Konten (Servername, Benutzername, Passwort) – nur wenn ein Postfach eingerichtet wurde",
-          "wo": "in der lokalen Datenbank, ohne gesonderte Verschlüsselung",
-          "beleg": "20_Engine/gewerbepro_core/mail.py (Anmeldung mit k[\"passwort\"])"
+          "wo": "Servername und Benutzername in der lokalen Datenbank; das Passwort wird Windows-benutzergebunden mit DPAPI verschlüsselt. Ältere Klartextwerte werden beim nächsten Zugriff automatisch migriert.",
+          "beleg": "20_Engine/gewerbepro_core/db.py mail_accounts_get/mail_accounts_save; secure_store.py (Windows DPAPI)"
         },
         {
           "was": "Lizenzschlüssel, Freischaltnachweis und eine zufällig erzeugte Gerätekennung, die keine Hardware-Merkmale enthält",
@@ -933,13 +933,13 @@
       "loeschung": "Alle Daten liegen auf dem Gerät. In den Einstellungen entfernt „Alle Geschäftsdaten löschen\" Kunden, Rechnungen, Angebote, Belege, Termine, Aufgaben und Logbuch (Stammdaten bleiben erhalten). Die Deinstallation entfernt das Programm; der Datenordner mit Datenbank, Exporten und Backups bleibt bestehen und kann vom Nutzer gelöscht werden. Eine hinterlegte Lizenz lässt sich in den Einstellungen vom Gerät lösen.",
       "besonderheiten": "Die Anwendung arbeitet offline-first: alle Geschäftsdaten bleiben in einer lokalen Datenbank auf dem Rechner, es gibt keinen Server, der Inhalte speichert. Ein Benutzerkonto wird nicht angelegt; die Vollversion wird über einen Lizenzschlüssel freigeschaltet, wobei die dabei verwendete Gerätekennung zufällig erzeugt wird und keine Hardware-Merkmale enthält. Es werden keine Nutzungsdaten ausgewertet, keine Werbung eingeblendet und keine Absturzberichte verschickt; der „Support-Bericht\" erzeugt lediglich ein PDF auf dem Rechner, das der Nutzer selbst versendet. Die geplante Companion-App und der Datenaustausch mit ihr sind im heutigen Stand noch nicht ausgeliefert.",
       "vorhandener_text": "Kein eigenes Datenschutzdokument im Programmordner; die Anwendung verweist unter „Info & Rechtliches\" auf www.fehlerfuchs.eu/datenschutz.html.",
-      "offene_fragen": "1) Ob und wie lange der Lizenzserver Anfragen protokolliert (etwa IP-Adresse, Zeitpunkt) – das entscheidet der Server, nicht die Anwendung. 2) Ob openholidaysapi.org die Ferienabfragen protokolliert – serverseitig, von der Anwendung aus nicht feststellbar. 3) Welche Daten GitHub beim Herunterladen der Installationsdatei sieht – serverseitig, nicht von der Anwendung bestimmbar. 4) Ob die in der lokalen Datenbank abgelegten E-Mail-Zugangsdaten zusätzlich verschlüsselt werden sollen – derzeit ist keine gesonderte Verschlüsselung vorhanden; eine Entscheidung dazu steht aus.",
+      "offene_fragen": "1) Ob und wie lange der Lizenzserver Anfragen protokolliert (etwa IP-Adresse, Zeitpunkt) – das entscheidet der Server, nicht die Anwendung. 2) Ob openholidaysapi.org die Ferienabfragen protokolliert – serverseitig, von der Anwendung aus nicht feststellbar. 3) Welche Daten GitHub beim Herunterladen der Installationsdatei sieht – serverseitig, nicht von der Anwendung bestimmbar.",
       "art": "anwendung"
     },
     {
       "slug": "fuchsbau",
       "name": "FuchsBau Passwortmanager",
-      "stand": "2026-07-19",
+      "stand": "2026-08-23",
       "geprueft_von": "25_FuchsBau",
       "fassung": "0.6.2+17 (Entwicklungsstand, noch nicht veroeffentlicht)",
       "lokal_only": true,
@@ -973,7 +973,7 @@
       "berechtigungen": [
         {
           "name": "Biometrie",
-          "wofuer": "Entsperren per Fingerabdruck oder Gesicht, wenn der Nutzer diesen Faktor aktiviert; die App laesst sich auch ohne Biometrie allein mit PIN nutzen",
+          "wofuer": "Entsperren per Fingerabdruck oder Gesicht, wenn der Nutzer diesen Faktor aktiviert; die App fordert dabei ausschließlich Biometrie an, keinen Ersatz durch Geraete-PIN oder Systemmuster. Ohne Biometrie sind zwei andere Faktoren erforderlich.",
           "pflicht": false,
           "beleg": "android/app/src/main/AndroidManifest.xml (USE_BIOMETRIC)"
         },
@@ -995,7 +995,7 @@
         {
           "wohin": "Zwischenablage des Geraets (systemweit, grundsaetzlich fuer andere Apps lesbar)",
           "was": "ein einzelnes Passwort oder der verschluesselte Backup-Text",
-          "wann": "nur wenn der Nutzer \"Kopieren\" waehlt; kopierte Passwoerter werden nach 30 Sekunden automatisch wieder geleert",
+          "wann": "nur wenn der Nutzer \"Kopieren\" waehlt; Passwoerter werden nach 30 Sekunden, Backup-Texte nach 2 Minuten geloescht. Inzwischen veraenderter fremder Inhalt bleibt erhalten.",
           "freiwillig": true,
           "beleg": "lib/core/security/clipboard_service.dart; lib/features/backup/backup_screen.dart"
         }
@@ -1221,9 +1221,9 @@
     {
       "slug": "mobilereport",
       "name": "MobileReport",
-      "stand": "2026-07-21",
+      "stand": "2026-08-23",
       "geprueft_von": "20_MobileReport",
-      "fassung": "1.1.0+39 (zusammengefuehrte Free/Pro-App mit In-App-Kauf; geprueft im Ordner FehlerFuchsMR_Pro\\01_App)",
+      "fassung": "1.2.0+40 (zusammengefuehrte Consumer-App mit In-App-Kauf; geprueft im Ordner FehlerFuchsMR_Pro\\01_App)",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -1340,15 +1340,15 @@
       "loeschung": "Alle Daten liegen auf dem Geraet. Einzelne Meldungen und Bilder lassen sich in der App loeschen; zusaetzlich gibt es eine Aufraeum-Funktion fuer Bilddateien, die zu keiner Meldung mehr gehoeren. Mit der Deinstallation verschwinden Datenbank, Bilder und Einstellungen. Bereits gesendete Support-Nachrichten auf Anfrage per E-Mail.",
       "besonderheiten": "Meldungen koennen Fotos enthalten, die der Nutzer selbst aufnimmt. Die App weist ausdruecklich darauf hin, keine Patientendaten oder sonstigen sensiblen Inhalte zu fotografieren oder einzutragen. Sie ist kein Nachweissystem, kein Ticketsystem und keine Medizintechnik-Software. Der Versand ist bewusst manuell: die App bereitet eine E-Mail vor, verschickt aber nichts selbst. Was der Nutzer eingibt - Meldungen, Fotos, PDFs, Empfaenger - verlaesst das Geraet nur, wenn er es selbst ausloest: beim Absenden des Support-Formulars oder beim Verschicken eines Berichts aus seiner Mail-App. Diagnosedaten werden nur nach ausdruecklicher Zustimmung mitgesendet und sind vorher in der App einsehbar. Die \"Pro\"-Freischaltung ist ein einmaliger In-App-Kauf (kein Abo). Davon zu trennen ist ein Punkt, der seit dem Einbau des In-App-Kaufs zutrifft: Die Abrechnungsbibliothek von Google bringt eine eigene Telemetrie mit, die beim Start Betriebsdaten an Google sendet, ohne dass der Nutzer etwas tut. Sie stammt nicht von FehlerFuchs, laesst sich nicht einfach herausloesen und betrifft keine Inhalte aus der App - erwaehnt gehoert sie trotzdem.",
       "vorhandener_text": "lib/features/privacy/privacy_page.dart (In-App); Website fehlerfuchs.eu/datenschutz.html",
-      "offene_fragen": "(1) Der genaue Play-Rollout-Status von 1.1.0+39 (bereits in Produktion live vs. in Auslieferung) ist hier nicht verifiziert; dieser Steckbrief beschreibt den aktuellen Codestand der zusammengefuehrten App. (2) Die Google-Telemetrie ist im gebauten Bundle zweifelsfrei enthalten; nicht gemessen ist, wie oft sie sendet und welche Einzelwerte dabei uebertragen werden - das legt Google fest. Eine Messung am Geraet steht aus. Ebenfalls offen: ob sie sich abschalten laesst, ohne die Abrechnung zu beschaedigen. (3) Ob \"tracking: false\" und das Website-Merkmal \"kein-tracking\" angesichts dieser Telemetrie so stehenbleiben koennen, ist eine Bewertungsfrage. FehlerFuchs selbst verfolgt niemanden und wertet nichts aus; die Daten gehen an Google, nicht an uns. Die Entscheidung ueber die Wortwahl auf der Website liegt nicht bei diesem Projekt. (4) Unbekannt, ob beim Drucken/Teilen Daten an System- oder Cloud-Druckdienste des Geraets gelangen - das haengt vom Geraet ab, nicht von der App. (5) Ob die Kontakt-Bridge serverseitig IP-Adressen protokolliert, haengt vom Server ab, nicht von der App.",
+      "offene_fragen": "(1) 1.2.0+40 ist seit 06.08.2026 vollstaendig im Play Store ausgerollt. Die oeffentliche Datensicherheits-Erklaerung steht dennoch auf \"Keine Daten erhoben\"; die Korrektur in der Console ist Matthias' Schritt. (2) Die Google-Telemetrie ist im gebauten Bundle zweifelsfrei enthalten; nicht gemessen ist, wie oft sie sendet und welche Einzelwerte dabei uebertragen werden - das legt Google fest. Eine Messung am Geraet steht aus. Ebenfalls offen: ob sie sich abschalten laesst, ohne die Abrechnung zu beschaedigen. (3) Ob \"tracking: false\" und das Website-Merkmal \"kein-tracking\" angesichts dieser Telemetrie so stehenbleiben koennen, ist eine Bewertungsfrage. FehlerFuchs selbst verfolgt niemanden und wertet nichts aus; die Daten gehen an Google, nicht an uns. Die Entscheidung ueber die Wortwahl auf der Website liegt nicht bei diesem Projekt. (4) Unbekannt, ob beim Drucken/Teilen Daten an System- oder Cloud-Druckdienste des Geraets gelangen - das haengt vom Geraet ab, nicht von der App. (5) Ob die Kontakt-Bridge serverseitig IP-Adressen protokolliert, haengt vom Server ab, nicht von der App.",
       "art": "anwendung"
     },
     {
       "slug": "mobilereport-enterprise",
       "name": "MobileReport Enterprise",
-      "stand": "2026-07-19",
+      "stand": "2026-08-23",
       "geprueft_von": "20_MobileReport",
-      "fassung": "1.0.1+4 (Arbeitsstand im Ordner FehlerFuchsMR_Enterprise\\01_App; nicht im Play Store)",
+      "fassung": "1.0.2+6 (ausgeliefert seit 18.08.2026 auf zwei Wegen: Direkt-Download als APK ueber das GitHub-Release UND Managed Google Play, privat an die Kundenorganisation gebunden - oeffentlich nicht gelistet)",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -1429,14 +1429,17 @@
       "daten_an_dritte_verkauft": false,
       "loeschung": "Meldungen, Bilder und Einstellungen liegen auf dem Geraet und lassen sich dort einzeln loeschen; mit der Deinstallation verschwinden sie vollstaendig. Der belegte Arbeitsplatz laesst sich in der App wieder freigeben, damit die Lizenz auf einem anderen Geraet genutzt werden kann.",
       "besonderheiten": "Die Geraete-Kennung ist keine Hardware-Kennung und wird nicht aus dem Geraet ausgelesen: Es ist eine beim ersten Start zufaellig erzeugte Zufallsnummer, die geschuetzt auf dem Geraet liegt. Sie dient allein dazu, einen Arbeitsplatz zu zaehlen und bei erneuter Freischaltung nicht doppelt zu belegen; ein Rueckschluss auf eine Person ist damit nicht moeglich. Die App kennt den Zahlungsanbieter nicht, sie spricht ausschliesslich die eigene Lizenz-Schnittstelle an. Nach dem Freischalten ist die Nutzung auch ohne Netzverbindung moeglich. Das Firmen-Branding wird als Datei auf dem Geraet eingelesen und nicht aus dem Netz geladen.",
+      "datenschutz_verbesserungen_1_0_2": "(1) Die automatische Android-Geraetesicherung ist abgeschaltet (allowBackup=false + eigene Backup-/Extraction-Regeln) - Meldungen, Bilder und Einstellungen verlassen das Geraet nicht mehr ueber die Google-Cloud-Geraetesicherung. (2) \"Alle Daten loeschen\" raeumt jetzt vollstaendig auf, einschliesslich Zugriffsprotokoll und importiertem Branding-Logo (die Lizenz bleibt bewusst erhalten). (3) Wiederherstellung und Import pruefen jede Datei vor dem Schreiben (Groesse, Herkunft, Inhalt); beschaedigte oder fremde Dateien werden abgewiesen. (4) Der Admin-Passwortschutz nutzt ein staerkeres Verfahren (PBKDF2 statt einfachem Hash). (5) Die Lizenzlaufzeit wird auch offline strikt eingehalten; ein Zuruecksetzen der Geraeteuhr wird erkannt. (6) Der Update-Hinweis wird nur ueber eine verschluesselte Verbindung geprueft und schweigt auf verwalteten Play-Geraeten vollstaendig (kein latest.json-Abruf) - dort liefert Google die Updates, es entsteht keine zusaetzliche Uebertragung.",
+      "auslieferung": "Zwei Wege, beide mit derselben Auslieferungssignatur. (a) Direkt-Download als APK ueber das GitHub-Release (fehlerfuchs-downloads), Freischaltung per Lizenzschluessel. (b) Managed Google Play: private Auslieferung an die Organisation des Kunden mit Android Enterprise; die App ist oeffentlich nicht gelistet. Auf diesem Weg liefert und aktualisiert Google die App, weshalb der In-App-Updater dort schweigt. Der Lizenz- und Datenweg der App ist auf beiden Wegen identisch.",
       "vorhandener_text": "unbekannt (im Enterprise-Ordner wurde kein eigener Datenschutztext gefunden)",
+      "entwicklungsstand": "Im Enterprise-Repo liegt 1.0.3+7 als noch nicht veroeffentlichter Paketpflege-Stand. Der veroeffentlichte Datenschutzstand bleibt 1.0.2+6.",
       "offene_fragen": "(1) Unbekannt, ob der Lizenzdienst serverseitig IP-Adressen oder Zeitpunkte protokolliert - das haengt vom Server ab, nicht von der App. (2) Unbekannt, ob der Abruf der Versionsdatei auf fehlerfuchs.eu serverseitig protokolliert wird. (3) Das Firmen-Setup (Provisioning) aus 00_Konzept\\PROVISIONING_FIRMENSETUP_KONZEPT.md ist bisher nur Konzept; im geprueften Code wurde dazu nichts gefunden. Unbekannt, ob Teile davon bereits ausserhalb der geprueften Dateien vorbereitet sind.",
       "art": "anwendung"
     },
     {
       "slug": "orgafuchs",
       "name": "OrgaFuchs",
-      "stand": "2026-08-15",
+      "stand": "2026-08-23",
       "geprueft_von": "32_OrgaFuchs",
       "fassung": "1.6.1 (versionCode 15): Windows signiert+veroeffentlicht (Release orgafuchs-v1.6.1), Android 1.6.1 im Play-Rollout. Enthaelt Firebase Cloud Messaging (Google) als inhaltslosen Weck-Push (seit 1.5.0; nur Android, nur bei eingeschalteten Benachrichtigungen), Windows-Update-Pruefung (github.com) sowie NEU 'Nachricht an alle' + Postfach: kurze Klartext-Nachrichten an die Gruppe reisen Ende-zu-Ende ueber den Relais-Kanal (NICHT ueber Google), Postfach zeigt sie lokal im Nachgang. KEIN neues Uebertragungsziel/keine neue Datenkategorie ggü. 1.5.0. Play-Data-Safety unveraendert (Firebase/Geraetekennungen bereits deklariert).",
       "lokal_only": false,
@@ -1645,18 +1648,23 @@
       "daten_an_dritte_verkauft": false,
       "loeschung": "Alle Inhalte liegen auf dem Geraet. Einzelne Eintraege, Personen und Dienste lassen sich in der App loeschen; der Einrichtungsassistent kann im Modus \"Komplett neu\" den gesamten Bestand zuruecksetzen. Mit der Deinstallation verschwinden Datenbank, Protokolle, PDF-Ablage und Sicherungen im App-Ordner. Beim Sync ueber Relais liegen dort nur verschluesselte, kurzlebige Nachrichten; ohne das Gruppen-Passwort sind sie nicht lesbar. Ueber das Support-Formular gesendete Nachrichten werden auf Anfrage per E-Mail geloescht.",
       "besonderheiten": "Der Abgleich zwischen mehreren Geraeten kommt ohne Konto und ohne Registrierung aus: Ein Geraet ist \"Hauptgeraet\", weitere treten per QR-Code und einem selbst gewaehlten Gruppen-Passwort bei. Aus diesem Passwort wird der Schluessel fuer die Ende-zu-Ende-Verschluesselung abgeleitet; ein Relais sieht daher nur verschluesselte Daten und die Angabe, an welche Gruppe sie gehen - weder Namen noch Inhalte noch die Mitglieder der Gruppe. Welcher Relais- und welcher Benachrichtigungsserver verwendet wird, ist frei einstellbar; beide lassen sich auch selbst betreiben. Alternativ läuft der Abgleich ganz ohne Server direkt im eigenen Heimnetz oder Hotspot zwischen den Geräten. Die App zeigt eine Uebersicht der verwendeten Open-Source-Bausteine und Datenquellen. Da Dienstplaene mittelbar Rueckschluesse auf Arbeits- und Abwesenheitszeiten mehrerer Personen zulassen, koennen die lokal gespeicherten Inhalte sensibel sein.",
-      "vorhandener_text": "Vollstaendige Offline-Datenschutzerklaerung in lib/features/info/datenschutz_page.dart, erreichbar ueber Einstellungen -> Info & Rechtliches; zusaetzlicher Link auf die kanonische Online-Fassung https://fehlerfuchs.eu/datenschutz/. In-App-Impressum mit Anschrift und Telefon, Transparenzseite lib/features/info/open_source_page.dart und Offline-Changelog.",
+      "vorhandener_text": "Vollstaendige Offline-Datenschutzerklaerung in lib/features/info/datenschutz_page.dart, erreichbar ueber Einstellungen -> Info & Rechtliches; zusaetzlicher Link auf die kanonische Online-Fassung https://fehlerfuchs.eu/datenschutz/. In-App-Impressum mit Anschrift und E-Mail, ohne Telefonnummer, Transparenzseite lib/features/info/open_source_page.dart und Offline-Changelog.",
       "offene_fragen": "1) Unklar, ob und wie lange die angefragten Server (fehlerfuchs.eu fuer die Schulferien, das Relais, der ntfy-Server, license.fehlerfuchs.eu sowie github.com fuer die Windows-Update-Pruefung) IP-Adressen oder Zugriffe protokollieren - das haengt vom Serverbetrieb ab, nicht von der App. 2) Unklar, ob das mitgelieferte Google-ML-Kit-Barcodemodul eigene Verbindungen zu Google aufbaut (etwa Modell- oder Telemetriezugriffe); aus dem App-Code ist keine solche Verbindung ersichtlich, die Bibliothek wurde nicht im Netzwerkmitschnitt geprueft. 3) Unklar, welche Daten der Endpunkt license.fehlerfuchs.eu nach Empfang einer Support-Anfrage speichert und wie lange. 4) Nicht geprueft, ob die dem Support-Formular optional angehaengte Diagnosedatei in Einzelfaellen Inhalte aus Dienstplaenen enthalten kann; sie ist als rein technische Zusammenfassung angelegt (lib/core/diagnose/diagnose.dart).",
       "art": "anwendung"
     },
     {
       "slug": "pdfuchs",
       "name": "PDFuchs",
-      "stand": "2026-08-19",
+      "stand": "2026-08-23",
       "geprueft_von": "26_PDFuchs",
       "fassung": "v0.1.0_dev (Vorabfassung, noch nicht veroeffentlicht)",
       "lokal_only": false,
       "auf_dem_geraet": [
+        {
+          "was": "Vom Nutzer gesetzter Alias, Ablageordner, zuletzt geoeffnete Dokumentpfade und optionale Stammdaten (Name, Anschrift, E-Mail, Telefon, IBAN, BIC)",
+          "wo": "Lokale Einstellungsdatei %APPDATA%\\PDFuchs\\settings.json",
+          "beleg": "11_App_Flutter/pdfuchs_desktop/lib/settings/app_settings.dart"
+        },
         {
           "was": "Vom Nutzer geoeffnete und erzeugte PDFs sowie Zwischenergebnisse (Vorschauen, korrigierte Scans, ausfuellbare Formulare, Ergebnisse der Texterkennung)",
           "wo": "lokaler Ausgabeordner der Anwendung",
@@ -1728,7 +1736,7 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen auf dem Geraet. Selbst erzeugte oder bearbeitete PDFs liegen dort, wo der Nutzer sie gespeichert hat, und lassen sich wie jede andere Datei loeschen. Beim Deinstallieren wird das Programm entfernt; eigene Dokumente bleiben erhalten. Die kleine Datei mit den Angaben zur Testphase im Anwendungsdatenordner des Benutzers wird beim Deinstallieren nicht mit entfernt und bleibt auf dem Geraet; sie kann jederzeit von Hand geloescht werden.",
+      "loeschung": "Alle Daten liegen auf dem Geraet. Selbst erzeugte oder bearbeitete PDFs liegen dort, wo der Nutzer sie gespeichert hat, und lassen sich wie jede andere Datei loeschen. Beim Deinstallieren wird das Programm entfernt; eigene Dokumente bleiben erhalten. Die kleine Datei mit den Angaben zur Testphase im Anwendungsdatenordner des Benutzers wird beim Deinstallieren nicht mit entfernt und bleibt auf dem Geraet; sie kann jederzeit von Hand geloescht werden. Das gilt auch fuer die lokale Einstellungsdatei unter %APPDATA%\\PDFuchs. Erkennt PDFuchs dort unlesbares JSON, wird diese Fassung vor dem naechsten Speichern als Datei mit dem Zusatz `.defekt-...` bewahrt.",
       "besonderheiten": "PDFuchs verarbeitet Dokumente vollstaendig auf dem eigenen Rechner. Die Anwendung stellt von sich aus keine Verbindung ins Internet her. Eine Uebertragung erfolgt nur, wenn der Nutzer das Support-/Kontaktformular ausdruecklich absendet; dann gehen die dort eingegebenen freiwilligen Angaben (und optionale Dateianhaenge) per HTTPS an die FehlerFuchs-Kontakt-Bridge (license.fehlerfuchs.eu, EU/IONOS). Ein Konto oder eine Anmeldung gibt es nicht. Die Angaben zur Testphase und zur Zahl erstellter Formulare bleiben ausschliesslich auf dem Geraet. Wird ein Scanner benutzt, werden Angaben zum angeschlossenen Geraet lokal gespeichert, damit die Scanprofile dazu passen. Der beschriebene Stand ist eine Vorabfassung, die noch nicht veroeffentlicht wurde.",
       "vorhandener_text": "09_Releases/Datenschutz_Lokalhinweis_01072026.md",
       "offene_fragen": "1. Ob die mitgelieferten Zusatzwerkzeuge LibreOffice und Tesseract bei ihrer Ausfuehrung von sich aus Netzverbindungen aufbauen (etwa eine Updatepruefung von LibreOffice): PDFuchs loest nichts dergleichen aus; das Verhalten der Werkzeuge selbst wurde nicht per Mitschnitt geprueft. 2. Ob die beim Einrichten gesetzte Windows-Dateizuordnung ueber die Systemeintraege hinaus etwas nach aussen meldet: dafuer wurde kein Hinweis gefunden, es wurde aber nicht abschliessend geprueft.",
@@ -1737,9 +1745,9 @@
     {
       "slug": "pdfuchsreader",
       "name": "PDFuchs Reader",
-      "stand": "2026-08-19",
+      "stand": "2026-08-23",
       "geprueft_von": "26_PDFuchs (Slug-Eigentümer seit 18.08.2026; führt Android- und Windows-Teil). Windows-Teil am 19.08.2026 gegen den aktuellen Quellstand gegengeprüft und korrigiert: (a) das Netzverhalten ist nicht mehr netzwerkfrei, sondern hat einen NUTZERINITIIERTEN Support-/Kontaktweg (seit 25.07.2026); (b) es gibt inzwischen eine lokale Einstellungsdatei (settings.json) inkl. „Zuletzt geöffnet\"; (c) Installer ist Inno Setup (installer_flutter.iss), nicht mehr NSIS. Frühere Angaben entsprechend berichtigt.",
-      "fassung": "Zweite Fassung vom 19.07.2026 - gegenüber der ersten Einreichung desselben Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt. Zwei Fassungen tragen heute diesen Slug. (A) Android-Fassung 1.0.0 (versionCode 1, Paket eu.fehlerfuchs.pdfuchsreader): signierter Release-AAB ist gebaut und am Gerät getestet, aber noch NICHT im Play Store veröffentlicht (geplant als Offener Test). Geprüft am echten Code, Manifest und am gemergten Manifest des gebauten Release-AAB. (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, Inno-Setup-Skript (installer_flutter.iss). Kein Laufzeit-Mitschnitt des Netzwerkverkehrs - siehe offene Frage 4. Windows-Teil am 19.08.2026 gegen den aktuellen Stand gegengeprüft und berichtigt (Netzverhalten, Einstellungsdatei, Installer).",
+      "fassung": "Zweite Fassung vom 19.07.2026 - gegenüber der ersten Einreichung desselben Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt. Zwei Fassungen tragen heute diesen Slug. (A) Android-Fassung 1.1.0 (versionCode 3, Paket eu.fehlerfuchs.pdfuchsreader): seit 19.08.2026 vollständig in Google Play ausgerollt. Geprüft am aktuellen Code und Manifest; kein neuer Release-Build im gesperrten Reparaturlauf. (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, Inno-Setup-Skript (installer_flutter.iss). Kein Laufzeit-Mitschnitt des Netzwerkverkehrs - siehe offene Frage 4. Windows-Teil am 19.08.2026 gegen den aktuellen Stand gegengeprüft und berichtigt (Netzverhalten, Einstellungsdatei, Installer).",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -1758,14 +1766,19 @@
           "beleg": "05_App/pdfuchsreader_mobile/lib/core/onboarding/handbook_seeder.dart"
         },
         {
-          "was": "Vom Nutzer erzeugte bearbeitete PDF-Kopien (<name>_bearbeitet.pdf)",
-          "wo": "App-Dokumenteordner der App; das Original wird nie überschrieben",
+          "was": "Vom Nutzer erzeugte bearbeitete PDF-Kopien (<name>_bearbeitet[_N].pdf)",
+          "wo": "App-Dokumenteordner der App; Originale und vorhandene Kopien werden nie überschrieben",
           "beleg": "05_App/pdfuchsreader_mobile/lib/features/editor/seiten_editor_screen.dart"
         },
         {
-          "was": "Per „Öffnen mit\"/Teilen hereingereichte PDFs (Arbeitskopie)",
+          "was": "Per „Öffnen mit\"/Teilen hereingereichte PDFs und EPUBs (größenbegrenzte Arbeitskopie)",
           "wo": "Zwischenspeicher (Cache) der App",
-          "beleg": "05_App/pdfuchsreader_mobile/android/app/src/main/kotlin/com/example/pdfuchsreader_mobile/MainActivity.kt (kopiereNachCache)"
+          "beleg": "05_App/pdfuchsreader_mobile/android/app/src/main/kotlin/eu/fehlerfuchs/pdfuchsreader/MainActivity.kt (kopiereNachCache)"
+        },
+        {
+          "was": "Eigene Lesezeichen (Seite beziehungsweise Kapitel je Dokument) und Wiederleseposition",
+          "wo": "im Einstellungsspeicher der App auf dem Gerät",
+          "beleg": "05_App/pdfuchsreader_mobile/lib/core/marken/marken_store.dart; lib/core/recent/recent_store.dart"
         },
         {
           "was": "Vom Nutzer geöffnete PDFs und daraus erzeugte Ausgaben",
@@ -1810,7 +1823,7 @@
           "name": "(Android - keine weiteren)",
           "wofuer": "Die App fordert keine weiteren Berechtigungen an - insbesondere keinen Zugriff auf Speicher, Kamera, Standort, Kontakte oder Mikrofon.",
           "pflicht": false,
-          "beleg": "Gemergtes Manifest des gebauten Release-AAB vollständig ausgelesen; enthält nur INTERNET und die app-interne Systemberechtigung. Randnotiz für die Pflege, nicht zur Anzeige: das ungenutzte Paket permission_handler wurde mit Version 1.0.1 (07.08.2026) aus den Abhängigkeiten entfernt; es hatte keine Berechtigung hinzugefügt."
+          "beleg": "Release-Manifest von 1.0.0 vollständig ausgelesen; aktuelles Manifest und Abhängigkeiten statisch geprüft. Sie enthalten weiterhin keine fachliche Berechtigung außer INTERNET. Das ungenutzte Paket permission_handler ist seit 07.08.2026 entfernt."
         },
         {
           "name": "(Windows) Zugriff auf lokale Dateien",
@@ -1903,16 +1916,16 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Android: Alle Daten liegen auf dem Gerät. Einträge der Liste „Zuletzt geöffnet\" lassen sich einzeln entfernen oder komplett leeren. Beim Deinstallieren verschwinden App-Einstellungen, Zuletzt-Liste, Handbuch-Kopie, im App-Ordner erzeugte bearbeitete Kopien und der Zwischenspeicher. Windows: Das Deinstallieren entfernt das Programmverzeichnis, die Desktop- und Startmenü-Verknüpfungen sowie die bei der Installation gesetzten Einträge. Zwei Dateien bleiben dabei im Anwendungsdatenordner des Benutzers zurück und können jederzeit von Hand gelöscht werden: license_state.json (%LOCALAPPDATA%\\PDFuchs; nur ein lokaler Zählerstand, keine personenbezogenen Angaben) und settings.json (%APPDATA%\\PDFuchs; die Nutzereinstellungen inkl. optional selbst eingetragener Stammdaten). Beide werden bei der Deinstallation bewusst nicht mit entfernt. In beiden Fassungen bleiben die eigenen Dokumente des Nutzers unangetastet - Originale werden nie überschrieben.",
+      "loeschung": "Android: Alle Daten liegen auf dem Gerät. Einträge der Liste „Zuletzt geöffnet\" lassen sich einzeln entfernen oder komplett leeren. Beim Deinstallieren verschwinden App-Einstellungen, Zuletzt-Liste, Handbuch-Kopie, Lesezeichen, Wiederlesepositionen, im App-Ordner erzeugte bearbeitete Kopien und der Zwischenspeicher. Windows: Das Deinstallieren entfernt das Programmverzeichnis, die Desktop- und Startmenü-Verknüpfungen sowie die bei der Installation gesetzten Einträge. Zwei Dateien bleiben dabei im Anwendungsdatenordner des Benutzers zurück und können jederzeit von Hand gelöscht werden: license_state.json (%LOCALAPPDATA%\\PDFuchs; nur ein lokaler Zählerstand, keine personenbezogenen Angaben) und settings.json (%APPDATA%\\PDFuchs; die Nutzereinstellungen inkl. optional selbst eingetragener Stammdaten). Beide werden bei der Deinstallation bewusst nicht mit entfernt. In beiden Fassungen bleiben die eigenen Dokumente des Nutzers unangetastet - Originale werden nie überschrieben.",
       "besonderheiten": "Beide Fassungen sind offline voll benutzbar; ohne Zutun des Nutzers entsteht keine Verbindung nach draußen und keine automatische Update-Prüfung. Es gibt kein Konto, keine Anmeldung, keine Werbung, keine Nutzungsmessung und keine In-App-Käufe. In BEIDEN Fassungen entsteht eine Verbindung nur, wenn der Nutzer sie selbst auslöst - vor allem beim Absenden des Support-/ Kontaktformulars (an license.fehlerfuchs.eu) sowie beim Öffnen externer Links. (Berichtigung 19.08.2026: die frühere Aussage, die Windows-Fassung stelle „überhaupt keine Verbindung\" her, war seit 25.07.2026 überholt.) Beim Windows-Installer kann der Nutzer optional eine GPU-Komponente wählen, die dann CUDA-Pakete aus dem offiziellen PyTorch-Index nachlädt (Standard: aus). Bearbeitete PDF-Dateien werden immer als neue Kopie gespeichert, die Ursprungsdatei bleibt unverändert. Die Android-Fassung wird über Google Play vertrieben; Google erhält dabei die üblichen Installations- und Kontodaten des Store-Vorgangs, worauf die App selbst keinen Einfluss hat.",
       "vorhandener_text": "Android: 05_App/pdfuchsreader_mobile/lib/features/legal/datenschutz_screen.dart (Datenschutztext in der App, verweist auf https://fehlerfuchs.eu/datenschutz.html). Windows: 09_Releases/Datenschutz_Lokalhinweis_01072026.md",
-      "offene_fragen": "1. Slug-Zuordnung: Windows-Reader und Android-Reader teilen sich denselben Slug „pdfuchsreader\"; in der Liste gibt es keinen eigenen Slug für die mobile Fassung. Unklar, ob die Website beide Fassungen getrennt darstellen möchte - dann wäre ein zusätzlicher Slug nötig. Slugs werden nicht selbst erfunden, daher stehen hier beide Fassungen in einer Datei. 2. Ob der Kontakt-Endpunkt auf license.fehlerfuchs.eu IP-Adressen oder Zeitstempel protokolliert, hängt vom Server ab und ist aus der App heraus nicht feststellbar - unbekannt. 3. (erledigt) Das ungenutzte Paket permission_handler wurde mit Version 1.0.1 (07.08.2026) entfernt; es hatte ohnehin keine Datenschutzwirkung. 4. (aus der Windows-Zulieferung) Das Netzverhalten der mitgelieferten Tesseract-Binary selbst wurde nicht per Mitschnitt geprüft; geprüft wurde nur, was PDFuchs aufruft und übergibt. 5. (aus der Windows-Zulieferung) Ob Aktionen, die im Reader ausgelöst werden, den lokalen Zähler in license_state.json mitschreiben, wurde nicht abschließend geprüft: Reader und Suite nutzen denselben Programmkern, ein reader-eigener Schreibzugriff wurde jedoch nicht gefunden.",
+      "offene_fragen": "1. (erledigt) Windows- und Android-Reader teilen bewusst den Slug „pdfuchsreader\"; Eigentümer und gemeinsame Pflege liegen bei [26] PDFuchs. 2. Ob der Kontakt-Endpunkt auf license.fehlerfuchs.eu IP-Adressen oder Zeitstempel protokolliert, hängt vom Server ab und ist aus der App heraus nicht feststellbar - unbekannt. 3. (erledigt) Das ungenutzte Paket permission_handler wurde mit Version 1.0.1 (07.08.2026) entfernt; es hatte ohnehin keine Datenschutzwirkung. 4. (aus der Windows-Zulieferung) Das Netzverhalten der mitgelieferten Tesseract-Binary selbst wurde nicht per Mitschnitt geprüft; geprüft wurde nur, was PDFuchs aufruft und übergibt. 5. (aus der Windows-Zulieferung) Ob Aktionen, die im Reader ausgelöst werden, den lokalen Zähler in license_state.json mitschreiben, wurde nicht abschließend geprüft: Reader und Suite nutzen denselben Programmkern, ein reader-eigener Schreibzugriff wurde jedoch nicht gefunden.",
       "art": "anwendung"
     },
     {
       "slug": "schichtfuchs",
       "name": "SchichtFuchsHTML",
-      "stand": "2026-08-05",
+      "stand": "2026-08-23",
       "geprueft_von": "27_SchichtFuchs",
       "fassung": "BETA 2.0 (Auftrags-Edition) – in Erprobung, nicht veröffentlicht",
       "lokal_only": true,
@@ -1926,7 +1939,7 @@
       "uebertragungen": [
         {
           "wohin": "cdnjs.cloudflare.com",
-          "was": "Abruf der JavaScript-Bibliothek SheetJS (xlsx 0.18.5); es werden keine Plan- oder Personendaten übertragen, der CDN-Betreiber sieht die übliche HTTP-Anfrage",
+          "was": "Abruf der per SHA-512-Integrität fest gebundenen JavaScript-Bibliothek SheetJS (xlsx 0.18.5); die ausgewählte Datei sowie Plan- oder Personendaten werden nicht übertragen, der CDN-Betreiber sieht nur die übliche HTTP-Anfrage ohne Referrer",
           "wann": "nur wenn der Nutzer aktiv eine Excel-Datei (.xlsx) in den Stammdaten importiert und die Bibliothek noch nicht geladen ist; der CSV-Import kommt ohne jede Verbindung aus",
           "freiwillig": true,
           "beleg": "02_Mockup/SchichtFuchsHTML_BETA_2.0.html – change-Handler von"
@@ -1945,9 +1958,9 @@
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
       "loeschung": "Es wird nichts dauerhaft gespeichert: Seite neu laden oder den Browser-Tab schließen genügt, alle Eingaben der Sitzung sind damit weg. Die HTML-Datei selbst kann einfach gelöscht werden.",
-      "besonderheiten": "SchichtFuchsHTML ist eine einzelne HTML-Datei, die ohne Installation im Browser läuft – ohne Serverdienst, ohne Konto und ohne jede Berechtigungsanfrage. Die mitgelieferten Namen und Pläne sind fiktive Demo-Daten. Eine dauerhafte Speicherung gibt es im heutigen Stand nicht; sobald sie kommt (vorgesehen ist eine Ablage auf einem gemeinsamen Netzlaufwerk der Einrichtung), ändert sich das Speicherbild und dieser Steckbrief wird erneuert.",
+      "besonderheiten": "SchichtFuchsHTML ist eine einzelne HTML-Datei, die ohne Installation im Browser läuft – ohne Serverdienst, ohne Konto und ohne jede Berechtigungsanfrage. Die mitgelieferten Namen und Pläne sind fiktive Demo-Daten. Eine dauerhafte Speicherung gibt es im heutigen Stand nicht; sobald sie kommt (vorgesehen ist eine Ablage auf einem gemeinsamen Netzlaufwerk der Einrichtung), ändert sich das Speicherbild und dieser Steckbrief wird erneuert. Importdateien sind auf 10 MiB und 5.000 Datenzeilen begrenzt; importierte und frei eingegebene Texte werden vor HTML-Ausgabe neutralisiert. Anmeldung, Rollen und Schreibsperre sind im heutigen Stand ausschließlich sitzungsflüchtige BETA-Simulation und kein Zugriffsschutz.",
       "vorhandener_text": null,
-      "offene_fragen": "1) Der Slug „schichtfuchs\" steht noch nicht in der Slug-Liste des Prompts – bitte in die Website-Liste aufnehmen oder Zuordnung nennen. 2) Ob Cloudflare beim Bibliotheks-Abruf IP-Adressen protokolliert, hängt vom CDN-Betreiber ab und ist von der App aus nicht feststellbar. 3) Nach Umstellung auf JSON-Persistenz (Netzlaufwerk) muss der Abschnitt „auf_dem_geraet\"/„loeschung\" neu gefasst werden.",
+      "offene_fragen": "1) Ob Cloudflare beim Bibliotheks-Abruf IP-Adressen protokolliert, hängt vom CDN-Betreiber ab und ist von der App aus nicht feststellbar. 2) Nach Umstellung auf JSON-Persistenz (Netzlaufwerk) muss der Abschnitt „auf_dem_geraet\"/„loeschung\" neu gefasst werden. 3) Vor Produktivbetrieb müssen Authentisierung, Rechte, Dateisperre und Schutzbedarf der Personaleinsatz- und Abwesenheitsdaten fachlich/rechtlich abgenommen werden.",
       "art": "anwendung"
     },
     {

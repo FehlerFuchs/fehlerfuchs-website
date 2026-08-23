@@ -10,7 +10,8 @@ tagline: Die lokale, verständliche PDF-Vollsuite – Kernstück sind komfortabe
 description: >-
   PDF-Werkzeugkasten für den Alltag: zusammenfügen, teilen, drehen, komprimieren,
   Text erkennen – und als Kernstück aus Word-Dateien komfortabel ausfüllbare
-  PDF-Formulare erzeugen. Ohne Cloud, ohne Konto.
+  PDF-Formulare erzeugen. Die Dokumentfunktionen bleiben lokal; nur ein
+  ausdrücklich abgesendetes Kontaktformular überträgt freiwillige Angaben.
 audience: [privat, selbststaendige, unternehmen]
 accent: "#9F1239"
 status: entwicklung
@@ -18,9 +19,6 @@ status: entwicklung
 platforms:
   - os: windows
     status: entwicklung
-    distribution: keiner
-  - os: android
-    status: konzept
     distribution: keiner
 
 privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
@@ -34,11 +32,11 @@ windowsDisplayNames:
   - PDFuchs Version 0.1.0
 
 editions:
-  - id: standard
-    name: PDFuchs
-    public: true
-    summary: Geplant als kostenlose Anwendung.
-    price: { model: kostenlos }
+  - id: prerelease
+    name: PDFuchs Vorabfassung
+    public: false
+    summary: Voller Entwicklungsstand ohne öffentliche Freigabe; Preis und Vertriebsweg sind noch offen.
+    price: { model: offen }
 
 releases: []
 
@@ -87,4 +85,6 @@ links:
 notes: >-
   Teile des PDFuchs-Funktionsumfangs sind bereits in GewerbePro enthalten
   (QR-Code-Generator, Scannen, Ausgabeordner). Die eigenständige Suite wird daraus
-  weiterentwickelt.
+  weiterentwickelt. Die FehlerFuchs-Kontakt-Bridge wird nur beim ausdrücklichen
+  Absenden des Support-/Kontaktformulars gebraucht; alle Dokumentfunktionen sind
+  ohne diesen Dienst nutzbar.

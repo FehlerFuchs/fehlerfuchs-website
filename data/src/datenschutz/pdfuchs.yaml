@@ -1,6 +1,6 @@
 slug: pdfuchs
 name: PDFuchs
-stand: "2026-08-19"
+stand: "2026-08-23"
 geprueft_von: 26_PDFuchs
 fassung: "v0.1.0_dev (Vorabfassung, noch nicht veroeffentlicht)"
 
@@ -13,6 +13,9 @@ fassung: "v0.1.0_dev (Vorabfassung, noch nicht veroeffentlicht)"
 lokal_only: false
 
 auf_dem_geraet:
+  - was: Vom Nutzer gesetzter Alias, Ablageordner, zuletzt geoeffnete Dokumentpfade und optionale Stammdaten (Name, Anschrift, E-Mail, Telefon, IBAN, BIC)
+    wo: "Lokale Einstellungsdatei %APPDATA%\\PDFuchs\\settings.json"
+    beleg: 11_App_Flutter/pdfuchs_desktop/lib/settings/app_settings.dart
   - was: Vom Nutzer geoeffnete und erzeugte PDFs sowie Zwischenergebnisse (Vorschauen, korrigierte Scans, ausfuellbare Formulare, Ergebnisse der Texterkennung)
     wo: lokaler Ausgabeordner der Anwendung
     beleg: 05_Engine/pdfuchs_core/pdfuchs_core/config.py:61
@@ -80,7 +83,9 @@ loeschung: >-
   bleiben erhalten. Die kleine Datei mit den Angaben zur Testphase im
   Anwendungsdatenordner des Benutzers wird beim Deinstallieren nicht mit
   entfernt und bleibt auf dem Geraet; sie kann jederzeit von Hand geloescht
-  werden.
+  werden. Das gilt auch fuer die lokale Einstellungsdatei unter
+  %APPDATA%\PDFuchs. Erkennt PDFuchs dort unlesbares JSON, wird diese Fassung
+  vor dem naechsten Speichern als Datei mit dem Zusatz `.defekt-...` bewahrt.
 
 besonderheiten: >-
   PDFuchs verarbeitet Dokumente vollstaendig auf dem eigenen Rechner. Die

@@ -3,14 +3,16 @@ name: AppInsight
 fullName: FehlerFuchs AppInsight
 # SEO (2026-08-09): vorbereitet – wirkt erst bei Sichtbarschaltung (Status).
 seoTitel: "AppInsight – App-Berechtigungen & Tracker verständlich sehen (Android)"
-seoBeschreibung: "Sieh verständlich, was installierte Apps tun: Berechtigungen, Tracker, Datenverbrauch und Server-Kontakte – auf einen Blick, lokal auf dem Android-Gerät."
+seoBeschreibung: "Sieh verständlich, was installierte Apps anfordern: Berechtigungen, Tracker-Hinweise, Speicher- und Nutzungswerte – lokal auf dem Android-Gerät."
 tags: ["App-Berechtigungen", "Tracker", "Datenschutz", "Android", "App-Analyse", "lokal"]
 kind: produkt
-tagline: Sieh verständlich, was installierte Apps wirklich tun – Berechtigungen, Tracker, Verbrauch und Server-Kontakte.
+tagline: Sieh verständlich, was installierte Apps anfordern – Berechtigungen, Tracker-Hinweise, Speicher und Nutzung.
 description: >-
-  Zeigt in klarer Sprache, welche Berechtigungen installierte Apps haben, welche Tracker
-  sie enthalten, wie viel sie verbrauchen und mit welchen Servern sie sprechen –
-  mit einer Ampel-Einordnung statt pauschaler Urteile.
+  Zeigt in klarer Sprache, welche Berechtigungen installierte Apps anfordern, welche
+  Tracker-Bausteine heuristisch erkennbar sind und welche Speicher- und Nutzungswerte
+  Android freigibt – mit einer begründeten Ampel-Einordnung statt pauschaler Urteile.
+  AppInsight selbst arbeitet lokal; ein Live-Monitor für Domains oder Serverkontakte
+  ist in der heutigen Fassung ausdrücklich nicht enthalten.
 audience: [privat]
 accent: "#C2410C"   # Farbe der App
 status: entwicklung

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-22T16:35:26+02:00",
+  "generiert": "2026-08-23T15:48:32+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -561,9 +561,9 @@
           "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.1/FehlerFuchs_GewerbePro_Setup_0.3.1.exe",
           "filename": "FehlerFuchs_GewerbePro_Setup_0.3.1.exe",
           "size": {
-            "bytes": null,
+            "bytes": 119542064,
             "label": "114 MB",
-            "source": "GitHub-Release-Asset (gerundet)"
+            "source": "GitHub-Release-Asset"
           },
           "sha256": "3ffd2fb6381549ae75de42d6cbcbbb8dd8541f78f515a6a2072fcbf1f4d2be9c",
           "signed": false,
@@ -577,11 +577,11 @@
           "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.0/FehlerFuchs_GewerbePro_Setup_0.3.0.exe",
           "filename": "FehlerFuchs_GewerbePro_Setup_0.3.0.exe",
           "size": {
-            "bytes": null,
-            "label": "unbekannt",
-            "source": "nicht erhoben"
+            "bytes": 119278995,
+            "label": "114 MB",
+            "source": "GitHub-Release-Asset"
           },
-          "sha256": null,
+          "sha256": "860f068c4a14b15dc53ea02223fb90a55c8d51645c3500e5700793a89709b1e0",
           "signed": false,
           "notes": "Erste öffentlich testbare Version. Editionserkennung abgesichert."
         }
@@ -1181,7 +1181,7 @@
         "checkout": "https://www.checkout-ds24.com/product/721203",
         "contact": "/kontakt.html?app=HaushaltsManager&topic=interesse"
       },
-      "notes": "Öffentliche Produktfassung (sauberer Fork) des privaten HaushaltsManagers; Produkt-Code 36_HaushaltsManager Markt. Der private Ordner HaushaltsManager_PRIVAT (echte Daten) bleibt gesperrt und wird nie veröffentlicht. Slug und geprueft_von sind projektseitig geklärt (Eigentümer _Markt). Vertriebsmodell wie MobileReport: freier öffentlicher Download der signierten .exe (GitHub-Release, 1.0.0 eingetragen), Lizenzschlüssel (20 €, 5 Arbeitsplätze) über Digistore24 (Produkt 721203). Offen: Testkauf + Digistore \"Aktiv = Ja\" (Vertrieb/Lizenzserver), echte Screenshots (Projekt)."
+      "notes": "Öffentliche Produktfassung (sauberer Fork) des privaten HaushaltsManagers; Produkt-Code 36_HaushaltsManager Markt. Der private Ordner HaushaltsManager_PRIVAT (echte Daten) bleibt gesperrt und wird nie veröffentlicht. Slug und geprueft_von sind projektseitig geklärt (Eigentümer _Markt). Vertriebsmodell wie MobileReport: freier öffentlicher Download der signierten .exe (GitHub-Release, 1.0.0 eingetragen), Lizenzschlüssel (20 €, 5 Arbeitsplätze) über Digistore24 (Produkt 721203). Testkauf und „Aktiv = Ja\" sind abgeschlossen; offen bleiben echte Screenshots aus dem Projekt."
     },
     {
       "slug": "mobilereport",
@@ -1492,7 +1492,6 @@
         "kein-konto",
         "kein-tracking",
         "werbefrei",
-        "kein-google",
         "offline-faehig"
       ],
       "editions": [
@@ -1595,9 +1594,9 @@
           "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v1.0.1/MobileReport-Enterprise-1.0.1.apk",
           "filename": "MobileReport-Enterprise-1.0.1.apk",
           "size": {
-            "bytes": null,
+            "bytes": 63240019,
             "label": "60,3 MB",
-            "source": "GitHub-Release-Asset (gerundet)"
+            "source": "GitHub-Release-Asset"
           },
           "sha256": "3e990a428ed208be11587e779ce1eba02f8efbc81d192092a928270d75ca30a5",
           "signed": false,
@@ -1611,11 +1610,11 @@
           "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v1.0.0/MobileReport-Enterprise-1.0.0.apk",
           "filename": "MobileReport-Enterprise-1.0.0.apk",
           "size": {
-            "bytes": null,
-            "label": "unbekannt",
-            "source": "nicht erhoben"
+            "bytes": 62617195,
+            "label": "59,7 MB",
+            "source": "GitHub-Release-Asset"
           },
-          "sha256": null,
+          "sha256": "00c780ce27bac6a57c04b79982dddc4d7a045d53d99cc057106691671865038b",
           "signed": false,
           "notes": "Erste Enterprise-Version – Branding-Import, Lizenz je Arbeitsplatz, Backup, PDF-Export."
         }
@@ -2827,7 +2826,7 @@
       "name": "AppInsight",
       "fullName": "FehlerFuchs AppInsight",
       "seoTitel": "AppInsight – App-Berechtigungen & Tracker verständlich sehen (Android)",
-      "seoBeschreibung": "Sieh verständlich, was installierte Apps tun: Berechtigungen, Tracker, Datenverbrauch und Server-Kontakte – auf einen Blick, lokal auf dem Android-Gerät.",
+      "seoBeschreibung": "Sieh verständlich, was installierte Apps anfordern: Berechtigungen, Tracker-Hinweise, Speicher- und Nutzungswerte – lokal auf dem Android-Gerät.",
       "tags": [
         "App-Berechtigungen",
         "Tracker",
@@ -2837,8 +2836,8 @@
         "lokal"
       ],
       "kind": "produkt",
-      "tagline": "Sieh verständlich, was installierte Apps wirklich tun – Berechtigungen, Tracker, Verbrauch und Server-Kontakte.",
-      "description": "Zeigt in klarer Sprache, welche Berechtigungen installierte Apps haben, welche Tracker sie enthalten, wie viel sie verbrauchen und mit welchen Servern sie sprechen – mit einer Ampel-Einordnung statt pauschaler Urteile.",
+      "tagline": "Sieh verständlich, was installierte Apps anfordern – Berechtigungen, Tracker-Hinweise, Speicher und Nutzung.",
+      "description": "Zeigt in klarer Sprache, welche Berechtigungen installierte Apps anfordern, welche Tracker-Bausteine heuristisch erkennbar sind und welche Speicher- und Nutzungswerte Android freigibt – mit einer begründeten Ampel-Einordnung statt pauschaler Urteile. AppInsight selbst arbeitet lokal; ein Live-Monitor für Domains oder Serverkontakte ist in der heutigen Fassung ausdrücklich nicht enthalten.",
       "audience": [
         "privat"
       ],
@@ -3357,6 +3356,85 @@
       "notes": "Anbindung an Paperless bedeutet, dass Daten an ein selbst betriebenes Archiv gehen. Das Merkmal „keine-cloud\" ist deshalb bewusst nicht gesetzt – es hängt davon ab, wo der Nutzer sein Paperless betreibt."
     },
     {
+      "slug": "checkin-vita",
+      "name": "CheckInVita",
+      "fullName": "FehlerFuchs CheckInVita",
+      "seoTitel": "CheckInVita – persönliches Gesundheitstagebuch, lokal und ohne Cloud",
+      "seoBeschreibung": "Gesundheitswerte wie Blutdruck, Gewicht oder Schlaf selbst erfassen und im Verlauf sehen, aufbereitet für den Praxisbesuch – lokal auf dem Gerät, ohne Cloud.",
+      "tags": [
+        "Gesundheitstagebuch",
+        "Symptomtagebuch",
+        "Blutdruck",
+        "Verlauf",
+        "lokal",
+        "ohne Cloud"
+      ],
+      "kind": "produkt",
+      "tagline": "Das persönliche Gesundheits-Tagebuch – Werte erfassen, Verläufe verstehen, auf Wunsch aufbereitet mit der Praxis teilen.",
+      "description": "Gesundheitswerte wie Blutdruck, Gewicht, Schlaf oder Medikamenteneinnahme selbst erfassen und im Verlauf sehen. Auf Wunsch als aufbereitete Übersicht für den Praxisbesuch ausgeben. Tagebuchdaten bleiben lokal; nur das freiwillige Supportformular überträgt die vom Nutzer bewusst ausgewählten Angaben.",
+      "audience": [
+        "privat"
+      ],
+      "accent": "#5B8A72",
+      "status": "entwicklung",
+      "platforms": [
+        {
+          "os": "android",
+          "status": "entwicklung",
+          "distribution": "keiner"
+        },
+        {
+          "os": "windows",
+          "status": "entwicklung",
+          "distribution": "keiner"
+        }
+      ],
+      "privacy": [
+        "nur-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "CheckInVita",
+          "public": true,
+          "summary": "Funktionsumfang implementiert; Preismodell noch nicht entschieden.",
+          "price": {
+            "model": "offen"
+          }
+        }
+      ],
+      "releases": [],
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/checkin-vita.svg",
+          "alt": "CheckInVita – von FehlerFuchs",
+          "width": 1629,
+          "height": 403
+        },
+        "platzhalter": 4
+      },
+      "theme": {
+        "modus": "hell",
+        "hintergrund": "#FFF7ED",
+        "flaeche": "#FFFFFF",
+        "rand": "#EAD9C4",
+        "text": "#2B160B",
+        "textLeise": "#6B5544",
+        "akzent": "#5B8A72",
+        "quelle": "23_CheckInVita/src/lib/core/theme/app_colors.dart"
+      },
+      "links": {
+        "alt_html": "/apps/checkin-vita.html",
+        "contact": "/kontakt.html?app=CheckInVita&topic=interesse"
+      },
+      "notes": "Gesundheitsdaten sind besonders schützenswert. Android ist implementiert, aber nach dem Umzug noch nicht erneut auf realer Hardware abgenommen. Der Windows-Port ist vorhanden, sein Build ist mit der zentralen Visual-Studio-2026-Toolchain derzeit an der offenen local_auth-Paketentscheidung blockiert. Vor einer Veröffentlichung ist ein eigener, ausführlicher Datenschutzabschnitt nötig – die Merkmalsliste allein reicht hier nicht."
+    },
+    {
       "slug": "cleandesk",
       "name": "CleanDesk",
       "fullName": "FehlerFuchs CleanDesk",
@@ -3372,7 +3450,7 @@
       ],
       "kind": "produkt",
       "tagline": "Der sichere Ordnungshelfer für Windows – findet Duplikate, große und alte Dateien, leere Ordner. Löscht nie von selbst.",
-      "description": "Durchsucht Laufwerke nach Duplikaten, besonders großen oder lange nicht benutzten Dateien und leeren Ordnern, und zeigt verständlich, was Platz belegt. Gelöscht wird ausschließlich nach ausdrücklicher Bestätigung – nie automatisch.",
+      "description": "Durchsucht ausgewählte Ordner nach echten Duplikaten, besonders großen oder lange nicht benutzten Dateien und leeren Ordnern. Ausgewählte Duplikate können nach einer erneuten Prüfsummenkontrolle in den Papierkorb. Der Sortier-Assistent zeigt seine Planung vorab und verschiebt erst nach ausdrücklicher Bestätigung.",
       "audience": [
         "privat",
         "selbststaendige"
@@ -3404,6 +3482,66 @@
           }
         }
       ],
+      "features": [
+        {
+          "group": "Finden",
+          "items": [
+            {
+              "name": "Ausgewählte Ordner read-only nach großen, alten und leeren Funden scannen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Echte Duplikate per vollständigem SHA-256 erkennen",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Sicher ordnen",
+          "items": [
+            {
+              "name": "Bestätigte Duplikate nach erneuter Prüfsummenkontrolle in den Papierkorb",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Sortier-Assistent mit Vorschau, Vorlagen und eigenen sicheren Regeln",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Copy-Verify-Delete ohne Überschreiben",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Letzte Sortierung in derselben Sitzung rückgängig machen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Sitzungsübergreifendes Undo ist noch geplant."
+            }
+          ]
+        },
+        {
+          "group": "Berichte",
+          "items": [
+            {
+              "name": "Lokaler Export als TXT, CSV und JSON",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        }
+      ],
       "releases": [],
       "media": {
         "lockup": {
@@ -3431,18 +3569,18 @@
       "name": "CoppiceMail",
       "fullName": "FehlerFuchs CoppiceMail",
       "seoTitel": "CoppiceMail – datensparsames E-Mail-Programm für Belege & Büropost",
-      "seoBeschreibung": "Lokales, datensparsames E-Mail-Programm mit Belegfokus: Mail öffnen, Anhang als Beleg ablegen, archivieren – kurze Wege, ohne Cloud, ohne Tracking.",
+      "seoBeschreibung": "Lokales, datensparsames E-Mail-Programm mit Belegfokus: Mail öffnen, Anhang als Beleg ablegen, archivieren – kurze Wege, ohne FehlerFuchs-Cloud und ohne Tracking.",
       "tags": [
         "E-Mail-Programm",
         "Belege",
         "Büropost",
         "datensparsam",
         "Windows",
-        "ohne Cloud"
+        "lokale Datenhaltung"
       ],
       "kind": "produkt",
       "tagline": "Das lokale, datensparsame E-Mail-Programm für Belege und Büropost – der Weg Mail, Anhang, Beleg, Archiv so kurz wie möglich.",
-      "description": "E-Mail-Programm mit Belegfokus: Nachricht öffnen, Anhang erkennen, als Beleg ablegen, archivieren – ohne Umwege. CoppiceMail wurde als reine Flutter/Dart-App neu aufgebaut; Version 1.0.1 ist funktional fertig und durchläuft vor der Freigabe die Sicherheits- und Stabilitätshärtung.",
+      "description": "E-Mail-Programm mit Belegfokus: Nachricht öffnen, Anhang erkennen, als Beleg ablegen, archivieren – ohne Umwege. CoppiceMail wurde als reine Flutter/Dart-App neu aufgebaut; der technische RC 1.0.2-rc.1+6 ist funktional weitgehend fertig und geprüft. Das Projekt ist derzeit pausiert und nicht veröffentlicht.",
       "audience": [
         "selbststaendige",
         "unternehmen"
@@ -3457,7 +3595,7 @@
           "distribution": "keiner",
           "hinweis": {
             "wenn": "entwicklung",
-            "text": "1.0.1 als technischer Release-Kandidat gebaut; Sicherheits- und Stabilitätshärtung läuft. Noch kein öffentlicher Download."
+            "text": "1.0.2-rc.1+6 als technischer Release-Kandidat gebaut und am Host geprüft. Das Projekt ist derzeit pausiert. Noch kein öffentlicher Download."
           }
         }
       ],
@@ -3479,7 +3617,7 @@
       },
       "statusGrund": {
         "wenn": "entwicklung",
-        "text": "Fertig gebaut, aber bewusst noch nicht öffentlich: CoppiceMail wurde von Grund auf neu als reine Flutter/Dart-App aufgebaut, Version 1.0.1 ist funktional fertig. Jetzt läuft die Sicherheits-, Datenschutz- und Doku-Härtung vor der Freigabe – lieber sorgfältig als schnell."
+        "text": "Technischer RC gebaut und am Host geprüft, aber bewusst noch nicht öffentlich: CoppiceMail ist derzeit pausiert. Vor einer späteren Freigabe bleiben Signierung, Geräte-/Clean-System-Gegenprobe und Rechtsprüfung – lieber sorgfältig als schnell."
       },
       "theme": {
         "modus": "hell",
@@ -3489,13 +3627,13 @@
         "text": "#1A140F",
         "textLeise": "#6B5B50",
         "akzent": "#0F5132",
-        "quelle": "21_CoppiceMail/app/ui/theme.py"
+        "quelle": "21_CoppiceMail/21_App_Flutter/coppicemail_desktop/lib/theme/app_colors.dart"
       },
       "links": {
         "alt_html": "/apps/coppicemail.html",
         "contact": "/kontakt.html?app=CoppiceMail&topic=interesse"
       },
-      "notes": "1.0.1 als Release-Kandidat gebaut, in Härtung; noch kein öffentlicher Download. Regel (CoppiceMail 28.07.2026): Status, Download und Datenschutz nur GEMEINSAM in einem Release-Schritt freischalten. OFFEN für WEB vor dem Release: Datenschutz- Steckbrief v2 (realer 1.0-Datenfluss, lokal_only:false) über den Einreichordner nachziehen und die privacy-Merkmale (aktuell noch inkl. 'nur-lokal') entsprechend korrigieren. Bis dahin bewusst unverändert."
+      "notes": "1.0.2-rc.1+6 als technischer Release-Kandidat gebaut und am Host geprüft; Projekt pausiert, noch kein öffentlicher Download. Regel (CoppiceMail 28.07.2026): Status, Download und Datenschutz nur GEMEINSAM in einem Release-Schritt freischalten. Datenschutz-Steckbrief v2 und die dazu passenden privacy-Merkmale sind bereits übernommen; offen bleibt die eigentliche Release-Freigabe."
     },
     {
       "slug": "dateiwaechter",
@@ -3595,6 +3733,78 @@
           "price": {
             "model": "offen"
           }
+        }
+      ],
+      "features": [
+        {
+          "group": "Passwörter erzeugen",
+          "items": [
+            {
+              "name": "Passphrasen aus mitgelieferter deutscher Wortliste",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Zeichenketten, Silben und Merksätze mit Stärkeanzeige",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Eigene Wörter lokal ergänzen",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Lokaler Tresor",
+          "items": [
+            {
+              "name": "Einträge verschlüsselt auf dem Gerät verwahren",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Zugang aus mindestens zwei gewählten Faktoren",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "PIN, Biometrie und Tresor-Passwort stehen zur Auswahl."
+            },
+            {
+              "name": "Einzelne Einträge zusätzlich mit Offline-Sicherheitsschlüssel schützen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Konto, Cloud oder Synchronisierung erforderlich",
+              "values": {
+                "standard": "nein"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Sichern",
+          "items": [
+            {
+              "name": "Passphrasenverschlüsselten Backup-Text erzeugen und wiederherstellen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Automatisches Ausfüllen in Browsern oder anderen Apps",
+              "values": {
+                "standard": "nein"
+              }
+            }
+          ]
         }
       ],
       "releases": [],
@@ -3833,7 +4043,7 @@
       ],
       "kind": "produkt",
       "tagline": "Die lokale, verständliche PDF-Vollsuite – Kernstück sind komfortabel ausfüllbare PDF-Formulare aus Word-Dateien.",
-      "description": "PDF-Werkzeugkasten für den Alltag: zusammenfügen, teilen, drehen, komprimieren, Text erkennen – und als Kernstück aus Word-Dateien komfortabel ausfüllbare PDF-Formulare erzeugen. Ohne Cloud, ohne Konto.",
+      "description": "PDF-Werkzeugkasten für den Alltag: zusammenfügen, teilen, drehen, komprimieren, Text erkennen – und als Kernstück aus Word-Dateien komfortabel ausfüllbare PDF-Formulare erzeugen. Die Dokumentfunktionen bleiben lokal; nur ein ausdrücklich abgesendetes Kontaktformular überträgt freiwillige Angaben.",
       "audience": [
         "privat",
         "selbststaendige",
@@ -3845,11 +4055,6 @@
         {
           "os": "windows",
           "status": "entwicklung",
-          "distribution": "keiner"
-        },
-        {
-          "os": "android",
-          "status": "konzept",
           "distribution": "keiner"
         }
       ],
@@ -3867,12 +4072,12 @@
       ],
       "editions": [
         {
-          "id": "standard",
-          "name": "PDFuchs",
-          "public": true,
-          "summary": "Geplant als kostenlose Anwendung.",
+          "id": "prerelease",
+          "name": "PDFuchs Vorabfassung",
+          "public": false,
+          "summary": "Voller Entwicklungsstand ohne öffentliche Freigabe; Preis und Vertriebsweg sind noch offen.",
           "price": {
-            "model": "kostenlos"
+            "model": "offen"
           }
         }
       ],
@@ -3900,7 +4105,7 @@
         "alt_html": "/apps/pdfuchs.html",
         "contact": "/kontakt.html?app=PDFuchs&topic=interesse"
       },
-      "notes": "Teile des PDFuchs-Funktionsumfangs sind bereits in GewerbePro enthalten (QR-Code-Generator, Scannen, Ausgabeordner). Die eigenständige Suite wird daraus weiterentwickelt."
+      "notes": "Teile des PDFuchs-Funktionsumfangs sind bereits in GewerbePro enthalten (QR-Code-Generator, Scannen, Ausgabeordner). Die eigenständige Suite wird daraus weiterentwickelt. Die FehlerFuchs-Kontakt-Bridge wird nur beim ausdrücklichen Absenden des Support-/Kontaktformulars gebraucht; alle Dokumentfunktionen sind ohne diesen Dienst nutzbar."
     },
     {
       "slug": "up2date",
@@ -3917,20 +4122,20 @@
       ],
       "kind": "produkt",
       "tagline": "Ein kleiner Helfer im Infobereich, der installierte FehlerFuchs-Programme im Blick behält und auf neue Fassungen hinweist.",
-      "description": "Up2Date ist in Entwicklung. Gedacht ist es als zentrale Stelle für alle FehlerFuchs-Programme auf einem Windows-Rechner: Es soll erkennen, welche davon installiert sind, deren Stand mit der Versionsliste auf fehlerfuchs.eu vergleichen und melden, wenn etwas Neues vorliegt. Dieser Abgleich braucht später einen Netzzugriff – den Abruf einer statischen Datei, kein Konto und kein Dienst. Heute läuft davon noch nichts: Der aktuelle Stand zeigt ein Symbol im Infobereich und ein Fenster, mehr nicht. Es ist kein allgemeiner Updater, sondern ausschließlich für FehlerFuchs-Programme gedacht.",
+      "description": "Up2Date ist die zentrale Stelle für alle FehlerFuchs-Programme auf einem Windows-Rechner. Es läuft im Infobereich, erkennt installierte FehlerFuchs-Programme, vergleicht deren Fassung mit der Versionsliste auf fehlerfuchs.eu und zeigt an, wo ein Update bereitliegt – das funktioniert im aktuellen Entwicklungsstand bereits. Was noch fehlt, ist der eigentliche Update-Download samt Start des Installers. Der Abgleich braucht einen Netzzugriff – den Abruf einer statischen Datei, kein Konto und kein Dienst. Es ist kein allgemeiner Updater, sondern ausschließlich für FehlerFuchs-Programme gedacht.",
       "audience": [
         "privat",
         "selbststaendige",
         "unternehmen"
       ],
-      "accent": "#935E27",
+      "accent": "#2A5DA8",
       "theme": {
         "modus": "dunkel",
         "hintergrund": "#1A0F08",
         "flaeche": "#241612",
         "text": "#FFF7ED",
         "textLeise": "#C9B7A6",
-        "akzent": "#F59E42",
+        "akzent": "#5981BB",
         "quelle": "31_Up2Date/05_App/up2date/lib/theme.dart"
       },
       "wordmark": [
@@ -3941,7 +4146,7 @@
         },
         {
           "text": "Up2Date",
-          "color": "#7C3F16",
+          "color": "#2E60AA",
           "weight": "bold"
         }
       ],
@@ -3976,20 +4181,37 @@
       ],
       "features": [
         {
-          "group": "Geplant",
+          "group": "Umgesetzt",
           "items": [
             {
               "name": "Installierte FehlerFuchs-Programme erkennen",
               "values": {
-                "standard": "geplant"
+                "standard": "ja"
               }
             },
             {
               "name": "Stand mit der Versionsliste auf fehlerfuchs.eu abgleichen",
               "values": {
-                "standard": "geplant"
+                "standard": "ja"
               }
             },
+            {
+              "name": "Autostart mit Windows – nur nach ausdrücklicher Zustimmung",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Rückmeldung und Support aus der App",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Geplant",
+          "items": [
             {
               "name": "Installer der jeweiligen Fassung laden und starten",
               "values": {
@@ -3998,12 +4220,6 @@
             },
             {
               "name": "Hinweis im Infobereich bei neuer Fassung",
-              "values": {
-                "standard": "geplant"
-              }
-            },
-            {
-              "name": "Autostart mit Windows – nur nach ausdrücklicher Zustimmung",
               "values": {
                 "standard": "geplant"
               }
@@ -4104,85 +4320,6 @@
         "contact": "/kontakt.html?app=WachFuchs&topic=interesse"
       },
       "notes": "Pool-Kachel (in Entwicklung, Freigabe Matze 17.08.2026). Kostenpflichtige Android-Lern-App für die Feuerwehr-Ausbildung; speist sich nur aus eigenen Formulierungen und amtlichen Werken (FwDV), scharf abgegrenzt zu EinsatzFuchs (gemeinsam ist allein der Code-/Gestaltungskern fehlerfuchs_kern, Farben von EinsatzFuchs). Zuschnitt in Blöcken statt Einzellehrgängen; Preise und Vertriebsmodell noch offen (Kauf über Google Play Billing, freier Einstieg). Führung/Sonderausbildung noch nicht öffentlich. Audience auf gültige Enums gemappt (Original: feuerwehr/ausbildung/… → ehrenamt, vereine)."
-    },
-    {
-      "slug": "checkin-vita",
-      "name": "CheckInVita",
-      "fullName": "FehlerFuchs CheckInVita",
-      "seoTitel": "CheckInVita – Gesundheitstagebuch-App, lokal und kostenlos",
-      "seoBeschreibung": "Gesundheitswerte wie Blutdruck, Gewicht oder Schlaf selbst erfassen und im Verlauf sehen, aufbereitet für den Praxisbesuch – lokal auf dem Gerät, ohne Cloud.",
-      "tags": [
-        "Gesundheitstagebuch",
-        "Symptomtagebuch",
-        "Blutdruck",
-        "Verlauf",
-        "lokal",
-        "ohne Cloud"
-      ],
-      "kind": "produkt",
-      "tagline": "Das persönliche Gesundheits-Tagebuch – Werte erfassen, Verläufe verstehen, auf Wunsch aufbereitet mit der Praxis teilen.",
-      "description": "Gesundheitswerte wie Blutdruck, Gewicht, Schlaf oder Medikamenteneinnahme selbst erfassen und im Verlauf sehen. Auf Wunsch als aufbereitete Übersicht für den Praxisbesuch ausgeben. Die Daten bleiben auf dem eigenen Gerät.",
-      "audience": [
-        "privat"
-      ],
-      "accent": "#5B8A72",
-      "status": "konzept",
-      "platforms": [
-        {
-          "os": "android",
-          "status": "konzept",
-          "distribution": "keiner"
-        },
-        {
-          "os": "windows",
-          "status": "konzept",
-          "distribution": "keiner"
-        }
-      ],
-      "privacy": [
-        "nur-lokal",
-        "keine-cloud",
-        "kein-konto",
-        "kein-tracking",
-        "werbefrei",
-        "offline-faehig"
-      ],
-      "editions": [
-        {
-          "id": "standard",
-          "name": "CheckInVita",
-          "public": true,
-          "summary": "Geplant als kostenlose Anwendung.",
-          "price": {
-            "model": "kostenlos"
-          }
-        }
-      ],
-      "releases": [],
-      "media": {
-        "lockup": {
-          "src": "/img/lockups/checkin-vita.svg",
-          "alt": "CheckInVita – von FehlerFuchs",
-          "width": 1629,
-          "height": 403
-        },
-        "platzhalter": 4
-      },
-      "theme": {
-        "modus": "hell",
-        "hintergrund": "#FFF7ED",
-        "flaeche": "#FFFFFF",
-        "rand": "#EAD9C4",
-        "text": "#2B160B",
-        "textLeise": "#6B5544",
-        "akzent": "#5B8A72",
-        "quelle": "23_CheckInVita/src/lib/core/theme/app_colors.dart"
-      },
-      "links": {
-        "alt_html": "/apps/checkin-vita.html",
-        "contact": "/kontakt.html?app=CheckInVita&topic=interesse"
-      },
-      "notes": "Gesundheitsdaten sind besonders schützenswert. Vor einer Veröffentlichung ist ein eigener, ausführlicher Datenschutzabschnitt nötig – die Merkmalsliste allein reicht hier nicht."
     },
     {
       "slug": "einsatzfuchs",

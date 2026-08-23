@@ -61,8 +61,8 @@ editions:
       Haushaltsbuch, Vorhaben/Projekte, Auswertungen, Solar & Speicher,
       PDF-Kommunikation und -Berichte, Export und Sicherung.
     # Entschieden 11.08.2026: Einmalkauf 20,00 € (Brutto, glatter Endkundenpreis)
-    # über Digistore24. Kein Kauf-Button, solange links.checkout fehlt (Shop-Listing
-    # + signierter Download werden vorbereitet).
+    # über Digistore24. Shop-Listing, Testkauf, Aktivierung und signierter Download
+    # sind abgeschlossen; links.checkout schaltet den Kauf-Button.
     price:
       model: einmalig
       amount: 20
@@ -170,5 +170,5 @@ notes: >-
   veröffentlicht. Slug und geprueft_von sind projektseitig geklärt (Eigentümer
   _Markt). Vertriebsmodell wie MobileReport: freier öffentlicher Download der
   signierten .exe (GitHub-Release, 1.0.0 eingetragen), Lizenzschlüssel (20 €,
-  5 Arbeitsplätze) über Digistore24 (Produkt 721203). Offen: Testkauf +
-  Digistore "Aktiv = Ja" (Vertrieb/Lizenzserver), echte Screenshots (Projekt).
+  5 Arbeitsplätze) über Digistore24 (Produkt 721203). Testkauf und „Aktiv = Ja"
+  sind abgeschlossen; offen bleiben echte Screenshots aus dem Projekt.

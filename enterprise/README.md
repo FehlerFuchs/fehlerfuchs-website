@@ -1,17 +1,21 @@
 # enterprise/ — Update-Manifest & Download-Konvention (MobileReport Enterprise)
 
-## `latest.json` — Single Source of Truth
+## `latest.json` — ausgeliefertes, erzeugtes Manifest
 Die Enterprise-App (Off-Play) prüft beim Start **fest verdrahtet** die URL
 `https://fehlerfuchs.eu/enterprise/latest.json`. **Diesen Pfad und Dateinamen NICHT ändern.**
+
+Die fachliche Quelle ist `data/src/products/mobilereport-enterprise.yaml`.
+`tools/build_manifests.py` erzeugt daraus `enterprise/latest.json`; die JSON-Datei nicht
+von Hand pflegen.
 
 Schema (genau so lesen App):
 ```json
 {
   "app": "MobileReport Enterprise",
-  "version": "0.1.0",
-  "apkUrl": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v0.1.0/MobileReport-Enterprise-0.1.0.apk",
+  "version": "1.0.2",
+  "apkUrl": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.0.2/MobileReport-Enterprise-1.0.2.apk",
   "notes": "Kurzer Änderungstext – wird 1:1 im Update-Hinweis der App angezeigt.",
-  "updatedAt": "2026-07-06"
+  "updatedAt": "2026-08-18"
 }
 ```
 
@@ -22,18 +26,21 @@ Von der App **ausgewertet**: nur `version`, `apkUrl`, `notes`.
 - `app`, `updatedAt`: nur für Menschen (App ignoriert sie) — trotzdem pflegen.
 - **Muss immer gültiges JSON sein.** Fehlt/kaputt/leer → App zeigt nichts und läuft weiter.
 
-## APK-Hosting & URL-Konvention
+## APK-Hosting & URL-Beleg
 Die APK wird **nicht** hier gehostet, sondern als **GitHub-Release-Asset** im Repo
 `FehlerFuchs/fehlerfuchs-downloads`.
-- Release-Tag: `mr-ent-v<version>` (z. B. `mr-ent-v0.1.0`)
+- Aktueller Release-Tag: `mobilereport-enterprise-v1.0.2`
+- Historische Tags 1.0.0/1.0.1: `mr-ent-v1.0.0` und `mr-ent-v1.0.1`
 - Asset-Dateiname: `MobileReport-Enterprise-<version>.apk`
-- `apkUrl`: `https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v<version>/MobileReport-Enterprise-<version>.apk`
+- Den Tag nicht aus einer vermeintlichen Konvention ableiten: die konkrete URL im Produkt-YAML
+  muss per HTTP/API gegen das vorhandene Release-Asset geprüft werden.
 - Fallback (Downloadseite, wenn `apkUrl` leer/Fetch scheitert): `https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/latest`
 
 ## Release-Checkliste (bei jedem Enterprise-Release)
-1. Signierte Release-APK im App-Projekt bauen.
-2. GitHub-Release im Repo `fehlerfuchs-downloads` anlegen (Tag `mr-ent-v<version>`), APK als Asset hochladen.
-3. `latest.json` setzen: `version`, `apkUrl`, `notes`, `updatedAt`.
-4. Push → Deploy. Test: `version` höher als installiert + gültige `apkUrl` → App zeigt beim Start das Banner mit `notes`.
+1. Freigegebene Release-APK im App-Projekt erstellen und die Prüfdaten übernehmen.
+2. Matthias legt das Release im Repo `fehlerfuchs-downloads` an; Tag und Asset danach real abfragen.
+3. Produkt-YAML setzen und `python tools/build_manifests.py` zunächst ohne `--write` prüfen.
+4. Nach bestätigtem Diff mit `--write` erzeugen; JSON parsen und die konkrete `apkUrl` per HEAD/API prüfen.
+5. Commit, Push und Deploy ausschließlich nach den aktuellen Hausregeln und Freigaben.
 
-*Stand 2026-07-06. Verifiziert gegen `FehlerFuchsMR_Enterprise/01_App/lib/services/update_service.dart`.*
+*Stand 2026-08-23. Manifestpfad gegen den aktiven Daten- und Deploy-Fluss geprüft.*

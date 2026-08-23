@@ -1,6 +1,6 @@
 slug: pdfuchsreader
 name: PDFuchs Reader
-stand: "2026-08-19"
+stand: "2026-08-23"
 geprueft_von: >-
   26_PDFuchs (Slug-Eigentümer seit 18.08.2026; führt Android- und
   Windows-Teil). Windows-Teil am 19.08.2026 gegen den aktuellen Quellstand
@@ -13,10 +13,9 @@ fassung: >-
   Zweite Fassung vom 19.07.2026 - gegenüber der ersten Einreichung desselben
   Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt.
   Zwei Fassungen tragen heute diesen Slug.
-  (A) Android-Fassung 1.0.0 (versionCode 1, Paket eu.fehlerfuchs.pdfuchsreader):
-  signierter Release-AAB ist gebaut und am Gerät getestet, aber noch NICHT im
-  Play Store veröffentlicht (geplant als Offener Test). Geprüft am echten
-  Code, Manifest und am gemergten Manifest des gebauten Release-AAB.
+  (A) Android-Fassung 1.1.0 (versionCode 3, Paket eu.fehlerfuchs.pdfuchsreader):
+  seit 19.08.2026 vollständig in Google Play ausgerollt. Geprüft am aktuellen
+  Code und Manifest; kein neuer Release-Build im gesperrten Reparaturlauf.
   (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht
   veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und
   Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, Inno-Setup-Skript
@@ -43,12 +42,15 @@ auf_dem_geraet:
   - was: Kopie des mitgelieferten Handbuch-PDFs + einmaliges Onboarding-Kennzeichen
     wo: App-Dokumenteordner der App
     beleg: 05_App/pdfuchsreader_mobile/lib/core/onboarding/handbook_seeder.dart
-  - was: Vom Nutzer erzeugte bearbeitete PDF-Kopien (<name>_bearbeitet.pdf)
-    wo: App-Dokumenteordner der App; das Original wird nie überschrieben
+  - was: Vom Nutzer erzeugte bearbeitete PDF-Kopien (<name>_bearbeitet[_N].pdf)
+    wo: App-Dokumenteordner der App; Originale und vorhandene Kopien werden nie überschrieben
     beleg: 05_App/pdfuchsreader_mobile/lib/features/editor/seiten_editor_screen.dart
-  - was: Per „Öffnen mit"/Teilen hereingereichte PDFs (Arbeitskopie)
+  - was: Per „Öffnen mit"/Teilen hereingereichte PDFs und EPUBs (größenbegrenzte Arbeitskopie)
     wo: Zwischenspeicher (Cache) der App
-    beleg: 05_App/pdfuchsreader_mobile/android/app/src/main/kotlin/com/example/pdfuchsreader_mobile/MainActivity.kt (kopiereNachCache)
+    beleg: 05_App/pdfuchsreader_mobile/android/app/src/main/kotlin/eu/fehlerfuchs/pdfuchsreader/MainActivity.kt (kopiereNachCache)
+  - was: Eigene Lesezeichen (Seite beziehungsweise Kapitel je Dokument) und Wiederleseposition
+    wo: im Einstellungsspeicher der App auf dem Gerät
+    beleg: 05_App/pdfuchsreader_mobile/lib/core/marken/marken_store.dart; lib/core/recent/recent_store.dart
   # --- Windows-Fassung (geprüft, Zulieferung 26_PDFuchs 19.07.2026) ---
   - was: Vom Nutzer geöffnete PDFs und daraus erzeugte Ausgaben
     wo: der vom Nutzer gewählte Speicherort
@@ -96,11 +98,10 @@ berechtigungen:
       Zugriff auf Speicher, Kamera, Standort, Kontakte oder Mikrofon.
     pflicht: false
     beleg: >-
-      Gemergtes Manifest des gebauten Release-AAB vollständig ausgelesen; enthält
-      nur INTERNET und die app-interne Systemberechtigung. Randnotiz für die
-      Pflege, nicht zur Anzeige: das ungenutzte Paket permission_handler wurde
-      mit Version 1.0.1 (07.08.2026) aus den Abhängigkeiten entfernt; es hatte
-      keine Berechtigung hinzugefügt.
+      Release-Manifest von 1.0.0 vollständig ausgelesen; aktuelles Manifest und
+      Abhängigkeiten statisch geprüft. Sie enthalten weiterhin keine fachliche
+      Berechtigung außer INTERNET. Das ungenutzte Paket permission_handler ist
+      seit 07.08.2026 entfernt.
   - name: (Windows) Zugriff auf lokale Dateien
     wofuer: Öffnen und Speichern der vom Nutzer gewählten PDF-Dateien
     pflicht: true
@@ -190,7 +191,8 @@ loeschung: >-
   Android: Alle Daten liegen auf dem Gerät. Einträge der Liste „Zuletzt
   geöffnet" lassen sich einzeln entfernen oder komplett leeren. Beim
   Deinstallieren verschwinden App-Einstellungen, Zuletzt-Liste, Handbuch-Kopie,
-  im App-Ordner erzeugte bearbeitete Kopien und der Zwischenspeicher.
+  Lesezeichen, Wiederlesepositionen, im App-Ordner erzeugte bearbeitete Kopien
+  und der Zwischenspeicher.
   Windows: Das Deinstallieren entfernt das Programmverzeichnis, die Desktop- und
   Startmenü-Verknüpfungen sowie die bei der Installation gesetzten Einträge.
   Zwei Dateien bleiben dabei im Anwendungsdatenordner des Benutzers zurück und
@@ -224,11 +226,8 @@ vorhandener_text: >-
   Windows: 09_Releases/Datenschutz_Lokalhinweis_01072026.md
 
 offene_fragen: >-
-  1. Slug-Zuordnung: Windows-Reader und Android-Reader teilen sich denselben
-  Slug „pdfuchsreader"; in der Liste gibt es keinen eigenen Slug für die mobile
-  Fassung. Unklar, ob die Website beide Fassungen getrennt darstellen möchte -
-  dann wäre ein zusätzlicher Slug nötig. Slugs werden nicht selbst erfunden,
-  daher stehen hier beide Fassungen in einer Datei.
+  1. (erledigt) Windows- und Android-Reader teilen bewusst den Slug
+  „pdfuchsreader"; Eigentümer und gemeinsame Pflege liegen bei [26] PDFuchs.
   2. Ob der Kontakt-Endpunkt auf license.fehlerfuchs.eu IP-Adressen oder
   Zeitstempel protokolliert, hängt vom Server ab und ist aus der App heraus
   nicht feststellbar - unbekannt.

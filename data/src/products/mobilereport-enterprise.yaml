@@ -58,7 +58,7 @@ platforms:
     distribution: managed-google-play
     storeId: eu.fehlerfuchs.mobilereport.enterprise
 
-privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, kein-google, offline-faehig]
+privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
 editions:
   - id: white-label
@@ -119,7 +119,7 @@ releases:
     os: android
     url: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v1.0.1/MobileReport-Enterprise-1.0.1.apk"
     filename: MobileReport-Enterprise-1.0.1.apk
-    size: { bytes: null, label: "60,3 MB", source: GitHub-Release-Asset (gerundet) }
+    size: { bytes: 63240019, label: "60,3 MB", source: GitHub-Release-Asset }
     sha256: 3e990a428ed208be11587e779ce1eba02f8efbc81d192092a928270d75ca30a5
     signed: false
     notes: >-
@@ -133,8 +133,8 @@ releases:
     os: android
     url: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mr-ent-v1.0.0/MobileReport-Enterprise-1.0.0.apk"
     filename: MobileReport-Enterprise-1.0.0.apk
-    size: { bytes: null, label: unbekannt, source: nicht erhoben }
-    sha256: null
+    size: { bytes: 62617195, label: "59,7 MB", source: GitHub-Release-Asset }
+    sha256: 00c780ce27bac6a57c04b79982dddc4d7a045d53d99cc057106691671865038b
     signed: false
     notes: >-
       Erste Enterprise-Version – Branding-Import, Lizenz je Arbeitsplatz, Backup,

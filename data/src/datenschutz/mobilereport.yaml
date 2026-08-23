@@ -1,8 +1,8 @@
 slug: mobilereport
 name: MobileReport
-stand: "2026-07-21"
+stand: "2026-08-23"
 geprueft_von: 20_MobileReport
-fassung: "1.1.0+39 (zusammengefuehrte Free/Pro-App mit In-App-Kauf; geprueft im Ordner FehlerFuchsMR_Pro\\01_App)"
+fassung: "1.2.0+40 (zusammengefuehrte Consumer-App mit In-App-Kauf; geprueft im Ordner FehlerFuchsMR_Pro\\01_App)"
 
 # Korrigiert am 21.07.2026: Die Google-Abrechnungsbibliothek bringt eine eigene
 # Telemetrie-Komponente mit, die ohne Zutun des Nutzers an Google sendet. Inhalte
@@ -140,9 +140,9 @@ besonderheiten: >-
 vorhandener_text: lib/features/privacy/privacy_page.dart (In-App); Website fehlerfuchs.eu/datenschutz.html
 
 offene_fragen: >-
-  (1) Der genaue Play-Rollout-Status von 1.1.0+39 (bereits in Produktion live vs. in
-  Auslieferung) ist hier nicht verifiziert; dieser Steckbrief beschreibt den aktuellen
-  Codestand der zusammengefuehrten App.
+  (1) 1.2.0+40 ist seit 06.08.2026 vollstaendig im Play Store ausgerollt. Die
+  oeffentliche Datensicherheits-Erklaerung steht dennoch auf "Keine Daten erhoben";
+  die Korrektur in der Console ist Matthias' Schritt.
   (2) Die Google-Telemetrie ist im gebauten Bundle zweifelsfrei enthalten; nicht
   gemessen ist, wie oft sie sendet und welche Einzelwerte dabei uebertragen werden -
   das legt Google fest. Eine Messung am Geraet steht aus. Ebenfalls offen: ob sie sich

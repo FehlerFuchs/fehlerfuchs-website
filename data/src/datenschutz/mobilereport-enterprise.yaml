@@ -1,8 +1,8 @@
 slug: mobilereport-enterprise
 name: MobileReport Enterprise
-stand: "2026-07-19"
+stand: "2026-08-23"
 geprueft_von: 20_MobileReport
-fassung: "1.0.1+4 (Arbeitsstand im Ordner FehlerFuchsMR_Enterprise\\01_App; nicht im Play Store)"
+fassung: "1.0.2+6 (ausgeliefert seit 18.08.2026 auf zwei Wegen: Direkt-Download als APK ueber das GitHub-Release UND Managed Google Play, privat an die Kundenorganisation gebunden - oeffentlich nicht gelistet)"
 
 # Falsch, weil Lizenzpruefung und Update-Hinweis das Geraet verlassen.
 lokal_only: false
@@ -87,7 +87,36 @@ besonderheiten: >-
   Firmen-Branding wird als Datei auf dem Geraet eingelesen und nicht aus dem Netz
   geladen.
 
+# Datenschutzrelevante Verbesserungen aus der externen Pruefung FF-MR-AUDIT-2026-07-30,
+# ausgeliefert mit 1.0.2 (18.08.2026):
+datenschutz_verbesserungen_1_0_2: >-
+  (1) Die automatische Android-Geraetesicherung ist abgeschaltet (allowBackup=false
+  + eigene Backup-/Extraction-Regeln) - Meldungen, Bilder und Einstellungen verlassen
+  das Geraet nicht mehr ueber die Google-Cloud-Geraetesicherung.
+  (2) "Alle Daten loeschen" raeumt jetzt vollstaendig auf, einschliesslich
+  Zugriffsprotokoll und importiertem Branding-Logo (die Lizenz bleibt bewusst erhalten).
+  (3) Wiederherstellung und Import pruefen jede Datei vor dem Schreiben (Groesse,
+  Herkunft, Inhalt); beschaedigte oder fremde Dateien werden abgewiesen.
+  (4) Der Admin-Passwortschutz nutzt ein staerkeres Verfahren (PBKDF2 statt einfachem Hash).
+  (5) Die Lizenzlaufzeit wird auch offline strikt eingehalten; ein Zuruecksetzen der
+  Geraeteuhr wird erkannt.
+  (6) Der Update-Hinweis wird nur ueber eine verschluesselte Verbindung geprueft und
+  schweigt auf verwalteten Play-Geraeten vollstaendig (kein latest.json-Abruf) - dort
+  liefert Google die Updates, es entsteht keine zusaetzliche Uebertragung.
+
+auslieferung: >-
+  Zwei Wege, beide mit derselben Auslieferungssignatur. (a) Direkt-Download als APK
+  ueber das GitHub-Release (fehlerfuchs-downloads), Freischaltung per Lizenzschluessel.
+  (b) Managed Google Play: private Auslieferung an die Organisation des Kunden mit
+  Android Enterprise; die App ist oeffentlich nicht gelistet. Auf diesem Weg liefert
+  und aktualisiert Google die App, weshalb der In-App-Updater dort schweigt. Der
+  Lizenz- und Datenweg der App ist auf beiden Wegen identisch.
+
 vorhandener_text: unbekannt (im Enterprise-Ordner wurde kein eigener Datenschutztext gefunden)
+
+entwicklungsstand: >-
+  Im Enterprise-Repo liegt 1.0.3+7 als noch nicht veroeffentlichter Paketpflege-Stand.
+  Der veroeffentlichte Datenschutzstand bleibt 1.0.2+6.
 
 offene_fragen: >-
   (1) Unbekannt, ob der Lizenzdienst serverseitig IP-Adressen oder Zeitpunkte

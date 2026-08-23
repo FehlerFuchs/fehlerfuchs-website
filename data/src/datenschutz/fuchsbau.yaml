@@ -1,6 +1,6 @@
 slug: fuchsbau
 name: FuchsBau Passwortmanager
-stand: "2026-07-19"
+stand: "2026-08-23"
 geprueft_von: 25_FuchsBau
 fassung: "0.6.2+17 (Entwicklungsstand, noch nicht veroeffentlicht)"
 
@@ -33,7 +33,8 @@ auf_dem_geraet:
 berechtigungen:
   - name: Biometrie
     wofuer: Entsperren per Fingerabdruck oder Gesicht, wenn der Nutzer diesen Faktor
-      aktiviert; die App laesst sich auch ohne Biometrie allein mit PIN nutzen
+      aktiviert; die App fordert dabei ausschließlich Biometrie an, keinen Ersatz durch
+      Geraete-PIN oder Systemmuster. Ohne Biometrie sind zwei andere Faktoren erforderlich.
     pflicht: false
     beleg: android/app/src/main/AndroidManifest.xml (USE_BIOMETRIC)
   - name: Internet
@@ -55,8 +56,8 @@ uebertragungen:
     beleg: lib/features/security_key/security_key_show_screen.dart (Printing.layoutPdf)
   - wohin: Zwischenablage des Geraets (systemweit, grundsaetzlich fuer andere Apps lesbar)
     was: ein einzelnes Passwort oder der verschluesselte Backup-Text
-    wann: nur wenn der Nutzer "Kopieren" waehlt; kopierte Passwoerter werden nach 30 Sekunden
-      automatisch wieder geleert
+    wann: nur wenn der Nutzer "Kopieren" waehlt; Passwoerter werden nach 30 Sekunden,
+      Backup-Texte nach 2 Minuten geloescht. Inzwischen veraenderter fremder Inhalt bleibt erhalten.
     freiwillig: true
     beleg: lib/core/security/clipboard_service.dart; lib/features/backup/backup_screen.dart
 

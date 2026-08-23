@@ -8,9 +8,10 @@ tags: ["Duplikate", "große Dateien", "aufräumen", "Speicherplatz", "Windows", 
 kind: produkt
 tagline: Der sichere Ordnungshelfer für Windows – findet Duplikate, große und alte Dateien, leere Ordner. Löscht nie von selbst.
 description: >-
-  Durchsucht Laufwerke nach Duplikaten, besonders großen oder lange nicht benutzten
-  Dateien und leeren Ordnern, und zeigt verständlich, was Platz belegt. Gelöscht wird
-  ausschließlich nach ausdrücklicher Bestätigung – nie automatisch.
+  Durchsucht ausgewählte Ordner nach echten Duplikaten, besonders großen oder lange
+  nicht benutzten Dateien und leeren Ordnern. Ausgewählte Duplikate können nach einer
+  erneuten Prüfsummenkontrolle in den Papierkorb. Der Sortier-Assistent zeigt seine
+  Planung vorab und verschiebt erst nach ausdrücklicher Bestätigung.
 audience: [privat, selbststaendige]
 accent: "#13869E"   # Petrol für hellen Grund – Branding-Notizen, Zeile „Petrol (Lampe/Akzent)"
 status: entwicklung
@@ -27,6 +28,29 @@ editions:
     name: CleanDesk
     public: true
     price: { model: offen }
+
+features:
+  - group: Finden
+    items:
+      - name: Ausgewählte Ordner read-only nach großen, alten und leeren Funden scannen
+        values: { standard: ja }
+      - name: Echte Duplikate per vollständigem SHA-256 erkennen
+        values: { standard: ja }
+  - group: Sicher ordnen
+    items:
+      - name: Bestätigte Duplikate nach erneuter Prüfsummenkontrolle in den Papierkorb
+        values: { standard: ja }
+      - name: Sortier-Assistent mit Vorschau, Vorlagen und eigenen sicheren Regeln
+        values: { standard: ja }
+      - name: Copy-Verify-Delete ohne Überschreiben
+        values: { standard: ja }
+      - name: Letzte Sortierung in derselben Sitzung rückgängig machen
+        values: { standard: ja }
+        note: Sitzungsübergreifendes Undo ist noch geplant.
+  - group: Berichte
+    items:
+      - name: Lokaler Export als TXT, CSV und JSON
+        values: { standard: ja }
 
 releases: []
 

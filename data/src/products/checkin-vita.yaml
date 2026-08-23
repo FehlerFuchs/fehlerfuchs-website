@@ -2,7 +2,7 @@ slug: checkin-vita
 name: CheckInVita
 fullName: FehlerFuchs CheckInVita
 # SEO (2026-08-09): vorbereitet – wirkt erst bei Sichtbarschaltung (Status).
-seoTitel: "CheckInVita – Gesundheitstagebuch-App, lokal und kostenlos"
+seoTitel: "CheckInVita – persönliches Gesundheitstagebuch, lokal und ohne Cloud"
 seoBeschreibung: "Gesundheitswerte wie Blutdruck, Gewicht oder Schlaf selbst erfassen und im Verlauf sehen, aufbereitet für den Praxisbesuch – lokal auf dem Gerät, ohne Cloud."
 tags: ["Gesundheitstagebuch", "Symptomtagebuch", "Blutdruck", "Verlauf", "lokal", "ohne Cloud"]
 kind: produkt
@@ -10,17 +10,18 @@ tagline: Das persönliche Gesundheits-Tagebuch – Werte erfassen, Verläufe ver
 description: >-
   Gesundheitswerte wie Blutdruck, Gewicht, Schlaf oder Medikamenteneinnahme selbst
   erfassen und im Verlauf sehen. Auf Wunsch als aufbereitete Übersicht für den
-  Praxisbesuch ausgeben. Die Daten bleiben auf dem eigenen Gerät.
+  Praxisbesuch ausgeben. Tagebuchdaten bleiben lokal; nur das freiwillige
+  Supportformular überträgt die vom Nutzer bewusst ausgewählten Angaben.
 audience: [privat]
 accent: "#5B8A72"
-status: konzept
+status: entwicklung
 
 platforms:
   - os: android
-    status: konzept
+    status: entwicklung
     distribution: keiner
   - os: windows
-    status: konzept
+    status: entwicklung
     distribution: keiner
 
 privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
@@ -29,8 +30,8 @@ editions:
   - id: standard
     name: CheckInVita
     public: true
-    summary: Geplant als kostenlose Anwendung.
-    price: { model: kostenlos }
+    summary: Funktionsumfang implementiert; Preismodell noch nicht entschieden.
+    price: { model: offen }
 
 releases: []
 
@@ -77,5 +78,8 @@ links:
   contact: /kontakt.html?app=CheckInVita&topic=interesse
 
 notes: >-
-  Gesundheitsdaten sind besonders schützenswert. Vor einer Veröffentlichung ist ein
-  eigener, ausführlicher Datenschutzabschnitt nötig – die Merkmalsliste allein reicht hier nicht.
+  Gesundheitsdaten sind besonders schützenswert. Android ist implementiert, aber nach dem
+  Umzug noch nicht erneut auf realer Hardware abgenommen. Der Windows-Port ist vorhanden,
+  sein Build ist mit der zentralen Visual-Studio-2026-Toolchain derzeit an der offenen
+  local_auth-Paketentscheidung blockiert. Vor einer Veröffentlichung ist ein eigener,
+  ausführlicher Datenschutzabschnitt nötig – die Merkmalsliste allein reicht hier nicht.

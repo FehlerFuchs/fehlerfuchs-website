@@ -326,6 +326,16 @@ def pruefe_inhalt(p, statuses, alle_slugs, alle_produkte):
         melde(warnungen, slug, f"Status '{p['status']}' erlaubt keine Download-CTA, "
                                f"es sind aber Releases hinterlegt")
 
+    # Ein Produktmerkmal gilt für das Produkt insgesamt. Sobald auch nur ein
+    # angebotener Bezugsweg über Google Play oder Managed Google Play läuft,
+    # wäre die pauschale Zusage „kein Google" falsch – selbst wenn daneben ein
+    # direkter Download ohne Google existiert.
+    distributions = {pl.get("distribution") for pl in p["platforms"]}
+    if "kein-google" in (p.get("privacy") or []) and distributions.intersection(
+            {"play-store", "managed-google-play"}):
+        melde(fehler, slug, "privacy enthält 'kein-google', obwohl ein Play- oder "
+                            "Managed-Google-Play-Bezugsweg angeboten wird")
+
     # 5b. Merkmalsmatrix: Spalten müssen zu den Editionen passen
     editions_ids = {e["id"] for e in p.get("editions", [])}
     oeffentliche = {e["id"] for e in p.get("editions", []) if e["public"]}
@@ -1680,10 +1690,11 @@ def pruefe_aktionen(eintraege, produkte):
         if richtige:
             wort = str(richtige[0].get("text", "")).strip().lower().rstrip(".")
             a["antwortpruefung"] = hashlib.sha256(wort.encode("utf-8")).hexdigest()
-        # Die Markierung selbst raus, und mischen: Eine feste Reihenfolge
-        # spricht sich sonst herum ("immer die erste").
+        # Die Markierung selbst raus, und reproduzierbar mischen: Eine feste
+        # Quellreihenfolge spräche sich herum ("immer die erste"), ein globaler
+        # Zufall machte aber bei jedem Generatorlauf einen sachfremden Git-Diff.
         a["antworten"] = [str(x.get("text", "")) for x in antworten if isinstance(x, dict)]
-        random.shuffle(a["antworten"])
+        random.Random(f"fehlerfuchs-aktion:{a.get('id', '')}").shuffle(a["antworten"])
 
     return eintraege
 

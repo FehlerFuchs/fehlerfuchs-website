@@ -16,40 +16,46 @@ tagline: >-
   Ein kleiner Helfer im Infobereich, der installierte FehlerFuchs-Programme
   im Blick behält und auf neue Fassungen hinweist.
 description: >-
-  Up2Date ist in Entwicklung. Gedacht ist es als zentrale Stelle für alle
-  FehlerFuchs-Programme auf einem Windows-Rechner: Es soll erkennen, welche
-  davon installiert sind, deren Stand mit der Versionsliste auf
-  fehlerfuchs.eu vergleichen und melden, wenn etwas Neues vorliegt. Dieser
-  Abgleich braucht später einen Netzzugriff – den Abruf einer statischen Datei,
-  kein Konto und kein Dienst. Heute läuft davon noch nichts: Der aktuelle Stand
-  zeigt ein Symbol im Infobereich und ein Fenster, mehr nicht. Es ist kein
-  allgemeiner Updater, sondern ausschließlich für FehlerFuchs-Programme gedacht.
+  Up2Date ist die zentrale Stelle für alle FehlerFuchs-Programme auf einem
+  Windows-Rechner. Es läuft im Infobereich, erkennt installierte
+  FehlerFuchs-Programme, vergleicht deren Fassung mit der Versionsliste auf
+  fehlerfuchs.eu und zeigt an, wo ein Update bereitliegt – das funktioniert im
+  aktuellen Entwicklungsstand bereits. Was noch fehlt, ist der eigentliche
+  Update-Download samt Start des Installers. Der Abgleich braucht einen
+  Netzzugriff – den Abruf einer statischen Datei, kein Konto und kein Dienst.
+  Es ist kein allgemeiner Updater, sondern ausschließlich für
+  FehlerFuchs-Programme gedacht.
 audience: [privat, selbststaendige, unternehmen]
 
-# Akzent für hellen Grund. Die App ist dunkel (accentDark #F59E42, helles
-# Orange) – auf Weiß käme das nur auf Kontrast 2,1 und wäre unlesbar. #935E27
-# ist derselbe Ton abgedunkelt und kommt auf 5,4 gegen Weiß und 5,1 gegen den
-# Seitengrund. Nachgerechnet, nicht geschätzt.
-accent: "#935E27"
+# Akzent für hellen Grund – Up2Dates EIGENE blaue Identität (V2, 20.07.2026),
+# nicht mehr das Dachmarken-Orange. Wert aus der Produkteinschreibung
+# (designierter Up2Date-Akzent „auf hellem Grund“). #2A5DA8 kommt auf Kontrast
+# 6,5 gegen Weiß und rund 6 gegen den Seitengrund. Nachgerechnet, nicht geschätzt.
+accent: "#2A5DA8"
 
 # Werte 1:1 aus dem Quelltext (theme.dart / FfColors). Up2Date übernimmt den
-# warmen Dark-Mode der Dachmarke. 'rand' fehlt bewusst: Der Kartenrand entsteht
-# in der App aus einer teildeckenden Cremefläche, es gibt keinen eigenen Wert.
+# warmen Dark-Mode-Grund der Dachmarke, hat aber einen EIGENEN blauen Akzent
+# (V2, 20.07.2026: FfColors.accentDark auf dunklem Grund). 'rand' fehlt bewusst:
+# Der Kartenrand entsteht in der App aus einer teildeckenden Cremefläche.
 theme:
   modus: dunkel
   hintergrund: "#1A0F08"
   flaeche: "#241612"
   text: "#FFF7ED"
   textLeise: "#C9B7A6"
-  akzent: "#F59E42"
+  akzent: "#5981BB"
   quelle: 31_Up2Date/05_App/up2date/lib/theme.dart
 
-# Kein eigenes Logo – Up2Date nutzt die Dachmarke, deshalb kein Lockup.
+# Up2Date hat eine EIGENE blaue Identität (V2, 20.07.2026): die blaue
+# „u2d“-Bildmarke statt des Fuchskopfs. Das offizielle Lockup liegt im
+# Markenordner (Logos\Up2Date) und ist noch nicht auf die Website übernommen –
+# bis dahin trägt der Produktname Up2Dates Markenblau statt des Dachmarken-Brauns.
 wordmark:
   - { text: "FehlerFuchs ", color: "#7C3F16", weight: normal }
-  - { text: "Up2Date", color: "#7C3F16", weight: bold }
+  - { text: "Up2Date", color: "#2E60AA", weight: bold }
 
-# Noch keine Bildschirmfotos – die Oberfläche zeigt keinen nutzbaren Inhalt.
+# Bildschirmfotos sind seit der funktionsfähigen Oberfläche möglich, aber noch
+# nicht als sortierter Store-Satz abgelegt – bis dahin Platzhalter.
 media:
   platzhalter: 4
 
@@ -80,20 +86,24 @@ editions:
     price: { model: offen }
 
 features:
-  # Alles noch 'geplant': Umgesetzt ist bisher nur das Grundgerüst (Symbol im
-  # Infobereich, Fenster). Die Übersicht zeigt ehrlich, was kommen soll, und
-  # dass heute noch nichts davon läuft.
-  - group: Geplant
+  # Stand aus der Produkteinschreibung (31_Up2Date, 26.07.2026): Erkennung,
+  # Versionsabgleich, Autostart-Opt-in und Support sind umgesetzt; offen bleiben
+  # der Update-Download samt Installer-Start und der Infobereich-Hinweis.
+  - group: Umgesetzt
     items:
       - name: Installierte FehlerFuchs-Programme erkennen
-        values: { standard: geplant }
+        values: { standard: ja }
       - name: Stand mit der Versionsliste auf fehlerfuchs.eu abgleichen
-        values: { standard: geplant }
+        values: { standard: ja }
+      - name: Autostart mit Windows – nur nach ausdrücklicher Zustimmung
+        values: { standard: ja }
+      - name: Rückmeldung und Support aus der App
+        values: { standard: ja }
+  - group: Geplant
+    items:
       - name: Installer der jeweiligen Fassung laden und starten
         values: { standard: geplant }
       - name: Hinweis im Infobereich bei neuer Fassung
-        values: { standard: geplant }
-      - name: Autostart mit Windows – nur nach ausdrücklicher Zustimmung
         values: { standard: geplant }
 
 releases: []

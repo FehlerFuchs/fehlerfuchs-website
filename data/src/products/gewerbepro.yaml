@@ -140,9 +140,9 @@ releases:
     url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.1/FehlerFuchs_GewerbePro_Setup_0.3.1.exe
     filename: FehlerFuchs_GewerbePro_Setup_0.3.1.exe
     size:
-      bytes: null              # exakte Bytezahl noch nicht erhoben
+      bytes: 119542064
       label: "114 MB"
-      source: GitHub-Release-Asset (gerundet)
+      source: GitHub-Release-Asset
     sha256: "3ffd2fb6381549ae75de42d6cbcbbb8dd8541f78f515a6a2072fcbf1f4d2be9c"
     signed: false
     # Wortlaut identisch zu updates/gewerbepro/latest.json — die App zeigt diesen
@@ -154,8 +154,8 @@ releases:
     os: windows
     url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.0/FehlerFuchs_GewerbePro_Setup_0.3.0.exe
     filename: FehlerFuchs_GewerbePro_Setup_0.3.0.exe
-    size: { bytes: null, label: "unbekannt", source: nicht erhoben }
-    sha256: null
+    size: { bytes: 119278995, label: "114 MB", source: GitHub-Release-Asset }
+    sha256: "860f068c4a14b15dc53ea02223fb90a55c8d51645c3500e5700793a89709b1e0"
     signed: false
     notes: Erste öffentlich testbare Version. Editionserkennung abgesichert.
 

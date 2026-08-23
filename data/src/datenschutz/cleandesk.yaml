@@ -1,8 +1,8 @@
 slug: cleandesk
 name: FehlerFuchs CleanDesk
-stand: "2026-07-19"
-geprueft_von: 24_CleanDesk
-fassung: "0.1.0 (csproj) - Entwicklungsstand v0.2, noch nicht veroeffentlicht"
+stand: "2026-08-23"
+geprueft_von: 24_CleanDesk (Codex-Reparatur)
+fassung: "0.2.0 (csproj) - Entwicklungsstand, noch nicht veroeffentlicht"
 
 # Windows-Desktop-Anwendung (.NET 8 / WPF, net8.0-windows). Im gesamten
 # Quellcode gibt es keinen einzigen Netzwerkaufruf; die csproj enthaelt
@@ -77,7 +77,12 @@ besonderheiten: >-
   dem Original verglichen, und erst danach wandert das Original in den Papierkorb.
   Bei Namensgleichheit wird umbenannt, nie ueberschrieben. Geschuetzte Bereiche des
   Betriebssystems und der Programme sowie versteckte Anwendungsdaten werden nicht
-  gelesen; Verknuepfungen auf andere Orte werden nicht verfolgt.
+  gelesen; Laufwerkswurzeln und Verknuepfungen auf andere Orte werden nicht verfolgt.
+  Eigene Sortierregeln koennen nur einzelne Unterordnernamen erzeugen. Vor dem
+  Papierkorb prueft CleanDesk Kandidat und Behalten-Datei erneut gegen denselben
+  SHA-256 aus dem Scan; fehlt oder aendert sich eine der Dateien, wird abgebrochen.
+  Schreibende Dateiaktionen werden auch abgebrochen, wenn ihr vorheriger
+  Protokolleintrag nicht geschrieben werden kann.
   Datenschutzrelevant: Berichte und Protokolle enthalten vollstaendige Dateipfade und
   Dateinamen des Nutzers und koennen dadurch personenbezogene Angaben in Pfadnamen
   enthalten; sie verbleiben lokal und werden nicht versendet.
