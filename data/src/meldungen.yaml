@@ -99,6 +99,24 @@ meldungen:
       klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz
       und „Was ist neu" direkt in der App. Alle Daten bleiben auf dem Gerät.
 
+  # OrgaFuchs 1.7.0 (Changelog). 'version: 1.7.0' bindet die Meldung an den
+  # releases-Eintrag (Windows-Release 30.08., signiert; Android 1.7.0+16 parallel
+  # im Play Store). Quelle: 32_OrgaFuchs\09_Releases\1.7.0_RELEASE-NOTES.md.
+  - id: orgafuchs-1-7-0
+    typ: update
+    produkt: orgafuchs
+    version: "1.7.0"
+    titel: "OrgaFuchs 1.7.0: Kalender schärfer, Verbinden ohne Kamera"
+    text: >-
+      Neu in OrgaFuchs 1.7.0: Kalender und Kiosk nutzen die Tageskacheln jetzt
+      richtig aus – bei wenigen Einträgen groß und gut lesbar, bei vielen gestaffelt
+      kleiner, ohne winzigen Text oder Überlauf. Die Startbildschirm-Widgets passen
+      sich beim Vergrößern und Verkleinern sauber an, und Kalender, Kiosk und
+      Startseite springen um Mitternacht automatisch auf den neuen Tag. Neu ist auch
+      das Verbinden ohne Kamera: den Kopplungscode als Text kopieren und am anderen
+      Gerät von Hand eingeben – ideal für den PC oder Geräte ohne Kamera. Dazu läuft
+      die App auf Android 15 stabiler, zeigt sich randlos und braucht weniger Speicher.
+
   # OrgaFuchs 1.6.1 (Changelog). 'version: 1.6.1' bindet die Meldung an den
   # releases-Eintrag – Datum (14.08.) leitet sich daraus ab. Von Matthias zur
   # Veröffentlichung freigegeben (14.08.). Löst die 1.5.0-Meldung ab. Nachrichten

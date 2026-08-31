@@ -1,6 +1,6 @@
 {
-  "version": "1.6.1",
-  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.6.1/FehlerFuchs_OrgaFuchs_Setup_1.6.1.exe",
-  "sha256": "3ff1f3eeec65d331f16c9551a2dd034af08cfa2b400c6793dd470692d241696b",
-  "notes": "Signierte Windows-Fassung (Herausgeber FehlerFuchs). Neu: „Nachricht an alle\" mit Postfach – kurze Nachrichten an die Gruppe, Ende-zu-Ende über den eigenen Relay verteilt; empfangene Nachrichten werden zuverlässig angezeigt. Dazu Feiertage und Ferien im Kalender farblich hervorgehoben und „zuletzt aktiv\" in der Geräteliste. Löst 1.5.0/1.6.0 ab."
+  "version": "1.7.0",
+  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.7.0/FehlerFuchs_OrgaFuchs_Setup_1.7.0.exe",
+  "sha256": "81df2727af9a69a7b608036cfbaa8577fc2595e8e20ef10cd356bbd3aa4504c3",
+  "notes": "Signierte Windows-Fassung 1.7.0 (Herausgeber FehlerFuchs). Neu: Kalender und Kiosk nutzen die Tageskacheln jetzt voll aus (kein winziger Text, kein Überlauf); Tageswechsel springt um Mitternacht automatisch; Verbinden ohne Kamera per Textcode – ideal am PC; geringerer Speicherverbrauch. Löst 1.6.1 ab."
 }

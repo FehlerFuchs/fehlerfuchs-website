@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-23T15:48:32+02:00",
+  "generiert": "2026-08-31T09:21:44+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1783,6 +1783,22 @@
       ],
       "releases": [
         {
+          "version": "1.7.0",
+          "date": "2026-08-30",
+          "channel": "stable",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.7.0/FehlerFuchs_OrgaFuchs_Setup_1.7.0.exe",
+          "filename": "FehlerFuchs_OrgaFuchs_Setup_1.7.0.exe",
+          "size": {
+            "bytes": 17184184,
+            "label": "16,4 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "81df2727af9a69a7b608036cfbaa8577fc2595e8e20ef10cd356bbd3aa4504c3",
+          "signed": true,
+          "notes": "Signierte Windows-Fassung 1.7.0 (Herausgeber FehlerFuchs). Neu: Kalender und Kiosk nutzen die Tageskacheln jetzt voll aus (kein winziger Text, kein Überlauf); Tageswechsel springt um Mitternacht automatisch; Verbinden ohne Kamera per Textcode – ideal am PC; geringerer Speicherverbrauch. Löst 1.6.1 ab."
+        },
+        {
           "version": "1.6.1",
           "date": "2026-08-14",
           "channel": "stable",
@@ -2041,7 +2057,7 @@
       },
       "links": {
         "alt_html": "/apps/orgafuchs.html",
-        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.6.1",
+        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.7.0",
         "contact": "/kontakt.html?app=OrgaFuchs&topic=interesse",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
       },

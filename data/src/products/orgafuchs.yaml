@@ -1,7 +1,7 @@
 slug: orgafuchs
 name: OrgaFuchs
 fullName: FehlerFuchs OrgaFuchs
-# SEO (2026-08-09): Windows (signiert, 1.6.1) + Android seit 08.08. verfügbar.
+# SEO (2026-08-09): Windows (signiert, 1.7.0) + Android seit 08.08. verfügbar.
 seoTitel: "OrgaFuchs – Familien- & Schichtplaner, offline für Windows & Android"
 seoBeschreibung: "Familien- und Schichtplaner für Dienste, Termine und Notizen: Monatskalender, PDF-Export, Sync übers eigene Heimnetz – für Windows & Android, ohne Cloud, ohne Konto."
 tags: ["Schichtplaner", "Familienplaner", "Dienstplan", "Kalender", "Windows", "Android", "offline", "ohne Cloud"]
@@ -15,8 +15,8 @@ description: >-
 audience: [privat, vereine, unternehmen]
 accent: "#B4652A"   # Farbe der App
 # Android ist seit 08.08.2026 regulär im Google Play Store, der Windows-Download
-# als GitHub-Release 'orgafuchs-v1.6.1' (signiert, 14.08.2026; „Nachricht an alle"
-# + Postfach, löst 1.5.0/1.6.0 ab). Beide Plattformen 'verfuegbar' → Gesamtstatus 'verfuegbar'.
+# als GitHub-Release 'orgafuchs-v1.7.0' (signiert, 30.08.2026; löst 1.6.1 ab).
+# Beide Plattformen 'verfuegbar' → Gesamtstatus 'verfuegbar'.
 # 'vorabSichtbar' ist mit 'verfuegbar' überflüssig und daher entfernt.
 status: verfuegbar
 
@@ -99,12 +99,32 @@ editions:
     summary: Voller Funktionsumfang, dauerhaft kostenlos.
     price: { model: kostenlos }
 
-# Öffentlicher Windows-Download: GitHub-Release 'orgafuchs-v1.6.1' – signierte
-# Fassung (Azure Trusted Signing, Herausgeber FehlerFuchs, 14.08.2026) mit
-# „Nachricht an alle" + Postfach. Löst 1.5.0/1.6.0 ab (ältere Releases bleiben im
-# Downloads-Repo). sha256/Bytes lokal am signierten Artefakt UND gegen das
-# GitHub-Asset gegengeprüft (byte-identisch, signtool verify /pa OK).
+# Öffentlicher Windows-Download: GitHub-Release 'orgafuchs-v1.7.0' – signierte
+# Fassung (Azure Artifact Signing, Herausgeber FehlerFuchs, 30.08.2026). Löst 1.6.1
+# ab (ältere Releases bleiben im Downloads-Repo). sha256/Bytes gegen das GitHub-Asset
+# gegengeprüft (gh: 17.184.184 B, sha256 81df2727…04c3).
 releases:
+  # 1.7.0: Signier-/Manifest-Fakten aus dem [16]-Handoff (30.08.), gegen GitHub
+  # geprüft (gh: Asset, 17.184.184 B, sha256 81df2727…04c3 – stimmen). Changelog
+  # aus 32_OrgaFuchs\09_Releases\1.7.0_RELEASE-NOTES.md (Windows-relevanter Auszug;
+  # Android-only wie Widgets/Edge-to-Edge weggelassen).
+  - version: "1.7.0"
+    date: "2026-08-30"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.7.0/FehlerFuchs_OrgaFuchs_Setup_1.7.0.exe
+    filename: FehlerFuchs_OrgaFuchs_Setup_1.7.0.exe
+    size:
+      bytes: 17184184
+      label: "16,4 MB"
+      source: GitHub-Release-Asset
+    sha256: "81df2727af9a69a7b608036cfbaa8577fc2595e8e20ef10cd356bbd3aa4504c3"
+    signed: true
+    notes: >-
+      Signierte Windows-Fassung 1.7.0 (Herausgeber FehlerFuchs). Neu: Kalender und
+      Kiosk nutzen die Tageskacheln jetzt voll aus (kein winziger Text, kein
+      Überlauf); Tageswechsel springt um Mitternacht automatisch; Verbinden ohne
+      Kamera per Textcode – ideal am PC; geringerer Speicherverbrauch. Löst 1.6.1 ab.
   - version: "1.6.1"
     date: "2026-08-14"
     channel: stable
@@ -289,8 +309,8 @@ links:
   # Fehlt das Feld, gab es vorher keine eigene Seite - dann ist auch nichts
   # weiterzuleiten.
   alt_html: /apps/orgafuchs.html
-  # Tag-Seite des aktuellen Windows-Releases (signiert, 14.08.2026).
-  release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.6.1
+  # Tag-Seite des aktuellen Windows-Releases (signiert, 30.08.2026).
+  release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.7.0
   contact: /kontakt.html?app=OrgaFuchs&topic=interesse
 
 # Sichtbarer Quellen- und Behörden-Hinweis (Pflicht). Weil OrgaFuchs Feiertage

@@ -1,8 +1,22 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-23T15:48:32+02:00",
+  "generiert": "2026-08-31T09:21:44+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "orgafuchs-1-7-0",
+      "typ": "update",
+      "produkt": "orgafuchs",
+      "version": "1.7.0",
+      "titel": "OrgaFuchs 1.7.0: Kalender schärfer, Verbinden ohne Kamera",
+      "text": "Neu in OrgaFuchs 1.7.0: Kalender und Kiosk nutzen die Tageskacheln jetzt richtig aus – bei wenigen Einträgen groß und gut lesbar, bei vielen gestaffelt kleiner, ohne winzigen Text oder Überlauf. Die Startbildschirm-Widgets passen sich beim Vergrößern und Verkleinern sauber an, und Kalender, Kiosk und Startseite springen um Mitternacht automatisch auf den neuen Tag. Neu ist auch das Verbinden ohne Kamera: den Kopplungscode als Text kopieren und am anderen Gerät von Hand eingeben – ideal für den PC oder Geräte ohne Kamera. Dazu läuft die App auf Android 15 stabiler, zeigt sich randlos und braucht weniger Speicher.",
+      "datum": "2026-08-30",
+      "datumQuelle": "Release 1.7.0",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.7.0/FehlerFuchs_OrgaFuchs_Setup_1.7.0.exe",
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
+      }
+    },
     {
       "id": "pdfuchsreader-1-1-0-ebook",
       "typ": "update",
