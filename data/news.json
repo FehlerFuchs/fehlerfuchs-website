@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-08-31T09:21:44+02:00",
+  "generiert": "2026-08-31T09:44:08+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -15,6 +15,18 @@
       "wege": {
         "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.7.0/FehlerFuchs_OrgaFuchs_Setup_1.7.0.exe",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
+      }
+    },
+    {
+      "id": "pdfuchsreader-1-2-0",
+      "typ": "update",
+      "produkt": "pdfuchsreader",
+      "datum": "2026-08-26",
+      "titel": "PDFuchs Reader 1.2.0: frisches Design, zuverlässiger öffnen",
+      "text": "PDFuchs Reader bekommt den neuen PDFuchs-Reader-Look in Hell und Dunkel. PDFs öffnen jetzt zuverlässiger – kein leeres Bild mehr beim ersten Versuch –, und „Öffnen mit\" aus anderen Apps läuft stabil. Extern geöffnete Dateien werden nicht mehr dauerhaft kopiert und landen nicht in „Zuletzt geöffnet\"; stattdessen steht der echte Dateiname da. Dazu klarere Hinweise, wenn man den Reader als Standard-App festlegt, und ein aktualisiertes Handbuch in der App.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader"
       }
     },
     {
@@ -129,6 +141,18 @@
       "titel": "Kurz erklärt – warum es zuletzt ruhiger war",
       "text": "In den letzten Wochen ist hier bewusst wenig Neues erschienen. Die Zeit ist stattdessen in die bestehenden Produkte geflossen – geprüft, nachgebessert und abgesichert, damit verlässlich bleibt, was schon da ist. Gearbeitet haben wir zuletzt vor allem an OrgaFuchs, SnapFuchs, MobileReport und GewerbePro: Beschreibungen geschärft, Sicherheit und Datenschutz nachgezogen und den Update-Weg repariert. Neue Ankündigungen kommen wieder, sobald das Nächste wirklich fertig ist. — Matthias (Matze) von FehlerFuchs",
       "datumQuelle": "eigene Angabe"
+    },
+    {
+      "id": "mobilereport-1-2-0",
+      "typ": "update",
+      "produkt": "mobilereport",
+      "datum": "2026-07-31",
+      "titel": "MobileReport 1.2.0: Support aus der App, mehr Datenschutz",
+      "text": "MobileReport 1.2.0 bringt Support und Kontakt direkt in die App – auf Wunsch mit Diagnosedaten, sonst ohne. Die App ist von der automatischen Android-Cloud-Sicherung ausgenommen, sodass die Meldungen gezielt auf dem Gerät bleiben, und die Datenschutz-Hinweise sind ehrlicher gefasst. „Alle Daten löschen\" räumt jetzt vollständig auf, der Admin-Passwortschutz ist stärker, und mit sehr großen Import- und Bilddateien geht die App robuster um.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport"
+      }
     },
     {
       "id": "gewerbepro-companion-in-arbeit",

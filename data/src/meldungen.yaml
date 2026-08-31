@@ -29,6 +29,39 @@
 
 meldungen:
 
+  # PDFuchs Reader 1.2.0. Play-Store-App: Versionen verwaltet der Store, deshalb
+  # kein Release im Modell und kein abgeleitetes Datum. Live seit 26.08.2026
+  # (177 Länder), belegt über [26-1] und [13] Play Console. Changelog wortgleich
+  # zum Store (STORE_TEXTE_1.2.0.md).
+  - id: pdfuchsreader-1-2-0
+    typ: update
+    produkt: pdfuchsreader
+    datum: "2026-08-26"
+    titel: "PDFuchs Reader 1.2.0: frisches Design, zuverlässiger öffnen"
+    text: >-
+      PDFuchs Reader bekommt den neuen PDFuchs-Reader-Look in Hell und Dunkel. PDFs
+      öffnen jetzt zuverlässiger – kein leeres Bild mehr beim ersten Versuch –, und
+      „Öffnen mit" aus anderen Apps läuft stabil. Extern geöffnete Dateien werden nicht
+      mehr dauerhaft kopiert und landen nicht in „Zuletzt geöffnet"; stattdessen steht
+      der echte Dateiname da. Dazu klarere Hinweise, wenn man den Reader als Standard-App
+      festlegt, und ein aktualisiertes Handbuch in der App.
+
+  # MobileReport 1.2.0. Play-Store-App: kein Release im Modell, kein abgeleitetes
+  # Datum. Version 1.2.0 (versionCode 40) belegt über [20] (changelog.dart, dort
+  # datiert 31.07.2026); der genaue Play-Rollout-Stand liegt bei [13]/Matthias.
+  - id: mobilereport-1-2-0
+    typ: update
+    produkt: mobilereport
+    datum: "2026-07-31"
+    titel: "MobileReport 1.2.0: Support aus der App, mehr Datenschutz"
+    text: >-
+      MobileReport 1.2.0 bringt Support und Kontakt direkt in die App – auf Wunsch mit
+      Diagnosedaten, sonst ohne. Die App ist von der automatischen Android-Cloud-Sicherung
+      ausgenommen, sodass die Meldungen gezielt auf dem Gerät bleiben, und die
+      Datenschutz-Hinweise sind ehrlicher gefasst. „Alle Daten löschen" räumt jetzt
+      vollständig auf, der Admin-Passwortschutz ist stärker, und mit sehr großen Import-
+      und Bilddateien geht die App robuster um.
+
   - id: pdfuchsreader-1-1-0-ebook
     typ: update
     produkt: pdfuchsreader
