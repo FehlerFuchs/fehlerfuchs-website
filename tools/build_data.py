@@ -46,6 +46,7 @@ OUT_VOKABULAR = ROOT / "data" / "vocabulary.json"
 OUT_MARKE = ROOT / "data" / "brand.json"
 OUT_BEDARF = ROOT / "data" / "needs.json"
 OUT_AKTIONEN = ROOT / "data" / "campaigns.json"
+OUT_RECHTSTEXTE = ROOT / "data" / "rechtstexte.json"
 
 fehler, warnungen, abgleich = [], [], []
 
@@ -2222,6 +2223,30 @@ def pruefe_wuensche(wuensche, produkte, vokabular, schema):
 
 # ------------------------------------------------------------------------- Ablauf
 
+def pruefe_rechtstexte(produkte, fehler):
+    """Produktabhängige EULA-Werte (ANHANG A, A-11). Die Rechtssätze stehen als
+    Vorlage in der Seite rechtstexte.astro; hier stehen nur die eingesetzten
+    Werte je Produkt. Ein Eintrag geht erst live, wenn vollstaendig=true und
+    'ausstehend' leer ist — die Seite überspringt unvollständige Einträge, damit
+    nie ein Platzhalter öffentlich wird (A-11.7)."""
+    roh = lies_yaml(SRC / "rechtstexte.yaml") or {}
+    eintraege = roh.get("rechtstexte", []) or []
+    slugs = {p["slug"] for p in produkte}
+    for r in eintraege:
+        slug = r.get("slug")
+        wo = f"rechtstexte '{slug}'"
+        if slug not in slugs:
+            fehler.append(f"{wo}: kein Produkt mit diesem slug")
+        if r.get("vollstaendig") and r.get("ausstehend"):
+            fehler.append(f"{wo}: als vollstaendig markiert, aber 'ausstehend' ist nicht "
+                          "leer — ein Rechtstext mit offenen Platzhaltern darf nicht live "
+                          "gehen (A-11.7)")
+        if r.get("vollstaendig") and not r.get("stand"):
+            fehler.append(f"{wo}: vollstaendig, aber ohne 'stand' — der veröffentlichte "
+                          "Text trägt genau eine Datumsangabe (A-11.7)")
+    return eintraege
+
+
 def main():
     nur_pruefen = "--check" in sys.argv
 
@@ -2262,6 +2287,7 @@ def main():
 
     meldungen, wuensche, steckbriefe, verarbeiter, bedarf = [], [], [], [], []
     aktionen = []
+    rechtstexte = []
     if not fehler:
         for p in produkte:
             pruefe_vokabular(p, vokabular)
@@ -2290,6 +2316,8 @@ def main():
 
         rohb = lies_yaml(SRC / "bedarf.yaml") or {}
         bedarf = pruefe_bedarf(rohb.get("bedarf", []))
+
+        rechtstexte = pruefe_rechtstexte(produkte, fehler)
 
         pruefe_gesperrte_woerter()
         pruefe_bild_metadaten()
@@ -2407,11 +2435,15 @@ def main():
         steckbriefe, key=lambda s: (s["art"] != "anwendung", s["name"]))},
         ensure_ascii=False, indent=2) + "\n")
 
+    schreibe(OUT_RECHTSTEXTE, json.dumps(
+        {**kopf, "rechtstexte": rechtstexte}, ensure_ascii=False, indent=2) + "\n")
+
     print(f"Geschrieben: {OUT_PRODUCTS.relative_to(ROOT)}, {OUT_STATUSES.relative_to(ROOT)}, "
           f"{OUT_VOKABULAR.relative_to(ROOT)}, {OUT_MARKE.relative_to(ROOT)}, "
           f"{OUT_NEWS.relative_to(ROOT)}, {OUT_WUENSCHE.relative_to(ROOT)}, "
           f"{OUT_DIENSTE.relative_to(ROOT)}, {OUT_DATENSCHUTZ.relative_to(ROOT)}, "
-          f"{OUT_BEDARF.relative_to(ROOT)}, {OUT_AKTIONEN.relative_to(ROOT)}")
+          f"{OUT_BEDARF.relative_to(ROOT)}, {OUT_AKTIONEN.relative_to(ROOT)}, "
+          f"{OUT_RECHTSTEXTE.relative_to(ROOT)}")
     return 0
 
 

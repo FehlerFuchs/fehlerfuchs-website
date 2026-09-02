@@ -1,0 +1,65 @@
+{
+  "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
+  "generiert": "2026-09-02T12:24:14+02:00",
+  "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
+  "rechtstexte": [
+    {
+      "slug": "gewerbepro",
+      "produktname": "GewerbePro",
+      "variante": "verbraucher",
+      "plattform_wort": "Windows-Desktop",
+      "kurzbeschreibung": "Büro- und Auftragsverwaltung für Selbstständige und kleine Betriebe",
+      "editionen": "Gewerbe (kostenlos) und Pro (einmaliger Kauf)",
+      "lizenzschluessel": true,
+      "stand": "02.09.2026",
+      "vollstaendig": true,
+      "ausstehend": [],
+      "felder": {
+        "erweiterung_3_3": "",
+        "abschnitt_3_3": "Einzelplatz-Anwendung. Nutzung durch den Lizenznehmer im Rahmen der in Produktbeschreibung und Bestellbestätigung genannten Nutzer- und Gerätezahl; ein Gerätewechsel ist zulässig, sofern die Software auf dem bisherigen Gerät nicht weiter genutzt wird. Im betrieblichen Einsatz zusätzlich eigene Beschäftigte des Nutzers sowie beauftragte Buchhaltungs- oder Steuerkanzleien.",
+        "uebertragung_4": "Einmalkauf mit dauerhafter, zeitlich unbefristeter Lizenz. Weitergabe nur, soweit gesetzlich zulässig; Voraussetzung ist, dass die bisherige Nutzung vollständig eingestellt, alle Programmkopien gelöscht oder unbrauchbar gemacht und Lizenzschlüssel sowie Lizenznachweise an den Erwerber übergeben werden. Eine Aufspaltung von Mehrplatzlizenzen ist nicht zulässig.",
+        "eigenverantwortung_7_2": "Der Nutzer trägt die steuer- und handelsrechtlichen Pflichten selbst (z. B. GoBD, Aufbewahrungsfristen). Die Software erstellt Rechnungen, EÜR, E-Rechnungen und Berichte, ersetzt aber keine Steuerberatung. Der Nutzer ist ferner verantwortlich für die inhaltliche Richtigkeit und Vollständigkeit seiner Belege, Rechnungen und Buchungen.",
+        "drittanbieter_pfad_11": "in der mitgelieferten Datei LIZENZEN-DRITTANBIETER.md",
+        "vsbg_15": "nicht bereit und nicht verpflichtet"
+      }
+    },
+    {
+      "slug": "haushaltsmanager",
+      "produktname": "HaushaltsManager",
+      "variante": "verbraucher",
+      "plattform_wort": "Windows-Desktop",
+      "kurzbeschreibung": "Verwaltung des privaten Haushalts (Zählerstände, Verträge, Haushaltsbuch)",
+      "editionen": "Vollversion (einmaliger Kauf)",
+      "lizenzschluessel": true,
+      "stand": "02.09.2026",
+      "vollstaendig": true,
+      "ausstehend": [],
+      "felder": {
+        "erweiterung_3_3": "Die im selben Haushalt des Nutzers lebenden Angehörigen dürfen die Software im Rahmen der lizenzierten Gerätezahl (bis zu fünf Geräte) mitnutzen.",
+        "uebertragung_4": "Einmalkauf mit dauerhafter Lizenz. Eine Weitergabe ist nur zulässig, soweit gesetzlich gestattet; Voraussetzung ist, dass der bisherige Nutzer die Nutzung vollständig einstellt, alle Programmkopien löscht und den Lizenzschlüssel an den Erwerber übergibt.",
+        "eigenverantwortung_7_2": "Der Nutzer ist verantwortlich für die Richtigkeit und Vollständigkeit der selbst erfassten Daten — insbesondere Zählerstände, Verträge und Beträge —, für seine eigenen finanziellen und vertraglichen Entscheidungen sowie für die regelmäßige Sicherung der ausschließlich lokal gespeicherten Daten. Die Software leistet keine Finanz-, Rechts- oder Steuerberatung.",
+        "drittanbieter_pfad_11": "in der Anwendung unter „Hilfe & Recht\" → Abschnitt „Lizenzen & Hinweise\"",
+        "vsbg_15": "nicht bereit und nicht verpflichtet"
+      }
+    },
+    {
+      "slug": "mobilereport-enterprise",
+      "produktname": "MobileReport Enterprise",
+      "variante": "verbraucher",
+      "plattform_wort": "Android",
+      "kurzbeschreibung": "Erfassung und PDF-Dokumentation von Meldungen zu Geräten und Anlagen (Firmenfassung)",
+      "editionen": "Firmenfassung mit Lizenzschlüssel je Arbeitsplatz (gestaffelt)",
+      "lizenzschluessel": true,
+      "stand": "02.09.2026",
+      "vollstaendig": true,
+      "ausstehend": [],
+      "felder": {
+        "erweiterung_3_3": "Beschäftigte des lizenzierten Unternehmens, die Meldungen erfassen, im Rahmen der lizenzierten Nutzer- und Geräteanzahl (Seats). Zusätzlich im Auftrag und unter Verantwortung des Unternehmens tätige Dienstleister (z. B. Facility-, Hausmeister- oder Gebäudedienste). Keine Nutzung über die lizenzierte Seat-Zahl hinaus.",
+        "uebertragung_4": "Enterprise-Lizenzen werden unbegrenzt (dauerhaft) oder mit Ablaufdatum (Laufzeitlizenz) bereitgestellt. Dauerhafte Lizenz: Weitergabe nur, soweit gesetzlich zulässig; Voraussetzung ist, dass die bisherige Nutzung vollständig eingestellt, alle Kopien und Sicherungen gelöscht und Lizenzschlüssel beziehungsweise Token übergeben werden. Eine Aufteilung der Seats einer Lizenz auf mehrere Erwerber ist nicht zulässig. Laufzeitlizenz: an Vertrag und Laufzeit gebunden, nicht übertragbar.",
+        "eigenverantwortung_7_2": "Der Nutzer ist die datenschutzrechtlich verantwortliche Stelle für die von ihm erfassten personenbezogenen Daten — Empfängeradressen, Namen sowie Fotos von Personen oder fremdem Eigentum — und für die Einholung erforderlicher Einwilligungen. Ebenso ist er verantwortlich für die inhaltliche Richtigkeit und Vollständigkeit der erstellten Meldungen und PDF-Berichte sowie für die Sicherung seiner ausschließlich lokal auf dem Gerät gespeicherten Daten; die Anwendung führt kein Cloud-Backup durch.",
+        "drittanbieter_pfad_11": "in der Anwendung unter Impressum / Rechtliches → „Lizenzen Dritter anzeigen\"",
+        "vsbg_15": "nicht bereit und nicht verpflichtet"
+      }
+    }
+  ]
+}
