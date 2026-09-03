@@ -1,49 +1,39 @@
 # Rechtstexte je Produkt — Datenmodell für /rechtstexte/ (EULA)
 # =============================================================
 #
-# Grundlage: HAUSORDNUNG ANHANG A, A-11. Der GEMEINSAME KERN der EULA (A-11.3)
-# und der Variantenblock Verbraucher (A-11.5) stehen als formulierter Rechtstext
-# in astro/src/pages/rechtstexte.astro — NICHT hier. Hier nur die
-# produktabhängigen Werte, die die Vorlage einsetzt.
+# Grundlage: HAUSORDNUNG ANHANG A, A-11. Kern A-11.3 + Verbraucher A-11.5 stehen
+# als Vorlagentext in astro/src/pages/rechtstexte.astro — hier nur die
+# produktabhängigen Werte.
 #
-# 🔴 A-11.7: Der veröffentlichte Text trägt NUR `Stand: TT.MM.JJJJ`. Ein Produkt
-# geht erst live, wenn `vollstaendig: true`, `ausstehend` leer und `stand` gesetzt.
+# 🔴 A-11.7: veröffentlichter Text trägt nur `Stand: TT.MM.JJJJ`. Ein Produkt geht
+# erst live, wenn vollstaendig=true, ausstehend leer, stand gesetzt (Gate).
+# 🔴 A-11.2: Käufergruppe endgültig Verbraucher ([14] am Digistore-Konto, 02.09.).
+# 🔴 A-11.8: Verkauf über Merchant of Record (Digistore24/Google Play) → Abschnitt 14
+#   ist nur ein Verweis auf dessen Widerrufsbelehrung (merchant_of_record: true).
+# 🔴 Feld 15 VSBG: Hausfestlegung Matthias 02.09. — "nicht bereit und nicht verpflichtet".
 #
-# 🔴 A-11.2: Käufergruppe ENDGÜLTIG Verbraucher (02.09.2026, [14] am
-# Digistore-Konto abgelesen). Widerrufsbelehrung stellt Digistore24 als
-# Verkäufer/Vertragspartner selbst.
-#
-# Feld 15 VSBG: Hausfestlegung Matthias 02.09.2026 (A-11.5 / ANHANG-A 1.14),
-# für alle Produkte gleich: "nicht bereit und nicht verpflichtet".
-#
-# Alle Feldwerte von den Projekten/ChefBüro geliefert (02.09.2026, mit Codebeleg),
-# NICHT von [10] erfunden (P8/B10). Wortlaut 1:1 übernommen.
-#
-# Feld-Konvention 3.3: 'erweiterung_3_3' hängt an den Gerätewechsel-Satz des Kerns
-# an; 'abschnitt_3_3' ersetzt ihn ganz (wenn die Lieferung eine volle 3.3 gab).
-# Feld 11 'drittanbieter_pfad_11' ist die volle Ort-Phrase ("in der Anwendung
-# unter …" ODER "in der mitgelieferten Datei …").
+# Feldwerte von den Projekten/ChefBüro geliefert (mit Codebeleg), 1:1 übernommen.
+# Feld 11 'drittanbieter_pfad_11' trägt das VOLLE Prädikat ("... einsehbar" / "... enthalten").
+# 3.3: 'erweiterung_3_3' hängt an den Gerätewechsel-Satz des Kerns an.
 
 rechtstexte:
 
   - slug: gewerbepro
     produktname: GewerbePro
     variante: verbraucher
+    merchant_of_record: true
     plattform_wort: Windows-Desktop
     kurzbeschreibung: "Büro- und Auftragsverwaltung für Selbstständige und kleine Betriebe"
     editionen: "Gewerbe (kostenlos) und Pro (einmaliger Kauf)"
     lizenzschluessel: true
-    stand: "02.09.2026"
+    stand: "03.09.2026"
     vollstaendig: true
     ausstehend: []
     felder:
-      erweiterung_3_3: ""
-      abschnitt_3_3: >-
-        Einzelplatz-Anwendung. Nutzung durch den Lizenznehmer im Rahmen der in Produktbeschreibung
-        und Bestellbestätigung genannten Nutzer- und Gerätezahl; ein Gerätewechsel ist zulässig,
-        sofern die Software auf dem bisherigen Gerät nicht weiter genutzt wird. Im betrieblichen
-        Einsatz zusätzlich eigene Beschäftigte des Nutzers sowie beauftragte Buchhaltungs- oder
-        Steuerkanzleien.
+      erweiterung_3_3: >-
+        Im betrieblichen Einsatz sind zusätzlich eigene Beschäftigte des Nutzers sowie beauftragte
+        Buchhaltungs- oder Steuerkanzleien im Rahmen der lizenzierten Nutzer- und Gerätezahl zur
+        Nutzung berechtigt.
       uebertragung_4: >-
         Einmalkauf mit dauerhafter, zeitlich unbefristeter Lizenz. Weitergabe nur, soweit
         gesetzlich zulässig; Voraussetzung ist, dass die bisherige Nutzung vollständig eingestellt,
@@ -55,17 +45,18 @@ rechtstexte:
         Aufbewahrungsfristen). Die Software erstellt Rechnungen, EÜR, E-Rechnungen und Berichte,
         ersetzt aber keine Steuerberatung. Der Nutzer ist ferner verantwortlich für die inhaltliche
         Richtigkeit und Vollständigkeit seiner Belege, Rechnungen und Buchungen.
-      drittanbieter_pfad_11: "in der mitgelieferten Datei LIZENZEN-DRITTANBIETER.md"
+      drittanbieter_pfad_11: "in der mit der Software bereitgestellten Datei LIZENZEN-DRITTANBIETER.md enthalten"
       vsbg_15: "nicht bereit und nicht verpflichtet"
 
   - slug: haushaltsmanager
     produktname: HaushaltsManager
     variante: verbraucher
+    merchant_of_record: true
     plattform_wort: Windows-Desktop
     kurzbeschreibung: "Verwaltung des privaten Haushalts (Zählerstände, Verträge, Haushaltsbuch)"
     editionen: "Vollversion (einmaliger Kauf)"
     lizenzschluessel: true
-    stand: "02.09.2026"
+    stand: "03.09.2026"
     vollstaendig: true
     ausstehend: []
     felder:
@@ -81,17 +72,18 @@ rechtstexte:
         Daten — insbesondere Zählerstände, Verträge und Beträge —, für seine eigenen finanziellen
         und vertraglichen Entscheidungen sowie für die regelmäßige Sicherung der ausschließlich
         lokal gespeicherten Daten. Die Software leistet keine Finanz-, Rechts- oder Steuerberatung.
-      drittanbieter_pfad_11: 'in der Anwendung unter „Hilfe & Recht" → Abschnitt „Lizenzen & Hinweise"'
+      drittanbieter_pfad_11: 'in der Anwendung unter „Hilfe & Recht" → Abschnitt „Lizenzen & Hinweise" einsehbar'
       vsbg_15: "nicht bereit und nicht verpflichtet"
 
   - slug: mobilereport-enterprise
     produktname: MobileReport Enterprise
     variante: verbraucher
+    merchant_of_record: true
     plattform_wort: Android
     kurzbeschreibung: "Erfassung und PDF-Dokumentation von Meldungen zu Geräten und Anlagen (Firmenfassung)"
     editionen: "Firmenfassung mit Lizenzschlüssel je Arbeitsplatz (gestaffelt)"
     lizenzschluessel: true
-    stand: "02.09.2026"
+    stand: "03.09.2026"
     vollstaendig: true
     ausstehend: []
     felder:
@@ -114,5 +106,5 @@ rechtstexte:
         für die inhaltliche Richtigkeit und Vollständigkeit der erstellten Meldungen und
         PDF-Berichte sowie für die Sicherung seiner ausschließlich lokal auf dem Gerät gespeicherten
         Daten; die Anwendung führt kein Cloud-Backup durch.
-      drittanbieter_pfad_11: 'in der Anwendung unter Impressum / Rechtliches → „Lizenzen Dritter anzeigen"'
+      drittanbieter_pfad_11: 'in der Anwendung unter Impressum / Rechtliches → „Lizenzen Dritter anzeigen" einsehbar'
       vsbg_15: "nicht bereit und nicht verpflichtet"
