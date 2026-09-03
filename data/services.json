@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-03T10:55:35+02:00",
+  "generiert": "2026-09-03T22:48:39+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "dienste": [
     {
@@ -73,7 +73,8 @@
         "an Google die Push-Zustelladresse des Geräts (FCM-Token) und ein leeres Wecksignal (ein einziges Feld „wakeup\")",
         "in der Registry auf dem Relaisserver eine pseudonyme Geräte-Kennung, der Gruppen-Hash (sha256 des Sync-Kennworts, nicht rückrechenbar), das FCM-Token, die Plattform, die Kennung des auslösenden Geräts (nur zum Selbst-Ausschluss) und ein Zeitstempel"
       ],
-      "aufbewahrung": "Pro Gerät eine Zeile in der Registry, solange das Gerät angemeldet ist; bei Abmeldung sofort gelöscht, bei einem von Google als ungültig gemeldeten Token automatisch beim nächsten Weckversuch. Keine feste Frist, keine Namen, keine Konten. Was Google mit Token und Zustellmetadaten macht, regelt Google.",
+      "aufbewahrung": "Pro Gerät eine Zeile in der Registry, solange das Gerät angemeldet ist; bei Abmeldung sofort gelöscht, bei einem von Google als ungültig gemeldeten Token automatisch beim nächsten Weckversuch. Keine feste Frist, keine Namen, keine Konten.",
+      "drittland": "Google verarbeitet FCM-Token und Zustellmetadaten als Auftragsverarbeiter nach Art. 28 DSGVO (Firebase Data Processing Terms). Die Übermittlung in die USA stützt sich auf das EU-US Data Privacy Framework (Google LLC zertifiziert) und die Standardvertragsklauseln.",
       "produkte": [
         "orgafuchs"
       ],

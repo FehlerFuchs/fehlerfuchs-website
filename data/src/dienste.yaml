@@ -128,9 +128,14 @@ dienste:
 
   # Seit dem FCM-Livegang 13.08.2026 (Android). Bewusst als eigener Eintrag neben
   # 'push'/'relaisserver' (Entscheidung Matze 17.08.2026, E1): Betreiber der Registry
-  # eigen, Empfaenger der Zustellung Google. Die rechtliche Einordnung von Google
-  # (Verantwortlicher/Auftragsverarbeiter, Google-Entitaet, Rechtsgrundlage) ist
-  # bewusst NICHT hier getroffen - offener Punkt fuer Matthias/Anwalt.
+  # eigen, Empfaenger der Zustellung Google.
+  # Rechtliche Einordnung von Google am 03.09.2026 getroffen (Matthias, belegt an
+  # Googles eigenen Angaben): Google = Auftragsverarbeiter (Art. 28), Uebermittlung
+  # USA per EU-US Data Privacy Framework (Google LLC zertifiziert) + SCC. Siehe
+  # Feld 'drittland'. Der Firebase-Vertrag/die DPA liegen bei [32] OrgaFuchs /
+  # [11-2] Relais; die Website bildet die Einordnung nur ab (Zustaendigkeitshinweis
+  # B10-Pruefrage). Quellen: firebase.google.com/support/privacy,
+  # firebase.google.com/terms/data-processing-terms.
   - id: fcm
     name: Weck-Push (Firebase Cloud Messaging)
     adresse: relais.fehlerfuchs.eu (Registry) · Google Firebase Cloud Messaging (Zustellung)
@@ -150,7 +155,13 @@ dienste:
       Pro Gerät eine Zeile in der Registry, solange das Gerät angemeldet ist; bei
       Abmeldung sofort gelöscht, bei einem von Google als ungültig gemeldeten Token
       automatisch beim nächsten Weckversuch. Keine feste Frist, keine Namen, keine
-      Konten. Was Google mit Token und Zustellmetadaten macht, regelt Google.
+      Konten.
+    # Rechtliche Einordnung (03.09.2026, belegt): siehe Kommentar oben.
+    drittland: >-
+      Google verarbeitet FCM-Token und Zustellmetadaten als Auftragsverarbeiter
+      nach Art. 28 DSGVO (Firebase Data Processing Terms). Die Übermittlung in die
+      USA stützt sich auf das EU-US Data Privacy Framework (Google LLC zertifiziert)
+      und die Standardvertragsklauseln.
     produkte: [orgafuchs]
     hinweis: >-
       Nur auf Android und nur bei eingeschalteten Benachrichtigungen. Der Weckruf
