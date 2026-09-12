@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-31",
+  "updatedAt": "2026-09-12",
   "products": [
     {
       "slug": "gewerbepro",
@@ -57,17 +57,17 @@
     {
       "slug": "orgafuchs",
       "name": "FehlerFuchs OrgaFuchs",
-      "version": "1.7.0",
-      "date": "2026-08-30",
+      "version": "1.9.1",
+      "date": "2026-09-12",
       "channel": "stable",
       "os": "windows",
-      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.7.0/FehlerFuchs_OrgaFuchs_Setup_1.7.0.exe",
-      "filename": "FehlerFuchs_OrgaFuchs_Setup_1.7.0.exe",
-      "sizeLabel": "16,4 MB",
-      "sha256": "81df2727af9a69a7b608036cfbaa8577fc2595e8e20ef10cd356bbd3aa4504c3",
+      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.9.1/FehlerFuchs_OrgaFuchs_Setup_1.9.1.exe",
+      "filename": "FehlerFuchs_OrgaFuchs_Setup_1.9.1.exe",
+      "sizeLabel": "16,7 MB",
+      "sha256": "2474fa9c10053c478ebced32533082d7dd2ae234241e931c37f32f5f63dc6fab",
       "signed": true,
       "page": "https://fehlerfuchs.eu/produkte/orgafuchs/",
-      "notes": "Signierte Windows-Fassung 1.7.0 (Herausgeber FehlerFuchs). Neu: Kalender und Kiosk nutzen die Tageskacheln jetzt voll aus (kein winziger Text, kein Überlauf); Tageswechsel springt um Mitternacht automatisch; Verbinden ohne Kamera per Textcode – ideal am PC; geringerer Speicherverbrauch. Löst 1.6.1 ab.",
+      "notes": "Signierte Windows-Fassung 1.9.1 (Herausgeber FehlerFuchs). Neu seit 1.7.0: ein interaktiver Kalender-Konfigurator mit Live-Vorschau; Jahres- und Schuljahreskalender zum Ausdrucken (A3/A4, gefüllt oder blanko); besser lesbare Wandpläne mit einer Spalte je Einrichtung und einem Blanko-Wandplaner; Öffnungs- und Betreuungszeiten als dezentes Band; zuverlässiger und sicherer Sync von Einrichtungen. 1.9.1 selbst ist ein Bugfix: ein kurzer Verbindungsabbruch beim Abgleich bricht den Sync nicht mehr ab. Löst 1.7.0 ab.",
       "windowsDisplayNames": [
         "OrgaFuchs",
         "FehlerFuchs OrgaFuchs"

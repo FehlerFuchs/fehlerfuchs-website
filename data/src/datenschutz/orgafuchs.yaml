@@ -132,6 +132,13 @@ berechtigungen:
   - name: Vibration
     wofuer: kurze Rueckmeldung beim Schnelleintrag sowie Benachrichtigungen
     pflicht: false
+
+  # Seit 1.8.0 (Android): optionaler Geraete-Kalender. Rein lokal, nichts verlaesst
+  # das Geraet; von [13] geprueft, keine Play-Data-Safety-Aenderung noetig. Auf
+  # Website-Datenschutz genommen auf Entscheidung Matthias 12.09.2026.
+  - name: Kalender (lesen und schreiben)
+    wofuer: nur bei eingeschaltetem optionalem Geraete-Kalender - traegt auf Wunsch Dienste und Termine in eine vorhandene Kalender-App ein und liest sie dort wieder aus; rein lokal, nichts verlaesst das Geraet
+    pflicht: false
     beleg: zusammengefuehrtes AndroidManifest (VIBRATE)
   - name: Keine Standort-, Kontakt-, Mikrofon-, Speicher- oder Medienberechtigung
     wofuer: wird nicht angefordert; die Dateiauswahl laeuft ueber den System-Dialog ohne Speicherzugriffsrecht

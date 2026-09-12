@@ -132,6 +132,26 @@ meldungen:
       klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz
       und „Was ist neu" direkt in der App. Alle Daten bleiben auf dem Gerät.
 
+  # OrgaFuchs 1.9.1 (Windows-Release 12.09., signiert; Android/Play 1.9.0 live,
+  # 1.9.1 in Prüfung). 'version: 1.9.1' bindet die Meldung an den releases-Eintrag.
+  # Fasst die Neuerungen von 1.8.0–1.9.1 zusammen; Changelog aus den Play-Store-
+  # „Was ist neu"-Texten (belegt von [13]), kein erfundener Inhalt.
+  - id: orgafuchs-1-9-1
+    typ: update
+    produkt: orgafuchs
+    version: "1.9.1"
+    titel: "OrgaFuchs 1.9.1: Kalender-Konfigurator und Kalender zum Ausdrucken"
+    text: >-
+      Neu in OrgaFuchs: ein interaktiver Kalender-Konfigurator mit Live-Vorschau –
+      der Wandplan lässt sich komplett offline zusammenstellen (Zeitraum, Personen
+      und Einrichtungen frei wählbar). Dazu Jahres- und Schuljahreskalender zum
+      Ausdrucken (A3/A4, gefüllt oder blanko), besser lesbare Wandpläne mit einer
+      Spalte je Einrichtung samt Blanko-Vorlage und Öffnungs-/Betreuungszeiten
+      (Hort, Kita) als dezentes Band. Der Sync von Einrichtungen läuft jetzt
+      zuverlässig und sicher; ein kurzer Verbindungsabbruch bricht ihn nicht mehr
+      ab. Auf Android lässt sich OrgaFuchs optional im Geräte-Kalender anzeigen –
+      rein lokal. Alles bleibt auf dem Gerät, ohne Cloud und ohne Konto.
+
   # OrgaFuchs 1.7.0 (Changelog). 'version: 1.7.0' bindet die Meldung an den
   # releases-Eintrag (Windows-Release 30.08., signiert; Android 1.7.0+16 parallel
   # im Play Store). Quelle: 32_OrgaFuchs\09_Releases\1.7.0_RELEASE-NOTES.md.
@@ -288,6 +308,20 @@ meldungen:
       Der offene Test ist vorbei: Der kostenlose, werbefreie PDF-Reader für Android
       steht ab sofort regulär im Google Play Store. Lesen, suchen, teilen, drucken
       und Seiten leicht bearbeiten – alles bleibt auf dem Gerät.
+
+  # GewerbePro 0.3.2 (Beta). Nachgetragen 12.09.2026: Der releases-Eintrag 0.3.2
+  # (seit 11.08.) hatte keine Meldung – build_data behandelt das inzwischen als
+  # Fehler (früher Warnung). Text aus dem 0.3.2-notes-Feld in gewerbepro.yaml
+  # (= App-Update-Hinweis), belegt, kein erfundener Inhalt.
+  - id: gewerbepro-0-3-2
+    typ: update
+    produkt: gewerbepro
+    version: "0.3.2"
+    titel: "GewerbePro 0.3.2 – erste signierte Beta"
+    text: >-
+      Die offene Beta ist erstmals digital signiert (Herausgeber FehlerFuchs): Bei
+      der Installation erscheint der verifizierte Herausgebername. Dazu Korrekturen
+      aus dem internen Prüfbericht gegenüber 0.3.1.
 
   - id: gewerbepro-0-3-3
     typ: update

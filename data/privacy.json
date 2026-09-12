@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-03T22:48:39+02:00",
+  "generiert": "2026-09-12T14:02:00+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1546,6 +1546,11 @@
         {
           "name": "Vibration",
           "wofuer": "kurze Rueckmeldung beim Schnelleintrag sowie Benachrichtigungen",
+          "pflicht": false
+        },
+        {
+          "name": "Kalender (lesen und schreiben)",
+          "wofuer": "nur bei eingeschaltetem optionalem Geraete-Kalender - traegt auf Wunsch Dienste und Termine in eine vorhandene Kalender-App ein und liest sie dort wieder aus; rein lokal, nichts verlaesst das Geraet",
           "pflicht": false,
           "beleg": "zusammengefuehrtes AndroidManifest (VIBRATE)"
         },

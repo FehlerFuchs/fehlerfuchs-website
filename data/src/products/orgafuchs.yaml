@@ -1,7 +1,7 @@
 slug: orgafuchs
 name: OrgaFuchs
 fullName: FehlerFuchs OrgaFuchs
-# SEO (2026-08-09): Windows (signiert, 1.7.0) + Android seit 08.08. verfügbar.
+# SEO (2026-08-09): Windows (signiert, 1.9.1) + Android seit 08.08. verfügbar.
 seoTitel: "OrgaFuchs – Familien- & Schichtplaner, offline für Windows & Android"
 seoBeschreibung: "Familien- und Schichtplaner für Dienste, Termine und Notizen: Monatskalender, PDF-Export, Sync übers eigene Heimnetz – für Windows & Android, ohne Cloud, ohne Konto."
 tags: ["Schichtplaner", "Familienplaner", "Dienstplan", "Kalender", "Windows", "Android", "offline", "ohne Cloud"]
@@ -14,8 +14,9 @@ description: >-
   Heimnetz oder einen selbst gehosteten Relay – ohne Cloud, ohne Konto.
 audience: [privat, vereine, unternehmen]
 accent: "#B4652A"   # Farbe der App
-# Android ist seit 08.08.2026 regulär im Google Play Store, der Windows-Download
-# als GitHub-Release 'orgafuchs-v1.7.0' (signiert, 30.08.2026; löst 1.6.1 ab).
+# Android ist seit 08.08.2026 regulär im Google Play Store (Play-Stand 1.9.0 live,
+# 1.9.1 in Prüfung), der Windows-Download als GitHub-Release 'orgafuchs-v1.9.1'
+# (signiert, 12.09.2026; löst 1.7.0 ab).
 # Beide Plattformen 'verfuegbar' → Gesamtstatus 'verfuegbar'.
 # 'vorabSichtbar' ist mit 'verfuegbar' überflüssig und daher entfernt.
 status: verfuegbar
@@ -99,11 +100,37 @@ editions:
     summary: Voller Funktionsumfang, dauerhaft kostenlos.
     price: { model: kostenlos }
 
-# Öffentlicher Windows-Download: GitHub-Release 'orgafuchs-v1.7.0' – signierte
-# Fassung (Azure Artifact Signing, Herausgeber FehlerFuchs, 30.08.2026). Löst 1.6.1
+# Öffentlicher Windows-Download: GitHub-Release 'orgafuchs-v1.9.1' – signierte
+# Fassung (Azure Artifact Signing, Herausgeber FehlerFuchs, 12.09.2026). Löst 1.7.0
 # ab (ältere Releases bleiben im Downloads-Repo). sha256/Bytes gegen das GitHub-Asset
-# gegengeprüft (gh: 17.184.184 B, sha256 81df2727…04c3).
+# gegengeprüft (gh: 17.482.632 B, sha256 2474fa9c…6fab).
 releases:
+  # 1.9.1: Signier-/Manifest-Fakten aus dem [16]-Handoff (12.09., zweistufig App+
+  # Installer signiert), gegen GitHub geprüft (gh: Asset, 17.482.632 B, sha256
+  # 2474fa9c…6fab – stimmen). Fasst die Windows-Releases 1.8.0/1.8.1/1.9.0/1.9.1
+  # zusammen; Changelog aus den Play-Store-„Was ist neu"-Texten (belegt von [13],
+  # Windows-relevanter Auszug – Android-only wie „im Geräte-Kalender anzeigen"
+  # weggelassen).
+  - version: "1.9.1"
+    date: "2026-09-12"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.9.1/FehlerFuchs_OrgaFuchs_Setup_1.9.1.exe
+    filename: FehlerFuchs_OrgaFuchs_Setup_1.9.1.exe
+    size:
+      bytes: 17482632
+      label: "16,7 MB"
+      source: GitHub-Release-Asset
+    sha256: "2474fa9c10053c478ebced32533082d7dd2ae234241e931c37f32f5f63dc6fab"
+    signed: true
+    notes: >-
+      Signierte Windows-Fassung 1.9.1 (Herausgeber FehlerFuchs). Neu seit 1.7.0:
+      ein interaktiver Kalender-Konfigurator mit Live-Vorschau; Jahres- und
+      Schuljahreskalender zum Ausdrucken (A3/A4, gefüllt oder blanko); besser
+      lesbare Wandpläne mit einer Spalte je Einrichtung und einem Blanko-Wandplaner;
+      Öffnungs- und Betreuungszeiten als dezentes Band; zuverlässiger und sicherer
+      Sync von Einrichtungen. 1.9.1 selbst ist ein Bugfix: ein kurzer
+      Verbindungsabbruch beim Abgleich bricht den Sync nicht mehr ab. Löst 1.7.0 ab.
   # 1.7.0: Signier-/Manifest-Fakten aus dem [16]-Handoff (30.08.), gegen GitHub
   # geprüft (gh: Asset, 17.184.184 B, sha256 81df2727…04c3 – stimmen). Changelog
   # aus 32_OrgaFuchs\09_Releases\1.7.0_RELEASE-NOTES.md (Windows-relevanter Auszug;
@@ -309,8 +336,8 @@ links:
   # Fehlt das Feld, gab es vorher keine eigene Seite - dann ist auch nichts
   # weiterzuleiten.
   alt_html: /apps/orgafuchs.html
-  # Tag-Seite des aktuellen Windows-Releases (signiert, 30.08.2026).
-  release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.7.0
+  # Tag-Seite des aktuellen Windows-Releases (signiert, 12.09.2026).
+  release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.9.1
   contact: /kontakt.html?app=OrgaFuchs&topic=interesse
 
 # Sichtbarer Quellen- und Behörden-Hinweis (Pflicht). Weil OrgaFuchs Feiertage

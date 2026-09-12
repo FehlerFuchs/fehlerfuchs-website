@@ -1,8 +1,22 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-03T22:48:39+02:00",
+  "generiert": "2026-09-12T14:02:00+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "orgafuchs-1-9-1",
+      "typ": "update",
+      "produkt": "orgafuchs",
+      "version": "1.9.1",
+      "titel": "OrgaFuchs 1.9.1: Kalender-Konfigurator und Kalender zum Ausdrucken",
+      "text": "Neu in OrgaFuchs: ein interaktiver Kalender-Konfigurator mit Live-Vorschau – der Wandplan lässt sich komplett offline zusammenstellen (Zeitraum, Personen und Einrichtungen frei wählbar). Dazu Jahres- und Schuljahreskalender zum Ausdrucken (A3/A4, gefüllt oder blanko), besser lesbare Wandpläne mit einer Spalte je Einrichtung samt Blanko-Vorlage und Öffnungs-/Betreuungszeiten (Hort, Kita) als dezentes Band. Der Sync von Einrichtungen läuft jetzt zuverlässig und sicher; ein kurzer Verbindungsabbruch bricht ihn nicht mehr ab. Auf Android lässt sich OrgaFuchs optional im Geräte-Kalender anzeigen – rein lokal. Alles bleibt auf dem Gerät, ohne Cloud und ohne Konto.",
+      "datum": "2026-09-12",
+      "datumQuelle": "Release 1.9.1",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.9.1/FehlerFuchs_OrgaFuchs_Setup_1.9.1.exe",
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
+      }
+    },
     {
       "id": "orgafuchs-1-7-0",
       "typ": "update",
@@ -119,6 +133,20 @@
       "datumQuelle": "Release 0.3.3",
       "wege": {
         "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.3/FehlerFuchs_GewerbePro_Setup_0.3.3.exe",
+        "kauf": "https://www.checkout-ds24.com/product/723253"
+      }
+    },
+    {
+      "id": "gewerbepro-0-3-2",
+      "typ": "update",
+      "produkt": "gewerbepro",
+      "version": "0.3.2",
+      "titel": "GewerbePro 0.3.2 – erste signierte Beta",
+      "text": "Die offene Beta ist erstmals digital signiert (Herausgeber FehlerFuchs): Bei der Installation erscheint der verifizierte Herausgebername. Dazu Korrekturen aus dem internen Prüfbericht gegenüber 0.3.1.",
+      "datum": "2026-08-11",
+      "datumQuelle": "Release 0.3.2",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v0.3.2/FehlerFuchs_GewerbePro_Setup_0.3.2.exe",
         "kauf": "https://www.checkout-ds24.com/product/723253"
       }
     },

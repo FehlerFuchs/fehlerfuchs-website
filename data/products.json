@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-03T22:48:39+02:00",
+  "generiert": "2026-09-12T14:02:00+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1783,6 +1783,22 @@
       ],
       "releases": [
         {
+          "version": "1.9.1",
+          "date": "2026-09-12",
+          "channel": "stable",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.9.1/FehlerFuchs_OrgaFuchs_Setup_1.9.1.exe",
+          "filename": "FehlerFuchs_OrgaFuchs_Setup_1.9.1.exe",
+          "size": {
+            "bytes": 17482632,
+            "label": "16,7 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "2474fa9c10053c478ebced32533082d7dd2ae234241e931c37f32f5f63dc6fab",
+          "signed": true,
+          "notes": "Signierte Windows-Fassung 1.9.1 (Herausgeber FehlerFuchs). Neu seit 1.7.0: ein interaktiver Kalender-Konfigurator mit Live-Vorschau; Jahres- und Schuljahreskalender zum Ausdrucken (A3/A4, gefüllt oder blanko); besser lesbare Wandpläne mit einer Spalte je Einrichtung und einem Blanko-Wandplaner; Öffnungs- und Betreuungszeiten als dezentes Band; zuverlässiger und sicherer Sync von Einrichtungen. 1.9.1 selbst ist ein Bugfix: ein kurzer Verbindungsabbruch beim Abgleich bricht den Sync nicht mehr ab. Löst 1.7.0 ab."
+        },
+        {
           "version": "1.7.0",
           "date": "2026-08-30",
           "channel": "stable",
@@ -2057,7 +2073,7 @@
       },
       "links": {
         "alt_html": "/apps/orgafuchs.html",
-        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.7.0",
+        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.9.1",
         "contact": "/kontakt.html?app=OrgaFuchs&topic=interesse",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
       },
