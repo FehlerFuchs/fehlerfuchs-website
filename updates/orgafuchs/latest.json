@@ -1,6 +1,6 @@
 {
-  "version": "1.9.1",
-  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.9.1/FehlerFuchs_OrgaFuchs_Setup_1.9.1.exe",
-  "sha256": "2474fa9c10053c478ebced32533082d7dd2ae234241e931c37f32f5f63dc6fab",
-  "notes": "Signierte Windows-Fassung 1.9.1 (Herausgeber FehlerFuchs). Neu seit 1.7.0: ein interaktiver Kalender-Konfigurator mit Live-Vorschau; Jahres- und Schuljahreskalender zum Ausdrucken (A3/A4, gefüllt oder blanko); besser lesbare Wandpläne mit einer Spalte je Einrichtung und einem Blanko-Wandplaner; Öffnungs- und Betreuungszeiten als dezentes Band; zuverlässiger und sicherer Sync von Einrichtungen. 1.9.1 selbst ist ein Bugfix: ein kurzer Verbindungsabbruch beim Abgleich bricht den Sync nicht mehr ab. Löst 1.7.0 ab."
+  "version": "1.9.2",
+  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.9.2/FehlerFuchs_OrgaFuchs_Setup_1.9.2.exe",
+  "sha256": "74c175ce7cb4575897a0d2f8e360d0dfd384d8db0717960e57b21fbeb1d14c17",
+  "notes": "Signierte Windows-Fassung 1.9.2 (Herausgeber FehlerFuchs), ein Bugfix-Release über 1.9.1. Es behebt zwei Fehler beim Koppeln weiterer Geräte: „Code vorbereiten\" funktioniert jetzt auch, wenn gerade kein Abgleich läuft, und nach einem Hauptgerät-Wechsel erscheint ein verständlicher Hinweis zum Neu-Koppeln statt einer kryptischen Fehlermeldung. Der übrige Funktionsumfang bleibt unverändert (Kalender-Konfigurator, Jahres- und Schuljahreskalender zum Ausdrucken, Wandpläne je Einrichtung, Sync ohne Cloud). Löst 1.9.1 ab."
 }

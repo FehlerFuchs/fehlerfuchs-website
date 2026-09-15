@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-12T14:02:00+02:00",
+  "generiert": "2026-09-15T13:55:23+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1783,6 +1783,22 @@
       ],
       "releases": [
         {
+          "version": "1.9.2",
+          "date": "2026-09-13",
+          "channel": "stable",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.9.2/FehlerFuchs_OrgaFuchs_Setup_1.9.2.exe",
+          "filename": "FehlerFuchs_OrgaFuchs_Setup_1.9.2.exe",
+          "size": {
+            "bytes": 17480728,
+            "label": "16,7 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "74c175ce7cb4575897a0d2f8e360d0dfd384d8db0717960e57b21fbeb1d14c17",
+          "signed": true,
+          "notes": "Signierte Windows-Fassung 1.9.2 (Herausgeber FehlerFuchs), ein Bugfix-Release über 1.9.1. Es behebt zwei Fehler beim Koppeln weiterer Geräte: „Code vorbereiten\" funktioniert jetzt auch, wenn gerade kein Abgleich läuft, und nach einem Hauptgerät-Wechsel erscheint ein verständlicher Hinweis zum Neu-Koppeln statt einer kryptischen Fehlermeldung. Der übrige Funktionsumfang bleibt unverändert (Kalender-Konfigurator, Jahres- und Schuljahreskalender zum Ausdrucken, Wandpläne je Einrichtung, Sync ohne Cloud). Löst 1.9.1 ab."
+        },
+        {
           "version": "1.9.1",
           "date": "2026-09-12",
           "channel": "stable",
@@ -2073,7 +2089,7 @@
       },
       "links": {
         "alt_html": "/apps/orgafuchs.html",
-        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.9.1",
+        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/orgafuchs-v1.9.2",
         "contact": "/kontakt.html?app=OrgaFuchs&topic=interesse",
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
       },

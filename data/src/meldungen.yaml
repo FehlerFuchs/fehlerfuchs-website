@@ -132,6 +132,24 @@ meldungen:
       klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz
       und „Was ist neu" direkt in der App. Alle Daten bleiben auf dem Gerät.
 
+  # OrgaFuchs 1.9.2 (Windows-Release 13.09., signiert; Bugfix über 1.9.1; Play 1.9.2
+  # live seit 13.09.). 'version: 1.9.2' bindet die Meldung an den releases-Eintrag.
+  # Changelog aus dem Play-Store-„Was ist neu"-Text (belegt von [13], Meldung 15.09.);
+  # beide Korrekturen betreffen Koppeln/Sync, also Windows-relevant, nichts erfunden.
+  - id: orgafuchs-1-9-2
+    typ: update
+    produkt: orgafuchs
+    version: "1.9.2"
+    titel: "OrgaFuchs 1.9.2: Koppeln weiterer Geräte zuverlässiger"
+    text: >-
+      OrgaFuchs 1.9.2 ist ein signiertes Wartungs-Update, das auf 1.9.1 aufbaut und
+      zwei Fehler beim Koppeln weiterer Geräte behebt: „Code vorbereiten" funktioniert
+      jetzt auch, wenn gerade kein Abgleich läuft. Und nach einem Hauptgerät-Wechsel
+      erscheint ein verständlicher Hinweis zum Neu-Koppeln statt einer kryptischen
+      Fehlermeldung, falls ein Gerät dabei offline war. Der übrige Funktionsumfang
+      bleibt unverändert – Kalender-Konfigurator, Kalender zum Ausdrucken, Wandpläne
+      je Einrichtung, Sync ohne Cloud. Alles bleibt auf dem Gerät, ohne Konto.
+
   # OrgaFuchs 1.9.1 (Windows-Release 12.09., signiert; Android/Play 1.9.0 live,
   # 1.9.1 in Prüfung). 'version: 1.9.1' bindet die Meldung an den releases-Eintrag.
   # Fasst die Neuerungen von 1.8.0–1.9.1 zusammen; Changelog aus den Play-Store-

@@ -1,8 +1,22 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-12T14:02:00+02:00",
+  "generiert": "2026-09-15T13:55:23+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "orgafuchs-1-9-2",
+      "typ": "update",
+      "produkt": "orgafuchs",
+      "version": "1.9.2",
+      "titel": "OrgaFuchs 1.9.2: Koppeln weiterer Geräte zuverlässiger",
+      "text": "OrgaFuchs 1.9.2 ist ein signiertes Wartungs-Update, das auf 1.9.1 aufbaut und zwei Fehler beim Koppeln weiterer Geräte behebt: „Code vorbereiten\" funktioniert jetzt auch, wenn gerade kein Abgleich läuft. Und nach einem Hauptgerät-Wechsel erscheint ein verständlicher Hinweis zum Neu-Koppeln statt einer kryptischen Fehlermeldung, falls ein Gerät dabei offline war. Der übrige Funktionsumfang bleibt unverändert – Kalender-Konfigurator, Kalender zum Ausdrucken, Wandpläne je Einrichtung, Sync ohne Cloud. Alles bleibt auf dem Gerät, ohne Konto.",
+      "datum": "2026-09-13",
+      "datumQuelle": "Release 1.9.2",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.9.2/FehlerFuchs_OrgaFuchs_Setup_1.9.2.exe",
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
+      }
+    },
     {
       "id": "orgafuchs-1-9-1",
       "typ": "update",
