@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-15T13:55:23+02:00",
+  "generiert": "2026-09-15T15:05:45+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -207,7 +207,7 @@
     {
       "slug": "checkin-vita",
       "name": "CheckInVita",
-      "stand": "2026-08-23",
+      "stand": "2026-09-02",
       "geprueft_von": "23_CheckInVita",
       "fassung": "0.2.0+1 – Android-Stand, noch nicht veröffentlicht; Windows-Port vorhanden, Build derzeit paketbedingt blockiert",
       "lokal_only": true,
@@ -296,7 +296,8 @@
           "was": "Betreff und Nachrichtentext; freiwillig Name und E-Mail-Adresse; App-Version und Betriebssystem-Bezeichnung; vom Nutzer bewusst ausgewählte Dateianhänge; auf ausdrückliche Zustimmung eine technische Diagnosedatei (nur App-Version, System, Zeitstempel)",
           "wann": "nur wenn der Nutzer im Support-/Kontaktformular auf „Senden\" tippt",
           "freiwillig": true,
-          "beleg": "lib/data/support/support_service.dart (MultipartRequest auf /v1/contact)"
+          "beleg": "lib/data/support/support_service.dart (MultipartRequest auf /v1/contact)",
+          "serverseitig": "Belegt von [11] Lizenzserver am 23.08.2026 für /v1/contact: kein Anfrageinhalt in der Datenbank; die IP-Adresse nur als kurzlebiger Redis-Schlüssel der Missbrauchsbremse; kein User-Agent; bei erfolgreicher Zustellung weder Anfrageinhalt noch IP im Protokoll. Der Inhalt geht als E-Mail an den konfigurierten Posteingang."
         },
         {
           "wohin": "fehlerfuchs.eu",
@@ -321,8 +322,8 @@
       "daten_an_dritte_verkauft": false,
       "loeschung": "Alle Daten liegen auf dem Gerät. Einzelne Einträge lassen sich in der App löschen; unter Einstellungen entfernt „Alle Daten löschen\" sämtliche Einträge, Stammdaten und Einstellungen unwiderruflich. Beim Deinstallieren der App verschwinden alle Daten mit. Selbst erzeugte Export-, Backup- und Abgleich-Dateien liegen dort, wo der Nutzer sie abgelegt hat, und muss er selbst löschen.",
       "besonderheiten": "CheckInVita ist ein Gesundheits-Tagebuch und ausdrücklich kein Medizinprodukt nach MDR 2017/745; es findet keine Bewertung und keine Diagnose statt. Die erfassten Angaben können besonders schützenswerte Gesundheitsdaten nach Art. 9 DSGVO sein – sie bleiben ausschließlich lokal. Die Internet-Berechtigung besteht allein für das nutzerinitiierte Support-/Kontaktformular; ein automatischer Upload existiert nicht. Vor dem Anhängen von Dateien warnt die App ausdrücklich davor, sensible Gesundheitsdaten mitzuschicken. Der optionale Abgleich zwischen zwei eigenen Geräten läuft über eine Datei, die der Nutzer selbst per Kabel kopiert – ohne Server und ohne Netzverbindung; die Datei ist unverschlüsselt, worauf die App vor jedem Export hinweist. Auf eine Berechtigung für den Fotospeicher wird bewusst verzichtet: Bilder aus der Galerie werden über den Auswahldialog des Systems ausgewählt, die App erhält dabei keinen Zugriff auf die übrigen Fotos. Ebenso wird keine Berechtigung für exakte Weckzeiten angefordert; Erinnerungen können daher um einige Minuten abweichen.",
-      "vorhandener_text": "lib/features/legal/legal_screen.dart (kPrivacyText, in der App unter Über → Datenschutzerklärung); ausführlich in docs/Datenschutzerklaerung_CheckInVita.md",
-      "offene_fragen": "1. Ob und wie lange der Dienst unter license.fehlerfuchs.eu die übermittelten Angaben (Nachricht, Name, E-Mail, Anhänge) und die IP-Adresse serverseitig protokolliert oder zwischenspeichert, lässt sich aus der App heraus nicht feststellen – das beantwortet das Projekt, das den Dienst betreibt. 2. Für die Windows-Fassung ist noch nicht abschließend entschieden, ob sie bei Veröffentlichung eine Aktualisierungsprüfung erhält; heute enthält sie keine.",
+      "vorhandener_text": "lib/features/legal/legal_screen.dart (kPrivacyText, in der App unter Über → Datenschutzerklärung); ausführlich in 03_Doku/Datenschutzerklaerung_CheckInVita.md",
+      "offene_fragen": "Für die Windows-Fassung ist noch nicht abschließend entschieden, ob sie bei Veröffentlichung eine Aktualisierungsprüfung erhält; heute enthält sie keine.",
       "art": "anwendung"
     },
     {

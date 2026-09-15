@@ -1,6 +1,12 @@
+# BERICHTIGUNG 02.09.2026: frühere offene Frage 1 (was der Support-Dienst
+# serverseitig protokolliert) war seit 23.08. überholt – [11] Lizenzserver hat
+# es an dem Tag für /v1/contact belegt; steht jetzt im Übertragungseintrag als
+# Feld "serverseitig". Quelle nachgezogen aus der zentralen, belegten Fassung
+# 00-1_Produktdoku - Vertrieb und Recht\Datenschutz-Steckbriefe\checkin-vita.yaml
+# (Stand 02.09., Ausnahme Matthias 02.09.). [23] pausiert seit 31.08.
 slug: checkin-vita
 name: CheckInVita
-stand: "2026-08-23"
+stand: "2026-09-02"
 geprueft_von: 23_CheckInVita
 fassung: "0.2.0+1 – Android-Stand, noch nicht veröffentlicht; Windows-Port vorhanden, Build derzeit paketbedingt blockiert"
 
@@ -64,6 +70,12 @@ uebertragungen:
     wann: nur wenn der Nutzer im Support-/Kontaktformular auf „Senden" tippt
     freiwillig: true
     beleg: lib/data/support/support_service.dart (MultipartRequest auf /v1/contact)
+    serverseitig: >-
+      Belegt von [11] Lizenzserver am 23.08.2026 für /v1/contact: kein
+      Anfrageinhalt in der Datenbank; die IP-Adresse nur als kurzlebiger
+      Redis-Schlüssel der Missbrauchsbremse; kein User-Agent; bei
+      erfolgreicher Zustellung weder Anfrageinhalt noch IP im Protokoll.
+      Der Inhalt geht als E-Mail an den konfigurierten Posteingang.
   - wohin: fehlerfuchs.eu
     was: gewöhnlicher Seitenaufruf im externen Browser; es werden keine App-Daten übergeben
     wann: nur wenn der Nutzer im Über-Bildschirm „Solche Projekte unterstützen?" antippt
@@ -111,12 +123,8 @@ besonderheiten: >-
   für exakte Weckzeiten angefordert; Erinnerungen können daher um einige
   Minuten abweichen.
 
-vorhandener_text: lib/features/legal/legal_screen.dart (kPrivacyText, in der App unter Über → Datenschutzerklärung); ausführlich in docs/Datenschutzerklaerung_CheckInVita.md
+vorhandener_text: lib/features/legal/legal_screen.dart (kPrivacyText, in der App unter Über → Datenschutzerklärung); ausführlich in 03_Doku/Datenschutzerklaerung_CheckInVita.md
 
 offene_fragen: >-
-  1. Ob und wie lange der Dienst unter license.fehlerfuchs.eu die übermittelten
-  Angaben (Nachricht, Name, E-Mail, Anhänge) und die IP-Adresse serverseitig
-  protokolliert oder zwischenspeichert, lässt sich aus der App heraus nicht
-  feststellen – das beantwortet das Projekt, das den Dienst betreibt.
-  2. Für die Windows-Fassung ist noch nicht abschließend entschieden, ob sie bei
+  Für die Windows-Fassung ist noch nicht abschließend entschieden, ob sie bei
   Veröffentlichung eine Aktualisierungsprüfung erhält; heute enthält sie keine.
