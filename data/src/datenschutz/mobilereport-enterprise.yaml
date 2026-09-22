@@ -1,6 +1,6 @@
 slug: mobilereport-enterprise
 name: MobileReport Enterprise
-stand: "2026-08-23"
+stand: "2026-09-22"
 geprueft_von: 20_MobileReport
 fassung: "1.0.2+6 (ausgeliefert seit 18.08.2026 auf zwei Wegen: Direkt-Download als APK ueber das GitHub-Release UND Managed Google Play, privat an die Kundenorganisation gebunden - oeffentlich nicht gelistet)"
 
@@ -115,8 +115,12 @@ auslieferung: >-
 vorhandener_text: unbekannt (im Enterprise-Ordner wurde kein eigener Datenschutztext gefunden)
 
 entwicklungsstand: >-
-  Im Enterprise-Repo liegt 1.0.3+7 als noch nicht veroeffentlichter Paketpflege-Stand.
-  Der veroeffentlichte Datenschutzstand bleibt 1.0.2+6.
+  Im Enterprise-Repo liegt 1.4.0+47 als Testfassung (noch nicht veroeffentlicht).
+  Neu darin: die Sicherungsdatei (.mrbak) wird passwortverschluesselt (AES-GCM-256,
+  Schluessel per PBKDF2 aus dem Passwort) - eine Datenschutz-Verbesserung, kein neuer
+  Datenfluss; die Datei verlaesst das Geraet nur, wenn der Nutzer sie selbst wegkopiert.
+  Der veroeffentlichte Datenschutzstand bleibt 1.0.2+6; erst mit dessen Veroeffentlichung
+  wandert die .mrbak-Verschluesselung in die Besonderheiten.
 
 offene_fragen: >-
   (1) Unbekannt, ob der Lizenzdienst serverseitig IP-Adressen oder Zeitpunkte

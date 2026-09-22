@@ -1,8 +1,8 @@
 slug: mobilereport
 name: MobileReport
-stand: "2026-08-23"
+stand: "2026-09-22"
 geprueft_von: 20_MobileReport
-fassung: "1.2.0+40 (zusammengefuehrte Consumer-App mit In-App-Kauf; geprueft im Ordner FehlerFuchsMR_Pro\\01_App)"
+fassung: "1.2.0+40 (zusammengefuehrte Consumer-App mit In-App-Kauf; im Play Store 1.2.0 (40); geprueft in der Codebasis 20_MobileReport\\MobileReport_Master\\01_App)"
 
 # Korrigiert am 21.07.2026: Die Google-Abrechnungsbibliothek bringt eine eigene
 # Telemetrie-Komponente mit, die ohne Zutun des Nutzers an Google sendet. Inhalte
@@ -19,7 +19,7 @@ auf_dem_geraet:
     beleg: lib/services/image_service.dart, lib/services/pdf_service.dart
   - was: Einstellungen (u. a. Empfaenger-Adresse, PDF-Layout, Profilangaben, Pro-Freischaltstatus)
     wo: Geraeteeinstellungen der App (SharedPreferences)
-    beleg: lib/data/local/settings_repository_prefs.dart, lib/data/pro_provider.dart (Key pro_unlocked)
+    beleg: lib/data/local/settings_repository_prefs.dart, lib/core/edition/pro_status.dart (Key pro_unlocked)
   - was: lokales Zugriffsprotokoll der letzten App-Zugriffe
     wo: Geraeteeinstellungen der App (SharedPreferences)
     beleg: lib/services/access_log_service.dart
@@ -37,9 +37,10 @@ berechtigungen:
     beleg: image_picker (pubspec.yaml); android/app/src/main/AndroidManifest.xml - keine CAMERA-/Speicher-Berechtigung deklariert
   - name: Kontakte
     wofuer: >-
-      Beim Auswaehlen eines Empfaengers wird nur die E-Mail-Adresse des Kontakts
-      uebernommen, den der Nutzer selbst antippt. Auf das uebrige Adressbuch hat
-      die App keinen Zugriff.
+      Beim Auswaehlen eines Empfaengers werden Name und E-Mail-Adresse des Kontakts
+      uebernommen, den der Nutzer selbst antippt; ueber ein zweites Antippen am Feld
+      auch die Telefonnummer. Auf das uebrige Adressbuch hat die App keinen Zugriff -
+      die Werte gibt der Auswahldialog des Systems heraus.
     pflicht: false
     beleg: lib/services/contact_picker_service.dart - ACTION_PICK-Intent, kein READ_CONTACTS
   - name: Internet
@@ -64,7 +65,7 @@ uebertragungen:
     was: Kauf- bzw. Wiederherstellungsvorgang der Pro-Freischaltung; keine Meldungsinhalte
     wann: beim Kauf und bei "Kaeufe wiederherstellen"
     freiwillig: true
-    beleg: lib/data/pro_provider.dart (in_app_purchase)
+    beleg: lib/consumer/pro_controller.dart (in_app_purchase)
   - wohin: firebaselogging.googleapis.com bzw. firebaselogging-pa.googleapis.com (Google)
     was: >-
       Technische Betriebsdaten der Google-Abrechnungsbibliothek (Firelog/
@@ -93,7 +94,7 @@ uebertragungen:
     was: Aufruf oeffentlicher Webseiten (Enterprise-Produktseite, Unterstuetzen-Seite)
     wann: nur wenn der Nutzer einen Link antippt; davor erscheint eine Bestaetigungsabfrage ("Browser oeffnen?")
     freiwillig: true
-    beleg: lib/features/pro/pro_unlock_page.dart (url_launcher)
+    beleg: lib/widgets/external_link.dart (url_launcher)
 
 fremde_dienste:
   - name: Google Play Billing (in_app_purchase)

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-15T15:05:45+02:00",
+  "generiert": "2026-09-22T16:07:38+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1222,9 +1222,9 @@
     {
       "slug": "mobilereport",
       "name": "MobileReport",
-      "stand": "2026-08-23",
+      "stand": "2026-09-22",
       "geprueft_von": "20_MobileReport",
-      "fassung": "1.2.0+40 (zusammengefuehrte Consumer-App mit In-App-Kauf; geprueft im Ordner FehlerFuchsMR_Pro\\01_App)",
+      "fassung": "1.2.0+40 (zusammengefuehrte Consumer-App mit In-App-Kauf; im Play Store 1.2.0 (40); geprueft in der Codebasis 20_MobileReport\\MobileReport_Master\\01_App)",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -1240,7 +1240,7 @@
         {
           "was": "Einstellungen (u. a. Empfaenger-Adresse, PDF-Layout, Profilangaben, Pro-Freischaltstatus)",
           "wo": "Geraeteeinstellungen der App (SharedPreferences)",
-          "beleg": "lib/data/local/settings_repository_prefs.dart, lib/data/pro_provider.dart (Key pro_unlocked)"
+          "beleg": "lib/data/local/settings_repository_prefs.dart, lib/core/edition/pro_status.dart (Key pro_unlocked)"
         },
         {
           "was": "lokales Zugriffsprotokoll der letzten App-Zugriffe",
@@ -1262,7 +1262,7 @@
         },
         {
           "name": "Kontakte",
-          "wofuer": "Beim Auswaehlen eines Empfaengers wird nur die E-Mail-Adresse des Kontakts uebernommen, den der Nutzer selbst antippt. Auf das uebrige Adressbuch hat die App keinen Zugriff.",
+          "wofuer": "Beim Auswaehlen eines Empfaengers werden Name und E-Mail-Adresse des Kontakts uebernommen, den der Nutzer selbst antippt; ueber ein zweites Antippen am Feld auch die Telefonnummer. Auf das uebrige Adressbuch hat die App keinen Zugriff - die Werte gibt der Auswahldialog des Systems heraus.",
           "pflicht": false,
           "beleg": "lib/services/contact_picker_service.dart - ACTION_PICK-Intent, kein READ_CONTACTS"
         },
@@ -1292,7 +1292,7 @@
           "was": "Kauf- bzw. Wiederherstellungsvorgang der Pro-Freischaltung; keine Meldungsinhalte",
           "wann": "beim Kauf und bei \"Kaeufe wiederherstellen\"",
           "freiwillig": true,
-          "beleg": "lib/data/pro_provider.dart (in_app_purchase)"
+          "beleg": "lib/consumer/pro_controller.dart (in_app_purchase)"
         },
         {
           "wohin": "firebaselogging.googleapis.com bzw. firebaselogging-pa.googleapis.com (Google)",
@@ -1313,7 +1313,7 @@
           "was": "Aufruf oeffentlicher Webseiten (Enterprise-Produktseite, Unterstuetzen-Seite)",
           "wann": "nur wenn der Nutzer einen Link antippt; davor erscheint eine Bestaetigungsabfrage (\"Browser oeffnen?\")",
           "freiwillig": true,
-          "beleg": "lib/features/pro/pro_unlock_page.dart (url_launcher)"
+          "beleg": "lib/widgets/external_link.dart (url_launcher)"
         }
       ],
       "fremde_dienste": [
@@ -1347,7 +1347,7 @@
     {
       "slug": "mobilereport-enterprise",
       "name": "MobileReport Enterprise",
-      "stand": "2026-08-23",
+      "stand": "2026-09-22",
       "geprueft_von": "20_MobileReport",
       "fassung": "1.0.2+6 (ausgeliefert seit 18.08.2026 auf zwei Wegen: Direkt-Download als APK ueber das GitHub-Release UND Managed Google Play, privat an die Kundenorganisation gebunden - oeffentlich nicht gelistet)",
       "lokal_only": false,
@@ -1433,7 +1433,7 @@
       "datenschutz_verbesserungen_1_0_2": "(1) Die automatische Android-Geraetesicherung ist abgeschaltet (allowBackup=false + eigene Backup-/Extraction-Regeln) - Meldungen, Bilder und Einstellungen verlassen das Geraet nicht mehr ueber die Google-Cloud-Geraetesicherung. (2) \"Alle Daten loeschen\" raeumt jetzt vollstaendig auf, einschliesslich Zugriffsprotokoll und importiertem Branding-Logo (die Lizenz bleibt bewusst erhalten). (3) Wiederherstellung und Import pruefen jede Datei vor dem Schreiben (Groesse, Herkunft, Inhalt); beschaedigte oder fremde Dateien werden abgewiesen. (4) Der Admin-Passwortschutz nutzt ein staerkeres Verfahren (PBKDF2 statt einfachem Hash). (5) Die Lizenzlaufzeit wird auch offline strikt eingehalten; ein Zuruecksetzen der Geraeteuhr wird erkannt. (6) Der Update-Hinweis wird nur ueber eine verschluesselte Verbindung geprueft und schweigt auf verwalteten Play-Geraeten vollstaendig (kein latest.json-Abruf) - dort liefert Google die Updates, es entsteht keine zusaetzliche Uebertragung.",
       "auslieferung": "Zwei Wege, beide mit derselben Auslieferungssignatur. (a) Direkt-Download als APK ueber das GitHub-Release (fehlerfuchs-downloads), Freischaltung per Lizenzschluessel. (b) Managed Google Play: private Auslieferung an die Organisation des Kunden mit Android Enterprise; die App ist oeffentlich nicht gelistet. Auf diesem Weg liefert und aktualisiert Google die App, weshalb der In-App-Updater dort schweigt. Der Lizenz- und Datenweg der App ist auf beiden Wegen identisch.",
       "vorhandener_text": "unbekannt (im Enterprise-Ordner wurde kein eigener Datenschutztext gefunden)",
-      "entwicklungsstand": "Im Enterprise-Repo liegt 1.0.3+7 als noch nicht veroeffentlichter Paketpflege-Stand. Der veroeffentlichte Datenschutzstand bleibt 1.0.2+6.",
+      "entwicklungsstand": "Im Enterprise-Repo liegt 1.4.0+47 als Testfassung (noch nicht veroeffentlicht). Neu darin: die Sicherungsdatei (.mrbak) wird passwortverschluesselt (AES-GCM-256, Schluessel per PBKDF2 aus dem Passwort) - eine Datenschutz-Verbesserung, kein neuer Datenfluss; die Datei verlaesst das Geraet nur, wenn der Nutzer sie selbst wegkopiert. Der veroeffentlichte Datenschutzstand bleibt 1.0.2+6; erst mit dessen Veroeffentlichung wandert die .mrbak-Verschluesselung in die Besonderheiten.",
       "offene_fragen": "(1) Unbekannt, ob der Lizenzdienst serverseitig IP-Adressen oder Zeitpunkte protokolliert - das haengt vom Server ab, nicht von der App. (2) Unbekannt, ob der Abruf der Versionsdatei auf fehlerfuchs.eu serverseitig protokolliert wird. (3) Das Firmen-Setup (Provisioning) aus 00_Konzept\\PROVISIONING_FIRMENSETUP_KONZEPT.md ist bisher nur Konzept; im geprueften Code wurde dazu nichts gefunden. Unbekannt, ob Teile davon bereits ausserhalb der geprueften Dateien vorbereitet sind.",
       "art": "anwendung"
     },
