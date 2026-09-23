@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-22T16:07:38+02:00",
+  "generiert": "2026-09-23T16:39:28+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1571,6 +1571,22 @@
       ],
       "releases": [
         {
+          "version": "1.4.0",
+          "date": "2026-09-23",
+          "channel": "stable",
+          "os": "android",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.4.0/MobileReport-Enterprise-1.4.0.apk",
+          "filename": "MobileReport-Enterprise-1.4.0.apk",
+          "size": {
+            "bytes": 65614988,
+            "label": "62,6 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "0c993558e2cdb3291383de9940aad5a6124407f23acc59f0e789d3bb684d13db",
+          "signed": false,
+          "notes": "1.4.0: Orte an einer Stelle anlegen (Bereich, Gebäude, Ebene, Raum, Bezeichnung; auch aus Excel oder CSV). Beim Melden erst den Bereich wählen, dann dessen Räume, oder nach Gebäude suchen. Absender als Kontakt, auf Wunsch aus dem Adressbuch, seine E-Mail kommt beim Versand ins Kopie-Feld. Admin-Bereich in Klappkarten. Die Datensicherung wird mit einem Passwort verschlüsselt (AES-GCM-256); die Wiederherstellung verlangt zusätzlich das Master-Passwort. Eigenes App-Symbol, reparierte Zurück-Taste, Support als eigene Kachel."
+        },
+        {
           "version": "1.0.2",
           "date": "2026-08-18",
           "channel": "stable",
@@ -1658,7 +1674,7 @@
         },
         {
           "question": "Können wir Daten sichern und übertragen?",
-          "answer": "Ja. Die App erstellt eine lokale Datensicherung (.mrbak) mit allen Meldungen, Bildern und PDFs und stellt sie wieder her – auch auf einem anderen Gerät. Zusätzlich ist jede Meldung als PDF weitergebbar."
+          "answer": "Ja. Die App erstellt eine lokale Datensicherung (.mrbak) mit allen Meldungen, Bildern und PDFs und stellt sie wieder her – auch auf einem anderen Gerät. Seit 1.4.0 wird diese Sicherung mit einem Passwort verschlüsselt (AES-GCM-256); ohne das Passwort lässt sich die Datei nicht mehr öffnen, auch nicht über den Support. Die Wiederherstellung verlangt zusätzlich das Master-Passwort des Geräts; ältere Sicherungen ohne Passwort bleiben lesbar. Zusätzlich ist jede Meldung als PDF weitergebbar."
         },
         {
           "question": "Für welche Einsätze ist MobileReport Enterprise gedacht?",
@@ -1690,7 +1706,7 @@
       },
       "links": {
         "alt_html": "/apps/mobilereport-enterprise.html",
-        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mobilereport-enterprise-v1.0.2",
+        "release": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mobilereport-enterprise-v1.4.0",
         "contact": "/kontakt.html?app=MobileReport%20Enterprise&topic=angebot"
       },
       "manifests": {

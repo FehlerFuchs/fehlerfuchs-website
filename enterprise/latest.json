@@ -1,7 +1,7 @@
 {
   "app": "MobileReport Enterprise",
-  "version": "1.0.2",
-  "apkUrl": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.0.2/MobileReport-Enterprise-1.0.2.apk",
-  "notes": "1.0.2: Sicherheits- und Datenschutz-Überarbeitung nach externer Prüfung. Automatische Android-Sicherung abgeschaltet, „Alle Daten löschen\" räumt vollständig auf, Wiederherstellung und Import prüfen Dateien vor dem Schreiben, stärkerer Admin-Passwortschutz (PBKDF2), Lizenzlaufzeit auch offline strikt eingehalten.",
-  "updatedAt": "2026-08-18"
+  "version": "1.4.0",
+  "apkUrl": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.4.0/MobileReport-Enterprise-1.4.0.apk",
+  "notes": "1.4.0: Orte an einer Stelle anlegen (Bereich, Gebäude, Ebene, Raum, Bezeichnung; auch aus Excel oder CSV). Beim Melden erst den Bereich wählen, dann dessen Räume, oder nach Gebäude suchen. Absender als Kontakt, auf Wunsch aus dem Adressbuch, seine E-Mail kommt beim Versand ins Kopie-Feld. Admin-Bereich in Klappkarten. Die Datensicherung wird mit einem Passwort verschlüsselt (AES-GCM-256); die Wiederherstellung verlangt zusätzlich das Master-Passwort. Eigenes App-Symbol, reparierte Zurück-Taste, Support als eigene Kachel.",
+  "updatedAt": "2026-09-23"
 }

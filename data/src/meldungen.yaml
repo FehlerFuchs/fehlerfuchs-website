@@ -46,6 +46,26 @@ meldungen:
       der echte Dateiname da. Dazu klarere Hinweise, wenn man den Reader als Standard-App
       festlegt, und ein aktualisiertes Handbuch in der App.
 
+  # MobileReport 1.4.0. Play-Store-App: kein Release im Modell (versionsagnostisch),
+  # Datum = Release-Update-Tag. Changelog belegt von [20] (Wortlaut aus der App,
+  # Meldung 23.09.2026); Enterprise-only-Verschlüsselung steht in der Enterprise-
+  # Meldung, nicht hier. KEINE Buildnummer nennen (52/53) - sichtbar ist 1.4.0.
+  # ENTWURF auf Branch vorbereitung/mobilereport-1.4.0: erst mit dem Livegang
+  # (Matthias lädt hoch, [20] meldet "live") nach main mergen - vorher ist draußen 1.2.0.
+  - id: mobilereport-1-4-0
+    typ: update
+    produkt: mobilereport
+    datum: "2026-09-23"
+    titel: "MobileReport 1.4.0: Orte an einer Stelle, klarere Meldungswege"
+    text: >-
+      MobileReport 1.4.0 legt Orte an einer Stelle an – Bereich, Gebäude, Ebene, Raum
+      und Bezeichnung, von Hand oder aus einer Excel-/CSV-Vorlage. Beim Melden wählt man
+      erst den Bereich und sieht dann nur dessen Räume, oder sucht nach Gebäude. Der
+      Absender lässt sich als Kontakt hinterlegen, auf Wunsch aus dem Adressbuch; seine
+      E-Mail kommt beim Versand ins Kopie-Feld. Der Admin-Bereich ist in übersichtliche
+      Klappkarten gegliedert, Support hat eine eigene Kachel, und die Zurück-Taste
+      arbeitet wieder zuverlässig. Alles bleibt wie gewohnt auf dem Gerät.
+
   # MobileReport 1.2.0. Play-Store-App: kein Release im Modell, kein abgeleitetes
   # Datum. Version 1.2.0 (versionCode 40) belegt über [20] (changelog.dart, dort
   # datiert 31.07.2026); der genaue Play-Rollout-Stand liegt bei [13]/Matthias.
@@ -73,6 +93,24 @@ meldungen:
       wählbar, das Inhaltsverzeichnis führt direkt zum Kapitel, und Lesezeichen merken
       sich die Stelle je Buch. Auch der PDF-Teil bekommt eigene Lesezeichen. Kostenlos,
       werbefrei, offline — wie gehabt.
+
+  # MobileReport Enterprise 1.4.0 (Release-Update, 23.09.2026). 'version: 1.4.0' bindet
+  # die Meldung an den releases-Eintrag. ENTWURF-Branch: erst beim gebündelten Livegang
+  # (Option A) nach main. Keine Buildnummer nennen.
+  - id: mobilereport-enterprise-1-4-0
+    typ: update
+    produkt: mobilereport-enterprise
+    version: "1.4.0"
+    titel: MobileReport Enterprise 1.4.0
+    text: >-
+      MobileReport Enterprise 1.4.0 legt Orte an einer Stelle an – Bereich, Gebäude, Ebene,
+      Raum und Bezeichnung, auch aus Excel oder CSV. Beim Melden wählt man erst den Bereich
+      und sieht dann nur dessen Räume. Der Absender lässt sich als Kontakt aus dem Adressbuch
+      übernehmen, seine E-Mail kommt beim Versand ins Kopie-Feld, und der Admin-Bereich ist in
+      übersichtliche Klappkarten gegliedert. Neu: Die lokale Datensicherung wird mit einem
+      Passwort verschlüsselt (AES-GCM-256); die Wiederherstellung verlangt zusätzlich das
+      Master-Passwort. Beide Bezugswege – Direkt-Download und Managed Google Play – laufen
+      weiter parallel.
 
   - id: mobilereport-enterprise-1-0-2
     typ: update
