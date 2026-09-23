@@ -127,7 +127,7 @@ footer{margin-top:30px;color:var(--muted);font-size:.82rem;border-top:1px solid 
 .rollbereich.waagerecht{padding-bottom:4px}
 
 .rollschiene{position:absolute;border-radius:6px;opacity:0;
-             background:var(--pg-rand,#ecdfd2);transition:opacity .15s}
+             background:var(--pg-rand,var(--rand));transition:opacity .15s}
 .rollschiene.da{opacity:1}
 .rollrahmen:not(.waagerecht) .rollschiene{right:0;top:2px;bottom:2px;width:6px}
 
@@ -151,8 +151,8 @@ footer{margin-top:30px;color:var(--muted);font-size:.82rem;border-top:1px solid 
 /* Der flache Pfeil sagt dasselbe noch einmal in Worten: die Schiene zeigt,
    DASS es weitergeht, die Zeile daneben, um wie viel. */
 .rollmehr{display:flex;align-items:center;gap:9px;width:100%;margin-top:7px;
-          border:1px solid var(--pg-rand,#ecdfd2);border-radius:9px;
-          background:var(--pg-flaeche,#fff);color:var(--pg-textleise,var(--muted));
+          border:1px solid var(--pg-rand,var(--rand));border-radius:9px;
+          background:var(--pg-flaeche,var(--flaeche));color:var(--pg-textleise,var(--muted));
           font:inherit;font-size:.74rem;font-weight:600;padding:5px 10px;cursor:pointer;
           transition:border-color .15s,color .15s}
 .rollmehr:hover{border-color:var(--pg-akzent,var(--accent));color:var(--pg-akzent,var(--accent))}
