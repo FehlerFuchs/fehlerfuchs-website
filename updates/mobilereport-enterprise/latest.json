@@ -1,6 +1,6 @@
 {
-  "version": "1.0.2",
-  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.0.2/MobileReport-Enterprise-1.0.2.apk",
-  "sha256": "059be7e3060195c3ff7a4761638dd9744e43c7b5d67c14a89c1132ed4489734e",
-  "notes": "1.0.2: Sicherheits- und Datenschutz-Überarbeitung nach externer Prüfung. Automatische Android-Sicherung abgeschaltet, „Alle Daten löschen\" räumt vollständig auf, Wiederherstellung und Import prüfen Dateien vor dem Schreiben, stärkerer Admin-Passwortschutz (PBKDF2), Lizenzlaufzeit auch offline strikt eingehalten."
+  "version": "1.4.0",
+  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.4.0/MobileReport-Enterprise-1.4.0.apk",
+  "sha256": "0c993558e2cdb3291383de9940aad5a6124407f23acc59f0e789d3bb684d13db",
+  "notes": "1.4.0: Orte an einer Stelle anlegen (Bereich, Gebäude, Ebene, Raum, Bezeichnung; auch aus Excel oder CSV). Beim Melden erst den Bereich wählen, dann dessen Räume, oder nach Gebäude suchen. Absender als Kontakt, auf Wunsch aus dem Adressbuch, seine E-Mail kommt beim Versand ins Kopie-Feld. Admin-Bereich in Klappkarten. Die Datensicherung wird mit einem Passwort verschlüsselt (AES-GCM-256); die Wiederherstellung verlangt zusätzlich das Master-Passwort. Eigenes App-Symbol, reparierte Zurück-Taste, Support als eigene Kachel."
 }

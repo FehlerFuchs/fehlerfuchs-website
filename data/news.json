@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-23T10:56:32+02:00",
+  "generiert": "2026-09-23T11:20:20+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -13,6 +13,19 @@
       "datumQuelle": "eigene Angabe",
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport"
+      }
+    },
+    {
+      "id": "mobilereport-enterprise-1-4-0",
+      "typ": "update",
+      "produkt": "mobilereport-enterprise",
+      "version": "1.4.0",
+      "titel": "MobileReport Enterprise 1.4.0",
+      "text": "MobileReport Enterprise 1.4.0 legt Orte an einer Stelle an – Bereich, Gebäude, Ebene, Raum und Bezeichnung, auch aus Excel oder CSV. Beim Melden wählt man erst den Bereich und sieht dann nur dessen Räume. Der Absender lässt sich als Kontakt aus dem Adressbuch übernehmen, seine E-Mail kommt beim Versand ins Kopie-Feld, und der Admin-Bereich ist in übersichtliche Klappkarten gegliedert. Neu: Die lokale Datensicherung wird mit einem Passwort verschlüsselt (AES-GCM-256); die Wiederherstellung verlangt zusätzlich das Master-Passwort. Beide Bezugswege – Direkt-Download und Managed Google Play – laufen weiter parallel.",
+      "datum": "2026-09-23",
+      "datumQuelle": "Release 1.4.0",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.4.0/MobileReport-Enterprise-1.4.0.apk"
       }
     },
     {

@@ -94,6 +94,30 @@ editions:
 # ACHTUNG: Aus diesen Angaben entstehen die Manifeste, die ausgelieferte
 # Apps lesen. Der Text unter notes erscheint WÖRTLICH im Update-Hinweis.
 releases:
+  # 1.4.0 (23.09.2026): Release-Update von 1.0.2. Release öffentlich in fehlerfuchs-downloads
+  # (Tag mobilereport-enterprise-v1.4.0). Fakten belegt von [20], [15]-gegengeprüft und von [10]
+  # an der öffentlichen URL nachgemessen (curl: HTTP 200, Content-Length 65.614.988 = stimmt;
+  # sha256 0c993558…d13db von [20] aus genau dieser URL neu gehasht). Weiterhin unsigniert im
+  # Sinne des Update-Manifests (der Update-Weg prüft nur sha256; Ed25519-Manifestsignatur ist
+  # vertagt, F-004) → sha256 ist die Prüfgröße; die APK-Paketsignatur (Enterprise-Schlüssel)
+  # ist davon getrennt. Öffentlicher Asset-Name ohne Buildnummer/Datum, wie bei 1.0.2.
+  - version: "1.4.0"
+    date: "2026-09-23"
+    channel: stable
+    os: android
+    url: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.4.0/MobileReport-Enterprise-1.4.0.apk"
+    filename: MobileReport-Enterprise-1.4.0.apk
+    size: { bytes: 65614988, label: "62,6 MB", source: GitHub-Release-Asset }
+    sha256: 0c993558e2cdb3291383de9940aad5a6124407f23acc59f0e789d3bb684d13db
+    signed: false
+    notes: >-
+      1.4.0: Orte an einer Stelle anlegen (Bereich, Gebäude, Ebene, Raum, Bezeichnung;
+      auch aus Excel oder CSV). Beim Melden erst den Bereich wählen, dann dessen Räume,
+      oder nach Gebäude suchen. Absender als Kontakt, auf Wunsch aus dem Adressbuch, seine
+      E-Mail kommt beim Versand ins Kopie-Feld. Admin-Bereich in Klappkarten. Die
+      Datensicherung wird mit einem Passwort verschlüsselt (AES-GCM-256); die
+      Wiederherstellung verlangt zusätzlich das Master-Passwort. Eigenes App-Symbol,
+      reparierte Zurück-Taste, Support als eigene Kachel.
   # 1.0.2 (18.08.2026): Sicherheits-/Datenschutz-Überarbeitung nach externer Prüfung.
   # Release öffentlich in fehlerfuchs-downloads (Tag mobilereport-enterprise-v1.0.2),
   # Asset byteverifiziert: 63.371.113 B, sha256 059be7e3…734e. Weiterhin unsigniert
@@ -254,7 +278,7 @@ links:
   # Fehlt das Feld, gab es vorher keine eigene Seite - dann ist auch nichts
   # weiterzuleiten.
   alt_html: /apps/mobilereport-enterprise.html
-  release: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mobilereport-enterprise-v1.0.2"
+  release: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mobilereport-enterprise-v1.4.0"
   contact: "/kontakt.html?app=MobileReport%20Enterprise&topic=angebot"
 
 manifests:

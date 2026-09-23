@@ -94,6 +94,24 @@ meldungen:
       sich die Stelle je Buch. Auch der PDF-Teil bekommt eigene Lesezeichen. Kostenlos,
       werbefrei, offline — wie gehabt.
 
+  # MobileReport Enterprise 1.4.0 (Release-Update, 23.09.2026). 'version: 1.4.0' bindet
+  # die Meldung an den releases-Eintrag. ENTWURF-Branch: erst beim gebündelten Livegang
+  # (Option A) nach main. Keine Buildnummer nennen.
+  - id: mobilereport-enterprise-1-4-0
+    typ: update
+    produkt: mobilereport-enterprise
+    version: "1.4.0"
+    titel: MobileReport Enterprise 1.4.0
+    text: >-
+      MobileReport Enterprise 1.4.0 legt Orte an einer Stelle an – Bereich, Gebäude, Ebene,
+      Raum und Bezeichnung, auch aus Excel oder CSV. Beim Melden wählt man erst den Bereich
+      und sieht dann nur dessen Räume. Der Absender lässt sich als Kontakt aus dem Adressbuch
+      übernehmen, seine E-Mail kommt beim Versand ins Kopie-Feld, und der Admin-Bereich ist in
+      übersichtliche Klappkarten gegliedert. Neu: Die lokale Datensicherung wird mit einem
+      Passwort verschlüsselt (AES-GCM-256); die Wiederherstellung verlangt zusätzlich das
+      Master-Passwort. Beide Bezugswege – Direkt-Download und Managed Google Play – laufen
+      weiter parallel.
+
   - id: mobilereport-enterprise-1-0-2
     typ: update
     produkt: mobilereport-enterprise
