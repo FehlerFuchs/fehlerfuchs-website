@@ -19,9 +19,9 @@
 verfuegbar:
   label: Verfügbar
   short: verfügbar
-  color: "#15803D"
-  bg: "#E7F3DF"
-  border: "#CDE7B6"
+  color: "var(--gut-text)"
+  bg: "var(--gut-flaeche)"
+  border: "var(--gut-rand)"
   order: 1
   cta: [download, kauf]
   weg: 5
@@ -31,9 +31,9 @@ verfuegbar:
 pruefung:
   label: In Store-Prüfung
   short: in Prüfung
-  color: "#9A5B0E"
-  bg: "#FEF3E2"
-  border: "#F3D9B0"
+  color: "var(--warn-text)"
+  bg: "var(--warn-flaeche)"
+  border: "var(--warn-rand)"
   order: 2
   cta: [keine]
   weg: 4
@@ -43,9 +43,9 @@ pruefung:
 beta:
   label: Offene Beta
   short: Beta
-  color: "#B45309"
-  bg: "#FEF3E2"
-  border: "#F3D9B0"
+  color: "var(--warn-text)"
+  bg: "var(--warn-flaeche)"
+  border: "var(--warn-rand)"
   order: 3
   cta: [download, beta-anmeldung]
   weg: 3
@@ -55,9 +55,9 @@ beta:
 alpha:
   label: Geschlossene Alpha
   short: Alpha
-  color: "#B45309"
-  bg: "#FEF3E2"
-  border: "#F3D9B0"
+  color: "var(--warn-text)"
+  bg: "var(--warn-flaeche)"
+  border: "var(--warn-rand)"
   order: 4
   cta: [beta-anmeldung]
   weg: 3
@@ -67,9 +67,9 @@ alpha:
 entwicklung:
   label: In Entwicklung
   short: in Entwicklung
-  color: "#6B5B50"
-  bg: "#F1ECE6"
-  border: "#E2D6C8"
+  color: "var(--muted)"
+  bg: "var(--cream)"
+  border: "var(--rand)"
   order: 5
   cta: [interesse]
   weg: 2
@@ -79,9 +79,9 @@ entwicklung:
 konzept:
   label: In Planung
   short: geplant
-  color: "#6B5B50"
-  bg: "#F1ECE6"
-  border: "#E2D6C8"
+  color: "var(--muted)"
+  bg: "var(--cream)"
+  border: "var(--rand)"
   order: 6
   cta: [interesse]
   weg: 1
@@ -91,9 +91,9 @@ konzept:
 idee:
   label: Idee
   short: Idee
-  color: "#9C8C80"
-  bg: "#F1ECE6"
-  border: "#E2D6C8"
+  color: "var(--leise)"
+  bg: "var(--cream)"
+  border: "var(--rand)"
   order: 7
   cta: [keine]
   meaning: Gesammelt, noch nicht bewertet.
@@ -101,9 +101,9 @@ idee:
 pausiert:
   label: Pausiert
   short: pausiert
-  color: "#9C8C80"
-  bg: "#F1ECE6"
-  border: "#E2D6C8"
+  color: "var(--leise)"
+  bg: "var(--cream)"
+  border: "var(--rand)"
   order: 8
   cta: [keine]
   meaning: Arbeit ruht. Wiederaufnahme offen, aber nicht ausgeschlossen.
@@ -111,9 +111,9 @@ pausiert:
 eingestellt:
   label: Eingestellt
   short: eingestellt
-  color: "#9C8C80"
-  bg: "#F1ECE6"
-  border: "#E2D6C8"
+  color: "var(--leise)"
+  bg: "var(--cream)"
+  border: "var(--rand)"
   order: 9
   cta: [keine]
   meaning: Endgültig beendet. Seite bleibt als Archiv bestehen.

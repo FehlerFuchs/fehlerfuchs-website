@@ -1,14 +1,14 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-23T18:27:14+02:00",
+  "generiert": "2026-09-23T20:11:56+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "statuses": {
     "verfuegbar": {
       "label": "Verfügbar",
       "short": "verfügbar",
-      "color": "#15803D",
-      "bg": "#E7F3DF",
-      "border": "#CDE7B6",
+      "color": "var(--gut-text)",
+      "bg": "var(--gut-flaeche)",
+      "border": "var(--gut-rand)",
       "order": 1,
       "cta": [
         "download",
@@ -21,9 +21,9 @@
     "pruefung": {
       "label": "In Store-Prüfung",
       "short": "in Prüfung",
-      "color": "#9A5B0E",
-      "bg": "#FEF3E2",
-      "border": "#F3D9B0",
+      "color": "var(--warn-text)",
+      "bg": "var(--warn-flaeche)",
+      "border": "var(--warn-rand)",
       "order": 2,
       "cta": [
         "keine"
@@ -35,9 +35,9 @@
     "beta": {
       "label": "Offene Beta",
       "short": "Beta",
-      "color": "#B45309",
-      "bg": "#FEF3E2",
-      "border": "#F3D9B0",
+      "color": "var(--warn-text)",
+      "bg": "var(--warn-flaeche)",
+      "border": "var(--warn-rand)",
       "order": 3,
       "cta": [
         "download",
@@ -50,9 +50,9 @@
     "alpha": {
       "label": "Geschlossene Alpha",
       "short": "Alpha",
-      "color": "#B45309",
-      "bg": "#FEF3E2",
-      "border": "#F3D9B0",
+      "color": "var(--warn-text)",
+      "bg": "var(--warn-flaeche)",
+      "border": "var(--warn-rand)",
       "order": 4,
       "cta": [
         "beta-anmeldung"
@@ -64,9 +64,9 @@
     "entwicklung": {
       "label": "In Entwicklung",
       "short": "in Entwicklung",
-      "color": "#6B5B50",
-      "bg": "#F1ECE6",
-      "border": "#E2D6C8",
+      "color": "var(--muted)",
+      "bg": "var(--cream)",
+      "border": "var(--rand)",
       "order": 5,
       "cta": [
         "interesse"
@@ -78,9 +78,9 @@
     "konzept": {
       "label": "In Planung",
       "short": "geplant",
-      "color": "#6B5B50",
-      "bg": "#F1ECE6",
-      "border": "#E2D6C8",
+      "color": "var(--muted)",
+      "bg": "var(--cream)",
+      "border": "var(--rand)",
       "order": 6,
       "cta": [
         "interesse"
@@ -92,9 +92,9 @@
     "idee": {
       "label": "Idee",
       "short": "Idee",
-      "color": "#9C8C80",
-      "bg": "#F1ECE6",
-      "border": "#E2D6C8",
+      "color": "var(--leise)",
+      "bg": "var(--cream)",
+      "border": "var(--rand)",
       "order": 7,
       "cta": [
         "keine"
@@ -104,9 +104,9 @@
     "pausiert": {
       "label": "Pausiert",
       "short": "pausiert",
-      "color": "#9C8C80",
-      "bg": "#F1ECE6",
-      "border": "#E2D6C8",
+      "color": "var(--leise)",
+      "bg": "var(--cream)",
+      "border": "var(--rand)",
       "order": 8,
       "cta": [
         "keine"
@@ -116,9 +116,9 @@
     "eingestellt": {
       "label": "Eingestellt",
       "short": "eingestellt",
-      "color": "#9C8C80",
-      "bg": "#F1ECE6",
-      "border": "#E2D6C8",
+      "color": "var(--leise)",
+      "bg": "var(--cream)",
+      "border": "var(--rand)",
       "order": 9,
       "cta": [
         "keine"
