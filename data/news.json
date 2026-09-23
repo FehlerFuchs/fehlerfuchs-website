@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-22T16:07:38+02:00",
+  "generiert": "2026-09-23T10:56:32+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "mobilereport-1-4-0",
+      "typ": "update",
+      "produkt": "mobilereport",
+      "datum": "2026-09-23",
+      "titel": "MobileReport 1.4.0: Orte an einer Stelle, klarere Meldungswege",
+      "text": "MobileReport 1.4.0 legt Orte an einer Stelle an – Bereich, Gebäude, Ebene, Raum und Bezeichnung, von Hand oder aus einer Excel-/CSV-Vorlage. Beim Melden wählt man erst den Bereich und sieht dann nur dessen Räume, oder sucht nach Gebäude. Der Absender lässt sich als Kontakt hinterlegen, auf Wunsch aus dem Adressbuch; seine E-Mail kommt beim Versand ins Kopie-Feld. Der Admin-Bereich ist in übersichtliche Klappkarten gegliedert, Support hat eine eigene Kachel, und die Zurück-Taste arbeitet wieder zuverlässig. Alles bleibt wie gewohnt auf dem Gerät.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport"
+      }
+    },
     {
       "id": "orgafuchs-1-9-2",
       "typ": "update",

@@ -85,7 +85,11 @@ besonderheiten: >-
   nicht, sie spricht ausschliesslich die eigene Lizenz-Schnittstelle an. Nach dem
   Freischalten ist die Nutzung auch ohne Netzverbindung moeglich. Das
   Firmen-Branding wird als Datei auf dem Geraet eingelesen und nicht aus dem Netz
-  geladen.
+  geladen. Die lokale Datensicherung (.mrbak) wird mit einem Passwort verschluesselt
+  (AES-GCM-256, Schluessel per PBKDF2 aus dem Passwort); ohne das Passwort laesst sich
+  die Datei nicht mehr oeffnen, auch nicht ueber den Support, und die Wiederherstellung
+  verlangt zusaetzlich das Master-Passwort des Geraets. Aeltere Sicherungen ohne
+  Passwort bleiben lesbar.
 
 # Datenschutzrelevante Verbesserungen aus der externen Pruefung FF-MR-AUDIT-2026-07-30,
 # ausgeliefert mit 1.0.2 (18.08.2026):
@@ -114,13 +118,13 @@ auslieferung: >-
 
 vorhandener_text: unbekannt (im Enterprise-Ordner wurde kein eigener Datenschutztext gefunden)
 
+# ENTWURF-Branch vorbereitung/mobilereport-1.4.0: Post-Livegang-Zustand. Die
+# .mrbak-Verschluesselung ist in die Besonderheiten gewandert (oben). BEIM MERGE
+# finalisieren: 'stand' auf das tatsaechliche Livegang-Datum setzen (von [20]
+# gemeldet), Version bleibt 1.4.0 OHNE Buildnummer (52/53 nie auf der Seite).
 entwicklungsstand: >-
-  Im Enterprise-Repo liegt 1.4.0+47 als Testfassung (noch nicht veroeffentlicht).
-  Neu darin: die Sicherungsdatei (.mrbak) wird passwortverschluesselt (AES-GCM-256,
-  Schluessel per PBKDF2 aus dem Passwort) - eine Datenschutz-Verbesserung, kein neuer
-  Datenfluss; die Datei verlaesst das Geraet nur, wenn der Nutzer sie selbst wegkopiert.
-  Der veroeffentlichte Datenschutzstand bleibt 1.0.2+6; erst mit dessen Veroeffentlichung
-  wandert die .mrbak-Verschluesselung in die Besonderheiten.
+  Mit dem Release-Update wird die Enterprise-Fassung von 1.0.2 auf 1.4.0 gehoben.
+  Der Datenfluss aendert sich dabei nicht.
 
 offene_fragen: >-
   (1) Unbekannt, ob der Lizenzdienst serverseitig IP-Adressen oder Zeitpunkte

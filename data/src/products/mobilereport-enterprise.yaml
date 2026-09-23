@@ -199,8 +199,11 @@ faq:
   - question: Können wir Daten sichern und übertragen?
     answer: >-
       Ja. Die App erstellt eine lokale Datensicherung (.mrbak) mit allen Meldungen, Bildern und PDFs
-      und stellt sie wieder her – auch auf einem anderen Gerät. Zusätzlich ist jede Meldung als PDF
-      weitergebbar.
+      und stellt sie wieder her – auch auf einem anderen Gerät. Seit 1.4.0 wird diese Sicherung mit
+      einem Passwort verschlüsselt (AES-GCM-256); ohne das Passwort lässt sich die Datei nicht mehr
+      öffnen, auch nicht über den Support. Die Wiederherstellung verlangt zusätzlich das
+      Master-Passwort des Geräts; ältere Sicherungen ohne Passwort bleiben lesbar. Zusätzlich ist
+      jede Meldung als PDF weitergebbar.
   - question: Für welche Einsätze ist MobileReport Enterprise gedacht?
     answer: >-
       Für Teams, die vor Ort Defekte, Auffälligkeiten oder Prüfergebnisse dokumentieren und
