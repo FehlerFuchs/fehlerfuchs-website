@@ -1,0 +1,55 @@
+name: Schulferien-Abgleich (OpenHolidays)
+
+# Woechentlicher Abgleich der Schulferien gegen OpenHolidays (OF-F-018).
+#
+# Grundsatz (Anordnung Matthias, 23.09.2026): WOECHENTLICH pruefen, aber die
+# Website NUR neu ausliefern, wenn sich die Daten wirklich geaendert haben.
+#   - tools/schulferien_aktualisieren.py holt die 16 Bundeslaender von OpenHolidays
+#     und schreibt data/schulferien/DE-<BL>.json nur, wenn ihr Inhalt abweicht.
+#   - Aendert sich etwas, wird committet -> der Push loest deploy-neu.yml aus.
+#   - Aendert sich nichts, passiert nichts (kein Commit, kein Deploy).
+#   - Bei einem Abruf-/Plausibilitaetsfehler endet das Skript mit Code 2; dann
+#     schlaegt der Lauf fehl und es wird NICHTS committet (keine kaputte Datei live).
+
+on:
+  schedule:
+    - cron: '0 4 * * 1'   # jeden Montag 04:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: schulferien-abgleich
+  cancel-in-progress: false
+
+jobs:
+  abgleich:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Schulferien von OpenHolidays abgleichen
+        # Bricht mit Code 2 ab, wenn ein Bundesland nicht plausibel abrufbar war -
+        # dann laeuft der Commit-Schritt gar nicht erst an.
+        run: python tools/schulferien_aktualisieren.py
+
+      - name: Bei echter Aenderung committen (loest den Deploy aus)
+        run: |
+          if [ -n "$(git status --porcelain data/schulferien)" ]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/schulferien
+            git commit -m "Schulferien: automatischer OpenHolidays-Abgleich ($(date -u +%F))" \
+                       -m "Quelle OpenHolidays (openholidaysapi.org), ODbL-1.0. Nur geaenderte Bundeslaender. Loest deploy-neu.yml aus."
+            git push
+            echo "Geaenderte Bundeslaender committet und gepusht -> Deploy laeuft an."
+          else
+            echo "Keine Aenderung an den Schulferien -> nichts zu tun."
+          fi
