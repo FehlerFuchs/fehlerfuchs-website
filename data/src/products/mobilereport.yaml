@@ -140,36 +140,38 @@ media:
   # gerechnet. Es sind Werbebilder mit Überschrift, keine nackten
   # Bildschirmabzüge - der Alternativtext sagt das auch so.
   screenshots:
+    # 1.4.0-Webbilder von [01] Marke und Identität (23.09.2026, Web-Satz [10],
+    # ~620 breit, Statusleiste weggeschnitten). Motive spiegeln den 1.4.0-Stand.
     - src: /img/screenshots/mobilereport/handy-01-start.png
-      alt: "Werbebild „Melden in Sekunden“ mit dem Startbildschirm: die Kacheln Neue Meldung, Logbuch, Einstellungen, Hinweise und Datenschutz"
+      alt: "Werbebild „Schnell melden“ mit dem Startbildschirm von MobileReport"
       width: 620
-      height: 1102
+      height: 1257
       geraet: handy
-      titel: "Melden in Sekunden"
-    - src: /img/screenshots/mobilereport/handy-02-meldearten.png
-      alt: "Werbebild „Klare Meldearten“ mit der aufgeklappten Auswahlliste – Gerätedefekt, Fehlfunktion, Beschädigung, Hygiene und weitere"
+      titel: "Schnell melden"
+    - src: /img/screenshots/mobilereport/handy-02-neue-meldung.png
+      alt: "Werbebild „Neue Meldung“: erst den Bereich wählen, dann dessen Räume"
       width: 620
-      height: 1102
+      height: 1257
       geraet: handy
-      titel: "Klare Meldearten"
-    - src: /img/screenshots/mobilereport/handy-03-pdf.png
-      alt: "Werbebild „Sauberes PDF“ mit der PDF-Vorschau und dem Hinweisfenster, das vor dem Senden auf personenbezogene Inhalte hinweist"
+      titel: "Neue Meldung"
+    - src: /img/screenshots/mobilereport/handy-03-orte-anlegen.png
+      alt: "Werbebild „Orte anlegen“: Bereich, Gebäude, Ebene, Raum und Bezeichnung an einer Stelle"
       width: 620
-      height: 1102
+      height: 1257
       geraet: handy
-      titel: "Sauberes PDF"
-    - src: /img/screenshots/mobilereport/handy-04-logbuch.png
-      alt: "Werbebild „Alles im Logbuch“ mit einer einzelnen Meldung: Nummer, Datum, Bereich, Empfänger, Beschreibung und angehängtem Foto"
+      titel: "Orte anlegen"
+    - src: /img/screenshots/mobilereport/handy-04-pdf-bericht.png
+      alt: "Werbebild „PDF-Bericht“ mit der fertigen PDF-Vorschau einer Meldung"
       width: 620
-      height: 1102
+      height: 1257
       geraet: handy
-      titel: "Alles im Logbuch"
-    - src: /img/screenshots/mobilereport/handy-05-einstellungen.png
-      alt: "Werbebild „Lokal und datensparsam“ mit den Einstellungen und dem aufgeklappten Bereich Empfänger"
+      titel: "PDF-Bericht"
+    - src: /img/screenshots/mobilereport/handy-05-admin-klappkarten.png
+      alt: "Werbebild „Admin-Bereich“ mit den Einstellungen in übersichtlichen Klappkarten"
       width: 620
-      height: 1102
+      height: 1257
       geraet: handy
-      titel: "Lokal und datensparsam"
+      titel: "Admin-Bereich"
 # Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
 # Was dort nicht steht, steht auch hier nicht – dann greift der Standard.
 # Alle Kontraste rechnet das Prüfskript, sie sind nicht geschätzt.
