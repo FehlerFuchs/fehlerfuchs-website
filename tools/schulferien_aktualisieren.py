@@ -91,24 +91,29 @@ def deutscher_name(eintrag: dict) -> str:
 
 
 def kanonisch(roh: list) -> dict:
-    """Rohliste → {JJJJ:[{name,von,bis}]}, nach Startjahr gruppiert und sortiert."""
+    """Rohliste → {JJJJ:[{name,von,bis}]}, nach Startjahr gruppiert.
+
+    Dedupliziert nach INHALT (name, von, bis): OpenHolidays liefert denselben
+    Ferienblock teils mehrfach mit verschiedenen ids (Datenquirk) — die id-Dedup
+    in hole() fängt das nicht. ECHTE Varianten (z. B. zwei Sommerferien mit gleichem
+    Start, aber unterschiedlichem Ende) bleiben erhalten, weil sich 'bis' unterscheidet.
+    Sortiert NUR nach 'von' und stabil, damit die Reihenfolge der Quelle bei
+    gleichem Startdatum erhalten bleibt (reproduziert den [32]-Stand exakt)."""
     nach_jahr: dict[str, list] = {}
     gesehen = set()
     for e in roh:
-        eid = e.get("id")
-        if eid in gesehen:
-            continue
-        gesehen.add(eid)
         von = e.get("startDate")
         bis = e.get("endDate")
         if not von or not bis:
             continue
-        jahr = von[:4]
-        nach_jahr.setdefault(jahr, []).append(
-            {"name": deutscher_name(e), "von": von, "bis": bis}
-        )
+        eintrag = {"name": deutscher_name(e), "von": von, "bis": bis}
+        schluessel = (eintrag["name"], von, bis)
+        if schluessel in gesehen:
+            continue
+        gesehen.add(schluessel)
+        nach_jahr.setdefault(von[:4], []).append(eintrag)
     for jahr in nach_jahr:
-        nach_jahr[jahr].sort(key=lambda x: (x["von"], x["bis"], x["name"]))
+        nach_jahr[jahr].sort(key=lambda x: x["von"])
     return {jahr: nach_jahr[jahr] for jahr in sorted(nach_jahr)}
 
 

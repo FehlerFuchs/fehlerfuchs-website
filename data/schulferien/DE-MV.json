@@ -15,12 +15,12 @@
     {
       "name": "Winterferien",
       "von": "2025-02-03",
-      "bis": "2025-02-08"
+      "bis": "2025-02-14"
     },
     {
       "name": "Winterferien",
       "von": "2025-02-03",
-      "bis": "2025-02-14"
+      "bis": "2025-02-08"
     },
     {
       "name": "Osterferien",
@@ -127,12 +127,12 @@
     {
       "name": "Sommerferien",
       "von": "2026-07-13",
-      "bis": "2026-08-22"
+      "bis": "2026-08-29"
     },
     {
       "name": "Sommerferien",
       "von": "2026-07-13",
-      "bis": "2026-08-29"
+      "bis": "2026-08-22"
     },
     {
       "name": "Herbstferien",
@@ -192,11 +192,6 @@
       "bis": "2027-05-07"
     },
     {
-      "name": "Zusätzlicher Ferientag",
-      "von": "2027-05-07",
-      "bis": "2027-05-07"
-    },
-    {
       "name": "Pfingstferien",
       "von": "2027-05-14",
       "bis": "2027-05-18"
@@ -234,24 +229,24 @@
     {
       "name": "Weihnachtsferien",
       "von": "2027-12-22",
-      "bis": "2027-12-31"
+      "bis": "2028-01-04"
     },
     {
       "name": "Weihnachtsferien",
       "von": "2027-12-22",
-      "bis": "2028-01-04"
+      "bis": "2027-12-31"
     }
   ],
   "2028": [
     {
       "name": "Winterferien",
       "von": "2028-02-05",
-      "bis": "2028-02-12"
+      "bis": "2028-02-17"
     },
     {
       "name": "Winterferien",
       "von": "2028-02-05",
-      "bis": "2028-02-17"
+      "bis": "2028-02-12"
     },
     {
       "name": "Schulfrei",
@@ -299,11 +294,6 @@
       "bis": "2028-10-02"
     },
     {
-      "name": "Zusätzlicher Ferientag",
-      "von": "2028-10-02",
-      "bis": "2028-10-02"
-    },
-    {
       "name": "Herbstferien",
       "von": "2028-10-23",
       "bis": "2028-10-28"
@@ -328,12 +318,12 @@
     {
       "name": "Winterferien",
       "von": "2029-02-05",
-      "bis": "2029-02-10"
+      "bis": "2029-02-16"
     },
     {
       "name": "Winterferien",
       "von": "2029-02-05",
-      "bis": "2029-02-16"
+      "bis": "2029-02-10"
     },
     {
       "name": "Zusätzlicher Ferientag",
@@ -405,12 +395,12 @@
     {
       "name": "Winterferien",
       "von": "2030-02-04",
-      "bis": "2030-02-09"
+      "bis": "2030-02-15"
     },
     {
       "name": "Winterferien",
       "von": "2030-02-04",
-      "bis": "2030-02-15"
+      "bis": "2030-02-09"
     },
     {
       "name": "Osterferien",
