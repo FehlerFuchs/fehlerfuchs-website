@@ -1,0 +1,221 @@
+{
+  "2024": [
+    {
+      "name": "Weihnachtsferien",
+      "von": "2024-12-23",
+      "bis": "2025-01-03"
+    }
+  ],
+  "2025": [
+    {
+      "name": "Frühjahrsferien",
+      "von": "2025-03-03",
+      "bis": "2025-03-07"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2025-04-14",
+      "bis": "2025-04-25"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2025-06-10",
+      "bis": "2025-06-20"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2025-08-01",
+      "bis": "2025-09-15"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2025-11-03",
+      "bis": "2025-11-07"
+    },
+    {
+      "name": "Buß- und Bettag",
+      "von": "2025-11-19",
+      "bis": "2025-11-19"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2025-12-22",
+      "bis": "2026-01-05"
+    }
+  ],
+  "2026": [
+    {
+      "name": "Frühjahrsferien",
+      "von": "2026-02-16",
+      "bis": "2026-02-20"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2026-03-30",
+      "bis": "2026-04-10"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2026-05-26",
+      "bis": "2026-06-05"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2026-08-03",
+      "bis": "2026-09-14"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2026-11-02",
+      "bis": "2026-11-06"
+    },
+    {
+      "name": "Buß- und Bettag",
+      "von": "2026-11-18",
+      "bis": "2026-11-18"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2026-12-24",
+      "bis": "2027-01-08"
+    }
+  ],
+  "2027": [
+    {
+      "name": "Frühjahrsferien",
+      "von": "2027-02-08",
+      "bis": "2027-02-12"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2027-03-22",
+      "bis": "2027-04-02"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2027-05-18",
+      "bis": "2027-05-28"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2027-08-02",
+      "bis": "2027-09-13"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2027-11-02",
+      "bis": "2027-11-05"
+    },
+    {
+      "name": "Buß- und Bettag",
+      "von": "2027-11-17",
+      "bis": "2027-11-17"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2027-12-24",
+      "bis": "2028-01-07"
+    }
+  ],
+  "2028": [
+    {
+      "name": "Frühjahrsferien",
+      "von": "2028-02-28",
+      "bis": "2028-03-03"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2028-04-10",
+      "bis": "2028-04-21"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2028-06-06",
+      "bis": "2028-06-16"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2028-07-31",
+      "bis": "2028-09-11"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2028-10-30",
+      "bis": "2028-11-03"
+    },
+    {
+      "name": "Buß- und Bettag",
+      "von": "2028-11-22",
+      "bis": "2028-11-22"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2028-12-23",
+      "bis": "2029-01-05"
+    }
+  ],
+  "2029": [
+    {
+      "name": "Frühjahrsferien",
+      "von": "2029-02-12",
+      "bis": "2029-02-16"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2029-03-26",
+      "bis": "2029-04-06"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2029-05-22",
+      "bis": "2029-06-01"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2029-07-30",
+      "bis": "2029-09-10"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2029-10-29",
+      "bis": "2029-11-02"
+    },
+    {
+      "name": "Buß- und Bettag",
+      "von": "2029-11-21",
+      "bis": "2029-11-21"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2029-12-24",
+      "bis": "2030-01-04"
+    }
+  ],
+  "2030": [
+    {
+      "name": "Frühjahrsferien",
+      "von": "2030-03-04",
+      "bis": "2030-03-08"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2030-04-15",
+      "bis": "2030-04-26"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2030-06-11",
+      "bis": "2030-06-21"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2030-07-29",
+      "bis": "2030-09-09"
+    },
+    {
+      "name": "Buß- und Bettag",
+      "von": "2030-11-20",
+      "bis": "2030-11-20"
+    }
+  ]
+}

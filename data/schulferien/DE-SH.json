@@ -1,0 +1,243 @@
+{
+  "2024": [
+    {
+      "name": "Weihnachtsferien",
+      "von": "2024-12-19",
+      "bis": "2025-01-07"
+    }
+  ],
+  "2025": [
+    {
+      "name": "Osterferien",
+      "von": "2025-04-11",
+      "bis": "2025-04-25"
+    },
+    {
+      "name": "Himmelfahrt",
+      "von": "2025-05-30",
+      "bis": "2025-05-30"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2025-07-28",
+      "bis": "2025-09-06"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2025-07-28",
+      "bis": "2025-08-30"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2025-10-13",
+      "bis": "2025-10-30"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2025-10-20",
+      "bis": "2025-10-30"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2025-12-19",
+      "bis": "2026-01-06"
+    }
+  ],
+  "2026": [
+    {
+      "name": "Osterferien",
+      "von": "2026-03-26",
+      "bis": "2026-04-10"
+    },
+    {
+      "name": "Himmelfahrt",
+      "von": "2026-05-15",
+      "bis": "2026-05-15"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2026-07-04",
+      "bis": "2026-08-15"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2026-07-04",
+      "bis": "2026-08-08"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2026-10-05",
+      "bis": "2026-10-24"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2026-10-12",
+      "bis": "2026-10-24"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2026-12-21",
+      "bis": "2027-01-06"
+    }
+  ],
+  "2027": [
+    {
+      "name": "Osterferien",
+      "von": "2027-03-30",
+      "bis": "2027-04-10"
+    },
+    {
+      "name": "Himmelfahrt",
+      "von": "2027-05-07",
+      "bis": "2027-05-07"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2027-07-03",
+      "bis": "2027-08-14"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2027-07-03",
+      "bis": "2027-08-07"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2027-10-04",
+      "bis": "2027-10-23"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2027-10-11",
+      "bis": "2027-10-23"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2027-12-23",
+      "bis": "2028-01-08"
+    }
+  ],
+  "2028": [
+    {
+      "name": "Osterferien",
+      "von": "2028-04-03",
+      "bis": "2028-04-15"
+    },
+    {
+      "name": "Himmelfahrt",
+      "von": "2028-05-26",
+      "bis": "2028-05-26"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2028-06-24",
+      "bis": "2028-08-04"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2028-06-24",
+      "bis": "2028-07-28"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2028-10-09",
+      "bis": "2028-10-30"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2028-10-16",
+      "bis": "2028-10-30"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2028-12-21",
+      "bis": "2029-01-05"
+    }
+  ],
+  "2029": [
+    {
+      "name": "Osterferien",
+      "von": "2029-03-23",
+      "bis": "2029-04-06"
+    },
+    {
+      "name": "Himmelfahrt",
+      "von": "2029-05-11",
+      "bis": "2029-05-11"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2029-06-23",
+      "bis": "2029-07-27"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2029-06-23",
+      "bis": "2029-08-03"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2029-09-28",
+      "bis": "2029-10-19"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2029-10-08",
+      "bis": "2029-10-19"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2029-12-21",
+      "bis": "2030-01-08"
+    }
+  ],
+  "2030": [
+    {
+      "name": "Osterferien",
+      "von": "2030-04-08",
+      "bis": "2030-04-20"
+    },
+    {
+      "name": "Himmelfahrt",
+      "von": "2030-05-31",
+      "bis": "2030-05-31"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2030-07-08",
+      "bis": "2030-08-10"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2030-07-08",
+      "bis": "2030-08-17"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2030-10-07",
+      "bis": "2030-10-25"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2030-10-14",
+      "bis": "2030-10-25"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2030-12-20",
+      "bis": "2031-01-06"
+    }
+  ],
+  "2031": [
+    {
+      "name": "Osterferien",
+      "von": "2031-03-28",
+      "bis": "2031-04-10"
+    },
+    {
+      "name": "Himmelfahrt",
+      "von": "2031-05-23",
+      "bis": "2031-05-23"
+    }
+  ]
+}

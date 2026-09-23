@@ -1,0 +1,131 @@
+{
+  "2024": [
+    {
+      "name": "Weihnachtsferien",
+      "von": "2024-12-23",
+      "bis": "2025-01-10"
+    }
+  ],
+  "2025": [
+    {
+      "name": "Osterferien",
+      "von": "2025-04-07",
+      "bis": "2025-04-21"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2025-07-07",
+      "bis": "2025-08-15"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2025-10-06",
+      "bis": "2025-10-18"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2025-12-22",
+      "bis": "2026-01-10"
+    }
+  ],
+  "2026": [
+    {
+      "name": "Osterferien",
+      "von": "2026-03-30",
+      "bis": "2026-04-10"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2026-06-29",
+      "bis": "2026-08-07"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2026-10-05",
+      "bis": "2026-10-17"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2026-12-23",
+      "bis": "2027-01-12"
+    }
+  ],
+  "2027": [
+    {
+      "name": "Osterferien",
+      "von": "2027-03-22",
+      "bis": "2027-04-02"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2027-06-28",
+      "bis": "2027-08-06"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2027-10-04",
+      "bis": "2027-10-16"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2027-12-23",
+      "bis": "2028-01-11"
+    }
+  ],
+  "2028": [
+    {
+      "name": "Osterferien",
+      "von": "2028-04-03",
+      "bis": "2028-04-14"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2028-07-03",
+      "bis": "2028-08-11"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2028-10-09",
+      "bis": "2028-10-20"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2028-12-27",
+      "bis": "2029-01-12"
+    }
+  ],
+  "2029": [
+    {
+      "name": "Osterferien",
+      "von": "2029-03-29",
+      "bis": "2029-04-13"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2029-07-16",
+      "bis": "2029-08-24"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2029-10-15",
+      "bis": "2029-10-26"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2029-12-24",
+      "bis": "2030-01-11"
+    }
+  ],
+  "2030": [
+    {
+      "name": "Osterferien",
+      "von": "2030-04-08",
+      "bis": "2030-04-22"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2030-07-22",
+      "bis": "2030-08-30"
+    }
+  ]
+}

@@ -1,0 +1,431 @@
+{
+  "2024": [
+    {
+      "name": "Weihnachtsferien",
+      "von": "2024-12-23",
+      "bis": "2025-01-04"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2024-12-23",
+      "bis": "2025-01-06"
+    }
+  ],
+  "2025": [
+    {
+      "name": "Winterferien",
+      "von": "2025-02-03",
+      "bis": "2025-02-14"
+    },
+    {
+      "name": "Winterferien",
+      "von": "2025-02-03",
+      "bis": "2025-02-08"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2025-04-14",
+      "bis": "2025-04-23"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2025-04-14",
+      "bis": "2025-04-25"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2025-05-02",
+      "bis": "2025-05-02"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2025-05-30",
+      "bis": "2025-05-30"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2025-06-06",
+      "bis": "2025-06-10"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2025-07-14",
+      "bis": "2025-08-30"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2025-07-28",
+      "bis": "2025-09-06"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2025-10-01",
+      "bis": "2025-10-01"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2025-10-02",
+      "bis": "2025-10-02"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2025-10-20",
+      "bis": "2025-10-24"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2025-10-20",
+      "bis": "2025-10-25"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2025-11-03",
+      "bis": "2025-11-03"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2025-12-20",
+      "bis": "2026-01-03"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2025-12-22",
+      "bis": "2026-01-03"
+    }
+  ],
+  "2026": [
+    {
+      "name": "Winterferien",
+      "von": "2026-02-09",
+      "bis": "2026-02-14"
+    },
+    {
+      "name": "Winterferien",
+      "von": "2026-02-09",
+      "bis": "2026-02-20"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2026-03-30",
+      "bis": "2026-04-08"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2026-03-30",
+      "bis": "2026-04-10"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2026-05-15",
+      "bis": "2026-05-15"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2026-05-22",
+      "bis": "2026-05-26"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2026-07-13",
+      "bis": "2026-08-29"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2026-07-13",
+      "bis": "2026-08-22"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2026-10-15",
+      "bis": "2026-10-24"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2026-10-19",
+      "bis": "2026-10-24"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2026-11-26",
+      "bis": "2026-11-26"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2026-11-27",
+      "bis": "2026-11-27"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2026-12-19",
+      "bis": "2027-01-02"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2026-12-21",
+      "bis": "2027-01-02"
+    }
+  ],
+  "2027": [
+    {
+      "name": "Winterferien",
+      "von": "2027-02-08",
+      "bis": "2027-02-13"
+    },
+    {
+      "name": "Winterferien",
+      "von": "2027-02-08",
+      "bis": "2027-02-19"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2027-03-22",
+      "bis": "2027-04-02"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2027-03-24",
+      "bis": "2027-04-02"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2027-05-07",
+      "bis": "2027-05-07"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2027-05-14",
+      "bis": "2027-05-18"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2027-07-05",
+      "bis": "2027-08-14"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2027-07-12",
+      "bis": "2027-08-28"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2027-10-14",
+      "bis": "2027-10-23"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2027-10-16",
+      "bis": "2027-10-23"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2027-11-25",
+      "bis": "2027-11-25"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2027-11-26",
+      "bis": "2027-11-26"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2027-12-22",
+      "bis": "2028-01-04"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2027-12-22",
+      "bis": "2027-12-31"
+    }
+  ],
+  "2028": [
+    {
+      "name": "Winterferien",
+      "von": "2028-02-05",
+      "bis": "2028-02-17"
+    },
+    {
+      "name": "Winterferien",
+      "von": "2028-02-05",
+      "bis": "2028-02-12"
+    },
+    {
+      "name": "Schulfrei",
+      "von": "2028-02-18",
+      "bis": "2028-02-18"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2028-03-09",
+      "bis": "2028-03-09"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2028-03-10",
+      "bis": "2028-03-10"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2028-04-12",
+      "bis": "2028-04-21"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2028-05-26",
+      "bis": "2028-05-26"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2028-06-02",
+      "bis": "2028-06-06"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2028-06-26",
+      "bis": "2028-08-05"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2028-07-17",
+      "bis": "2028-09-02"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2028-10-02",
+      "bis": "2028-10-02"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2028-10-23",
+      "bis": "2028-10-28"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2028-10-30",
+      "bis": "2028-10-30"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2028-12-21",
+      "bis": "2029-01-02"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2028-12-22",
+      "bis": "2029-01-02"
+    }
+  ],
+  "2029": [
+    {
+      "name": "Winterferien",
+      "von": "2029-02-05",
+      "bis": "2029-02-16"
+    },
+    {
+      "name": "Winterferien",
+      "von": "2029-02-05",
+      "bis": "2029-02-10"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2029-03-09",
+      "bis": "2029-03-09"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2029-03-28",
+      "bis": "2029-04-06"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2029-04-30",
+      "bis": "2029-04-30"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2029-05-11",
+      "bis": "2029-05-11"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2029-05-18",
+      "bis": "2029-05-22"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2029-05-22",
+      "bis": "2029-05-22"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2029-06-18",
+      "bis": "2029-07-28"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2029-07-16",
+      "bis": "2029-09-01"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2029-10-05",
+      "bis": "2029-10-05"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2029-10-22",
+      "bis": "2029-10-27"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2029-10-29",
+      "bis": "2029-10-29"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2029-10-30",
+      "bis": "2029-10-30"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2029-12-21",
+      "bis": "2030-01-04"
+    }
+  ],
+  "2030": [
+    {
+      "name": "Winterferien",
+      "von": "2030-02-04",
+      "bis": "2030-02-15"
+    },
+    {
+      "name": "Winterferien",
+      "von": "2030-02-04",
+      "bis": "2030-02-09"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2030-04-17",
+      "bis": "2030-04-26"
+    },
+    {
+      "name": "Zusätzlicher Ferientag",
+      "von": "2030-05-31",
+      "bis": "2030-05-31"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2030-06-07",
+      "bis": "2030-06-11"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2030-07-01",
+      "bis": "2030-08-10"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2030-07-15",
+      "bis": "2030-08-31"
+    }
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "2024": [
+    {
+      "name": "Weihnachtsferien",
+      "von": "2024-12-23",
+      "bis": "2025-01-04"
+    }
+  ],
+  "2025": [
+    {
+      "name": "Halbjahresferien",
+      "von": "2025-02-03",
+      "bis": "2025-02-04"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2025-04-07",
+      "bis": "2025-04-19"
+    },
+    {
+      "name": "Kirchentag",
+      "von": "2025-04-30",
+      "bis": "2025-04-30"
+    },
+    {
+      "name": "Tag nach dem 1. Mai",
+      "von": "2025-05-02",
+      "bis": "2025-05-02"
+    },
+    {
+      "name": "Tag nach Himmelfahrt",
+      "von": "2025-05-30",
+      "bis": "2025-05-30"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2025-06-10",
+      "bis": "2025-06-10"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2025-07-03",
+      "bis": "2025-08-13"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2025-10-13",
+      "bis": "2025-10-25"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2025-12-22",
+      "bis": "2026-01-05"
+    }
+  ],
+  "2026": [
+    {
+      "name": "Halbjahresferien",
+      "von": "2026-02-02",
+      "bis": "2026-02-03"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2026-03-23",
+      "bis": "2026-04-07"
+    },
+    {
+      "name": "Tag nach Himmelfahrt",
+      "von": "2026-05-15",
+      "bis": "2026-05-15"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2026-05-26",
+      "bis": "2026-05-26"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2026-07-02",
+      "bis": "2026-08-12"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2026-10-12",
+      "bis": "2026-10-24"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2026-12-23",
+      "bis": "2027-01-09"
+    }
+  ],
+  "2027": [
+    {
+      "name": "Halbjahresferien",
+      "von": "2027-02-01",
+      "bis": "2027-02-02"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2027-03-22",
+      "bis": "2027-04-03"
+    },
+    {
+      "name": "Tag nach Himmelfahrt",
+      "von": "2027-05-07",
+      "bis": "2027-05-07"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2027-05-18",
+      "bis": "2027-05-18"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2027-07-08",
+      "bis": "2027-08-18"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2027-10-16",
+      "bis": "2027-10-30"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2027-12-23",
+      "bis": "2028-01-08"
+    }
+  ],
+  "2028": [
+    {
+      "name": "Halbjahresferien",
+      "von": "2028-01-31",
+      "bis": "2028-02-01"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2028-04-10",
+      "bis": "2028-04-22"
+    },
+    {
+      "name": "Tag nach Himmelfahrt",
+      "von": "2028-05-26",
+      "bis": "2028-05-26"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2028-06-06",
+      "bis": "2028-06-06"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2028-07-20",
+      "bis": "2028-08-30"
+    },
+    {
+      "name": "Tag vor dem 3. Oktober",
+      "von": "2028-10-02",
+      "bis": "2028-10-02"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2028-10-23",
+      "bis": "2028-11-04"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2028-12-27",
+      "bis": "2029-01-06"
+    }
+  ],
+  "2029": [
+    {
+      "name": "Halbjahresferien",
+      "von": "2029-02-01",
+      "bis": "2029-02-02"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2029-03-19",
+      "bis": "2029-04-03"
+    },
+    {
+      "name": "Tag vor dem 1. Mai",
+      "von": "2029-04-30",
+      "bis": "2029-04-30"
+    },
+    {
+      "name": "Tag nach Himmelfahrt",
+      "von": "2029-05-11",
+      "bis": "2029-05-11"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2029-05-22",
+      "bis": "2029-05-22"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2029-07-19",
+      "bis": "2029-08-29"
+    },
+    {
+      "name": "Tage nach dem 3. Oktober",
+      "von": "2029-10-04",
+      "bis": "2029-10-05"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2029-10-22",
+      "bis": "2029-11-02"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2029-12-21",
+      "bis": "2030-01-05"
+    }
+  ],
+  "2030": [
+    {
+      "name": "Halbjahresferien",
+      "von": "2030-01-31",
+      "bis": "2030-02-01"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2030-04-08",
+      "bis": "2030-04-23"
+    },
+    {
+      "name": "Tag nach Himmelfahrt",
+      "von": "2030-05-31",
+      "bis": "2030-05-31"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2030-06-11",
+      "bis": "2030-06-11"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2030-07-11",
+      "bis": "2030-08-21"
+    }
+  ]
+}

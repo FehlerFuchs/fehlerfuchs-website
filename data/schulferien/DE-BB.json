@@ -1,0 +1,219 @@
+{
+  "2025": [
+    {
+      "name": "Winterferien",
+      "von": "2025-02-03",
+      "bis": "2025-02-08"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2025-04-14",
+      "bis": "2025-04-25"
+    },
+    {
+      "name": "Variabler Ferientag",
+      "von": "2025-05-02",
+      "bis": "2025-05-02"
+    },
+    {
+      "name": "Variabler Ferientag",
+      "von": "2025-05-30",
+      "bis": "2025-05-30"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2025-06-10",
+      "bis": "2025-06-10"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2025-07-24",
+      "bis": "2025-09-06"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2025-10-20",
+      "bis": "2025-11-01"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2025-12-22",
+      "bis": "2026-01-02"
+    }
+  ],
+  "2026": [
+    {
+      "name": "Winterferien",
+      "von": "2026-02-02",
+      "bis": "2026-02-07"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2026-03-30",
+      "bis": "2026-04-10"
+    },
+    {
+      "name": "Variabler Ferientag",
+      "von": "2026-05-15",
+      "bis": "2026-05-15"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2026-05-26",
+      "bis": "2026-05-26"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2026-07-09",
+      "bis": "2026-08-22"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2026-10-19",
+      "bis": "2026-10-30"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2026-12-23",
+      "bis": "2027-01-02"
+    }
+  ],
+  "2027": [
+    {
+      "name": "Winterferien",
+      "von": "2027-02-01",
+      "bis": "2027-02-06"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2027-03-22",
+      "bis": "2027-04-03"
+    },
+    {
+      "name": "Variabler Ferientag",
+      "von": "2027-05-07",
+      "bis": "2027-05-07"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2027-05-18",
+      "bis": "2027-05-18"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2027-07-01",
+      "bis": "2027-08-14"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2027-10-11",
+      "bis": "2027-10-23"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2027-12-23",
+      "bis": "2027-12-31"
+    }
+  ],
+  "2028": [
+    {
+      "name": "Winterferien",
+      "von": "2028-01-31",
+      "bis": "2028-02-05"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2028-04-10",
+      "bis": "2028-04-22"
+    },
+    {
+      "name": "Variabler Ferientag",
+      "von": "2028-05-26",
+      "bis": "2028-05-26"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2028-06-29",
+      "bis": "2028-08-12"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2028-10-02",
+      "bis": "2028-10-14"
+    },
+    {
+      "name": "Variabler Ferientag",
+      "von": "2028-10-30",
+      "bis": "2028-10-30"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2028-12-22",
+      "bis": "2029-01-02"
+    }
+  ],
+  "2029": [
+    {
+      "name": "Winterferien",
+      "von": "2029-01-29",
+      "bis": "2029-02-03"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2029-03-26",
+      "bis": "2029-04-06"
+    },
+    {
+      "name": "Variabler Ferientag",
+      "von": "2029-04-30",
+      "bis": "2029-04-30"
+    },
+    {
+      "name": "Variabler Ferientag",
+      "von": "2029-05-11",
+      "bis": "2029-05-11"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2029-05-22",
+      "bis": "2029-05-22"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2029-06-28",
+      "bis": "2029-08-11"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2029-10-01",
+      "bis": "2029-10-12"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2029-12-21",
+      "bis": "2030-01-04"
+    }
+  ],
+  "2030": [
+    {
+      "name": "Winterferien",
+      "von": "2030-02-04",
+      "bis": "2030-02-09"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2030-04-15",
+      "bis": "2030-04-26"
+    },
+    {
+      "name": "Variabler Ferientag",
+      "von": "2030-05-31",
+      "bis": "2030-05-31"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2030-07-04",
+      "bis": "2030-08-17"
+    }
+  ]
+}

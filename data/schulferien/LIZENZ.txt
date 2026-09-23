@@ -1,0 +1,16 @@
+Schulferien-Daten der 16 deutschen Bundeslaender
+=================================================
+
+Datenquelle:  OpenHolidays (https://openholidaysapi.org)
+Lizenz:       Open Database License (ODbL) v1.0
+              https://opendatacommons.org/licenses/odbl/1-0/
+Daten-Repo:   https://github.com/openpotato/openholidaysapi.data
+
+Die Dateien DE-<BL>.json in diesem Verzeichnis enthalten die Schulferien je
+Bundesland (Schluessel = Jahr). Sie stammen aus der OpenHolidays-Datenbank und
+stehen unter der ODbL 1.0. Nutzung, Weitergabe und Bearbeitung sind unter den
+Bedingungen der ODbL erlaubt - insbesondere Namensnennung (Attribution) und
+Weitergabe unter gleichen Bedingungen (Share-Alike).
+
+Bereitgestellt von FehlerFuchs (https://fehlerfuchs.eu) fuer die App OrgaFuchs.
+Stand: 2026-09-23.

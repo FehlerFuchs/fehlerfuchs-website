@@ -1,0 +1,206 @@
+{
+  "2024": [
+    {
+      "name": "Weihnachtsferien",
+      "von": "2024-12-23",
+      "bis": "2025-01-03"
+    }
+  ],
+  "2025": [
+    {
+      "name": "Winterferien",
+      "von": "2025-02-17",
+      "bis": "2025-03-01"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2025-04-18",
+      "bis": "2025-04-25"
+    },
+    {
+      "name": "Unterrichtsfreier Tag",
+      "von": "2025-05-30",
+      "bis": "2025-05-30"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2025-06-28",
+      "bis": "2025-08-08"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2025-10-06",
+      "bis": "2025-10-18"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2025-12-22",
+      "bis": "2026-01-02"
+    }
+  ],
+  "2026": [
+    {
+      "name": "Winterferien",
+      "von": "2026-02-09",
+      "bis": "2026-02-21"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2026-04-03",
+      "bis": "2026-04-10"
+    },
+    {
+      "name": "Unterrichtsfreier Tag",
+      "von": "2026-05-15",
+      "bis": "2026-05-15"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2026-07-04",
+      "bis": "2026-08-14"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2026-10-12",
+      "bis": "2026-10-24"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2026-12-23",
+      "bis": "2027-01-02"
+    }
+  ],
+  "2027": [
+    {
+      "name": "Winterferien",
+      "von": "2027-02-08",
+      "bis": "2027-02-19"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2027-03-26",
+      "bis": "2027-04-02"
+    },
+    {
+      "name": "Unterrichtsfreier Tag",
+      "von": "2027-05-07",
+      "bis": "2027-05-07"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2027-05-15",
+      "bis": "2027-05-18"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2027-07-10",
+      "bis": "2027-08-20"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2027-10-11",
+      "bis": "2027-10-23"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2027-12-23",
+      "bis": "2028-01-01"
+    }
+  ],
+  "2028": [
+    {
+      "name": "Winterferien",
+      "von": "2028-02-14",
+      "bis": "2028-02-26"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2028-04-14",
+      "bis": "2028-04-22"
+    },
+    {
+      "name": "Unterrichtsfreier Tag",
+      "von": "2028-05-26",
+      "bis": "2028-05-26"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2028-07-22",
+      "bis": "2028-09-01"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2028-10-23",
+      "bis": "2028-11-03"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2028-12-23",
+      "bis": "2029-01-03"
+    }
+  ],
+  "2029": [
+    {
+      "name": "Winterferien",
+      "von": "2029-02-05",
+      "bis": "2029-02-16"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2029-03-29",
+      "bis": "2029-04-06"
+    },
+    {
+      "name": "Unterrichtsfreier Tag",
+      "von": "2029-05-11",
+      "bis": "2029-05-11"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2029-05-19",
+      "bis": "2029-05-22"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2029-07-21",
+      "bis": "2029-08-31"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2029-10-22",
+      "bis": "2029-11-02"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2029-12-22",
+      "bis": "2030-01-04"
+    }
+  ],
+  "2030": [
+    {
+      "name": "Winterferien",
+      "von": "2030-02-18",
+      "bis": "2030-03-01"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2030-04-19",
+      "bis": "2030-04-26"
+    },
+    {
+      "name": "Unterrichtsfreier Tag",
+      "von": "2030-05-31",
+      "bis": "2030-05-31"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2030-06-08",
+      "bis": "2030-06-11"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2030-07-13",
+      "bis": "2030-08-23"
+    }
+  ]
+}

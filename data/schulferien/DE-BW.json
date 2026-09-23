@@ -1,0 +1,181 @@
+{
+  "2024": [
+    {
+      "name": "Weihnachtsferien",
+      "von": "2024-12-23",
+      "bis": "2025-01-04"
+    }
+  ],
+  "2025": [
+    {
+      "name": "Osterferien",
+      "von": "2025-04-14",
+      "bis": "2025-04-26"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2025-06-10",
+      "bis": "2025-06-20"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2025-07-31",
+      "bis": "2025-09-13"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2025-10-27",
+      "bis": "2025-10-30"
+    },
+    {
+      "name": "Reformationsfest",
+      "von": "2025-10-31",
+      "bis": "2025-10-31"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2025-12-22",
+      "bis": "2026-01-05"
+    }
+  ],
+  "2026": [
+    {
+      "name": "Osterferien",
+      "von": "2026-03-30",
+      "bis": "2026-04-11"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2026-05-26",
+      "bis": "2026-06-05"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2026-07-30",
+      "bis": "2026-09-12"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2026-10-26",
+      "bis": "2026-10-30"
+    },
+    {
+      "name": "Reformationsfest",
+      "von": "2026-10-31",
+      "bis": "2026-10-31"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2026-12-23",
+      "bis": "2027-01-09"
+    }
+  ],
+  "2027": [
+    {
+      "name": "Gründonnerstag",
+      "von": "2027-03-25",
+      "bis": "2027-03-25"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2027-03-30",
+      "bis": "2027-04-03"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2027-05-18",
+      "bis": "2027-05-29"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2027-07-29",
+      "bis": "2027-09-11"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2027-11-02",
+      "bis": "2027-11-06"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2027-12-23",
+      "bis": "2028-01-08"
+    }
+  ],
+  "2028": [
+    {
+      "name": "Gründonnerstag",
+      "von": "2028-04-13",
+      "bis": "2028-04-13"
+    },
+    {
+      "name": "Osterferien",
+      "von": "2028-04-18",
+      "bis": "2028-04-22"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2028-06-06",
+      "bis": "2028-06-17"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2028-07-27",
+      "bis": "2028-09-09"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2028-10-30",
+      "bis": "2028-11-03"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2028-12-23",
+      "bis": "2029-01-05"
+    }
+  ],
+  "2029": [
+    {
+      "name": "Osterferien",
+      "von": "2029-03-26",
+      "bis": "2029-04-07"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2029-05-22",
+      "bis": "2029-06-01"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2029-07-26",
+      "bis": "2029-09-08"
+    },
+    {
+      "name": "Herbstferien",
+      "von": "2029-10-29",
+      "bis": "2029-11-02"
+    },
+    {
+      "name": "Weihnachtsferien",
+      "von": "2029-12-22",
+      "bis": "2030-01-05"
+    }
+  ],
+  "2030": [
+    {
+      "name": "Osterferien",
+      "von": "2030-04-15",
+      "bis": "2030-04-26"
+    },
+    {
+      "name": "Pfingstferien",
+      "von": "2030-06-11",
+      "bis": "2030-06-21"
+    },
+    {
+      "name": "Sommerferien",
+      "von": "2030-07-25",
+      "bis": "2030-09-07"
+    }
+  ]
+}
