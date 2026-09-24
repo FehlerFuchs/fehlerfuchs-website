@@ -8,19 +8,26 @@ tags: ["App-Berechtigungen", "Tracker", "Datenschutz", "Android", "App-Analyse",
 kind: produkt
 tagline: Sieh verständlich, was installierte Apps anfordern – Berechtigungen, Tracker-Hinweise, Speicher und Nutzung.
 description: >-
-  Zeigt in klarer Sprache, welche Berechtigungen installierte Apps anfordern, welche
-  Tracker-Bausteine heuristisch erkennbar sind und welche Speicher- und Nutzungswerte
-  Android freigibt – mit einer begründeten Ampel-Einordnung statt pauschaler Urteile.
-  AppInsight selbst arbeitet lokal; ein Live-Monitor für Domains oder Serverkontakte
-  ist in der heutigen Fassung ausdrücklich nicht enthalten.
+  Zeigt in klarer Sprache, welche Berechtigungen installierte Apps anfordern und welche
+  Speicher- und Nutzungswerte Android freigibt – mit einer begründeten Ampel-Einordnung
+  statt pauschaler Urteile. Dazu schaut AppInsight in das Installationspaket jeder App: Es
+  erkennt mitgelieferte Tracker-Bibliotheken, Adressen bekannter Werbe- und Analysedienste
+  und die Netzwerk-Regeln der App. Das Paket wird nur gelesen, nie ausgeführt, und alles
+  bleibt auf deinem Gerät. AppInsight zeigt, was eine App darf und mitliefert – nicht, was
+  sie gerade tut.
 audience: [privat]
 accent: "#C2410C"   # Farbe der App
-status: entwicklung
+# 24.09.2026 ~22:30 bei Google Play zur Pruefung eingereicht (geschlossener Test,
+# eu.fehlerfuchs.appinsight 1.0.0 / versionCode 4) - gemessen von [13], Logbuch #2770.
+# NOCH NICHT im Store erhaeltlich: kein Store-Link, kein Badge. Den Livegang meldet
+# [13] nach P5 - erst dann 'verfuegbar', 'since' = Veroeffentlichungstag und links.store.
+status: pruefung
 
 platforms:
   - os: android
-    status: entwicklung
-    distribution: keiner
+    status: pruefung
+    distribution: play-store
+    since: "2026-09-24"   # Tag der Einreichung - bei 'pruefung' das Datum dieser Stufe
 
 privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei]
 
@@ -28,7 +35,61 @@ editions:
   - id: standard
     name: AppInsight
     public: true
-    price: { model: offen }
+    price: { model: kostenlos }   # eine Ausgabe, kostenlos, keine Kaeufe in der App (Matthias 25.08.2026; [22] 24.09.2026)
+
+
+# Merkmalstabelle (Funktionsuebersicht) - wortgleich von [22] AppInsight, ANTWORT vom
+# 24.09.2026; Quelle dort: Store-Beschreibung 1.0.0. Der ADB-Assistent fehlt mit Absicht:
+# in der Play-Ausgabe abgeschaltet. Grenze: AppInsight zeigt, was eine App darf und
+# mitliefert - nicht, was sie gerade tut.
+features:
+  - group: "Verstehen, was Apps dürfen"
+    items:
+      - name: "Alle Apps im Blick"
+        values: { standard: ja }
+        note: "AppInsight listet jede installierte App – auch vorinstallierte –, denn gerade die fehlende App könnte die heikle sein."
+      - name: "Berechtigungen in Alltagssprache"
+        values: { standard: ja }
+        note: "Du liest, was Kamera, Standort oder Nutzungsdaten für diese App wirklich bedeuten und ob der Zugriff gerade wirkt."
+      - name: "Ampel und Gesamtübersicht"
+        values: { standard: ja }
+        note: "Jede App bekommt eine Einschätzung nach festen Regeln, dein Gerät eine Übersicht auf einen Blick."
+      - name: "Suche und Filter"
+        values: { standard: ja }
+        note: "Du findest Apps nach Name oder nach Zugriff, etwa „alle mit Kamera“, und filterst nach Ampelfarbe."
+
+  - group: "In den Code geschaut"
+    items:
+      - name: "Tracker im Programmcode"
+        values: { standard: ja }
+        note: "AppInsight erkennt mitgelieferte Werbe-, Analyse- und Absturz-Bibliotheken an ihren Bausteinen im Code."
+      - name: "Server im Programmcode"
+        values: { standard: ja }
+        note: "Du siehst, welche Adressen bekannter Tracking-, Werbe- oder Analysedienste im Code einer App stehen."
+      - name: "Sicherheitssignale und Netzwerk-Regeln"
+        values: { standard: ja }
+        note: "AppInsight zeigt, ob eine App unverschlüsselten Netzverkehr erlaubt, Bestandteile offen anbietet oder für ein veraltetes Android gebaut ist."
+
+  - group: "Selbst eingreifen"
+    items:
+      - name: "Internetsperre je App"
+        values: { standard: ja }
+        note: "Du sperrst einzelnen Apps das Internet – über einen lokalen VPN-Dienst ohne Server, ohne Weiterleitung, ohne Mitschnitt."
+      - name: "Direkt zu den Einstellungen"
+        values: { standard: ja }
+        note: "Zu jeder App führt eine Anleitung genau an die Stelle in Android, an der du Rechte entziehst, Speicher leerst oder sie deinstallierst."
+      - name: "Verbrauch je App"
+        values: { standard: ja }
+        note: "Speicher, Nutzungszeit und Datenverbrauch je App – wenn du den Zugriff „Nutzungsdaten“ selbst freigibst."
+      - name: "Berichte"
+        values: { standard: ja }
+        note: "Einzel- oder Gesamtbericht als PDF oder HTML, zum Aufheben oder Weitergeben."
+
+  - group: "Datenschutz"
+    items:
+      - name: "Ohne Internet"
+        values: { standard: ja }
+        note: "AppInsight hat keine Internet-Berechtigung, kein Konto und keinen Server – es kann nichts senden und nichts abrufen."
 
 releases: []
 
