@@ -22,6 +22,9 @@ accent: "#C2410C"   # Farbe der App
 # NOCH NICHT im Store erhaeltlich: kein Store-Link, kein Badge. Den Livegang meldet
 # [13] nach P5 - erst dann 'verfuegbar', 'since' = Veroeffentlichungstag und links.store.
 status: pruefung
+# Produktseite schon waehrend der Store-Pruefung oeffentlich - Entscheidung Matthias
+# 24.09.2026: "ja" (22:39 bei [13], 22:40 bei [22]) und "deploy" (22:45 bei [10]).
+vorabSichtbar: true
 
 platforms:
   - os: android
