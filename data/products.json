@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-24T22:45:19+02:00",
+  "generiert": "2026-09-24T22:50:23+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -3047,7 +3047,56 @@
           "width": 1500,
           "height": 360
         },
-        "platzhalter": 4
+        "screenshots": [
+          {
+            "src": "/img/screenshots/appinsight/tablet-01_alle-apps.png",
+            "alt": "Werbebild von AppInsight: „Alle Apps auf einen Blick“",
+            "width": 2560,
+            "height": 1600,
+            "geraet": "tablet",
+            "titel": "Alle Apps auf einen Blick"
+          },
+          {
+            "src": "/img/screenshots/appinsight/tablet-02_berechtigungen.png",
+            "alt": "Werbebild von AppInsight: „Berechtigungen in Klartext“",
+            "width": 2560,
+            "height": 1600,
+            "geraet": "tablet",
+            "titel": "Berechtigungen in Klartext"
+          },
+          {
+            "src": "/img/screenshots/appinsight/tablet-03_tracker.png",
+            "alt": "Werbebild von AppInsight: „Tracker erkennen“",
+            "width": 2560,
+            "height": 1600,
+            "geraet": "tablet",
+            "titel": "Tracker erkennen"
+          },
+          {
+            "src": "/img/screenshots/appinsight/tablet-04_selbstauskunft.png",
+            "alt": "Werbebild von AppInsight: „Kann nichts senden“",
+            "width": 2560,
+            "height": 1600,
+            "geraet": "tablet",
+            "titel": "Kann nichts senden"
+          },
+          {
+            "src": "/img/screenshots/appinsight/tablet-05_speicher-nutzung.png",
+            "alt": "Werbebild von AppInsight: „Speicher & Nutzung“",
+            "width": 2560,
+            "height": 1600,
+            "geraet": "tablet",
+            "titel": "Speicher & Nutzung"
+          },
+          {
+            "src": "/img/screenshots/appinsight/tablet-06_dunkelmodus.png",
+            "alt": "Werbebild von AppInsight: „Auf einen Blick bewertet (dunkel)“",
+            "width": 2560,
+            "height": 1600,
+            "geraet": "tablet",
+            "titel": "Auf einen Blick bewertet (dunkel)"
+          }
+        ]
       },
       "theme": {
         "modus": "hell",

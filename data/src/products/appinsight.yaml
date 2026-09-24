@@ -104,10 +104,46 @@ media:
     alt: AppInsight – von FehlerFuchs
     width: 1500
     height: 360
-  # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
-  # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
-  # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.
-  platzhalter: 4
+  # Webbilder von [01] Marke und Identitaet (24.09.2026): die Play-TABLET-Slides,
+  # unveraendert, 2560x1600 (Entscheidung Matthias). Die Ueberschrift steckt im Bild;
+  # 'titel' ist die Bildunterschrift UNTER dem Bild (Muster wie MobileReport).
+  screenshots:
+    - src: /img/screenshots/appinsight/tablet-01_alle-apps.png
+      alt: "Werbebild von AppInsight: „Alle Apps auf einen Blick“"
+      width: 2560
+      height: 1600
+      geraet: tablet
+      titel: "Alle Apps auf einen Blick"
+    - src: /img/screenshots/appinsight/tablet-02_berechtigungen.png
+      alt: "Werbebild von AppInsight: „Berechtigungen in Klartext“"
+      width: 2560
+      height: 1600
+      geraet: tablet
+      titel: "Berechtigungen in Klartext"
+    - src: /img/screenshots/appinsight/tablet-03_tracker.png
+      alt: "Werbebild von AppInsight: „Tracker erkennen“"
+      width: 2560
+      height: 1600
+      geraet: tablet
+      titel: "Tracker erkennen"
+    - src: /img/screenshots/appinsight/tablet-04_selbstauskunft.png
+      alt: "Werbebild von AppInsight: „Kann nichts senden“"
+      width: 2560
+      height: 1600
+      geraet: tablet
+      titel: "Kann nichts senden"
+    - src: /img/screenshots/appinsight/tablet-05_speicher-nutzung.png
+      alt: "Werbebild von AppInsight: „Speicher & Nutzung“"
+      width: 2560
+      height: 1600
+      geraet: tablet
+      titel: "Speicher & Nutzung"
+    - src: /img/screenshots/appinsight/tablet-06_dunkelmodus.png
+      alt: "Werbebild von AppInsight: „Auf einen Blick bewertet (dunkel)“"
+      width: 2560
+      height: 1600
+      geraet: tablet
+      titel: "Auf einen Blick bewertet (dunkel)"
 # Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
 # Die helle Fassung – die Seite bleibt eine Website, kein Bildschirmfoto.
 # Alle Kontraste sind vom Prüfskript gerechnet, nicht geschätzt.
