@@ -99,9 +99,11 @@ absturzberichte: false
 daten_an_dritte_verkauft: false
 
 loeschung: >-
-  Alle Daten liegen auf dem Gerät: die App-Einstellungen und - nur während des
-  Teilens - eine vorübergehende Berichtsdatei. Beim Deinstallieren verschwindet
-  alles. Berichte, die du selbst weitergegeben oder abgespeichert hast, liegen
+  Alle Daten liegen auf dem Gerät: die App-Einstellungen, die Ergebnisse der
+  Paketuntersuchung im Zwischenspeicher (jederzeit über „Cache leeren“ in den
+  Android-Einstellungen löschbar) und - nur während des Teilens oder Sendens -
+  eine vorübergehende Bericht- oder Diagnosedatei, die spätestens beim nächsten
+  App-Start entfernt wird. Beim Deinstallieren verschwindet alles. Berichte, die du selbst weitergegeben oder abgespeichert hast, liegen
   dort, wohin du sie gelegt hast, und müssen dort gelöscht werden.
 
 besonderheiten: >-

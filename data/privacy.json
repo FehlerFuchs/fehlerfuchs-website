@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-24T20:47:50+02:00",
+  "generiert": "2026-09-24T21:34:21+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -329,19 +329,19 @@
     {
       "slug": "coppicemail",
       "name": "CoppiceMail",
-      "stand": "2026-08-23",
+      "stand": "2026-09-24",
       "geprueft_von": "21_CoppiceMail + Codex_Umzugsreparatur",
-      "fassung": "1.0.2-rc.1+6 (Flutter/Dart, Windows-Desktop) – pausierter interner technischer Release-Kandidat, nicht veroeffentlicht",
+      "fassung": "1.0.2-rc.1+6 (Flutter/Dart, Windows-Desktop) – pausierter interner technischer Release-Kandidat, nicht veröffentlicht",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
-          "was": "Arbeitskopie der Nachrichten (Betreff, Absender und Empfaenger, Text und HTML, Ordner, Lesestatus, Angaben zu Anhaengen), Kontakte, Stammdaten, Sende- und Textvorlagen, Regeln, Kategorien, Einstellungen",
-          "wo": "SQLite-Datenbank im App-Datenordner des angemeldeten Windows-Benutzers; nicht anwendungsseitig verschluesselt",
+          "was": "Arbeitskopie der Nachrichten (Betreff, Absender und Empfänger, Text und HTML, Ordner, Lesestatus, Angaben zu Anhängen), Kontakte, Stammdaten, Sende- und Textvorlagen, Regeln, Kategorien, Einstellungen",
+          "wo": "SQLite-Datenbank im App-Datenordner des angemeldeten Windows-Benutzers; nicht anwendungsseitig verschlüsselt",
           "beleg": "21_App_Flutter/coppicemail_desktop/lib/data/db.dart"
         },
         {
-          "was": "Zugangsdaten der Postfaecher (Passwoerter und Token)",
-          "wo": "NICHT in der Datenbank. Die Windows-Umsetzung von flutter_secure_storage legt sie in einer mit DPAPI verschluesselten Datei im App-Datenbereich des angemeldeten Windows-Benutzers ab",
+          "was": "Zugangsdaten der Postfächer (Passwörter und Token)",
+          "wo": "NICHT in der Datenbank. Die Windows-Umsetzung von flutter_secure_storage legt sie in einer mit DPAPI verschlüsselten Datei im App-Datenbereich des angemeldeten Windows-Benutzers ab",
           "beleg": "21_App_Flutter/coppicemail_desktop/lib/data/secrets.dart"
         },
         {
@@ -351,29 +351,29 @@
         },
         {
           "was": "Sicherheitsjournal der Automatik und Sperrprotokoll der Abwesenheitsantwort (Ziel nur als HMAC-SHA-256-Pseudonym, Postfachkennung, Aktion, Zustand, Zeitpunkt; keine Nachrichteninhalte)",
-          "wo": "dieselbe SQLite-Datenbank; automatische Loeschung nach 30 Tagen, beim Start und im laufenden Betrieb. Der Schluessel fuer das Pseudonym liegt im DPAPI-geschuetzten Speicher, nicht in der Datenbank",
+          "wo": "dieselbe SQLite-Datenbank; automatische Löschung nach 30 Tagen, beim Start und im laufenden Betrieb. Der Schlüssel für das Pseudonym liegt im DPAPI-geschützten Speicher, nicht in der Datenbank",
           "beleg": "21_App_Flutter/coppicemail_desktop/lib/data/db.dart (automation_actions, autoreply_log, purgeAutomationHistory)"
         },
         {
-          "was": "Konfigurationssicherung (JSON) mit Postfaechern ohne Passwoerter, Kontakten, Stammdaten, Regeln, Abwesenheitstexten, Vorlagen und Ordnerzuordnungen. Ohne Nachrichten, Anhaenge, Zugangsdaten und Automatikprotokolle",
-          "wo": "an dem Ort, den der Nutzer beim Export auswaehlt",
+          "was": "Konfigurationssicherung (JSON) mit Postfächern ohne Passwörter, Kontakten, Stammdaten, Regeln, Abwesenheitstexten, Vorlagen und Ordnerzuordnungen. Ohne Nachrichten, Anhänge, Zugangsdaten und Automatikprotokolle",
+          "wo": "an dem Ort, den der Nutzer beim Export auswählt",
           "beleg": "21_App_Flutter/coppicemail_desktop/lib/data/db.dart (exportData)"
         },
         {
-          "was": "Uebergabe- und Zwischendateien fuer Anhaenge, die an andere Programme weitergereicht werden",
+          "was": "Übergabe- und Zwischendateien für Anhänge, die an andere Programme weitergereicht werden",
           "wo": "Dokumente-Ordner des Nutzers bzw. Windows-Temp",
           "beleg": "21_App_Flutter/coppicemail_desktop/lib/mail/uebergabe.dart"
         },
         {
-          "was": "Sicherheitskopie der Datenbank unmittelbar vor einer notwendigen Schemaaenderung; bei fehlgeschlagener Aenderung zusaetzlich der fehlgeschlagene Zwischenstand zur Fehlersuche",
-          "wo": "neben der Datenbank im App-Datenordner; hoechstens zwei Sicherungen und ein fehlgeschlagener Zwischenstand; nicht anwendungsseitig verschluesselt",
+          "was": "Sicherheitskopie der Datenbank unmittelbar vor einer notwendigen Schemaänderung; bei fehlgeschlagener Änderung zusätzlich der fehlgeschlagene Zwischenstand zur Fehlersuche",
+          "wo": "neben der Datenbank im App-Datenordner; höchstens zwei Sicherungen und ein fehlgeschlagener Zwischenstand; nicht anwendungsseitig verschlüsselt",
           "beleg": "21_App_Flutter/coppicemail_desktop/lib/data/database_upgrade_guard.dart"
         }
       ],
       "berechtigungen": [
         {
           "name": "Netzwerkzugriff",
-          "wofuer": "Abruf und Versand ueber die vom Nutzer eingerichteten Mailserver; je nach Einstellung zusaetzlich Update-Pruefung und Beleguebergabe",
+          "wofuer": "Abruf und Versand über die vom Nutzer eingerichteten Mailserver; je nach Einstellung zusätzlich Update-Prüfung und Belegübergabe",
           "pflicht": true,
           "beleg": "21_App_Flutter/coppicemail_desktop/lib/mail/mail_service.dart"
         },
@@ -391,7 +391,7 @@
         },
         {
           "name": "Lesezugriff auf ein vorhandenes Thunderbird-Profil",
-          "wofuer": "einmaliger Import bestehender Konteneinstellungen, nur auf ausdrueckliche Nutzeraktion",
+          "wofuer": "einmaliger Import bestehender Konteneinstellungen, nur auf ausdrückliche Nutzeraktion",
           "pflicht": false,
           "beleg": "21_App_Flutter/coppicemail_desktop/lib/mail/thunderbird_import.dart"
         },
@@ -405,14 +405,14 @@
       "uebertragungen": [
         {
           "wohin": "die vom Nutzer eingerichteten Mailserver (IMAP und SMTP)",
-          "was": "Zugangsdaten sowie Nachrichten und Anhaenge",
+          "was": "Zugangsdaten sowie Nachrichten und Anhänge",
           "wann": "bei Abruf, automatischem Abgleich und Versand",
           "freiwillig": false,
           "beleg": "21_App_Flutter/coppicemail_desktop/lib/mail/mail_service.dart"
         },
         {
           "wohin": "Server Dritter, die der Absender einer HTML-Nachricht angegeben hat",
-          "was": "Abruf externer Bilder. Standardmaessig blockiert; eine Freigabe gilt jeweils nur fuer die geoeffnete Nachricht",
+          "was": "Abruf externer Bilder. Standardmäßig blockiert; eine Freigabe gilt jeweils nur für die geöffnete Nachricht",
           "wann": "nur nach Klick auf \"Bilder laden\"",
           "freiwillig": true,
           "beleg": "21_App_Flutter/coppicemail_desktop/lib/ui/mail_html_view.dart, lib/mail/html_sanitizer.dart"
@@ -425,28 +425,28 @@
         },
         {
           "wohin": "fehlerfuchs.eu",
-          "was": "Abruf einer festen Versionsdatei, um auf eine neuere Fassung hinzuweisen. Kein Herunterladen und kein Ausfuehren eines Installationsprogramms aus der Anwendung heraus",
+          "was": "Abruf einer festen Versionsdatei, um auf eine neuere Fassung hinzuweisen. Kein Herunterladen und kein Ausführen eines Installationsprogramms aus der Anwendung heraus",
           "wann": "beim Start (abschaltbar) oder manuell",
           "freiwillig": true,
           "beleg": "21_App_Flutter/coppicemail_desktop/lib/services/update_check.dart"
         },
         {
           "wohin": "die vom Nutzer eingetragene Paperless-Instanz",
-          "was": "der ausgewaehlte Anhang und das Zugangstoken",
+          "was": "der ausgewählte Anhang und das Zugangstoken",
           "wann": "nur nach Klick auf \"An Paperless\"",
           "freiwillig": true,
           "beleg": "21_App_Flutter/coppicemail_desktop/lib/mail/uebergabe.dart"
         },
         {
           "wohin": "lokales Programm oder lokaler Eingangsordner (PDFuchs, E-Rechnung, BelegWerk)",
-          "was": "die Anhangdatei. Kein Empfaenger im Netz, solange der eingestellte Zielpfad lokal ist",
+          "was": "die Anhangdatei. Kein Empfänger im Netz, solange der eingestellte Zielpfad lokal ist",
           "wann": "nur nach Nutzeraktion",
           "freiwillig": true,
           "beleg": "21_App_Flutter/coppicemail_desktop/lib/mail/belegwerk_service.dart"
         },
         {
           "wohin": "FehlerFuchs (Support- bzw. Info-Adresse)",
-          "was": "die vom Nutzer verfasste Nachricht, auf Wunsch mit Diagnosetext oder Anhaengen. Der Inhalt wird vor dem Senden angezeigt",
+          "was": "die vom Nutzer verfasste Nachricht, auf Wunsch mit Diagnosetext oder Anhängen. Der Inhalt wird vor dem Senden angezeigt",
           "wann": "nur wenn der Nutzer die Nachricht selbst absendet",
           "freiwillig": true,
           "beleg": "21_App_Flutter/coppicemail_desktop/lib/ui/info_support.dart"
@@ -460,13 +460,13 @@
         },
         {
           "name": "Microsoft WebView2-Laufzeit",
-          "wofuer": "Anzeige von HTML-Nachrichten auf dem Geraet",
-          "wann": "beim Oeffnen einer HTML-Nachricht. Die Anzeige selbst baut keine eigene Netzverbindung auf, solange externe Bilder blockiert bleiben"
+          "wofuer": "Anzeige von HTML-Nachrichten auf dem Gerät",
+          "wann": "beim Öffnen einer HTML-Nachricht. Die Anzeige selbst baut keine eigene Netzverbindung auf, solange externe Bilder blockiert bleiben"
         },
         {
           "name": "Paperless-Instanz des Nutzers",
           "wofuer": "Ablage von Belegen",
-          "wann": "nur nach ausdruecklicher Uebergabe"
+          "wann": "nur nach ausdrücklicher Übergabe"
         },
         {
           "name": "Bild- und Linkserver Dritter",
@@ -479,10 +479,10 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "In der Anwendung entfernt \"Lokale App-Daten zuruecksetzen\" die Datenbankinhalte (SQLite mit secure_delete und anschliessendem VACUUM), den DPAPI-geschuetzten Speicher der Zugangsdaten und die Protokolle. Erfolg wird erst nach technischer Pruefung gemeldet; schlaegt sie fehl, bleibt die Anwendung geoeffnet. Der Deinstaller fragt getrennt \"Daten behalten\" oder \"Daten entfernen\". \"Daten behalten\" ist die Vorgabe; eine unbeaufsichtigte Deinstallation fragt nicht und behaelt den Profilordner immer. Nur ein ausdruecklich bestaetigtes \"Daten entfernen\" loescht den Profilordner einschliesslich der unverschluesselten Sicherungen vor Schemaaenderungen. Das wurde in einer vollstaendigen Deinstallations-Testreihe geprueft. Wird ein einzelnes Postfach entfernt, verschwinden auch dessen Automatik- und Antwortprotokolle. Nachrichten, die auf dem Server des Mailanbieters liegen, sowie exportierte oder bereits an andere Programme uebergebene Dateien bleiben erhalten.",
-      "besonderheiten": "Die lokale Datenbank ist nicht anwendungsseitig verschluesselt; als Grundschutz wird BitLocker oder eine gleichwertige Laufwerksverschluesselung empfohlen. Externe Bilder sind standardmaessig blockiert, JavaScript in Nachrichten ist abgeschaltet und der HTML-Inhalt wird vor der Anzeige bereinigt. Eine automatische Update-Installation gibt es nicht: Die Anwendung prueft nur eine feste Versionsdatei und verweist auf die Produktseite. Die Uebergabe an Paperless laesst unverschluesseltes HTTP ausschliesslich zum eigenen Rechner zu; jede andere Adresse muss HTTPS verwenden. Die Konfigurationssicherung enthaelt keine Zugangsdaten und keine Nachrichten; nach dem Einlesen bleiben Regeln und Abwesenheitsantworten vorsichtshalber abgeschaltet. Fuer Gmail und Outlook werden derzeit App-Passwoerter benoetigt, da moderne Anmeldeverfahren noch nicht unterstuetzt werden.",
-      "vorhandener_text": "In der Anwendung unter \"Info & Hilfe\" sowie im Impressum; eine eigenstaendige Datenschutzdatei im Projekt gibt es bisher nicht.",
-      "offene_fragen": "1) Impressum, Datenschutzerklaerung und Haftungshinweise sind noch nicht juristisch abgenommen. 2) Eine verschluesselte lokale Ablage und eine verschluesselte Sicherung sind vorgesehen, aber noch nicht umgesetzt. 3) Die Auslieferung ist derzeit nicht signiert; signierte Verteilung und signierte Update-Informationen sind vorbereitet, aber noch nicht wirksam. 4) Ob und wie lange der Mailanbieter Verbindungsdaten wie die IP-Adresse protokolliert, haengt vom Anbieter ab und nicht von CoppiceMail.",
+      "loeschung": "In der Anwendung entfernt \"Lokale App-Daten zurücksetzen\" die Datenbankinhalte (SQLite mit secure_delete und anschließendem VACUUM), den DPAPI-geschützten Speicher der Zugangsdaten und die Protokolle. Erfolg wird erst nach technischer Prüfung gemeldet; schlägt sie fehl, bleibt die Anwendung geöffnet. Der Deinstaller fragt getrennt \"Daten behalten\" oder \"Daten entfernen\". \"Daten behalten\" ist die Vorgabe; eine unbeaufsichtigte Deinstallation fragt nicht und behält den Profilordner immer. Nur ein ausdrücklich bestätigtes \"Daten entfernen\" löscht den Profilordner einschließlich der unverschlüsselten Sicherungen vor Schemaänderungen. Das wurde in einer vollständigen Deinstallations-Testreihe geprüft. Wird ein einzelnes Postfach entfernt, verschwinden auch dessen Automatik- und Antwortprotokolle. Nachrichten, die auf dem Server des Mailanbieters liegen, sowie exportierte oder bereits an andere Programme übergebene Dateien bleiben erhalten.",
+      "besonderheiten": "Die lokale Datenbank ist nicht anwendungsseitig verschlüsselt; als Grundschutz wird BitLocker oder eine gleichwertige Laufwerksverschlüsselung empfohlen. Externe Bilder sind standardmäßig blockiert, JavaScript in Nachrichten ist abgeschaltet und der HTML-Inhalt wird vor der Anzeige bereinigt. Eine automatische Update-Installation gibt es nicht: Die Anwendung prüft nur eine feste Versionsdatei und verweist auf die Produktseite. Die Übergabe an Paperless lässt unverschlüsseltes HTTP ausschließlich zum eigenen Rechner zu; jede andere Adresse muss HTTPS verwenden. Die Konfigurationssicherung enthält keine Zugangsdaten und keine Nachrichten; nach dem Einlesen bleiben Regeln und Abwesenheitsantworten vorsichtshalber abgeschaltet. Für Gmail und Outlook werden derzeit App-Passwörter benötigt, da moderne Anmeldeverfahren noch nicht unterstützt werden.",
+      "vorhandener_text": "In der Anwendung unter \"Info & Hilfe\" sowie im Impressum; eine eigenständige Datenschutzdatei im Projekt gibt es bisher nicht.",
+      "offene_fragen": "1) Impressum, Datenschutzerklärung und Haftungshinweise sind noch nicht juristisch abgenommen. 2) Eine verschlüsselte lokale Ablage und eine verschlüsselte Sicherung sind vorgesehen, aber noch nicht umgesetzt. 3) Die Auslieferung ist derzeit nicht signiert; signierte Verteilung und signierte Update-Informationen sind vorbereitet, aber noch nicht wirksam. 4) Ob und wie lange der Mailanbieter Verbindungsdaten wie die IP-Adresse protokolliert, hängt vom Anbieter ab und nicht von CoppiceMail.",
       "art": "anwendung"
     },
     {
@@ -688,7 +688,7 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen auf dem Gerät: die App-Einstellungen und - nur während des Teilens - eine vorübergehende Berichtsdatei. Beim Deinstallieren verschwindet alles. Berichte, die du selbst weitergegeben oder abgespeichert hast, liegen dort, wohin du sie gelegt hast, und müssen dort gelöscht werden.",
+      "loeschung": "Alle Daten liegen auf dem Gerät: die App-Einstellungen, die Ergebnisse der Paketuntersuchung im Zwischenspeicher (jederzeit über „Cache leeren“ in den Android-Einstellungen löschbar) und - nur während des Teilens oder Sendens - eine vorübergehende Bericht- oder Diagnosedatei, die spätestens beim nächsten App-Start entfernt wird. Beim Deinstallieren verschwindet alles. Berichte, die du selbst weitergegeben oder abgespeichert hast, liegen dort, wohin du sie gelegt hast, und müssen dort gelöscht werden.",
       "besonderheiten": "AppInsight liest Angaben über andere Apps: Name, angeforderte Berechtigungen, Bestandteile, Signatur und Installationsquelle sowie - wenn du die Nutzungsdaten freigibst - Speicher-, Nutzungs- und Datenverbrauchswerte. Seit dem 24.09.2026 untersucht es außerdem das Installationspaket (APK) jeder App, das Android für jede App lesbar macht: Netzwerk-Regeln, Namen der Programmbausteine (Tracker- Erkennung) und Server-Adressen im Code. Das Paket wird nur gelesen, nichts daraus ausgeführt. Daten anderer Apps liest es nicht; Android schottet Apps gegeneinander ab. Die gesamte Auswertung findet auf dem Gerät statt. Die optionale Internetsperre arbeitet mit einer geräteinternen Sperre, die den Datenverkehr der gesperrten Apps verwirft: Es gibt keine Weiterleitung über einen Server und keine Aufzeichnung des Datenverkehrs. Die Ampel-Einordnung ist eine Einschätzung nach festen Regeln, kein Urteil über eine App.",
       "vorhandener_text": "Datenschutzerklärung im Volltext, offline in der App unter Info → Datenschutzerklärung (lib/features/transparency/rechtstexte.dart, Stand 24.09.2026), dazu „Warum braucht AppInsight Berechtigungen?“ unter Info und Einstellungen (lib/features/transparency/about_page.dart). Webfassung: https://fehlerfuchs.eu/datenschutz/#app-appinsight",
       "offene_fragen": "1) Erledigt am 22.09.2026: Die Kontaktfunktion ist keine Zwischenablage mehr, sondern eine Übergabe an die Mail-App des Nutzers (siehe Übertragungen). Die App selbst sendet weiterhin nichts. Ein Versand über einen eigenen Server ist nicht gebaut; käme er, wäre dieser Steckbrief zu erneuern. 2) Die App ist noch nicht veröffentlicht (Stand 1.0.0). Alle Angaben beziehen sich auf den heutigen Entwicklungsstand, nicht auf eine Store-Fassung.",
