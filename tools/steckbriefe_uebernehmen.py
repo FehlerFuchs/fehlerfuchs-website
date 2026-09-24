@@ -22,6 +22,7 @@ WAS GEPRUEFT WIRD (Fund = Abbruch, es wird NICHTS kopiert)
   5. Slug ist bekannt - Slugs werden nicht erfunden
   6. Pflichtfelder vorhanden
   7. 'stand' liegt nicht in der Zukunft
+  8. keine Ersatzschreibung statt Umlaut im Fliesstext (S1, seit 24.09.2026)
 
 Aufruf (PowerShell). 'py -3' statt 'python' - auf diesem Rechner zeigt
 'python' auf den Store-Alias und laeuft ins Leere:
@@ -96,6 +97,59 @@ VERDAECHTIG = [
 ]
 PFAD = re.compile(r"\b[A-Za-z]:\\\\?[A-Za-z0-9_]")
 
+# S1 - echte Umlaute. Seit 24.09.2026 (Entscheidung Matthias): Ein Steckbrief mit
+# Ersatzschreibung ("Geraet", "fuer", "Loeschen") wird NICHT uebernommen. Anlass:
+# Matthias fand "gewaehlte", "Menue", "Geraet" in der AppInsight-Karte der
+# oeffentlichen Datenschutzseite - dieselbe Art stand in rund zwoelf weiteren Karten,
+# weil diese Pruefung fehlte. Der Text geht wortwoertlich ins Netz.
+#
+# Bewusst eine Liste typischer Wortstaemme statt "jedes ae/oe/ue": Neue, aktuell,
+# Feuerwehr, Quelle, virtuell, Steuernummer tragen solche Folgen zu Recht.
+# Geprueft wird nur Fliesstext - nicht beleg/slug (Code-Pfade, Kennungen), keine
+# Datei- und Adressnamen (unterstuetzen.html), keine Kennungen mit Unterstrich,
+# keine Feldnamen im Text und keine Woerter in Grossbuchstaben (dort ist SS fuer ss
+# richtig: AUSSCHLIESSLICH).
+_ERSATZ_STAEMME = """
+geraet fuer ueber koenn moeglich muess loesch pruef waehl oeffn oeffentl aender
+schluessel groess eintraeg zaehl laeuft laesst haelt traegt erhaelt ausdrueck
+ausfuehr natuerl spaet taegl rueck bestaetig empfaeng aelter persoenl temporaer
+faehig gefaehr gehoer gewaehr verfueg einfueh anhaeng verschluess unterstuetz
+fuehr fuell laed menue schliess gemaess massnahm strasse naechst waehrend gruen
+fuenf zwoelf schuetz nuetz erklaer klaer uebrig aehnl haeufig
+""".split()
+ERSATZ = re.compile(r"\b\w*(?:" + "|".join(sorted(set(_ERSATZ_STAEMME), key=len, reverse=True))
+                    + r")\w*\b", re.IGNORECASE)
+ERSATZ_ECHT = re.compile(r"(feuerwehr|steuer|quelle|aktuell|neue|virtuell|frequenz)", re.IGNORECASE)
+ERSATZ_NICHT_PRUEFEN = {"beleg", "slug", "id", "kennung", "url", "adresse", "domain", "geprueft_von"}
+ERSATZ_FELDNAMEN = {"uebertragungen", "auf_dem_geraet", "loeschung", "besonderheiten",
+                    "vorhandener_text", "offene_fragen", "fremde_dienste", "berechtigungen"}
+ERSATZ_ENTSCHAERFEN = re.compile(
+    r"https?://\S+"
+    r"|\S+\.(?:html?|dart|kts?|ya?ml|json|md|txt|pdf|apk|aab|exe|iss|ps1|py)\b"
+    r"|\S*_\S*")
+
+
+def ersatzschreibungen(daten):
+    """Woerter mit Ersatzschreibung im Fliesstext eines Steckbriefs (S1)."""
+    funde = set()
+
+    def lauf(wert):
+        if isinstance(wert, dict):
+            for schluessel, inhalt in wert.items():
+                if schluessel not in ERSATZ_NICHT_PRUEFEN:
+                    lauf(inhalt)
+        elif isinstance(wert, list):
+            for inhalt in wert:
+                lauf(inhalt)
+        elif isinstance(wert, str):
+            for wort in ERSATZ.findall(ERSATZ_ENTSCHAERFEN.sub(" ", wert)):
+                if wort.isupper() or wort.lower() in ERSATZ_FELDNAMEN or ERSATZ_ECHT.search(wort):
+                    continue
+                funde.add(wort)
+
+    lauf(daten)
+    return sorted(funde)
+
 # Kennungen, die es im Produktmodell (noch) nicht gibt, deren Steckbrief aber
 # trotzdem gilt. Wer hier etwas eintraegt, muss sagen warum - deshalb ist der
 # Grund Pflichttext und keine leere Zeichenkette.
@@ -138,6 +192,12 @@ def pruefe(text, daten, erlaubte_kennungen):
                 funde.append(f"Zeile {nr}: {was} - {zeile.strip()[:70]}")
         if PFAD.search(zeile) and not zeile.lstrip().startswith("#"):
             hinweise.append(f"Zeile {nr}: interner Pfad - {zeile.strip()[:70]}")
+
+    ersatz = ersatzschreibungen(daten)
+    if ersatz:
+        mehr = f" (+{len(ersatz) - 8} weitere)" if len(ersatz) > 8 else ""
+        funde.append(f"Ersatzschreibung statt Umlaut (S1): {', '.join(ersatz[:8])}{mehr} - "
+                     f"bitte mit echten Umlauten neu einreichen")
 
     fehlt = [f for f in PFLICHT if not daten.get(f)]
     if fehlt:
