@@ -201,22 +201,23 @@ meldungen:
       klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz
       und „Was ist neu" direkt in der App. Alle Daten bleiben auf dem Gerät.
 
-  # OrgaFuchs 1.9.3 (Windows-Release 25.09., signiert; löst 1.9.2 ab). 'version: 1.9.3'
-  # bindet die Meldung an den releases-Eintrag. Text aus dem App-Changelog von
-  # [FF_32] OrgaFuchs, Windows-relevanter Auszug, nichts erfunden (P8).
+  # OrgaFuchs 1.9.3 – Windows-Release 25.09. 21:28 (signiert, [FF_16]), Android im
+  # Play Store live 25.09. 22:18 (P5 von [FF_13], versionCode 24). 'version: 1.9.3'
+  # bindet die Meldung an den Windows-releases-Eintrag. Text aus dem App-Changelog von
+  # [FF_32] und dem Play-„Was ist neu" von [FF_13], nichts erfunden (P8).
   - id: orgafuchs-1-9-3
     typ: update
     produkt: orgafuchs
     version: "1.9.3"
     titel: "OrgaFuchs 1.9.3: stabilerer Familien-Sync"
     text: >-
-      OrgaFuchs 1.9.3 macht den Familien-Sync deutlich robuster: Jede Änderung wird
-      zuerst auf dem Gerät gesichert und erst gelöscht, wenn das Hauptgerät sie
-      bestätigt hat – auch bei Funklöchern geht nichts verloren. Dienste und Kategorien
-      erreichen jetzt alle Familiengeräte, und „Alle Daten löschen" entfernt wirklich
-      alles. Unter Windows startet OrgaFuchs auch ohne installierte Visual-C++-Laufzeit,
-      läuft nur einmal und lässt sich sauber deinstallieren. Alles bleibt auf dem Gerät,
-      ohne Konto.
+      OrgaFuchs 1.9.3 ist für Windows und Android da und macht den Familien-Sync
+      deutlich robuster: Jede Änderung wird zuerst auf dem Gerät gesichert, bis das
+      Hauptgerät sie bestätigt hat – auch bei Funklöchern geht nichts verloren. Dienste
+      und Kategorien erreichen jetzt alle Familiengeräte. Mehr Datenschutz: keine Kopien
+      in fremden Cloud-Backups, und „Alle Daten löschen" entfernt wirklich alles. Unter
+      Windows startet OrgaFuchs auch ohne installierte Visual-C++-Laufzeit, läuft nur
+      einmal und lässt sich sauber deinstallieren. Alles bleibt auf dem Gerät, ohne Konto.
 
   # OrgaFuchs 1.9.2 (Windows-Release 13.09., signiert; Bugfix über 1.9.1; Play 1.9.2
   # live seit 13.09.). 'version: 1.9.2' bindet die Meldung an den releases-Eintrag.

@@ -1,7 +1,7 @@
 slug: orgafuchs
 name: OrgaFuchs
 fullName: FehlerFuchs OrgaFuchs
-# SEO (2026-08-09): Windows (signiert, 1.9.2) + Android seit 08.08. verfügbar.
+# SEO (2026-08-09): Windows (signiert, 1.9.3) + Android seit 08.08. verfügbar.
 seoTitel: "OrgaFuchs – Familien- & Schichtplaner, offline für Windows & Android"
 seoBeschreibung: "Familien- und Schichtplaner für Dienste, Termine und Notizen: Monatskalender, PDF-Export, Ende-zu-Ende-verschlüsselter Sync der eigenen Geräte – für Windows & Android, ohne Konto."
 tags: ["Schichtplaner", "Familienplaner", "Dienstplan", "Kalender", "Windows", "Android", "offline", "ohne Cloud"]
@@ -15,9 +15,9 @@ description: >-
   Inhalte lesen kann – ohne Cloud-Speicher, ohne Konto.
 audience: [privat, vereine, unternehmen]
 accent: "#B4652A"   # Farbe der App
-# Android ist seit 08.08.2026 regulär im Google Play Store (Play-Stand 1.9.2 live
-# seit 13.09.2026, belegt von [13]), der Windows-Download als GitHub-Release
-# 'orgafuchs-v1.9.2' (signiert, 13.09.2026; Bugfix, löst 1.9.1 ab).
+# Android ist seit 08.08.2026 regulär im Google Play Store (Play-Stand 1.9.3 live
+# seit 25.09.2026 22:18, versionCode 24, belegt von [FF_13]), der Windows-Download als
+# GitHub-Release 'orgafuchs-v1.9.3' (signiert, 25.09.2026 21:28; löst 1.9.2 ab).
 # Beide Plattformen 'verfuegbar' → Gesamtstatus 'verfuegbar'.
 # 'vorabSichtbar' ist mit 'verfuegbar' überflüssig und daher entfernt.
 status: verfuegbar
