@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-25T12:11:59+02:00",
+  "generiert": "2026-09-25T12:13:23+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1732,7 +1732,7 @@
       ],
       "kind": "produkt",
       "tagline": "Der lokale Familien- und Team-Planer für Schicht- und Dienstpläne – offline, mit eigenem Sync ohne Cloud.",
-      "description": "Plant Dienste, Schichten, Termine und Notizen für die ganze Familie oder ein kleines Team: Monatskalender, Schnelleintrag, PDF-Export als Monat, Jahr oder Blanko-Vorlage. Alle Daten bleiben auf den eigenen Geräten. Verbunden werden sie per QR-Einladung; der Abgleich läuft Ende-zu-Ende-verschlüsselt über ein Relais von FehlerFuchs, das nur verschlüsselte Daten sieht – ohne Cloud-Speicher, ohne Konto.",
+      "description": "Plant Dienste, Schichten, Termine und Notizen für die ganze Familie oder ein kleines Team: Monatskalender, Schnelleintrag, PDF-Export als Monat, Jahr oder Blanko-Vorlage. Alle Daten bleiben auf den eigenen Geräten. Verbunden werden sie per QR-Einladung; der Abgleich läuft Ende-zu-Ende-verschlüsselt über ein Relais von FehlerFuchs, das keine Inhalte lesen kann – ohne Cloud-Speicher, ohne Konto.",
       "audience": [
         "privat",
         "vereine",
@@ -1955,7 +1955,7 @@
               "values": {
                 "standard": "ja"
               },
-              "note": "Ende-zu-Ende-verschlüsselt über das Relais von FehlerFuchs; der Server sieht nur verschlüsselte Daten."
+              "note": "Ende-zu-Ende-verschlüsselt über das Relais von FehlerFuchs; der Server kann die Inhalte nicht lesen."
             },
             {
               "name": "Nachrichten an alle – mit Postfach, Ende-zu-Ende verschlüsselt",
