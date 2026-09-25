@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-25T11:44:19+02:00",
+  "generiert": "2026-09-25T11:51:19+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -2426,9 +2426,9 @@
     {
       "slug": "relaisserver",
       "name": "FehlerFuchs Relaisserver (Dienst - Relais und Push)",
-      "stand": "2026-07-19",
-      "geprueft_von": "11-2_Relaisserver",
-      "fassung": "Stand 19.07.2026 - relay-orgafuchs, ntfy v2.9.0, relay-admin, Caddy 2",
+      "stand": "2026-09-25",
+      "geprueft_von": "Relaisserver",
+      "fassung": "Stand 25.09.2026 - relay-orgafuchs-ofsp1 (dazu relay-orgafuchs als Rückfall), relay-fcm, relay-dateiwaechter, ntfy v2.9.0, relay-admin, relay-sicht-signer, Caddy 2",
       "lokal_only": false,
       "serverseitig": [
         {
@@ -2437,18 +2437,23 @@
           "beleg": "05_Server/apps/orgafuchs/relay_server.dart (rooms = In-Memory-Map; nur eine Startzeile auf stdout, kein Nachrichten-Logging)"
         },
         {
-          "was": "Push-Meldungen (Inhalt sinngemaess \"es gibt Aenderungen\", keine Nutzdaten)",
-          "wo": "Zwischenspeicher des Push-Dienstes, hoechstens 12 Stunden",
+          "was": "FCM-Weck-Registry (pseudonym) - je registriertem Gerät eine Zeile",
+          "wo": "kleine SQLite-Datei im Volume des Sidecars relay-fcm; Felder - vom Client vergebene Gerätekennung, FCM-Gerätetoken (Google-Zustelladresse), Gruppen-Hash (sha256 des Gruppen-Sync-Tokens), Plattform, actorKey (nur Selbst-Ausschluss), Zeitstempel. Keine Namen, keine Konten, keine Anmeldung mit Identität",
+          "beleg": "05_Server/apps/relay-fcm/app.py (Tabelle tokens)"
+        },
+        {
+          "was": "Push-Meldungen (Inhalt sinngemäß \"es gibt Änderungen\", keine Nutzdaten)",
+          "wo": "Zwischenspeicher des Push-Dienstes, höchstens 12 Stunden",
           "beleg": "05_Server/compose/docker-compose.yml (NTFY_CACHE_DURATION=12h, NTFY_CACHE_FILE)"
         },
         {
-          "was": "Zugriffsprotokolle des Reverse-Proxy (Client-IP, Zeitpunkt, Pfad inklusive Query-Parameter)",
+          "was": "Zugriffsprotokolle des Reverse-Proxy (Client-IP, Zeitpunkt, aufgerufener Pfad ohne Query-Parameter - der Teil ab dem Fragezeichen wird vor dem Schreiben entfernt)",
           "wo": "rotierende Container-Logs (je Dienst max. 3 x 10 MB), keine Archivierung, nicht im Backup",
-          "beleg": "05_Server/proxy/Caddyfile (log-Direktive je Site); 05_Server/compose/docker-compose.yml (logging max-size/max-file)"
+          "beleg": "05_Server/proxy/Caddyfile (log-Direktive je Site mit format filter, request>uri ohne Query-Teil, live seit 31.08.2026); 05_Server/compose/docker-compose.yml (logging max-size/max-file)"
         },
         {
-          "was": "aggregierte Zaehler (Anzahl Push-Meldungen, aktive Themen, Dienst-Health)",
-          "wo": "nur dienstintern, ohne Personenbezug; Verwaltungszugang liefert keine Einzeldatensaetze",
+          "was": "aggregierte Zähler (Anzahl Push-Meldungen, aktive Themen, Dienst-Health)",
+          "wo": "nur dienstintern, ohne Personenbezug; Verwaltungszugang liefert keine Einzeldatensätze",
           "beleg": "05_Server/apps/relay-admin/admin_server.dart (items liefert immer eine leere Liste)"
         }
       ],
@@ -2461,14 +2466,34 @@
           "beleg": "05_Server/proxy/Caddyfile (automatisches HTTPS)"
         },
         {
+          "wohin": "Google Firebase Cloud Messaging (HTTP v1)",
+          "was": "inhaltsloses Wecksignal (data-only, Feld typ=wakeup) an das FCM-Gerätetoken des Geräts; KEIN Nutzerinhalt, kein Termin, kein Text, kein Gruppen-/Geräteklartext",
+          "wann": "bei einer Gruppenänderung, wenn abwesende Mitglieder geweckt werden sollen",
+          "freiwillig": false,
+          "beleg": "05_Server/apps/relay-fcm/app.py (data-only high-priority Nachricht)"
+        },
+        {
           "wohin": "IONOS (SMTP)",
-          "was": "Betriebs- und Stoerungsmeldungen an die eigene Administrationsadresse; keine Nutzerdaten",
-          "wann": "zweimal taeglich sowie bei anhaltender Stoerung",
+          "was": "Betriebs- und Störungsmeldungen an die eigene Administrationsadresse; keine Nutzerdaten",
+          "wann": "einmal täglich sowie bei Störung und Entwarnung",
           "freiwillig": false,
           "beleg": "05_Server/scripts/monitor.sh"
+        },
+        {
+          "wohin": "eigener Gotify-Server von FehlerFuchs (Benachrichtigung auf das Telefon des Betreibers)",
+          "was": "kurze Betriebsmeldung - Zahl der erreichbaren Endpunkte und laufenden Container, Störung oder Entwarnung; keine Nutzerdaten",
+          "wann": "einmal täglich sowie bei Störung und Entwarnung",
+          "freiwillig": false,
+          "beleg": "05_Server/scripts/monitor.sh (gotify_push)"
         }
       ],
       "fremde_dienste": [
+        {
+          "name": "Google (Firebase Cloud Messaging)",
+          "wofuer": "Zustellung des inhaltslosen Weck-Signals an Android-Geräte (content-blind); es wird das FCM-Gerätetoken als Zustelladresse und ein leeres Wecksignal übergeben",
+          "wann": "bei Gruppenänderung",
+          "hinweis": "Empfängerland Google (u.a. USA); die genaue datenschutzrechtliche Rolle (eigener Verantwortlicher vs. Auftragsverarbeiter/AVV) und die Drittland-Absicherung (SCC/Data-Privacy-Framework) sind in anwaltlicher Klärung. Nach Entscheidung Matthias vom 23.08.2026 ist diese Klärung ein nicht blockierender Folgepunkt."
+        },
         {
           "name": "IONOS",
           "wofuer": "Hosting des Servers und Versand der Betriebsmeldungen",
@@ -2476,13 +2501,18 @@
         },
         {
           "name": "Let's Encrypt",
-          "wofuer": "TLS-Zertifikate; ausgestellte Zertifikate erscheinen in oeffentlichen Certificate-Transparency-Logs",
+          "wofuer": "TLS-Zertifikate; ausgestellte Zertifikate erscheinen in öffentlichen Certificate-Transparency-Logs",
           "wann": "bei Ausstellung und Erneuerung"
         },
         {
           "name": "ntfy (Open Source, selbst betrieben)",
-          "wofuer": "Push-Benachrichtigungen auf dem eigenen Server statt ueber einen fremden Push-Anbieter",
+          "wofuer": "Push-Benachrichtigungen auf dem eigenen Server statt über einen fremden Push-Anbieter",
           "wann": "dauerhaft"
+        },
+        {
+          "name": "Tailscale (Funnel)",
+          "wofuer": "Transportweg der Betriebsmeldungen zum eigenen Gotify-Server; die Verbindung ist verschlüsselt und wird erst auf dem eigenen Server entschlüsselt. Es gehen nur Betriebsmeldungen ohne Nutzerdaten über diesen Weg",
+          "wann": "einmal täglich sowie bei Störung und Entwarnung"
         }
       ],
       "konto_noetig": false,
@@ -2490,10 +2520,10 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Der Dienst haelt keine Nutzdaten dauerhaft vor. Weitergereichte Nachrichten bestehen nur waehrend der Uebertragung, Push-Meldungen verfallen nach spaetestens zwoelf Stunden, Zugriffsprotokolle werden durch Rotation ueberschrieben. Es gibt keine Konten und damit auch keinen Datenbestand, der auf Antrag zu loeschen waere.",
-      "besonderheiten": "Der Relais ist bewusst inhaltsblind: Die Nutzdaten werden bereits auf dem Geraet Ende-zu-Ende verschluesselt, der Server sieht nur Chiffrat und reicht es anhand einer Zielkennung weiter. Es gibt keine Konten, keine Mitgliederliste und keine Datenbank. Push laeuft ueber eine selbst betriebene Instanz statt ueber einen grossen Anbieter; uebertragen wird dabei nur der Anstoss zu synchronisieren, kein Inhalt. Der Verwaltungszugang fuer die interne Serveruebersicht liefert ausschliesslich aggregierte Zahlen ohne Personenbezug.",
+      "loeschung": "Der Dienst hält keine Nutzdaten dauerhaft vor. Weitergereichte Nachrichten bestehen nur während der Übertragung, Push-Meldungen verfallen nach spätestens zwölf Stunden, Zugriffsprotokolle werden durch Rotation überschrieben. Die FCM-Weck-Registry hält je Gerät einen pseudonymen Eintrag, bis sich das Gerät abmeldet (dann sofort gelöscht) oder Google den Token als ungültig meldet (dann automatisch entfernt). Es gibt keine identitätsbehafteten Konten und damit keinen personenbezogenen Datenbestand, der auf Antrag zu löschen wäre.",
+      "besonderheiten": "Der Relais ist bewusst inhaltsblind: Die Nutzdaten werden bereits auf dem Gerät Ende-zu-Ende verschlüsselt, der Server sieht nur Chiffrat und reicht es anhand einer Zielkennung weiter. Es gibt keine identitätsbehafteten Konten und keine Mitgliederliste. Einzige Ausnahme vom Grundsatz \"keine Datenbank\" ist eine kleine, pseudonyme FCM-Token-Registry für die Weckfunktion (Gerätekennung, FCM-Token, Gruppen-Hash). Auch die FCM-Weckung selbst ist content-blind: an Google geht nur der Anstoß zu synchronisieren, kein Inhalt. Push (ntfy) läuft über eine selbst betriebene Instanz. Der Verwaltungszugang für die interne Serverübersicht liefert ausschließlich aggregierte Zahlen ohne Personenbezug. Die Zugriffsprotokolle enthalten seit dem 31.08.2026 keine Query-Parameter mehr.",
       "vorhandener_text": "01_Konzept/Sicherheitskonzept.md",
-      "offene_fragen": "(1) Die Zugriffsprotokolle des Reverse-Proxy enthalten die Client-IP und den vollstaendigen Pfad einschliesslich Query-Parametern; bei Sync-Verbindungen stehen dort Gruppen- und Geraetekennung. Die Logs rotieren nach Groesse und werden nicht archiviert - eine feste Aufbewahrungsfrist in Tagen ist damit nicht definiert. Ob das so bleibt oder das Protokollieren der Query-Parameter abgeschaltet wird, ist offen. (2) Unbekannt, ob und wie lange der Hoster auf Netzwerkebene eigene Protokolle fuehrt - das liegt ausserhalb der eigenen Konfiguration.",
+      "offene_fragen": "(1) Die Zugriffsprotokolle des Reverse-Proxy rotieren nach Größe und werden nicht archiviert - eine feste Aufbewahrungsfrist in Tagen ist damit nicht definiert. Die Query-Parameter (bei Sync-Verbindungen Gruppen- und Gerätekennung) werden seit dem 31.08.2026 nicht mehr protokolliert. (2) Unbekannt, ob und wie lange der Hoster auf Netzwerkebene eigene Protokolle führt - das liegt außerhalb der eigenen Konfiguration. (3) FCM/Google: die datenschutzrechtliche Rolle (eigener Verantwortlicher vs. Auftragsverarbeiter/AVV), die einzutragende Google-Entität (Ireland/LLC) und die Drittland-Absicherung sind in anwaltlicher Klärung (nicht blockierend, Entscheidung Matthias 23.08.2026). Bis dahin ist Google oben als fremder Empfänger mit Rolle \"in Klärung\" geführt.",
       "art": "dienst"
     }
   ]
