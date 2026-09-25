@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-25T11:51:19+02:00",
+  "generiert": "2026-09-25T12:11:59+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1719,7 +1719,7 @@
       "name": "OrgaFuchs",
       "fullName": "FehlerFuchs OrgaFuchs",
       "seoTitel": "OrgaFuchs – Familien- & Schichtplaner, offline für Windows & Android",
-      "seoBeschreibung": "Familien- und Schichtplaner für Dienste, Termine und Notizen: Monatskalender, PDF-Export, Sync übers eigene Heimnetz – für Windows & Android, ohne Cloud, ohne Konto.",
+      "seoBeschreibung": "Familien- und Schichtplaner für Dienste, Termine und Notizen: Monatskalender, PDF-Export, Ende-zu-Ende-verschlüsselter Sync der eigenen Geräte – für Windows & Android, ohne Konto.",
       "tags": [
         "Schichtplaner",
         "Familienplaner",
@@ -1732,7 +1732,7 @@
       ],
       "kind": "produkt",
       "tagline": "Der lokale Familien- und Team-Planer für Schicht- und Dienstpläne – offline, mit eigenem Sync ohne Cloud.",
-      "description": "Plant Dienste, Schichten, Termine und Notizen für die ganze Familie oder ein kleines Team: Monatskalender, Schnelleintrag, PDF-Export als Monat, Jahr oder Blanko-Vorlage. Alle Daten bleiben auf den eigenen Geräten; die Synchronisation läuft über das eigene Heimnetz oder einen selbst gehosteten Relay – ohne Cloud, ohne Konto.",
+      "description": "Plant Dienste, Schichten, Termine und Notizen für die ganze Familie oder ein kleines Team: Monatskalender, Schnelleintrag, PDF-Export als Monat, Jahr oder Blanko-Vorlage. Alle Daten bleiben auf den eigenen Geräten. Verbunden werden sie per QR-Einladung; der Abgleich läuft Ende-zu-Ende-verschlüsselt über ein Relais von FehlerFuchs, das nur verschlüsselte Daten sieht – ohne Cloud-Speicher, ohne Konto.",
       "audience": [
         "privat",
         "vereine",
@@ -1951,11 +1951,11 @@
               }
             },
             {
-              "name": "Eigener Sync statt Cloud – Beitritt per QR-Code oder Passwort",
+              "name": "Eigener Sync statt Cloud – Beitritt per QR-Einladung",
               "values": {
                 "standard": "ja"
               },
-              "note": "Im Heimnetz oder über einen selbst gehosteten Relay, Ende-zu-Ende-verschlüsselt."
+              "note": "Ende-zu-Ende-verschlüsselt über das Relais von FehlerFuchs; der Server sieht nur verschlüsselte Daten."
             },
             {
               "name": "Nachrichten an alle – mit Postfach, Ende-zu-Ende verschlüsselt",

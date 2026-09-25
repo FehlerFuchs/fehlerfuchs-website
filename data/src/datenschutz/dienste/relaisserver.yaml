@@ -53,7 +53,7 @@ fremde_dienste:
   - name: Google (Firebase Cloud Messaging)
     wofuer: Zustellung des inhaltslosen Weck-Signals an Android-Geräte (content-blind); es wird das FCM-Gerätetoken als Zustelladresse und ein leeres Wecksignal übergeben
     wann: bei Gruppenänderung
-    hinweis: Empfängerland Google (u.a. USA); die genaue datenschutzrechtliche Rolle (eigener Verantwortlicher vs. Auftragsverarbeiter/AVV) und die Drittland-Absicherung (SCC/Data-Privacy-Framework) sind in anwaltlicher Klärung. Nach Entscheidung Matthias vom 23.08.2026 ist diese Klärung ein nicht blockierender Folgepunkt.
+    hinweis: Google verarbeitet FCM-Token und Zustellmetadaten als Auftragsverarbeiter nach Art. 28 DSGVO (Firebase Data Processing Terms). Die Übermittlung in die USA stützt sich auf das EU-US Data Privacy Framework (Google LLC zertifiziert) und die Standardvertragsklauseln. Entschieden von Matthias am 03.09.2026; eine anwaltliche Bestätigung ist optional.
   - name: IONOS
     wofuer: Hosting des Servers und Versand der Betriebsmeldungen
     wann: dauerhaft
@@ -105,8 +105,7 @@ offene_fragen: >-
   Gerätekennung) werden seit dem 31.08.2026 nicht mehr protokolliert.
   (2) Unbekannt, ob und wie lange der Hoster auf Netzwerkebene eigene Protokolle
   führt - das liegt außerhalb der eigenen Konfiguration.
-  (3) FCM/Google: die datenschutzrechtliche Rolle (eigener Verantwortlicher vs.
-  Auftragsverarbeiter/AVV), die einzutragende Google-Entität (Ireland/LLC) und
-  die Drittland-Absicherung sind in anwaltlicher Klärung (nicht blockierend,
-  Entscheidung Matthias 23.08.2026). Bis dahin ist Google oben als fremder
-  Empfänger mit Rolle "in Klärung" geführt.
+  (3) FCM/Google: Die Rolle ist entschieden (Matthias, 03.09.2026) - Google ist
+  Auftragsverarbeiter nach Art. 28 DSGVO, die Übermittlung in die USA stützt
+  sich auf das EU-US Data Privacy Framework und die Standardvertragsklauseln.
+  Offen ist nur noch eine optionale anwaltliche Bestätigung.
