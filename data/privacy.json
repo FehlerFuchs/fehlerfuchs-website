@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-25T12:13:23+02:00",
+  "generiert": "2026-09-25T12:36:39+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -697,13 +697,13 @@
     {
       "slug": "cleandesk",
       "name": "FehlerFuchs CleanDesk",
-      "stand": "2026-08-23",
+      "stand": "2026-09-25",
       "geprueft_von": "24_CleanDesk (Codex-Reparatur)",
-      "fassung": "0.2.0 (csproj) - Entwicklungsstand, noch nicht veroeffentlicht",
+      "fassung": "0.2.0 (csproj) - Entwicklungsstand, noch nicht veröffentlicht",
       "lokal_only": true,
       "auf_dem_geraet": [
         {
-          "was": "Einstellungen (zu pruefende Ordner, Grenzwerte fuer gross und alt, max. Hash-Groesse)",
+          "was": "Einstellungen (zu prüfende Ordner, Grenzwerte für groß und alt, max. Hash-Größe)",
           "wo": "%LOCALAPPDATA%\\FehlerFuchs\\CleanDesk\\settings.json",
           "beleg": "src/CleanDesk/Services/Settings.cs (DataDir, SettingsPath)"
         },
@@ -713,31 +713,31 @@
           "beleg": "src/CleanDesk/Services/RulesStore.cs"
         },
         {
-          "was": "Berichte ueber die Funde; enthalten Dateinamen, vollstaendige Pfade, Groessen, Aenderungsdaten und SHA-256-Pruefsummen der Dateien des Nutzers",
+          "was": "Berichte über die Funde; enthalten Dateinamen, vollständige Pfade, Größen, Änderungsdaten und SHA-256-Prüfsummen der Dateien des Nutzers",
           "wo": "%LOCALAPPDATA%\\FehlerFuchs\\CleanDesk\\berichte\\ (TXT, CSV, JSON)",
           "beleg": "src/CleanDesk/Services/ReportWriter.cs"
         },
         {
-          "was": "Protokoll der ausgefuehrten Aktionen (Quell- und Zielpfade beim Sortieren, Papierkorb-Aktionen)",
+          "was": "Protokoll der ausgeführten Aktionen (Quell- und Zielpfade beim Sortieren, Papierkorb-Aktionen)",
           "wo": "%LOCALAPPDATA%\\FehlerFuchs\\CleanDesk\\logs\\ (JSONL und TXT)",
           "beleg": "src/CleanDesk/Safety/Protocol.cs"
         },
         {
           "was": "beim Sortieren erzeugte Kopien der Dateien; die Originale wandern in den Windows-Papierkorb",
-          "wo": "vom Nutzer gewaehlter Zielordner bzw. Windows-Papierkorb",
+          "wo": "vom Nutzer gewählter Zielordner bzw. Windows-Papierkorb",
           "beleg": "src/CleanDesk/Safety/SafeMover.cs, src/CleanDesk/Safety/RecycleBin.cs"
         }
       ],
       "berechtigungen": [
         {
-          "name": "Lesezugriff auf die vom Nutzer gewaehlten Ordner",
-          "wofuer": "Scan nach echten Duplikaten (Groessen-Vorfilter, dann SHA-256), grossen und alten Dateien sowie leeren Ordnern",
+          "name": "Lesezugriff auf die vom Nutzer gewählten Ordner",
+          "wofuer": "Scan nach echten Duplikaten (Größen-Vorfilter, dann SHA-256), großen und alten Dateien sowie leeren Ordnern",
           "pflicht": true,
           "beleg": "src/CleanDesk/Core/Scanner.cs, src/CleanDesk/Core/DuplicateFinder.cs"
         },
         {
-          "name": "Schreiben und Verschieben in den Papierkorb in den gewaehlten Ordnern",
-          "wofuer": "Sortieren (kopieren) und Duplikate in den Papierkorb - ausschliesslich nach ausdruecklicher Bestaetigung im Dialog",
+          "name": "Schreiben und Verschieben in den Papierkorb in den gewählten Ordnern",
+          "wofuer": "Sortieren (kopieren) und Duplikate in den Papierkorb - ausschließlich nach ausdrücklicher Bestätigung im Dialog",
           "pflicht": false,
           "beleg": "src/CleanDesk/Safety/SafeMover.cs, src/CleanDesk/Safety/RecycleBin.cs"
         }
@@ -749,10 +749,10 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen auf dem Geraet. Berichte und Protokolle lassen sich einzeln loeschen; der gesamte App-Datenordner %LOCALAPPDATA%\\FehlerFuchs\\CleanDesk kann jederzeit von Hand entfernt werden. Dateien, die CleanDesk in den Papierkorb verschoben hat, lassen sich ueber den Windows-Papierkorb wiederherstellen oder dort endgueltig loeschen.",
-      "besonderheiten": "Der Scan ist reine Analyse und veraendert nichts. Veraendernde Aktionen laufen nur nach Bestaetigung und ausschliesslich ueber den Papierkorb; endgueltiges Loeschen gibt es in diesem Stand nicht. Verschoben wird immer in drei Schritten: Die Datei wird zuerst an den Zielort kopiert, die Kopie wird ueber Groesse und Pruefsumme mit dem Original verglichen, und erst danach wandert das Original in den Papierkorb. Bei Namensgleichheit wird umbenannt, nie ueberschrieben. Geschuetzte Bereiche des Betriebssystems und der Programme sowie versteckte Anwendungsdaten werden nicht gelesen; Laufwerkswurzeln und Verknuepfungen auf andere Orte werden nicht verfolgt. Eigene Sortierregeln koennen nur einzelne Unterordnernamen erzeugen. Vor dem Papierkorb prueft CleanDesk Kandidat und Behalten-Datei erneut gegen denselben SHA-256 aus dem Scan; fehlt oder aendert sich eine der Dateien, wird abgebrochen. Schreibende Dateiaktionen werden auch abgebrochen, wenn ihr vorheriger Protokolleintrag nicht geschrieben werden kann. Datenschutzrelevant: Berichte und Protokolle enthalten vollstaendige Dateipfade und Dateinamen des Nutzers und koennen dadurch personenbezogene Angaben in Pfadnamen enthalten; sie verbleiben lokal und werden nicht versendet.",
+      "loeschung": "Alle Daten liegen auf dem Gerät. Berichte und Protokolle lassen sich einzeln löschen; der gesamte App-Datenordner %LOCALAPPDATA%\\FehlerFuchs\\CleanDesk kann jederzeit von Hand entfernt werden. Dateien, die CleanDesk in den Papierkorb verschoben hat, lassen sich über den Windows-Papierkorb wiederherstellen oder dort endgültig löschen.",
+      "besonderheiten": "Der Scan ist reine Analyse und verändert nichts. Verändernde Aktionen laufen nur nach Bestätigung und ausschließlich über den Papierkorb; endgültiges Löschen gibt es in diesem Stand nicht. Verschoben wird immer in drei Schritten: Die Datei wird zuerst an den Zielort kopiert, die Kopie wird über Größe und Prüfsumme mit dem Original verglichen, und erst danach wandert das Original in den Papierkorb. Bei Namensgleichheit wird umbenannt, nie überschrieben. Geschützte Bereiche des Betriebssystems und der Programme sowie versteckte Anwendungsdaten werden nicht gelesen; Laufwerkswurzeln und Verknüpfungen auf andere Orte werden nicht verfolgt. Eigene Sortierregeln können nur einzelne Unterordnernamen erzeugen. Vor dem Papierkorb prüft CleanDesk Kandidat und Behalten-Datei erneut gegen denselben SHA-256 aus dem Scan; fehlt oder ändert sich eine der Dateien, wird abgebrochen. Schreibende Dateiaktionen werden auch abgebrochen, wenn ihr vorheriger Protokolleintrag nicht geschrieben werden kann. Datenschutzrelevant: Berichte und Protokolle enthalten vollständige Dateipfade und Dateinamen des Nutzers und können dadurch personenbezogene Angaben in Pfadnamen enthalten; sie verbleiben lokal und werden nicht versendet.",
       "vorhandener_text": "src/CleanDesk/Views/InfoView.xaml (Seite \"Info / Datenschutz\" in der App)",
-      "offene_fragen": "1) Die Anwendung ist nicht veroeffentlicht und besitzt keine Installations- oder Update-Funktion. Ob eine spaetere Verteilung (Installer, Signierung, Update-Pruefung) Verbindungen nach draussen mit sich bringt, ist heute offen. 2) Beim Oeffnen eines Berichts oder des Berichtsordners uebergibt CleanDesk den Vorgang an Windows. Was die dort registrierte Standardanwendung anschliessend tut, liegt ausserhalb von CleanDesk und ist von hier aus nicht bewertbar.",
+      "offene_fragen": "1) Die Anwendung ist nicht veröffentlicht und besitzt keine Installations- oder Update-Funktion. Ob eine spätere Verteilung (Installer, Signierung, Update-Prüfung) Verbindungen nach draußen mit sich bringt, ist heute offen. 2) Beim Öffnen eines Berichts oder des Berichtsordners übergibt CleanDesk den Vorgang an Windows. Was die dort registrierte Standardanwendung anschließend tut, liegt außerhalb von CleanDesk und ist von hier aus nicht bewertbar.",
       "art": "anwendung"
     },
     {
@@ -957,33 +957,33 @@
     {
       "slug": "fuchsbau",
       "name": "FuchsBau Passwortmanager",
-      "stand": "2026-08-23",
+      "stand": "2026-09-25",
       "geprueft_von": "25_FuchsBau",
-      "fassung": "0.6.2+17 (Entwicklungsstand, noch nicht veroeffentlicht)",
+      "fassung": "0.6.2+17 (Entwicklungsstand, noch nicht veröffentlicht)",
       "lokal_only": true,
       "auf_dem_geraet": [
         {
-          "was": "Tresor-Eintraege (Titel und Passwort, optional Benutzername, URL, Kategorie, Notiz)",
-          "wo": "verschluesselt im geschuetzten Speicher des Geraets",
+          "was": "Tresor-Einträge (Titel und Passwort, optional Benutzername, URL, Kategorie, Notiz)",
+          "wo": "verschlüsselt im geschützten Speicher des Geräts",
           "beleg": "lib/data/secure_vault_repository.dart (flutter_secure_storage, Schluessel \"fuchsbau_vault_v1\")"
         },
         {
-          "was": "Pruefsummen von Tresor-PIN, Tresor-Passwort und Offline-Sicherheitsschluessel; die eingegebenen Werte selbst werden nicht gespeichert",
-          "wo": "verschluesselt im geschuetzten Speicher des Geraets",
+          "was": "Prüfsummen von Tresor-PIN, Tresor-Passwort und Offline-Sicherheitsschlüssel; die eingegebenen Werte selbst werden nicht gespeichert",
+          "wo": "verschlüsselt im geschützten Speicher des Geräts",
           "beleg": "lib/core/security/pin_service.dart; lib/core/security/password_service.dart; lib/core/security/security_key_service.dart (Argon2id-Hash + Salt)"
         },
         {
           "was": "Auswahl der aktiven Entsperr-Faktoren",
-          "wo": "verschluesselt im geschuetzten Speicher des Geraets",
+          "wo": "verschlüsselt im geschützten Speicher des Geräts",
           "beleg": "lib/core/security/unlock_config.dart (Schluessel \"fuchsbau_unlock_cfg\")"
         },
         {
-          "was": "Einstellungen (Hell/Dunkel/System, Merker fuer die Einfuehrung beim ersten Start, selbst ergaenzte Woerter fuer den Passphrasen-Generator)",
-          "wo": "verschluesselt im geschuetzten Speicher des Geraets",
+          "was": "Einstellungen (Hell/Dunkel/System, Merker für die Einführung beim ersten Start, selbst ergänzte Wörter für den Passphrasen-Generator)",
+          "wo": "verschlüsselt im geschützten Speicher des Geräts",
           "beleg": "lib/core/theme/theme_controller.dart; lib/core/onboarding/onboarding_controller.dart; lib/domain/wordlist/custom_words_controller.dart"
         },
         {
-          "was": "Mitgelieferte deutsche Wortliste fuer Passphrasen (7855 Woerter, keine Nutzerdaten)",
+          "was": "Mitgelieferte deutsche Wortliste für Passphrasen (7855 Wörter, keine Nutzerdaten)",
           "wo": "Bestandteil der App",
           "beleg": "assets/wordlists/de_words.txt"
         }
@@ -991,29 +991,29 @@
       "berechtigungen": [
         {
           "name": "Biometrie",
-          "wofuer": "Entsperren per Fingerabdruck oder Gesicht, wenn der Nutzer diesen Faktor aktiviert; die App fordert dabei ausschließlich Biometrie an, keinen Ersatz durch Geraete-PIN oder Systemmuster. Ohne Biometrie sind zwei andere Faktoren erforderlich.",
+          "wofuer": "Entsperren per Fingerabdruck oder Gesicht, wenn der Nutzer diesen Faktor aktiviert; die App fordert dabei ausschließlich Biometrie an, keinen Ersatz durch Geräte-PIN oder Systemmuster. Ohne Biometrie sind zwei andere Faktoren erforderlich.",
           "pflicht": false,
           "beleg": "android/app/src/main/AndroidManifest.xml (USE_BIOMETRIC)"
         },
         {
           "name": "Internet",
-          "wofuer": "wird in der Veroeffentlichungsfassung nicht angefordert und nicht genutzt. Die App kann von sich aus nichts senden und nichts abrufen.",
+          "wofuer": "wird in der Veröffentlichungsfassung nicht angefordert und nicht genutzt. Die App kann von sich aus nichts senden und nichts abrufen.",
           "pflicht": false,
           "beleg": "android/app/src/main/AndroidManifest.xml enthaelt kein INTERNET; der Eintrag steht nur in android/app/src/debug/AndroidManifest.xml und android/app/src/profile/AndroidManifest.xml (Flutter-Standardvorlage fuer Entwicklerwerkzeuge, nicht Teil des Release-Builds)"
         }
       ],
       "uebertragungen": [
         {
-          "wohin": "vom Nutzer gewaehlter Android-Druckdienst",
-          "was": "PDF mit dem Offline-Sicherheitsschluessel",
-          "wann": "nur wenn der Nutzer den Sicherheitsschluessel drucken bzw. als PDF sichern waehlt",
+          "wohin": "vom Nutzer gewählter Android-Druckdienst",
+          "was": "PDF mit dem Offline-Sicherheitsschlüssel",
+          "wann": "nur wenn der Nutzer den Sicherheitsschlüssel drucken bzw. als PDF sichern wählt",
           "freiwillig": true,
           "beleg": "lib/features/security_key/security_key_show_screen.dart (Printing.layoutPdf)"
         },
         {
-          "wohin": "Zwischenablage des Geraets (systemweit, grundsaetzlich fuer andere Apps lesbar)",
-          "was": "ein einzelnes Passwort oder der verschluesselte Backup-Text",
-          "wann": "nur wenn der Nutzer \"Kopieren\" waehlt; Passwoerter werden nach 30 Sekunden, Backup-Texte nach 2 Minuten geloescht. Inzwischen veraenderter fremder Inhalt bleibt erhalten.",
+          "wohin": "Zwischenablage des Geräts (systemweit, grundsätzlich für andere Apps lesbar)",
+          "was": "ein einzelnes Passwort oder der verschlüsselte Backup-Text",
+          "wann": "nur wenn der Nutzer \"Kopieren\" wählt; Passwörter werden nach 30 Sekunden, Backup-Texte nach 2 Minuten gelöscht. Inzwischen veränderter fremder Inhalt bleibt erhalten.",
           "freiwillig": true,
           "beleg": "lib/core/security/clipboard_service.dart; lib/features/backup/backup_screen.dart"
         }
@@ -1024,10 +1024,10 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen im verschluesselten Speicher des Geraets. Sie verschwinden beim Deinstallieren der App oder beim Loeschen der App-Daten. Einzelne Eintraege lassen sich in der App loeschen. Eine vom Nutzer selbst erzeugte Sicherung liegt dort, wohin er sie gelegt hat, und muss dort selbst geloescht werden.",
-      "besonderheiten": "FuchsBau arbeitet ausschliesslich auf dem Geraet: kein Konto, keine Anmeldung, keine Verbindung nach draussen. Passwoerter und Notizen liegen verschluesselt im geschuetzten Speicher des Geraets. PIN, Tresor-Passwort und Sicherheitsschluessel werden nie im Klartext gespeichert, sondern nur als Pruefsumme, aus der sich der eingegebene Wert nicht zurueckrechnen laesst. Der Tresor verlangt mindestens zwei Faktoren; einzelne Eintraege lassen sich zusaetzlich mit einem Offline-Sicherheitsschluessel schuetzen, der genau einmal angezeigt wird und danach nicht wiederherstellbar ist. In der Veroeffentlichungsfassung sind Bildschirmfotos und das Vorschaubild in der App-Uebersicht unterbunden. Eine Sicherung ist ein Text, den der Nutzer mit einer selbst gewaehlten Passphrase verschluesselt; ohne diese Passphrase ist sie fuer niemanden lesbar, auch nicht fuer FehlerFuchs.",
+      "loeschung": "Alle Daten liegen im verschlüsselten Speicher des Geräts. Sie verschwinden beim Deinstallieren der App oder beim Löschen der App-Daten. Einzelne Einträge lassen sich in der App löschen. Eine vom Nutzer selbst erzeugte Sicherung liegt dort, wohin er sie gelegt hat, und muss dort selbst gelöscht werden.",
+      "besonderheiten": "FuchsBau arbeitet ausschließlich auf dem Gerät: kein Konto, keine Anmeldung, keine Verbindung nach draußen. Passwörter und Notizen liegen verschlüsselt im geschützten Speicher des Geräts. PIN, Tresor-Passwort und Sicherheitsschlüssel werden nie im Klartext gespeichert, sondern nur als Prüfsumme, aus der sich der eingegebene Wert nicht zurückrechnen lässt. Der Tresor verlangt mindestens zwei Faktoren; einzelne Einträge lassen sich zusätzlich mit einem Offline-Sicherheitsschlüssel schützen, der genau einmal angezeigt wird und danach nicht wiederherstellbar ist. In der Veröffentlichungsfassung sind Bildschirmfotos und das Vorschaubild in der App-Übersicht unterbunden. Eine Sicherung ist ein Text, den der Nutzer mit einer selbst gewählten Passphrase verschlüsselt; ohne diese Passphrase ist sie für niemanden lesbar, auch nicht für FehlerFuchs.",
       "vorhandener_text": "Noch keiner. In der App gibt es bislang weder einen Datenschutz- noch einen Impressumstext; eine Muster-Vorlage liegt projektintern bereit, ist aber nicht eingebunden.",
-      "offene_fragen": "1) Ob der verschluesselte Speicher auf einem konkreten Geraet hardwaregestuetzt abgesichert ist, haengt vom Geraet und der Android-Fassung ab und laesst sich aus der App heraus nicht zusichern. 2) Was der vom Nutzer gewaehlte Android-Druckdienst mit dem PDF des Sicherheitsschluessels macht, liegt ausserhalb der App - es kann auch ein Netzwerk- oder Cloud-Druckdienst sein. 3) Die App ist noch nicht veroeffentlicht; eine Verteilung ueber Google Play ist geplant. Was Google im Zuge der Verteilung selbst erhebt, ist hier nicht abgebildet und muss vor der Veroeffentlichung ergaenzt werden. 4) Ein In-App-Datenschutz- und Impressumstext fehlt noch und muss vor der Veroeffentlichung ergaenzt werden.",
+      "offene_fragen": "1) Ob der verschlüsselte Speicher auf einem konkreten Gerät hardwaregestützt abgesichert ist, hängt vom Gerät und der Android-Fassung ab und lässt sich aus der App heraus nicht zusichern. 2) Was der vom Nutzer gewählte Android-Druckdienst mit dem PDF des Sicherheitsschlüssels macht, liegt außerhalb der App - es kann auch ein Netzwerk- oder Cloud-Druckdienst sein. 3) Die App ist noch nicht veröffentlicht; eine Verteilung über Google Play ist geplant. Was Google im Zuge der Verteilung selbst erhebt, ist hier nicht abgebildet und muss vor der Veröffentlichung ergänzt werden. 4) Ein In-App-Datenschutz- und Impressumstext fehlt noch und muss vor der Veröffentlichung ergänzt werden.",
       "art": "anwendung"
     },
     {
@@ -2149,9 +2149,9 @@
     {
       "slug": "up2date",
       "name": "Up2Date – FehlerFuchs Update-Helfer",
-      "stand": "2026-07-26",
+      "stand": "2026-09-25",
       "geprueft_von": "31_Up2Date",
-      "fassung": "1.0.0 (MVP: Tray, App-Erkennung, Versionsabgleich, Autostart, Feedback; noch nicht veroeffentlicht)",
+      "fassung": "1.0.0 (MVP: Tray, App-Erkennung, Versionsabgleich, Autostart, Feedback; noch nicht veröffentlicht)",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -2165,9 +2165,9 @@
           "beleg": "lib/settings.dart (Paket launch_at_startup)"
         },
         {
-          "was": "keine persoenlichen oder inhaltlichen Nutzerdaten",
+          "was": "keine persönlichen oder inhaltlichen Nutzerdaten",
           "wo": "es gibt keine Datenbank, keine Dokumente, keine Konten",
-          "beleg": "keine Datei-/DB-Schreibzugriffe ausser den Einstellungen oben"
+          "beleg": "keine Datei-/DB-Schreibzugriffe außer den Einstellungen oben"
         }
       ],
       "berechtigungen": [
@@ -2175,7 +2175,7 @@
           "name": "Lesen der Liste installierter Programme",
           "wofuer": "Erkennen, welche FehlerFuchs-Programme installiert sind (Name + Fassung)",
           "pflicht": false,
-          "beleg": "lib/app_scan.dart (Paket win32_registry), nur lesend, Uninstall-Eintraege"
+          "beleg": "lib/app_scan.dart (Paket win32_registry), nur lesend, Uninstall-Einträge"
         },
         {
           "name": "Automatischer Start mit Windows",
@@ -2185,7 +2185,7 @@
         },
         {
           "name": "Zugriff auf das Internet",
-          "wofuer": "Abruf der Fassungsliste (automatisch beim Start) und Senden von Feedback (nur nutzerausgeloest)",
+          "wofuer": "Abruf der Fassungsliste (automatisch beim Start) und Senden von Feedback (nur nutzerausgelöst)",
           "pflicht": false,
           "beleg": "lib/version_check.dart (GET versions.json) und lib/support.dart (POST /v1/contact)"
         },
@@ -2205,14 +2205,14 @@
       "uebertragungen": [
         {
           "wohin": "fehlerfuchs.eu",
-          "was": "nichts vom Nutzer – es wird nur die oeffentliche Datei versions.json abgerufen (lesend). Der Server sieht die Anfrage und damit die IP-Adresse.",
+          "was": "nichts vom Nutzer – es wird nur die öffentliche Datei versions.json abgerufen (lesend). Der Server sieht die Anfrage und damit die IP-Adresse.",
           "wann": "automatisch beim Start und beim Klick auf \"Erneut suchen\"",
           "freiwillig": false,
           "beleg": "lib/version_check.dart – GET https://fehlerfuchs.eu/versions.json (Paket http)"
         },
         {
           "wohin": "Server von FehlerFuchs (EU, IONOS)",
-          "was": "die eingegebene Nachricht sowie – nur wenn angegeben – Name und E-Mail; auf ausdruecklichen Wunsch zusaetzlich eine technische Diagnose (App-Version, Betriebssystem, Spracheinstellung), keine persoenlichen Daten",
+          "was": "die eingegebene Nachricht sowie – nur wenn angegeben – Name und E-Mail; auf ausdrücklichen Wunsch zusätzlich eine technische Diagnose (App-Version, Betriebssystem, Spracheinstellung), keine persönlichen Daten",
           "wann": "nur wenn der Nutzer im Feedback-Fenster aktiv auf \"Senden\" tippt",
           "freiwillig": true,
           "beleg": "lib/support.dart – POST an license.fehlerfuchs.eu/v1/contact (Paket http)"
@@ -2224,10 +2224,10 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Die Anwendung speichert nur die eigenen Einstellungen und – wenn eingeschaltet – einen Autostart-Eintrag. Beim Entfernen des Programms verschwinden diese; der Autostart-Schalter laesst sich jederzeit in den Einstellungen ausschalten. Eine gesendete Feedback-Nachricht wird bei uns als E-Mail bearbeitet und nicht dauerhaft in einer Datenbank abgelegt.",
-      "besonderheiten": "Up2Date ist der zentrale Update-Helfer fuer FehlerFuchs-Anwendungen und laeuft als Symbol im Windows-Infobereich. Es erkennt installierte FehlerFuchs-Programme ueber die Windows-Registry (nur lesend) und vergleicht deren Fassung mit einer oeffentlich abrufbaren Liste auf fehlerfuchs.eu. Der Abruf dieser Liste ist der einzige automatische Kontakt nach draussen und uebertraegt keine Nutzerdaten. Kein Konto, keine Telemetrie, keine Werbung. Der Autostart ist ausdrueckliches Opt-in und wird nicht vom Installer gesetzt.",
+      "loeschung": "Die Anwendung speichert nur die eigenen Einstellungen und – wenn eingeschaltet – einen Autostart-Eintrag. Beim Entfernen des Programms verschwinden diese; der Autostart-Schalter lässt sich jederzeit in den Einstellungen ausschalten. Eine gesendete Feedback-Nachricht wird bei uns als E-Mail bearbeitet und nicht dauerhaft in einer Datenbank abgelegt.",
+      "besonderheiten": "Up2Date ist der zentrale Update-Helfer für FehlerFuchs-Anwendungen und läuft als Symbol im Windows-Infobereich. Es erkennt installierte FehlerFuchs-Programme über die Windows-Registry (nur lesend) und vergleicht deren Fassung mit einer öffentlich abrufbaren Liste auf fehlerfuchs.eu. Der Abruf dieser Liste ist der einzige automatische Kontakt nach draußen und überträgt keine Nutzerdaten. Kein Konto, keine Telemetrie, keine Werbung. Der Autostart ist ausdrückliches Opt-in und wird nicht vom Installer gesetzt.",
       "vorhandener_text": "",
-      "offene_fragen": "1) Ob der Server beim Abruf der Fassungsliste IP-Adressen protokolliert, haengt vom Server ab und ist von der App aus nicht feststellbar. 2) Es existiert noch kein Installer; ob dieser spaeter Eintraege ausserhalb des Programmordners anlegt, ist offen. 3) Der Download und Start von Update-Installern ist noch nicht gebaut – wenn er kommt, laedt die App ausfuehrbare Dateien von fehlerfuchs.eu bzw. dem GitHub-Release-Repo; das wird dann hier ergaenzt.",
+      "offene_fragen": "1) Ob der Server beim Abruf der Fassungsliste IP-Adressen protokolliert, hängt vom Server ab und ist von der App aus nicht feststellbar. 2) Es existiert noch kein Installer; ob dieser später Einträge außerhalb des Programmordners anlegt, ist offen. 3) Der Download und Start von Update-Installern ist noch nicht gebaut – wenn er kommt, lädt die App ausführbare Dateien von fehlerfuchs.eu bzw. dem GitHub-Release-Repo; das wird dann hier ergänzt.",
       "art": "anwendung"
     },
     {

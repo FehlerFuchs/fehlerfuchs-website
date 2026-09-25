@@ -1,8 +1,8 @@
 slug: cleandesk
 name: FehlerFuchs CleanDesk
-stand: "2026-08-23"
+stand: "2026-09-25"
 geprueft_von: 24_CleanDesk (Codex-Reparatur)
-fassung: "0.2.0 (csproj) - Entwicklungsstand, noch nicht veroeffentlicht"
+fassung: "0.2.0 (csproj) - Entwicklungsstand, noch nicht veröffentlicht"
 
 # Windows-Desktop-Anwendung (.NET 8 / WPF, net8.0-windows). Im gesamten
 # Quellcode gibt es keinen einzigen Netzwerkaufruf; die csproj enthaelt
@@ -10,36 +10,36 @@ fassung: "0.2.0 (csproj) - Entwicklungsstand, noch nicht veroeffentlicht"
 lokal_only: true
 
 auf_dem_geraet:
-  - was: Einstellungen (zu pruefende Ordner, Grenzwerte fuer gross und alt, max. Hash-Groesse)
+  - was: Einstellungen (zu prüfende Ordner, Grenzwerte für groß und alt, max. Hash-Größe)
     wo: '%LOCALAPPDATA%\FehlerFuchs\CleanDesk\settings.json'
     beleg: src/CleanDesk/Services/Settings.cs (DataDir, SettingsPath)
   - was: eigene Sortier-Regeln (Dateiendung -> Zielordner)
     wo: '%LOCALAPPDATA%\FehlerFuchs\CleanDesk\sortierregeln.json'
     beleg: src/CleanDesk/Services/RulesStore.cs
-  - was: Berichte ueber die Funde; enthalten Dateinamen, vollstaendige Pfade,
-      Groessen, Aenderungsdaten und SHA-256-Pruefsummen der Dateien des Nutzers
+  - was: Berichte über die Funde; enthalten Dateinamen, vollständige Pfade,
+      Größen, Änderungsdaten und SHA-256-Prüfsummen der Dateien des Nutzers
     wo: '%LOCALAPPDATA%\FehlerFuchs\CleanDesk\berichte\ (TXT, CSV, JSON)'
     beleg: src/CleanDesk/Services/ReportWriter.cs
-  - was: Protokoll der ausgefuehrten Aktionen (Quell- und Zielpfade beim Sortieren,
+  - was: Protokoll der ausgeführten Aktionen (Quell- und Zielpfade beim Sortieren,
       Papierkorb-Aktionen)
     wo: '%LOCALAPPDATA%\FehlerFuchs\CleanDesk\logs\ (JSONL und TXT)'
     beleg: src/CleanDesk/Safety/Protocol.cs
   - was: beim Sortieren erzeugte Kopien der Dateien; die Originale wandern in den
       Windows-Papierkorb
-    wo: vom Nutzer gewaehlter Zielordner bzw. Windows-Papierkorb
+    wo: vom Nutzer gewählter Zielordner bzw. Windows-Papierkorb
     beleg: src/CleanDesk/Safety/SafeMover.cs, src/CleanDesk/Safety/RecycleBin.cs
 
 # Windows-Desktop-Anwendung ohne Manifest-Berechtigungen (kein Android-Manifest).
 # Kein <ApplicationManifest> mit Elevation in der csproj; laeuft ohne Administratorrechte.
 berechtigungen:
-  - name: Lesezugriff auf die vom Nutzer gewaehlten Ordner
-    wofuer: Scan nach echten Duplikaten (Groessen-Vorfilter, dann SHA-256), grossen
+  - name: Lesezugriff auf die vom Nutzer gewählten Ordner
+    wofuer: Scan nach echten Duplikaten (Größen-Vorfilter, dann SHA-256), großen
       und alten Dateien sowie leeren Ordnern
     pflicht: true
     beleg: src/CleanDesk/Core/Scanner.cs, src/CleanDesk/Core/DuplicateFinder.cs
-  - name: Schreiben und Verschieben in den Papierkorb in den gewaehlten Ordnern
-    wofuer: Sortieren (kopieren) und Duplikate in den Papierkorb - ausschliesslich
-      nach ausdruecklicher Bestaetigung im Dialog
+  - name: Schreiben und Verschieben in den Papierkorb in den gewählten Ordnern
+    wofuer: Sortieren (kopieren) und Duplikate in den Papierkorb - ausschließlich
+      nach ausdrücklicher Bestätigung im Dialog
     pflicht: false
     beleg: src/CleanDesk/Safety/SafeMover.cs, src/CleanDesk/Safety/RecycleBin.cs
 
@@ -63,37 +63,37 @@ absturzberichte: false
 daten_an_dritte_verkauft: false
 
 loeschung: >-
-  Alle Daten liegen auf dem Geraet. Berichte und Protokolle lassen sich einzeln
-  loeschen; der gesamte App-Datenordner %LOCALAPPDATA%\FehlerFuchs\CleanDesk kann
+  Alle Daten liegen auf dem Gerät. Berichte und Protokolle lassen sich einzeln
+  löschen; der gesamte App-Datenordner %LOCALAPPDATA%\FehlerFuchs\CleanDesk kann
   jederzeit von Hand entfernt werden. Dateien, die CleanDesk in den Papierkorb
-  verschoben hat, lassen sich ueber den Windows-Papierkorb wiederherstellen oder
-  dort endgueltig loeschen.
+  verschoben hat, lassen sich über den Windows-Papierkorb wiederherstellen oder
+  dort endgültig löschen.
 
 besonderheiten: >-
-  Der Scan ist reine Analyse und veraendert nichts. Veraendernde Aktionen laufen nur
-  nach Bestaetigung und ausschliesslich ueber den Papierkorb; endgueltiges Loeschen
+  Der Scan ist reine Analyse und verändert nichts. Verändernde Aktionen laufen nur
+  nach Bestätigung und ausschließlich über den Papierkorb; endgültiges Löschen
   gibt es in diesem Stand nicht. Verschoben wird immer in drei Schritten: Die Datei
-  wird zuerst an den Zielort kopiert, die Kopie wird ueber Groesse und Pruefsumme mit
+  wird zuerst an den Zielort kopiert, die Kopie wird über Größe und Prüfsumme mit
   dem Original verglichen, und erst danach wandert das Original in den Papierkorb.
-  Bei Namensgleichheit wird umbenannt, nie ueberschrieben. Geschuetzte Bereiche des
+  Bei Namensgleichheit wird umbenannt, nie überschrieben. Geschützte Bereiche des
   Betriebssystems und der Programme sowie versteckte Anwendungsdaten werden nicht
-  gelesen; Laufwerkswurzeln und Verknuepfungen auf andere Orte werden nicht verfolgt.
-  Eigene Sortierregeln koennen nur einzelne Unterordnernamen erzeugen. Vor dem
-  Papierkorb prueft CleanDesk Kandidat und Behalten-Datei erneut gegen denselben
-  SHA-256 aus dem Scan; fehlt oder aendert sich eine der Dateien, wird abgebrochen.
+  gelesen; Laufwerkswurzeln und Verknüpfungen auf andere Orte werden nicht verfolgt.
+  Eigene Sortierregeln können nur einzelne Unterordnernamen erzeugen. Vor dem
+  Papierkorb prüft CleanDesk Kandidat und Behalten-Datei erneut gegen denselben
+  SHA-256 aus dem Scan; fehlt oder ändert sich eine der Dateien, wird abgebrochen.
   Schreibende Dateiaktionen werden auch abgebrochen, wenn ihr vorheriger
   Protokolleintrag nicht geschrieben werden kann.
-  Datenschutzrelevant: Berichte und Protokolle enthalten vollstaendige Dateipfade und
-  Dateinamen des Nutzers und koennen dadurch personenbezogene Angaben in Pfadnamen
+  Datenschutzrelevant: Berichte und Protokolle enthalten vollständige Dateipfade und
+  Dateinamen des Nutzers und können dadurch personenbezogene Angaben in Pfadnamen
   enthalten; sie verbleiben lokal und werden nicht versendet.
 
 vorhandener_text: src/CleanDesk/Views/InfoView.xaml (Seite "Info / Datenschutz" in der App)
 
 offene_fragen: >-
-  1) Die Anwendung ist nicht veroeffentlicht und besitzt keine Installations- oder
-  Update-Funktion. Ob eine spaetere Verteilung (Installer, Signierung, Update-Pruefung)
-  Verbindungen nach draussen mit sich bringt, ist heute offen.
-  2) Beim Oeffnen eines Berichts oder des Berichtsordners uebergibt CleanDesk den
+  1) Die Anwendung ist nicht veröffentlicht und besitzt keine Installations- oder
+  Update-Funktion. Ob eine spätere Verteilung (Installer, Signierung, Update-Prüfung)
+  Verbindungen nach draußen mit sich bringt, ist heute offen.
+  2) Beim Öffnen eines Berichts oder des Berichtsordners übergibt CleanDesk den
   Vorgang an Windows. Was die dort registrierte
-  Standardanwendung anschliessend tut, liegt ausserhalb von CleanDesk und ist von hier
+  Standardanwendung anschließend tut, liegt außerhalb von CleanDesk und ist von hier
   aus nicht bewertbar.

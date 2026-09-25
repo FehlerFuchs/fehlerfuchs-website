@@ -1,13 +1,13 @@
 slug: up2date
 name: Up2Date – FehlerFuchs Update-Helfer
-stand: "2026-07-26"
+stand: "2026-09-25"
 geprueft_von: 31_Up2Date
-fassung: "1.0.0 (MVP: Tray, App-Erkennung, Versionsabgleich, Autostart, Feedback; noch nicht veroeffentlicht)"
+fassung: "1.0.0 (MVP: Tray, App-Erkennung, Versionsabgleich, Autostart, Feedback; noch nicht veröffentlicht)"
 
-# Geprueft wurde der Quellstand in 05_App/up2date (lib/), nicht die Beschreibung.
+# Geprüft wurde der Quellstand in 05_App/up2date (lib/), nicht die Beschreibung.
 
-# Ohne Zutun nimmt die Anwendung beim Start EINE Verbindung nach draussen auf:
-# den Abruf der oeffentlichen Fassungsliste. Dabei werden keine Nutzerdaten
+# Ohne Zutun nimmt die Anwendung beim Start EINE Verbindung nach draußen auf:
+# den Abruf der öffentlichen Fassungsliste. Dabei werden keine Nutzerdaten
 # gesendet, der Server sieht aber die Anfrage. Deshalb nicht rein lokal.
 lokal_only: false
 
@@ -18,24 +18,24 @@ auf_dem_geraet:
   - was: Autostart-Eintrag, nur wenn der Nutzer ihn einschaltet
     wo: Windows-Registry des eigenen Benutzers (HKCU, Autostart)
     beleg: lib/settings.dart (Paket launch_at_startup)
-  - was: keine persoenlichen oder inhaltlichen Nutzerdaten
+  - was: keine persönlichen oder inhaltlichen Nutzerdaten
     wo: es gibt keine Datenbank, keine Dokumente, keine Konten
-    beleg: keine Datei-/DB-Schreibzugriffe ausser den Einstellungen oben
+    beleg: keine Datei-/DB-Schreibzugriffe außer den Einstellungen oben
 
-# Windows-Desktop: kein Berechtigungsmanifest wie unter Android. Aufgefuehrt sind
-# die Faehigkeiten, die die Anwendung nutzt (bzw. mitbringt, aber nicht nutzt).
+# Windows-Desktop: kein Berechtigungsmanifest wie unter Android. Aufgeführt sind
+# die Fähigkeiten, die die Anwendung nutzt (bzw. mitbringt, aber nicht nutzt).
 berechtigungen:
   - name: Lesen der Liste installierter Programme
     wofuer: Erkennen, welche FehlerFuchs-Programme installiert sind (Name + Fassung)
     pflicht: false
-    beleg: lib/app_scan.dart (Paket win32_registry), nur lesend, Uninstall-Eintraege
+    beleg: lib/app_scan.dart (Paket win32_registry), nur lesend, Uninstall-Einträge
   - name: Automatischer Start mit Windows
     wofuer: optionaler Start im Infobereich – nur nach Zustimmung, jederzeit abschaltbar
     pflicht: false
     beleg: lib/settings.dart (Paket launch_at_startup, HKCU); kein Eintrag durch den Installer
   - name: Zugriff auf das Internet
     wofuer: Abruf der Fassungsliste (automatisch beim Start) und Senden von Feedback
-      (nur nutzerausgeloest)
+      (nur nutzerausgelöst)
     pflicht: false
     beleg: lib/version_check.dart (GET versions.json) und lib/support.dart (POST /v1/contact)
   - name: Windows-Benachrichtigungen
@@ -49,15 +49,15 @@ berechtigungen:
 
 uebertragungen:
   - wohin: fehlerfuchs.eu
-    was: nichts vom Nutzer – es wird nur die oeffentliche Datei versions.json
+    was: nichts vom Nutzer – es wird nur die öffentliche Datei versions.json
       abgerufen (lesend). Der Server sieht die Anfrage und damit die IP-Adresse.
     wann: automatisch beim Start und beim Klick auf "Erneut suchen"
     freiwillig: false
     beleg: lib/version_check.dart – GET https://fehlerfuchs.eu/versions.json (Paket http)
   - wohin: Server von FehlerFuchs (EU, IONOS)
     was: die eingegebene Nachricht sowie – nur wenn angegeben – Name und E-Mail;
-      auf ausdruecklichen Wunsch zusaetzlich eine technische Diagnose
-      (App-Version, Betriebssystem, Spracheinstellung), keine persoenlichen Daten
+      auf ausdrücklichen Wunsch zusätzlich eine technische Diagnose
+      (App-Version, Betriebssystem, Spracheinstellung), keine persönlichen Daten
     wann: nur wenn der Nutzer im Feedback-Fenster aktiv auf "Senden" tippt
     freiwillig: true
     beleg: lib/support.dart – POST an license.fehlerfuchs.eu/v1/contact (Paket http)
@@ -73,25 +73,25 @@ daten_an_dritte_verkauft: false
 loeschung: >-
   Die Anwendung speichert nur die eigenen Einstellungen und – wenn eingeschaltet –
   einen Autostart-Eintrag. Beim Entfernen des Programms verschwinden diese; der
-  Autostart-Schalter laesst sich jederzeit in den Einstellungen ausschalten. Eine
+  Autostart-Schalter lässt sich jederzeit in den Einstellungen ausschalten. Eine
   gesendete Feedback-Nachricht wird bei uns als E-Mail bearbeitet und nicht
   dauerhaft in einer Datenbank abgelegt.
 
 besonderheiten: >-
-  Up2Date ist der zentrale Update-Helfer fuer FehlerFuchs-Anwendungen und laeuft
+  Up2Date ist der zentrale Update-Helfer für FehlerFuchs-Anwendungen und läuft
   als Symbol im Windows-Infobereich. Es erkennt installierte FehlerFuchs-Programme
-  ueber die Windows-Registry (nur lesend) und vergleicht deren Fassung mit einer
-  oeffentlich abrufbaren Liste auf fehlerfuchs.eu. Der Abruf dieser Liste ist der
-  einzige automatische Kontakt nach draussen und uebertraegt keine Nutzerdaten.
-  Kein Konto, keine Telemetrie, keine Werbung. Der Autostart ist ausdrueckliches
+  über die Windows-Registry (nur lesend) und vergleicht deren Fassung mit einer
+  öffentlich abrufbaren Liste auf fehlerfuchs.eu. Der Abruf dieser Liste ist der
+  einzige automatische Kontakt nach draußen und überträgt keine Nutzerdaten.
+  Kein Konto, keine Telemetrie, keine Werbung. Der Autostart ist ausdrückliches
   Opt-in und wird nicht vom Installer gesetzt.
 
 vorhandener_text: ""
 
 offene_fragen: >-
-  1) Ob der Server beim Abruf der Fassungsliste IP-Adressen protokolliert, haengt
+  1) Ob der Server beim Abruf der Fassungsliste IP-Adressen protokolliert, hängt
   vom Server ab und ist von der App aus nicht feststellbar. 2) Es existiert noch
-  kein Installer; ob dieser spaeter Eintraege ausserhalb des Programmordners
+  kein Installer; ob dieser später Einträge außerhalb des Programmordners
   anlegt, ist offen. 3) Der Download und Start von Update-Installern ist noch
-  nicht gebaut – wenn er kommt, laedt die App ausfuehrbare Dateien von
-  fehlerfuchs.eu bzw. dem GitHub-Release-Repo; das wird dann hier ergaenzt.
+  nicht gebaut – wenn er kommt, lädt die App ausführbare Dateien von
+  fehlerfuchs.eu bzw. dem GitHub-Release-Repo; das wird dann hier ergänzt.
