@@ -101,11 +101,37 @@ editions:
     summary: Voller Funktionsumfang, dauerhaft kostenlos.
     price: { model: kostenlos }
 
-# Öffentlicher Windows-Download: GitHub-Release 'orgafuchs-v1.9.2' – signierte
-# Fassung (Azure Artifact Signing, Herausgeber FehlerFuchs, 13.09.2026). Bugfix, löst
-# 1.9.1 ab (ältere Releases bleiben im Downloads-Repo). sha256/Bytes gegen das
-# GitHub-Asset gegengeprüft (gh: 17.480.728 B, sha256 74c175ce…4c17).
+# Öffentlicher Windows-Download: GitHub-Release 'orgafuchs-v1.9.3' – signierte
+# Fassung (Azure Artifact Signing, Herausgeber FehlerFuchs, 25.09.2026), löst 1.9.2 ab
+# (ältere Releases bleiben im Downloads-Repo). sha256/Bytes gegen das GitHub-Asset
+# gegengeprüft (gh: 17.548.488 B, sha256 a068bfbe…d76b).
 releases:
+  # 1.9.3: Signier-/Manifest-Fakten aus dem Handoff von [FF_16] Code Signing
+  # (25.09.2026 21:29, zweistufig App+Installer signiert, veröffentlicht auf „push"
+  # von Matthias 21:28), gegen GitHub geprüft (gh release view orgafuchs-v1.9.3:
+  # kein Entwurf, Asset 17.548.488 B, sha256 a068bfbe…d76b – stimmen). Changelog aus
+  # 32_OrgaFuchs\05_App\orgafuchs\assets\changelog.md, Windows-relevanter Auszug –
+  # Android-only (Monats-Widget, Cloud-Backups, Benachrichtigungen) weggelassen (P8).
+  - version: "1.9.3"
+    date: "2026-09-25"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.9.3/FehlerFuchs_OrgaFuchs_Setup_1.9.3.exe
+    filename: FehlerFuchs_OrgaFuchs_Setup_1.9.3.exe
+    size:
+      bytes: 17548488
+      label: "16,7 MB"
+      source: GitHub-Release-Asset
+    sha256: "a068bfbea160b14641eb5a18e5b518993deec2971839d1a1a9e360c924e5d76b"
+    signed: true
+    notes: >-
+      Signierte Windows-Fassung 1.9.3 (Herausgeber FehlerFuchs), löst 1.9.2 ab.
+      Deutlich stabilerer Familien-Sync: Jede Änderung wird zuerst auf dem Gerät
+      gesichert und erst gelöscht, wenn das Hauptgerät sie bestätigt hat. Dienste und
+      Kategorien erreichen jetzt alle Familiengeräte. „Alle Daten löschen" entfernt
+      wirklich alles, unverschlüsselte Verbindungen sind abgeschaltet. Unter Windows
+      prüft das Update die Signatur des Installers strenger, OrgaFuchs startet auch ohne
+      installierte Visual-C++-Laufzeit, läuft nur einmal und deinstalliert sich sauber.
   # 1.9.2: Signier-/Manifest-Fakten aus dem [16]-Handoff (13.09., zweistufig App+
   # Installer signiert), gegen GitHub geprüft (gh release view orgafuchs-v1.9.2:
   # Asset, 17.480.728 B, sha256 74c175ce…4c17 – stimmen). Bugfix über 1.9.1;

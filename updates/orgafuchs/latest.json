@@ -1,6 +1,6 @@
 {
-  "version": "1.9.2",
-  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.9.2/FehlerFuchs_OrgaFuchs_Setup_1.9.2.exe",
-  "sha256": "74c175ce7cb4575897a0d2f8e360d0dfd384d8db0717960e57b21fbeb1d14c17",
-  "notes": "Signierte Windows-Fassung 1.9.2 (Herausgeber FehlerFuchs), ein Bugfix-Release über 1.9.1. Es behebt zwei Fehler beim Koppeln weiterer Geräte: „Code vorbereiten\" funktioniert jetzt auch, wenn gerade kein Abgleich läuft, und nach einem Hauptgerät-Wechsel erscheint ein verständlicher Hinweis zum Neu-Koppeln statt einer kryptischen Fehlermeldung. Der übrige Funktionsumfang bleibt unverändert (Kalender-Konfigurator, Jahres- und Schuljahreskalender zum Ausdrucken, Wandpläne je Einrichtung, Sync ohne Cloud). Löst 1.9.1 ab."
+  "version": "1.9.3",
+  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.9.3/FehlerFuchs_OrgaFuchs_Setup_1.9.3.exe",
+  "sha256": "a068bfbea160b14641eb5a18e5b518993deec2971839d1a1a9e360c924e5d76b",
+  "notes": "Signierte Windows-Fassung 1.9.3 (Herausgeber FehlerFuchs), löst 1.9.2 ab. Deutlich stabilerer Familien-Sync: Jede Änderung wird zuerst auf dem Gerät gesichert und erst gelöscht, wenn das Hauptgerät sie bestätigt hat. Dienste und Kategorien erreichen jetzt alle Familiengeräte. „Alle Daten löschen\" entfernt wirklich alles, unverschlüsselte Verbindungen sind abgeschaltet. Unter Windows prüft das Update die Signatur des Installers strenger, OrgaFuchs startet auch ohne installierte Visual-C++-Laufzeit, läuft nur einmal und deinstalliert sich sauber."
 }

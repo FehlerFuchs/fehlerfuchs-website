@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-25T12:36:39+02:00",
+  "generiert": "2026-09-25T21:32:24+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1798,6 +1798,22 @@
         }
       ],
       "releases": [
+        {
+          "version": "1.9.3",
+          "date": "2026-09-25",
+          "channel": "stable",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.9.3/FehlerFuchs_OrgaFuchs_Setup_1.9.3.exe",
+          "filename": "FehlerFuchs_OrgaFuchs_Setup_1.9.3.exe",
+          "size": {
+            "bytes": 17548488,
+            "label": "16,7 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "a068bfbea160b14641eb5a18e5b518993deec2971839d1a1a9e360c924e5d76b",
+          "signed": true,
+          "notes": "Signierte Windows-Fassung 1.9.3 (Herausgeber FehlerFuchs), löst 1.9.2 ab. Deutlich stabilerer Familien-Sync: Jede Änderung wird zuerst auf dem Gerät gesichert und erst gelöscht, wenn das Hauptgerät sie bestätigt hat. Dienste und Kategorien erreichen jetzt alle Familiengeräte. „Alle Daten löschen\" entfernt wirklich alles, unverschlüsselte Verbindungen sind abgeschaltet. Unter Windows prüft das Update die Signatur des Installers strenger, OrgaFuchs startet auch ohne installierte Visual-C++-Laufzeit, läuft nur einmal und deinstalliert sich sauber."
+        },
         {
           "version": "1.9.2",
           "date": "2026-09-13",
