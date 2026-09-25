@@ -1,6 +1,6 @@
 slug: pdfuchsreader
 name: PDFuchs Reader
-stand: "2026-08-23"
+stand: "2026-08-25"
 geprueft_von: >-
   26_PDFuchs (Slug-Eigentümer seit 18.08.2026; führt Android- und
   Windows-Teil). Windows-Teil am 19.08.2026 gegen den aktuellen Quellstand
@@ -228,9 +228,13 @@ vorhandener_text: >-
 offene_fragen: >-
   1. (erledigt) Windows- und Android-Reader teilen bewusst den Slug
   „pdfuchsreader"; Eigentümer und gemeinsame Pflege liegen bei [26] PDFuchs.
-  2. Ob der Kontakt-Endpunkt auf license.fehlerfuchs.eu IP-Adressen oder
-  Zeitstempel protokolliert, hängt vom Server ab und ist aus der App heraus
-  nicht feststellbar - unbekannt.
+  2. (geklärt, Beleg [11] Lizenzserver via [26-1], 23.08.2026) Der Kontakt-Endpunkt
+  /v1/contact auf license.fehlerfuchs.eu speichert den Nachrichteninhalt NICHT in der
+  Datenbank; die IP dient nur als kurzlebiger Redis-Schlüssel der Missbrauchsbremse
+  (Stunde/Tag), es wird kein User-Agent übernommen, und bei Erfolg protokolliert der
+  Dienst weder Anfrageinhalt noch IP. Offen bleibt allein die Aufbewahrung im
+  E-Mail-Postfach, an das der Supportinhalt weitergeleitet wird - sie richtet sich
+  nach dem Postfach.
   3. (erledigt) Das ungenutzte Paket permission_handler wurde mit Version 1.0.1
   (07.08.2026) entfernt; es hatte ohnehin keine Datenschutzwirkung.
   4. (aus der Windows-Zulieferung) Das Netzverhalten der mitgelieferten

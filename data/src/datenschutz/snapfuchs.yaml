@@ -1,6 +1,6 @@
 slug: snapfuchs
 name: SnapFuchs
-stand: "2026-08-17"
+stand: "2026-09-25"
 geprueft_von: 30_SnapFuchs
 fassung: "1.2.0 (versionCode 9)"
 
@@ -18,19 +18,19 @@ auf_dem_geraet:
   # dorthin geschrieben und sind im Dateimanager sichtbar. Der Ordner wird ueber
   # den Android-Ordnerauswahl-Dialog (Storage Access Framework) gewaehlt -- KEINE
   # Speicher-Berechtigung, der Zugriff gilt nur fuer genau diesen Ordner.
-  - was: Kopien der Exporte in einer selbst gewaehlten Standardablage (optional, nur wenn eingerichtet)
-    wo: vom Nutzer per Android-Ordnerauswahl (SAF) bestimmter Ordner auf dem Geraet, z. B. in "Dateien"; sichtbar im Dateimanager
+  - was: Kopien der Exporte in einer selbst gewählten Standardablage (optional, nur wenn eingerichtet)
+    wo: vom Nutzer per Android-Ordnerauswahl (SAF) bestimmter Ordner auf dem Gerät, z. B. in "Dateien"; sichtbar im Dateimanager
     beleg: lib/core/storage/extern_ablage.dart, lib/models/extern_ablage_ziel.dart, android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt
   - was: Einstellungen (Wasserzeichen-Stil und -Position, Kaufstatus)
-    wo: Geraeteeinstellungen der App
+    wo: Geräteeinstellungen der App
     beleg: lib/models/watermark_config.dart, lib/utils/pro_check.dart
-  - was: App-eigener Fehlerlog (technische Fehlermeldungen, ueberdauert Neustart)
+  - was: App-eigener Fehlerlog (technische Fehlermeldungen, überdauert Neustart)
     wo: lokale Datei im App-Verzeichnis
     beleg: lib/core/diagnose/fehlerlog.dart
-  - was: Temporaere Dateien fuer OCR, Export und Teilen
-    wo: App-Cache, werden nach Gebrauch geloescht bzw. vom System aufgeraeumt
+  - was: Temporäre Dateien für OCR, Export und Teilen
+    wo: App-Cache, werden nach Gebrauch gelöscht bzw. vom System aufgeräumt
     beleg: lib/core/ocr/tesseract_service.dart, lib/core/pdf/pdf_export.dart
-  - was: Fuer die PDF-Werkzeuge ausgewaehlte fremde PDF-Dateien
+  - was: Für die PDF-Werkzeuge ausgewählte fremde PDF-Dateien
     wo: Kopie im App-Cache
     beleg: android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt
 
@@ -48,7 +48,7 @@ berechtigungen:
     pflicht: true
     beleg: CAMERA in android/app/src/main/AndroidManifest.xml
   - name: Internet
-    wofuer: Feedback absenden, Verweise im Browser oeffnen, Kaufabwicklung ueber Google Play
+    wofuer: Feedback absenden, Verweise im Browser öffnen, Kaufabwicklung über Google Play
     pflicht: false
     beleg: INTERNET in android/app/src/main/AndroidManifest.xml
   - name: In-App-Abrechnung
@@ -61,8 +61,8 @@ berechtigungen:
   # 2026-08-17 (Fassung 1.2.0): Auch das optionale Schreiben in eine selbst
   # gewaehlte Standardablage laeuft ueber das Storage Access Framework und
   # braucht KEINE Speicher-Berechtigung.
-  - name: Ordnerzugriff fuer die Standardablage (Storage Access Framework)
-    wofuer: Exporte zusaetzlich in einen selbst gewaehlten Ordner schreiben; keine Speicher-Berechtigung noetig, der Zugriff gilt nur fuer genau den vom Nutzer gewaehlten Ordner (persistierbare URI-Freigabe) und ist jederzeit widerrufbar
+  - name: Ordnerzugriff für die Standardablage (Storage Access Framework)
+    wofuer: Exporte zusätzlich in einen selbst gewählten Ordner schreiben; keine Speicher-Berechtigung nötig, der Zugriff gilt nur für genau den vom Nutzer gewählten Ordner (persistierbare URI-Freigabe) und ist jederzeit widerrufbar
     pflicht: false
     beleg: ACTION_OPEN_DOCUMENT_TREE + takePersistableUriPermission in android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt
   - name: Netzwerkstatus
@@ -70,38 +70,38 @@ berechtigungen:
     pflicht: false
     beleg: ACCESS_NETWORK_STATE, gemergtes Release-Manifest Zeile 71
   - name: Mikrofon
-    wofuer: wird nicht angefordert. Die Kamera wird ohne Tonaufnahme geoeffnet; es wird nie Audio aufgezeichnet
+    wofuer: wird nicht angefordert. Die Kamera wird ohne Tonaufnahme geöffnet; es wird nie Audio aufgezeichnet
     pflicht: false
     beleg: RECORD_AUDIO per tools:node="remove" entfernt in android/app/src/main/AndroidManifest.xml; enableAudio false in lib/features/scan/scan_screen.dart
   - name: Zugriff auf Fotos und Videos
-    wofuer: wird nicht angefordert. Bilder waehlt man ueber den Android-Fotoauswahl-Dialog aus, der ohne diese Berechtigung auskommt
+    wofuer: wird nicht angefordert. Bilder wählt man über den Android-Fotoauswahl-Dialog aus, der ohne diese Berechtigung auskommt
     pflicht: false
     beleg: READ_MEDIA_IMAGES und READ_MEDIA_VIDEO per tools:node="remove" entfernt in android/app/src/main/AndroidManifest.xml; useAndroidPhotoPicker in lib/main.dart
 
 uebertragungen:
   - wohin: Google Play (Abrechnung)
-    was: Abfrage bzw. Uebermittlung des Kaufstatus fuer die Pro-Fassung
+    was: Abfrage bzw. Übermittlung des Kaufstatus für die Pro-Fassung
     wann: automatisch beim App-Start (Wiederherstellung) und beim Kauf
     freiwillig: false
     beleg: lib/utils/pro_check.dart
   - wohin: license.fehlerfuchs.eu
-    was: Nachrichtentext, freiwillig Name und E-Mail-Adresse, App-Name sowie optional angehaengte Bilder. Nur wenn der Nutzer den Haken "Diagnosedaten mitsenden" setzt, kommen zusaetzlich App-Version, Android-Version, Geraetemodell und Edition mit sowie eine Diagnosedatei mit Technikdaten und dem App-eigenen Fehlerlog
+    was: Nachrichtentext, freiwillig Name und E-Mail-Adresse, App-Name sowie optional angehängte Bilder. Nur wenn der Nutzer den Haken "Diagnosedaten mitsenden" setzt, kommen zusätzlich App-Version, Android-Version, Gerätemodell und Edition mit sowie eine Diagnosedatei mit Technikdaten und dem App-eigenen Fehlerlog
     wann: nur wenn der Nutzer das Feedback-Formular aktiv absendet
     freiwillig: true
     beleg: lib/core/kontakt/kontakt_service.dart, lib/features/info/feedback_screen.dart
   - wohin: fehlerfuchs.eu
-    was: Aufruf der Website (Impressum, Kontakt, weitere Apps, Unterstuetzen) im externen Browser
+    was: Aufruf der Website (Impressum, Kontakt, weitere Apps, Unterstützen) im externen Browser
     wann: nur wenn der Nutzer den jeweiligen Verweis antippt
     freiwillig: true
     beleg: lib/features/info/impressum_screen.dart, lib/features/home/home_screen.dart
   - wohin: vom Nutzer gescannte Adresse (QR-Code)
     was: Aufruf der im Code enthaltenen Adresse im externen Browser
-    wann: nur nach Antippen von "Oeffnen" im Ergebnisdialog
+    wann: nur nach Antippen von "Öffnen" im Ergebnisdialog
     freiwillig: true
     beleg: lib/features/code/code_scan_screen.dart
-  - wohin: Mail-App des Geraets
-    was: vorbereitete Support-Mail als Rueckfallweg, wenn das Formular nicht durchkommt
-    wann: nur nach Bestaetigung durch den Nutzer
+  - wohin: Mail-App des Geräts
+    was: vorbereitete Support-Mail als Rückfallweg, wenn das Formular nicht durchkommt
+    wann: nur nach Bestätigung durch den Nutzer
     freiwillig: true
     beleg: lib/features/info/feedback_screen.dart
 
@@ -120,23 +120,23 @@ absturzberichte: false
 daten_an_dritte_verkauft: false
 
 loeschung: >-
-  Alle Inhalte liegen auf dem Geraet. Einzelne Dokumente und Ordner lassen sich
-  in der App loeschen; alles Uebrige (Einstellungen, Fehlerlog, Cache)
+  Alle Inhalte liegen auf dem Gerät. Einzelne Dokumente und Ordner lassen sich
+  in der App löschen; alles Übrige (Einstellungen, Fehlerlog, Cache)
   verschwindet mit der Deinstallation. Per Feedback gesendete Nachrichten liegen
-  im Support-Postfach und werden auf Anfrage geloescht.
+  im Support-Postfach und werden auf Anfrage gelöscht.
 
 besonderheiten: >-
   Texterkennung, Tabellenerkennung, das Lesen von QR-Codes und Barcodes sowie
-  alle PDF-Werkzeuge laufen vollstaendig auf dem Geraet und bauen dafuer keine
-  Verbindung nach aussen auf. Es gibt kein Konto und keine Registrierung.
-  Bilder aus der Galerie werden ueber den Android-Fotoauswahl-Dialog
-  ausgewaehlt; deshalb fordert die App keine Berechtigung fuer Fotos oder
+  alle PDF-Werkzeuge laufen vollständig auf dem Gerät und bauen dafür keine
+  Verbindung nach außen auf. Es gibt kein Konto und keine Registrierung.
+  Bilder aus der Galerie werden über den Android-Fotoauswahl-Dialog
+  ausgewählt; deshalb fordert die App keine Berechtigung für Fotos oder
   Videos an. In der kostenlosen Fassung tragen die erzeugten PDFs ein
-  Wasserzeichen, das nach dem einmaligen Kauf entfaellt. Der Kaufstatus wird
-  auf dem Geraet gespeichert und zusaetzlich bei Google Play abgefragt.
-  Optional laesst sich eine Standardablage einrichten: Exporte werden dann
-  zusaetzlich in einen selbst gewaehlten Ordner auf dem Geraet geschrieben; die
-  Ordnerwahl laeuft ueber den Android-Ordnerauswahl-Dialog (SAF) und braucht
+  Wasserzeichen, das nach dem einmaligen Kauf entfällt. Der Kaufstatus wird
+  auf dem Gerät gespeichert und zusätzlich bei Google Play abgefragt.
+  Optional lässt sich eine Standardablage einrichten: Exporte werden dann
+  zusätzlich in einen selbst gewählten Ordner auf dem Gerät geschrieben; die
+  Ordnerwahl läuft über den Android-Ordnerauswahl-Dialog (SAF) und braucht
   keine Speicher-Berechtigung. Der beim Scannen vergebene Dokumentname bleibt
   nur im Arbeitsspeicher und bestimmt lediglich den Dateinamen beim Export.
 
@@ -148,7 +148,7 @@ vorhandener_text: >-
 offene_fragen: >-
   1) ACCESS_NETWORK_STATE steht nur wegen eingebundener Bausteine im Manifest;
   im eigenen Code wird der Netzwerkstatus nirgends abgefragt. Die Berechtigung
-  bleibt vorerst drin, weil die Kaufabwicklung sie voraussetzen duerfte; sie
+  bleibt vorerst drin, weil die Kaufabwicklung sie voraussetzen dürfte; sie
   ist nicht sensibel und wird dem Nutzer nicht angezeigt.
-  2) Ob und wie lange der Kontakt-Server IP-Adressen protokolliert, haengt vom
+  2) Ob und wie lange der Kontakt-Server IP-Adressen protokolliert, hängt vom
   Server ab und ist aus dem App-Code nicht feststellbar.

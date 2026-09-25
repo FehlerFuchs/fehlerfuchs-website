@@ -1,74 +1,74 @@
 slug: pdfuchs
 name: PDFuchs
-stand: "2026-08-23"
+stand: "2026-09-25"
 geprueft_von: 26_PDFuchs
-fassung: "v0.1.0_dev (Vorabfassung, noch nicht veroeffentlicht)"
+fassung: "v0.1.0_dev (Vorabfassung, noch nicht veröffentlicht)"
 
-# Hinweis fuer die Pflege: Die angezeigten Felder (auf_dem_geraet,
+# Hinweis für die Pflege: Die angezeigten Felder (auf_dem_geraet,
 # berechtigungen, loeschung, besonderheiten) beschreiben, WAS mit Daten
-# geschieht. Technische Nachweise gehoeren ausschliesslich in "beleg".
-# lokal_only: false (Haus-Konvention, analog DateiWaechter/HaushaltsManager) -
-# die einzige Aussenverbindung ist der nutzerinitiierte Support-/Kontaktversand
-# an license.fehlerfuchs.eu; ohne ausdrueckliches Absenden passiert nichts.
+# geschieht. Technische Nachweise gehören ausschließlich in "beleg".
+# lokal_only: false (Haus-Konvention, analog DateiWächter/HaushaltsManager) -
+# die einzige Außenverbindung ist der nutzerinitiierte Support-/Kontaktversand
+# an license.fehlerfuchs.eu; ohne ausdrückliches Absenden passiert nichts.
 lokal_only: false
 
 auf_dem_geraet:
-  - was: Vom Nutzer gesetzter Alias, Ablageordner, zuletzt geoeffnete Dokumentpfade und optionale Stammdaten (Name, Anschrift, E-Mail, Telefon, IBAN, BIC)
+  - was: Vom Nutzer gesetzter Alias, Ablageordner, zuletzt geöffnete Dokumentpfade und optionale Stammdaten (Name, Anschrift, E-Mail, Telefon, IBAN, BIC)
     wo: "Lokale Einstellungsdatei %APPDATA%\\PDFuchs\\settings.json"
     beleg: 11_App_Flutter/pdfuchs_desktop/lib/settings/app_settings.dart
-  - was: Vom Nutzer geoeffnete und erzeugte PDFs sowie Zwischenergebnisse (Vorschauen, korrigierte Scans, ausfuellbare Formulare, Ergebnisse der Texterkennung)
-    wo: lokaler Ausgabeordner der Anwendung
-    beleg: 05_Engine/pdfuchs_core/pdfuchs_core/config.py:61
-  - was: Angaben zur Testphase und zur Zahl der erstellten Formulare (Startdatum, Zaehler)
+  - was: Vom Nutzer geöffnete und erzeugte PDFs sowie Zwischenergebnisse (Vorschauen, korrigierte Scans, ausfüllbare Formulare, Ergebnisse der Texterkennung)
+    wo: "Ordner Dokumente\\PDFuchs des Benutzers"
+    beleg: 05_Engine/pdfuchs_core/pdfuchs_core/config.py:85-99
+  - was: Angaben zur Testphase und zur Zahl der erstellten Formulare (Startdatum, Zähler)
     wo: "Datei license_state.json im Anwendungsdatenordner des Benutzers (%LOCALAPPDATA%\\PDFuchs)"
-    beleg: 05_Engine/pdfuchs_core/pdfuchs_core/feature_flags.py:44-50
-  - was: Angaben zu erkannten Scannern (Geraetename, Hersteller, Geraetekennung, Faehigkeiten) und selbst angelegte Scanprofile
-    wo: zwei Dateien im lokalen Ausgabeordner der Anwendung
-    beleg: 05_Engine/pdfuchs_core/pdfuchs_core/scanner.py:22 und :28
+    beleg: 05_Engine/pdfuchs_core/pdfuchs_core/feature_flags.py:61-62
+  - was: Angaben zu erkannten Scannern (Gerätename, Hersteller, Gerätekennung, Fähigkeiten) und selbst angelegte Scanprofile
+    wo: "zwei Dateien im Ordner Dokumente\\PDFuchs des Benutzers"
+    beleg: 05_Engine/pdfuchs_core/pdfuchs_core/scanner.py:37 und :43
   - was: Speicherorte der mitgelieferten Zusatzwerkzeuge
     wo: Einstellungsdatei im Programmordner
     beleg: 92_Tools/werkzeuge.ini, erzeugt von 92_Tools/setup_werkzeuge.ps1
 
 berechtigungen:
   - name: Zugriff auf lokale Dateien
-    wofuer: Oeffnen und Speichern der vom Nutzer gewaehlten Dokumente
+    wofuer: Öffnen und Speichern der vom Nutzer gewählten Dokumente
     pflicht: true
-    beleg: Windows-Desktopanwendung ohne Manifest-Berechtigungsmodell; Dateiauswahl ueber den Systemdialog
+    beleg: Windows-Desktopanwendung ohne Manifest-Berechtigungsmodell; Dateiauswahl über den Systemdialog
   - name: Zugriff auf lokal angeschlossene Scanner
-    wofuer: Einscannen von Vorlagen ueber Flachbett oder Einzug
+    wofuer: Einscannen von Vorlagen über Flachbett oder Einzug
     pflicht: false
     beleg: 05_Engine/pdfuchs_core/pdfuchs_core/scanner.py (WIA/TWAIN)
 
 # Von sich aus baut die Anwendung KEINE Verbindung auf. Es gibt genau eine
-# nutzerinitiierte Uebertragung: das Support-/Kontaktformular (nur beim Absenden).
-# (Korrigiert 2026-08-07: die fruehere Fassung "uebertragungen: []" pruefte nur
-#  den Python-Programmkern und uebersah die spaeter ergaenzte Support-Anbindung
-#  in der Flutter-Oberflaeche.)
+# nutzerinitiierte Übertragung: das Support-/Kontaktformular (nur beim Absenden).
+# (Korrigiert 2026-08-07: die frühere Fassung "uebertragungen: []" prüfte nur
+#  den Python-Programmkern und übersah die später ergänzte Support-Anbindung
+#  in der Flutter-Oberfläche.)
 uebertragungen:
   - was: Nutzerinitiierte Support-/Kontaktnachricht (freiwillige Angaben - Name,
       E-Mail, Nachricht, App-Version, Betriebssystem-Angabe; optional vom Nutzer
-      ausgewaehlte Dateianhaenge)
+      ausgewählte Dateianhänge)
     wohin: license.fehlerfuchs.eu (FehlerFuchs-Kontakt-Bridge, EU/IONOS), per HTTPS
-    wann: ausschliesslich beim ausdruecklichen Absenden des Support-Formulars;
+    wann: ausschließlich beim ausdrücklichen Absenden des Support-Formulars;
       sonst besteht keine Verbindung (Fallback bei Fehler - lokales E-Mail-Programm)
     beleg: 11_App_Flutter/pdfuchs_desktop/lib/support/kontakt_service.dart:20-58
 
-# Laufen alle lokal auf dem Geraet. Sie sehen den Dokumentinhalt, weil sie ihn
+# Laufen alle lokal auf dem Gerät. Sie sehen den Dokumentinhalt, weil sie ihn
 # verarbeiten; sie geben nichts weiter.
 fremde_dienste:
   - name: LibreOffice (mitgeliefert)
     wofuer: Umwandlung von Office-Dateien nach PDF und PDF/A-Export
-    wann: lokal, nur wenn der Nutzer eine solche Umwandlung ausloest
+    wann: lokal, nur wenn der Nutzer eine solche Umwandlung auslöst
   - name: Tesseract OCR (mitgeliefert)
     wofuer: Texterkennung auf gescannten Seiten
-    wann: lokal, nur wenn der Nutzer die Texterkennung ausloest
+    wann: lokal, nur wenn der Nutzer die Texterkennung auslöst
   - name: PDFium (Bibliothek zur Anzeige)
     wofuer: Darstellung der PDF-Seiten
     wann: lokal, bei jeder Vorschau
   - name: veraPDF (mitgeliefert, inkl. schlanker OpenJDK-Laufzeit)
-    wofuer: optionale Pruefung, ob eine PDF-Datei den PDF/A-Standard einhaelt
-    wann: lokal, nur wenn der Nutzer die PDF/A-Pruefung ausloest; keine Verbindung nach draussen
-    beleg: 92_Tools/bundle/verapdf (Wrapper + app + jre), Anbindung 05_Engine/pdfuchs_core/pdfuchs_core/pdfa.py:82
+    wofuer: optionale Prüfung, ob eine PDF-Datei den PDF/A-Standard einhält
+    wann: lokal, nur wenn der Nutzer die PDF/A-Prüfung auslöst; keine Verbindung nach draußen
+    beleg: 92_Tools/bundle/verapdf (Wrapper + app + jre), Anbindung 05_Engine/pdfuchs_core/pdfuchs_core/pdfa.py:87
 
 konto_noetig: false
 tracking: false
@@ -77,36 +77,39 @@ absturzberichte: false
 daten_an_dritte_verkauft: false
 
 loeschung: >-
-  Alle Daten liegen auf dem Geraet. Selbst erzeugte oder bearbeitete PDFs liegen
+  Alle Daten liegen auf dem Gerät. Selbst erzeugte oder bearbeitete PDFs liegen
   dort, wo der Nutzer sie gespeichert hat, und lassen sich wie jede andere Datei
-  loeschen. Beim Deinstallieren wird das Programm entfernt; eigene Dokumente
+  löschen. Beim Deinstallieren wird das Programm entfernt; eigene Dokumente
   bleiben erhalten. Die kleine Datei mit den Angaben zur Testphase im
   Anwendungsdatenordner des Benutzers wird beim Deinstallieren nicht mit
-  entfernt und bleibt auf dem Geraet; sie kann jederzeit von Hand geloescht
-  werden. Das gilt auch fuer die lokale Einstellungsdatei unter
-  %APPDATA%\PDFuchs. Erkennt PDFuchs dort unlesbares JSON, wird diese Fassung
-  vor dem naechsten Speichern als Datei mit dem Zusatz `.defekt-...` bewahrt.
+  entfernt und bleibt auf dem Gerät; sie kann jederzeit von Hand gelöscht
+  werden. Das gilt auch für die lokale Einstellungsdatei unter
+  %APPDATA%\PDFuchs; erkennt PDFuchs dort unlesbares JSON, wird diese Fassung
+  vor dem nächsten Speichern als Datei mit dem Zusatz `.defekt-...` bewahrt.
+  Ebenso bleibt der Ordner Dokumente\PDFuchs mit den dort abgelegten
+  Ergebnissen, Scannerangaben und Scanprofilen nach dem Deinstallieren erhalten
+  und kann von Hand gelöscht werden.
 
 besonderheiten: >-
-  PDFuchs verarbeitet Dokumente vollstaendig auf dem eigenen Rechner. Die
+  PDFuchs verarbeitet Dokumente vollständig auf dem eigenen Rechner. Die
   Anwendung stellt von sich aus keine Verbindung ins Internet her. Eine
-  Uebertragung erfolgt nur, wenn der Nutzer das Support-/Kontaktformular
-  ausdruecklich absendet; dann gehen die dort eingegebenen freiwilligen Angaben
-  (und optionale Dateianhaenge) per HTTPS an die FehlerFuchs-Kontakt-Bridge
+  Übertragung erfolgt nur, wenn der Nutzer das Support-/Kontaktformular
+  ausdrücklich absendet; dann gehen die dort eingegebenen freiwilligen Angaben
+  (und optionale Dateianhänge) per HTTPS an die FehlerFuchs-Kontakt-Bridge
   (license.fehlerfuchs.eu, EU/IONOS). Ein Konto oder eine Anmeldung gibt es
   nicht. Die Angaben zur Testphase und zur Zahl erstellter Formulare bleiben
-  ausschliesslich auf dem Geraet. Wird ein Scanner benutzt, werden Angaben zum
-  angeschlossenen Geraet lokal gespeichert, damit die Scanprofile dazu passen.
-  Der beschriebene Stand ist eine Vorabfassung, die noch nicht veroeffentlicht
+  ausschließlich auf dem Gerät. Wird ein Scanner benutzt, werden Angaben zum
+  angeschlossenen Gerät lokal gespeichert, damit die Scanprofile dazu passen.
+  Der beschriebene Stand ist eine Vorabfassung, die noch nicht veröffentlicht
   wurde.
 
 vorhandener_text: 09_Releases/Datenschutz_Lokalhinweis_01072026.md
 
 offene_fragen: >-
   1. Ob die mitgelieferten Zusatzwerkzeuge LibreOffice und Tesseract bei ihrer
-  Ausfuehrung von sich aus Netzverbindungen aufbauen (etwa eine Updatepruefung
-  von LibreOffice): PDFuchs loest nichts dergleichen aus; das Verhalten der
-  Werkzeuge selbst wurde nicht per Mitschnitt geprueft.
-  2. Ob die beim Einrichten gesetzte Windows-Dateizuordnung ueber die
-  Systemeintraege hinaus etwas nach aussen meldet: dafuer wurde kein Hinweis
-  gefunden, es wurde aber nicht abschliessend geprueft.
+  Ausführung von sich aus Netzverbindungen aufbauen (etwa eine Updateprüfung
+  von LibreOffice): PDFuchs löst nichts dergleichen aus; das Verhalten der
+  Werkzeuge selbst wurde nicht per Mitschnitt geprüft.
+  2. Ob die beim Einrichten gesetzte Windows-Dateizuordnung über die
+  Systemeinträge hinaus etwas nach außen meldet: dafür wurde kein Hinweis
+  gefunden, es wurde aber nicht abschließend geprüft.

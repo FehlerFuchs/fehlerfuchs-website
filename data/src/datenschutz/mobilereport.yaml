@@ -1,9 +1,16 @@
 slug: mobilereport
 name: MobileReport
-stand: "2026-09-22"
+stand: "2026-09-25"
 geprueft_von: 20_MobileReport
-fassung: "1.2.0+40 (zusammengefuehrte Consumer-App mit In-App-Kauf; im Play Store 1.2.0 (40); geprueft in der Codebasis 20_MobileReport\\MobileReport_Master\\01_App)"
+fassung: "1.4.0+53 (seit 23.09.2026, 11:57 in der Play-Produktion, voller Roll-out; löste 1.4.0+52 ab, das von 07:32 bis 11:57 live war; zusammengeführte Consumer-App mit In-App-Kauf). Vorgänger 1.2.0+40 vom 31.07.2026. Geprüft an der einen Codebasis MobileReport_Master\01_App - der früher genannte Ordner FehlerFuchsMR_Pro ist seit dem 17.09.2026 Archiv."
 
+# Überarbeitet am 25.09.2026 (Auftrag [10] WEBSEITE, Entscheidung Matthias vom 24.09.):
+# Ersatzschreibungen im Fließtext durch echte Umlaute ersetzt (S1). Schlüssel, slug und
+# Code-Bezeichner bleiben ASCII. Dabei am gebauten Stand nachgeprüft und berichtigt:
+# fassung auf 53, zwei Belegpfade, die es seit der Zusammenführung der Codebasis nicht mehr
+# gibt, eine fehlende Berechtigung (ACCESS_NETWORK_STATE) und die offene Frage (1), deren
+# Anlass sich erledigt hat.
+#
 # Korrigiert am 21.07.2026: Die Google-Abrechnungsbibliothek bringt eine eigene
 # Telemetrie-Komponente mit, die ohne Zutun des Nutzers an Google sendet. Inhalte
 # der Meldungen sind davon nicht betroffen, aber "sendet nichts ohne Zutun"
@@ -11,17 +18,17 @@ fassung: "1.2.0+40 (zusammengefuehrte Consumer-App mit In-App-Kauf; im Play Stor
 lokal_only: false
 
 auf_dem_geraet:
-  - was: Meldungen (Bereich, Standort, Kategorie, Prioritaet, Betreff, Beschreibung, optional Melder-Name/Position)
+  - was: Meldungen (Bereich, Standort, Kategorie, Priorität, Betreff, Beschreibung, optional Melder-Name/Position)
     wo: lokale Datenbank (SQLite)
     beleg: lib/data/local/app_database.dart
-  - was: Fotos, die der Nutzer einer Meldung hinzufuegt, und erzeugte PDF-Dateien
-    wo: app-eigener Dokumentenordner auf dem Geraet
+  - was: Fotos, die der Nutzer einer Meldung hinzufügt, und erzeugte PDF-Dateien
+    wo: app-eigener Dokumentenordner auf dem Gerät
     beleg: lib/services/image_service.dart, lib/services/pdf_service.dart
-  - was: Einstellungen (u. a. Empfaenger-Adresse, PDF-Layout, Profilangaben, Pro-Freischaltstatus)
-    wo: Geraeteeinstellungen der App (SharedPreferences)
-    beleg: lib/data/local/settings_repository_prefs.dart, lib/core/edition/pro_status.dart (Key pro_unlocked)
+  - was: Einstellungen (u. a. Empfänger-Adresse, PDF-Layout, Profilangaben, Pro-Freischaltstatus)
+    wo: Geräteeinstellungen der App (SharedPreferences)
+    beleg: lib/data/local/settings_repository_prefs.dart, lib/core/edition/pro_status.dart (Key pro_unlocked), lib/consumer/pro_controller.dart
   - was: lokales Zugriffsprotokoll der letzten App-Zugriffe
-    wo: Geraeteeinstellungen der App (SharedPreferences)
+    wo: Geräteeinstellungen der App (SharedPreferences)
     beleg: lib/services/access_log_service.dart
   - was: App-eigener Fehlerlog (technische Fehlermeldungen, keine Meldungsinhalte)
     wo: lokale Textdatei im App-Speicher
@@ -30,48 +37,54 @@ auf_dem_geraet:
 berechtigungen:
   - name: Kamera und Fotos
     wofuer: >-
-      Ein Foto zur Meldung aufnehmen oder ein vorhandenes Bild auswaehlen. Die App
-      benutzt dafuer die Bildauswahl des Betriebssystems und verlangt keinen
+      Ein Foto zur Meldung aufnehmen oder ein vorhandenes Bild auswählen. Die App
+      benutzt dafür die Bildauswahl des Betriebssystems und verlangt keinen
       eigenen Zugriff auf die Fotosammlung.
     pflicht: false
-    beleg: image_picker (pubspec.yaml); android/app/src/main/AndroidManifest.xml - keine CAMERA-/Speicher-Berechtigung deklariert
+    beleg: image_picker (pubspec.yaml); gebautes Manifest 1.4.0+53 - keine CAMERA-/Speicher-Berechtigung
   - name: Kontakte
     wofuer: >-
-      Beim Auswaehlen eines Empfaengers werden Name und E-Mail-Adresse des Kontakts
-      uebernommen, den der Nutzer selbst antippt; ueber ein zweites Antippen am Feld
-      auch die Telefonnummer. Auf das uebrige Adressbuch hat die App keinen Zugriff -
-      die Werte gibt der Auswahldialog des Systems heraus.
+      Beim Auswählen eines Empfängers wird nur die E-Mail-Adresse des Kontakts
+      übernommen, den der Nutzer selbst antippt. Auf das übrige Adressbuch hat
+      die App keinen Zugriff.
     pflicht: false
-    beleg: lib/services/contact_picker_service.dart - ACTION_PICK-Intent, kein READ_CONTACTS
+    beleg: lib/services/contact_picker_service.dart - ACTION_PICK-Intent; gebautes Manifest 1.4.0+53 - kein READ_CONTACTS
   - name: Internet
     wofuer: >-
       Wird nur gebraucht, wenn der Nutzer das Support- und Kontaktformular
       abschickt oder die Pro-Freischaltung kauft. Zum Erfassen von Meldungen, zum
-      Erzeugen der PDF-Berichte und fuers Logbuch wird sie nicht benoetigt.
+      Erzeugen der PDF-Berichte und fürs Logbuch wird sie nicht benötigt.
     pflicht: false
-    beleg: nicht im App-Manifest deklariert, wird beim Zusammenfuehren der Manifeste durch in_app_purchase und http ergaenzt (pubspec.yaml)
-  - name: Abrechnung ueber Google Play
+    beleg: nicht im App-Manifest deklariert, wird beim Zusammenführen der Manifeste durch in_app_purchase und http ergänzt (pubspec.yaml)
+  - name: Netzwerkstatus lesen
+    wofuer: >-
+      Technische Berechtigung ohne Nachfrage beim Nutzer. Sie kommt nicht von
+      FehlerFuchs, sondern mit der Telemetrie-Komponente der Google-Abrechnung
+      (siehe unten): Diese prüft, ob eine Verbindung besteht, bevor sie sendet.
+    pflicht: false
+    beleg: android.permission.ACCESS_NETWORK_STATE im gebauten Manifest 1.4.0+53, laut Manifest-Merge-Bericht aus com.google.android.datatransport:transport-backend-cct:3.1.8
+  - name: Abrechnung über Google Play
     wofuer: Einmaliger Kauf der Pro-Freischaltung im Google-Play-Store.
     pflicht: false
-    beleg: com.android.vending.BILLING, ergaenzt durch in_app_purchase (pubspec.yaml)
+    beleg: com.android.vending.BILLING, ergänzt durch in_app_purchase (pubspec.yaml)
 
 uebertragungen:
   - wohin: license.fehlerfuchs.eu (Endpunkt /v1/contact)
-    was: Anliegen (Support/Kontakt), Nachricht, optional Name/E-Mail, optional Screenshots; nur mit ausdruecklicher Zustimmung Diagnosedaten (Android-Version, Geraetemodell, App-Version/Build, App-eigener Fehlerlog)
+    was: Anliegen (Support/Kontakt), Nachricht, optional Name/E-Mail, optional Screenshots; nur mit ausdrücklicher Zustimmung Diagnosedaten (Android-Version, Gerätemodell, App-Version/Build, App-eigener Fehlerlog)
     wann: nur wenn der Nutzer das Support-/Kontaktformular absendet
     freiwillig: true
     beleg: lib/core/kontakt/kontakt_service.dart, lib/features/support/support_page.dart
   - wohin: Google Play (Play Billing)
     was: Kauf- bzw. Wiederherstellungsvorgang der Pro-Freischaltung; keine Meldungsinhalte
-    wann: beim Kauf und bei "Kaeufe wiederherstellen"
+    wann: beim Kauf und bei "Käufe wiederherstellen"
     freiwillig: true
     beleg: lib/consumer/pro_controller.dart (in_app_purchase)
   - wohin: firebaselogging.googleapis.com bzw. firebaselogging-pa.googleapis.com (Google)
     was: >-
       Technische Betriebsdaten der Google-Abrechnungsbibliothek (Firelog/
       DataTransport), die Google mit dieser Bibliothek ausliefert. Meldungen,
-      Fotos, PDFs, Empfaenger und Eingaben des Nutzers sind davon NICHT betroffen.
-      Welche Einzelwerte Google dabei erhebt, legt Google fest und ist von aussen
+      Fotos, PDFs, Empfänger und Eingaben des Nutzers sind davon NICHT betroffen.
+      Welche Einzelwerte Google dabei erhebt, legt Google fest und ist von außen
       nicht einsehbar.
     wann: >-
       ohne Zutun des Nutzers, sobald die Abrechnung angesprochen wird - das
@@ -80,21 +93,23 @@ uebertragungen:
     freiwillig: false
     beleg: >-
       Nachgewiesen im Release-Bundle 1.1.0+39 (base/dex/classes.dex): CCT-Endpunkte
-      verschraenkt kodiert, com.google.android.datatransport.cct.CctBackendFactory,
+      verschränkt kodiert, com.google.android.datatransport.cct.CctBackendFactory,
       TransportBackendDiscovery, JobInfoSchedulerService, Kennung
-      "datatransport/3.1.8". Transitiv ueber in_app_purchase ->
+      "datatransport/3.1.8". Transitiv über in_app_purchase ->
       com.android.billingclient. Keine firebase-analytics- oder
       Crashlytics-Klassen im Bundle. Im Enterprise-Bau (ohne Billing) 0 Treffer.
-  - wohin: vom Nutzer gewaehlte E-Mail-App auf dem Geraet
-    was: erzeugtes PDF als Anhang, Empfaengeradresse und Betreff
-    wann: nur wenn der Nutzer den Versand ausloest; das Verschicken passiert in der fremden E-Mail-App, nicht in dieser Anwendung
+      Am 25.09.2026 im gebauten Manifest 1.4.0+53 bestätigt: transport-backend-cct:3.1.8
+      ist weiterhin eingebunden.
+  - wohin: vom Nutzer gewählte E-Mail-App auf dem Gerät
+    was: erzeugtes PDF als Anhang, Empfängeradresse und Betreff
+    wann: nur wenn der Nutzer den Versand auslöst; das Verschicken passiert in der fremden E-Mail-App, nicht in dieser Anwendung
     freiwillig: true
     beleg: lib/services/mail_share_service.dart (flutter_email_sender)
-  - wohin: externer Browser des Geraets
-    was: Aufruf oeffentlicher Webseiten (Enterprise-Produktseite, Unterstuetzen-Seite)
-    wann: nur wenn der Nutzer einen Link antippt; davor erscheint eine Bestaetigungsabfrage ("Browser oeffnen?")
+  - wohin: externer Browser des Geräts
+    was: Aufruf öffentlicher Webseiten (Enterprise-Produktseite, Unterstützen-Seite)
+    wann: nur wenn der Nutzer einen Link antippt; davor erscheint eine Bestätigungsabfrage ("Browser öffnen?")
     freiwillig: true
-    beleg: lib/widgets/external_link.dart (url_launcher)
+    beleg: lib/widgets/external_link.dart (url_launcher), lib/consumer/pro_unlock_page.dart
 
 fremde_dienste:
   - name: Google Play Billing (in_app_purchase)
@@ -117,42 +132,44 @@ absturzberichte: false
 daten_an_dritte_verkauft: false
 
 loeschung: >-
-  Alle Daten liegen auf dem Geraet. Einzelne Meldungen und Bilder lassen sich in der App
-  loeschen; zusaetzlich gibt es eine Aufraeum-Funktion fuer Bilddateien, die zu keiner
-  Meldung mehr gehoeren. Mit der Deinstallation verschwinden Datenbank, Bilder und
+  Alle Daten liegen auf dem Gerät. Einzelne Meldungen und Bilder lassen sich in der App
+  löschen; zusätzlich gibt es eine Aufräum-Funktion für Bilddateien, die zu keiner
+  Meldung mehr gehören. Mit der Deinstallation verschwinden Datenbank, Bilder und
   Einstellungen. Bereits gesendete Support-Nachrichten auf Anfrage per E-Mail.
 
 besonderheiten: >-
-  Meldungen koennen Fotos enthalten, die der Nutzer selbst aufnimmt. Die App weist
-  ausdruecklich darauf hin, keine Patientendaten oder sonstigen sensiblen Inhalte zu
+  Meldungen können Fotos enthalten, die der Nutzer selbst aufnimmt. Die App weist
+  ausdrücklich darauf hin, keine Patientendaten oder sonstigen sensiblen Inhalte zu
   fotografieren oder einzutragen. Sie ist kein Nachweissystem, kein Ticketsystem und keine
   Medizintechnik-Software. Der Versand ist bewusst manuell: die App bereitet eine E-Mail
   vor, verschickt aber nichts selbst. Was der Nutzer eingibt - Meldungen, Fotos, PDFs,
-  Empfaenger - verlaesst das Geraet nur, wenn er es selbst ausloest: beim Absenden des
+  Empfänger - verlässt das Gerät nur, wenn er es selbst auslöst: beim Absenden des
   Support-Formulars oder beim Verschicken eines Berichts aus seiner Mail-App. Diagnosedaten
-  werden nur nach ausdruecklicher Zustimmung mitgesendet und sind vorher in der App
+  werden nur nach ausdrücklicher Zustimmung mitgesendet und sind vorher in der App
   einsehbar. Die "Pro"-Freischaltung ist ein einmaliger In-App-Kauf (kein Abo). Davon zu
   trennen ist ein Punkt, der seit dem Einbau des In-App-Kaufs zutrifft: Die
   Abrechnungsbibliothek von Google bringt eine eigene Telemetrie mit, die beim Start
   Betriebsdaten an Google sendet, ohne dass der Nutzer etwas tut. Sie stammt nicht von
-  FehlerFuchs, laesst sich nicht einfach herausloesen und betrifft keine Inhalte aus der
-  App - erwaehnt gehoert sie trotzdem.
+  FehlerFuchs, lässt sich nicht einfach herauslösen und betrifft keine Inhalte aus der
+  App - erwähnt gehört sie trotzdem.
 
 vorhandener_text: lib/features/privacy/privacy_page.dart (In-App); Website fehlerfuchs.eu/datenschutz.html
 
 offene_fragen: >-
-  (1) 1.2.0+40 ist seit 06.08.2026 vollstaendig im Play Store ausgerollt. Die
-  oeffentliche Datensicherheits-Erklaerung steht dennoch auf "Keine Daten erhoben";
-  die Korrektur in der Console ist Matthias' Schritt.
+  (1) Erledigt, gemessen am 25.09.2026: Die öffentliche Datensicherheits-Angabe im
+  Play Store stand früher auf "Keine Daten erhoben". Sie nennt inzwischen als erhoben
+  und geteilt: bisherige Käufe, Diagnosedaten, andere In-App-Mitteilungen sowie Name
+  und E-Mail-Adresse; dazu Verschlüsselung bei der Übertragung und Löschung auf Antrag.
+  Nachgesehen auf der öffentlichen Store-Seite ohne Anmeldung.
   (2) Die Google-Telemetrie ist im gebauten Bundle zweifelsfrei enthalten; nicht
-  gemessen ist, wie oft sie sendet und welche Einzelwerte dabei uebertragen werden -
-  das legt Google fest. Eine Messung am Geraet steht aus. Ebenfalls offen: ob sie sich
-  abschalten laesst, ohne die Abrechnung zu beschaedigen.
+  gemessen ist, wie oft sie sendet und welche Einzelwerte dabei übertragen werden -
+  das legt Google fest. Eine Messung am Gerät steht aus. Ebenfalls offen: ob sie sich
+  abschalten lässt, ohne die Abrechnung zu beschädigen.
   (3) Ob "tracking: false" und das Website-Merkmal "kein-tracking" angesichts dieser
-  Telemetrie so stehenbleiben koennen, ist eine Bewertungsfrage. FehlerFuchs selbst
+  Telemetrie so stehenbleiben können, ist eine Bewertungsfrage. FehlerFuchs selbst
   verfolgt niemanden und wertet nichts aus; die Daten gehen an Google, nicht an uns.
-  Die Entscheidung ueber die Wortwahl auf der Website liegt nicht bei diesem Projekt.
+  Die Entscheidung über die Wortwahl auf der Website liegt nicht bei diesem Projekt.
   (4) Unbekannt, ob beim Drucken/Teilen Daten an System- oder Cloud-Druckdienste des
-  Geraets gelangen - das haengt vom Geraet ab, nicht von der App.
-  (5) Ob die Kontakt-Bridge serverseitig IP-Adressen protokolliert, haengt vom Server ab,
+  Geräts gelangen - das hängt vom Gerät ab, nicht von der App.
+  (5) Ob die Kontakt-Bridge serverseitig IP-Adressen protokolliert, hängt vom Server ab,
   nicht von der App.

@@ -1,68 +1,100 @@
 slug: mobilereport-enterprise
 name: MobileReport Enterprise
-stand: "2026-09-23"
+stand: "2026-09-25"
 geprueft_von: 20_MobileReport
-fassung: "1.4.0 (ausgeliefert seit 23.09.2026 auf zwei Wegen: Direkt-Download als APK ueber das GitHub-Release UND Managed Google Play, privat an die Kundenorganisation gebunden - oeffentlich nicht gelistet). Loest 1.0.2 ab."
+fassung: "1.4.0+53 (ausgeliefert seit 23.09.2026 auf zwei Wegen: Direkt-Download als APK über das GitHub-Release UND Managed Google Play, privat an die Kundenorganisation gebunden - öffentlich nicht gelistet). Vorgänger 1.0.2+6 vom 18.08.2026."
 
-# Falsch, weil Lizenzpruefung und Update-Hinweis das Geraet verlassen.
+# Überarbeitet am 25.09.2026 (Auftrag [10] WEBSEITE, Entscheidung Matthias vom 24.09.):
+# Ersatzschreibungen im Fließtext durch echte Umlaute ersetzt (S1). Schlüssel, slug und
+# Code-Bezeichner bleiben ASCII - auch die Schlüssel datenschutz_aenderungen_1_4_0 und
+# datenschutz_verbesserungen_1_0_2. Dabei am gebauten Stand nachgeprüft und berichtigt:
+# zwei Belegpfade (Lizenzdateien liegen seit der Zusammenführung unter lib/enterprise/),
+# der Update-Pfad (seit F-004 /updates/mobilereport-enterprise/latest.json statt
+# /enterprise/latest.json) und vorhandener_text (die Datenschutzseite ist auch in der
+# Enterprise-Ausgabe erreichbar).
+#
+# Falsch, weil Lizenzprüfung und Update-Hinweis das Gerät verlassen.
 lokal_only: false
 
 auf_dem_geraet:
-  - was: Meldungen (Geraet, Bereich, Kategorie, Prioritaet, Beschreibung, Melder-Name)
+  - was: Meldungen (Gerät, Bereich, Kategorie, Priorität, Beschreibung, Melder-Name)
     wo: lokale Datenbank (SQLite)
     beleg: lib/data/local/app_database.dart
   - was: Fotos zu Meldungen und erzeugte PDF-Dateien
-    wo: app-eigener Dokumentenordner auf dem Geraet
+    wo: app-eigener Dokumentenordner auf dem Gerät
     beleg: lib/services/image_service.dart
   - was: Einstellungen und Firmen-Branding (Logo, Farben, Name aus einer .mrbrand-Datei)
-    wo: Geraeteeinstellungen der App
+    wo: Geräteeinstellungen der App
     beleg: lib/domain/models/brand_theme.dart
-  - was: Lizenzschluessel, Offline-Nachweis und Geraete-Kennung
-    wo: besonders geschuetzter Speicherbereich des Geraets, getrennt von den uebrigen Einstellungen und nicht Teil der Datensicherung
-    beleg: lib/services/license_store.dart (flutter_secure_storage / Android-Keystore)
+  - was: Lizenzschlüssel, Offline-Nachweis und Geräte-Kennung
+    wo: besonders geschützter Speicherbereich des Geräts, getrennt von den übrigen Einstellungen und nicht Teil der Datensicherung
+    beleg: lib/enterprise/license_store.dart (flutter_secure_storage / Android-Keystore)
   - was: lokales Zugriffsprotokoll
-    wo: Geraeteeinstellungen der App
+    wo: Geräteeinstellungen der App
     beleg: lib/services/access_log_service.dart
 
 berechtigungen:
   - name: Internet
     wofuer: >-
-      Freischalten und Pruefen der Firmenlizenz sowie der Hinweis auf eine neuere
-      Fassung. Zum Erfassen von Meldungen, zum Erzeugen der PDF-Berichte und fuers
-      Logbuch wird sie nicht benoetigt.
+      Freischalten und Prüfen der Firmenlizenz sowie der Hinweis auf eine neuere
+      Fassung. Zum Erfassen von Meldungen, zum Erzeugen der PDF-Berichte und fürs
+      Logbuch wird sie nicht benötigt.
     pflicht: false
-    beleg: android/app/src/main/AndroidManifest.xml (uses-permission INTERNET)
+    beleg: gebautes Manifest 1.4.0+53 - einzige Nutzerberechtigung ist INTERNET; kein Billing, keine Kamera, keine Kontakte, kein Speicher
 
 uebertragungen:
   - wohin: license.fehlerfuchs.eu
     was: >-
-      Lizenzschluessel, Geraete-Fingerprint, optional ein selbst vergebener
-      Geraetename und die Angabe "Android". Ausdruecklich KEINE Meldungen,
+      Lizenzschlüssel, Geräte-Fingerprint, optional ein selbst vergebener
+      Gerätename und die Angabe "Android". Ausdrücklich KEINE Meldungen,
       Bilder, PDFs oder Einstellungen.
-    wann: bei Aktivierung, Online-Pruefung und Freigabe eines Arbeitsplatzes
+    wann: bei Aktivierung, Online-Prüfung und Freigabe eines Arbeitsplatzes
     freiwillig: false
-    beleg: lib/services/license_service.dart (Zeilen 50-95; /v1/activate, /v1/validate, /v1/deactivate)
+    beleg: lib/enterprise/license_service.dart (Zeilen 63-79; /v1/activate, /v1/validate, /v1/deactivate)
   - wohin: fehlerfuchs.eu
-    was: Abruf einer Versionsdatei (enterprise/latest.json) fuer den Update-Hinweis; es werden keine Inhalte gesendet
-    wann: beim Pruefen auf eine neuere Fassung
+    was: Abruf einer Versionsdatei (updates/mobilereport-enterprise/latest.json) für den Update-Hinweis; es werden keine Inhalte gesendet
+    wann: beim Prüfen auf eine neuere Fassung - nur bei Direkt-Installation; auf verwalteten Play-Geräten findet kein Abruf statt
     freiwillig: false
-    beleg: lib/services/update_service.dart (Zeilen 22-28)
-  - wohin: fehlerfuchs.eu im Browser des Geraets
-    was: Aufruf einer oeffentlichen Webseite
+    beleg: lib/services/update_service.dart (Zeile 76)
+  - wohin: fehlerfuchs.eu im Browser des Geräts
+    was: Aufruf einer öffentlichen Webseite
     wann: nur wenn der Nutzer einen Link antippt
     freiwillig: true
     beleg: lib/features/enterprise/enterprise_info_page.dart, lib/features/home/home_page.dart
-  - wohin: vom Nutzer gewaehlte E-Mail-App auf dem Geraet
-    was: erzeugtes PDF als Anhang, Empfaenger und Betreff
-    wann: nur wenn der Nutzer den Versand ausloest
+  - wohin: vom Nutzer gewählte E-Mail-App auf dem Gerät
+    was: erzeugtes PDF als Anhang, Empfänger und Betreff
+    wann: nur wenn der Nutzer den Versand auslöst
     freiwillig: true
     beleg: lib/services/mail_share_service.dart
+  # Seit 16.09.2026: Support-Seite auch in der Enterprise-Fassung
+  # (Entscheidung Matthias, Option A). Vorher gab es sie nur im Consumer.
+  - wohin: vom Nutzer gewählte E-Mail-App auf dem Gerät, Adressat FehlerFuchs
+    was: >-
+      selbst geschriebene Support-Nachricht; optional die vom Nutzer
+      angehängten Screenshots; optional - und nur bei GESETZTEM Haken -
+      Diagnosedaten: App-Fassung und Paketname, Build-Modus, Android-Fassung
+      und SDK, Hersteller und Gerätemodell, unterstützte ABIs, Sprache,
+      Zeitzone, Bildschirmauflösung, Edition sowie der app-eigene Fehlerlog.
+      KEINE Geräte-ID, KEINE Werbe-ID, KEIN Standort, KEINE Meldungsinhalte.
+      Der Nutzer kann die Diagnosedaten vor dem Absenden im Wortlaut ansehen.
+    wann: nur wenn der Nutzer die Nachricht selbst absendet
+    freiwillig: true
+    beleg: >-
+      lib/features/support/support_page.dart, lib/core/diagnose/diagnose.dart,
+      lib/core/kontakt/kontext.dart; Haken standardmäßig AUS
 
 fremde_dienste:
   - name: Lizenzdienst unter license.fehlerfuchs.eu
-    wofuer: Aktivierung und Pruefung der Firmenlizenz (Arbeitsplatz-Zaehlung)
-    wann: bei Aktivierung und Online-Pruefung
+    wofuer: Aktivierung und Prüfung der Firmenlizenz (Arbeitsplatz-Zählung)
+    wann: bei Aktivierung und Online-Prüfung
 # Kein Firebase, keine Analytics, kein Absturzdienst, keine Werbe-SDKs im Projekt.
+# Am 25.09.2026 am gebauten Artefakt 1.4.0+53 bestätigt: weder Play-Billing noch die
+# Google-Telemetrie (DataTransport) sind enthalten - 0 Treffer.
+# Seit 16.09.2026 zusätzlich im Projekt: device_info_plus und package_info_plus.
+# Sie LESEN nur auf dem Gerät und NUR beim Öffnen der Support-Seite
+# (Android-Fassung, Hersteller/Modell, App-Fassung). Sie senden selbst nichts;
+# übertragen wird ausschließlich das, was der Nutzer per Mail abschickt.
+# Das bleibt KEIN Tracking und KEIN Absturzdienst - nichts läuft im Hintergrund.
 
 konto_noetig: false
 tracking: false
@@ -71,67 +103,88 @@ absturzberichte: false
 daten_an_dritte_verkauft: false
 
 loeschung: >-
-  Meldungen, Bilder und Einstellungen liegen auf dem Geraet und lassen sich dort
-  einzeln loeschen; mit der Deinstallation verschwinden sie vollstaendig. Der
-  belegte Arbeitsplatz laesst sich in der App wieder freigeben, damit die Lizenz
-  auf einem anderen Geraet genutzt werden kann.
+  Meldungen, Bilder und Einstellungen liegen auf dem Gerät und lassen sich dort
+  einzeln löschen; mit der Deinstallation verschwinden sie vollständig. Der
+  belegte Arbeitsplatz lässt sich in der App wieder freigeben, damit die Lizenz
+  auf einem anderen Gerät genutzt werden kann.
 
 besonderheiten: >-
-  Die Geraete-Kennung ist keine Hardware-Kennung und wird nicht aus dem Geraet
-  ausgelesen: Es ist eine beim ersten Start zufaellig erzeugte Zufallsnummer, die
-  geschuetzt auf dem Geraet liegt. Sie dient allein dazu, einen Arbeitsplatz zu
-  zaehlen und bei erneuter Freischaltung nicht doppelt zu belegen; ein Rueckschluss
-  auf eine Person ist damit nicht moeglich. Die App kennt den Zahlungsanbieter
-  nicht, sie spricht ausschliesslich die eigene Lizenz-Schnittstelle an. Nach dem
-  Freischalten ist die Nutzung auch ohne Netzverbindung moeglich. Das
-  Firmen-Branding wird als Datei auf dem Geraet eingelesen und nicht aus dem Netz
-  geladen. Die lokale Datensicherung (.mrbak) wird mit einem Passwort verschluesselt
-  (AES-GCM-256, Schluessel per PBKDF2 aus dem Passwort); ohne das Passwort laesst sich
-  die Datei nicht mehr oeffnen, auch nicht ueber den Support, und die Wiederherstellung
-  verlangt zusaetzlich das Master-Passwort des Geraets. Aeltere Sicherungen ohne
-  Passwort bleiben lesbar.
+  Die Geräte-Kennung ist keine Hardware-Kennung und wird nicht aus dem Gerät
+  ausgelesen: Es ist eine beim ersten Start zufällig erzeugte Zufallsnummer, die
+  geschützt auf dem Gerät liegt. Sie dient allein dazu, einen Arbeitsplatz zu
+  zählen und bei erneuter Freischaltung nicht doppelt zu belegen; ein Rückschluss
+  auf eine Person ist damit nicht möglich. Die App kennt den Zahlungsanbieter
+  nicht, sie spricht ausschließlich die eigene Lizenz-Schnittstelle an. Nach dem
+  Freischalten ist die Nutzung auch ohne Netzverbindung möglich. Das
+  Firmen-Branding wird als Datei auf dem Gerät eingelesen und nicht aus dem Netz
+  geladen.
 
-# Datenschutzrelevante Verbesserungen aus der externen Pruefung FF-MR-AUDIT-2026-07-30,
+# Datenschutzrelevante Verbesserungen aus der externen Prüfung FF-MR-AUDIT-2026-07-30,
 # ausgeliefert mit 1.0.2 (18.08.2026):
 datenschutz_verbesserungen_1_0_2: >-
-  (1) Die automatische Android-Geraetesicherung ist abgeschaltet (allowBackup=false
+  (1) Die automatische Android-Gerätesicherung ist abgeschaltet (allowBackup=false
   + eigene Backup-/Extraction-Regeln) - Meldungen, Bilder und Einstellungen verlassen
-  das Geraet nicht mehr ueber die Google-Cloud-Geraetesicherung.
-  (2) "Alle Daten loeschen" raeumt jetzt vollstaendig auf, einschliesslich
+  das Gerät nicht mehr über die Google-Cloud-Gerätesicherung.
+  (2) "Alle Daten löschen" räumt jetzt vollständig auf, einschließlich
   Zugriffsprotokoll und importiertem Branding-Logo (die Lizenz bleibt bewusst erhalten).
-  (3) Wiederherstellung und Import pruefen jede Datei vor dem Schreiben (Groesse,
-  Herkunft, Inhalt); beschaedigte oder fremde Dateien werden abgewiesen.
-  (4) Der Admin-Passwortschutz nutzt ein staerkeres Verfahren (PBKDF2 statt einfachem Hash).
-  (5) Die Lizenzlaufzeit wird auch offline strikt eingehalten; ein Zuruecksetzen der
-  Geraeteuhr wird erkannt.
-  (6) Der Update-Hinweis wird nur ueber eine verschluesselte Verbindung geprueft und
-  schweigt auf verwalteten Play-Geraeten vollstaendig (kein latest.json-Abruf) - dort
-  liefert Google die Updates, es entsteht keine zusaetzliche Uebertragung.
+  (3) Wiederherstellung und Import prüfen jede Datei vor dem Schreiben (Größe,
+  Herkunft, Inhalt); beschädigte oder fremde Dateien werden abgewiesen.
+  (4) Der Admin-Passwortschutz nutzt ein stärkeres Verfahren (PBKDF2 statt einfachem Hash).
+  (5) Die Lizenzlaufzeit wird auch offline strikt eingehalten; ein Zurücksetzen der
+  Geräteuhr wird erkannt.
+  (6) Der Update-Hinweis wird nur über eine verschlüsselte Verbindung geprüft und
+  schweigt auf verwalteten Play-Geräten vollständig (kein latest.json-Abruf) - dort
+  liefert Google die Updates, es entsteht keine zusätzliche Übertragung.
+
+# Datenschutzrelevante Änderung aus 1.4.0 (23.09.2026):
+datenschutz_aenderungen_1_4_0: >-
+  (1) Die Datensicherung (.mrbak) wird jetzt mit einem Passwort verschlüsselt:
+  AES-GCM-256, Schlüssel aus dem Passwort per PBKDF2-HMAC-SHA256 mit 210 000
+  Runden, Salz und Nonce je Datei neu. Die Datei enthält danach keinen
+  lesbaren Inhalt mehr - am Gerät gegengeprüft, 0 Treffer auf Klartext,
+  ZIP-Marker oder Datenbankspuren. Ohne das Passwort ist die Sicherung nicht
+  mehr zu öffnen, auch nicht durch den Support; es gibt keine Hintertür.
+  Ältere, unverschlüsselte Sicherungen bleiben weiterhin lesbar, damit
+  niemand seine alten Daten verliert.
+  (2) Die Wiederherstellung verlangt zusätzlich das Master-Passwort des
+  Geräts, sofern eines gesetzt ist (Befund MR-F-003): Wer am Gerät ist, kann
+  nicht mehr einfach eine vorbereitete Datei einspielen und damit die
+  Betriebsvorgaben ersetzen.
+  (3) Die Lizenz und das Admin-Passwort sind NICHT Teil der Sicherung - daran
+  ändert sich nichts.
+  🔴 Keine Meldepflicht im Play-Datensicherheitsformular: Der Nutzer wählt den
+  Speicherort der Datei selbst im System-Dialog, die App greift danach nicht
+  mehr darauf zu, und nichts verlässt das Gerät. Von [15] Managed Google Play
+  am 23.09.2026 an Googles Formularhilfe belegt, nicht vermutet.
+  (4) Belegt gegen die App selbst: lib/enterprise/backup_tresor.dart,
+  lib/enterprise/backup_service.dart, lib/enterprise/backup_flows.dart.
 
 auslieferung: >-
   Zwei Wege, beide mit derselben Auslieferungssignatur. (a) Direkt-Download als APK
-  ueber das GitHub-Release (fehlerfuchs-downloads), Freischaltung per Lizenzschluessel.
+  über das GitHub-Release (fehlerfuchs-downloads), Freischaltung per Lizenzschlüssel.
   (b) Managed Google Play: private Auslieferung an die Organisation des Kunden mit
-  Android Enterprise; die App ist oeffentlich nicht gelistet. Auf diesem Weg liefert
+  Android Enterprise; die App ist öffentlich nicht gelistet. Auf diesem Weg liefert
   und aktualisiert Google die App, weshalb der In-App-Updater dort schweigt. Der
   Lizenz- und Datenweg der App ist auf beiden Wegen identisch.
+  Seit 1.4.0 (23.09.2026) wird für Weg (b) ein App Bundle ausgeliefert, das den
+  Uploadschlüssel trägt; Google signiert es mit demselben Auslieferungsschlüssel
+  um, den die Direkt-APK aus Weg (a) trägt. Beide Wege enden also weiterhin bei
+  derselben Signatur - ein Kunde kann ohne Neuinstallation zwischen ihnen wechseln.
+  Am 23.09.2026 von [15] in der Play Console und an beiden Artefakten nachgemessen.
 
-vorhandener_text: unbekannt (im Enterprise-Ordner wurde kein eigener Datenschutztext gefunden)
+vorhandener_text: lib/features/privacy/privacy_page.dart (In-App, gemeinsam mit der Consumer-Ausgabe; im Router ohne Ausgaben-Bedingung eingebunden, also auch in Enterprise erreichbar); Website fehlerfuchs.eu/datenschutz.html
 
-# 1.4.0 ist seit 23.09.2026 ausgeliefert (Consumer Play, Enterprise Managed Play +
-# Direkt-Download). Die .mrbak-Verschluesselung steht jetzt in den Besonderheiten (oben).
-# 'fassung'/'entwicklungsstand' sind interne Felder (datenschutz.astro Z.25) - nicht
-# oeffentlich; die Buildnummer gehoert trotzdem nicht auf die Seite.
 entwicklungsstand: >-
-  Keine unveroeffentlichten Aenderungen offen; 1.4.0 ist als Release-Update ausgeliefert
-  und loest 1.0.2 ab. Der Datenfluss hat sich dabei nicht geaendert.
+  Der veröffentlichte Datenschutzstand ist seit dem 23.09.2026 1.4.0+53 - auf
+  beiden Wegen aus demselben Commit c6faf2b3. Die früher hier genannte 1.0.3+7
+  wurde nie ausgeliefert und geht in 1.4.0 auf.
 
 offene_fragen: >-
   (1) Unbekannt, ob der Lizenzdienst serverseitig IP-Adressen oder Zeitpunkte
-  protokolliert - das haengt vom Server ab, nicht von der App.
+  protokolliert - das hängt vom Server ab, nicht von der App.
   (2) Unbekannt, ob der Abruf der Versionsdatei auf fehlerfuchs.eu serverseitig
   protokolliert wird.
   (3) Das Firmen-Setup (Provisioning) aus
   00_Konzept\PROVISIONING_FIRMENSETUP_KONZEPT.md ist bisher nur Konzept; im
-  geprueften Code wurde dazu nichts gefunden. Unbekannt, ob Teile davon bereits
-  ausserhalb der geprueften Dateien vorbereitet sind.
+  geprüften Code wurde dazu nichts gefunden. Unbekannt, ob Teile davon bereits
+  außerhalb der geprüften Dateien vorbereitet sind.

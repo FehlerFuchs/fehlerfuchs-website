@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-25T10:35:51+02:00",
+  "generiert": "2026-09-25T11:42:37+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1239,29 +1239,29 @@
     {
       "slug": "mobilereport",
       "name": "MobileReport",
-      "stand": "2026-09-22",
+      "stand": "2026-09-25",
       "geprueft_von": "20_MobileReport",
-      "fassung": "1.2.0+40 (zusammengefuehrte Consumer-App mit In-App-Kauf; im Play Store 1.2.0 (40); geprueft in der Codebasis 20_MobileReport\\MobileReport_Master\\01_App)",
+      "fassung": "1.4.0+53 (seit 23.09.2026, 11:57 in der Play-Produktion, voller Roll-out; löste 1.4.0+52 ab, das von 07:32 bis 11:57 live war; zusammengeführte Consumer-App mit In-App-Kauf). Vorgänger 1.2.0+40 vom 31.07.2026. Geprüft an der einen Codebasis MobileReport_Master\u00001_App - der früher genannte Ordner FehlerFuchsMR_Pro ist seit dem 17.09.2026 Archiv.",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
-          "was": "Meldungen (Bereich, Standort, Kategorie, Prioritaet, Betreff, Beschreibung, optional Melder-Name/Position)",
+          "was": "Meldungen (Bereich, Standort, Kategorie, Priorität, Betreff, Beschreibung, optional Melder-Name/Position)",
           "wo": "lokale Datenbank (SQLite)",
           "beleg": "lib/data/local/app_database.dart"
         },
         {
-          "was": "Fotos, die der Nutzer einer Meldung hinzufuegt, und erzeugte PDF-Dateien",
-          "wo": "app-eigener Dokumentenordner auf dem Geraet",
+          "was": "Fotos, die der Nutzer einer Meldung hinzufügt, und erzeugte PDF-Dateien",
+          "wo": "app-eigener Dokumentenordner auf dem Gerät",
           "beleg": "lib/services/image_service.dart, lib/services/pdf_service.dart"
         },
         {
-          "was": "Einstellungen (u. a. Empfaenger-Adresse, PDF-Layout, Profilangaben, Pro-Freischaltstatus)",
-          "wo": "Geraeteeinstellungen der App (SharedPreferences)",
-          "beleg": "lib/data/local/settings_repository_prefs.dart, lib/core/edition/pro_status.dart (Key pro_unlocked)"
+          "was": "Einstellungen (u. a. Empfänger-Adresse, PDF-Layout, Profilangaben, Pro-Freischaltstatus)",
+          "wo": "Geräteeinstellungen der App (SharedPreferences)",
+          "beleg": "lib/data/local/settings_repository_prefs.dart, lib/core/edition/pro_status.dart (Key pro_unlocked), lib/consumer/pro_controller.dart"
         },
         {
           "was": "lokales Zugriffsprotokoll der letzten App-Zugriffe",
-          "wo": "Geraeteeinstellungen der App (SharedPreferences)",
+          "wo": "Geräteeinstellungen der App (SharedPreferences)",
           "beleg": "lib/services/access_log_service.dart"
         },
         {
@@ -1273,33 +1273,39 @@
       "berechtigungen": [
         {
           "name": "Kamera und Fotos",
-          "wofuer": "Ein Foto zur Meldung aufnehmen oder ein vorhandenes Bild auswaehlen. Die App benutzt dafuer die Bildauswahl des Betriebssystems und verlangt keinen eigenen Zugriff auf die Fotosammlung.",
+          "wofuer": "Ein Foto zur Meldung aufnehmen oder ein vorhandenes Bild auswählen. Die App benutzt dafür die Bildauswahl des Betriebssystems und verlangt keinen eigenen Zugriff auf die Fotosammlung.",
           "pflicht": false,
-          "beleg": "image_picker (pubspec.yaml); android/app/src/main/AndroidManifest.xml - keine CAMERA-/Speicher-Berechtigung deklariert"
+          "beleg": "image_picker (pubspec.yaml); gebautes Manifest 1.4.0+53 - keine CAMERA-/Speicher-Berechtigung"
         },
         {
           "name": "Kontakte",
-          "wofuer": "Beim Auswaehlen eines Empfaengers werden Name und E-Mail-Adresse des Kontakts uebernommen, den der Nutzer selbst antippt; ueber ein zweites Antippen am Feld auch die Telefonnummer. Auf das uebrige Adressbuch hat die App keinen Zugriff - die Werte gibt der Auswahldialog des Systems heraus.",
+          "wofuer": "Beim Auswählen eines Empfängers wird nur die E-Mail-Adresse des Kontakts übernommen, den der Nutzer selbst antippt. Auf das übrige Adressbuch hat die App keinen Zugriff.",
           "pflicht": false,
-          "beleg": "lib/services/contact_picker_service.dart - ACTION_PICK-Intent, kein READ_CONTACTS"
+          "beleg": "lib/services/contact_picker_service.dart - ACTION_PICK-Intent; gebautes Manifest 1.4.0+53 - kein READ_CONTACTS"
         },
         {
           "name": "Internet",
-          "wofuer": "Wird nur gebraucht, wenn der Nutzer das Support- und Kontaktformular abschickt oder die Pro-Freischaltung kauft. Zum Erfassen von Meldungen, zum Erzeugen der PDF-Berichte und fuers Logbuch wird sie nicht benoetigt.",
+          "wofuer": "Wird nur gebraucht, wenn der Nutzer das Support- und Kontaktformular abschickt oder die Pro-Freischaltung kauft. Zum Erfassen von Meldungen, zum Erzeugen der PDF-Berichte und fürs Logbuch wird sie nicht benötigt.",
           "pflicht": false,
-          "beleg": "nicht im App-Manifest deklariert, wird beim Zusammenfuehren der Manifeste durch in_app_purchase und http ergaenzt (pubspec.yaml)"
+          "beleg": "nicht im App-Manifest deklariert, wird beim Zusammenführen der Manifeste durch in_app_purchase und http ergänzt (pubspec.yaml)"
         },
         {
-          "name": "Abrechnung ueber Google Play",
+          "name": "Netzwerkstatus lesen",
+          "wofuer": "Technische Berechtigung ohne Nachfrage beim Nutzer. Sie kommt nicht von FehlerFuchs, sondern mit der Telemetrie-Komponente der Google-Abrechnung (siehe unten): Diese prüft, ob eine Verbindung besteht, bevor sie sendet.",
+          "pflicht": false,
+          "beleg": "android.permission.ACCESS_NETWORK_STATE im gebauten Manifest 1.4.0+53, laut Manifest-Merge-Bericht aus com.google.android.datatransport:transport-backend-cct:3.1.8"
+        },
+        {
+          "name": "Abrechnung über Google Play",
           "wofuer": "Einmaliger Kauf der Pro-Freischaltung im Google-Play-Store.",
           "pflicht": false,
-          "beleg": "com.android.vending.BILLING, ergaenzt durch in_app_purchase (pubspec.yaml)"
+          "beleg": "com.android.vending.BILLING, ergänzt durch in_app_purchase (pubspec.yaml)"
         }
       ],
       "uebertragungen": [
         {
           "wohin": "license.fehlerfuchs.eu (Endpunkt /v1/contact)",
-          "was": "Anliegen (Support/Kontakt), Nachricht, optional Name/E-Mail, optional Screenshots; nur mit ausdruecklicher Zustimmung Diagnosedaten (Android-Version, Geraetemodell, App-Version/Build, App-eigener Fehlerlog)",
+          "was": "Anliegen (Support/Kontakt), Nachricht, optional Name/E-Mail, optional Screenshots; nur mit ausdrücklicher Zustimmung Diagnosedaten (Android-Version, Gerätemodell, App-Version/Build, App-eigener Fehlerlog)",
           "wann": "nur wenn der Nutzer das Support-/Kontaktformular absendet",
           "freiwillig": true,
           "beleg": "lib/core/kontakt/kontakt_service.dart, lib/features/support/support_page.dart"
@@ -1307,30 +1313,30 @@
         {
           "wohin": "Google Play (Play Billing)",
           "was": "Kauf- bzw. Wiederherstellungsvorgang der Pro-Freischaltung; keine Meldungsinhalte",
-          "wann": "beim Kauf und bei \"Kaeufe wiederherstellen\"",
+          "wann": "beim Kauf und bei \"Käufe wiederherstellen\"",
           "freiwillig": true,
           "beleg": "lib/consumer/pro_controller.dart (in_app_purchase)"
         },
         {
           "wohin": "firebaselogging.googleapis.com bzw. firebaselogging-pa.googleapis.com (Google)",
-          "was": "Technische Betriebsdaten der Google-Abrechnungsbibliothek (Firelog/ DataTransport), die Google mit dieser Bibliothek ausliefert. Meldungen, Fotos, PDFs, Empfaenger und Eingaben des Nutzers sind davon NICHT betroffen. Welche Einzelwerte Google dabei erhebt, legt Google fest und ist von aussen nicht einsehbar.",
+          "was": "Technische Betriebsdaten der Google-Abrechnungsbibliothek (Firelog/ DataTransport), die Google mit dieser Bibliothek ausliefert. Meldungen, Fotos, PDFs, Empfänger und Eingaben des Nutzers sind davon NICHT betroffen. Welche Einzelwerte Google dabei erhebt, legt Google fest und ist von außen nicht einsehbar.",
           "wann": "ohne Zutun des Nutzers, sobald die Abrechnung angesprochen wird - das geschieht beim Start der App, weil sie dort den Kaufstatus der Pro-Freischaltung abgleicht",
           "freiwillig": false,
-          "beleg": "Nachgewiesen im Release-Bundle 1.1.0+39 (base/dex/classes.dex): CCT-Endpunkte verschraenkt kodiert, com.google.android.datatransport.cct.CctBackendFactory, TransportBackendDiscovery, JobInfoSchedulerService, Kennung \"datatransport/3.1.8\". Transitiv ueber in_app_purchase -> com.android.billingclient. Keine firebase-analytics- oder Crashlytics-Klassen im Bundle. Im Enterprise-Bau (ohne Billing) 0 Treffer."
+          "beleg": "Nachgewiesen im Release-Bundle 1.1.0+39 (base/dex/classes.dex): CCT-Endpunkte verschränkt kodiert, com.google.android.datatransport.cct.CctBackendFactory, TransportBackendDiscovery, JobInfoSchedulerService, Kennung \"datatransport/3.1.8\". Transitiv über in_app_purchase -> com.android.billingclient. Keine firebase-analytics- oder Crashlytics-Klassen im Bundle. Im Enterprise-Bau (ohne Billing) 0 Treffer. Am 25.09.2026 im gebauten Manifest 1.4.0+53 bestätigt: transport-backend-cct:3.1.8 ist weiterhin eingebunden."
         },
         {
-          "wohin": "vom Nutzer gewaehlte E-Mail-App auf dem Geraet",
-          "was": "erzeugtes PDF als Anhang, Empfaengeradresse und Betreff",
-          "wann": "nur wenn der Nutzer den Versand ausloest; das Verschicken passiert in der fremden E-Mail-App, nicht in dieser Anwendung",
+          "wohin": "vom Nutzer gewählte E-Mail-App auf dem Gerät",
+          "was": "erzeugtes PDF als Anhang, Empfängeradresse und Betreff",
+          "wann": "nur wenn der Nutzer den Versand auslöst; das Verschicken passiert in der fremden E-Mail-App, nicht in dieser Anwendung",
           "freiwillig": true,
           "beleg": "lib/services/mail_share_service.dart (flutter_email_sender)"
         },
         {
-          "wohin": "externer Browser des Geraets",
-          "was": "Aufruf oeffentlicher Webseiten (Enterprise-Produktseite, Unterstuetzen-Seite)",
-          "wann": "nur wenn der Nutzer einen Link antippt; davor erscheint eine Bestaetigungsabfrage (\"Browser oeffnen?\")",
+          "wohin": "externer Browser des Geräts",
+          "was": "Aufruf öffentlicher Webseiten (Enterprise-Produktseite, Unterstützen-Seite)",
+          "wann": "nur wenn der Nutzer einen Link antippt; davor erscheint eine Bestätigungsabfrage (\"Browser öffnen?\")",
           "freiwillig": true,
-          "beleg": "lib/widgets/external_link.dart (url_launcher)"
+          "beleg": "lib/widgets/external_link.dart (url_launcher), lib/consumer/pro_unlock_page.dart"
         }
       ],
       "fremde_dienste": [
@@ -1355,89 +1361,96 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen auf dem Geraet. Einzelne Meldungen und Bilder lassen sich in der App loeschen; zusaetzlich gibt es eine Aufraeum-Funktion fuer Bilddateien, die zu keiner Meldung mehr gehoeren. Mit der Deinstallation verschwinden Datenbank, Bilder und Einstellungen. Bereits gesendete Support-Nachrichten auf Anfrage per E-Mail.",
-      "besonderheiten": "Meldungen koennen Fotos enthalten, die der Nutzer selbst aufnimmt. Die App weist ausdruecklich darauf hin, keine Patientendaten oder sonstigen sensiblen Inhalte zu fotografieren oder einzutragen. Sie ist kein Nachweissystem, kein Ticketsystem und keine Medizintechnik-Software. Der Versand ist bewusst manuell: die App bereitet eine E-Mail vor, verschickt aber nichts selbst. Was der Nutzer eingibt - Meldungen, Fotos, PDFs, Empfaenger - verlaesst das Geraet nur, wenn er es selbst ausloest: beim Absenden des Support-Formulars oder beim Verschicken eines Berichts aus seiner Mail-App. Diagnosedaten werden nur nach ausdruecklicher Zustimmung mitgesendet und sind vorher in der App einsehbar. Die \"Pro\"-Freischaltung ist ein einmaliger In-App-Kauf (kein Abo). Davon zu trennen ist ein Punkt, der seit dem Einbau des In-App-Kaufs zutrifft: Die Abrechnungsbibliothek von Google bringt eine eigene Telemetrie mit, die beim Start Betriebsdaten an Google sendet, ohne dass der Nutzer etwas tut. Sie stammt nicht von FehlerFuchs, laesst sich nicht einfach herausloesen und betrifft keine Inhalte aus der App - erwaehnt gehoert sie trotzdem.",
+      "loeschung": "Alle Daten liegen auf dem Gerät. Einzelne Meldungen und Bilder lassen sich in der App löschen; zusätzlich gibt es eine Aufräum-Funktion für Bilddateien, die zu keiner Meldung mehr gehören. Mit der Deinstallation verschwinden Datenbank, Bilder und Einstellungen. Bereits gesendete Support-Nachrichten auf Anfrage per E-Mail.",
+      "besonderheiten": "Meldungen können Fotos enthalten, die der Nutzer selbst aufnimmt. Die App weist ausdrücklich darauf hin, keine Patientendaten oder sonstigen sensiblen Inhalte zu fotografieren oder einzutragen. Sie ist kein Nachweissystem, kein Ticketsystem und keine Medizintechnik-Software. Der Versand ist bewusst manuell: die App bereitet eine E-Mail vor, verschickt aber nichts selbst. Was der Nutzer eingibt - Meldungen, Fotos, PDFs, Empfänger - verlässt das Gerät nur, wenn er es selbst auslöst: beim Absenden des Support-Formulars oder beim Verschicken eines Berichts aus seiner Mail-App. Diagnosedaten werden nur nach ausdrücklicher Zustimmung mitgesendet und sind vorher in der App einsehbar. Die \"Pro\"-Freischaltung ist ein einmaliger In-App-Kauf (kein Abo). Davon zu trennen ist ein Punkt, der seit dem Einbau des In-App-Kaufs zutrifft: Die Abrechnungsbibliothek von Google bringt eine eigene Telemetrie mit, die beim Start Betriebsdaten an Google sendet, ohne dass der Nutzer etwas tut. Sie stammt nicht von FehlerFuchs, lässt sich nicht einfach herauslösen und betrifft keine Inhalte aus der App - erwähnt gehört sie trotzdem.",
       "vorhandener_text": "lib/features/privacy/privacy_page.dart (In-App); Website fehlerfuchs.eu/datenschutz.html",
-      "offene_fragen": "(1) 1.2.0+40 ist seit 06.08.2026 vollstaendig im Play Store ausgerollt. Die oeffentliche Datensicherheits-Erklaerung steht dennoch auf \"Keine Daten erhoben\"; die Korrektur in der Console ist Matthias' Schritt. (2) Die Google-Telemetrie ist im gebauten Bundle zweifelsfrei enthalten; nicht gemessen ist, wie oft sie sendet und welche Einzelwerte dabei uebertragen werden - das legt Google fest. Eine Messung am Geraet steht aus. Ebenfalls offen: ob sie sich abschalten laesst, ohne die Abrechnung zu beschaedigen. (3) Ob \"tracking: false\" und das Website-Merkmal \"kein-tracking\" angesichts dieser Telemetrie so stehenbleiben koennen, ist eine Bewertungsfrage. FehlerFuchs selbst verfolgt niemanden und wertet nichts aus; die Daten gehen an Google, nicht an uns. Die Entscheidung ueber die Wortwahl auf der Website liegt nicht bei diesem Projekt. (4) Unbekannt, ob beim Drucken/Teilen Daten an System- oder Cloud-Druckdienste des Geraets gelangen - das haengt vom Geraet ab, nicht von der App. (5) Ob die Kontakt-Bridge serverseitig IP-Adressen protokolliert, haengt vom Server ab, nicht von der App.",
+      "offene_fragen": "(1) Erledigt, gemessen am 25.09.2026: Die öffentliche Datensicherheits-Angabe im Play Store stand früher auf \"Keine Daten erhoben\". Sie nennt inzwischen als erhoben und geteilt: bisherige Käufe, Diagnosedaten, andere In-App-Mitteilungen sowie Name und E-Mail-Adresse; dazu Verschlüsselung bei der Übertragung und Löschung auf Antrag. Nachgesehen auf der öffentlichen Store-Seite ohne Anmeldung. (2) Die Google-Telemetrie ist im gebauten Bundle zweifelsfrei enthalten; nicht gemessen ist, wie oft sie sendet und welche Einzelwerte dabei übertragen werden - das legt Google fest. Eine Messung am Gerät steht aus. Ebenfalls offen: ob sie sich abschalten lässt, ohne die Abrechnung zu beschädigen. (3) Ob \"tracking: false\" und das Website-Merkmal \"kein-tracking\" angesichts dieser Telemetrie so stehenbleiben können, ist eine Bewertungsfrage. FehlerFuchs selbst verfolgt niemanden und wertet nichts aus; die Daten gehen an Google, nicht an uns. Die Entscheidung über die Wortwahl auf der Website liegt nicht bei diesem Projekt. (4) Unbekannt, ob beim Drucken/Teilen Daten an System- oder Cloud-Druckdienste des Geräts gelangen - das hängt vom Gerät ab, nicht von der App. (5) Ob die Kontakt-Bridge serverseitig IP-Adressen protokolliert, hängt vom Server ab, nicht von der App.",
       "art": "anwendung"
     },
     {
       "slug": "mobilereport-enterprise",
       "name": "MobileReport Enterprise",
-      "stand": "2026-09-23",
+      "stand": "2026-09-25",
       "geprueft_von": "20_MobileReport",
-      "fassung": "1.4.0 (ausgeliefert seit 23.09.2026 auf zwei Wegen: Direkt-Download als APK ueber das GitHub-Release UND Managed Google Play, privat an die Kundenorganisation gebunden - oeffentlich nicht gelistet). Loest 1.0.2 ab.",
+      "fassung": "1.4.0+53 (ausgeliefert seit 23.09.2026 auf zwei Wegen: Direkt-Download als APK über das GitHub-Release UND Managed Google Play, privat an die Kundenorganisation gebunden - öffentlich nicht gelistet). Vorgänger 1.0.2+6 vom 18.08.2026.",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
-          "was": "Meldungen (Geraet, Bereich, Kategorie, Prioritaet, Beschreibung, Melder-Name)",
+          "was": "Meldungen (Gerät, Bereich, Kategorie, Priorität, Beschreibung, Melder-Name)",
           "wo": "lokale Datenbank (SQLite)",
           "beleg": "lib/data/local/app_database.dart"
         },
         {
           "was": "Fotos zu Meldungen und erzeugte PDF-Dateien",
-          "wo": "app-eigener Dokumentenordner auf dem Geraet",
+          "wo": "app-eigener Dokumentenordner auf dem Gerät",
           "beleg": "lib/services/image_service.dart"
         },
         {
           "was": "Einstellungen und Firmen-Branding (Logo, Farben, Name aus einer .mrbrand-Datei)",
-          "wo": "Geraeteeinstellungen der App",
+          "wo": "Geräteeinstellungen der App",
           "beleg": "lib/domain/models/brand_theme.dart"
         },
         {
-          "was": "Lizenzschluessel, Offline-Nachweis und Geraete-Kennung",
-          "wo": "besonders geschuetzter Speicherbereich des Geraets, getrennt von den uebrigen Einstellungen und nicht Teil der Datensicherung",
-          "beleg": "lib/services/license_store.dart (flutter_secure_storage / Android-Keystore)"
+          "was": "Lizenzschlüssel, Offline-Nachweis und Geräte-Kennung",
+          "wo": "besonders geschützter Speicherbereich des Geräts, getrennt von den übrigen Einstellungen und nicht Teil der Datensicherung",
+          "beleg": "lib/enterprise/license_store.dart (flutter_secure_storage / Android-Keystore)"
         },
         {
           "was": "lokales Zugriffsprotokoll",
-          "wo": "Geraeteeinstellungen der App",
+          "wo": "Geräteeinstellungen der App",
           "beleg": "lib/services/access_log_service.dart"
         }
       ],
       "berechtigungen": [
         {
           "name": "Internet",
-          "wofuer": "Freischalten und Pruefen der Firmenlizenz sowie der Hinweis auf eine neuere Fassung. Zum Erfassen von Meldungen, zum Erzeugen der PDF-Berichte und fuers Logbuch wird sie nicht benoetigt.",
+          "wofuer": "Freischalten und Prüfen der Firmenlizenz sowie der Hinweis auf eine neuere Fassung. Zum Erfassen von Meldungen, zum Erzeugen der PDF-Berichte und fürs Logbuch wird sie nicht benötigt.",
           "pflicht": false,
-          "beleg": "android/app/src/main/AndroidManifest.xml (uses-permission INTERNET)"
+          "beleg": "gebautes Manifest 1.4.0+53 - einzige Nutzerberechtigung ist INTERNET; kein Billing, keine Kamera, keine Kontakte, kein Speicher"
         }
       ],
       "uebertragungen": [
         {
           "wohin": "license.fehlerfuchs.eu",
-          "was": "Lizenzschluessel, Geraete-Fingerprint, optional ein selbst vergebener Geraetename und die Angabe \"Android\". Ausdruecklich KEINE Meldungen, Bilder, PDFs oder Einstellungen.",
-          "wann": "bei Aktivierung, Online-Pruefung und Freigabe eines Arbeitsplatzes",
+          "was": "Lizenzschlüssel, Geräte-Fingerprint, optional ein selbst vergebener Gerätename und die Angabe \"Android\". Ausdrücklich KEINE Meldungen, Bilder, PDFs oder Einstellungen.",
+          "wann": "bei Aktivierung, Online-Prüfung und Freigabe eines Arbeitsplatzes",
           "freiwillig": false,
-          "beleg": "lib/services/license_service.dart (Zeilen 50-95; /v1/activate, /v1/validate, /v1/deactivate)"
+          "beleg": "lib/enterprise/license_service.dart (Zeilen 63-79; /v1/activate, /v1/validate, /v1/deactivate)"
         },
         {
           "wohin": "fehlerfuchs.eu",
-          "was": "Abruf einer Versionsdatei (enterprise/latest.json) fuer den Update-Hinweis; es werden keine Inhalte gesendet",
-          "wann": "beim Pruefen auf eine neuere Fassung",
+          "was": "Abruf einer Versionsdatei (updates/mobilereport-enterprise/latest.json) für den Update-Hinweis; es werden keine Inhalte gesendet",
+          "wann": "beim Prüfen auf eine neuere Fassung - nur bei Direkt-Installation; auf verwalteten Play-Geräten findet kein Abruf statt",
           "freiwillig": false,
-          "beleg": "lib/services/update_service.dart (Zeilen 22-28)"
+          "beleg": "lib/services/update_service.dart (Zeile 76)"
         },
         {
-          "wohin": "fehlerfuchs.eu im Browser des Geraets",
-          "was": "Aufruf einer oeffentlichen Webseite",
+          "wohin": "fehlerfuchs.eu im Browser des Geräts",
+          "was": "Aufruf einer öffentlichen Webseite",
           "wann": "nur wenn der Nutzer einen Link antippt",
           "freiwillig": true,
           "beleg": "lib/features/enterprise/enterprise_info_page.dart, lib/features/home/home_page.dart"
         },
         {
-          "wohin": "vom Nutzer gewaehlte E-Mail-App auf dem Geraet",
-          "was": "erzeugtes PDF als Anhang, Empfaenger und Betreff",
-          "wann": "nur wenn der Nutzer den Versand ausloest",
+          "wohin": "vom Nutzer gewählte E-Mail-App auf dem Gerät",
+          "was": "erzeugtes PDF als Anhang, Empfänger und Betreff",
+          "wann": "nur wenn der Nutzer den Versand auslöst",
           "freiwillig": true,
           "beleg": "lib/services/mail_share_service.dart"
+        },
+        {
+          "wohin": "vom Nutzer gewählte E-Mail-App auf dem Gerät, Adressat FehlerFuchs",
+          "was": "selbst geschriebene Support-Nachricht; optional die vom Nutzer angehängten Screenshots; optional - und nur bei GESETZTEM Haken - Diagnosedaten: App-Fassung und Paketname, Build-Modus, Android-Fassung und SDK, Hersteller und Gerätemodell, unterstützte ABIs, Sprache, Zeitzone, Bildschirmauflösung, Edition sowie der app-eigene Fehlerlog. KEINE Geräte-ID, KEINE Werbe-ID, KEIN Standort, KEINE Meldungsinhalte. Der Nutzer kann die Diagnosedaten vor dem Absenden im Wortlaut ansehen.",
+          "wann": "nur wenn der Nutzer die Nachricht selbst absendet",
+          "freiwillig": true,
+          "beleg": "lib/features/support/support_page.dart, lib/core/diagnose/diagnose.dart, lib/core/kontakt/kontext.dart; Haken standardmäßig AUS"
         }
       ],
       "fremde_dienste": [
         {
           "name": "Lizenzdienst unter license.fehlerfuchs.eu",
-          "wofuer": "Aktivierung und Pruefung der Firmenlizenz (Arbeitsplatz-Zaehlung)",
-          "wann": "bei Aktivierung und Online-Pruefung"
+          "wofuer": "Aktivierung und Prüfung der Firmenlizenz (Arbeitsplatz-Zählung)",
+          "wann": "bei Aktivierung und Online-Prüfung"
         }
       ],
       "konto_noetig": false,
@@ -1445,13 +1458,14 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Meldungen, Bilder und Einstellungen liegen auf dem Geraet und lassen sich dort einzeln loeschen; mit der Deinstallation verschwinden sie vollstaendig. Der belegte Arbeitsplatz laesst sich in der App wieder freigeben, damit die Lizenz auf einem anderen Geraet genutzt werden kann.",
-      "besonderheiten": "Die Geraete-Kennung ist keine Hardware-Kennung und wird nicht aus dem Geraet ausgelesen: Es ist eine beim ersten Start zufaellig erzeugte Zufallsnummer, die geschuetzt auf dem Geraet liegt. Sie dient allein dazu, einen Arbeitsplatz zu zaehlen und bei erneuter Freischaltung nicht doppelt zu belegen; ein Rueckschluss auf eine Person ist damit nicht moeglich. Die App kennt den Zahlungsanbieter nicht, sie spricht ausschliesslich die eigene Lizenz-Schnittstelle an. Nach dem Freischalten ist die Nutzung auch ohne Netzverbindung moeglich. Das Firmen-Branding wird als Datei auf dem Geraet eingelesen und nicht aus dem Netz geladen. Die lokale Datensicherung (.mrbak) wird mit einem Passwort verschluesselt (AES-GCM-256, Schluessel per PBKDF2 aus dem Passwort); ohne das Passwort laesst sich die Datei nicht mehr oeffnen, auch nicht ueber den Support, und die Wiederherstellung verlangt zusaetzlich das Master-Passwort des Geraets. Aeltere Sicherungen ohne Passwort bleiben lesbar.",
-      "datenschutz_verbesserungen_1_0_2": "(1) Die automatische Android-Geraetesicherung ist abgeschaltet (allowBackup=false + eigene Backup-/Extraction-Regeln) - Meldungen, Bilder und Einstellungen verlassen das Geraet nicht mehr ueber die Google-Cloud-Geraetesicherung. (2) \"Alle Daten loeschen\" raeumt jetzt vollstaendig auf, einschliesslich Zugriffsprotokoll und importiertem Branding-Logo (die Lizenz bleibt bewusst erhalten). (3) Wiederherstellung und Import pruefen jede Datei vor dem Schreiben (Groesse, Herkunft, Inhalt); beschaedigte oder fremde Dateien werden abgewiesen. (4) Der Admin-Passwortschutz nutzt ein staerkeres Verfahren (PBKDF2 statt einfachem Hash). (5) Die Lizenzlaufzeit wird auch offline strikt eingehalten; ein Zuruecksetzen der Geraeteuhr wird erkannt. (6) Der Update-Hinweis wird nur ueber eine verschluesselte Verbindung geprueft und schweigt auf verwalteten Play-Geraeten vollstaendig (kein latest.json-Abruf) - dort liefert Google die Updates, es entsteht keine zusaetzliche Uebertragung.",
-      "auslieferung": "Zwei Wege, beide mit derselben Auslieferungssignatur. (a) Direkt-Download als APK ueber das GitHub-Release (fehlerfuchs-downloads), Freischaltung per Lizenzschluessel. (b) Managed Google Play: private Auslieferung an die Organisation des Kunden mit Android Enterprise; die App ist oeffentlich nicht gelistet. Auf diesem Weg liefert und aktualisiert Google die App, weshalb der In-App-Updater dort schweigt. Der Lizenz- und Datenweg der App ist auf beiden Wegen identisch.",
-      "vorhandener_text": "unbekannt (im Enterprise-Ordner wurde kein eigener Datenschutztext gefunden)",
-      "entwicklungsstand": "Keine unveroeffentlichten Aenderungen offen; 1.4.0 ist als Release-Update ausgeliefert und loest 1.0.2 ab. Der Datenfluss hat sich dabei nicht geaendert.",
-      "offene_fragen": "(1) Unbekannt, ob der Lizenzdienst serverseitig IP-Adressen oder Zeitpunkte protokolliert - das haengt vom Server ab, nicht von der App. (2) Unbekannt, ob der Abruf der Versionsdatei auf fehlerfuchs.eu serverseitig protokolliert wird. (3) Das Firmen-Setup (Provisioning) aus 00_Konzept\\PROVISIONING_FIRMENSETUP_KONZEPT.md ist bisher nur Konzept; im geprueften Code wurde dazu nichts gefunden. Unbekannt, ob Teile davon bereits ausserhalb der geprueften Dateien vorbereitet sind.",
+      "loeschung": "Meldungen, Bilder und Einstellungen liegen auf dem Gerät und lassen sich dort einzeln löschen; mit der Deinstallation verschwinden sie vollständig. Der belegte Arbeitsplatz lässt sich in der App wieder freigeben, damit die Lizenz auf einem anderen Gerät genutzt werden kann.",
+      "besonderheiten": "Die Geräte-Kennung ist keine Hardware-Kennung und wird nicht aus dem Gerät ausgelesen: Es ist eine beim ersten Start zufällig erzeugte Zufallsnummer, die geschützt auf dem Gerät liegt. Sie dient allein dazu, einen Arbeitsplatz zu zählen und bei erneuter Freischaltung nicht doppelt zu belegen; ein Rückschluss auf eine Person ist damit nicht möglich. Die App kennt den Zahlungsanbieter nicht, sie spricht ausschließlich die eigene Lizenz-Schnittstelle an. Nach dem Freischalten ist die Nutzung auch ohne Netzverbindung möglich. Das Firmen-Branding wird als Datei auf dem Gerät eingelesen und nicht aus dem Netz geladen.",
+      "datenschutz_verbesserungen_1_0_2": "(1) Die automatische Android-Gerätesicherung ist abgeschaltet (allowBackup=false + eigene Backup-/Extraction-Regeln) - Meldungen, Bilder und Einstellungen verlassen das Gerät nicht mehr über die Google-Cloud-Gerätesicherung. (2) \"Alle Daten löschen\" räumt jetzt vollständig auf, einschließlich Zugriffsprotokoll und importiertem Branding-Logo (die Lizenz bleibt bewusst erhalten). (3) Wiederherstellung und Import prüfen jede Datei vor dem Schreiben (Größe, Herkunft, Inhalt); beschädigte oder fremde Dateien werden abgewiesen. (4) Der Admin-Passwortschutz nutzt ein stärkeres Verfahren (PBKDF2 statt einfachem Hash). (5) Die Lizenzlaufzeit wird auch offline strikt eingehalten; ein Zurücksetzen der Geräteuhr wird erkannt. (6) Der Update-Hinweis wird nur über eine verschlüsselte Verbindung geprüft und schweigt auf verwalteten Play-Geräten vollständig (kein latest.json-Abruf) - dort liefert Google die Updates, es entsteht keine zusätzliche Übertragung.",
+      "datenschutz_aenderungen_1_4_0": "(1) Die Datensicherung (.mrbak) wird jetzt mit einem Passwort verschlüsselt: AES-GCM-256, Schlüssel aus dem Passwort per PBKDF2-HMAC-SHA256 mit 210 000 Runden, Salz und Nonce je Datei neu. Die Datei enthält danach keinen lesbaren Inhalt mehr - am Gerät gegengeprüft, 0 Treffer auf Klartext, ZIP-Marker oder Datenbankspuren. Ohne das Passwort ist die Sicherung nicht mehr zu öffnen, auch nicht durch den Support; es gibt keine Hintertür. Ältere, unverschlüsselte Sicherungen bleiben weiterhin lesbar, damit niemand seine alten Daten verliert. (2) Die Wiederherstellung verlangt zusätzlich das Master-Passwort des Geräts, sofern eines gesetzt ist (Befund MR-F-003): Wer am Gerät ist, kann nicht mehr einfach eine vorbereitete Datei einspielen und damit die Betriebsvorgaben ersetzen. (3) Die Lizenz und das Admin-Passwort sind NICHT Teil der Sicherung - daran ändert sich nichts. 🔴 Keine Meldepflicht im Play-Datensicherheitsformular: Der Nutzer wählt den Speicherort der Datei selbst im System-Dialog, die App greift danach nicht mehr darauf zu, und nichts verlässt das Gerät. Von [15] Managed Google Play am 23.09.2026 an Googles Formularhilfe belegt, nicht vermutet. (4) Belegt gegen die App selbst: lib/enterprise/backup_tresor.dart, lib/enterprise/backup_service.dart, lib/enterprise/backup_flows.dart.",
+      "auslieferung": "Zwei Wege, beide mit derselben Auslieferungssignatur. (a) Direkt-Download als APK über das GitHub-Release (fehlerfuchs-downloads), Freischaltung per Lizenzschlüssel. (b) Managed Google Play: private Auslieferung an die Organisation des Kunden mit Android Enterprise; die App ist öffentlich nicht gelistet. Auf diesem Weg liefert und aktualisiert Google die App, weshalb der In-App-Updater dort schweigt. Der Lizenz- und Datenweg der App ist auf beiden Wegen identisch. Seit 1.4.0 (23.09.2026) wird für Weg (b) ein App Bundle ausgeliefert, das den Uploadschlüssel trägt; Google signiert es mit demselben Auslieferungsschlüssel um, den die Direkt-APK aus Weg (a) trägt. Beide Wege enden also weiterhin bei derselben Signatur - ein Kunde kann ohne Neuinstallation zwischen ihnen wechseln. Am 23.09.2026 von [15] in der Play Console und an beiden Artefakten nachgemessen.",
+      "vorhandener_text": "lib/features/privacy/privacy_page.dart (In-App, gemeinsam mit der Consumer-Ausgabe; im Router ohne Ausgaben-Bedingung eingebunden, also auch in Enterprise erreichbar); Website fehlerfuchs.eu/datenschutz.html",
+      "entwicklungsstand": "Der veröffentlichte Datenschutzstand ist seit dem 23.09.2026 1.4.0+53 - auf beiden Wegen aus demselben Commit c6faf2b3. Die früher hier genannte 1.0.3+7 wurde nie ausgeliefert und geht in 1.4.0 auf.",
+      "offene_fragen": "(1) Unbekannt, ob der Lizenzdienst serverseitig IP-Adressen oder Zeitpunkte protokolliert - das hängt vom Server ab, nicht von der App. (2) Unbekannt, ob der Abruf der Versionsdatei auf fehlerfuchs.eu serverseitig protokolliert wird. (3) Das Firmen-Setup (Provisioning) aus 00_Konzept\\PROVISIONING_FIRMENSETUP_KONZEPT.md ist bisher nur Konzept; im geprüften Code wurde dazu nichts gefunden. Unbekannt, ob Teile davon bereits außerhalb der geprüften Dateien vorbereitet sind.",
       "art": "anwendung"
     },
     {
@@ -1678,30 +1692,30 @@
     {
       "slug": "pdfuchs",
       "name": "PDFuchs",
-      "stand": "2026-08-23",
+      "stand": "2026-09-25",
       "geprueft_von": "26_PDFuchs",
-      "fassung": "v0.1.0_dev (Vorabfassung, noch nicht veroeffentlicht)",
+      "fassung": "v0.1.0_dev (Vorabfassung, noch nicht veröffentlicht)",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
-          "was": "Vom Nutzer gesetzter Alias, Ablageordner, zuletzt geoeffnete Dokumentpfade und optionale Stammdaten (Name, Anschrift, E-Mail, Telefon, IBAN, BIC)",
+          "was": "Vom Nutzer gesetzter Alias, Ablageordner, zuletzt geöffnete Dokumentpfade und optionale Stammdaten (Name, Anschrift, E-Mail, Telefon, IBAN, BIC)",
           "wo": "Lokale Einstellungsdatei %APPDATA%\\PDFuchs\\settings.json",
           "beleg": "11_App_Flutter/pdfuchs_desktop/lib/settings/app_settings.dart"
         },
         {
-          "was": "Vom Nutzer geoeffnete und erzeugte PDFs sowie Zwischenergebnisse (Vorschauen, korrigierte Scans, ausfuellbare Formulare, Ergebnisse der Texterkennung)",
-          "wo": "lokaler Ausgabeordner der Anwendung",
-          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/config.py:61"
+          "was": "Vom Nutzer geöffnete und erzeugte PDFs sowie Zwischenergebnisse (Vorschauen, korrigierte Scans, ausfüllbare Formulare, Ergebnisse der Texterkennung)",
+          "wo": "Ordner Dokumente\\PDFuchs des Benutzers",
+          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/config.py:85-99"
         },
         {
-          "was": "Angaben zur Testphase und zur Zahl der erstellten Formulare (Startdatum, Zaehler)",
+          "was": "Angaben zur Testphase und zur Zahl der erstellten Formulare (Startdatum, Zähler)",
           "wo": "Datei license_state.json im Anwendungsdatenordner des Benutzers (%LOCALAPPDATA%\\PDFuchs)",
-          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/feature_flags.py:44-50"
+          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/feature_flags.py:61-62"
         },
         {
-          "was": "Angaben zu erkannten Scannern (Geraetename, Hersteller, Geraetekennung, Faehigkeiten) und selbst angelegte Scanprofile",
-          "wo": "zwei Dateien im lokalen Ausgabeordner der Anwendung",
-          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/scanner.py:22 und :28"
+          "was": "Angaben zu erkannten Scannern (Gerätename, Hersteller, Gerätekennung, Fähigkeiten) und selbst angelegte Scanprofile",
+          "wo": "zwei Dateien im Ordner Dokumente\\PDFuchs des Benutzers",
+          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/scanner.py:37 und :43"
         },
         {
           "was": "Speicherorte der mitgelieferten Zusatzwerkzeuge",
@@ -1712,22 +1726,22 @@
       "berechtigungen": [
         {
           "name": "Zugriff auf lokale Dateien",
-          "wofuer": "Oeffnen und Speichern der vom Nutzer gewaehlten Dokumente",
+          "wofuer": "Öffnen und Speichern der vom Nutzer gewählten Dokumente",
           "pflicht": true,
-          "beleg": "Windows-Desktopanwendung ohne Manifest-Berechtigungsmodell; Dateiauswahl ueber den Systemdialog"
+          "beleg": "Windows-Desktopanwendung ohne Manifest-Berechtigungsmodell; Dateiauswahl über den Systemdialog"
         },
         {
           "name": "Zugriff auf lokal angeschlossene Scanner",
-          "wofuer": "Einscannen von Vorlagen ueber Flachbett oder Einzug",
+          "wofuer": "Einscannen von Vorlagen über Flachbett oder Einzug",
           "pflicht": false,
           "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/scanner.py (WIA/TWAIN)"
         }
       ],
       "uebertragungen": [
         {
-          "was": "Nutzerinitiierte Support-/Kontaktnachricht (freiwillige Angaben - Name, E-Mail, Nachricht, App-Version, Betriebssystem-Angabe; optional vom Nutzer ausgewaehlte Dateianhaenge)",
+          "was": "Nutzerinitiierte Support-/Kontaktnachricht (freiwillige Angaben - Name, E-Mail, Nachricht, App-Version, Betriebssystem-Angabe; optional vom Nutzer ausgewählte Dateianhänge)",
           "wohin": "license.fehlerfuchs.eu (FehlerFuchs-Kontakt-Bridge, EU/IONOS), per HTTPS",
-          "wann": "ausschliesslich beim ausdruecklichen Absenden des Support-Formulars; sonst besteht keine Verbindung (Fallback bei Fehler - lokales E-Mail-Programm)",
+          "wann": "ausschließlich beim ausdrücklichen Absenden des Support-Formulars; sonst besteht keine Verbindung (Fallback bei Fehler - lokales E-Mail-Programm)",
           "beleg": "11_App_Flutter/pdfuchs_desktop/lib/support/kontakt_service.dart:20-58"
         }
       ],
@@ -1735,12 +1749,12 @@
         {
           "name": "LibreOffice (mitgeliefert)",
           "wofuer": "Umwandlung von Office-Dateien nach PDF und PDF/A-Export",
-          "wann": "lokal, nur wenn der Nutzer eine solche Umwandlung ausloest"
+          "wann": "lokal, nur wenn der Nutzer eine solche Umwandlung auslöst"
         },
         {
           "name": "Tesseract OCR (mitgeliefert)",
           "wofuer": "Texterkennung auf gescannten Seiten",
-          "wann": "lokal, nur wenn der Nutzer die Texterkennung ausloest"
+          "wann": "lokal, nur wenn der Nutzer die Texterkennung auslöst"
         },
         {
           "name": "PDFium (Bibliothek zur Anzeige)",
@@ -1749,9 +1763,9 @@
         },
         {
           "name": "veraPDF (mitgeliefert, inkl. schlanker OpenJDK-Laufzeit)",
-          "wofuer": "optionale Pruefung, ob eine PDF-Datei den PDF/A-Standard einhaelt",
-          "wann": "lokal, nur wenn der Nutzer die PDF/A-Pruefung ausloest; keine Verbindung nach draussen",
-          "beleg": "92_Tools/bundle/verapdf (Wrapper + app + jre), Anbindung 05_Engine/pdfuchs_core/pdfuchs_core/pdfa.py:82"
+          "wofuer": "optionale Prüfung, ob eine PDF-Datei den PDF/A-Standard einhält",
+          "wann": "lokal, nur wenn der Nutzer die PDF/A-Prüfung auslöst; keine Verbindung nach draußen",
+          "beleg": "92_Tools/bundle/verapdf (Wrapper + app + jre), Anbindung 05_Engine/pdfuchs_core/pdfuchs_core/pdfa.py:87"
         }
       ],
       "konto_noetig": false,
@@ -1759,16 +1773,16 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen auf dem Geraet. Selbst erzeugte oder bearbeitete PDFs liegen dort, wo der Nutzer sie gespeichert hat, und lassen sich wie jede andere Datei loeschen. Beim Deinstallieren wird das Programm entfernt; eigene Dokumente bleiben erhalten. Die kleine Datei mit den Angaben zur Testphase im Anwendungsdatenordner des Benutzers wird beim Deinstallieren nicht mit entfernt und bleibt auf dem Geraet; sie kann jederzeit von Hand geloescht werden. Das gilt auch fuer die lokale Einstellungsdatei unter %APPDATA%\\PDFuchs. Erkennt PDFuchs dort unlesbares JSON, wird diese Fassung vor dem naechsten Speichern als Datei mit dem Zusatz `.defekt-...` bewahrt.",
-      "besonderheiten": "PDFuchs verarbeitet Dokumente vollstaendig auf dem eigenen Rechner. Die Anwendung stellt von sich aus keine Verbindung ins Internet her. Eine Uebertragung erfolgt nur, wenn der Nutzer das Support-/Kontaktformular ausdruecklich absendet; dann gehen die dort eingegebenen freiwilligen Angaben (und optionale Dateianhaenge) per HTTPS an die FehlerFuchs-Kontakt-Bridge (license.fehlerfuchs.eu, EU/IONOS). Ein Konto oder eine Anmeldung gibt es nicht. Die Angaben zur Testphase und zur Zahl erstellter Formulare bleiben ausschliesslich auf dem Geraet. Wird ein Scanner benutzt, werden Angaben zum angeschlossenen Geraet lokal gespeichert, damit die Scanprofile dazu passen. Der beschriebene Stand ist eine Vorabfassung, die noch nicht veroeffentlicht wurde.",
+      "loeschung": "Alle Daten liegen auf dem Gerät. Selbst erzeugte oder bearbeitete PDFs liegen dort, wo der Nutzer sie gespeichert hat, und lassen sich wie jede andere Datei löschen. Beim Deinstallieren wird das Programm entfernt; eigene Dokumente bleiben erhalten. Die kleine Datei mit den Angaben zur Testphase im Anwendungsdatenordner des Benutzers wird beim Deinstallieren nicht mit entfernt und bleibt auf dem Gerät; sie kann jederzeit von Hand gelöscht werden. Das gilt auch für die lokale Einstellungsdatei unter %APPDATA%\\PDFuchs; erkennt PDFuchs dort unlesbares JSON, wird diese Fassung vor dem nächsten Speichern als Datei mit dem Zusatz `.defekt-...` bewahrt. Ebenso bleibt der Ordner Dokumente\\PDFuchs mit den dort abgelegten Ergebnissen, Scannerangaben und Scanprofilen nach dem Deinstallieren erhalten und kann von Hand gelöscht werden.",
+      "besonderheiten": "PDFuchs verarbeitet Dokumente vollständig auf dem eigenen Rechner. Die Anwendung stellt von sich aus keine Verbindung ins Internet her. Eine Übertragung erfolgt nur, wenn der Nutzer das Support-/Kontaktformular ausdrücklich absendet; dann gehen die dort eingegebenen freiwilligen Angaben (und optionale Dateianhänge) per HTTPS an die FehlerFuchs-Kontakt-Bridge (license.fehlerfuchs.eu, EU/IONOS). Ein Konto oder eine Anmeldung gibt es nicht. Die Angaben zur Testphase und zur Zahl erstellter Formulare bleiben ausschließlich auf dem Gerät. Wird ein Scanner benutzt, werden Angaben zum angeschlossenen Gerät lokal gespeichert, damit die Scanprofile dazu passen. Der beschriebene Stand ist eine Vorabfassung, die noch nicht veröffentlicht wurde.",
       "vorhandener_text": "09_Releases/Datenschutz_Lokalhinweis_01072026.md",
-      "offene_fragen": "1. Ob die mitgelieferten Zusatzwerkzeuge LibreOffice und Tesseract bei ihrer Ausfuehrung von sich aus Netzverbindungen aufbauen (etwa eine Updatepruefung von LibreOffice): PDFuchs loest nichts dergleichen aus; das Verhalten der Werkzeuge selbst wurde nicht per Mitschnitt geprueft. 2. Ob die beim Einrichten gesetzte Windows-Dateizuordnung ueber die Systemeintraege hinaus etwas nach aussen meldet: dafuer wurde kein Hinweis gefunden, es wurde aber nicht abschliessend geprueft.",
+      "offene_fragen": "1. Ob die mitgelieferten Zusatzwerkzeuge LibreOffice und Tesseract bei ihrer Ausführung von sich aus Netzverbindungen aufbauen (etwa eine Updateprüfung von LibreOffice): PDFuchs löst nichts dergleichen aus; das Verhalten der Werkzeuge selbst wurde nicht per Mitschnitt geprüft. 2. Ob die beim Einrichten gesetzte Windows-Dateizuordnung über die Systemeinträge hinaus etwas nach außen meldet: dafür wurde kein Hinweis gefunden, es wurde aber nicht abschließend geprüft.",
       "art": "anwendung"
     },
     {
       "slug": "pdfuchsreader",
       "name": "PDFuchs Reader",
-      "stand": "2026-08-23",
+      "stand": "2026-08-25",
       "geprueft_von": "26_PDFuchs (Slug-Eigentümer seit 18.08.2026; führt Android- und Windows-Teil). Windows-Teil am 19.08.2026 gegen den aktuellen Quellstand gegengeprüft und korrigiert: (a) das Netzverhalten ist nicht mehr netzwerkfrei, sondern hat einen NUTZERINITIIERTEN Support-/Kontaktweg (seit 25.07.2026); (b) es gibt inzwischen eine lokale Einstellungsdatei (settings.json) inkl. „Zuletzt geöffnet\"; (c) Installer ist Inno Setup (installer_flutter.iss), nicht mehr NSIS. Frühere Angaben entsprechend berichtigt.",
       "fassung": "Zweite Fassung vom 19.07.2026 - gegenüber der ersten Einreichung desselben Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt. Zwei Fassungen tragen heute diesen Slug. (A) Android-Fassung 1.1.0 (versionCode 3, Paket eu.fehlerfuchs.pdfuchsreader): seit 19.08.2026 vollständig in Google Play ausgerollt. Geprüft am aktuellen Code und Manifest; kein neuer Release-Build im gesperrten Reparaturlauf. (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, Inno-Setup-Skript (installer_flutter.iss). Kein Laufzeit-Mitschnitt des Netzwerkverkehrs - siehe offene Frage 4. Windows-Teil am 19.08.2026 gegen den aktuellen Stand gegengeprüft und berichtigt (Netzverhalten, Einstellungsdatei, Installer).",
       "lokal_only": false,
@@ -1942,7 +1956,7 @@
       "loeschung": "Android: Alle Daten liegen auf dem Gerät. Einträge der Liste „Zuletzt geöffnet\" lassen sich einzeln entfernen oder komplett leeren. Beim Deinstallieren verschwinden App-Einstellungen, Zuletzt-Liste, Handbuch-Kopie, Lesezeichen, Wiederlesepositionen, im App-Ordner erzeugte bearbeitete Kopien und der Zwischenspeicher. Windows: Das Deinstallieren entfernt das Programmverzeichnis, die Desktop- und Startmenü-Verknüpfungen sowie die bei der Installation gesetzten Einträge. Zwei Dateien bleiben dabei im Anwendungsdatenordner des Benutzers zurück und können jederzeit von Hand gelöscht werden: license_state.json (%LOCALAPPDATA%\\PDFuchs; nur ein lokaler Zählerstand, keine personenbezogenen Angaben) und settings.json (%APPDATA%\\PDFuchs; die Nutzereinstellungen inkl. optional selbst eingetragener Stammdaten). Beide werden bei der Deinstallation bewusst nicht mit entfernt. In beiden Fassungen bleiben die eigenen Dokumente des Nutzers unangetastet - Originale werden nie überschrieben.",
       "besonderheiten": "Beide Fassungen sind offline voll benutzbar; ohne Zutun des Nutzers entsteht keine Verbindung nach draußen und keine automatische Update-Prüfung. Es gibt kein Konto, keine Anmeldung, keine Werbung, keine Nutzungsmessung und keine In-App-Käufe. In BEIDEN Fassungen entsteht eine Verbindung nur, wenn der Nutzer sie selbst auslöst - vor allem beim Absenden des Support-/ Kontaktformulars (an license.fehlerfuchs.eu) sowie beim Öffnen externer Links. (Berichtigung 19.08.2026: die frühere Aussage, die Windows-Fassung stelle „überhaupt keine Verbindung\" her, war seit 25.07.2026 überholt.) Beim Windows-Installer kann der Nutzer optional eine GPU-Komponente wählen, die dann CUDA-Pakete aus dem offiziellen PyTorch-Index nachlädt (Standard: aus). Bearbeitete PDF-Dateien werden immer als neue Kopie gespeichert, die Ursprungsdatei bleibt unverändert. Die Android-Fassung wird über Google Play vertrieben; Google erhält dabei die üblichen Installations- und Kontodaten des Store-Vorgangs, worauf die App selbst keinen Einfluss hat.",
       "vorhandener_text": "Android: 05_App/pdfuchsreader_mobile/lib/features/legal/datenschutz_screen.dart (Datenschutztext in der App, verweist auf https://fehlerfuchs.eu/datenschutz.html). Windows: 09_Releases/Datenschutz_Lokalhinweis_01072026.md",
-      "offene_fragen": "1. (erledigt) Windows- und Android-Reader teilen bewusst den Slug „pdfuchsreader\"; Eigentümer und gemeinsame Pflege liegen bei [26] PDFuchs. 2. Ob der Kontakt-Endpunkt auf license.fehlerfuchs.eu IP-Adressen oder Zeitstempel protokolliert, hängt vom Server ab und ist aus der App heraus nicht feststellbar - unbekannt. 3. (erledigt) Das ungenutzte Paket permission_handler wurde mit Version 1.0.1 (07.08.2026) entfernt; es hatte ohnehin keine Datenschutzwirkung. 4. (aus der Windows-Zulieferung) Das Netzverhalten der mitgelieferten Tesseract-Binary selbst wurde nicht per Mitschnitt geprüft; geprüft wurde nur, was PDFuchs aufruft und übergibt. 5. (aus der Windows-Zulieferung) Ob Aktionen, die im Reader ausgelöst werden, den lokalen Zähler in license_state.json mitschreiben, wurde nicht abschließend geprüft: Reader und Suite nutzen denselben Programmkern, ein reader-eigener Schreibzugriff wurde jedoch nicht gefunden.",
+      "offene_fragen": "1. (erledigt) Windows- und Android-Reader teilen bewusst den Slug „pdfuchsreader\"; Eigentümer und gemeinsame Pflege liegen bei [26] PDFuchs. 2. (geklärt, Beleg [11] Lizenzserver via [26-1], 23.08.2026) Der Kontakt-Endpunkt /v1/contact auf license.fehlerfuchs.eu speichert den Nachrichteninhalt NICHT in der Datenbank; die IP dient nur als kurzlebiger Redis-Schlüssel der Missbrauchsbremse (Stunde/Tag), es wird kein User-Agent übernommen, und bei Erfolg protokolliert der Dienst weder Anfrageinhalt noch IP. Offen bleibt allein die Aufbewahrung im E-Mail-Postfach, an das der Supportinhalt weitergeleitet wird - sie richtet sich nach dem Postfach. 3. (erledigt) Das ungenutzte Paket permission_handler wurde mit Version 1.0.1 (07.08.2026) entfernt; es hatte ohnehin keine Datenschutzwirkung. 4. (aus der Windows-Zulieferung) Das Netzverhalten der mitgelieferten Tesseract-Binary selbst wurde nicht per Mitschnitt geprüft; geprüft wurde nur, was PDFuchs aufruft und übergibt. 5. (aus der Windows-Zulieferung) Ob Aktionen, die im Reader ausgelöst werden, den lokalen Zähler in license_state.json mitschreiben, wurde nicht abschließend geprüft: Reader und Suite nutzen denselben Programmkern, ein reader-eigener Schreibzugriff wurde jedoch nicht gefunden.",
       "art": "anwendung"
     },
     {
@@ -1989,7 +2003,7 @@
     {
       "slug": "snapfuchs",
       "name": "SnapFuchs",
-      "stand": "2026-08-17",
+      "stand": "2026-09-25",
       "geprueft_von": "30_SnapFuchs",
       "fassung": "1.2.0 (versionCode 9)",
       "lokal_only": false,
@@ -2000,27 +2014,27 @@
           "beleg": "lib/core/storage/dokument_speicher.dart"
         },
         {
-          "was": "Kopien der Exporte in einer selbst gewaehlten Standardablage (optional, nur wenn eingerichtet)",
-          "wo": "vom Nutzer per Android-Ordnerauswahl (SAF) bestimmter Ordner auf dem Geraet, z. B. in \"Dateien\"; sichtbar im Dateimanager",
+          "was": "Kopien der Exporte in einer selbst gewählten Standardablage (optional, nur wenn eingerichtet)",
+          "wo": "vom Nutzer per Android-Ordnerauswahl (SAF) bestimmter Ordner auf dem Gerät, z. B. in \"Dateien\"; sichtbar im Dateimanager",
           "beleg": "lib/core/storage/extern_ablage.dart, lib/models/extern_ablage_ziel.dart, android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt"
         },
         {
           "was": "Einstellungen (Wasserzeichen-Stil und -Position, Kaufstatus)",
-          "wo": "Geraeteeinstellungen der App",
+          "wo": "Geräteeinstellungen der App",
           "beleg": "lib/models/watermark_config.dart, lib/utils/pro_check.dart"
         },
         {
-          "was": "App-eigener Fehlerlog (technische Fehlermeldungen, ueberdauert Neustart)",
+          "was": "App-eigener Fehlerlog (technische Fehlermeldungen, überdauert Neustart)",
           "wo": "lokale Datei im App-Verzeichnis",
           "beleg": "lib/core/diagnose/fehlerlog.dart"
         },
         {
-          "was": "Temporaere Dateien fuer OCR, Export und Teilen",
-          "wo": "App-Cache, werden nach Gebrauch geloescht bzw. vom System aufgeraeumt",
+          "was": "Temporäre Dateien für OCR, Export und Teilen",
+          "wo": "App-Cache, werden nach Gebrauch gelöscht bzw. vom System aufgeräumt",
           "beleg": "lib/core/ocr/tesseract_service.dart, lib/core/pdf/pdf_export.dart"
         },
         {
-          "was": "Fuer die PDF-Werkzeuge ausgewaehlte fremde PDF-Dateien",
+          "was": "Für die PDF-Werkzeuge ausgewählte fremde PDF-Dateien",
           "wo": "Kopie im App-Cache",
           "beleg": "android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt"
         }
@@ -2038,7 +2052,7 @@
         },
         {
           "name": "Internet",
-          "wofuer": "Feedback absenden, Verweise im Browser oeffnen, Kaufabwicklung ueber Google Play",
+          "wofuer": "Feedback absenden, Verweise im Browser öffnen, Kaufabwicklung über Google Play",
           "pflicht": false,
           "beleg": "INTERNET in android/app/src/main/AndroidManifest.xml"
         },
@@ -2049,8 +2063,8 @@
           "beleg": "com.android.vending.BILLING, vom Paket in_app_purchase ergaenzt, im gemergten Release-Manifest enthalten"
         },
         {
-          "name": "Ordnerzugriff fuer die Standardablage (Storage Access Framework)",
-          "wofuer": "Exporte zusaetzlich in einen selbst gewaehlten Ordner schreiben; keine Speicher-Berechtigung noetig, der Zugriff gilt nur fuer genau den vom Nutzer gewaehlten Ordner (persistierbare URI-Freigabe) und ist jederzeit widerrufbar",
+          "name": "Ordnerzugriff für die Standardablage (Storage Access Framework)",
+          "wofuer": "Exporte zusätzlich in einen selbst gewählten Ordner schreiben; keine Speicher-Berechtigung nötig, der Zugriff gilt nur für genau den vom Nutzer gewählten Ordner (persistierbare URI-Freigabe) und ist jederzeit widerrufbar",
           "pflicht": false,
           "beleg": "ACTION_OPEN_DOCUMENT_TREE + takePersistableUriPermission in android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt"
         },
@@ -2062,13 +2076,13 @@
         },
         {
           "name": "Mikrofon",
-          "wofuer": "wird nicht angefordert. Die Kamera wird ohne Tonaufnahme geoeffnet; es wird nie Audio aufgezeichnet",
+          "wofuer": "wird nicht angefordert. Die Kamera wird ohne Tonaufnahme geöffnet; es wird nie Audio aufgezeichnet",
           "pflicht": false,
           "beleg": "RECORD_AUDIO per tools:node=\"remove\" entfernt in android/app/src/main/AndroidManifest.xml; enableAudio false in lib/features/scan/scan_screen.dart"
         },
         {
           "name": "Zugriff auf Fotos und Videos",
-          "wofuer": "wird nicht angefordert. Bilder waehlt man ueber den Android-Fotoauswahl-Dialog aus, der ohne diese Berechtigung auskommt",
+          "wofuer": "wird nicht angefordert. Bilder wählt man über den Android-Fotoauswahl-Dialog aus, der ohne diese Berechtigung auskommt",
           "pflicht": false,
           "beleg": "READ_MEDIA_IMAGES und READ_MEDIA_VIDEO per tools:node=\"remove\" entfernt in android/app/src/main/AndroidManifest.xml; useAndroidPhotoPicker in lib/main.dart"
         }
@@ -2076,21 +2090,21 @@
       "uebertragungen": [
         {
           "wohin": "Google Play (Abrechnung)",
-          "was": "Abfrage bzw. Uebermittlung des Kaufstatus fuer die Pro-Fassung",
+          "was": "Abfrage bzw. Übermittlung des Kaufstatus für die Pro-Fassung",
           "wann": "automatisch beim App-Start (Wiederherstellung) und beim Kauf",
           "freiwillig": false,
           "beleg": "lib/utils/pro_check.dart"
         },
         {
           "wohin": "license.fehlerfuchs.eu",
-          "was": "Nachrichtentext, freiwillig Name und E-Mail-Adresse, App-Name sowie optional angehaengte Bilder. Nur wenn der Nutzer den Haken \"Diagnosedaten mitsenden\" setzt, kommen zusaetzlich App-Version, Android-Version, Geraetemodell und Edition mit sowie eine Diagnosedatei mit Technikdaten und dem App-eigenen Fehlerlog",
+          "was": "Nachrichtentext, freiwillig Name und E-Mail-Adresse, App-Name sowie optional angehängte Bilder. Nur wenn der Nutzer den Haken \"Diagnosedaten mitsenden\" setzt, kommen zusätzlich App-Version, Android-Version, Gerätemodell und Edition mit sowie eine Diagnosedatei mit Technikdaten und dem App-eigenen Fehlerlog",
           "wann": "nur wenn der Nutzer das Feedback-Formular aktiv absendet",
           "freiwillig": true,
           "beleg": "lib/core/kontakt/kontakt_service.dart, lib/features/info/feedback_screen.dart"
         },
         {
           "wohin": "fehlerfuchs.eu",
-          "was": "Aufruf der Website (Impressum, Kontakt, weitere Apps, Unterstuetzen) im externen Browser",
+          "was": "Aufruf der Website (Impressum, Kontakt, weitere Apps, Unterstützen) im externen Browser",
           "wann": "nur wenn der Nutzer den jeweiligen Verweis antippt",
           "freiwillig": true,
           "beleg": "lib/features/info/impressum_screen.dart, lib/features/home/home_screen.dart"
@@ -2098,14 +2112,14 @@
         {
           "wohin": "vom Nutzer gescannte Adresse (QR-Code)",
           "was": "Aufruf der im Code enthaltenen Adresse im externen Browser",
-          "wann": "nur nach Antippen von \"Oeffnen\" im Ergebnisdialog",
+          "wann": "nur nach Antippen von \"Öffnen\" im Ergebnisdialog",
           "freiwillig": true,
           "beleg": "lib/features/code/code_scan_screen.dart"
         },
         {
-          "wohin": "Mail-App des Geraets",
-          "was": "vorbereitete Support-Mail als Rueckfallweg, wenn das Formular nicht durchkommt",
-          "wann": "nur nach Bestaetigung durch den Nutzer",
+          "wohin": "Mail-App des Geräts",
+          "was": "vorbereitete Support-Mail als Rückfallweg, wenn das Formular nicht durchkommt",
+          "wann": "nur nach Bestätigung durch den Nutzer",
           "freiwillig": true,
           "beleg": "lib/features/info/feedback_screen.dart"
         }
@@ -2127,10 +2141,10 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Inhalte liegen auf dem Geraet. Einzelne Dokumente und Ordner lassen sich in der App loeschen; alles Uebrige (Einstellungen, Fehlerlog, Cache) verschwindet mit der Deinstallation. Per Feedback gesendete Nachrichten liegen im Support-Postfach und werden auf Anfrage geloescht.",
-      "besonderheiten": "Texterkennung, Tabellenerkennung, das Lesen von QR-Codes und Barcodes sowie alle PDF-Werkzeuge laufen vollstaendig auf dem Geraet und bauen dafuer keine Verbindung nach aussen auf. Es gibt kein Konto und keine Registrierung. Bilder aus der Galerie werden ueber den Android-Fotoauswahl-Dialog ausgewaehlt; deshalb fordert die App keine Berechtigung fuer Fotos oder Videos an. In der kostenlosen Fassung tragen die erzeugten PDFs ein Wasserzeichen, das nach dem einmaligen Kauf entfaellt. Der Kaufstatus wird auf dem Geraet gespeichert und zusaetzlich bei Google Play abgefragt. Optional laesst sich eine Standardablage einrichten: Exporte werden dann zusaetzlich in einen selbst gewaehlten Ordner auf dem Geraet geschrieben; die Ordnerwahl laeuft ueber den Android-Ordnerauswahl-Dialog (SAF) und braucht keine Speicher-Berechtigung. Der beim Scannen vergebene Dokumentname bleibt nur im Arbeitsspeicher und bestimmt lediglich den Dateinamen beim Export.",
+      "loeschung": "Alle Inhalte liegen auf dem Gerät. Einzelne Dokumente und Ordner lassen sich in der App löschen; alles Übrige (Einstellungen, Fehlerlog, Cache) verschwindet mit der Deinstallation. Per Feedback gesendete Nachrichten liegen im Support-Postfach und werden auf Anfrage gelöscht.",
+      "besonderheiten": "Texterkennung, Tabellenerkennung, das Lesen von QR-Codes und Barcodes sowie alle PDF-Werkzeuge laufen vollständig auf dem Gerät und bauen dafür keine Verbindung nach außen auf. Es gibt kein Konto und keine Registrierung. Bilder aus der Galerie werden über den Android-Fotoauswahl-Dialog ausgewählt; deshalb fordert die App keine Berechtigung für Fotos oder Videos an. In der kostenlosen Fassung tragen die erzeugten PDFs ein Wasserzeichen, das nach dem einmaligen Kauf entfällt. Der Kaufstatus wird auf dem Gerät gespeichert und zusätzlich bei Google Play abgefragt. Optional lässt sich eine Standardablage einrichten: Exporte werden dann zusätzlich in einen selbst gewählten Ordner auf dem Gerät geschrieben; die Ordnerwahl läuft über den Android-Ordnerauswahl-Dialog (SAF) und braucht keine Speicher-Berechtigung. Der beim Scannen vergebene Dokumentname bleibt nur im Arbeitsspeicher und bestimmt lediglich den Dateinamen beim Export.",
       "vorhandener_text": "Kein eigenes Dokument. Ein Datenschutz-Abschnitt steht in der App unter Einstellungen (lib/features/settings/settings_screen.dart); das Impressum verweist auf die Website.",
-      "offene_fragen": "1) ACCESS_NETWORK_STATE steht nur wegen eingebundener Bausteine im Manifest; im eigenen Code wird der Netzwerkstatus nirgends abgefragt. Die Berechtigung bleibt vorerst drin, weil die Kaufabwicklung sie voraussetzen duerfte; sie ist nicht sensibel und wird dem Nutzer nicht angezeigt. 2) Ob und wie lange der Kontakt-Server IP-Adressen protokolliert, haengt vom Server ab und ist aus dem App-Code nicht feststellbar.",
+      "offene_fragen": "1) ACCESS_NETWORK_STATE steht nur wegen eingebundener Bausteine im Manifest; im eigenen Code wird der Netzwerkstatus nirgends abgefragt. Die Berechtigung bleibt vorerst drin, weil die Kaufabwicklung sie voraussetzen dürfte; sie ist nicht sensibel und wird dem Nutzer nicht angezeigt. 2) Ob und wie lange der Kontakt-Server IP-Adressen protokolliert, hängt vom Server ab und ist aus dem App-Code nicht feststellbar.",
       "art": "anwendung"
     },
     {
