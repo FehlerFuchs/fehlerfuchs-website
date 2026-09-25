@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-24T22:50:23+02:00",
+  "generiert": "2026-09-25T10:35:51+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "pdfuchsreader-1-2-1",
+      "typ": "update",
+      "produkt": "pdfuchsreader",
+      "datum": "2026-09-25",
+      "titel": "PDFuchs Reader 1.2.1: stabiler beim Öffnen aus anderen Apps",
+      "text": "PDFuchs Reader 1.2.1 behebt einen seltenen Absturz beim Öffnen von PDFs aus anderen Apps. E-Books öffnen robuster – beschädigte Dateien zeigen jetzt eine Meldung, statt zu hängen –, und „Weiterlesen“ merkt sich die Seite zuverlässiger. Beim Bearbeiten von Seiten ist „Als Kopie“ im hellen Modus wieder sichtbar und erst nach einer Änderung aktiv. Sehr lange PDFs laufen im Lesemodus schneller und sparsamer.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader"
+      }
+    },
     {
       "id": "website-dunkelmodus",
       "typ": "hinweis",

@@ -29,6 +29,22 @@
 
 meldungen:
 
+  # PDFuchs Reader 1.2.1. Play-Store-App: kein Release im Modell. Live seit
+  # 25.09.2026 10:09 (Produktion, 100 %), belegt durch die P5-Meldung von [13]
+  # vom 25.09.2026. Text nach „Was ist neu" im Store, ohne Zusatz.
+  # KEINE Buildnummer nennen (vc 5) - sichtbar ist 1.2.1.
+  - id: pdfuchsreader-1-2-1
+    typ: update
+    produkt: pdfuchsreader
+    datum: "2026-09-25"
+    titel: "PDFuchs Reader 1.2.1: stabiler beim Öffnen aus anderen Apps"
+    text: >-
+      PDFuchs Reader 1.2.1 behebt einen seltenen Absturz beim Öffnen von PDFs aus anderen
+      Apps. E-Books öffnen robuster – beschädigte Dateien zeigen jetzt eine Meldung, statt
+      zu hängen –, und „Weiterlesen“ merkt sich die Seite zuverlässiger. Beim Bearbeiten
+      von Seiten ist „Als Kopie“ im hellen Modus wieder sichtbar und erst nach einer
+      Änderung aktiv. Sehr lange PDFs laufen im Lesemodus schneller und sparsamer.
+
   # Website-Dunkelmodus, live 23.09.2026. typ 'hinweis' ohne Produktbezug –
   # eine Meldung zur Seite selbst. Datum explizit, da kein Release ein Datum
   # liefert. Bewusst persönlich/warm formuliert (Ich-Stimme, Entscheidung Matthias).

@@ -1,14 +1,14 @@
 slug: einsatzfuchs
 name: EinsatzFuchs
-stand: "2026-08-05"
+stand: "2026-09-25"
 geprueft_von: 33_EinsatzFuchs
 fassung: "noch nicht veröffentlicht"
 
-# Verlaesst IRGENDEIN Datum das Geraet, wenn man nichts weiter einstellt?
+# Verlässt IRGENDEIN Datum das Gerät, wenn man nichts weiter einstellt?
 lokal_only: true
 
 # Ja/Nein-Angaben aus dem Konzept-Grundsatz (Konzept 2, 11). Werden beim ersten
-# echten Build gegen den Code geprueft.
+# echten Build gegen den Code geprüft.
 konto_noetig: false
 tracking: false
 werbung: false
@@ -16,31 +16,31 @@ absturzberichte: false
 daten_an_dritte_verkauft: false
 
 loeschung: >-
-  Alle Inhalte und Einstellungen liegen auf dem Geraet. Sie verschwinden,
+  Alle Inhalte und Einstellungen liegen auf dem Gerät. Sie verschwinden,
   wenn man die App deinstalliert.
 
 besonderheiten: >-
-  EinsatzFuchs ist eine offline-faehige App fuer die Freiwillige Feuerwehr,
+  EinsatzFuchs ist eine offline-fähige App für die Freiwillige Feuerwehr,
   nicht-kommerziell und ohne Konto. Sie ist in der Konzeptphase, es gibt
   noch keinen Code.
-  Stand 26.07.2026 geprueft: seit dem 24.07. hat sich datenschutzrechtlich
-  nichts geaendert. Der MVP-Schnitt v0.1 ist am 25.07. abgenommen und die
-  Formel-Verifikation (Block 0.5) laeuft - beides betrifft nur den fachlichen
-  Inhalt der Rechner, nicht die Datenverarbeitung. v0.1 bleibt ausdruecklich
+  Stand 26.07.2026 geprüft: seit dem 24.07. hat sich datenschutzrechtlich
+  nichts geändert. Der MVP-Schnitt v0.1 ist am 25.07. abgenommen und die
+  Formel-Verifikation (Block 0.5) läuft - beides betrifft nur den fachlichen
+  Inhalt der Rechner, nicht die Datenverarbeitung. v0.1 bleibt ausdrücklich
   ohne jeden Netzzugriff.
-  Stand 05.08.2026 geprueft: seit dem 26.07. hat sich datenschutzrechtlich
-  nichts geaendert. Geaendert wurde nur der Fachinhalt der Formelbank
+  Stand 05.08.2026 geprüft: seit dem 26.07. hat sich datenschutzrechtlich
+  nichts geändert. Geändert wurde nur der Fachinhalt der Formelbank
   (FORMELN_EinsatzFuchs.md, Fassung 4) - Rechenwege und Quellenbelege, keine
   Datenverarbeitung. Es gibt weiterhin keinen Code.
 
 offene_fragen: >-
   Die Anwendung ist in Entwicklung; Angaben folgen, sobald der Funktionsumfang
-  steht. Laut Konzept ist der einzige geplante Netzzugriff die Versionspruefung
+  steht. Laut Konzept ist der einzige geplante Netzzugriff die Versionsprüfung
   und der Paket-Download von fehlerfuchs.eu (Inhaltsaktualisierung, vom Nutzer
-  ausgeloest); ausserdem ruft die Lagekarte OSM-/Overpass-Kartendaten ab, wenn
-  der Nutzer sie oeffnet. Beides ist noch nicht gebaut und daher hier nur als
+  ausgelöst); außerdem ruft die Lagekarte OSM-/Overpass-Kartendaten ab, wenn
+  der Nutzer sie öffnet. Beides ist noch nicht gebaut und daher hier nur als
   geplant vermerkt, nicht als Tatsache.
-  Erledigt am 05.08.2026: Der frueher hier vermerkte offene Punkt zum Slug ist
+  Erledigt am 05.08.2026: Der früher hier vermerkte offene Punkt zum Slug ist
   gegenstandslos. Der Slug "einsatzfuchs" steht seit 24.07.2026 in
-  _SLUG-EIGENTUEMER.md (Eigentuemer 33_EinsatzFuchs); eine Slug-Liste
-  im Datenschutz-Prompt gibt es nicht - der Prompt fuehrt keine.
+  _SLUG-EIGENTUEMER.md (Eigentümer 33_EinsatzFuchs); eine Slug-Liste
+  im Datenschutz-Prompt gibt es nicht - der Prompt führt keine.

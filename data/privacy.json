@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-24T22:50:23+02:00",
+  "generiert": "2026-09-25T10:35:51+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -547,7 +547,7 @@
     {
       "slug": "einsatzfuchs",
       "name": "EinsatzFuchs",
-      "stand": "2026-08-05",
+      "stand": "2026-09-25",
       "geprueft_von": "33_EinsatzFuchs",
       "fassung": "noch nicht veröffentlicht",
       "lokal_only": true,
@@ -556,9 +556,9 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Inhalte und Einstellungen liegen auf dem Geraet. Sie verschwinden, wenn man die App deinstalliert.",
-      "besonderheiten": "EinsatzFuchs ist eine offline-faehige App fuer die Freiwillige Feuerwehr, nicht-kommerziell und ohne Konto. Sie ist in der Konzeptphase, es gibt noch keinen Code. Stand 26.07.2026 geprueft: seit dem 24.07. hat sich datenschutzrechtlich nichts geaendert. Der MVP-Schnitt v0.1 ist am 25.07. abgenommen und die Formel-Verifikation (Block 0.5) laeuft - beides betrifft nur den fachlichen Inhalt der Rechner, nicht die Datenverarbeitung. v0.1 bleibt ausdruecklich ohne jeden Netzzugriff. Stand 05.08.2026 geprueft: seit dem 26.07. hat sich datenschutzrechtlich nichts geaendert. Geaendert wurde nur der Fachinhalt der Formelbank (FORMELN_EinsatzFuchs.md, Fassung 4) - Rechenwege und Quellenbelege, keine Datenverarbeitung. Es gibt weiterhin keinen Code.",
-      "offene_fragen": "Die Anwendung ist in Entwicklung; Angaben folgen, sobald der Funktionsumfang steht. Laut Konzept ist der einzige geplante Netzzugriff die Versionspruefung und der Paket-Download von fehlerfuchs.eu (Inhaltsaktualisierung, vom Nutzer ausgeloest); ausserdem ruft die Lagekarte OSM-/Overpass-Kartendaten ab, wenn der Nutzer sie oeffnet. Beides ist noch nicht gebaut und daher hier nur als geplant vermerkt, nicht als Tatsache. Erledigt am 05.08.2026: Der frueher hier vermerkte offene Punkt zum Slug ist gegenstandslos. Der Slug \"einsatzfuchs\" steht seit 24.07.2026 in _SLUG-EIGENTUEMER.md (Eigentuemer 33_EinsatzFuchs); eine Slug-Liste im Datenschutz-Prompt gibt es nicht - der Prompt fuehrt keine.",
+      "loeschung": "Alle Inhalte und Einstellungen liegen auf dem Gerät. Sie verschwinden, wenn man die App deinstalliert.",
+      "besonderheiten": "EinsatzFuchs ist eine offline-fähige App für die Freiwillige Feuerwehr, nicht-kommerziell und ohne Konto. Sie ist in der Konzeptphase, es gibt noch keinen Code. Stand 26.07.2026 geprüft: seit dem 24.07. hat sich datenschutzrechtlich nichts geändert. Der MVP-Schnitt v0.1 ist am 25.07. abgenommen und die Formel-Verifikation (Block 0.5) läuft - beides betrifft nur den fachlichen Inhalt der Rechner, nicht die Datenverarbeitung. v0.1 bleibt ausdrücklich ohne jeden Netzzugriff. Stand 05.08.2026 geprüft: seit dem 26.07. hat sich datenschutzrechtlich nichts geändert. Geändert wurde nur der Fachinhalt der Formelbank (FORMELN_EinsatzFuchs.md, Fassung 4) - Rechenwege und Quellenbelege, keine Datenverarbeitung. Es gibt weiterhin keinen Code.",
+      "offene_fragen": "Die Anwendung ist in Entwicklung; Angaben folgen, sobald der Funktionsumfang steht. Laut Konzept ist der einzige geplante Netzzugriff die Versionsprüfung und der Paket-Download von fehlerfuchs.eu (Inhaltsaktualisierung, vom Nutzer ausgelöst); außerdem ruft die Lagekarte OSM-/Overpass-Kartendaten ab, wenn der Nutzer sie öffnet. Beides ist noch nicht gebaut und daher hier nur als geplant vermerkt, nicht als Tatsache. Erledigt am 05.08.2026: Der früher hier vermerkte offene Punkt zum Slug ist gegenstandslos. Der Slug \"einsatzfuchs\" steht seit 24.07.2026 in _SLUG-EIGENTUEMER.md (Eigentümer 33_EinsatzFuchs); eine Slug-Liste im Datenschutz-Prompt gibt es nicht - der Prompt führt keine.",
       "art": "anwendung"
     },
     {
@@ -2220,27 +2220,27 @@
     {
       "slug": "wachfuchs",
       "name": "WachFuchs",
-      "stand": "2026-08-16",
+      "stand": "2026-09-25",
       "geprueft_von": "34_WachFuchs",
-      "fassung": "Entwicklungsphase – App-Geruest steht (flutter create 03.08.2026, gemeinsamer Kern fehlerfuchs_kern eingebunden), noch kein Store-Eintrag. Angaben aus Architektur-Konzept (Entwurf 1, Abschnitt 7), ergaenzt um die Entscheidungen vom 02.–04.08.2026 (Vertriebsmodell, Korrekturkanal, Pruefvermerke)",
+      "fassung": "Entwicklungsphase – App-Gerüst steht (flutter create 03.08.2026, gemeinsamer Kern fehlerfuchs_kern eingebunden), noch kein Store-Eintrag. Angaben aus Architektur-Konzept (Entwurf 1, Abschnitt 7), ergänzt um die Entscheidungen vom 02.–04.08.2026 (Vertriebsmodell, Korrekturkanal, Prüfvermerke)",
       "lokal_only": false,
       "auf_dem_geraet": [
-        "Lernstand (Leitner-Faecher je Frage) – lokal, verlaesst das Geraet nicht",
+        "Lernstand (Leitner-Fächer je Frage) – lokal, verlässt das Gerät nicht",
         "Inhaltspakete (SQLite mit Fragen/Antworten/Fundstellen) – heruntergeladen, lokal gespeichert",
-        "Zufaellige Installations-ID (lokal erzeugt, kein Personenbezug) – nur fuer Rate-Limit/Melde-Bezug",
-        "Merker, welche Fragen gemeldet wurden – lokal, fuer den Bearbeitet-Hinweis"
+        "Zufällige Installations-ID (lokal erzeugt, kein Personenbezug) – nur für Rate-Limit/Melde-Bezug",
+        "Merker, welche Fragen gemeldet wurden – lokal, für den Bearbeitet-Hinweis"
       ],
       "berechtigungen": [
         "Internet – Inhaltspakete abrufen und (freiwillig) Meldungen senden"
       ],
       "uebertragungen": [
         "Katalog/Inhaltspakete vom Relaisserver abrufen (nur lesen, signiert, kein Personenbezug)",
-        "Korrekturkanal: regelmaessiger Abruf einer kleinen signierten Datei 'korrekturen.json' vom Relaisserver (reiner GET, keine Kennung, keine Nutzerdaten, keine Parameter) – sperrt oder ersetzt einzelne fehlerhafte Fragen, ohne dass die App neu ausgeliefert werden muss (Konzept 6.3). Die technische Abruftaktung ist eine Architektureigenschaft und keine Servicezusage.",
-        "Freiwillige Meldung ueber 'Frage melden': paketId, frageId, inhaltsVersion, appVersion, Grund, optionaler Text (max. 500 Zeichen), gewaehlte Antwort, zufaellige Installations-ID – kein Name, keine E-Mail, kein Standort, kein Lernstand",
-        "Kaufabwicklung ueber Google Play Billing (laeuft ueber Google, nicht ueber eigene Server)"
+        "Korrekturkanal: regelmäßiger Abruf einer kleinen signierten Datei 'korrekturen.json' vom Relaisserver (reiner GET, keine Kennung, keine Nutzerdaten, keine Parameter) – sperrt oder ersetzt einzelne fehlerhafte Fragen, ohne dass die App neu ausgeliefert werden muss (Konzept 6.3). Die technische Abruftaktung ist eine Architektureigenschaft und keine Servicezusage.",
+        "Freiwillige Meldung über 'Frage melden': paketId, frageId, inhaltsVersion, appVersion, Grund, optionaler Text (max. 500 Zeichen), gewählte Antwort, zufällige Installations-ID – kein Name, keine E-Mail, kein Standort, kein Lernstand",
+        "Kaufabwicklung über Google Play Billing (läuft über Google, nicht über eigene Server)"
       ],
       "fremde_dienste": [
-        "Google Play Billing (Kaufabwicklung) – Google verarbeitet die Kaufdaten; WachFuchs erhaelt keine Google-Konto-Kennung",
+        "Google Play Billing (Kaufabwicklung) – Google verarbeitet die Kaufdaten; WachFuchs erhält keine Google-Konto-Kennung",
         "FehlerFuchs Relaisserver [11-2] (eigen, IONOS-VPS Deutschland) – Auslieferung signierter Pakete + Meldungs-Endpunkt; Zugriffs-Logs ohne volle IP, kurze Aufbewahrung"
       ],
       "konto_noetig": false,
@@ -2249,9 +2249,9 @@
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
       "loeschung": "Es gibt kein Nutzerkonto und keine serverseitig gespeicherten Nutzerdaten. Alle lokalen Daten (Lernstand, Pakete, Installations-ID) werden mit der Deinstallation der App entfernt. Freiwillige Meldungen enthalten keinen Personenbezug; serverseitig werden sie ohne volle IP und nur kurz aufbewahrt. Wer seinen Lernstand sichern will, exportiert eine lokale Datei.",
-      "besonderheiten": "Kostenpflichtige Lern-App fuer die Feuerwehr-Ausbildung. Grundsatz: was nicht erhoben wird, kann nicht verloren gehen – kein Konto, kein Login, kein Analytics, keine Werbe-ID. Lernstand bleibt auf dem Geraet; der Server ist Komfort, keine Voraussetzung (offline-first). Inhaltspakete sind Ed25519-signiert; die App laedt keinen ausfuehrbaren Code nach. Jede Aussage traegt ihre Fundstelle mit Ausgabestand und Abrufdatum sowie einen sichtbaren Pruefvermerk (durch KI geprueft / durch Autor / durch die Community geprueft) – das sind Angaben zum Inhalt, keine Nutzerdaten. Play-Datensicherheitsangaben sind mit dieser Architektur kurz auszufuellen.",
+      "besonderheiten": "Kostenpflichtige Lern-App für die Feuerwehr-Ausbildung. Grundsatz: was nicht erhoben wird, kann nicht verloren gehen – kein Konto, kein Login, kein Analytics, keine Werbe-ID. Lernstand bleibt auf dem Gerät; der Server ist Komfort, keine Voraussetzung (offline-first). Inhaltspakete sind Ed25519-signiert; die App lädt keinen ausführbaren Code nach. Jede Aussage trägt ihre Fundstelle mit Ausgabestand und Abrufdatum sowie einen sichtbaren Prüfvermerk (durch KI geprüft / durch Autor / durch die Community geprüft) – das sind Angaben zum Inhalt, keine Nutzerdaten. Play-Datensicherheitsangaben sind mit dieser Architektur kurz auszufüllen.",
       "vorhandener_text": "",
-      "offene_fragen": "1) Serverseitige Aufbewahrungsfristen des Meldungs-Endpunkts final festzurren. 2) Vor der ersten bezahlten Version einmal anwaltlich pruefen (Konzept 3/11). 3) Zugriffs-Logs des Korrekturkanals: durch den haeufigen Abruf entstehen mehr Logzeilen als beim taeglichen Katalogabruf – Kuerzung der IP und kurze Aufbewahrung gelten unveraendert, die Fristen gehoeren zu Punkt 1. 4) Community-Pruefvermerk: sobald Nutzer Bestaetigungen abgeben koennen, ist zu klaeren, ob dabei ueber die zufaellige Installations-ID hinaus etwas erhoben wird – Ziel ist nein. Erledigt am 02.08.2026: Vertriebsmodell dem Grunde nach entschieden (Kauf ueber Google Play Billing, freier Einstiegsblock) – betrifft nur Play-Kauf-/Widerrufsangaben, nicht die Datenerhebung. Der Zuschnitt der Kaufobjekte wurde am 03.08.2026 auf Bloecke umgestellt.",
+      "offene_fragen": "1) Serverseitige Aufbewahrungsfristen des Meldungs-Endpunkts final festzurren. 2) Vor der ersten bezahlten Version einmal anwaltlich prüfen (Konzept 3/11). 3) Zugriffs-Logs des Korrekturkanals: durch den häufigen Abruf entstehen mehr Logzeilen als beim täglichen Katalogabruf – Kürzung der IP und kurze Aufbewahrung gelten unverändert, die Fristen gehören zu Punkt 1. 4) Community-Prüfvermerk: sobald Nutzer Bestätigungen abgeben können, ist zu klären, ob dabei über die zufällige Installations-ID hinaus etwas erhoben wird – Ziel ist nein. Erledigt am 02.08.2026: Vertriebsmodell dem Grunde nach entschieden (Kauf über Google Play Billing, freier Einstiegsblock) – betrifft nur Play-Kauf-/Widerrufsangaben, nicht die Datenerhebung. Der Zuschnitt der Kaufobjekte wurde am 03.08.2026 auf Blöcke umgestellt.",
       "art": "anwendung"
     },
     {
