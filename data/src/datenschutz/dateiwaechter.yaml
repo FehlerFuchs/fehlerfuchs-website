@@ -42,8 +42,8 @@ uebertragungen:
 - wohin: https://fehlerfuchs.eu/updates/dateiwaechter/latest.json
   was: 'Versionsprüfung (Update-Hinweis): Reiner lesender HTTP-Abruf einer statischen Datei. Es werden
     keine Nutzerdaten gesendet; IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.'
-  wann: beim Start, danach höchstens einmal täglich
-  freiwillig: true
+  wann: beim Start, danach höchstens einmal täglich – ab Werk eingeschaltet, abschaltbar über „Nach Updates suchen“
+  freiwillig: false
   beleg: Konzept v1.0 §8.1 – Einstellung „Nach Updates suchen“; ist der Haken aus, entfällt die Anfrage
     vollständig
 - wohin: https://license.fehlerfuchs.eu/v1/contact

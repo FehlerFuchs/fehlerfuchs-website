@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T17:45:05+02:00",
+  "generiert": "2026-09-26T19:07:50+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -846,7 +846,7 @@
         },
         {
           "question": "Wo liegen meine Daten?",
-          "answer": "In deinem Benutzerprofil unter %APPDATA%\\FehlerFuchs\\GewerbePro\\Daten, verschlüsselt – Datenbank, Sicherungen und PDFs. Beim Update von 1.0.0 ziehen vorhandene Daten automatisch dorthin um. Nichts liegt auf einem FehlerFuchs-Server."
+          "answer": "In deinem Benutzerprofil unter %APPDATA%\\FehlerFuchs\\GewerbePro\\Daten – Datenbank, Belege, PDFs und Sicherungen. Datenbank und Sicherungen kannst du in den Einstellungen verschlüsseln. Beim Update von 1.0.0 ziehen vorhandene Daten automatisch dorthin um. Nichts liegt auf einem FehlerFuchs-Server."
         },
         {
           "question": "Ersetzt es die Steuerberatung?",
@@ -878,7 +878,7 @@
         },
         {
           "question": "Welche Systemvoraussetzungen hat GewerbePro?",
-          "answer": "Windows 10 oder 11 (64-bit). Die Installation läuft im Benutzerprofil und braucht keine Administratorrechte. Zusätzliche Software ist nicht nötig: Die erforderliche Visual-C++-Runtime ist im Installer enthalten (auf frischem Windows getestet). Für den Betrieb ist kein Internet nötig – Updates prüft das Programm nur, wenn du es möchtest. Der Installer ist rund 110 MB groß; deine Daten liegen lokal in deinem Benutzerprofil. Das Programm ist digital signiert (Herausgeber FehlerFuchs); bei einem neuen Download kann Windows SmartScreen anfangs trotzdem warnen, bis sich die Bekanntheit aufgebaut hat."
+          "answer": "Windows 10 oder 11 (64-bit). Die Installation läuft im Benutzerprofil und braucht keine Administratorrechte. Zusätzliche Software ist nicht nötig: Die erforderliche Visual-C++-Runtime ist im Installer enthalten (auf frischem Windows getestet). Für den Betrieb ist kein Internet nötig. Die Pro-Lizenz muss sich spätestens alle 30 Tage einmal beim Lizenzserver melden. Der Installer ist rund 110 MB groß; deine Daten liegen lokal in deinem Benutzerprofil. Das Programm ist digital signiert (Herausgeber FehlerFuchs); bei einem neuen Download kann Windows SmartScreen anfangs trotzdem warnen, bis sich die Bekanntheit aufgebaut hat."
         }
       ],
       "media": {

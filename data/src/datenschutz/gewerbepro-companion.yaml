@@ -188,7 +188,9 @@ fremde_dienste:
       Für den USB-Rückweg: Der Nutzer gibt EINMALIG einen Ordner frei. Die Freigabe
       gilt für den Ordner, den er wählt – auf zwei Testgeräten war das „Documents“,
       eine Ebene über „GewerbePro-Sync“. Die App liest und löscht darin nur in
-      GewerbePro-Sync/pc-to-phone und warnt, wenn dieser Ordner nicht erreichbar
+      GewerbePro-Sync/pc-to-phone; in GewerbePro-Sync/phone-to-pc entfernt sie nur ältere
+      Kopien ihrer eigenen Dateien (Gerätemeldung und Ordner-Markierer), auch die einer
+      früheren Installation. Sie warnt, wenn der Ordner pc-to-phone nicht erreichbar
       ist. Kein allgemeines Speicher-Sonderrecht (kein MANAGE_EXTERNAL_STORAGE); die
       Freigabe lässt sich jederzeit zurücknehmen.
     wann: nur nach ausdrücklicher Freigabe durch den Nutzer

@@ -17,7 +17,7 @@ lokal_only: false   # optionale, standardmäßig ausgeschaltete Datenverbindunge
 auf_dem_geraet:
 - was: Vollständige Haushaltsdaten in einer lokalen SQLite-Datenbank – Zählerstände (Strom/Gas/Wasser),
     Verträge inkl. Kündigungsfristen, Haushaltsbuch, Vorhaben/Projekte, Solar & Speicher
-  wo: lokal, %APPDATA%\HaushaltsManager\
+  wo: lokal, %APPDATA%\eu.fehlerfuchs.privat\HaushaltsManager\HaushaltsManager\
 - was: Erzeugte PDF-Dokumente (Vertrags-/Kündigungsschreiben, Monats-/Jahresberichte) und JSON-Exporte
   wo: lokal, dort wo der Nutzer sie speichert
 - was: Datenbank-Sicherungen (Backups)
@@ -78,7 +78,7 @@ fremde_dienste:
   - "Open-Meteo – genutzter Wetterdienst (nur bei aktivierter Wetterfunktion; ohne Schlüssel/Konto, es werden nur die gewählten Koordinaten gesendet)"
   - "PowerFox Cloud – vom Nutzer beauftragte Verbindung zu seinem EIGENEN PowerFox-Konto (offizielle Kunden-API 2.0, mit den eigenen Zugangsdaten des Nutzers)"
   - "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU) – Lizenzaktivierung/-prüfung; überträgt nur Lizenzschlüssel + anonyme Geräte-Kennung, keine Nutzerdaten"
-  - "Digistore24 – Verkaufs-/Zahlungsabwicklung (Kauf der Lizenz; die App selbst spricht nicht mit Digistore, sondern nur mit dem Lizenzserver)"
+  - "Digistore24 – Wiederverkäufer beim Kauf der Lizenz (Merchant of Record); die App selbst spricht nicht mit Digistore, sondern nur mit dem Lizenzserver"
   # ENPAL/InfluxDB ist kein fremder Cloud-Dienst, sondern eine reine Verbindung im eigenen Heimnetz.
   # Komponenten-Update erfolgt rein lokal aus einer vom Nutzer gewählten JSON-Datei – KEINE Netzverbindung.
 
@@ -90,7 +90,7 @@ daten_an_dritte_verkauft: false
 
 loeschung: >-
   Alle Daten liegen ausschließlich lokal in der SQLite-Datenbank unter
-  %APPDATA%\HaushaltsManager\. Es werden keine Haushaltsdaten an FehlerFuchs oder Dritte übertragen.
+  %APPDATA%\eu.fehlerfuchs.privat\HaushaltsManager\HaushaltsManager\ (sofern du in der App keinen anderen Speicherort gewählt hast). Es werden keine Haushaltsdaten an FehlerFuchs oder Dritte übertragen.
   Die Datenbank sowie erzeugte PDFs, Exporte und Backups kann der Nutzer jederzeit selbst
   löschen; der Deinstaller entfernt das Programm. Optionale Beispieldaten lassen sich in der
   App wieder entfernen. Zugangsdaten (PowerFox, ENPAL) stehen nur im Windows-Anmeldespeicher

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T17:45:05+02:00",
+  "generiert": "2026-09-26T19:07:50+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -535,8 +535,8 @@
         {
           "wohin": "https://fehlerfuchs.eu/updates/dateiwaechter/latest.json",
           "was": "Versionsprüfung (Update-Hinweis): Reiner lesender HTTP-Abruf einer statischen Datei. Es werden keine Nutzerdaten gesendet; IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.",
-          "wann": "beim Start, danach höchstens einmal täglich",
-          "freiwillig": true,
+          "wann": "beim Start, danach höchstens einmal täglich – ab Werk eingeschaltet, abschaltbar über „Nach Updates suchen“",
+          "freiwillig": false,
           "beleg": "Konzept v1.0 §8.1 – Einstellung „Nach Updates suchen“; ist der Haken aus, entfällt die Anfrage vollständig"
         },
         {
@@ -1284,7 +1284,7 @@
         },
         {
           "name": "Android-Ordnerfreigabe (Storage Access Framework, OPEN_DOCUMENT_TREE)",
-          "wofuer": "Für den USB-Rückweg: Der Nutzer gibt EINMALIG einen Ordner frei. Die Freigabe gilt für den Ordner, den er wählt – auf zwei Testgeräten war das „Documents“, eine Ebene über „GewerbePro-Sync“. Die App liest und löscht darin nur in GewerbePro-Sync/pc-to-phone und warnt, wenn dieser Ordner nicht erreichbar ist. Kein allgemeines Speicher-Sonderrecht (kein MANAGE_EXTERNAL_STORAGE); die Freigabe lässt sich jederzeit zurücknehmen.",
+          "wofuer": "Für den USB-Rückweg: Der Nutzer gibt EINMALIG einen Ordner frei. Die Freigabe gilt für den Ordner, den er wählt – auf zwei Testgeräten war das „Documents“, eine Ebene über „GewerbePro-Sync“. Die App liest und löscht darin nur in GewerbePro-Sync/pc-to-phone; in GewerbePro-Sync/phone-to-pc entfernt sie nur ältere Kopien ihrer eigenen Dateien (Gerätemeldung und Ordner-Markierer), auch die einer früheren Installation. Sie warnt, wenn der Ordner pc-to-phone nicht erreichbar ist. Kein allgemeines Speicher-Sonderrecht (kein MANAGE_EXTERNAL_STORAGE); die Freigabe lässt sich jederzeit zurücknehmen.",
           "wann": "nur nach ausdrücklicher Freigabe durch den Nutzer"
         }
       ],
@@ -1310,7 +1310,7 @@
       "auf_dem_geraet": [
         {
           "was": "Vollständige Haushaltsdaten in einer lokalen SQLite-Datenbank – Zählerstände (Strom/Gas/Wasser), Verträge inkl. Kündigungsfristen, Haushaltsbuch, Vorhaben/Projekte, Solar & Speicher",
-          "wo": "lokal, %APPDATA%\\HaushaltsManager\\"
+          "wo": "lokal, %APPDATA%\\eu.fehlerfuchs.privat\\HaushaltsManager\\HaushaltsManager\\"
         },
         {
           "was": "Erzeugte PDF-Dokumente (Vertrags-/Kündigungsschreiben, Monats-/Jahresberichte) und JSON-Exporte",
@@ -1375,14 +1375,14 @@
         "Open-Meteo – genutzter Wetterdienst (nur bei aktivierter Wetterfunktion; ohne Schlüssel/Konto, es werden nur die gewählten Koordinaten gesendet)",
         "PowerFox Cloud – vom Nutzer beauftragte Verbindung zu seinem EIGENEN PowerFox-Konto (offizielle Kunden-API 2.0, mit den eigenen Zugangsdaten des Nutzers)",
         "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU) – Lizenzaktivierung/-prüfung; überträgt nur Lizenzschlüssel + anonyme Geräte-Kennung, keine Nutzerdaten",
-        "Digistore24 – Verkaufs-/Zahlungsabwicklung (Kauf der Lizenz; die App selbst spricht nicht mit Digistore, sondern nur mit dem Lizenzserver)"
+        "Digistore24 – Wiederverkäufer beim Kauf der Lizenz (Merchant of Record); die App selbst spricht nicht mit Digistore, sondern nur mit dem Lizenzserver"
       ],
       "konto_noetig": false,
       "tracking": false,
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen ausschließlich lokal in der SQLite-Datenbank unter %APPDATA%\\HaushaltsManager\\. Es werden keine Haushaltsdaten an FehlerFuchs oder Dritte übertragen. Die Datenbank sowie erzeugte PDFs, Exporte und Backups kann der Nutzer jederzeit selbst löschen; der Deinstaller entfernt das Programm. Optionale Beispieldaten lassen sich in der App wieder entfernen. Zugangsdaten (PowerFox, ENPAL) stehen nur im Windows-Anmeldespeicher und werden dort vom Nutzer entfernt.",
+      "loeschung": "Alle Daten liegen ausschließlich lokal in der SQLite-Datenbank unter %APPDATA%\\eu.fehlerfuchs.privat\\HaushaltsManager\\HaushaltsManager\\ (sofern du in der App keinen anderen Speicherort gewählt hast). Es werden keine Haushaltsdaten an FehlerFuchs oder Dritte übertragen. Die Datenbank sowie erzeugte PDFs, Exporte und Backups kann der Nutzer jederzeit selbst löschen; der Deinstaller entfernt das Programm. Optionale Beispieldaten lassen sich in der App wieder entfernen. Zugangsdaten (PowerFox, ENPAL) stehen nur im Windows-Anmeldespeicher und werden dort vom Nutzer entfernt.",
       "besonderheiten": "Kernversprechen: „Alle Daten bleiben auf diesem Gerät.“ HaushaltsManager ist privacy-first und offline-first – kein Konto, kein Tracking, keine Werbung, keine Telemetrie, keine automatischen Absturzberichte. Alle drei Außenverbindungen (Open-Meteo, PowerFox-Cloud, ENPAL/InfluxDB im Heimnetz) sind standardmäßig AUS und einzeln zuschalt- bzw. abschaltbar. Ein optionaler Hintergrunddienst (Tray-Symbol, standardmäßig aus) hält – nur wenn der Nutzer ihn und die jeweilige Verbindung aktiviert – die aktivierten Abrufe (PowerFox/Wetter/ENPAL) auch bei geschlossenem Fenster und auf Wunsch ab Windows-Start am Laufen; ohne Aktivierung bestehen keinerlei Hintergrundverbindungen. Das Komponenten-Update läuft ausschließlich über eine lokal vom Nutzer ausgewählte JSON-Datei ohne jede Netzverbindung; Zugangsdaten in solchen Paketen sind ausdrücklich verboten. Zugangsdaten (PowerFox-Passwort, ENPAL-Token, Lizenzschlüssel und Offline-Token) liegen ausschließlich im Windows-Anmeldespeicher. Kaufabsicherung: Nach einer kostenlosen Testphase wird die App mit einem Lizenzschlüssel aktiviert. Dabei verlassen NUR der Schlüssel und eine anonyme, zufällige Geräte-Kennung das Gerät (Ziel: license.fehlerfuchs.eu, EU); es werden keinerlei Haushaltsdaten übertragen. Der Server stellt ein Ed25519-signiertes Offline-Token aus, sodass die App anschließend offline läuft und nur in größeren Abständen kurz online prüft. Eine Lizenz gilt für bis zu fünf Geräte; ein Gerät kann in der App wieder freigegeben werden. Der App-Update-Check ist nutzerinitiiert und liest nur eine öffentliche Versionsliste (keine Telemetrie). Anbieterkennzeichnung in der App (Impressum): FehlerFuchs, Geschäftsbezeichnung/Marke von Matthias Schacht, E-Mail admin@fehlerfuchs.eu.",
       "vorhandener_text": "",
       "offene_fragen": "1) Der Slug „haushaltsmanager“ steht noch nicht in `_SLUG-EIGENTUEMER.md`; die Eintragung läuft parallel (deshalb slug_vorschlag: false). 2) Monetarisierung entschieden: Einmalkauf 20,00 € (Brutto) über Digistore24, Lizenzaktivierung über den FehlerFuchs-Lizenzserver, fünf Arbeitsplätze je Lizenz. 3) Offen bleibt das Code-Signing (Azure Trusted Signing) – danach signierte Datei + sha256 + Download-URL nachreichen. 4) Serverseitig zu bestätigen: Produktkennung „HaushaltsManager“ (App-Feld) und 30-Tage-Offline-Karenz je Produkt.",
