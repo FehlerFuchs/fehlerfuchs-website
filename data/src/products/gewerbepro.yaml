@@ -81,6 +81,24 @@ editions:
     price: { model: offen }
 
 releases:
+  # 1.1.0 (26.09.2026): Handoff [FF_16] Code Signing (12:24, veröffentlicht auf „push" von
+  # Matthias, nur der Installer signiert wie 1.0.0). Von [FF_10] gegen GitHub geprüft
+  # (gh release view gewerbepro-v1.1.0: kein Entwurf, Asset 116.055.880 B, sha256
+  # 62c2f6b9…b748 – stimmen). notes aus dem Text der Release-Seite („Neu in 1.1.0"),
+  # nichts erfunden (P8). Wortlaut identisch zu updates/gewerbepro/latest.json.
+  - version: "1.1.0"
+    date: "2026-09-26"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.0/FehlerFuchs_GewerbePro_Setup_1.1.0.exe
+    filename: FehlerFuchs_GewerbePro_Setup_1.1.0.exe
+    size:
+      bytes: 116055880
+      label: "111 MB"
+      source: GitHub-Release-Asset
+    sha256: "62c2f6b9e8b8e463954745275581c04eaae0ddf3714fafe1313e3c2de9e5b748"
+    signed: true
+    notes: "GewerbePro 1.1.0: Neues Abgleich-Verfahren mit der Handy-App GewerbePro Companion (verschlüsselte Pakete, Quittungen und Rückpakete in neuer Fassung) und automatischer Weg vom Handy zum PC über USB. Am Handy gelöschte Einträge werden am PC nur markiert, gelöscht wird von Hand; Quittungen bleiben erhalten. Datenablage im Benutzerprofil, vorhandene Daten ziehen beim Update automatisch um. Rechtstexte aktualisiert und offline lesbar. Digital signiert (Herausgeber FehlerFuchs)."
   # Erstes Stable-Release 1.0.0 (17.08.2026, Herausgeber FehlerFuchs). sha256/Bytes
   # gegen das GitHub-Asset gegengeprüft (byte-identisch: 48c7351d…316b, 120.206.512 B),
   # signtool verify /pa OK, Zeitstempel gesetzt. Signatur-Meldung von Claude Code [Signierung].

@@ -201,6 +201,22 @@ meldungen:
       klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz
       und „Was ist neu" direkt in der App. Alle Daten bleiben auf dem Gerät.
 
+  # GewerbePro 1.1.0 (Windows-Release 26.09.2026 12:24, signiert, Handoff [FF_16]).
+  # 'version: 1.1.0' bindet die Meldung an den releases-Eintrag. Text aus „Neu in 1.1.0"
+  # der Release-Seite, nichts erfunden (P8).
+  - id: gewerbepro-1-1-0
+    typ: update
+    produkt: gewerbepro
+    version: "1.1.0"
+    titel: "GewerbePro 1.1.0: automatischer Abgleich mit dem Handy über USB"
+    text: >-
+      GewerbePro 1.1.0 bringt ein neues Abgleich-Verfahren mit der Handy-App GewerbePro
+      Companion: verschlüsselte Pakete, Quittungen und Rückpakete, dazu ein automatischer Weg
+      vom Handy zum PC über USB. Am Handy gelöschte Einträge werden am PC nur markiert, gelöscht
+      wird von Hand; Quittungen bleiben immer erhalten. Die Daten liegen jetzt im Benutzerprofil
+      und ziehen beim Update automatisch um. Die Rechtstexte sind aktualisiert und auch offline
+      lesbar.
+
   # MobileReport 1.5.0. Play-Store-App: kein Release im Modell (versionsagnostisch),
   # Datum = Livegang im Play Store (26.09.2026, von [FF_20] um 08:16 auf der öffentlichen
   # Store-Seite gemessen). Text aus dem „Was ist neu" von [FF_20] (P5 07:58, VOLLZUG 08:20),

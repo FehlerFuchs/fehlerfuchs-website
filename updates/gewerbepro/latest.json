@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.0.0/FehlerFuchs_GewerbePro_Setup_1.0.0.exe",
-  "sha256": "48c7351dc9314d011897a7f26703ea07311d72f30ca2835e52ca79942277316b",
-  "notes": "GewerbePro 1.0.0: Erstes Stable-Release (löst die 0.3.x-Beta ab). Großer Oberflächen-Umbau mit Cockpit-Dashboard, Dokumenteneingang und geführten Touren. Digital signiert (Herausgeber FehlerFuchs); die Visual-C++-Runtime ist im Installer gebündelt (kein separater Download nötig)."
+  "version": "1.1.0",
+  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.0/FehlerFuchs_GewerbePro_Setup_1.1.0.exe",
+  "sha256": "62c2f6b9e8b8e463954745275581c04eaae0ddf3714fafe1313e3c2de9e5b748",
+  "notes": "GewerbePro 1.1.0: Neues Abgleich-Verfahren mit der Handy-App GewerbePro Companion (verschlüsselte Pakete, Quittungen und Rückpakete in neuer Fassung) und automatischer Weg vom Handy zum PC über USB. Am Handy gelöschte Einträge werden am PC nur markiert, gelöscht wird von Hand; Quittungen bleiben erhalten. Datenablage im Benutzerprofil, vorhandene Daten ziehen beim Update automatisch um. Rechtstexte aktualisiert und offline lesbar. Digital signiert (Herausgeber FehlerFuchs)."
 }
