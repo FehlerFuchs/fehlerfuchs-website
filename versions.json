@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-25",
+  "updatedAt": "2026-09-26",
   "products": [
     {
       "slug": "gewerbepro",
@@ -42,17 +42,17 @@
     {
       "slug": "mobilereport-enterprise",
       "name": "FehlerFuchs MobileReport Enterprise",
-      "version": "1.4.0",
-      "date": "2026-09-23",
+      "version": "1.5.0",
+      "date": "2026-09-26",
       "channel": "stable",
       "os": "android",
-      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.4.0/MobileReport-Enterprise-1.4.0.apk",
-      "filename": "MobileReport-Enterprise-1.4.0.apk",
+      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.5.0/FehlerFuchs_MobileReport_Enterprise_v1.5.0_54.apk",
+      "filename": "FehlerFuchs_MobileReport_Enterprise_v1.5.0_54.apk",
       "sizeLabel": "62,6 MB",
-      "sha256": "0c993558e2cdb3291383de9940aad5a6124407f23acc59f0e789d3bb684d13db",
+      "sha256": "f09988efeaf190336acf781b8298f13417a3db3d1ce5ac86a462f71c110b6cea",
       "signed": false,
       "page": "https://fehlerfuchs.eu/produkte/mobilereport-enterprise/",
-      "notes": "1.4.0: Orte an einer Stelle anlegen (Bereich, Gebäude, Ebene, Raum, Bezeichnung; auch aus Excel oder CSV). Beim Melden erst den Bereich wählen, dann dessen Räume, oder nach Gebäude suchen. Absender als Kontakt, auf Wunsch aus dem Adressbuch, seine E-Mail kommt beim Versand ins Kopie-Feld. Admin-Bereich in Klappkarten. Die Datensicherung wird mit einem Passwort verschlüsselt (AES-GCM-256); die Wiederherstellung verlangt zusätzlich das Master-Passwort. Eigenes App-Symbol, reparierte Zurück-Taste, Support als eigene Kachel."
+      "notes": "1.5.0: Beim Melden schlägt die App die zuständigen Empfänger vor – nach Gebäude, sonst nach Bereich, jeweils passend zur Kategorie. Zuständigkeiten beim Empfänger festlegen, auch über die Spalten „Kategorie“ und „Gebäude“ der Empfänger-Tabelle. Neu im Admin-Bereich: „Empfänger sperren“. Der Hinweis zu einem falschen Passwort bei der Sicherung steht jetzt oben im Dialog."
     },
     {
       "slug": "orgafuchs",

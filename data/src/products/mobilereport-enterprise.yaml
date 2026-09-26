@@ -94,6 +94,27 @@ editions:
 # ACHTUNG: Aus diesen Angaben entstehen die Manifeste, die ausgelieferte
 # Apps lesen. Der Text unter notes erscheint WÖRTLICH im Update-Hinweis.
 releases:
+  # 1.5.0 (26.09.2026): GitHub-Release von [FF_20] auf Matthias' „release ja" (07:56),
+  # veröffentlicht 07:57 (P5-Meldung [FF_20]; Managed Play privat live, P5 [FF_15]).
+  # Von [FF_10] gegengeprüft: gh release view mobilereport-enterprise-v1.5.0 = kein Entwurf,
+  # Asset 65.647.752 B, sha256 f09988ef…6cea; öffentliche URL HTTP 200, Content-Length
+  # stimmt. Dateiname NEU nach P13 (Schema A) - nicht mehr MobileReport-Enterprise-<V>.apk.
+  # notes wörtlich aus dem von [FF_20] vorbereiteten latest.json-Inhalt (MELDUNG 07:26).
+  - version: "1.5.0"
+    date: "2026-09-26"
+    channel: stable
+    os: android
+    url: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.5.0/FehlerFuchs_MobileReport_Enterprise_v1.5.0_54.apk"
+    filename: FehlerFuchs_MobileReport_Enterprise_v1.5.0_54.apk
+    size: { bytes: 65647752, label: "62,6 MB", source: GitHub-Release-Asset }
+    sha256: f09988efeaf190336acf781b8298f13417a3db3d1ce5ac86a462f71c110b6cea
+    signed: false
+    notes: >-
+      1.5.0: Beim Melden schlägt die App die zuständigen Empfänger vor – nach Gebäude,
+      sonst nach Bereich, jeweils passend zur Kategorie. Zuständigkeiten beim Empfänger
+      festlegen, auch über die Spalten „Kategorie“ und „Gebäude“ der Empfänger-Tabelle.
+      Neu im Admin-Bereich: „Empfänger sperren“. Der Hinweis zu einem falschen Passwort
+      bei der Sicherung steht jetzt oben im Dialog.
   # 1.4.0 (23.09.2026): Release-Update von 1.0.2. Release öffentlich in fehlerfuchs-downloads
   # (Tag mobilereport-enterprise-v1.4.0). Fakten belegt von [20], [15]-gegengeprüft und von [10]
   # an der öffentlichen URL nachgemessen (curl: HTTP 200, Content-Length 65.614.988 = stimmt;
@@ -278,7 +299,7 @@ links:
   # Fehlt das Feld, gab es vorher keine eigene Seite - dann ist auch nichts
   # weiterzuleiten.
   alt_html: /apps/mobilereport-enterprise.html
-  release: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mobilereport-enterprise-v1.4.0"
+  release: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mobilereport-enterprise-v1.5.0"
   contact: "/kontakt.html?app=MobileReport%20Enterprise&topic=angebot"
 
 manifests:
