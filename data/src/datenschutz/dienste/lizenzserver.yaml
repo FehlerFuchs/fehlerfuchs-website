@@ -1,6 +1,6 @@
 slug: lizenzserver
 name: FehlerFuchs Lizenzserver
-stand: "2026-07-20"
+stand: "2026-09-26"
 geprueft_von: 11_Lizenzserver
 fassung: "Adapter-Stand 20.07.2026 (kein Versionsschema); Admin-API 1.0; mit Löschlauf und Wunscherfüller"
 
@@ -9,7 +9,7 @@ fassung: "Adapter-Stand 20.07.2026 (kein Versionsschema); Admin-API 1.0; mit Lö
 lokal_only: false
 
 # Was der DIENST dauerhaft auf dem Server speichert (Feldname laut Vorlage
-# beibehalten; „Gerät“ ist hier der Server).
+# beibehalten; "Gerät" ist hier der Server).
 auf_dem_geraet:
   - was: Lizenzdaten (Lizenzschlüssel, Lizenz-Kennung, Platzanzahl, Status, Laufzeit/Ablauf)
     wo: Lizenzdatenbank auf dem Server
@@ -39,13 +39,13 @@ auf_dem_geraet:
     wo: Datenbank auf dem Server; Löschung nach 90 Tagen. Es wird keine IP-Adresse gespeichert
     beleg: Tabelle wuensche; adapter/app/db.py, record_wunsch und cleanup; adapter/app/main.py, wunsch_einreichen
   - was: Teilnahme an der SnapFuchs-Aktion (selbst gewählter Anzeigename, E-Mail-Adresse, Zeitpunkt, der zugeteilte Gutscheincode)
-    wo: Datenbank auf dem Server; nach 90 Tagen werden Anzeigename und E-Mail gelöscht – der Code bleibt nur noch als „vergeben“ vermerkt, ohne Bezug zu einer Person. Es wird keine IP-Adresse gespeichert
+    wo: Datenbank auf dem Server; nach 90 Tagen werden Anzeigename und E-Mail gelöscht — der Code bleibt nur noch als „vergeben" vermerkt, ohne Bezug zu einer Person. Es wird keine IP-Adresse gespeichert
     beleg: Tabelle aktion_codes; adapter/app/db.py, aktion_code_vergeben und cleanup; adapter/app/main.py, aktion_code_anfordern
   - was: IP-Adressen als kurzlebige Zählwerte gegen Missbrauch (Kontaktformular, Wunscherfüller, Aktion, Tester-Registrierung)
     wo: Zwischenspeicher auf dem Server, automatische Löschung nach 1 Stunde bzw. 24 Stunden
     beleg: Redis; adapter/app/mailer.py, rate_ok und tester_rate_ok
 
-# Berechtigungen: entfällt – Server-Dienst, kein Manifest, keine Geräteberechtigungen.
+# Berechtigungen: entfällt — Server-Dienst, kein Manifest, keine Geräteberechtigungen.
 
 # JEDE Verbindung. Eingehend = jemand ruft den Dienst auf; ausgehend = der Dienst ruft.
 uebertragungen:
@@ -59,11 +59,16 @@ uebertragungen:
     wann: beim Kauf und bei Lebenszyklus-Ereignissen (z. B. Rückerstattung)
     freiwillig: false
     beleg: adapter/app/main.py, Endpunkte /v1/providers/digistore24/license und /ipn
-  - wohin: license.fehlerfuchs.eu (eingehend, von der Website)
-    was: Kontakt-/Supportanfragen (Name, E-Mail, Betreff, Nachricht, optionale Anhänge) bzw. Tester-Registrierungen
-    wann: wenn ein Formular abgeschickt wird
+  - wohin: license.fehlerfuchs.eu (eingehend, von der Website und aus den FehlerFuchs-Apps)
+    was: Kontakt-/Supportanfragen (Name, E-Mail, Betreff, Nachricht, optionale Anhänge)
+    wann: wenn ein Kontakt- oder Supportformular abgeschickt wird — auf der Website oder in einer App
     freiwillig: true
-    beleg: adapter/app/main.py, Endpunkte /v1/contact und /v1/providers/tester/gewerbepro
+    beleg: adapter/app/main.py, Endpunkt /v1/contact; Aufrufer gemessen am 26.09.2026 per git grep - Website (Anfrageformular.astro) und die Kontakt-/Supportdienste von MobileReport, SnapFuchs, OrgaFuchs, PDFuchs, PDFuchs Reader, BelegWerk, CheckInVita, Up2Date und DateiWächter
+  - wohin: license.fehlerfuchs.eu (eingehend, von der Website)
+    was: Beta-Tester-Registrierung (GewerbePro) — seit 17.08.2026 geschlossen, der Endpunkt nimmt keine Angaben mehr an
+    wann: —
+    freiwillig: true
+    beleg: adapter/app/main.py, Endpunkt /v1/providers/tester/gewerbepro; adapter/app/config.py, gewerbepro_tester_open = False
   - wohin: license.fehlerfuchs.eu (eingehend, von der Website)
     was: Einsendungen aus dem Wunscherfüller (Titel, Wunschtext, Thema, ggf. Produkt, Anzeigename; auf Wunsch Name und E-Mail für die Antwort)
     wann: wenn das Wunsch-Formular abgeschickt wird
@@ -75,10 +80,15 @@ uebertragungen:
     freiwillig: true
     beleg: adapter/app/main.py, Endpunkt /v1/aktion/snapfuchs
   - wohin: Website (ausgehend, öffentlich abrufbar)
-    was: ausschließlich das Eingangsdatum noch nicht bearbeiteter Wunsch-Einsendungen – kein Titel, kein Text, kein Anzeigename
+    was: ausschließlich das Eingangsdatum noch nicht bearbeiteter Wunsch-Einsendungen — kein Titel, kein Text, kein Anzeigename
     wann: beim Aufruf der Wunscherfüller-Seite
     freiwillig: false
     beleg: adapter/app/main.py, Endpunkt /v1/wuensche (Abfrage); adapter/app/db.py, offene_wuensche
+  - wohin: Website (ausgehend, öffentlich abrufbar)
+    was: ausschließlich der Stand der Aktion (angekündigte und noch freie Codes, ggf. Enddatum) — keine Angaben zu Personen
+    wann: beim Aufruf der Aktionsseite
+    freiwillig: false
+    beleg: adapter/app/main.py, Endpunkt /v1/aktion/snapfuchs/stand; 10_WEBSEITE astro/src/pages/aktion/[id].astro (standHolen)
   - wohin: E-Mail-Versand über den Postfachanbieter (SMTP)
     was: Inhalt und Empfänger der versendeten Nachrichten (Lizenz-/Willkommensmails, Kontakt-/Supportanfragen inkl. Anhänge, Wunsch-Einsendungen, interne Statusberichte)
     wann: bei jedem Mailversand des Dienstes
@@ -98,10 +108,12 @@ fremde_dienste:
   - name: Postfach-/SMTP-Anbieter (IONOS)
     wofuer: Versand aller E-Mails des Dienstes
     wann: bei jedem Mailversand
-  - name: Anbieter des virtuellen Servers (Hosting)
-    wofuer: Betrieb des Servers, auf dem alle genannten Daten liegen
+  # Intern, nicht zur Veröffentlichung: Tarif IONOS VPS Linux M+, Host license.fehlerfuchs.eu,
+  # der Server wird von FehlerFuchs selbst betrieben. Stand des AVV siehe offene_fragen (1).
+  - name: IONOS SE (Hosting, virtueller Server) — Elgendorfer Straße 57, 56410 Montabaur, Deutschland
+    wofuer: Betrieb des Servers, auf dem alle genannten Daten liegen; Standort Deutschland (EWR), keine Drittlandübermittlung
     wann: dauerhaft
-  - name: Keygen CE – KEIN fremder Dienst
+  - name: Keygen CE — KEIN fremder Dienst
     wofuer: Lizenzverwaltung; selbst betriebene Software auf dem eigenen Server, es gehen keine Daten an den Hersteller
     wann: —
 
@@ -119,12 +131,15 @@ loeschung: >-
   eine gesalzene Einweg-Kennung ersetzt. Das Salz ist ein Zufallsgeheimnis, das
   ausschließlich auf dem Server liegt; ohne dieses Geheimnis ist die Kennung nicht
   zurückrechenbar. Es handelt sich damit um eine Pseudonymisierung, nicht um eine
-  Anonymisierung – die Sperre gegen doppelte Gratislizenzen funktioniert weiter. Die
+  Anonymisierung — die Sperre gegen doppelte Gratislizenzen funktioniert weiter.
+  Einsendungen aus dem Wunscherfüller werden nach 90 Tagen gelöscht; bei der Teilnahme
+  an Aktionen werden Anzeigename und E-Mail-Adresse 90 Tage nach der Vergabe entfernt,
+  der Code bleibt nur noch als „vergeben" vermerkt. Die
   Zählschlüssel mit IP-Adressen im Zwischenspeicher löschen sich selbst nach längstens
   24 Stunden. Die Betriebsprotokolle des Servers sind auf höchstens drei Dateien à 10 MB
   je Dienst begrenzt und werden danach überschrieben; sie enthalten keine
   Besucher-IP-Adressen (geprüft am laufenden System). Lizenzdaten und Geräte-/Aktivierungseinträge bleiben
-  bestehen, solange die Lizenz gilt – sonst würde das Produkt nicht mehr funktionieren;
+  bestehen, solange die Lizenz gilt — sonst würde das Produkt nicht mehr funktionieren;
   sie lassen sich jederzeit gezielt endgültig löschen, einzelne Plätze auch freigeben.
 
 besonderheiten: >-
@@ -141,23 +156,27 @@ besonderheiten: >-
   herausgegeben: Öffentlich abrufbar ist allein das Eingangsdatum, damit die Seite einen
   verdeckten Platzhalter anzeigen kann. Im Wortlaut sind Einsendungen ausschließlich über
   die durch ein Zugangsgeheimnis geschützte Verwaltung abrufbar. Ob ein Wunsch veröffentlicht wird, entscheidet ein
-  Mensch, und der Text wird dafür von Hand übertragen – der Server veröffentlicht nichts
+  Mensch, und der Text wird dafür von Hand übertragen — der Server veröffentlicht nichts
   selbsttätig. Wichtig zur Einordnung der Fristen: Die Pseudonymisierung nach 90 Tagen
   betrifft die Tester-Registrierung. E-Mail-Adresse und Bestellnummer, die als
   Metadaten an der Lizenz selbst hängen, bleiben davon unberührt, solange die Lizenz
-  besteht – Lizenzdaten sind von der Löschung ausdrücklich ausgenommen.
+  besteht — Lizenzdaten sind von der Löschung ausdrücklich ausgenommen.
 
 vorhandener_text: ""
 
 offene_fragen: >-
-  (1) Hosting: Name und Anschrift des Server-Anbieters lassen sich aus diesem Projekt nicht
-  belegen (Standort laut Projektvorgabe EU/Deutschland). Für die Angaben zur
-  Auftragsverarbeitung nötig.
+  (1) Hosting: geklärt (Matthias/IONOS-Verträge, 28.08.2026) — IONOS SE, Elgendorfer Straße 57,
+  56410 Montabaur, Deutschland; Standort Deutschland (EWR), keine Drittlandübermittlung; der Vertrag zur
+  Auftragsverarbeitung mit IONOS besteht (bestätigt von Matthias über [FF_00], 26.09.2026). Rechtsgrundlage der Lizenzverarbeitung: Art. 6 Abs. 1 lit. b
+  bzw. lit. f.
   (2) Verträge und Steuerrecht: Ob mit dem Zahlungsanbieter und dem Postfachanbieter
   Vereinbarungen zur Auftragsverarbeitung bestehen, ist von hier aus unbekannt. Ebenso
   ungeprüft ist, ob der Zahlungsanbieter in seinen Aufrufen die IP-Adresse des Käufers
-  mitsendet – bis zur Löschung nach 90 Tagen liegt der Roh-Aufruf vor, die einzelnen
+  mitsendet — bis zur Löschung nach 90 Tagen liegt der Roh-Aufruf vor, die einzelnen
   Feldinhalte wurden dafür nicht ausgewertet. Ob im Roh-Aufruf etwas steckt, das nur dort
   existiert und für die Buchführung gebraucht würde, klärt abschließend der Steuerberater;
   da der Zahlungsanbieter als Merchant of Record selbst verkauft und die Bestellung dort
   geführt wird, spricht aus technischer Sicht nichts gegen die 90 Tage.
+  (3) Die Fristen sind aus dem Code belegt (adapter/app/db.py, cleanup). Dass der tägliche
+  Aufräumlauf auf dem Server tatsächlich eingeplant ist, wurde am 26.09.2026 nicht erneut
+  gemessen — beim nächsten Serverzugang belegen.

@@ -90,7 +90,7 @@ daten_an_dritte_verkauft: false
 
 loeschung: >-
   Alle Daten liegen ausschließlich lokal in der SQLite-Datenbank unter
-  %APPDATA%\\HaushaltsManager\\. Es werden keine Haushaltsdaten an FehlerFuchs oder Dritte übertragen.
+  %APPDATA%\HaushaltsManager\. Es werden keine Haushaltsdaten an FehlerFuchs oder Dritte übertragen.
   Die Datenbank sowie erzeugte PDFs, Exporte und Backups kann der Nutzer jederzeit selbst
   löschen; der Deinstaller entfernt das Programm. Optionale Beispieldaten lassen sich in der
   App wieder entfernen. Zugangsdaten (PowerFox, ENPAL) stehen nur im Windows-Anmeldespeicher
