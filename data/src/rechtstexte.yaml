@@ -26,8 +26,9 @@ rechtstexte:
     kurzbeschreibung: "Büro- und Auftragsverwaltung für Selbstständige und kleine Betriebe"
     editionen: "Gewerbe (kostenlos) und Pro (einmaliger Kauf)"
     lizenzschluessel: true
-    # 26.09.2026, ZWEITE Fassung dieses Tages: erste = Ziffer 1.4 Companion-App (live 08:33),
-    # zweite = Zusatz Ziffer 5 (§§ 69d/69e UrhG) + zweiter Satz 12.3 (Auftrag [FF_00] 09:44).
+    # 26.09.2026, DRITTE Fassung dieses Tages: erste = Ziffer 1.4 Companion-App (live 08:33),
+    # zweite = Zusatz Ziffer 5 (§§ 69d/69e UrhG) + zweiter Satz 12.3 (live 09:49),
+    # dritte = neue Ziffer 9.5 kostenfreie Editionen (Auftrag [FF_00] 10:08).
     stand: "26.09.2026"
     vollstaendig: true
     ausstehend: []
@@ -49,6 +50,13 @@ rechtstexte:
       satz_12_3_2: >-
         Dem Nutzer ist zuvor ein angemessener Zeitraum zum Export seiner Daten einzuräumen, damit
         der Zugriff auf aufbewahrungspflichtige Unterlagen nicht gefährdet wird.
+      # Ziffer 9.5 - Wortlaut freigegeben von Matthias am 26.09.2026, 10:08 („9.5 ja" im ChefBüro-Chat),
+      # Entwurf [FF_00], nicht anwaltlich geprüft (Matthias bekannt). Wort für Wort (B10/P10).
+      # Anlass: Nebenbefund [FF_29] 09:46 (8.1 und 9.2 ungeklärt nebeneinander).
+      ziffer_9_5: >-
+        Für unentgeltlich bereitgestellte Software (kostenfreie Editionen) haftet der Anbieter,
+        soweit gesetzlich zulässig, nur bei Vorsatz und grober Fahrlässigkeit; die Ziffern 9.2 und
+        9.3 gelten nur für entgeltliche Editionen. Ziffer 9.1 bleibt unberührt.
       erweiterung_3_3: >-
         Im betrieblichen Einsatz sind zusätzlich eigene Beschäftigte des Nutzers sowie beauftragte
         Buchhaltungs- oder Steuerkanzleien im Rahmen der lizenzierten Nutzer- und Gerätezahl zur
