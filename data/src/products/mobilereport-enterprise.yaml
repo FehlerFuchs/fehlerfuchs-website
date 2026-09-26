@@ -12,7 +12,7 @@ slug: mobilereport-enterprise
 name: MobileReport Enterprise
 fullName: FehlerFuchs MobileReport Enterprise
 # SEO (2026-08-09)
-seoTitel: "MobileReport Enterprise – Fotodoku-App für Firmen, Managed Google Play"
+seoTitel: "MobileReport Enterprise – Fotodoku-App für Firmen"
 seoBeschreibung: "Fotodoku und PDF-Berichte für Unternehmen: Bezug als Direkt-Download (APK) oder über Managed Google Play, eigenes Branding, Lizenz je Arbeitsplatz – strikt lokal."
 tags: ["Fotodokumentation", "Baustellendokumentation", "Firmen", "APK", "Managed Google Play", "Lizenz je Arbeitsplatz", "Branding", "lokal"]
 kind: edition
@@ -46,6 +46,7 @@ platforms:
     status: verfuegbar
     requirements: "Android – Direkt-Download (APK), Installation außerhalb des Play Stores"
     distribution: github-release
+    wegName: Direkt-Download
     since: "2026-07-06"
   # Weg 2 (18.08.2026, Entscheidung Matthias): Managed Google Play – private Auslieferung
   # an die Organisation des Kunden (Android Enterprise). Die Play-Listing-URL existiert
@@ -56,7 +57,9 @@ platforms:
     status: verfuegbar
     requirements: "Managed Google Play – private Auslieferung an die Organisation des Kunden (Android Enterprise), auf Anfrage"
     distribution: managed-google-play
+    wegName: Managed Google Play
     storeId: eu.fehlerfuchs.mobilereport.enterprise
+    since: "2026-08-18"   # Release 1.0.2 vom 18.08.2026 – „ab sofort auch über Managed Google Play“ (Meldung)
 
 privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
 

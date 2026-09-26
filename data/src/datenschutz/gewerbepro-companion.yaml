@@ -38,12 +38,12 @@ auf_dem_geraet:
     beleg: lib/data/db.dart (position_templates)
   - was: erzeugte PDF-Belege (Quittung mit Unterschrift, Fahrtenbuch)
     wo: im eigenen Speicherbereich der App
-    beleg: lib/services/dokument_dienst.dart (Unterordner "dokumente", Tabelle documents)
+    beleg: lib/services/dokument_dienst.dart (Unterordner „dokumente“, Tabelle documents)
   - was: aus GewerbePro übernommenes Branding – Firmendaten des Nutzers (Firma,
       Anschrift, E-Mail, Steuernummer, Bank, IBAN, BIC, Kontoinhaber, Name unter der Unterschrift,
       Kleinunternehmer-Angabe), Firmenlogo, hinterlegte Unterschrift, Fußzeilen, Farben
     wo: im eigenen Speicherbereich der App
-    beleg: lib/services/branding_store.dart (Ordner "branding", Einstellung branding_json)
+    beleg: lib/services/branding_store.dart (Ordner „branding“, Einstellung branding_json)
   - was: Löschmarken – wird ein schon an den PC übergebener Satz am Handy gelöscht,
       bleibt bis zur Bestätigung des PCs nur Typ, zufällige Satzkennung und Zeitpunkt
     wo: in der App auf dem Gerät
@@ -112,10 +112,10 @@ berechtigungen:
 uebertragungen:
   - wohin: license.fehlerfuchs.eu (FehlerFuchs-Lizenzserver)
     was: Lizenzschlüssel, eine zufällige Gerätekennung (UUID, ohne Hardware-Merkmale),
-      App-Name ("GewerbePro"), Plattform ("Android") und bei der Aktivierung als
-      Gerätename der feste Text "Companion" – NICHT der vom Nutzer vergebene
+      App-Name („GewerbePro“), Plattform („Android“) und bei der Aktivierung als
+      Gerätename der feste Text „Companion“ – NICHT der vom Nutzer vergebene
       Gerätename. Technisch bedingt die IP-Adresse und die Kennung
-      "GewerbePro-Companion-Lizenz" (User-Agent). KEINE Kunden-, Auftrags- oder Belegdaten
+      „GewerbePro-Companion-Lizenz“ (User-Agent). KEINE Kunden-, Auftrags- oder Belegdaten
     wann: bei der Aktivierung, bei jedem App-Start (Prüfung) und beim Lösen der Lizenz
     freiwillig: false
     beleg: lib/services/lizenz_dienst.dart (/v1/activate, /v1/validate, /v1/deactivate); lib/screens/lizenz_screen.dart
@@ -174,7 +174,7 @@ vom_pc:
     beleg: lib/services/sync_eingang.dart (verarbeiten, Quarantäne)
 
 fremde_dienste:
-  - name: Android-Teilen (über die Bibliothek "printing", nur sharePdf)
+  - name: Android-Teilen (über die Bibliothek „printing“, nur sharePdf)
     wofuer: PDF an eine vom Nutzer gewählte App übergeben
     wann: nur bei ausdrücklicher Nutzeraktion
   - name: Android-Dateiauswahl und Speichern-Dialog (über die Bibliothek "file_picker")

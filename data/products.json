@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T20:21:04+02:00",
+  "generiert": "2026-09-26T20:33:59+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -988,7 +988,7 @@
       "slug": "haushaltsmanager",
       "name": "HaushaltsManager",
       "fullName": "FehlerFuchs HaushaltsManager",
-      "seoTitel": "HaushaltsManager – Zählerstände, Verträge & Haushaltsbuch für Windows",
+      "seoTitel": "HaushaltsManager – Haushaltsbuch & Zählerstände (Windows)",
       "seoBeschreibung": "Lokales Windows-Programm für den Haushalt: Zählerstände, Verträge, Haushaltsbuch, Solar & Energiedaten (ENPAL, PowerFox), Auswertungen, PDF – ohne Konto, ohne Tracking.",
       "tags": [
         "Haushaltsbuch",
@@ -1246,7 +1246,7 @@
           "id": "free",
           "name": "MobileReport Free",
           "public": true,
-          "summary": "Grundfunktionen zum Erfassen und als PDF Ausgeben.",
+          "summary": "Grundfunktionen zum Erfassen und Ausgeben als PDF.",
           "price": {
             "model": "kostenlos"
           }
@@ -1471,7 +1471,7 @@
       "slug": "mobilereport-enterprise",
       "name": "MobileReport Enterprise",
       "fullName": "FehlerFuchs MobileReport Enterprise",
-      "seoTitel": "MobileReport Enterprise – Fotodoku-App für Firmen, Managed Google Play",
+      "seoTitel": "MobileReport Enterprise – Fotodoku-App für Firmen",
       "seoBeschreibung": "Fotodoku und PDF-Berichte für Unternehmen: Bezug als Direkt-Download (APK) oder über Managed Google Play, eigenes Branding, Lizenz je Arbeitsplatz – strikt lokal.",
       "tags": [
         "Fotodokumentation",
@@ -1500,6 +1500,7 @@
           "status": "verfuegbar",
           "requirements": "Android – Direkt-Download (APK), Installation außerhalb des Play Stores",
           "distribution": "github-release",
+          "wegName": "Direkt-Download",
           "since": "2026-07-06"
         },
         {
@@ -1507,7 +1508,9 @@
           "status": "verfuegbar",
           "requirements": "Managed Google Play – private Auslieferung an die Organisation des Kunden (Android Enterprise), auf Anfrage",
           "distribution": "managed-google-play",
-          "storeId": "eu.fehlerfuchs.mobilereport.enterprise"
+          "wegName": "Managed Google Play",
+          "storeId": "eu.fehlerfuchs.mobilereport.enterprise",
+          "since": "2026-08-18"
         }
       ],
       "privacy": [
@@ -1916,7 +1919,7 @@
           },
           "sha256": "3ff1f3eeec65d331f16c9551a2dd034af08cfa2b400c6793dd470692d241696b",
           "signed": true,
-          "notes": "Signierte Windows-Fassung (Herausgeber FehlerFuchs). Neu: „Nachricht an alle“ mit Postfach – kurze Nachrichten an die Gruppe, Ende-zu-Ende über den eigenen Relay verteilt; empfangene Nachrichten werden zuverlässig angezeigt. Dazu Feiertage und Ferien im Kalender farblich hervorgehoben und „zuletzt aktiv“ in der Geräteliste. Löst 1.5.0/1.6.0 ab."
+          "notes": "Signierte Windows-Fassung (Herausgeber FehlerFuchs). Neu: „Nachricht an alle“ mit Postfach – kurze Nachrichten an die Gruppe, Ende-zu-Ende über das Relais von FehlerFuchs verteilt; empfangene Nachrichten werden zuverlässig angezeigt. Dazu Feiertage und Ferien im Kalender farblich hervorgehoben und „zuletzt aktiv“ in der Geräteliste. Löst 1.5.0/1.6.0 ab."
         }
       ],
       "features": [
@@ -2018,7 +2021,7 @@
               "values": {
                 "standard": "ja"
               },
-              "note": "Kurze Klartext-Nachrichten an die Gruppe; sie landen bei allen im Postfach und als Benachrichtigung, verteilt über den eigenen Relay statt über fremde Server. Ungelesenes bleibt markiert."
+              "note": "Kurze Klartext-Nachrichten an die Gruppe; sie landen bei allen im Postfach und als Benachrichtigung, verteilt über das Relais von FehlerFuchs statt über fremde Server. Ungelesenes bleibt markiert."
             },
             {
               "name": "Geräteliste zeigt „zuletzt aktiv“",
@@ -2055,7 +2058,7 @@
               "values": {
                 "standard": "ja"
               },
-              "note": "Im Kalender farblich hervorgehoben – Sonn-/Feiertage rot, Ferien dezent (Tag/Woche/Monat). Mit Selbstaktualisierung; bis der Endpunkt auf fehlerfuchs.eu steht, greift der eingebaute Bestand."
+              "note": "Im Kalender farblich hervorgehoben – Sonn-/Feiertage rot, Ferien dezent (Tag/Woche/Monat). Mit Selbstaktualisierung."
             },
             {
               "name": "Transparenz- und Open-Source-Seite in der App",
@@ -2945,7 +2948,7 @@
       "slug": "appinsight",
       "name": "AppInsight",
       "fullName": "FehlerFuchs AppInsight",
-      "seoTitel": "AppInsight – App-Berechtigungen & Tracker verständlich sehen (Android)",
+      "seoTitel": "AppInsight – App-Berechtigungen & Tracker prüfen (Android)",
       "seoBeschreibung": "Sieh verständlich, was installierte Apps anfordern: Berechtigungen, Tracker-Hinweise, Speicher- und Nutzungswerte – lokal auf dem Android-Gerät.",
       "tags": [
         "App-Berechtigungen",
@@ -4058,7 +4061,7 @@
       ],
       "kind": "produkt",
       "tagline": "Das lokale, datensparsame E-Mail-Programm für Belege und Büropost – der Weg Mail, Anhang, Beleg, Archiv so kurz wie möglich.",
-      "description": "E-Mail-Programm mit Belegfokus: Nachricht öffnen, Anhang erkennen, als Beleg ablegen, archivieren – ohne Umwege. CoppiceMail wurde als reine Flutter/Dart-App neu aufgebaut; der technische RC 1.0.2-rc.1+6 ist funktional weitgehend fertig und geprüft. Das Projekt ist derzeit pausiert und nicht veröffentlicht.",
+      "description": "E-Mail-Programm mit Belegfokus: Nachricht öffnen, Anhang erkennen, als Beleg ablegen, archivieren – ohne Umwege. CoppiceMail wurde als reine Flutter/Dart-App neu aufgebaut; ein Vorab-Stand ist fertig und geprüft. Das Projekt ruht derzeit und ist nicht veröffentlicht.",
       "audience": [
         "selbststaendige",
         "unternehmen"
@@ -4073,7 +4076,7 @@
           "distribution": "keiner",
           "hinweis": {
             "wenn": "entwicklung",
-            "text": "1.0.2-rc.1+6 als technischer Release-Kandidat gebaut und am Host geprüft. Das Projekt ist derzeit pausiert. Noch kein öffentlicher Download."
+            "text": "Ein Vorab-Stand ist fertig und geprüft; das Projekt ruht derzeit. Noch kein öffentlicher Download."
           }
         }
       ],
@@ -4095,7 +4098,7 @@
       },
       "statusGrund": {
         "wenn": "entwicklung",
-        "text": "Technischer RC gebaut und am Host geprüft, aber bewusst noch nicht öffentlich: CoppiceMail ist derzeit pausiert. Vor einer späteren Freigabe bleiben Signierung, Geräte-/Clean-System-Gegenprobe und Rechtsprüfung – lieber sorgfältig als schnell."
+        "text": "Ein Vorab-Stand ist fertig und geprüft, aber bewusst noch nicht öffentlich: CoppiceMail ruht derzeit. Vor einer Veröffentlichung stehen noch die digitale Signatur, ein Test auf frisch eingerichteten Rechnern und die rechtliche Prüfung aus – lieber sorgfältig als schnell."
       },
       "theme": {
         "modus": "hell",

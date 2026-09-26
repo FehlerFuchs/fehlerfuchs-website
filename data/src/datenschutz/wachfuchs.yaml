@@ -33,7 +33,7 @@ uebertragungen:
 - wohin: FehlerFuchs Relaisserver
   was: 'Korrekturkanal: regelmäßiger Abruf einer kleinen signierten Datei ''korrekturen.json'' vom Relaisserver
     (reiner GET, keine Kennung, keine Nutzerdaten, keine Parameter) – sperrt oder ersetzt einzelne fehlerhafte
-    Fragen, ohne dass die App neu ausgeliefert werden muss (Konzept 6.3). Die technische Abruftaktung
+    Fragen, ohne dass die App neu ausgeliefert werden muss. Die technische Abruftaktung
     ist eine Architektureigenschaft und keine Servicezusage.'
 - wohin: FehlerFuchs Relaisserver (Meldungs-Endpunkt)
   was: 'Meldung über ''Frage melden'': paketId, frageId, inhaltsVersion, appVersion, Grund, optionaler

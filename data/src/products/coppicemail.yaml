@@ -10,8 +10,8 @@ tagline: Das lokale, datensparsame E-Mail-Programm für Belege und Büropost –
 description: >-
   E-Mail-Programm mit Belegfokus: Nachricht öffnen, Anhang erkennen, als Beleg ablegen,
   archivieren – ohne Umwege. CoppiceMail wurde als reine
-  Flutter/Dart-App neu aufgebaut; der technische RC 1.0.2-rc.1+6 ist funktional
-  weitgehend fertig und geprüft. Das Projekt ist derzeit pausiert und nicht veröffentlicht.
+  Flutter/Dart-App neu aufgebaut; ein Vorab-Stand ist fertig und geprüft. Das Projekt
+  ruht derzeit und ist nicht veröffentlicht.
 audience: [selbststaendige, unternehmen]
 accent: "#0F5132"
 status: entwicklung
@@ -27,8 +27,8 @@ platforms:
     hinweis:
       wenn: entwicklung
       text: >-
-        1.0.2-rc.1+6 als technischer Release-Kandidat gebaut und am Host geprüft.
-        Das Projekt ist derzeit pausiert. Noch kein öffentlicher Download.
+        Ein Vorab-Stand ist fertig und geprüft; das Projekt ruht derzeit.
+        Noch kein öffentlicher Download.
 
 # An den realen 1.0-Datenfluss angepasst (05.08.2026, Datenschutz-Steckbrief v2:
 # lokal_only:false – ein E-Mail-Programm spricht mit den IMAP/SMTP-Servern des
@@ -61,9 +61,10 @@ media:
 statusGrund:
   wenn: entwicklung
   text: >-
-    Technischer RC gebaut und am Host geprüft, aber bewusst noch nicht öffentlich:
-    CoppiceMail ist derzeit pausiert. Vor einer späteren Freigabe bleiben Signierung,
-    Geräte-/Clean-System-Gegenprobe und Rechtsprüfung – lieber sorgfältig als schnell.
+    Ein Vorab-Stand ist fertig und geprüft, aber bewusst noch nicht öffentlich:
+    CoppiceMail ruht derzeit. Vor einer Veröffentlichung stehen noch die digitale Signatur,
+    ein Test auf frisch eingerichteten Rechnern und die rechtliche Prüfung aus – lieber
+    sorgfältig als schnell.
 
 # Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
 # Was dort nicht steht, steht auch hier nicht – dann greift der Standard.

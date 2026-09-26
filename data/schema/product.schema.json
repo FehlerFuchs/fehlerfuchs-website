@@ -334,6 +334,11 @@
               "keiner"
             ]
           },
+          "wegName": {
+            "type": "string",
+            "minLength": 3,
+            "description": "Name des Bezugswegs, wenn ein Produkt mehrere Wege auf derselben Plattform hat (z. B. Direkt-Download, Managed Google Play). Erscheint in der Zeitleiste hinter dem Plattformnamen."
+          },
           "storeId": {
             "type": "string"
           },

@@ -52,7 +52,7 @@ editions:
   - id: free
     name: MobileReport Free
     public: true
-    summary: Grundfunktionen zum Erfassen und als PDF Ausgeben.
+    summary: Grundfunktionen zum Erfassen und Ausgeben als PDF.
     price: { model: kostenlos }
   - id: pro
     name: MobileReport Pro

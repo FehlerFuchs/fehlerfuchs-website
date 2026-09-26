@@ -219,8 +219,8 @@ releases:
     signed: true
     notes: >-
       Signierte Windows-Fassung (Herausgeber FehlerFuchs). Neu: „Nachricht an
-      alle“ mit Postfach – kurze Nachrichten an die Gruppe, Ende-zu-Ende über den
-      eigenen Relay verteilt; empfangene Nachrichten werden zuverlässig angezeigt.
+      alle“ mit Postfach – kurze Nachrichten an die Gruppe, Ende-zu-Ende über das
+      Relais von FehlerFuchs verteilt; empfangene Nachrichten werden zuverlässig angezeigt.
       Dazu Feiertage und Ferien im Kalender farblich hervorgehoben und „zuletzt
       aktiv“ in der Geräteliste. Löst 1.5.0/1.6.0 ab.
 
@@ -270,7 +270,7 @@ features:
         note: Ende-zu-Ende-verschlüsselt über das Relais von FehlerFuchs; der Server kann die Inhalte nicht lesen.
       - name: Nachrichten an alle – mit Postfach, Ende-zu-Ende verschlüsselt
         values: { standard: ja }
-        note: Kurze Klartext-Nachrichten an die Gruppe; sie landen bei allen im Postfach und als Benachrichtigung, verteilt über den eigenen Relay statt über fremde Server. Ungelesenes bleibt markiert.
+        note: Kurze Klartext-Nachrichten an die Gruppe; sie landen bei allen im Postfach und als Benachrichtigung, verteilt über das Relais von FehlerFuchs statt über fremde Server. Ungelesenes bleibt markiert.
       - name: Geräteliste zeigt „zuletzt aktiv“
         values: { standard: ja }
         note: Auf dem Hauptgerät erkennst du so alte, ungenutzte Geräte leichter.
@@ -285,7 +285,7 @@ features:
     items:
       - name: Feiertage und Schulferien je Bundesland
         values: { standard: ja }
-        note: Im Kalender farblich hervorgehoben – Sonn-/Feiertage rot, Ferien dezent (Tag/Woche/Monat). Mit Selbstaktualisierung; bis der Endpunkt auf fehlerfuchs.eu steht, greift der eingebaute Bestand.
+        note: Im Kalender farblich hervorgehoben – Sonn-/Feiertage rot, Ferien dezent (Tag/Woche/Monat). Mit Selbstaktualisierung.
       - name: Transparenz- und Open-Source-Seite in der App
         values: { standard: ja }
 
