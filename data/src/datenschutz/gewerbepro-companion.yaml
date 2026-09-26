@@ -4,7 +4,8 @@ stand: "2026-09-26"
 geprueft_von: 29-1_GewerbePro Companion
 fassung: "1.0.0"
 
-# FREIGEGEBEN von Matthias Schacht am 26.09.2026, 11:23 (Endabnahme Rechtstext-Paket, F1) – übernommen von [FF_00].
+# FREIGEGEBEN von Matthias Schacht am 26.09.2026, 11:23 (Endabnahme Rechtstext-Paket, F1) — übernommen von [FF_00].
+# Ergänzt 26.09.2026, 14:50:41: Absatz „Löschen beim Lizenzserver“ in loeschung (Wortlaut von Matthias freigegeben, Play-Lösch-URL).
 # Ersetzt die Fassungen vom 17.08. (lokal) und 20.08. (00-1). Jede Angabe ist im
 # Code oder am Gerät gemessen; die Belege stehen je Eintrag.
 # Geschäfts-/Kundendaten bleiben auf dem Gerät bzw. gehen nur an den eigenen PC.
@@ -37,12 +38,12 @@ auf_dem_geraet:
     beleg: lib/data/db.dart (position_templates)
   - was: erzeugte PDF-Belege (Quittung mit Unterschrift, Fahrtenbuch)
     wo: im eigenen Speicherbereich der App
-    beleg: lib/services/dokument_dienst.dart (Unterordner „dokumente“, Tabelle documents)
+    beleg: lib/services/dokument_dienst.dart (Unterordner "dokumente", Tabelle documents)
   - was: aus GewerbePro übernommenes Branding – Firmendaten des Nutzers (Firma,
       Anschrift, E-Mail, Steuernummer, Bank, IBAN, BIC, Kontoinhaber, Name unter der Unterschrift,
       Kleinunternehmer-Angabe), Firmenlogo, hinterlegte Unterschrift, Fußzeilen, Farben
     wo: im eigenen Speicherbereich der App
-    beleg: lib/services/branding_store.dart (Ordner „branding“, Einstellung branding_json)
+    beleg: lib/services/branding_store.dart (Ordner "branding", Einstellung branding_json)
   - was: Löschmarken – wird ein schon an den PC übergebener Satz am Handy gelöscht,
       bleibt bis zur Bestätigung des PCs nur Typ, zufällige Satzkennung und Zeitpunkt
     wo: in der App auf dem Gerät
@@ -111,10 +112,10 @@ berechtigungen:
 uebertragungen:
   - wohin: license.fehlerfuchs.eu (FehlerFuchs-Lizenzserver)
     was: Lizenzschlüssel, eine zufällige Gerätekennung (UUID, ohne Hardware-Merkmale),
-      App-Name („GewerbePro“), Plattform („Android“) und bei der Aktivierung als
-      Gerätename der feste Text „Companion“ – NICHT der vom Nutzer vergebene
+      App-Name ("GewerbePro"), Plattform ("Android") und bei der Aktivierung als
+      Gerätename der feste Text "Companion" – NICHT der vom Nutzer vergebene
       Gerätename. Technisch bedingt die IP-Adresse und die Kennung
-      „GewerbePro-Companion-Lizenz“ (User-Agent). KEINE Kunden-, Auftrags- oder Belegdaten
+      "GewerbePro-Companion-Lizenz" (User-Agent). KEINE Kunden-, Auftrags- oder Belegdaten
     wann: bei der Aktivierung, bei jedem App-Start (Prüfung) und beim Lösen der Lizenz
     freiwillig: false
     beleg: lib/services/lizenz_dienst.dart (/v1/activate, /v1/validate, /v1/deactivate); lib/screens/lizenz_screen.dart
@@ -173,7 +174,7 @@ vom_pc:
     beleg: lib/services/sync_eingang.dart (verarbeiten, Quarantäne)
 
 fremde_dienste:
-  - name: Android-Teilen (über die Bibliothek „printing“, nur sharePdf)
+  - name: Android-Teilen (über die Bibliothek "printing", nur sharePdf)
     wofuer: PDF an eine vom Nutzer gewählte App übergeben
     wann: nur bei ausdrücklicher Nutzeraktion
   - name: Android-Dateiauswahl und Speichern-Dialog (über die Bibliothek "file_picker")
@@ -211,6 +212,11 @@ loeschung: >-
   Rückfrage aufräumen. Erzeugte PDFs können unter Einstellungen entfernt werden.
   Die handschriftliche Unterschrift wird nie im Datensatz gespeichert, nur im
   Quittungs-PDF.
+  Löschen beim Lizenzserver: Beim Lizenzserver liegen nur dein Lizenzschlüssel und die
+  zufällige Gerätekennung der App, solange die Lizenz gilt. „Lizenz lösen“ in der App
+  entfernt die Gerätebindung auch auf dem Server. Die Löschung aller Lizenzdaten kannst
+  du jederzeit per E-Mail an admin@fehlerfuchs.eu verlangen; die Lizenz ist danach nicht
+  mehr nutzbar.
 
 besonderheiten: >-
   Die App ist ein Erfassungs-Begleiter zu GewerbePro. Gerechnet und endgültig

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T17:21:03+02:00",
+  "generiert": "2026-09-26T17:28:54+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1128,12 +1128,12 @@
         {
           "was": "erzeugte PDF-Belege (Quittung mit Unterschrift, Fahrtenbuch)",
           "wo": "im eigenen Speicherbereich der App",
-          "beleg": "lib/services/dokument_dienst.dart (Unterordner „dokumente“, Tabelle documents)"
+          "beleg": "lib/services/dokument_dienst.dart (Unterordner \"dokumente\", Tabelle documents)"
         },
         {
           "was": "aus GewerbePro übernommenes Branding – Firmendaten des Nutzers (Firma, Anschrift, E-Mail, Steuernummer, Bank, IBAN, BIC, Kontoinhaber, Name unter der Unterschrift, Kleinunternehmer-Angabe), Firmenlogo, hinterlegte Unterschrift, Fußzeilen, Farben",
           "wo": "im eigenen Speicherbereich der App",
-          "beleg": "lib/services/branding_store.dart (Ordner „branding“, Einstellung branding_json)"
+          "beleg": "lib/services/branding_store.dart (Ordner \"branding\", Einstellung branding_json)"
         },
         {
           "was": "Löschmarken – wird ein schon an den PC übergebener Satz am Handy gelöscht, bleibt bis zur Bestätigung des PCs nur Typ, zufällige Satzkennung und Zeitpunkt",
@@ -1201,7 +1201,7 @@
       "uebertragungen": [
         {
           "wohin": "license.fehlerfuchs.eu (FehlerFuchs-Lizenzserver)",
-          "was": "Lizenzschlüssel, eine zufällige Gerätekennung (UUID, ohne Hardware-Merkmale), App-Name („GewerbePro“), Plattform („Android“) und bei der Aktivierung als Gerätename der feste Text „Companion“ – NICHT der vom Nutzer vergebene Gerätename. Technisch bedingt die IP-Adresse und die Kennung „GewerbePro-Companion-Lizenz“ (User-Agent). KEINE Kunden-, Auftrags- oder Belegdaten",
+          "was": "Lizenzschlüssel, eine zufällige Gerätekennung (UUID, ohne Hardware-Merkmale), App-Name (\"GewerbePro\"), Plattform (\"Android\") und bei der Aktivierung als Gerätename der feste Text \"Companion\" – NICHT der vom Nutzer vergebene Gerätename. Technisch bedingt die IP-Adresse und die Kennung \"GewerbePro-Companion-Lizenz\" (User-Agent). KEINE Kunden-, Auftrags- oder Belegdaten",
           "wann": "bei der Aktivierung, bei jedem App-Start (Prüfung) und beim Lösen der Lizenz",
           "freiwillig": false,
           "beleg": "lib/services/lizenz_dienst.dart (/v1/activate, /v1/validate, /v1/deactivate); lib/screens/lizenz_screen.dart"
@@ -1273,7 +1273,7 @@
       ],
       "fremde_dienste": [
         {
-          "name": "Android-Teilen (über die Bibliothek „printing“, nur sharePdf)",
+          "name": "Android-Teilen (über die Bibliothek \"printing\", nur sharePdf)",
           "wofuer": "PDF an eine vom Nutzer gewählte App übergeben",
           "wann": "nur bei ausdrücklicher Nutzeraktion"
         },
@@ -1293,7 +1293,7 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Die Daten in der App (Datenbank, PDFs, Branding) liegen im app-eigenen Speicher und gehen weder in eine Cloud-Sicherung noch beim Gerätewechsel mit; beim Deinstallieren löscht Android sie. Die Lizenzdaten im Schlüsselspeicher löscht „Lizenz lösen“. NICHT gelöscht werden beim Deinstallieren: die Dateien im Ordner Documents/GewerbePro-Sync (companion-hello.json, ggf. Pakete), abgelegte Austausch- und Sicherungsdateien, geteilte PDFs und angelegte Kontakte. Einzelne Kunden, Entwürfe, Fahrten, Aufgaben und Termine lassen sich in der App löschen; war ein Satz schon beim PC, geht eine Löschmarke mit dem nächsten Paket an den PC (dort wird er nur markiert, nicht gelöscht). Am PC bestätigte Sätze lassen sich nach Rückfrage aufräumen. Erzeugte PDFs können unter Einstellungen entfernt werden. Die handschriftliche Unterschrift wird nie im Datensatz gespeichert, nur im Quittungs-PDF.",
+      "loeschung": "Die Daten in der App (Datenbank, PDFs, Branding) liegen im app-eigenen Speicher und gehen weder in eine Cloud-Sicherung noch beim Gerätewechsel mit; beim Deinstallieren löscht Android sie. Die Lizenzdaten im Schlüsselspeicher löscht „Lizenz lösen“. NICHT gelöscht werden beim Deinstallieren: die Dateien im Ordner Documents/GewerbePro-Sync (companion-hello.json, ggf. Pakete), abgelegte Austausch- und Sicherungsdateien, geteilte PDFs und angelegte Kontakte. Einzelne Kunden, Entwürfe, Fahrten, Aufgaben und Termine lassen sich in der App löschen; war ein Satz schon beim PC, geht eine Löschmarke mit dem nächsten Paket an den PC (dort wird er nur markiert, nicht gelöscht). Am PC bestätigte Sätze lassen sich nach Rückfrage aufräumen. Erzeugte PDFs können unter Einstellungen entfernt werden. Die handschriftliche Unterschrift wird nie im Datensatz gespeichert, nur im Quittungs-PDF. Löschen beim Lizenzserver: Beim Lizenzserver liegen nur dein Lizenzschlüssel und die zufällige Gerätekennung der App, solange die Lizenz gilt. „Lizenz lösen“ in der App entfernt die Gerätebindung auch auf dem Server. Die Löschung aller Lizenzdaten kannst du jederzeit per E-Mail an admin@fehlerfuchs.eu verlangen; die Lizenz ist danach nicht mehr nutzbar.",
       "besonderheiten": "Die App ist ein Erfassungs-Begleiter zu GewerbePro. Gerechnet und endgültig erzeugt wird am PC. Die Erfassung läuft offline; Internet braucht die App nur für die Lizenz – dabei gehen Lizenzschlüssel, eine zufällige Gerätekennung, App-Name, Plattform und der feste Text „Companion“ an den FehlerFuchs-Lizenzserver, keine Kundendaten. Ein Benutzerkonto gibt es nicht. Der Austausch mit dem PC läuft nur lokal: als Datei an einem Ort, den der Nutzer wählt, oder über das USB-Kabel. Am Kabel kann GewerbePro die Erfassungen anfordern; die App legt sie dann ohne Handgriff am Handy verschlüsselt in den Sync-Ordner, solange sie im Vordergrund ist. Katalog, Kunden, Aufgaben und das Branding vom PC übernimmt sie von dort ebenso automatisch. Alle Pakete sind mit AES-256-GCM verschlüsselt, der Schlüssel kommt aus dem Lizenzschlüssel. Unverschlüsselt ist nur die Datei companion-hello.json, mit der sich das Gerät beim PC meldet (zufällige Kennung, Gerätename, Version, Zeitpunkt). Firmenlogo, Absender, Steuernummer, Bankverbindung und Unterschrift übernimmt die App verschlüsselt aus GewerbePro, damit Quittungen vor Ort im gewohnten Aussehen entstehen. Da Kundendaten und Unterschriften erfasst werden, verarbeitet der Nutzer personenbezogene Daten seiner eigenen Kunden in eigener Verantwortung.",
       "vorhandener_text": "In der App unter „Mehr → Impressum & Rechtliches“: Datenschutz-Kurzfassung nach A-11.6 (offline, Stand 95c3716) mit Link auf https://fehlerfuchs.eu/datenschutz/.",
       "offene_fragen": "1. Die App ist nicht veröffentlicht; das Play-Datenschutzformular ist noch nicht ausgefüllt. Die Vorlage liegt in der Lieferung an [FF_00] vom 26.09.2026. 2. Das Branding kommt nur noch verschlüsselt an (E2). Dafür muss GewerbePro in einer Version mit verschlüsseltem Branding-Export vorliegen ([FF_29], 1.1.0). (Erledigt seit dem 20.08.: das Release-Manifest ist nachgemessen; der USB-Weg in beide Richtungen ist gebaut und mit [FF_29] am AVD und an einem echten Gerät geprüft.)",
