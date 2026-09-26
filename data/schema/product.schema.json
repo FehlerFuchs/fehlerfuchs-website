@@ -515,6 +515,11 @@
           "notes": {
             "type": "string",
             "maxLength": 600
+          },
+          "ohne_meldung": {
+            "type": "string",
+            "minLength": 10,
+            "description": "Bewusster Verzicht auf eine Meldung unter Aktuelles, MIT Grund (seit 26.09.2026 ist ein Release ohne Meldung sonst ein Baufehler)."
           }
         }
       }

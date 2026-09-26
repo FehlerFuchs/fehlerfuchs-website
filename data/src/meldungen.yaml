@@ -125,6 +125,22 @@ meldungen:
       sich die Stelle je Buch. Auch der PDF-Teil bekommt eigene Lesezeichen. Kostenlos,
       werbefrei, offline — wie gehabt.
 
+  # MobileReport Enterprise 1.5.0 (26.09.2026: Direkt-APK 07:57, Managed Play privat). Nachgetragen
+  # nach der Webseiten-Sichtung 26.09., Befund 8 (Entscheidung Matthias A). 'version: 1.5.0' bindet
+  # die Meldung an den releases-Eintrag. Text nach dem „Was ist neu“ von [FF_20]/[FF_15]; keine Buildnummer.
+  - id: mobilereport-enterprise-1-5-0
+    typ: update
+    produkt: mobilereport-enterprise
+    version: "1.5.0"
+    titel: MobileReport Enterprise 1.5.0
+    text: >-
+      MobileReport Enterprise 1.5.0 schlägt beim Melden die zuständigen Empfänger vor – nach
+      Gebäude, sonst nach Bereich, jeweils passend zur Kategorie; passt niemand, bleibt es beim
+      Standard-Empfänger. Wofür ein Empfänger zuständig ist, legt man bei ihm fest oder liest es
+      über die neuen Spalten „Kategorie“ und „Gebäude“ der Empfänger-Tabelle ein. Im
+      Admin-Bereich lässt sich die Auswahl sperren. Bei der Sicherung steht der Hinweis zu einem
+      falschen oder fehlenden Passwort jetzt oben im Dialog.
+
   # MobileReport Enterprise 1.4.0 (Release-Update, 23.09.2026). 'version: 1.4.0' bindet
   # die Meldung an den releases-Eintrag. ENTWURF-Branch: erst beim gebündelten Livegang
   # (Option A) nach main. Keine Buildnummer nennen.

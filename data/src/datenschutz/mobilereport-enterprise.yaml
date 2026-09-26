@@ -65,7 +65,7 @@ berechtigungen:
 uebertragungen:
   - wohin: license.fehlerfuchs.eu
     was: >-
-      Lizenzschlüssel, Geräte-Fingerprint, optional ein selbst vergebener
+      Lizenzschlüssel, zufällige Geräte-Kennung, optional ein selbst vergebener
       Gerätename und die Angabe "Android". Ausdrücklich KEINE Meldungen,
       Bilder, PDFs oder Einstellungen.
     wann: bei Aktivierung, Online-Prüfung und Freigabe eines Arbeitsplatzes
@@ -130,7 +130,7 @@ loeschung: >-
 
 besonderheiten: >-
   Die Geräte-Kennung ist keine Hardware-Kennung und wird nicht aus dem Gerät
-  ausgelesen: Es ist eine beim ersten Start zufällig erzeugte Zufallsnummer, die
+  ausgelesen: Es ist eine beim ersten Start zufällig erzeugte Nummer, die
   geschützt auf dem Gerät liegt. Sie dient allein dazu, einen Arbeitsplatz zu
   zählen und bei erneuter Freischaltung nicht doppelt zu belegen; ein Rückschluss
   auf eine Person ist damit nicht möglich. Die App kennt den Zahlungsanbieter

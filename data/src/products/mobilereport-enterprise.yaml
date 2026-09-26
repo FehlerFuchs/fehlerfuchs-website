@@ -208,11 +208,11 @@ faq:
       E-Mail-Programm.
   - question: Wir haben viele Bereiche und Standorte – müssen wir alles einzeln eintippen?
     answer: >-
-      Sie legen Bereiche und Standorte einmalig in der App an; dabei helfen eine aufklappbare
-      A–Z-Liste, die Vorschau bereits vorhandener Einträge und eine Tippfehler-Warnung. Für
-      Empfänger- und Verteilerlisten gibt es zusätzlich einen CSV-Import: Sie fügen eine Tabelle ein
-      (die Spalte E-Mail ist Pflicht; optional Bereich, Funktion, Vorname, Nachname, Standard) –
-      alles bleibt lokal auf dem Gerät. Eine Import-Anleitung liegt als PDF in der App.
+      Nein. Orte legen Sie an einer Stelle an – Bereich, Gebäude, Ebene, Raum und Bezeichnung –,
+      von Hand oder aus einer Excel- oder CSV-Vorlage. Auch Empfänger- und Verteilerlisten lesen
+      Sie per Tabelle ein (die Spalte E-Mail ist Pflicht; optional Bereich, Funktion, Vorname,
+      Nachname, Standard und seit 1.5.0 „Kategorie“ und „Gebäude“ für die Zuständigkeit). Alles
+      bleibt lokal auf dem Gerät. Eine Import-Anleitung liegt als PDF in der App.
   - question: Wo liegen unsere Daten?
     answer: >-
       Ausschließlich lokal auf dem Gerät – keine Cloud, kein Konto, kein Tracking durch FehlerFuchs.

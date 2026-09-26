@@ -938,10 +938,15 @@ def pruefe_meldungen(meldungen, produkte, schema):
     erzaehlt = {(m.get("produkt"), m.get("version")) for m in meldungen}
     for p in produkte:
         for r in p.get("releases", []):
-            if (p["slug"], r["version"]) not in erzaehlt:
-                melde(warnungen, p["slug"],
+            # Seit 26.09.2026 ein FEHLER, keine Warnung (Webseiten-Sichtung, Befund 8): Die Warnung
+            # zu MobileReport Enterprise 1.5.0 wurde beim Bauen gesehen und übergangen – eine
+            # Warnung lässt sich folgenlos übergehen. Wer bewusst keine Meldung will, schreibt das
+            # mit Grund in den Release-Eintrag: ohne_meldung: "<Grund>".
+            if (p["slug"], r["version"]) not in erzaehlt and not r.get("ohne_meldung"):
+                melde(fehler, p["slug"],
                       f"Release {r['version']} vom {r['date']} hat keine Meldung in "
-                      f"meldungen.yaml – auf der Aktuelles-Seite fehlt er damit")
+                      f"meldungen.yaml – auf der Aktuelles-Seite fehlt er damit. Entweder eine "
+                      f"Meldung anlegen oder im Release 'ohne_meldung: \"<Grund>\"' setzen")
 
     # Nur nach Datum sortieren. Pythons Sortierung ist stabil, deshalb behalten
     # Meldungen desselben Tages die Reihenfolge aus meldungen.yaml – also die,
