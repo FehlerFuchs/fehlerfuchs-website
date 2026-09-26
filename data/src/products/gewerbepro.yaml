@@ -24,11 +24,13 @@ platforms:
     requirements: Windows 10 / 11 (64-bit), keine Administratorrechte nötig
     distribution: github-release
     since: "2026-08-17"        # 1.0.0 – erstes Stable-Release (Beta lief ab 15.07.)
-  # Companion-App „GewerbePro Mobil": in der Vollversion enthalten, Freischaltung
-  # per Lizenzcode (belegt einen der 3 Arbeitsplätze). Bezug über Google Play –
-  # die frühere APK-außerhalb-des-Stores-Angabe ist überholt.
+  # Companion-App „GewerbePro Companion“ (G4: „GewerbePro Mobil“ war ein Arbeitsname): in der
+  # Vollversion enthalten, Freischaltung per Lizenzschlüssel (belegt einen der 3 Arbeitsplätze,
+  # C1 [FF_29-1]). Bezug über Google Play. Status wie die Companion-Seite: seit 26.09.2026 in der
+  # Store-Prüfung (G6 – beide Seiten auf einem Stand, Befund 5).
   - os: android
-    status: entwicklung
+    status: pruefung
+    since: "2026-09-26"
     requirements: Android, Bezug über Google Play; Freischaltung per Lizenzcode
     distribution: play-store
 
@@ -64,8 +66,8 @@ editions:
     # Hervorgehobene Spalte in der Merkmalsmatrix.
     emphasis: true
     summary: >-
-      Vollversion: E-Rechnung, Mahnwesen, Projekte, E-Mail-Versand, PDFuchs, Datenimport
-      und eigenes Branding. Einführungspreis 89,00 € statt regulär 129,00 € (einmalig,
+      Vollversion: E-Rechnung, E-Mail-Versand, PDFuchs, Companion-App, Branding,
+      Exporte, Datenimport, optional OCR. Einführungspreis 89,00 € statt regulär 129,00 € (einmalig,
       kein Abo), 3 Arbeitsplätze für Desktop und Companion-App zusammen. Kauf über
       Digistore24, 30 Tage Rückgaberecht.
     # Einführungspreis 89 € (Streichpreis 129 €), Einmalzahlung. Digistore24-Produkt
@@ -251,11 +253,12 @@ features:
     items:
       - name: Modulare Erweiterungspakete per Installer
         values: { free: nein, pro: in-arbeit, vather: "alle Module" }
-      - name: GewerbePro Mobil (Companion-App für Android)
+      - name: GewerbePro Companion (App für Android)
         values: { free: nein, pro: ja, vather: ja }
         note: >-
-          In der Vollversion enthalten. Freischaltung per Lizenzcode (belegt einen der
-          3 Arbeitsplätze), Bezug über Google Play, Datenabgleich mit dem PC per USB.
+          In der Vollversion enthalten. Kostenlos über Google Play, freigeschaltet mit deinem
+          Lizenzschlüssel (belegt einen der 3 Arbeitsplätze). Datenabgleich mit dem PC per
+          USB-Kabel oder als verschlüsselte Datei.
       - name: Voll editierbar, Entwickler-Werkzeuge und Selbsttest
         values: { free: nein, pro: nein, vather: ja }
 
@@ -269,15 +272,13 @@ faq:
       Kauf läuft über die sichere Kasse Digistore24, mit 30 Tagen Rückgaberecht.
       Gegenüber Abo-Programmen, die oft 100 bis 360 € im Jahr kosten, zahlst du einmal –
       und die Ausgabe ist als Betriebsausgabe absetzbar.
-  - question: Was ist die „Vather"-Version?
-    answer: >-
-      Die interne Entwicklerversion: alle Funktionen freigeschaltet und voll editierbar.
-      Sie dient Entwicklung und Test und wird nicht öffentlich verteilt. Öffentlich
-      erscheinen nur Gewerbe und GewerbePro.
+  # FAQ „Was ist die Vather-Version?“ am 26.09.2026 gestrichen (Befund 7, Entscheidung Matthias A):
+  # die Edition erscheint auf keiner öffentlichen Seite (G7 [FF_29]: bestätigt).
   - question: Wo liegen meine Daten?
     answer: >-
-      Im Programmordner auf deinem PC – Datenbank, Sicherungen und PDFs. Nichts wird in
-      eine Cloud übertragen.
+      In deinem Benutzerprofil unter %APPDATA%\FehlerFuchs\GewerbePro\Daten, verschlüsselt –
+      Datenbank, Sicherungen und PDFs. Beim Update von 1.0.0 ziehen vorhandene Daten
+      automatisch dorthin um. Nichts liegt auf einem FehlerFuchs-Server.
   - question: Ersetzt es die Steuerberatung?
     answer: >-
       Nein. Es unterstützt, strukturiert und dokumentiert. Steuerliche, rechtliche oder
@@ -307,13 +308,15 @@ faq:
       künftig mit einer gekauften Lizenz frei.
   - question: Gibt es das auch für Android?
     answer: >-
-      Ja, als Companion-App „GewerbePro Mobil". Sie gehört zur Pro-Edition und wird nicht
-      separat verkauft: Freischaltung mit demselben Lizenzschlüssel, wobei die App einen
-      der drei Arbeitsplätze belegt. Der Datenabgleich mit dem PC läuft per USB. Vor Ort
-      nutzbar sind Auftragsentwürfe, Kunden, Katalog, Kalender, Aufgaben und Quittungsblock.
-  - question: Wie bekomme ich GewerbePro Mobil auf mein Handy?
+      Ja, als Companion-App „GewerbePro Companion“. Sie gehört zur Vollversion und wird
+      nicht separat verkauft: Freischaltung mit demselben Lizenzschlüssel, wobei die App
+      einen der drei Arbeitsplätze belegt. Der Datenabgleich mit dem PC läuft automatisch
+      über das USB-Kabel oder als verschlüsselte Datei. Vor Ort nutzbar sind
+      Auftragsentwürfe, Kunden, Katalog, Kalender, Aufgaben und Quittungsblock.
+  - question: Wie bekomme ich GewerbePro Companion auf mein Handy?
     answer: >-
-      Über Google Play – der Download dort ist kostenlos. Freigeschaltet wird die App mit
+      Über Google Play – der Download ist kostenlos; den aktuellen Stand zeigt die Seite
+      der Companion-App. Freigeschaltet wird die App mit
       deinem GewerbePro-Lizenzschlüssel; sie belegt dann einen der drei Arbeitsplätze
       deiner Lizenz. Ohne Lizenzcode startet die App nicht – es ist also keine gratis
       Zusatz-App, sondern der mobile Arm deiner Vollversion.
@@ -323,8 +326,8 @@ faq:
       keine Administratorrechte. Zusätzliche Software ist nicht nötig: Die erforderliche
       Visual-C++-Runtime ist im Installer enthalten (auf frischem Windows getestet). Für
       den Betrieb ist kein Internet nötig – Updates prüft das Programm nur, wenn du es
-      möchtest. Der Installer ist rund 120 MB groß; deine Daten liegen lokal im Programm-
-      beziehungsweise Nutzerordner. Das Programm ist digital signiert (Herausgeber
+      möchtest. Der Installer ist rund 110 MB groß; deine Daten liegen lokal in deinem
+      Benutzerprofil. Das Programm ist digital signiert (Herausgeber
       FehlerFuchs); bei einem neuen Download kann Windows SmartScreen anfangs trotzdem
       warnen, bis sich die Bekanntheit aufgebaut hat.
 

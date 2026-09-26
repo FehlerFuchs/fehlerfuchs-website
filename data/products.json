@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T16:04:20+02:00",
+  "generiert": "2026-09-26T16:48:52+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -424,7 +424,8 @@
         },
         {
           "os": "android",
-          "status": "entwicklung",
+          "status": "pruefung",
+          "since": "2026-09-26",
           "requirements": "Android, Bezug über Google Play; Freischaltung per Lizenzcode",
           "distribution": "play-store"
         }
@@ -487,7 +488,7 @@
           ],
           "public": true,
           "emphasis": true,
-          "summary": "Vollversion: E-Rechnung, Mahnwesen, Projekte, E-Mail-Versand, PDFuchs, Datenimport und eigenes Branding. Einführungspreis 89,00 € statt regulär 129,00 € (einmalig, kein Abo), 3 Arbeitsplätze für Desktop und Companion-App zusammen. Kauf über Digistore24, 30 Tage Rückgaberecht.",
+          "summary": "Vollversion: E-Rechnung, E-Mail-Versand, PDFuchs, Companion-App, Branding, Exporte, Datenimport, optional OCR. Einführungspreis 89,00 € statt regulär 129,00 € (einmalig, kein Abo), 3 Arbeitsplätze für Desktop und Companion-App zusammen. Kauf über Digistore24, 30 Tage Rückgaberecht.",
           "price": {
             "model": "einmalig",
             "amount": 89,
@@ -818,13 +819,13 @@
               }
             },
             {
-              "name": "GewerbePro Mobil (Companion-App für Android)",
+              "name": "GewerbePro Companion (App für Android)",
               "values": {
                 "free": "nein",
                 "pro": "ja",
                 "vather": "ja"
               },
-              "note": "In der Vollversion enthalten. Freischaltung per Lizenzcode (belegt einen der 3 Arbeitsplätze), Bezug über Google Play, Datenabgleich mit dem PC per USB."
+              "note": "In der Vollversion enthalten. Kostenlos über Google Play, freigeschaltet mit deinem Lizenzschlüssel (belegt einen der 3 Arbeitsplätze). Datenabgleich mit dem PC per USB-Kabel oder als verschlüsselte Datei."
             },
             {
               "name": "Voll editierbar, Entwickler-Werkzeuge und Selbsttest",
@@ -843,12 +844,8 @@
           "answer": "Die Basisversion FehlerFuchs Gewerbe ist kostenlos. GewerbePro kostet zum Einführungspreis 89,00 € statt regulär 129,00 € – einmalig, kein Abo und keine Folgekosten. Eine Lizenz gilt für das Windows-Programm und die Companion-App zusammen und deckt 3 Arbeitsplätze ab (zum Beispiel zwei PCs und ein Handy). Der Kauf läuft über die sichere Kasse Digistore24, mit 30 Tagen Rückgaberecht. Gegenüber Abo-Programmen, die oft 100 bis 360 € im Jahr kosten, zahlst du einmal – und die Ausgabe ist als Betriebsausgabe absetzbar."
         },
         {
-          "question": "Was ist die „Vather\"-Version?",
-          "answer": "Die interne Entwicklerversion: alle Funktionen freigeschaltet und voll editierbar. Sie dient Entwicklung und Test und wird nicht öffentlich verteilt. Öffentlich erscheinen nur Gewerbe und GewerbePro."
-        },
-        {
           "question": "Wo liegen meine Daten?",
-          "answer": "Im Programmordner auf deinem PC – Datenbank, Sicherungen und PDFs. Nichts wird in eine Cloud übertragen."
+          "answer": "In deinem Benutzerprofil unter %APPDATA%\\FehlerFuchs\\GewerbePro\\Daten, verschlüsselt – Datenbank, Sicherungen und PDFs. Beim Update von 1.0.0 ziehen vorhandene Daten automatisch dorthin um. Nichts liegt auf einem FehlerFuchs-Server."
         },
         {
           "question": "Ersetzt es die Steuerberatung?",
@@ -872,15 +869,15 @@
         },
         {
           "question": "Gibt es das auch für Android?",
-          "answer": "Ja, als Companion-App „GewerbePro Mobil\". Sie gehört zur Pro-Edition und wird nicht separat verkauft: Freischaltung mit demselben Lizenzschlüssel, wobei die App einen der drei Arbeitsplätze belegt. Der Datenabgleich mit dem PC läuft per USB. Vor Ort nutzbar sind Auftragsentwürfe, Kunden, Katalog, Kalender, Aufgaben und Quittungsblock."
+          "answer": "Ja, als Companion-App „GewerbePro Companion“. Sie gehört zur Vollversion und wird nicht separat verkauft: Freischaltung mit demselben Lizenzschlüssel, wobei die App einen der drei Arbeitsplätze belegt. Der Datenabgleich mit dem PC läuft automatisch über das USB-Kabel oder als verschlüsselte Datei. Vor Ort nutzbar sind Auftragsentwürfe, Kunden, Katalog, Kalender, Aufgaben und Quittungsblock."
         },
         {
-          "question": "Wie bekomme ich GewerbePro Mobil auf mein Handy?",
-          "answer": "Über Google Play – der Download dort ist kostenlos. Freigeschaltet wird die App mit deinem GewerbePro-Lizenzschlüssel; sie belegt dann einen der drei Arbeitsplätze deiner Lizenz. Ohne Lizenzcode startet die App nicht – es ist also keine gratis Zusatz-App, sondern der mobile Arm deiner Vollversion."
+          "question": "Wie bekomme ich GewerbePro Companion auf mein Handy?",
+          "answer": "Über Google Play – der Download ist kostenlos; den aktuellen Stand zeigt die Seite der Companion-App. Freigeschaltet wird die App mit deinem GewerbePro-Lizenzschlüssel; sie belegt dann einen der drei Arbeitsplätze deiner Lizenz. Ohne Lizenzcode startet die App nicht – es ist also keine gratis Zusatz-App, sondern der mobile Arm deiner Vollversion."
         },
         {
           "question": "Welche Systemvoraussetzungen hat GewerbePro?",
-          "answer": "Windows 10 oder 11 (64-bit). Die Installation läuft im Benutzerprofil und braucht keine Administratorrechte. Zusätzliche Software ist nicht nötig: Die erforderliche Visual-C++-Runtime ist im Installer enthalten (auf frischem Windows getestet). Für den Betrieb ist kein Internet nötig – Updates prüft das Programm nur, wenn du es möchtest. Der Installer ist rund 120 MB groß; deine Daten liegen lokal im Programm- beziehungsweise Nutzerordner. Das Programm ist digital signiert (Herausgeber FehlerFuchs); bei einem neuen Download kann Windows SmartScreen anfangs trotzdem warnen, bis sich die Bekanntheit aufgebaut hat."
+          "answer": "Windows 10 oder 11 (64-bit). Die Installation läuft im Benutzerprofil und braucht keine Administratorrechte. Zusätzliche Software ist nicht nötig: Die erforderliche Visual-C++-Runtime ist im Installer enthalten (auf frischem Windows getestet). Für den Betrieb ist kein Internet nötig – Updates prüft das Programm nur, wenn du es möchtest. Der Installer ist rund 110 MB groß; deine Daten liegen lokal in deinem Benutzerprofil. Das Programm ist digital signiert (Herausgeber FehlerFuchs); bei einem neuen Download kann Windows SmartScreen anfangs trotzdem warnen, bis sich die Bekanntheit aufgebaut hat."
         }
       ],
       "media": {
@@ -3188,7 +3185,7 @@
       "kind": "produkt",
       "parent": "gewerbepro",
       "tagline": "Mobiler Erfassungs-Begleiter zu GewerbePro: Kunden, Auftrags-Entwürfe, Fahrten und Quittungen unterwegs aufnehmen – offline und ohne Konto.",
-      "description": "Die Companion-App ist die Android-Ergänzung zu GewerbePro und befindet sich in Entwicklung. Sie erfasst unterwegs Kunden, Auftrags-Entwürfe mit Positionen, Fahrten, Aufgaben, Termine und Quittungen und arbeitet dabei vollständig offline. Gerechnet wird nichts auf dem Handy: Die App sammelt Rohdaten und übergibt sie als Paket an GewerbePro auf dem PC, das daraus Angebote, Aufträge und Belege macht. Für Quittungen vor Ort kann sie das Firmen-Branding aus GewerbePro übernehmen und einen unterschriebenen Beleg als PDF erzeugen.",
+      "description": "Die Companion-App ist die Android-Ergänzung zu GewerbePro. Sie erfasst unterwegs Kunden, Auftrags-Entwürfe mit Positionen, Fahrten, Aufgaben, Termine und Quittungen und arbeitet dabei vollständig offline. Gerechnet wird nichts auf dem Handy: Die App sammelt Rohdaten und übergibt sie verschlüsselt an GewerbePro auf dem PC – automatisch über das USB-Kabel oder als Datei –, und GewerbePro macht daraus Angebote, Aufträge und Belege. Für Quittungen vor Ort übernimmt sie das Firmen-Branding aus GewerbePro und erzeugt einen unterschriebenen Beleg als PDF.",
       "audience": [
         "selbststaendige",
         "unternehmen"
@@ -3246,9 +3243,9 @@
           "id": "standard",
           "name": "GewerbePro Companion",
           "public": true,
-          "summary": "Eine Ausbaustufe. Ob die App später kostenlos zu GewerbePro gehört oder getrennt angeboten wird, ist noch nicht entschieden.",
+          "summary": "Kostenlos im Google Play Store. Nutzbar mit deiner GewerbePro-Vollversion; die App belegt einen der drei Arbeitsplätze deiner Lizenz. Kein Kauf in der App.",
           "price": {
-            "model": "offen"
+            "model": "kostenlos"
           }
         }
       ],
@@ -3326,11 +3323,11 @@
               }
             },
             {
-              "name": "Fertiger Übertragungsweg zum PC (USB, Cloud, Server)",
+              "name": "Übertragung zum PC per USB-Kabel (automatisch) oder als verschlüsselte Datei",
               "values": {
-                "standard": "geplant"
+                "standard": "ja"
               },
-              "note": "Das Paket wird bisher nur als Datei im App-Ordner abgelegt."
+              "note": "Verschlüsselt mit einem Schlüssel aus deinem Lizenzschlüssel, nur lokal, kein Server. Zurück vom PC kommen Katalog, Kunden, Aufgaben und Branding."
             },
             {
               "name": "Rechnungen, Angebote, EÜR oder E-Rechnung auf dem Handy",
@@ -3351,6 +3348,13 @@
               }
             },
             {
+              "name": "GewerbePro-Lizenzschlüssel nötig",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Aus deiner GewerbePro-Vollversion; die App belegt einen der drei Arbeitsplätze."
+            },
+            {
               "name": "Arbeitet ohne Internet",
               "values": {
                 "standard": "ja"
@@ -3361,9 +3365,9 @@
       ],
       "releases": [],
       "links": {
-        "contact": "/kontakt.html?app=GewerbePro-Companion&topic=interesse"
+        "contact": "/kontakt/?app=GewerbePro%20Companion&topic=interesse"
       },
-      "notes": "Die App ruft die GewerbePro-Engine nicht auf und enthält keine Fachlogik; sie ist bewusst ein Erfassungs-Begleiter. Der Datenaustausch mit dem PC läuft über ein JSON-Paket, das GewerbePro mit dem Kommando companion.import einliest. Preis und Vertriebsweg stehen noch nicht fest; Bildmaterial für die Produktseite gibt es noch nicht."
+      "notes": "Die App ruft die GewerbePro-Engine nicht auf und enthält keine Fachlogik; sie ist bewusst ein Erfassungs-Begleiter. Der Datenaustausch mit dem PC läuft über ein JSON-Paket, das GewerbePro mit dem Kommando companion.import einliest. Kostenlos über Google Play, nutzbar nur mit GewerbePro-Lizenzschlüssel (C1, 26.09.2026); Bildmaterial für die Produktseite gibt es noch nicht."
     },
     {
       "slug": "belegwerk",

@@ -14,14 +14,15 @@ parent: gewerbepro
 tagline: >-
   Mobiler Erfassungs-Begleiter zu GewerbePro: Kunden, Auftrags-Entwürfe,
   Fahrten und Quittungen unterwegs aufnehmen – offline und ohne Konto.
+# Fakten 26.09.2026 gemessen von [FF_29] (G1–G7) und [FF_29-1] (C1–C4), Befund 5/11 Webseiten-Sichtung.
 description: >-
-  Die Companion-App ist die Android-Ergänzung zu GewerbePro und befindet sich in
-  Entwicklung. Sie erfasst unterwegs Kunden, Auftrags-Entwürfe mit Positionen,
-  Fahrten, Aufgaben, Termine und Quittungen und arbeitet dabei vollständig
-  offline. Gerechnet wird nichts auf dem Handy: Die App sammelt Rohdaten und
-  übergibt sie als Paket an GewerbePro auf dem PC, das daraus Angebote,
-  Aufträge und Belege macht. Für Quittungen vor Ort kann sie das Firmen-Branding
-  aus GewerbePro übernehmen und einen unterschriebenen Beleg als PDF erzeugen.
+  Die Companion-App ist die Android-Ergänzung zu GewerbePro. Sie erfasst unterwegs
+  Kunden, Auftrags-Entwürfe mit Positionen, Fahrten, Aufgaben, Termine und Quittungen
+  und arbeitet dabei vollständig offline. Gerechnet wird nichts auf dem Handy: Die App
+  sammelt Rohdaten und übergibt sie verschlüsselt an GewerbePro auf dem PC –
+  automatisch über das USB-Kabel oder als Datei –, und GewerbePro macht daraus
+  Angebote, Aufträge und Belege. Für Quittungen vor Ort übernimmt sie das
+  Firmen-Branding aus GewerbePro und erzeugt einen unterschriebenen Beleg als PDF.
 audience: [selbststaendige, unternehmen]
 
 # Akzent aus der App (theme.akzent, #9F1239). Kommt auf weißem Grund auf
@@ -70,7 +71,7 @@ platforms:
 # und gehen beim Datenaustausch nur verschlüsselt an den vom Nutzer bestimmten PC
 # (USB/Dateiablage) – nie an FehlerFuchs. Nicht mehr rein lokal ist aber die
 # Lizenz: seit die App lizenzgeschützt ist, kontaktiert sie zur Aktivierung/Prüfung
-# den Lizenzserver (nur Lizenzschlüssel + zufällige Gerätekennung). Kein Store,
+# den Lizenzserver (nur Lizenzschlüssel + zufällige Gerätekennung). Bezug über Google Play,
 # kein In-App-Kauf, keine Telemetrie. Steckbrief: gewerbepro-companion.yaml.
 privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
@@ -79,9 +80,9 @@ editions:
     name: GewerbePro Companion
     public: true
     summary: >-
-      Eine Ausbaustufe. Ob die App später kostenlos zu GewerbePro gehört oder
-      getrennt angeboten wird, ist noch nicht entschieden.
-    price: { model: offen }
+      Kostenlos im Google Play Store. Nutzbar mit deiner GewerbePro-Vollversion; die
+      App belegt einen der drei Arbeitsplätze deiner Lizenz. Kein Kauf in der App.
+    price: { model: kostenlos }   # C1 [FF_29-1]: kostenlos im Store, nur mit Lizenzschlüssel nutzbar
 
 features:
   - group: Unterwegs erfassen
@@ -115,9 +116,13 @@ features:
     items:
       - name: Erfassungspaket für den Import in GewerbePro erzeugen
         values: { standard: ja }
-      - name: Fertiger Übertragungsweg zum PC (USB, Cloud, Server)
-        values: { standard: geplant }
-        note: Das Paket wird bisher nur als Datei im App-Ordner abgelegt.
+      # C2 [FF_29-1]: umgesetzt in 1.0.0. Ein Cloud-/Server-Weg ist nicht gebaut; ob er kommt,
+      # ist nicht entschieden – deshalb hier NICHT als „geplant“ versprochen.
+      - name: Übertragung zum PC per USB-Kabel (automatisch) oder als verschlüsselte Datei
+        values: { standard: ja }
+        note: >-
+          Verschlüsselt mit einem Schlüssel aus deinem Lizenzschlüssel, nur lokal, kein
+          Server. Zurück vom PC kommen Katalog, Kunden, Aufgaben und Branding.
       - name: Rechnungen, Angebote, EÜR oder E-Rechnung auf dem Handy
         values: { standard: nein }
         note: Bleibt bewusst in GewerbePro am PC.
@@ -126,6 +131,9 @@ features:
     items:
       - name: Konto oder Registrierung nötig
         values: { standard: nein }
+      - name: GewerbePro-Lizenzschlüssel nötig
+        values: { standard: ja }
+        note: Aus deiner GewerbePro-Vollversion; die App belegt einen der drei Arbeitsplätze.
       - name: Arbeitet ohne Internet
         values: { standard: ja }
 
@@ -135,11 +143,11 @@ links:
   # Neu, keine alte Adresse – deshalb kein 'alt_html'. Der Kontaktweg ist der
   # einzige Handlungsweg, solange es kein Paket und keinen Store gibt: Wer
   # Interesse hat, meldet sich und wird benachrichtigt.
-  contact: /kontakt.html?app=GewerbePro-Companion&topic=interesse
+  contact: /kontakt/?app=GewerbePro%20Companion&topic=interesse   # vorher app=GewerbePro-Companion: belegte das Formular nicht vor
 
 notes: >-
   Die App ruft die GewerbePro-Engine nicht auf und enthält keine Fachlogik; sie
   ist bewusst ein Erfassungs-Begleiter. Der Datenaustausch mit dem PC läuft über
   ein JSON-Paket, das GewerbePro mit dem Kommando companion.import einliest.
-  Preis und Vertriebsweg stehen noch nicht fest; Bildmaterial für die
-  Produktseite gibt es noch nicht.
+  Kostenlos über Google Play, nutzbar nur mit GewerbePro-Lizenzschlüssel (C1, 26.09.2026);
+  Bildmaterial für die Produktseite gibt es noch nicht.
