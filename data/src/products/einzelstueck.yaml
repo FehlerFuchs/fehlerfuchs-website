@@ -9,6 +9,9 @@ tags: ["Individualsoftware", "Software nach Maß", "Auftragsentwicklung", "Windo
 # ein Problem mitbringt. Deshalb kein Download, keine Version, kein Store –
 # und deshalb die eigene Art 'dienstleistung'.
 kind: dienstleistung
+# Sie-Ansprache für Firmenkunden: schaltet Überschriften der Vorlage um (Sichtung 26.09., Befund 10,
+# Entscheidung Matthias A) – vorher siezte der Text, die Überschrift duzte.
+ansprache: sie
 tagline: Ich baue, was Sie brauchen – und zwar so, wie Sie es möchten.
 description: >-
   Manchmal gibt es für ein Problem keine fertige Software. Oder es gibt zwanzig, und

@@ -133,7 +133,7 @@ features:
         note: Sendet nur die gewählten Koordinaten, ohne Schlüssel oder Konto.
       - name: Weitere Anbieter/Datenquellen auf Wunsch – über Updates
         values: { standard: geplant }
-        note: Sag uns, welcher Anbieter (z. B. Wechselrichter, Speicher, Energieportal) und auf welche Art – wir prüfen die Anbindung und liefern sie per Update nach. PowerFox/poweropti und ENPAL sind Marken der jeweiligen Anbieter.
+        note: Sag mir, welcher Anbieter (z. B. Wechselrichter, Speicher, Energieportal) und auf welche Art – ich prüfe die Anbindung und liefere sie per Update nach. PowerFox/poweropti und ENPAL sind Marken der jeweiligen Anbieter.
 
 # Nur Akzent + Modus aus dem Markensatz; übrige Farben bleiben heller Standard,
 # bis eine vollständige App-Palette vorliegt.

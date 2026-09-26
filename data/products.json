@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T16:51:52+02:00",
+  "generiert": "2026-09-26T16:53:25+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -81,6 +81,7 @@
         "Android"
       ],
       "kind": "dienstleistung",
+      "ansprache": "sie",
       "tagline": "Ich baue, was Sie brauchen – und zwar so, wie Sie es möchten.",
       "description": "Manchmal gibt es für ein Problem keine fertige Software. Oder es gibt zwanzig, und jede kann neunzehn Dinge zu viel. Dann entsteht ein EinzelStück: eine Anwendung, die genau eine Aufgabe löst – Ihre. Als Windows-Programm, Browser-Werkzeug oder Android-App. Die erste Sichtung des Problems und eine grobe Kostenschätzung sind kostenlos.",
       "audience": [
@@ -1172,7 +1173,7 @@
               "values": {
                 "standard": "geplant"
               },
-              "note": "Sag uns, welcher Anbieter (z. B. Wechselrichter, Speicher, Energieportal) und auf welche Art – wir prüfen die Anbindung und liefern sie per Update nach. PowerFox/poweropti und ENPAL sind Marken der jeweiligen Anbieter."
+              "note": "Sag mir, welcher Anbieter (z. B. Wechselrichter, Speicher, Energieportal) und auf welche Art – ich prüfe die Anbindung und liefere sie per Update nach. PowerFox/poweropti und ENPAL sind Marken der jeweiligen Anbieter."
             }
           ]
         }
