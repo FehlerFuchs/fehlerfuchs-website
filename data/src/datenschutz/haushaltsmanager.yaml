@@ -1,3 +1,5 @@
+# Format überführt am 26.09.2026 von [FF_10] (Webseiten-Sichtung, Befund 1, Entscheidung Matthias A):
+# nur die Form (Felder was/wo, name/wofuer, wohin/was/wann), Inhalt unverändert. Gegenlesen: Projekt.
 slug: haushaltsmanager        # Vorschlag; noch nicht in _SLUG-EIGENTUEMER.md eingetragen – Eintragung läuft parallel
 slug_vorschlag: false
 name: HaushaltsManager
@@ -13,63 +15,64 @@ fassung: >-
 lokal_only: false   # optionale, standardmäßig ausgeschaltete Datenverbindungen + eine minimale Lizenzprüfung, siehe uebertragungen
 
 auf_dem_geraet:
-  - "Vollständige Haushaltsdaten in einer lokalen SQLite-Datenbank – Zählerstände (Strom/Gas/Wasser), Verträge inkl. Kündigungsfristen, Haushaltsbuch, Vorhaben/Projekte, Solar & Speicher – lokal, %APPDATA%\\HaushaltsManager\\"
-  - "Erzeugte PDF-Dokumente (Vertrags-/Kündigungsschreiben, Monats-/Jahresberichte) und JSON-Exporte – lokal, dort wo der Nutzer sie speichert"
-  - "Datenbank-Sicherungen (Backups) – lokal, vom Nutzer angelegt"
-  - "Optionale anonyme Beispieldaten zum Ausprobieren – lokal, jederzeit entfernbar"
+- was: Vollständige Haushaltsdaten in einer lokalen SQLite-Datenbank – Zählerstände (Strom/Gas/Wasser),
+    Verträge inkl. Kündigungsfristen, Haushaltsbuch, Vorhaben/Projekte, Solar & Speicher
+  wo: lokal, %APPDATA%\HaushaltsManager\
+- was: Erzeugte PDF-Dokumente (Vertrags-/Kündigungsschreiben, Monats-/Jahresberichte) und JSON-Exporte
+  wo: lokal, dort wo der Nutzer sie speichert
+- was: Datenbank-Sicherungen (Backups)
+  wo: lokal, vom Nutzer angelegt
+- was: Optionale anonyme Beispieldaten zum Ausprobieren
+  wo: lokal, jederzeit entfernbar
 
 berechtigungen:
-  - "Lesen/Schreiben der eigenen SQLite-Datenbank und der vom Nutzer gewählten Export-/PDF-/Backup-Ordner (lokal)"
-  - "Optionaler per-user Autostart-Eintrag (HKCU\\...\\Run, ohne Administratorrechte), nur wenn der Nutzer den Hintergrunddienst einschaltet – startet die App versteckt im Tray"
+- name: Lesen/Schreiben der eigenen SQLite-Datenbank und der vom Nutzer gewählten Export-/PDF-/Backup-Ordner
+    (lokal)
+- name: Optionaler per-user Autostart-Eintrag (HKCU\...\Run, ohne Administratorrechte), nur wenn der Nutzer
+    den Hintergrunddienst einschaltet
+  wofuer: startet die App versteckt im Tray
+
   # Ausdrücklich NICHT: Kamera/Mikro/Kontakte; keine Administratorrechte. Standortkoordinaten
   # nur, wenn der Nutzer die optionale Wetterfunktion einschaltet und einen Standort wählt.
 
 uebertragungen:
-  - zweck: "Wetterdaten zur wetterbereinigten Erklärung von Heizperioden"
-    ziel: "Open-Meteo (api.open-meteo.com, archive-api.open-meteo.com)"
-    daten: >-
-      Nur die vom Nutzer gewählten Koordinaten (Standort). Kein Schlüssel, kein Konto.
-      Sonst werden keine Nutzerdaten gesendet; IP-Adresse und Zeitpunkt fallen wie bei
-      jedem Web-Abruf technisch an.
-    haeufigkeit: "nur bei aktivierter Wetterfunktion, beim Abruf durch den Nutzer"
-    abschaltbar: true
-    beleg: "Standardmäßig aus, opt-in; einzeln abschaltbar"
-  - zweck: "Abruf eigener Zähler-/Verbrauchsdaten aus dem PowerFox-Konto des Nutzers"
-    ziel: "PowerFox Cloud-API (offizielle Kunden-API 2.0, HTTPS, HTTP Basic Auth)"
-    daten: >-
-      Nutzt die EIGENEN Zugangsdaten des Nutzers (E-Mail + Passwort seines PowerFox-Kontos).
-      Das Passwort liegt ausschließlich im Windows-Anmeldespeicher. Abgerufen werden die
-      Verbrauchsdaten des eigenen Kontos.
-    haeufigkeit: "nur bei aktivierter PowerFox-Anbindung, beim Abruf/Sync durch den Nutzer"
-    abschaltbar: true
-    beleg: "Standardmäßig aus, opt-in; vom Nutzer selbst beauftragte Verbindung zu seinem eigenen Konto"
-  - zweck: "Abruf von Solar-/Speicherdaten aus der ENPAL-/InfluxDB-Instanz im Heimnetz"
-    ziel: "ENPAL / InfluxDB im eigenen Heimnetz (lokale IP + Token)"
-    daten: >-
-      Nur lokale Verbindung im eigenen Netz per IP und Token. Verlässt das Heimnetz nicht.
-      Der Token liegt ausschließlich im Windows-Anmeldespeicher.
-    haeufigkeit: "nur bei aktivierter Anbindung, beim Abruf/Sync durch den Nutzer"
-    abschaltbar: true
-    beleg: "Standardmäßig aus, opt-in; reine Heimnetz-Verbindung, verlässt das lokale Netz nicht"
-  - zweck: "Lizenzaktivierung und -prüfung (Kaufschutz nach der kostenlosen Testphase)"
-    ziel: "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU/Deutschland, HTTPS)"
-    daten: >-
-      Es werden AUSSCHLIESSLICH der Lizenzschlüssel und eine anonyme, zufällig erzeugte
-      Geräte-Kennung übertragen (Aktivieren/Prüfen/Freigeben). KEINE Haushalts-, Zähler-,
-      Vertrags- oder sonstigen Nutzerdaten. Nach der Aktivierung läuft die App offline weiter;
-      nur in größeren Abständen ist eine kurze Online-Prüfung nötig. IP-Adresse und Zeitpunkt
-      fallen wie bei jedem Web-Abruf technisch an.
-    haeufigkeit: "bei der Aktivierung sowie in größeren Abständen zur Gültigkeitsprüfung"
-    abschaltbar: false
-    beleg: "Notwendige Kaufabsicherung nach der Testphase; minimaler Datenumfang (nur Schlüssel + anonyme Kennung)"
-  - zweck: "Freiwillige Suche nach einer neueren App-Version"
-    ziel: "Öffentliche Versionsliste auf fehlerfuchs.eu (versions.json, HTTPS)"
-    daten: >-
-      Nur ein lesender Abruf einer öffentlichen Datei; es werden KEINE Nutzerdaten gesendet.
-      Kein automatischer Download/Install – die App meldet nur, ob eine neuere Version vorliegt.
-    haeufigkeit: "nur wenn der Nutzer „Nach App-Updates suchen“ anklickt"
-    abschaltbar: true
-    beleg: "Nutzerinitiiert; reiner Lesezugriff auf eine öffentliche Liste, keine Telemetrie"
+- wohin: Open-Meteo (api.open-meteo.com, archive-api.open-meteo.com)
+  was: 'Wetterdaten zur wetterbereinigten Erklärung von Heizperioden: Nur die vom Nutzer gewählten Koordinaten
+    (Standort). Kein Schlüssel, kein Konto. Sonst werden keine Nutzerdaten gesendet; IP-Adresse und Zeitpunkt
+    fallen wie bei jedem Web-Abruf technisch an.'
+  wann: nur bei aktivierter Wetterfunktion, beim Abruf durch den Nutzer
+  freiwillig: true
+  beleg: Standardmäßig aus, opt-in; einzeln abschaltbar
+- wohin: PowerFox Cloud-API (offizielle Kunden-API 2.0, HTTPS, HTTP Basic Auth)
+  was: 'Abruf eigener Zähler-/Verbrauchsdaten aus dem PowerFox-Konto des Nutzers: Nutzt die EIGENEN Zugangsdaten
+    des Nutzers (E-Mail + Passwort seines PowerFox-Kontos). Das Passwort liegt ausschließlich im Windows-Anmeldespeicher.
+    Abgerufen werden die Verbrauchsdaten des eigenen Kontos.'
+  wann: nur bei aktivierter PowerFox-Anbindung, beim Abruf/Sync durch den Nutzer
+  freiwillig: true
+  beleg: Standardmäßig aus, opt-in; vom Nutzer selbst beauftragte Verbindung zu seinem eigenen Konto
+- wohin: ENPAL / InfluxDB im eigenen Heimnetz (lokale IP + Token)
+  was: 'Abruf von Solar-/Speicherdaten aus der ENPAL-/InfluxDB-Instanz im Heimnetz: Nur lokale Verbindung
+    im eigenen Netz per IP und Token. Verlässt das Heimnetz nicht. Der Token liegt ausschließlich im Windows-Anmeldespeicher.'
+  wann: nur bei aktivierter Anbindung, beim Abruf/Sync durch den Nutzer
+  freiwillig: true
+  beleg: Standardmäßig aus, opt-in; reine Heimnetz-Verbindung, verlässt das lokale Netz nicht
+- wohin: FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU/Deutschland, HTTPS)
+  was: 'Lizenzaktivierung und -prüfung (Kaufschutz nach der kostenlosen Testphase): Es werden AUSSCHLIESSLICH
+    der Lizenzschlüssel und eine anonyme, zufällig erzeugte Geräte-Kennung übertragen (Aktivieren/Prüfen/Freigeben).
+    KEINE Haushalts-, Zähler-, Vertrags- oder sonstigen Nutzerdaten. Nach der Aktivierung läuft die App
+    offline weiter; nur in größeren Abständen ist eine kurze Online-Prüfung nötig. IP-Adresse und Zeitpunkt
+    fallen wie bei jedem Web-Abruf technisch an.'
+  wann: bei der Aktivierung sowie in größeren Abständen zur Gültigkeitsprüfung
+  freiwillig: false
+  beleg: Notwendige Kaufabsicherung nach der Testphase; minimaler Datenumfang (nur Schlüssel + anonyme
+    Kennung)
+- wohin: Öffentliche Versionsliste auf fehlerfuchs.eu (versions.json, HTTPS)
+  was: 'Freiwillige Suche nach einer neueren App-Version: Nur ein lesender Abruf einer öffentlichen Datei;
+    es werden KEINE Nutzerdaten gesendet. Kein automatischer Download/Install – die App meldet nur, ob
+    eine neuere Version vorliegt.'
+  wann: nur wenn der Nutzer „Nach App-Updates suchen“ anklickt
+  freiwillig: true
+  beleg: Nutzerinitiiert; reiner Lesezugriff auf eine öffentliche Liste, keine Telemetrie
 
 fremde_dienste:
   - "Open-Meteo – genutzter Wetterdienst (nur bei aktivierter Wetterfunktion; ohne Schlüssel/Konto, es werden nur die gewählten Koordinaten gesendet)"
@@ -87,7 +90,7 @@ daten_an_dritte_verkauft: false
 
 loeschung: >-
   Alle Daten liegen ausschließlich lokal in der SQLite-Datenbank unter
-  %APPDATA%\\HaushaltsManager\\. Es werden keine Daten an FehlerFuchs oder Dritte übertragen.
+  %APPDATA%\\HaushaltsManager\\. Es werden keine Haushaltsdaten an FehlerFuchs oder Dritte übertragen.
   Die Datenbank sowie erzeugte PDFs, Exporte und Backups kann der Nutzer jederzeit selbst
   löschen; der Deinstaller entfernt das Programm. Optionale Beispieldaten lassen sich in der
   App wieder entfernen. Zugangsdaten (PowerFox, ENPAL) stehen nur im Windows-Anmeldespeicher
@@ -104,9 +107,8 @@ besonderheiten: >-
   bestehen keinerlei Hintergrundverbindungen.
   Das Komponenten-Update läuft ausschließlich über eine lokal vom Nutzer ausgewählte
   JSON-Datei ohne jede Netzverbindung; Zugangsdaten in solchen Paketen sind ausdrücklich
-  verboten. Secrets (PowerFox-Passwort, ENPAL-Token, Lizenzschlüssel/Offline-Token) liegen
-  ausschließlich im Windows-Anmeldespeicher (flutter_secure_storage), nichts hartcodiert,
-  nichts in Dateien oder Git.
+  verboten. Zugangsdaten (PowerFox-Passwort, ENPAL-Token, Lizenzschlüssel und Offline-Token)
+  liegen ausschließlich im Windows-Anmeldespeicher.
   Kaufabsicherung: Nach einer kostenlosen Testphase wird die App mit einem Lizenzschlüssel
   aktiviert. Dabei verlassen NUR der Schlüssel und eine anonyme, zufällige Geräte-Kennung das
   Gerät (Ziel: license.fehlerfuchs.eu, EU); es werden keinerlei Haushaltsdaten übertragen. Der

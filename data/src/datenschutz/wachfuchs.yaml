@@ -1,3 +1,5 @@
+# Format überführt am 26.09.2026 von [FF_10] (Webseiten-Sichtung, Befund 1, Entscheidung Matthias A):
+# nur die Form (Felder was/wo, name/wofuer, wohin/was/wann), Inhalt unverändert. Gegenlesen: Projekt.
 slug: wachfuchs
 name: WachFuchs
 stand: "2026-09-25"
@@ -10,26 +12,41 @@ lokal_only: false
 
 # Was auf dem Gerät liegt (alles ohne Personenbezug):
 auf_dem_geraet:
-  - "Lernstand (Leitner-Fächer je Frage) – lokal, verlässt das Gerät nicht"
-  - "Inhaltspakete (SQLite mit Fragen/Antworten/Fundstellen) – heruntergeladen, lokal gespeichert"
-  - "Zufällige Installations-ID (lokal erzeugt, kein Personenbezug) – nur für Rate-Limit/Melde-Bezug"
-  - "Merker, welche Fragen gemeldet wurden – lokal, für den Bearbeitet-Hinweis"
+- was: Lernstand (Leitner-Fächer je Frage)
+  wo: lokal, verlässt das Gerät nicht
+- was: Inhaltspakete (SQLite mit Fragen/Antworten/Fundstellen)
+  wo: heruntergeladen, lokal gespeichert
+- was: Zufällige Installations-ID (lokal erzeugt, kein Personenbezug)
+  wo: nur für Rate-Limit/Melde-Bezug
+- was: Merker, welche Fragen gemeldet wurden
+  wo: lokal, für den Bearbeitet-Hinweis
 
 # Nur Internet; bewusst KEINE Kamera/Kontakte/Standort/Speicher-Vollzugriff.
 berechtigungen:
-  - "Internet – Inhaltspakete abrufen und (freiwillig) Meldungen senden"
+- name: Internet
+  wofuer: Inhaltspakete abrufen und (freiwillig) Meldungen senden
 
 # Verbindungen nach draußen:
 uebertragungen:
-  - "Katalog/Inhaltspakete vom Relaisserver abrufen (nur lesen, signiert, kein Personenbezug)"
-  - "Korrekturkanal: regelmäßiger Abruf einer kleinen signierten Datei 'korrekturen.json' vom Relaisserver (reiner GET, keine Kennung, keine Nutzerdaten, keine Parameter) – sperrt oder ersetzt einzelne fehlerhafte Fragen, ohne dass die App neu ausgeliefert werden muss (Konzept 6.3). Die technische Abruftaktung ist eine Architektureigenschaft und keine Servicezusage."
-  - "Freiwillige Meldung über 'Frage melden': paketId, frageId, inhaltsVersion, appVersion, Grund, optionaler Text (max. 500 Zeichen), gewählte Antwort, zufällige Installations-ID – kein Name, keine E-Mail, kein Standort, kein Lernstand"
-  - "Kaufabwicklung über Google Play Billing (läuft über Google, nicht über eigene Server)"
+- wohin: FehlerFuchs Relaisserver
+  was: Katalog/Inhaltspakete abrufen (nur lesen, signiert, kein Personenbezug)
+- wohin: FehlerFuchs Relaisserver
+  was: 'Korrekturkanal: regelmäßiger Abruf einer kleinen signierten Datei ''korrekturen.json'' vom Relaisserver
+    (reiner GET, keine Kennung, keine Nutzerdaten, keine Parameter) – sperrt oder ersetzt einzelne fehlerhafte
+    Fragen, ohne dass die App neu ausgeliefert werden muss (Konzept 6.3). Die technische Abruftaktung
+    ist eine Architektureigenschaft und keine Servicezusage.'
+- wohin: FehlerFuchs Relaisserver (Meldungs-Endpunkt)
+  was: 'Meldung über ''Frage melden'': paketId, frageId, inhaltsVersion, appVersion, Grund, optionaler
+    Text (max. 500 Zeichen), gewählte Antwort, zufällige Installations-ID – kein Name, keine E-Mail, kein
+    Standort, kein Lernstand'
+  freiwillig: true
+- wohin: Google Play Billing
+  was: Kaufabwicklung (läuft über Google, nicht über eigene Server)
 
 # Eingebundene Fremddienste:
 fremde_dienste:
   - "Google Play Billing (Kaufabwicklung) – Google verarbeitet die Kaufdaten; WachFuchs erhält keine Google-Konto-Kennung"
-  - "FehlerFuchs Relaisserver [11-2] (eigen, IONOS-VPS Deutschland) – Auslieferung signierter Pakete + Meldungs-Endpunkt; Zugriffs-Logs ohne volle IP, kurze Aufbewahrung"
+  - "FehlerFuchs Relaisserver (eigen, IONOS-VPS Deutschland) – Auslieferung signierter Pakete + Meldungs-Endpunkt; Zugriffs-Logs ohne volle IP, kurze Aufbewahrung"
   # Ausdrücklich NICHT: Analytics, Crash-Reporting mit Kennung, Werbe-ID, Tracking-SDKs.
 
 konto_noetig: false
@@ -52,7 +69,6 @@ besonderheiten: >-
   Jede Aussage trägt ihre Fundstelle mit Ausgabestand und Abrufdatum sowie einen sichtbaren
   Prüfvermerk (durch KI geprüft / durch Autor / durch die Community geprüft) – das sind
   Angaben zum Inhalt, keine Nutzerdaten.
-  Play-Datensicherheitsangaben sind mit dieser Architektur kurz auszufüllen.
 
 vorhandener_text: ""
 

@@ -1,3 +1,5 @@
+# Format überführt am 26.09.2026 von [FF_10] (Webseiten-Sichtung, Befund 1, Entscheidung Matthias A):
+# nur die Form (Felder was/wo, name/wofuer, wohin/was/wann), Inhalt unverändert. Gegenlesen: Projekt.
 slug: dateiwaechter          # entschieden 08.08.2026; in _SLUG-EIGENTUEMER.md eingetragen (11.08.2026)
 name: DateiWächter
 stand: "2026-08-11"
@@ -11,52 +13,58 @@ lokal_only: false   # Außenverbindungen: Versionsprüfung, Support (beide absch
                     # sowie optional die Handy-Verbindung (Kopplung nötig, Empfang standardmäßig aus)
 
 auf_dem_geraet:
-  - "JSON-Konfiguration der Wächter-Regeln (Quell-/Zielordner, Optionen) – lokal, %APPDATA%\\FehlerFuchs\\DateiWaechter\\"
-  - "Lokale Protokolldateien (verschobene/übersprungene Dateien, Fehler) – lokal, Aufbewahrung 30 Tage, dann automatisch entfernt"
-  - "Handy-Kopplung: DWTP/1-Identität dieses PCs (privater Ed25519-Schlüssel + Paar-Geheimnis) – lokal, DPAPI-verschlüsselt (Windows-Benutzerbindung), nie im Klartext (dwtp-identitaet.bin)"
-  - "Handy-Eingang: vom gekoppelten Handy empfangene Dateien – lokal im vom Nutzer gewählten Ordner (Vorgabe im Benutzerprofil)"
-  - "Handy-Übertragungsverlauf: nur Metadaten (Dateiname, Größe, Zeit, Richtung, Ergebnis), lokal, letzte 200 Einträge (handy-verlauf.json)"
+- was: JSON-Konfiguration der Wächter-Regeln (Quell-/Zielordner, Optionen)
+  wo: lokal, %APPDATA%\FehlerFuchs\DateiWaechter\
+- was: Lokale Protokolldateien (verschobene/übersprungene Dateien, Fehler)
+  wo: lokal, Aufbewahrung 30 Tage, dann automatisch entfernt
+- was: 'Handy-Kopplung: DWTP/1-Identität dieses PCs (privater Ed25519-Schlüssel + Paar-Geheimnis)'
+  wo: lokal, DPAPI-verschlüsselt (Windows-Benutzerbindung), nie im Klartext (dwtp-identitaet.bin)
+- was: 'Handy-Eingang: vom gekoppelten Handy empfangene Dateien'
+  wo: lokal im vom Nutzer gewählten Ordner (Vorgabe im Benutzerprofil)
+- was: 'Handy-Übertragungsverlauf: nur Metadaten (Dateiname, Größe, Zeit, Richtung, Ergebnis), lokal,
+    letzte 200 Einträge (handy-verlauf.json)'
 
 berechtigungen:
-  - "Lesen/Schreiben in den vom Nutzer AUSGEWÄHLTEN Quell- und Zielordnern (lokal und Netzlaufwerk/SMB, z. B. NAS)"
-  - "Löschen im Aufräum-Modul – nur benutzer-level, Whitelist, NUR nach Analyse und ausdrücklicher Bestätigung; nie System-/Nutzerdokumente/Projektdaten"
-  - "Per-user Autostart-Eintrag (HKCU\\...\\Run, non-admin), damit der Wächter mit Windows startet"
-  - "Handy-Verbindung (optional, nur nach Kopplung): ausgehende Verbindung zum Vermittlungsdienst; bei aktivem Direktweg zusätzlich ein lokaler TCP-Listener im eigenen Netz (LAN/USB-Tethering), non-admin"
-  - "USB-Erkennung: rein lesende Abfrage angeschlossener Mobilgeräte (WMI, Windows Portable Devices), nur zur Anzeige; kein Datenzugriff aufs Handy"
+- name: Lesen/Schreiben in den vom Nutzer AUSGEWÄHLTEN Quell- und Zielordnern (lokal und Netzlaufwerk/SMB,
+    z. B. NAS)
+- name: Löschen im Aufräum-Modul
+  wofuer: nur benutzer-level, Whitelist, NUR nach Analyse und ausdrücklicher Bestätigung; nie System-/Nutzerdokumente/Projektdaten
+- name: Per-user Autostart-Eintrag (HKCU\...\Run, non-admin), damit der Wächter mit Windows startet
+- name: 'Handy-Verbindung (optional, nur nach Kopplung): ausgehende Verbindung zum Vermittlungsdienst;
+    bei aktivem Direktweg zusätzlich ein lokaler TCP-Listener im eigenen Netz (LAN/USB-Tethering), non-admin'
+- name: 'USB-Erkennung: rein lesende Abfrage angeschlossener Mobilgeräte (WMI, Windows Portable Devices),
+    nur zur Anzeige; kein Datenzugriff aufs Handy'
+
   # Ausdrücklich NICHT: Kamera/Mikro/Standort/Kontakte; keine Administratorrechte; kein Zugriff
   # jenseits der vom Nutzer gewählten Ordner und der Aufräum-Whitelist.
 
 uebertragungen:
-  - zweck: "Versionsprüfung (Update-Hinweis)"
-    ziel: "https://fehlerfuchs.eu/updates/dateiwaechter/latest.json"
-    daten: >-
-      Reiner lesender HTTP-Abruf einer statischen Datei. Es werden keine Nutzerdaten gesendet;
-      IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.
-    haeufigkeit: "beim Start, danach höchstens einmal täglich"
-    abschaltbar: true
-    beleg: "Konzept v1.0 §8.1 – Einstellung „Nach Updates suchen“; ist der Haken aus, entfällt die Anfrage vollständig"
-  - zweck: "Support- und Kontaktformular"
-    ziel: "https://license.fehlerfuchs.eu/v1/contact"
-    daten: >-
-      Nur was der Nutzer eingibt: Nachricht (Pflicht), Name und E-Mail (optional), optionale
-      Anhänge sowie – nur wenn der Nutzer das Häkchen setzt – eine vorher einsehbare
-      Diagnosedatei mit nicht personenbezogenen Technikdaten (App-/Windows-/.NET-Version,
-      Anzahl Regeln, Zählerstände, Fehlerlog-Auszug). Pfade, Dateinamen und Benutzername
-      werden vor Anzeige und Versand bereinigt.
-    haeufigkeit: "nur wenn der Nutzer „Senden“ drückt – nie automatisch, nie im Hintergrund"
-    abschaltbar: "entfällt (rein nutzerinitiiert)"
-    beleg: "Konzept v1.0 §7; Hausstandard KONZEPT_Support-Anbindung_Apps.md"
-  - zweck: "Handy-Verbindung – verschlüsselter Dateitransfer zwischen gekoppeltem Handy und PC"
-    ziel: "wss://dateiwaechter.relais.fehlerfuchs.eu/ws (inhaltsblinder Vermittlungsdienst) bzw. bei aktivem Direktweg direkt im lokalen Netz/über USB-Tethering, ohne Vermittlungsdienst"
-    daten: >-
-      Nur die Dateien, die der Nutzer ausdrücklich sendet/empfängt, plus die zugehörigen
-      Protokoll-Metadaten (Dateiname, Größe, Prüfsumme). Übertragung ist Ende-zu-Ende
-      verschlüsselt (AES-256-GCM, Ed25519-signiert); der Vermittlungsdienst ist inhaltsblind
-      (sieht nur verschlüsselte Datenblöcke, keine Klartext-Inhalte). Kopplung erforderlich
-      (QR + sechsstelliger Bestätigungscode); ohne Kopplung passiert nichts.
-    haeufigkeit: "nur bei aktivem Empfang (standardmäßig AUS) bzw. wenn der Nutzer Dateien sendet – nie ohne Kopplung"
-    abschaltbar: true
-    beleg: "Spezifikation dateiwaechter-transfer-v1 (DWTP/1); Empfang Opt-in; Direktweg Opt-in; App v0.5.4"
+- wohin: https://fehlerfuchs.eu/updates/dateiwaechter/latest.json
+  was: 'Versionsprüfung (Update-Hinweis): Reiner lesender HTTP-Abruf einer statischen Datei. Es werden
+    keine Nutzerdaten gesendet; IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.'
+  wann: beim Start, danach höchstens einmal täglich
+  freiwillig: true
+  beleg: Konzept v1.0 §8.1 – Einstellung „Nach Updates suchen“; ist der Haken aus, entfällt die Anfrage
+    vollständig
+- wohin: https://license.fehlerfuchs.eu/v1/contact
+  was: 'Support- und Kontaktformular: Nur was der Nutzer eingibt: Nachricht (Pflicht), Name und E-Mail
+    (optional), optionale Anhänge sowie – nur wenn der Nutzer das Häkchen setzt – eine vorher einsehbare
+    Diagnosedatei mit nicht personenbezogenen Technikdaten (App-/Windows-/.NET-Version, Anzahl Regeln,
+    Zählerstände, Fehlerlog-Auszug). Pfade, Dateinamen und Benutzername werden vor Anzeige und Versand
+    bereinigt.'
+  wann: nur wenn der Nutzer „Senden“ drückt – nie automatisch, nie im Hintergrund
+  freiwillig: true
+  beleg: Konzept v1.0 §7; Hausstandard KONZEPT_Support-Anbindung_Apps.md
+- wohin: wss://dateiwaechter.relais.fehlerfuchs.eu/ws (inhaltsblinder Vermittlungsdienst) bzw. bei aktivem
+    Direktweg direkt im lokalen Netz/über USB-Tethering, ohne Vermittlungsdienst
+  was: 'Handy-Verbindung – verschlüsselter Dateitransfer zwischen gekoppeltem Handy und PC: Nur die Dateien,
+    die der Nutzer ausdrücklich sendet/empfängt, plus die zugehörigen Protokoll-Metadaten (Dateiname,
+    Größe, Prüfsumme). Übertragung ist Ende-zu-Ende verschlüsselt (AES-256-GCM, Ed25519-signiert); der
+    Vermittlungsdienst ist inhaltsblind (sieht nur verschlüsselte Datenblöcke, keine Klartext-Inhalte).
+    Kopplung erforderlich (QR + sechsstelliger Bestätigungscode); ohne Kopplung passiert nichts.'
+  wann: nur bei aktivem Empfang (standardmäßig AUS) bzw. wenn der Nutzer Dateien sendet – nie ohne Kopplung
+  freiwillig: true
+  beleg: Spezifikation dateiwaechter-transfer-v1 (DWTP/1); Empfang Opt-in; Direktweg Opt-in; App v0.5.4
 
 fremde_dienste: []
   # Keine. Keine Cloud-Speicherung, keine Telemetrie, keine Analytics, keine Werbenetzwerke.

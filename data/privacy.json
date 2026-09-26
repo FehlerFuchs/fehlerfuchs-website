@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T16:57:01+02:00",
+  "generiert": "2026-09-26T16:59:50+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -493,42 +493,64 @@
       "fassung": "App gebaut und ausgeliefert (v0.5.4). Angaben am tatsächlichen Code geprüft. Windows-Desktop-Tool, überwiegend lokal; seit v0.4 zusätzlich eine optionale, ausdrücklich zu koppelnde Handy-Verbindung zum verschlüsselten Dateitransfer (siehe uebertragungen/besonderheiten).",
       "lokal_only": false,
       "auf_dem_geraet": [
-        "JSON-Konfiguration der Wächter-Regeln (Quell-/Zielordner, Optionen) – lokal, %APPDATA%\\FehlerFuchs\\DateiWaechter\\",
-        "Lokale Protokolldateien (verschobene/übersprungene Dateien, Fehler) – lokal, Aufbewahrung 30 Tage, dann automatisch entfernt",
-        "Handy-Kopplung: DWTP/1-Identität dieses PCs (privater Ed25519-Schlüssel + Paar-Geheimnis) – lokal, DPAPI-verschlüsselt (Windows-Benutzerbindung), nie im Klartext (dwtp-identitaet.bin)",
-        "Handy-Eingang: vom gekoppelten Handy empfangene Dateien – lokal im vom Nutzer gewählten Ordner (Vorgabe im Benutzerprofil)",
-        "Handy-Übertragungsverlauf: nur Metadaten (Dateiname, Größe, Zeit, Richtung, Ergebnis), lokal, letzte 200 Einträge (handy-verlauf.json)"
+        {
+          "was": "JSON-Konfiguration der Wächter-Regeln (Quell-/Zielordner, Optionen)",
+          "wo": "lokal, %APPDATA%\\FehlerFuchs\\DateiWaechter\\"
+        },
+        {
+          "was": "Lokale Protokolldateien (verschobene/übersprungene Dateien, Fehler)",
+          "wo": "lokal, Aufbewahrung 30 Tage, dann automatisch entfernt"
+        },
+        {
+          "was": "Handy-Kopplung: DWTP/1-Identität dieses PCs (privater Ed25519-Schlüssel + Paar-Geheimnis)",
+          "wo": "lokal, DPAPI-verschlüsselt (Windows-Benutzerbindung), nie im Klartext (dwtp-identitaet.bin)"
+        },
+        {
+          "was": "Handy-Eingang: vom gekoppelten Handy empfangene Dateien",
+          "wo": "lokal im vom Nutzer gewählten Ordner (Vorgabe im Benutzerprofil)"
+        },
+        {
+          "was": "Handy-Übertragungsverlauf: nur Metadaten (Dateiname, Größe, Zeit, Richtung, Ergebnis), lokal, letzte 200 Einträge (handy-verlauf.json)"
+        }
       ],
       "berechtigungen": [
-        "Lesen/Schreiben in den vom Nutzer AUSGEWÄHLTEN Quell- und Zielordnern (lokal und Netzlaufwerk/SMB, z. B. NAS)",
-        "Löschen im Aufräum-Modul – nur benutzer-level, Whitelist, NUR nach Analyse und ausdrücklicher Bestätigung; nie System-/Nutzerdokumente/Projektdaten",
-        "Per-user Autostart-Eintrag (HKCU\\...\\Run, non-admin), damit der Wächter mit Windows startet",
-        "Handy-Verbindung (optional, nur nach Kopplung): ausgehende Verbindung zum Vermittlungsdienst; bei aktivem Direktweg zusätzlich ein lokaler TCP-Listener im eigenen Netz (LAN/USB-Tethering), non-admin",
-        "USB-Erkennung: rein lesende Abfrage angeschlossener Mobilgeräte (WMI, Windows Portable Devices), nur zur Anzeige; kein Datenzugriff aufs Handy"
+        {
+          "name": "Lesen/Schreiben in den vom Nutzer AUSGEWÄHLTEN Quell- und Zielordnern (lokal und Netzlaufwerk/SMB, z. B. NAS)"
+        },
+        {
+          "name": "Löschen im Aufräum-Modul",
+          "wofuer": "nur benutzer-level, Whitelist, NUR nach Analyse und ausdrücklicher Bestätigung; nie System-/Nutzerdokumente/Projektdaten"
+        },
+        {
+          "name": "Per-user Autostart-Eintrag (HKCU\\...\\Run, non-admin), damit der Wächter mit Windows startet"
+        },
+        {
+          "name": "Handy-Verbindung (optional, nur nach Kopplung): ausgehende Verbindung zum Vermittlungsdienst; bei aktivem Direktweg zusätzlich ein lokaler TCP-Listener im eigenen Netz (LAN/USB-Tethering), non-admin"
+        },
+        {
+          "name": "USB-Erkennung: rein lesende Abfrage angeschlossener Mobilgeräte (WMI, Windows Portable Devices), nur zur Anzeige; kein Datenzugriff aufs Handy"
+        }
       ],
       "uebertragungen": [
         {
-          "zweck": "Versionsprüfung (Update-Hinweis)",
-          "ziel": "https://fehlerfuchs.eu/updates/dateiwaechter/latest.json",
-          "daten": "Reiner lesender HTTP-Abruf einer statischen Datei. Es werden keine Nutzerdaten gesendet; IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.",
-          "haeufigkeit": "beim Start, danach höchstens einmal täglich",
-          "abschaltbar": true,
+          "wohin": "https://fehlerfuchs.eu/updates/dateiwaechter/latest.json",
+          "was": "Versionsprüfung (Update-Hinweis): Reiner lesender HTTP-Abruf einer statischen Datei. Es werden keine Nutzerdaten gesendet; IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.",
+          "wann": "beim Start, danach höchstens einmal täglich",
+          "freiwillig": true,
           "beleg": "Konzept v1.0 §8.1 – Einstellung „Nach Updates suchen“; ist der Haken aus, entfällt die Anfrage vollständig"
         },
         {
-          "zweck": "Support- und Kontaktformular",
-          "ziel": "https://license.fehlerfuchs.eu/v1/contact",
-          "daten": "Nur was der Nutzer eingibt: Nachricht (Pflicht), Name und E-Mail (optional), optionale Anhänge sowie – nur wenn der Nutzer das Häkchen setzt – eine vorher einsehbare Diagnosedatei mit nicht personenbezogenen Technikdaten (App-/Windows-/.NET-Version, Anzahl Regeln, Zählerstände, Fehlerlog-Auszug). Pfade, Dateinamen und Benutzername werden vor Anzeige und Versand bereinigt.",
-          "haeufigkeit": "nur wenn der Nutzer „Senden“ drückt – nie automatisch, nie im Hintergrund",
-          "abschaltbar": "entfällt (rein nutzerinitiiert)",
+          "wohin": "https://license.fehlerfuchs.eu/v1/contact",
+          "was": "Support- und Kontaktformular: Nur was der Nutzer eingibt: Nachricht (Pflicht), Name und E-Mail (optional), optionale Anhänge sowie – nur wenn der Nutzer das Häkchen setzt – eine vorher einsehbare Diagnosedatei mit nicht personenbezogenen Technikdaten (App-/Windows-/.NET-Version, Anzahl Regeln, Zählerstände, Fehlerlog-Auszug). Pfade, Dateinamen und Benutzername werden vor Anzeige und Versand bereinigt.",
+          "wann": "nur wenn der Nutzer „Senden“ drückt – nie automatisch, nie im Hintergrund",
+          "freiwillig": true,
           "beleg": "Konzept v1.0 §7; Hausstandard KONZEPT_Support-Anbindung_Apps.md"
         },
         {
-          "zweck": "Handy-Verbindung – verschlüsselter Dateitransfer zwischen gekoppeltem Handy und PC",
-          "ziel": "wss://dateiwaechter.relais.fehlerfuchs.eu/ws (inhaltsblinder Vermittlungsdienst) bzw. bei aktivem Direktweg direkt im lokalen Netz/über USB-Tethering, ohne Vermittlungsdienst",
-          "daten": "Nur die Dateien, die der Nutzer ausdrücklich sendet/empfängt, plus die zugehörigen Protokoll-Metadaten (Dateiname, Größe, Prüfsumme). Übertragung ist Ende-zu-Ende verschlüsselt (AES-256-GCM, Ed25519-signiert); der Vermittlungsdienst ist inhaltsblind (sieht nur verschlüsselte Datenblöcke, keine Klartext-Inhalte). Kopplung erforderlich (QR + sechsstelliger Bestätigungscode); ohne Kopplung passiert nichts.",
-          "haeufigkeit": "nur bei aktivem Empfang (standardmäßig AUS) bzw. wenn der Nutzer Dateien sendet – nie ohne Kopplung",
-          "abschaltbar": true,
+          "wohin": "wss://dateiwaechter.relais.fehlerfuchs.eu/ws (inhaltsblinder Vermittlungsdienst) bzw. bei aktivem Direktweg direkt im lokalen Netz/über USB-Tethering, ohne Vermittlungsdienst",
+          "was": "Handy-Verbindung – verschlüsselter Dateitransfer zwischen gekoppeltem Handy und PC: Nur die Dateien, die der Nutzer ausdrücklich sendet/empfängt, plus die zugehörigen Protokoll-Metadaten (Dateiname, Größe, Prüfsumme). Übertragung ist Ende-zu-Ende verschlüsselt (AES-256-GCM, Ed25519-signiert); der Vermittlungsdienst ist inhaltsblind (sieht nur verschlüsselte Datenblöcke, keine Klartext-Inhalte). Kopplung erforderlich (QR + sechsstelliger Bestätigungscode); ohne Kopplung passiert nichts.",
+          "wann": "nur bei aktivem Empfang (standardmäßig AUS) bzw. wenn der Nutzer Dateien sendet – nie ohne Kopplung",
+          "freiwillig": true,
           "beleg": "Spezifikation dateiwaechter-transfer-v1 (DWTP/1); Empfang Opt-in; Direktweg Opt-in; App v0.5.4"
         }
       ],
@@ -1286,54 +1308,66 @@
       "fassung": "Am gebauten Produkt 1.0.0 geprüft (Produktfassung ohne private Daten, sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Neu ggü. 0.11.1: Lizenz- Aktivierung gegen den FehlerFuchs-Lizenzserver (nur Schlüssel + anonyme Geräte-Kennung) nach einer kostenlosen Testphase sowie ein nutzerinitiierter App-Update-Check (liest nur eine öffentliche Versionsliste). Code-Signing steht noch aus.",
       "lokal_only": false,
       "auf_dem_geraet": [
-        "Vollständige Haushaltsdaten in einer lokalen SQLite-Datenbank – Zählerstände (Strom/Gas/Wasser), Verträge inkl. Kündigungsfristen, Haushaltsbuch, Vorhaben/Projekte, Solar & Speicher – lokal, %APPDATA%\\HaushaltsManager\\",
-        "Erzeugte PDF-Dokumente (Vertrags-/Kündigungsschreiben, Monats-/Jahresberichte) und JSON-Exporte – lokal, dort wo der Nutzer sie speichert",
-        "Datenbank-Sicherungen (Backups) – lokal, vom Nutzer angelegt",
-        "Optionale anonyme Beispieldaten zum Ausprobieren – lokal, jederzeit entfernbar"
+        {
+          "was": "Vollständige Haushaltsdaten in einer lokalen SQLite-Datenbank – Zählerstände (Strom/Gas/Wasser), Verträge inkl. Kündigungsfristen, Haushaltsbuch, Vorhaben/Projekte, Solar & Speicher",
+          "wo": "lokal, %APPDATA%\\HaushaltsManager\\"
+        },
+        {
+          "was": "Erzeugte PDF-Dokumente (Vertrags-/Kündigungsschreiben, Monats-/Jahresberichte) und JSON-Exporte",
+          "wo": "lokal, dort wo der Nutzer sie speichert"
+        },
+        {
+          "was": "Datenbank-Sicherungen (Backups)",
+          "wo": "lokal, vom Nutzer angelegt"
+        },
+        {
+          "was": "Optionale anonyme Beispieldaten zum Ausprobieren",
+          "wo": "lokal, jederzeit entfernbar"
+        }
       ],
       "berechtigungen": [
-        "Lesen/Schreiben der eigenen SQLite-Datenbank und der vom Nutzer gewählten Export-/PDF-/Backup-Ordner (lokal)",
-        "Optionaler per-user Autostart-Eintrag (HKCU\\...\\Run, ohne Administratorrechte), nur wenn der Nutzer den Hintergrunddienst einschaltet – startet die App versteckt im Tray"
+        {
+          "name": "Lesen/Schreiben der eigenen SQLite-Datenbank und der vom Nutzer gewählten Export-/PDF-/Backup-Ordner (lokal)"
+        },
+        {
+          "name": "Optionaler per-user Autostart-Eintrag (HKCU\\...\\Run, ohne Administratorrechte), nur wenn der Nutzer den Hintergrunddienst einschaltet",
+          "wofuer": "startet die App versteckt im Tray"
+        }
       ],
       "uebertragungen": [
         {
-          "zweck": "Wetterdaten zur wetterbereinigten Erklärung von Heizperioden",
-          "ziel": "Open-Meteo (api.open-meteo.com, archive-api.open-meteo.com)",
-          "daten": "Nur die vom Nutzer gewählten Koordinaten (Standort). Kein Schlüssel, kein Konto. Sonst werden keine Nutzerdaten gesendet; IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.",
-          "haeufigkeit": "nur bei aktivierter Wetterfunktion, beim Abruf durch den Nutzer",
-          "abschaltbar": true,
+          "wohin": "Open-Meteo (api.open-meteo.com, archive-api.open-meteo.com)",
+          "was": "Wetterdaten zur wetterbereinigten Erklärung von Heizperioden: Nur die vom Nutzer gewählten Koordinaten (Standort). Kein Schlüssel, kein Konto. Sonst werden keine Nutzerdaten gesendet; IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.",
+          "wann": "nur bei aktivierter Wetterfunktion, beim Abruf durch den Nutzer",
+          "freiwillig": true,
           "beleg": "Standardmäßig aus, opt-in; einzeln abschaltbar"
         },
         {
-          "zweck": "Abruf eigener Zähler-/Verbrauchsdaten aus dem PowerFox-Konto des Nutzers",
-          "ziel": "PowerFox Cloud-API (offizielle Kunden-API 2.0, HTTPS, HTTP Basic Auth)",
-          "daten": "Nutzt die EIGENEN Zugangsdaten des Nutzers (E-Mail + Passwort seines PowerFox-Kontos). Das Passwort liegt ausschließlich im Windows-Anmeldespeicher. Abgerufen werden die Verbrauchsdaten des eigenen Kontos.",
-          "haeufigkeit": "nur bei aktivierter PowerFox-Anbindung, beim Abruf/Sync durch den Nutzer",
-          "abschaltbar": true,
+          "wohin": "PowerFox Cloud-API (offizielle Kunden-API 2.0, HTTPS, HTTP Basic Auth)",
+          "was": "Abruf eigener Zähler-/Verbrauchsdaten aus dem PowerFox-Konto des Nutzers: Nutzt die EIGENEN Zugangsdaten des Nutzers (E-Mail + Passwort seines PowerFox-Kontos). Das Passwort liegt ausschließlich im Windows-Anmeldespeicher. Abgerufen werden die Verbrauchsdaten des eigenen Kontos.",
+          "wann": "nur bei aktivierter PowerFox-Anbindung, beim Abruf/Sync durch den Nutzer",
+          "freiwillig": true,
           "beleg": "Standardmäßig aus, opt-in; vom Nutzer selbst beauftragte Verbindung zu seinem eigenen Konto"
         },
         {
-          "zweck": "Abruf von Solar-/Speicherdaten aus der ENPAL-/InfluxDB-Instanz im Heimnetz",
-          "ziel": "ENPAL / InfluxDB im eigenen Heimnetz (lokale IP + Token)",
-          "daten": "Nur lokale Verbindung im eigenen Netz per IP und Token. Verlässt das Heimnetz nicht. Der Token liegt ausschließlich im Windows-Anmeldespeicher.",
-          "haeufigkeit": "nur bei aktivierter Anbindung, beim Abruf/Sync durch den Nutzer",
-          "abschaltbar": true,
+          "wohin": "ENPAL / InfluxDB im eigenen Heimnetz (lokale IP + Token)",
+          "was": "Abruf von Solar-/Speicherdaten aus der ENPAL-/InfluxDB-Instanz im Heimnetz: Nur lokale Verbindung im eigenen Netz per IP und Token. Verlässt das Heimnetz nicht. Der Token liegt ausschließlich im Windows-Anmeldespeicher.",
+          "wann": "nur bei aktivierter Anbindung, beim Abruf/Sync durch den Nutzer",
+          "freiwillig": true,
           "beleg": "Standardmäßig aus, opt-in; reine Heimnetz-Verbindung, verlässt das lokale Netz nicht"
         },
         {
-          "zweck": "Lizenzaktivierung und -prüfung (Kaufschutz nach der kostenlosen Testphase)",
-          "ziel": "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU/Deutschland, HTTPS)",
-          "daten": "Es werden AUSSCHLIESSLICH der Lizenzschlüssel und eine anonyme, zufällig erzeugte Geräte-Kennung übertragen (Aktivieren/Prüfen/Freigeben). KEINE Haushalts-, Zähler-, Vertrags- oder sonstigen Nutzerdaten. Nach der Aktivierung läuft die App offline weiter; nur in größeren Abständen ist eine kurze Online-Prüfung nötig. IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.",
-          "haeufigkeit": "bei der Aktivierung sowie in größeren Abständen zur Gültigkeitsprüfung",
-          "abschaltbar": false,
+          "wohin": "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU/Deutschland, HTTPS)",
+          "was": "Lizenzaktivierung und -prüfung (Kaufschutz nach der kostenlosen Testphase): Es werden AUSSCHLIESSLICH der Lizenzschlüssel und eine anonyme, zufällig erzeugte Geräte-Kennung übertragen (Aktivieren/Prüfen/Freigeben). KEINE Haushalts-, Zähler-, Vertrags- oder sonstigen Nutzerdaten. Nach der Aktivierung läuft die App offline weiter; nur in größeren Abständen ist eine kurze Online-Prüfung nötig. IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.",
+          "wann": "bei der Aktivierung sowie in größeren Abständen zur Gültigkeitsprüfung",
+          "freiwillig": false,
           "beleg": "Notwendige Kaufabsicherung nach der Testphase; minimaler Datenumfang (nur Schlüssel + anonyme Kennung)"
         },
         {
-          "zweck": "Freiwillige Suche nach einer neueren App-Version",
-          "ziel": "Öffentliche Versionsliste auf fehlerfuchs.eu (versions.json, HTTPS)",
-          "daten": "Nur ein lesender Abruf einer öffentlichen Datei; es werden KEINE Nutzerdaten gesendet. Kein automatischer Download/Install – die App meldet nur, ob eine neuere Version vorliegt.",
-          "haeufigkeit": "nur wenn der Nutzer „Nach App-Updates suchen“ anklickt",
-          "abschaltbar": true,
+          "wohin": "Öffentliche Versionsliste auf fehlerfuchs.eu (versions.json, HTTPS)",
+          "was": "Freiwillige Suche nach einer neueren App-Version: Nur ein lesender Abruf einer öffentlichen Datei; es werden KEINE Nutzerdaten gesendet. Kein automatischer Download/Install – die App meldet nur, ob eine neuere Version vorliegt.",
+          "wann": "nur wenn der Nutzer „Nach App-Updates suchen“ anklickt",
+          "freiwillig": true,
           "beleg": "Nutzerinitiiert; reiner Lesezugriff auf eine öffentliche Liste, keine Telemetrie"
         }
       ],
@@ -1348,8 +1382,8 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen ausschließlich lokal in der SQLite-Datenbank unter %APPDATA%\\\\HaushaltsManager\\\\. Es werden keine Daten an FehlerFuchs oder Dritte übertragen. Die Datenbank sowie erzeugte PDFs, Exporte und Backups kann der Nutzer jederzeit selbst löschen; der Deinstaller entfernt das Programm. Optionale Beispieldaten lassen sich in der App wieder entfernen. Zugangsdaten (PowerFox, ENPAL) stehen nur im Windows-Anmeldespeicher und werden dort vom Nutzer entfernt.",
-      "besonderheiten": "Kernversprechen: „Alle Daten bleiben auf diesem Gerät.“ HaushaltsManager ist privacy-first und offline-first – kein Konto, kein Tracking, keine Werbung, keine Telemetrie, keine automatischen Absturzberichte. Alle drei Außenverbindungen (Open-Meteo, PowerFox-Cloud, ENPAL/InfluxDB im Heimnetz) sind standardmäßig AUS und einzeln zuschalt- bzw. abschaltbar. Ein optionaler Hintergrunddienst (Tray-Symbol, standardmäßig aus) hält – nur wenn der Nutzer ihn und die jeweilige Verbindung aktiviert – die aktivierten Abrufe (PowerFox/Wetter/ENPAL) auch bei geschlossenem Fenster und auf Wunsch ab Windows-Start am Laufen; ohne Aktivierung bestehen keinerlei Hintergrundverbindungen. Das Komponenten-Update läuft ausschließlich über eine lokal vom Nutzer ausgewählte JSON-Datei ohne jede Netzverbindung; Zugangsdaten in solchen Paketen sind ausdrücklich verboten. Secrets (PowerFox-Passwort, ENPAL-Token, Lizenzschlüssel/Offline-Token) liegen ausschließlich im Windows-Anmeldespeicher (flutter_secure_storage), nichts hartcodiert, nichts in Dateien oder Git. Kaufabsicherung: Nach einer kostenlosen Testphase wird die App mit einem Lizenzschlüssel aktiviert. Dabei verlassen NUR der Schlüssel und eine anonyme, zufällige Geräte-Kennung das Gerät (Ziel: license.fehlerfuchs.eu, EU); es werden keinerlei Haushaltsdaten übertragen. Der Server stellt ein Ed25519-signiertes Offline-Token aus, sodass die App anschließend offline läuft und nur in größeren Abständen kurz online prüft. Eine Lizenz gilt für bis zu fünf Geräte; ein Gerät kann in der App wieder freigegeben werden. Der App-Update-Check ist nutzerinitiiert und liest nur eine öffentliche Versionsliste (keine Telemetrie). Anbieterkennzeichnung in der App (Impressum): FehlerFuchs, Geschäftsbezeichnung/Marke von Matthias Schacht, E-Mail admin@fehlerfuchs.eu.",
+      "loeschung": "Alle Daten liegen ausschließlich lokal in der SQLite-Datenbank unter %APPDATA%\\\\HaushaltsManager\\\\. Es werden keine Haushaltsdaten an FehlerFuchs oder Dritte übertragen. Die Datenbank sowie erzeugte PDFs, Exporte und Backups kann der Nutzer jederzeit selbst löschen; der Deinstaller entfernt das Programm. Optionale Beispieldaten lassen sich in der App wieder entfernen. Zugangsdaten (PowerFox, ENPAL) stehen nur im Windows-Anmeldespeicher und werden dort vom Nutzer entfernt.",
+      "besonderheiten": "Kernversprechen: „Alle Daten bleiben auf diesem Gerät.“ HaushaltsManager ist privacy-first und offline-first – kein Konto, kein Tracking, keine Werbung, keine Telemetrie, keine automatischen Absturzberichte. Alle drei Außenverbindungen (Open-Meteo, PowerFox-Cloud, ENPAL/InfluxDB im Heimnetz) sind standardmäßig AUS und einzeln zuschalt- bzw. abschaltbar. Ein optionaler Hintergrunddienst (Tray-Symbol, standardmäßig aus) hält – nur wenn der Nutzer ihn und die jeweilige Verbindung aktiviert – die aktivierten Abrufe (PowerFox/Wetter/ENPAL) auch bei geschlossenem Fenster und auf Wunsch ab Windows-Start am Laufen; ohne Aktivierung bestehen keinerlei Hintergrundverbindungen. Das Komponenten-Update läuft ausschließlich über eine lokal vom Nutzer ausgewählte JSON-Datei ohne jede Netzverbindung; Zugangsdaten in solchen Paketen sind ausdrücklich verboten. Zugangsdaten (PowerFox-Passwort, ENPAL-Token, Lizenzschlüssel und Offline-Token) liegen ausschließlich im Windows-Anmeldespeicher. Kaufabsicherung: Nach einer kostenlosen Testphase wird die App mit einem Lizenzschlüssel aktiviert. Dabei verlassen NUR der Schlüssel und eine anonyme, zufällige Geräte-Kennung das Gerät (Ziel: license.fehlerfuchs.eu, EU); es werden keinerlei Haushaltsdaten übertragen. Der Server stellt ein Ed25519-signiertes Offline-Token aus, sodass die App anschließend offline läuft und nur in größeren Abständen kurz online prüft. Eine Lizenz gilt für bis zu fünf Geräte; ein Gerät kann in der App wieder freigegeben werden. Der App-Update-Check ist nutzerinitiiert und liest nur eine öffentliche Versionsliste (keine Telemetrie). Anbieterkennzeichnung in der App (Impressum): FehlerFuchs, Geschäftsbezeichnung/Marke von Matthias Schacht, E-Mail admin@fehlerfuchs.eu.",
       "vorhandener_text": "",
       "offene_fragen": "1) Der Slug „haushaltsmanager“ steht noch nicht in `_SLUG-EIGENTUEMER.md`; die Eintragung läuft parallel (deshalb slug_vorschlag: false). 2) Monetarisierung entschieden: Einmalkauf 20,00 € (Brutto) über Digistore24, Lizenzaktivierung über den FehlerFuchs-Lizenzserver, fünf Arbeitsplätze je Lizenz. 3) Offen bleibt das Code-Signing (Azure Trusted Signing) – danach signierte Datei + sha256 + Download-URL nachreichen. 4) Serverseitig zu bestätigen: Produktkennung „HaushaltsManager“ (App-Feld) und 30-Tage-Offline-Karenz je Produkt.",
       "art": "anwendung"
@@ -2361,23 +2395,51 @@
       "fassung": "Entwicklungsphase – App-Gerüst steht (flutter create 03.08.2026, gemeinsamer Kern fehlerfuchs_kern eingebunden), noch kein Store-Eintrag. Angaben aus Architektur-Konzept (Entwurf 1, Abschnitt 7), ergänzt um die Entscheidungen vom 02.–04.08.2026 (Vertriebsmodell, Korrekturkanal, Prüfvermerke)",
       "lokal_only": false,
       "auf_dem_geraet": [
-        "Lernstand (Leitner-Fächer je Frage) – lokal, verlässt das Gerät nicht",
-        "Inhaltspakete (SQLite mit Fragen/Antworten/Fundstellen) – heruntergeladen, lokal gespeichert",
-        "Zufällige Installations-ID (lokal erzeugt, kein Personenbezug) – nur für Rate-Limit/Melde-Bezug",
-        "Merker, welche Fragen gemeldet wurden – lokal, für den Bearbeitet-Hinweis"
+        {
+          "was": "Lernstand (Leitner-Fächer je Frage)",
+          "wo": "lokal, verlässt das Gerät nicht"
+        },
+        {
+          "was": "Inhaltspakete (SQLite mit Fragen/Antworten/Fundstellen)",
+          "wo": "heruntergeladen, lokal gespeichert"
+        },
+        {
+          "was": "Zufällige Installations-ID (lokal erzeugt, kein Personenbezug)",
+          "wo": "nur für Rate-Limit/Melde-Bezug"
+        },
+        {
+          "was": "Merker, welche Fragen gemeldet wurden",
+          "wo": "lokal, für den Bearbeitet-Hinweis"
+        }
       ],
       "berechtigungen": [
-        "Internet – Inhaltspakete abrufen und (freiwillig) Meldungen senden"
+        {
+          "name": "Internet",
+          "wofuer": "Inhaltspakete abrufen und (freiwillig) Meldungen senden"
+        }
       ],
       "uebertragungen": [
-        "Katalog/Inhaltspakete vom Relaisserver abrufen (nur lesen, signiert, kein Personenbezug)",
-        "Korrekturkanal: regelmäßiger Abruf einer kleinen signierten Datei 'korrekturen.json' vom Relaisserver (reiner GET, keine Kennung, keine Nutzerdaten, keine Parameter) – sperrt oder ersetzt einzelne fehlerhafte Fragen, ohne dass die App neu ausgeliefert werden muss (Konzept 6.3). Die technische Abruftaktung ist eine Architektureigenschaft und keine Servicezusage.",
-        "Freiwillige Meldung über 'Frage melden': paketId, frageId, inhaltsVersion, appVersion, Grund, optionaler Text (max. 500 Zeichen), gewählte Antwort, zufällige Installations-ID – kein Name, keine E-Mail, kein Standort, kein Lernstand",
-        "Kaufabwicklung über Google Play Billing (läuft über Google, nicht über eigene Server)"
+        {
+          "wohin": "FehlerFuchs Relaisserver",
+          "was": "Katalog/Inhaltspakete abrufen (nur lesen, signiert, kein Personenbezug)"
+        },
+        {
+          "wohin": "FehlerFuchs Relaisserver",
+          "was": "Korrekturkanal: regelmäßiger Abruf einer kleinen signierten Datei 'korrekturen.json' vom Relaisserver (reiner GET, keine Kennung, keine Nutzerdaten, keine Parameter) – sperrt oder ersetzt einzelne fehlerhafte Fragen, ohne dass die App neu ausgeliefert werden muss (Konzept 6.3). Die technische Abruftaktung ist eine Architektureigenschaft und keine Servicezusage."
+        },
+        {
+          "wohin": "FehlerFuchs Relaisserver (Meldungs-Endpunkt)",
+          "was": "Meldung über 'Frage melden': paketId, frageId, inhaltsVersion, appVersion, Grund, optionaler Text (max. 500 Zeichen), gewählte Antwort, zufällige Installations-ID – kein Name, keine E-Mail, kein Standort, kein Lernstand",
+          "freiwillig": true
+        },
+        {
+          "wohin": "Google Play Billing",
+          "was": "Kaufabwicklung (läuft über Google, nicht über eigene Server)"
+        }
       ],
       "fremde_dienste": [
         "Google Play Billing (Kaufabwicklung) – Google verarbeitet die Kaufdaten; WachFuchs erhält keine Google-Konto-Kennung",
-        "FehlerFuchs Relaisserver [11-2] (eigen, IONOS-VPS Deutschland) – Auslieferung signierter Pakete + Meldungs-Endpunkt; Zugriffs-Logs ohne volle IP, kurze Aufbewahrung"
+        "FehlerFuchs Relaisserver (eigen, IONOS-VPS Deutschland) – Auslieferung signierter Pakete + Meldungs-Endpunkt; Zugriffs-Logs ohne volle IP, kurze Aufbewahrung"
       ],
       "konto_noetig": false,
       "tracking": false,
@@ -2385,7 +2447,7 @@
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
       "loeschung": "Es gibt kein Nutzerkonto und keine serverseitig gespeicherten Nutzerdaten. Alle lokalen Daten (Lernstand, Pakete, Installations-ID) werden mit der Deinstallation der App entfernt. Freiwillige Meldungen enthalten keinen Personenbezug; serverseitig werden sie ohne volle IP und nur kurz aufbewahrt. Wer seinen Lernstand sichern will, exportiert eine lokale Datei.",
-      "besonderheiten": "Kostenpflichtige Lern-App für die Feuerwehr-Ausbildung. Grundsatz: was nicht erhoben wird, kann nicht verloren gehen – kein Konto, kein Login, kein Analytics, keine Werbe-ID. Lernstand bleibt auf dem Gerät; der Server ist Komfort, keine Voraussetzung (offline-first). Inhaltspakete sind Ed25519-signiert; die App lädt keinen ausführbaren Code nach. Jede Aussage trägt ihre Fundstelle mit Ausgabestand und Abrufdatum sowie einen sichtbaren Prüfvermerk (durch KI geprüft / durch Autor / durch die Community geprüft) – das sind Angaben zum Inhalt, keine Nutzerdaten. Play-Datensicherheitsangaben sind mit dieser Architektur kurz auszufüllen.",
+      "besonderheiten": "Kostenpflichtige Lern-App für die Feuerwehr-Ausbildung. Grundsatz: was nicht erhoben wird, kann nicht verloren gehen – kein Konto, kein Login, kein Analytics, keine Werbe-ID. Lernstand bleibt auf dem Gerät; der Server ist Komfort, keine Voraussetzung (offline-first). Inhaltspakete sind Ed25519-signiert; die App lädt keinen ausführbaren Code nach. Jede Aussage trägt ihre Fundstelle mit Ausgabestand und Abrufdatum sowie einen sichtbaren Prüfvermerk (durch KI geprüft / durch Autor / durch die Community geprüft) – das sind Angaben zum Inhalt, keine Nutzerdaten.",
       "vorhandener_text": "",
       "offene_fragen": "1) Serverseitige Aufbewahrungsfristen des Meldungs-Endpunkts final festzurren. 2) Vor der ersten bezahlten Version einmal anwaltlich prüfen (Konzept 3/11). 3) Zugriffs-Logs des Korrekturkanals: durch den häufigen Abruf entstehen mehr Logzeilen als beim täglichen Katalogabruf – Kürzung der IP und kurze Aufbewahrung gelten unverändert, die Fristen gehören zu Punkt 1. 4) Community-Prüfvermerk: sobald Nutzer Bestätigungen abgeben können, ist zu klären, ob dabei über die zufällige Installations-ID hinaus etwas erhoben wird – Ziel ist nein. Erledigt am 02.08.2026: Vertriebsmodell dem Grunde nach entschieden (Kauf über Google Play Billing, freier Einstiegsblock) – betrifft nur Play-Kauf-/Widerrufsangaben, nicht die Datenerhebung. Der Zuschnitt der Kaufobjekte wurde am 03.08.2026 auf Blöcke umgestellt.",
       "art": "anwendung"
