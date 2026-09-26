@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T12:28:45+02:00",
+  "generiert": "2026-09-26T16:04:20+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -3172,6 +3172,200 @@
       }
     },
     {
+      "slug": "gewerbepro-companion",
+      "name": "GewerbePro Companion",
+      "fullName": "FehlerFuchs GewerbePro Companion",
+      "seoTitel": "GewerbePro Companion – mobile Erfassung für unterwegs (Android)",
+      "seoBeschreibung": "Android-Ergänzung zu GewerbePro: Kunden, Auftrags-Entwürfe, Fahrten und Quittungen unterwegs erfassen – offline und ohne Konto.",
+      "tags": [
+        "Companion",
+        "mobile Erfassung",
+        "Aufträge",
+        "Fahrten",
+        "Android",
+        "offline"
+      ],
+      "kind": "produkt",
+      "parent": "gewerbepro",
+      "tagline": "Mobiler Erfassungs-Begleiter zu GewerbePro: Kunden, Auftrags-Entwürfe, Fahrten und Quittungen unterwegs aufnehmen – offline und ohne Konto.",
+      "description": "Die Companion-App ist die Android-Ergänzung zu GewerbePro und befindet sich in Entwicklung. Sie erfasst unterwegs Kunden, Auftrags-Entwürfe mit Positionen, Fahrten, Aufgaben, Termine und Quittungen und arbeitet dabei vollständig offline. Gerechnet wird nichts auf dem Handy: Die App sammelt Rohdaten und übergibt sie als Paket an GewerbePro auf dem PC, das daraus Angebote, Aufträge und Belege macht. Für Quittungen vor Ort kann sie das Firmen-Branding aus GewerbePro übernehmen und einen unterschriebenen Beleg als PDF erzeugen.",
+      "audience": [
+        "selbststaendige",
+        "unternehmen"
+      ],
+      "accent": "#9F1239",
+      "theme": {
+        "modus": "hell",
+        "hintergrund": "#FBF7F2",
+        "flaeche": "#FFFBF7",
+        "rand": "#EAD7DC",
+        "text": "#2B160B",
+        "textLeise": "#6F4F44",
+        "akzent": "#9F1239",
+        "quelle": "29-1_GewerbePro Companion/21_App_Flutter/gewerbepro_companion/lib/ui/ff_tokens.dart"
+      },
+      "media": {
+        "platzhalter": 4
+      },
+      "wordmark": [
+        {
+          "text": "FehlerFuchs ",
+          "color": "#7C3F16",
+          "weight": "normal"
+        },
+        {
+          "text": "GewerbePro ",
+          "color": "#7C3F16",
+          "weight": "bold"
+        },
+        {
+          "text": "Companion",
+          "color": "#9F1239",
+          "weight": "bold"
+        }
+      ],
+      "status": "pruefung",
+      "platforms": [
+        {
+          "os": "android",
+          "status": "pruefung",
+          "since": "2026-09-26",
+          "distribution": "play-store"
+        }
+      ],
+      "privacy": [
+        "inhalte-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "GewerbePro Companion",
+          "public": true,
+          "summary": "Eine Ausbaustufe. Ob die App später kostenlos zu GewerbePro gehört oder getrennt angeboten wird, ist noch nicht entschieden.",
+          "price": {
+            "model": "offen"
+          }
+        }
+      ],
+      "features": [
+        {
+          "group": "Unterwegs erfassen",
+          "items": [
+            {
+              "name": "Kunden anlegen mit denselben Feldern wie am PC",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Anrede, Name/Firma, Anschrift, E-Mail, Telefon, USt-IdNr., Leitweg-ID."
+            },
+            {
+              "name": "Auftrags-Entwürfe mit Positionen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Positionen frei oder aus dem Katalog; Zwischensumme netto."
+            },
+            {
+              "name": "Fahrtenbuch mit Fahrzeug- und km-Stand-Merker",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Aufgaben, Fristen und Termine",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Quittung mit handschriftlicher Unterschrift",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Unterschrift im Vollbild quer, danach als PDF."
+            }
+          ]
+        },
+        {
+          "group": "Belege und Katalog",
+          "items": [
+            {
+              "name": "Fahrtenbuch als PDF (heute, laufendes Jahr, alle Einträge)",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Quittungs-PDF im Firmen-Branding aus GewerbePro",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Logo, Absender und Fußzeile werden einmalig vom PC übernommen."
+            },
+            {
+              "name": "Katalog mit Preisen nachschlagen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Nur lesen; wird aus GewerbePro gespiegelt."
+            }
+          ]
+        },
+        {
+          "group": "Zusammenspiel mit GewerbePro",
+          "items": [
+            {
+              "name": "Erfassungspaket für den Import in GewerbePro erzeugen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Fertiger Übertragungsweg zum PC (USB, Cloud, Server)",
+              "values": {
+                "standard": "geplant"
+              },
+              "note": "Das Paket wird bisher nur als Datei im App-Ordner abgelegt."
+            },
+            {
+              "name": "Rechnungen, Angebote, EÜR oder E-Rechnung auf dem Handy",
+              "values": {
+                "standard": "nein"
+              },
+              "note": "Bleibt bewusst in GewerbePro am PC."
+            }
+          ]
+        },
+        {
+          "group": "Grundsätzliches",
+          "items": [
+            {
+              "name": "Konto oder Registrierung nötig",
+              "values": {
+                "standard": "nein"
+              }
+            },
+            {
+              "name": "Arbeitet ohne Internet",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        }
+      ],
+      "releases": [],
+      "links": {
+        "contact": "/kontakt.html?app=GewerbePro-Companion&topic=interesse"
+      },
+      "notes": "Die App ruft die GewerbePro-Engine nicht auf und enthält keine Fachlogik; sie ist bewusst ein Erfassungs-Begleiter. Der Datenaustausch mit dem PC läuft über ein JSON-Paket, das GewerbePro mit dem Kommando companion.import einliest. Preis und Vertriebsweg stehen noch nicht fest; Bildmaterial für die Produktseite gibt es noch nicht."
+    },
+    {
       "slug": "belegwerk",
       "name": "BelegWerk",
       "fullName": "FehlerFuchs BelegWerk",
@@ -4110,200 +4304,6 @@
         "alt_html": "/apps/fuchsbau.html",
         "contact": "/kontakt.html?app=FuchsBau&topic=interesse"
       }
-    },
-    {
-      "slug": "gewerbepro-companion",
-      "name": "GewerbePro Companion",
-      "fullName": "FehlerFuchs GewerbePro Companion",
-      "seoTitel": "GewerbePro Companion – mobile Erfassung für unterwegs (Android)",
-      "seoBeschreibung": "Android-Ergänzung zu GewerbePro: Kunden, Auftrags-Entwürfe, Fahrten und Quittungen unterwegs erfassen – offline und ohne Konto.",
-      "tags": [
-        "Companion",
-        "mobile Erfassung",
-        "Aufträge",
-        "Fahrten",
-        "Android",
-        "offline"
-      ],
-      "kind": "produkt",
-      "parent": "gewerbepro",
-      "tagline": "Mobiler Erfassungs-Begleiter zu GewerbePro: Kunden, Auftrags-Entwürfe, Fahrten und Quittungen unterwegs aufnehmen – offline und ohne Konto.",
-      "description": "Die Companion-App ist die Android-Ergänzung zu GewerbePro und befindet sich in Entwicklung. Sie erfasst unterwegs Kunden, Auftrags-Entwürfe mit Positionen, Fahrten, Aufgaben, Termine und Quittungen und arbeitet dabei vollständig offline. Gerechnet wird nichts auf dem Handy: Die App sammelt Rohdaten und übergibt sie als Paket an GewerbePro auf dem PC, das daraus Angebote, Aufträge und Belege macht. Für Quittungen vor Ort kann sie das Firmen-Branding aus GewerbePro übernehmen und einen unterschriebenen Beleg als PDF erzeugen.",
-      "audience": [
-        "selbststaendige",
-        "unternehmen"
-      ],
-      "accent": "#9F1239",
-      "theme": {
-        "modus": "hell",
-        "hintergrund": "#FBF7F2",
-        "flaeche": "#FFFBF7",
-        "rand": "#EAD7DC",
-        "text": "#2B160B",
-        "textLeise": "#6F4F44",
-        "akzent": "#9F1239",
-        "quelle": "29-1_GewerbePro Companion/21_App_Flutter/gewerbepro_companion/lib/ui/ff_tokens.dart"
-      },
-      "media": {
-        "platzhalter": 4
-      },
-      "wordmark": [
-        {
-          "text": "FehlerFuchs ",
-          "color": "#7C3F16",
-          "weight": "normal"
-        },
-        {
-          "text": "GewerbePro ",
-          "color": "#7C3F16",
-          "weight": "bold"
-        },
-        {
-          "text": "Companion",
-          "color": "#9F1239",
-          "weight": "bold"
-        }
-      ],
-      "status": "entwicklung",
-      "platforms": [
-        {
-          "os": "android",
-          "status": "entwicklung",
-          "since": "2026-07-17",
-          "distribution": "keiner"
-        }
-      ],
-      "privacy": [
-        "inhalte-lokal",
-        "keine-cloud",
-        "kein-konto",
-        "kein-tracking",
-        "werbefrei",
-        "offline-faehig"
-      ],
-      "editions": [
-        {
-          "id": "standard",
-          "name": "GewerbePro Companion",
-          "public": true,
-          "summary": "Eine Ausbaustufe. Ob die App später kostenlos zu GewerbePro gehört oder getrennt angeboten wird, ist noch nicht entschieden.",
-          "price": {
-            "model": "offen"
-          }
-        }
-      ],
-      "features": [
-        {
-          "group": "Unterwegs erfassen",
-          "items": [
-            {
-              "name": "Kunden anlegen mit denselben Feldern wie am PC",
-              "values": {
-                "standard": "ja"
-              },
-              "note": "Anrede, Name/Firma, Anschrift, E-Mail, Telefon, USt-IdNr., Leitweg-ID."
-            },
-            {
-              "name": "Auftrags-Entwürfe mit Positionen",
-              "values": {
-                "standard": "ja"
-              },
-              "note": "Positionen frei oder aus dem Katalog; Zwischensumme netto."
-            },
-            {
-              "name": "Fahrtenbuch mit Fahrzeug- und km-Stand-Merker",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Aufgaben, Fristen und Termine",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Quittung mit handschriftlicher Unterschrift",
-              "values": {
-                "standard": "ja"
-              },
-              "note": "Unterschrift im Vollbild quer, danach als PDF."
-            }
-          ]
-        },
-        {
-          "group": "Belege und Katalog",
-          "items": [
-            {
-              "name": "Fahrtenbuch als PDF (heute, laufendes Jahr, alle Einträge)",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Quittungs-PDF im Firmen-Branding aus GewerbePro",
-              "values": {
-                "standard": "ja"
-              },
-              "note": "Logo, Absender und Fußzeile werden einmalig vom PC übernommen."
-            },
-            {
-              "name": "Katalog mit Preisen nachschlagen",
-              "values": {
-                "standard": "ja"
-              },
-              "note": "Nur lesen; wird aus GewerbePro gespiegelt."
-            }
-          ]
-        },
-        {
-          "group": "Zusammenspiel mit GewerbePro",
-          "items": [
-            {
-              "name": "Erfassungspaket für den Import in GewerbePro erzeugen",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Fertiger Übertragungsweg zum PC (USB, Cloud, Server)",
-              "values": {
-                "standard": "geplant"
-              },
-              "note": "Das Paket wird bisher nur als Datei im App-Ordner abgelegt."
-            },
-            {
-              "name": "Rechnungen, Angebote, EÜR oder E-Rechnung auf dem Handy",
-              "values": {
-                "standard": "nein"
-              },
-              "note": "Bleibt bewusst in GewerbePro am PC."
-            }
-          ]
-        },
-        {
-          "group": "Grundsätzliches",
-          "items": [
-            {
-              "name": "Konto oder Registrierung nötig",
-              "values": {
-                "standard": "nein"
-              }
-            },
-            {
-              "name": "Arbeitet ohne Internet",
-              "values": {
-                "standard": "ja"
-              }
-            }
-          ]
-        }
-      ],
-      "releases": [],
-      "links": {
-        "contact": "/kontakt.html?app=GewerbePro-Companion&topic=interesse"
-      },
-      "notes": "Die App ruft die GewerbePro-Engine nicht auf und enthält keine Fachlogik; sie ist bewusst ein Erfassungs-Begleiter. Der Datenaustausch mit dem PC läuft über ein JSON-Paket, das GewerbePro mit dem Kommando companion.import einliest. Preis und Vertriebsweg stehen noch nicht fest; Bildmaterial für die Produktseite gibt es noch nicht."
     },
     {
       "slug": "pdfuchs",

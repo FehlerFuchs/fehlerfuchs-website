@@ -51,15 +51,20 @@ wordmark:
   - { text: "GewerbePro ", color: "#7C3F16", weight: bold }
   - { text: "Companion", color: "#9F1239", weight: bold }
 
-status: entwicklung
+# 26.09.2026: 1.0.0 (1) bei Google Play zur Prüfung eingereicht (Produktion, ohne Testphase;
+# eu.fehlerfuchs.gewerbepro_companion) - gemeldet von [FF_13] 16:01. Anzeige „In Store-Prüfung“
+# nach Klarstellung Matthias 16:03 (im [FF_13]-Chat, weitergereicht): Die Webseite meldet die
+# Store-Prüfung wie bei jeder App. Store-Seite noch NICHT öffentlich: kein storeId, kein Store-Link.
+# Den Livegang meldet [FF_13] nach P5 - dann 'verfuegbar', 'since' = Livegang, storeId, und im
+# selben Deploy der Absatz „Löschen beim Lizenzserver“ (Wiedervorlage [FF_10]).
+# Produktseite bleibt verborgen (kein vorabSichtbar - nicht entschieden).
+status: pruefung
 
 platforms:
   - os: android
-    status: entwicklung
-    since: "2026-07-17"
-    distribution: keiner
-    # Debug-Build auf einem Testgerät, kein veröffentlichtes Paket, kein
-    # Store-Eintrag. Die Android-Mindestversion ist noch nicht festgelegt.
+    status: pruefung
+    since: "2026-09-26"   # Tag der Einreichung - bei 'pruefung' das Datum dieser Stufe
+    distribution: play-store
 
 # 'inhalte-lokal' statt 'nur-lokal': Geschäfts-/Kundendaten bleiben auf dem Gerät
 # und gehen beim Datenaustausch nur verschlüsselt an den vom Nutzer bestimmten PC
