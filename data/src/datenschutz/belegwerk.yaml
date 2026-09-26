@@ -117,8 +117,8 @@ loeschung: >-
   deutlicher Rückfrage samt Sidecars und verknüpften Arbeitskopien dauerhaft
   gelöscht werden; bereits übergebene Zielkopien und der Journalnachweis
   bleiben erhalten. Paperless-Tokens werden getrennt in der
-  Windows-Anmeldeinformationsverwaltung entfernt. Arbeitskopien, Consume-
-  Übergaben und Dateiablagen löscht der Nutzer in den von ihm gewählten
+  Windows-Anmeldeinformationsverwaltung entfernt. Arbeitskopien,
+  Consume-Übergaben und Dateiablagen löscht der Nutzer in den von ihm gewählten
   Zielordnern. Daten in Paperless werden in der jeweiligen Instanz gelöscht.
 
 besonderheiten: >-

@@ -104,7 +104,7 @@ features:
         values: { free: ja, pro: ja }
       - name: Kanten automatisch erkennen und gerade rücken
         values: { free: ja, pro: ja }
-      - name: Zuschneiden und drehen von Hand
+      - name: Zuschneiden und Drehen von Hand
         values: { free: ja, pro: ja }
       # 1.1.0: Der Rand wird zehnmal pro Sekunde eingezeichnet - orange heisst
       # erkannt, gruen heisst stabil. Man sieht VOR dem Ausloesen, ob es sitzt.

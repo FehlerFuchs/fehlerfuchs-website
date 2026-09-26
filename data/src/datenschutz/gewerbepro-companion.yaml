@@ -80,7 +80,7 @@ im_sync_ordner:
 
 verschluesselung:
   - wofuer: Austauschpaket, Import-Quittung, Rückpaket, Anforderung des PCs und
-      (seit 26.09.2026, Entscheidung E2) das Branding vom PC
+      das Branding vom PC
     wie: AES-256-GCM, Schlüssel aus dem Lizenzschlüssel. Umschlag v1 mit HKDF-SHA256;
       Umschlag v2 mit PBKDF2-SHA256 (600.000 Durchläufe), Kopf mit Pakettyp als
       Zusatzdaten gebunden. Das Handy schreibt v2, sobald der PC v2 gesendet hat

@@ -137,7 +137,7 @@ features:
       - name: Brother-Etikettendruck
         values: { standard: ja }
         note: Optional; setzt lokal installierte Brother-Software und Druckertreiber voraus.
-      - name: Installierte Drucker und `.lbx`-Vorlagen auswählen
+      - name: Installierte Drucker und .lbx-Vorlagen auswählen
         values: { standard: ja }
       - name: Maßstäbliche Code-128-Etikettenvorschau
         values: { standard: ja }

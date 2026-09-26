@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T16:59:50+02:00",
+  "generiert": "2026-09-26T17:02:17+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -365,7 +365,7 @@
         },
         {
           "question": "Wie lange dauert es?",
-          "answer": "Das hängt vom Umfang ab und steht im Angebot. FehlerFuchs ist ein Ein-Personen- Betrieb: Ich sage lieber einen ehrlichen Termin zu als einen schnellen."
+          "answer": "Das hängt vom Umfang ab und steht im Angebot. FehlerFuchs ist ein Ein-Personen-Betrieb: Ich sage lieber einen ehrlichen Termin zu als einen schnellen."
         }
       ],
       "media": {
@@ -1810,7 +1810,7 @@
           "von": "pruefung",
           "nach": "pruefung",
           "grund": "Zweite Ablehnung – diesmal wegen der Ferien-Anzeige",
-          "text": "Die zweite Runde, ein anderer Vorwurf: „Missleading Claims\". Weil die App Feiertage und Schulferien je Bundesland anzeigt, hat die Prüfung geschlossen, hier gebe jemand behördliche Auskünfte – eine Behörden-App ohne Quellenangabe. Tatsächlich sind es Kalenderdaten für die Familienplanung, wie sie jede Kalender-App führt. Ich habe die Store-Beschreibung geschärft: eine Quelle für die Daten genannt und klargestellt, dass OrgaFuchs keine Behörde ist und keine vertritt. Am 24. Juli erneut eingereicht, am Programm wieder nichts geändert."
+          "text": "Die zweite Runde, ein anderer Vorwurf: „Misleading Claims\". Weil die App Feiertage und Schulferien je Bundesland anzeigt, hat die Prüfung geschlossen, hier gebe jemand behördliche Auskünfte – eine Behörden-App ohne Quellenangabe. Tatsächlich sind es Kalenderdaten für die Familienplanung, wie sie jede Kalender-App führt. Ich habe die Store-Beschreibung geschärft: eine Quelle für die Daten genannt und klargestellt, dass OrgaFuchs keine Behörde ist und keine vertritt. Am 24. Juli erneut eingereicht, am Programm wieder nichts geändert."
         }
       ],
       "privacy": [
@@ -2606,7 +2606,7 @@
               }
             },
             {
-              "name": "Zuschneiden und drehen von Hand",
+              "name": "Zuschneiden und Drehen von Hand",
               "values": {
                 "free": "ja",
                 "pro": "ja"
@@ -3635,7 +3635,7 @@
               "note": "Optional; setzt lokal installierte Brother-Software und Druckertreiber voraus."
             },
             {
-              "name": "Installierte Drucker und `.lbx`-Vorlagen auswählen",
+              "name": "Installierte Drucker und .lbx-Vorlagen auswählen",
               "values": {
                 "standard": "ja"
               }
@@ -4523,7 +4523,7 @@
       "fullName": "FehlerFuchs WachFuchs",
       "kind": "produkt",
       "tagline": "Lern-App für die Feuerwehr-Ausbildung: üben in kleinen Lektionen mit Wiederholung nach Lernstand, Prüfungsmodus und einer nachprüfbaren Fundstelle zu jeder Antwort.",
-      "description": "WachFuchs zerlegt den Stoff der Feuerwehr-Ausbildung entlang der FwDV-2- Lernabschnitte in kleine, geführte Lektionen: Wiederholung nach Lernstand (Leitner), Prüfungsmodus mit Gewichtung nach Ausbildungsstunden, Fortschritt und ein Rückwärtsplaner zum Prüfungstermin. Unter jeder Antwort steht ihre Herkunft – Quelle, Fundstelle, Ausgabestand und Abrufdatum – und wie verbindlich sie ist. Inhalte stammen ausschließlich aus eigenen Formulierungen und amtlichen Werken. Offline nutzbar, kein Konto, keine Werbung, keine Datenerhebung. Kein Ersatz für Ausbildung, Dienstvorschrift oder Prüfung.",
+      "description": "WachFuchs zerlegt den Stoff der Feuerwehr-Ausbildung entlang der FwDV-2-Lernabschnitte in kleine, geführte Lektionen: Wiederholung nach Lernstand (Leitner), Prüfungsmodus mit Gewichtung nach Ausbildungsstunden, Fortschritt und ein Rückwärtsplaner zum Prüfungstermin. Unter jeder Antwort steht ihre Herkunft – Quelle, Fundstelle, Ausgabestand und Abrufdatum – und wie verbindlich sie ist. Inhalte stammen ausschließlich aus eigenen Formulierungen und amtlichen Werken. Offline nutzbar, kein Konto, keine Werbung, keine Datenerhebung. Kein Ersatz für Ausbildung, Dienstvorschrift oder Prüfung.",
       "audience": [
         "ehrenamt",
         "vereine"
@@ -4759,7 +4759,7 @@
         "werbefrei",
         "offline-faehig"
       ],
-      "notes": "Konzeptphase; Fundament gelegt (Konzept, MVP-Schnitt v0.1, Technik- Entscheidung, Marke V2). Sicherheitsleitlinie: jede Rechnerformel wird vor der Umsetzung gegen eine benannte Quelle geprüft, jede Ausgabe ist eine Orientierungshilfe ohne Gewähr. Kein Alarmierungs- oder Einsatzleitsystem und kein Ersatz für Ausbildung, Dienstvorschrift oder Einsatzbefehl."
+      "notes": "Konzeptphase; Fundament gelegt (Konzept, MVP-Schnitt v0.1, Technik-Entscheidung, Marke V2). Sicherheitsleitlinie: jede Rechnerformel wird vor der Umsetzung gegen eine benannte Quelle geprüft, jede Ausgabe ist eine Orientierungshilfe ohne Gewähr. Kein Alarmierungs- oder Einsatzleitsystem und kein Ersatz für Ausbildung, Dienstvorschrift oder Einsatzbefehl."
     }
   ]
 }

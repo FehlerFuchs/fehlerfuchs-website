@@ -111,8 +111,8 @@ besonderheiten: >-
   Bestandteile, Signatur und Installationsquelle sowie - wenn du die Nutzungsdaten
   freigibst - Speicher-, Nutzungs- und Datenverbrauchswerte. Seit dem 24.09.2026
   untersucht es außerdem das Installationspaket (APK) jeder App, das Android für
-  jede App lesbar macht: Netzwerk-Regeln, Namen der Programmbausteine (Tracker-
-  Erkennung) und Server-Adressen im Code. Das Paket wird nur gelesen, nichts daraus
+  jede App lesbar macht: Netzwerk-Regeln, Namen der Programmbausteine
+  (Tracker-Erkennung) und Server-Adressen im Code. Das Paket wird nur gelesen, nichts daraus
   ausgeführt. Daten anderer Apps liest es nicht; Android schottet Apps
   gegeneinander ab. Die gesamte Auswertung
   findet auf dem Gerät statt. Die optionale Internetsperre arbeitet mit einer

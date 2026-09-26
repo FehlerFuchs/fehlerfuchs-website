@@ -40,10 +40,10 @@ auf_dem_geraet:
     wo: im Einstellungsspeicher der App auf dem Gerät
     beleg: 05_App/pdfuchsreader_mobile/lib/features/settings/settings_controller.dart
   - was: Kopie des mitgelieferten Handbuch-PDFs + einmaliges Onboarding-Kennzeichen
-    wo: App-Dokumenteordner der App
+    wo: App-Dokumentenordner der App
     beleg: 05_App/pdfuchsreader_mobile/lib/core/onboarding/handbook_seeder.dart
   - was: Vom Nutzer erzeugte bearbeitete PDF-Kopien (<name>_bearbeitet[_N].pdf)
-    wo: App-Dokumenteordner der App; Originale und vorhandene Kopien werden nie überschrieben
+    wo: App-Dokumentenordner der App; Originale und vorhandene Kopien werden nie überschrieben
     beleg: 05_App/pdfuchsreader_mobile/lib/features/editor/seiten_editor_screen.dart
   - was: Per „Öffnen mit"/Teilen hereingereichte PDFs und EPUBs (größenbegrenzte Arbeitskopie)
     wo: Zwischenspeicher (Cache) der App
@@ -209,8 +209,8 @@ besonderheiten: >-
   keine Verbindung nach draußen und keine automatische Update-Prüfung. Es gibt
   kein Konto, keine Anmeldung, keine Werbung, keine Nutzungsmessung und keine
   In-App-Käufe. In BEIDEN Fassungen entsteht eine Verbindung nur, wenn der
-  Nutzer sie selbst auslöst - vor allem beim Absenden des Support-/
-  Kontaktformulars (an license.fehlerfuchs.eu) sowie beim Öffnen externer Links.
+  Nutzer sie selbst auslöst - vor allem beim Absenden des
+  Support-/Kontaktformulars (an license.fehlerfuchs.eu) sowie beim Öffnen externer Links.
   (Berichtigung 19.08.2026: die frühere Aussage, die Windows-Fassung stelle
   „überhaupt keine Verbindung" her, war seit 25.07.2026 überholt.) Beim
   Windows-Installer kann der Nutzer optional eine GPU-Komponente wählen, die dann

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T16:59:50+02:00",
+  "generiert": "2026-09-26T17:02:17+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -212,7 +212,7 @@
       "produkt": "orgafuchs",
       "version": "1.6.1",
       "titel": "OrgaFuchs 1.6.1: Nachrichten an alle – mit Postfach",
-      "text": "Neu in OrgaFuchs 1.6.1: „Nachricht an alle\" – schick der ganzen Familie in Sekunden eine kurze Nachricht. Sie landet bei allen im Postfach und als Benachrichtigung, Ende-zu-Ende über deinen eigenen Relay verteilt, nicht über fremde Server; Ungelesenes bleibt markiert, bis du es liest. Außerdem sind Sonn-/Feiertage und Ferien im Kalender jetzt farblich hervorgehoben (Tag, Woche, Monat), die Geräteliste zeigt „zuletzt aktiv\", und der Hintergrund- Empfang läuft auf Android 14/15 stabiler. Dazu viele kleinere Verbesserungen.",
+      "text": "Neu in OrgaFuchs 1.6.1: „Nachricht an alle\" – schick der ganzen Familie in Sekunden eine kurze Nachricht. Sie landet bei allen im Postfach und als Benachrichtigung, Ende-zu-Ende über deinen eigenen Relay verteilt, nicht über fremde Server; Ungelesenes bleibt markiert, bis du es liest. Außerdem sind Sonn-/Feiertage und Ferien im Kalender jetzt farblich hervorgehoben (Tag, Woche, Monat), die Geräteliste zeigt „zuletzt aktiv\", und der Hintergrund-Empfang läuft auf Android 14/15 stabiler. Dazu viele kleinere Verbesserungen.",
       "datum": "2026-08-14",
       "datumQuelle": "Release 1.6.1",
       "wege": {

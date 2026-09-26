@@ -189,7 +189,7 @@ uebertragungen:
     beleg: lib/services/update_service.dart, lib/services/update_ui.dart, lib/features/info/info_page.dart, lib/features/home/home_screen.dart
   - wohin: Firebase Cloud Messaging / Google (nur Android)
     was: Registrierung des Geräts mit einer Push-Kennung bei Google und Empfang reiner Weck-Nachrichten; KEINE Termine/Namen/Planinhalte (nur Signal "es gibt Änderungen"). Google sieht technisch die Push-Kennung, die IP-Adresse und den Zeitpunkt
-    wann: nur wenn Benachrichtigungen eingeschaltet sind; die Wecknachricht löst der Relay aus, nicht die App
+    wann: nur wenn Benachrichtigungen eingeschaltet sind; die Wecknachricht löst das Relais aus, nicht die App
     freiwillig: true
     beleg: lib/services/fcm_dienst.dart, android/app/google-services.json, android/app/src/main/AndroidManifest.xml
 

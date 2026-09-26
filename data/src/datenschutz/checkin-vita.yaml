@@ -103,8 +103,8 @@ loeschung: >-
   löschen; unter Einstellungen entfernt „Alle Daten löschen" sämtliche
   Einträge, Stammdaten und Einstellungen unwiderruflich. Beim Deinstallieren
   der App verschwinden alle Daten mit. Selbst erzeugte Export-, Backup- und
-  Abgleich-Dateien liegen dort, wo der Nutzer sie abgelegt hat, und muss er
-  selbst löschen.
+  Abgleich-Dateien liegen dort, wo der Nutzer sie abgelegt hat, und müssen
+  von ihm selbst gelöscht werden.
 
 besonderheiten: >-
   CheckInVita ist ein Gesundheits-Tagebuch und ausdrücklich kein Medizinprodukt

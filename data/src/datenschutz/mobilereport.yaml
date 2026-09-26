@@ -87,8 +87,8 @@ uebertragungen:
     beleg: lib/consumer/pro_controller.dart (in_app_purchase)
   - wohin: firebaselogging.googleapis.com bzw. firebaselogging-pa.googleapis.com (Google)
     was: >-
-      Technische Betriebsdaten der Google-Abrechnungsbibliothek (Firelog/
-      DataTransport), die Google mit dieser Bibliothek ausliefert. Meldungen,
+      Technische Betriebsdaten der Google-Abrechnungsbibliothek
+      (Firelog/DataTransport), die Google mit dieser Bibliothek ausliefert. Meldungen,
       Fotos, PDFs, Empfänger und Eingaben des Nutzers sind davon NICHT betroffen.
       Welche Einzelwerte Google dabei erhebt, legt Google fest und ist von außen
       nicht einsehbar.

@@ -91,7 +91,7 @@ loeschung: >-
   der auf Antrag zu löschen wäre.
 
 besonderheiten: >-
-  Der Relais ist bewusst inhaltsblind: Die Nutzdaten werden bereits auf dem
+  Das Relais ist bewusst inhaltsblind: Die Nutzdaten werden bereits auf dem
   Gerät Ende-zu-Ende verschlüsselt, der Server sieht nur Chiffrat und reicht
   es anhand einer Zielkennung weiter. Es gibt keine identitätsbehafteten Konten
   und keine Mitgliederliste. Dauerhaft gespeichert werden nur zwei kleine,

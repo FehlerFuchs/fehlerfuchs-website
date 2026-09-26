@@ -22,16 +22,8 @@ loeschung: >-
 besonderheiten: >-
   EinsatzFuchs ist eine offline-fähige App für die Freiwillige Feuerwehr,
   nicht-kommerziell und ohne Konto. Sie ist in der Konzeptphase, es gibt
-  noch keinen Code.
-  Stand 26.07.2026 geprüft: seit dem 24.07. hat sich datenschutzrechtlich
-  nichts geändert. Der MVP-Schnitt v0.1 ist am 25.07. abgenommen und die
-  Formel-Verifikation (Block 0.5) läuft - beides betrifft nur den fachlichen
-  Inhalt der Rechner, nicht die Datenverarbeitung. v0.1 bleibt ausdrücklich
-  ohne jeden Netzzugriff.
-  Stand 05.08.2026 geprüft: seit dem 26.07. hat sich datenschutzrechtlich
-  nichts geändert. Geändert wurde nur der Fachinhalt der Formelbank
-  (FORMELN_EinsatzFuchs.md, Fassung 4) - Rechenwege und Quellenbelege, keine
-  Datenverarbeitung. Es gibt weiterhin keinen Code.
+  noch keinen Code. Die erste Fassung (v0.1) bleibt ausdrücklich ohne jeden
+  Netzzugriff.
 
 offene_fragen: >-
   Die Anwendung ist in Entwicklung; Angaben folgen, sobald der Funktionsumfang

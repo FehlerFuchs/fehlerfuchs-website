@@ -339,8 +339,8 @@ meldungen:
       Benachrichtigung, Ende-zu-Ende über deinen eigenen Relay verteilt, nicht über
       fremde Server; Ungelesenes bleibt markiert, bis du es liest. Außerdem sind
       Sonn-/Feiertage und Ferien im Kalender jetzt farblich hervorgehoben (Tag,
-      Woche, Monat), die Geräteliste zeigt „zuletzt aktiv", und der Hintergrund-
-      Empfang läuft auf Android 14/15 stabiler. Dazu viele kleinere Verbesserungen.
+      Woche, Monat), die Geräteliste zeigt „zuletzt aktiv", und der
+      Hintergrund-Empfang läuft auf Android 14/15 stabiler. Dazu viele kleinere Verbesserungen.
 
   # HaushaltsManager: erste öffentliche Veröffentlichung. 'version: 1.0.0' bindet
   # die Meldung an den releases-Eintrag (Datum 12.08.).
