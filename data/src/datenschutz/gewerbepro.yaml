@@ -1,8 +1,8 @@
 slug: gewerbepro
 name: FehlerFuchs GewerbePro
-stand: "2026-08-23"
+stand: "2026-09-26"
 geprueft_von: 29_GewerbePro
-fassung: "1.0.0 (ausgelieferte Vollversion, signiert und veröffentlicht am 17.08.2026)"
+fassung: "1.1.0"
 
 # Nein: die Update-Prüfung ist ab Werk eingeschaltet, die Lizenzprüfung ist in
 # der Vollversion nötig. Ohne Vollversion und mit abgeschalteter Update-Prüfung
@@ -13,8 +13,11 @@ auf_dem_geraet:
   - was: Geschäftsdaten (Kunden, Angebote, Aufträge, Rechnungen, Quittungen,
       Gutschriften, Mahnungen, Projekte, Einnahmen/Ausgaben, Anlagen/AfA,
       Fahrtenbuch, Termine, Aufgaben, Logbuch, Katalog)
-    wo: lokale Datenbank (SQLite) im Datenordner der Anwendung
-    beleg: 20_Engine/gewerbepro_core/db.py (_SCHEMA); config.py DB_FILE / _resolve_data_dir
+    wo: lokale Datenbank (SQLite) im Datenordner %APPDATA%\FehlerFuchs\GewerbePro\Daten
+      (bis 1.0.0 im Programmordner; beim ersten Start von 1.1.0 einmalig per
+      Prüfsumme geprüft umgezogen, die alte Kopie wird beim nächsten Start
+      gelöscht, wenn sie der geprüften Übertragung entspricht)
+    beleg: 20_Engine/gewerbepro_core/db.py (_SCHEMA); config.py DB_FILE; datenort.py
   - was: Stammdaten des Betriebs (Firma, Inhaber, Steuernummer, Bankverbindung,
       Fußzeilen) und Programmeinstellungen
     wo: in derselben lokalen Datenbank
@@ -42,6 +45,11 @@ auf_dem_geraet:
   - was: abgerufene E-Mails samt Anhängen (nur bei eingerichtetem Postfach)
     wo: lokale Datenbank bzw. Datenordner
     beleg: 20_Engine/gewerbepro_core/mail.py
+  - was: vom Handy empfangene Companion-Pakete und die Empfangsbestätigungen
+      (verschlüsselt, AES-256-GCM)
+    wo: Unterordner companion_eingang des Datenordners
+    beleg: 20_Engine/gewerbepro_core/engine_api.py _companion_eingang,
+      companion_import_commit
 
 # Windows-Desktop-Anwendung – keine App-Store-Berechtigungen; hier die
 # tatsächlich benötigten Zugriffe.
@@ -64,6 +72,12 @@ berechtigungen:
     wofuer: Kopieren des eigenen Lizenzschlüssels
     pflicht: false
     beleg: 21_App_Flutter/gewerbepro_desktop/lib/main.dart (Clipboard.setData)
+  - name: Zugriff auf ein per USB angeschlossenes Handy (Windows-Dateiübertragung/MTP)
+    wofuer: Austausch mit der Companion-App – liest und schreibt nur im Ordner
+      GewerbePro-Sync auf dem Handy, löscht dort nichts
+    pflicht: false
+    beleg: 20_Engine/gewerbepro_core/sync_transport.py; mtp_bridge.ps1 (Windows-Shell,
+      kein Zusatztreiber)
   - name: Installation ohne Administratorrechte
     wofuer: Installation im Benutzerprofil
     pflicht: true
@@ -81,13 +95,15 @@ uebertragungen:
       update_check; config.py update_auto = "1"
   - wohin: license.fehlerfuchs.eu
     was: Lizenzschlüssel, zufällige Gerätekennung (UUID) und Produktname; bei
-      der erstmaligen Aktivierung zusätzlich der Windows-Computername und die
-      Plattformangabe „Windows"
-    wann: bei der Aktivierung, beim Abgleich zum Programmstart und beim Lösen
-      der Lizenz – nur in der Vollversion GewerbePro
+      der erstmaligen Aktivierung zusätzlich der feste Gerätename
+      „GewerbePro-Geraet“ (kein Computername, kein eigener Name wählbar) und
+      die Plattformangabe „Windows"
+    wann: bei der Aktivierung, bei jedem Programmstart mit hinterlegtem
+      Lizenzschlüssel (Abgleich) und beim Lösen der Lizenz – nur in der
+      Vollversion GewerbePro
     freiwillig: false
     beleg: 20_Engine/gewerbepro_core/lizenz.py BASE_URL,
-      aktivieren/pruefen/deaktivieren (socket.gethostname bei /v1/activate)
+      aktivieren/pruefen/deaktivieren (neutraler Name bei /v1/activate, kein Hostname)
   - wohin: openholidaysapi.org
     was: Abruf der Schulferien des eingestellten Bundeslandes
     wann: nur wenn „Schulferien automatisch abgleichen" eingeschaltet ist
@@ -111,6 +127,30 @@ uebertragungen:
     wann: nur wenn der Nutzer die jeweilige Schaltfläche anklickt
     freiwillig: true
     beleg: 21_App_Flutter/gewerbepro_desktop/lib/main.dart _launchUrl
+  - wohin: support@fehlerfuchs.eu
+    was: nur was der Nutzer selbst in seinem Standard-E-Mail-Programm sendet
+      (Knopf öffnet einen mailto-Link mit Betreff); ein Support-Bericht (PDF, nur
+      technische Angaben) wird lokal erzeugt und vom Nutzer selbst angehängt
+    wann: nur auf Klick des Nutzers
+    freiwillig: true
+    beleg: main.dart showSupportDialog (mailto:); engine_api.py support_report
+  - wohin: das Handy des Nutzers (Companion-App) – per USB-Kabel oder über einen
+      vom Nutzer gewählten Ordner (bei einem Cloud-Ordner dessen Anbieter)
+    was: vom Handy Kunden, Angebotsentwürfe, Fahrten, Aufgaben, Termine,
+      Quittungen samt PDF, Löschhinweise; zum Handy Empfangsbestätigung,
+      Kunden (mit Anschrift, E-Mail, Telefon, Website, USt-IdNr., Leitweg-ID,
+      Notiz), Katalog, Aufgaben und auf Wunsch die Firmendaten für Quittungen
+      (Firma, Anschrift, E-Mail, Steuernummer, Bankverbindung,
+      Kleinunternehmer-Hinweis, optional Logo und Unterschrift) – alles
+      AES-256-GCM-verschlüsselt (Schlüssel aus dem Lizenzschlüssel, PBKDF2
+      600.000). Unverschlüsselt nur die Selbstauskunft der App
+      (companion-hello.json mit Gerätekennung, Gerätename, App-Version,
+      Protokoll, Zeitpunkt). Kein FehlerFuchs-Server beteiligt.
+    wann: nur wenn der Nutzer den Austausch auslöst (USB „Vom Handy holen“,
+      „Firmendaten ans Handy“, Dateiimport)
+    freiwillig: true
+    beleg: 20_Engine/gewerbepro_core/sync_transport.py, mtp_bridge.ps1,
+      engine_api.py companion_* (auto_*, branding_senden, rueckpaket, import_*)
 
 fremde_dienste:
   - name: openholidaysapi.org (Open Data)
@@ -126,6 +166,13 @@ fremde_dienste:
   - name: Tesseract OCR (extern zu installieren, optional)
     wofuer: Texterkennung in PDFs
     wann: nur bei Nutzung der OCR-Funktion; läuft vollständig lokal
+  - name: Google Play
+    wofuer: Bezug der Begleit-App „GewerbePro Companion“ (Android)
+    wann: außerhalb dieser Anwendung; GewerbePro selbst ruft Google Play nicht auf
+  - name: Cloud-Anbieter des Nutzers (optional)
+    wofuer: nur wenn der Nutzer für den Companion-Austausch einen
+      synchronisierten Ordner wählt; er erhält die Dateien verschlüsselt
+    wann: nur beim Ordner-Weg des Companion-Austauschs
 
 konto_noetig: false
 tracking: false
@@ -137,9 +184,13 @@ loeschung: >-
   Alle Daten liegen auf dem Gerät. In den Einstellungen entfernt „Alle
   Geschäftsdaten löschen" Kunden, Rechnungen, Angebote, Belege, Termine,
   Aufgaben und Logbuch (Stammdaten bleiben erhalten). Die Deinstallation
-  entfernt das Programm; der Datenordner mit Datenbank, Exporten und Backups
-  bleibt bestehen und kann vom Nutzer gelöscht werden. Eine hinterlegte Lizenz
-  lässt sich in den Einstellungen vom Gerät lösen.
+  entfernt das Programm; der Datenordner (%APPDATA%\FehlerFuchs\GewerbePro\Daten)
+  mit Datenbank, Exporten und Backups bleibt bestehen und kann vom Nutzer
+  gelöscht werden. Nach dem Wechsel von 1.0.0 auf 1.1.0 löscht die Anwendung die
+  alte Kopie im Programmordner beim nächsten Start selbst, sofern sie der
+  geprüften Übertragung entspricht; ein älterer Stand in %APPDATA% bleibt als
+  Daten_vor_Umzug_<Zeit> erhalten. Eine hinterlegte Lizenz lässt sich in den
+  Einstellungen vom Gerät lösen.
 
 besonderheiten: >-
   Die Anwendung arbeitet offline-first: alle Geschäftsdaten bleiben in einer
@@ -149,17 +200,19 @@ besonderheiten: >-
   zufällig erzeugt wird und keine Hardware-Merkmale enthält. Es werden keine
   Nutzungsdaten ausgewertet, keine Werbung eingeblendet und keine Absturzberichte
   verschickt; der „Support-Bericht" erzeugt lediglich ein PDF auf dem Rechner,
-  das der Nutzer selbst versendet. Die geplante Companion-App und der Datenaustausch
-  mit ihr sind im heutigen Stand noch nicht ausgeliefert.
+  das der Nutzer selbst versendet. Mit der Begleit-App „GewerbePro Companion“
+  tauscht die Anwendung auf Wunsch Daten aus – per USB-Kabel oder über einen vom
+  Nutzer gewählten Ordner, verschlüsselt und ohne FehlerFuchs-Server.
 
 vorhandener_text: >-
-  Kein eigenes Datenschutzdokument im Programmordner; die Anwendung verweist
-  unter „Info & Rechtliches" auf www.fehlerfuchs.eu/datenschutz.html.
+  Datenschutzhinweise, Kurzfassung, EULA und Haftungshinweise liegen im
+  Programmordner (20_Engine/rechtstexte) und sind unter „Info & Rechtliches"
+  offline im Volltext lesbar; dort verweist die Anwendung zusätzlich auf
+  https://fehlerfuchs.eu/datenschutz/.
 
 offene_fragen: >-
-  1) Ob und wie lange der Lizenzserver Anfragen protokolliert (etwa IP-Adresse,
-  Zeitpunkt) – das entscheidet der Server, nicht die Anwendung.
-  2) Ob openholidaysapi.org die Ferienabfragen protokolliert – serverseitig,
-  von der Anwendung aus nicht feststellbar.
-  3) Welche Daten GitHub beim Herunterladen der Installationsdatei sieht –
-  serverseitig, nicht von der Anwendung bestimmbar.
+  Keine. Lizenzserver: keine IP-Zugriffsprotokolle, Containerlogs
+  größenbegrenzt (Auskunft [FF_11], 24.09.2026). Update-Abruf und Download
+  laufen über GitHub (USA, SCC + EU-US DPF); FehlerFuchs führt dafür keine
+  Zugriffsprotokolle (Auskunft [FF_10], 24.09.2026). Was openholidaysapi.org
+  protokolliert, regelt dessen Betreiber (https://legal.stueber.de/privacy.php).

@@ -1,110 +1,195 @@
 slug: gewerbepro-companion
 name: GewerbePro Companion
-stand: "2026-08-20"
+stand: "2026-09-26"
 geprueft_von: 29-1_GewerbePro Companion
-fassung: "0.1.0+1 – in Entwicklung, nicht veröffentlicht (Code-Stand 20.08.2026)"
+fassung: "1.0.0"
 
-# Geschäfts-/Kundendaten bleiben auf dem Gerät. Nicht mehr rein lokal: seit die
-# App lizenzgeschützt ist, kontaktiert sie zur Aktivierung/Prüfung den
-# FehlerFuchs-Lizenzserver (nur Lizenzschlüssel + zufällige Gerätekennung,
-# KEINE Kunden-/Auftragsdaten).
+# FREIGEGEBEN von Matthias Schacht am 26.09.2026, 11:23 (Endabnahme Rechtstext-Paket, F1) — übernommen von [FF_00].
+# Ersetzt die Fassungen vom 17.08. (lokal) und 20.08. (00-1). Jede Angabe ist im
+# Code oder am Gerät gemessen; die Belege stehen je Eintrag.
+# Geschäfts-/Kundendaten bleiben auf dem Gerät bzw. gehen nur an den eigenen PC.
+# Einziger Netzkontakt: der FehlerFuchs-Lizenzserver (keine erfassten Daten).
 lokal_only: false
 
 auf_dem_geraet:
-  - was: Kundendaten (Anrede, Name/Firma, Anschrift, E-Mail, Telefon, USt-IdNr., Leitweg-ID, Notiz)
+  - was: Kundendaten (Nummer, Anrede, Name/Firma, Vor- und Nachname, Ansprechpartner,
+      Anschrift, Land, E-Mail, Telefon, Website, USt-IdNr., Leitweg-ID, Notiz,
+      Datenschutzhinweis)
     wo: in der App auf dem Gerät
     beleg: lib/data/db.dart (Tabelle customers, SQLite companion.db)
   - was: Auftrags-Entwürfe mit Positionen (Beschreibung, Menge, Einzelpreis) und Kopftexten
     wo: in der App auf dem Gerät
     beleg: lib/data/db.dart (draft_orders, draft_order_items)
-  - was: Fahrtenbuch-Einträge (Datum, Von/Nach, Zweck, Art, Kilometer) und gemerkte Fahrzeuge (Kennzeichen, letzter km-Stand)
+  - was: Fahrtenbuch-Einträge (Datum, Art, Zweck, Von/Nach, Kilometer, km-Stände,
+      Kennzeichen, Kunde, Notiz) und gemerkte Fahrzeuge (Kennzeichen, letzter km-Stand)
     wo: in der App auf dem Gerät
     beleg: lib/data/db.dart (trips, vehicles)
-  - was: Quittungen einschließlich der handschriftlichen Unterschrift als Bild
+  - was: Quittungen (Nummer, Datum, Aussteller, Betrag, Zweck, Zahlungsart, Kunde,
+      Name der unterschreibenden Person). Die handschriftliche Unterschrift wird
+      NIE im Datensatz gespeichert; sie steht nur im Quittungs-PDF
     wo: in der App auf dem Gerät
-    beleg: lib/data/db.dart (receipts), lib/screens/quittung_screen.dart
-  - was: Aufgaben, Fristen und Termine
+    beleg: lib/data/db.dart (receipts); lib/screens/quittung_screen.dart ('unterschrift' = '', „nur im PDF, nie im Datensatz“)
+  - was: Aufgaben, Fristen und Termine (mit Ort und Kunde)
     wo: in der App auf dem Gerät
     beleg: lib/data/db.dart (tasks, events)
   - was: Katalog mit Artikeln und Preisen – eine Kopie aus GewerbePro, die nur gelesen wird
     wo: in der App auf dem Gerät
     beleg: lib/data/db.dart (position_templates)
-  - was: erzeugte PDF-Belege (Quittung, Fahrtenbuch)
+  - was: erzeugte PDF-Belege (Quittung mit Unterschrift, Fahrtenbuch)
     wo: im eigenen Speicherbereich der App
-    beleg: lib/services/dokument_dienst.dart (Unterordner "dokumente")
-  - was: aus GewerbePro übernommenes Branding (Firmenlogo, hinterlegte Unterschrift, Absender- und Fußzeilentexte)
+    beleg: lib/services/dokument_dienst.dart (Unterordner "dokumente", Tabelle documents)
+  - was: aus GewerbePro übernommenes Branding – Firmendaten des Nutzers (Firma,
+      Anschrift, E-Mail, Steuernummer, Bank, IBAN, BIC, Kontoinhaber, Name unter der Unterschrift,
+      Kleinunternehmer-Angabe), Firmenlogo, hinterlegte Unterschrift, Fußzeilen, Farben
     wo: im eigenen Speicherbereich der App
-    beleg: lib/services/branding_store.dart (Ordner "branding" und App-Einstellungen)
-  - was: das Paket mit den erfassten Daten für die Übergabe an GewerbePro –
-      VERSCHLÜSSELT (AES-256-GCM, Schlüssel per HKDF-SHA256 aus dem
-      Lizenzschlüssel abgeleitet), sodass die Inhalte in der abgelegten Datei
-      nicht im Klartext lesbar sind
-    wo: an einem vom Nutzer gewählten Ort (Dateiablage) bzw. im festen
-      Sync-Ordner „Documents/GewerbePro-Sync" für den direkten USB-Weg
-    beleg: lib/services/sync_crypto.dart (paketVerschluesseln);
-      lib/screens/sync_screen.dart; lib/services/sync_ordner.dart
-  - was: Lizenzschlüssel und das vom Lizenzserver erhaltene, signierte
-      Offline-Token sowie eine zufällig erzeugte Gerätekennung (ohne
-      Hardware-Merkmale)
-    wo: in den App-Einstellungen (SharedPreferences)
-    beleg: lib/services/lizenz_dienst.dart (_kKey, _kToken, _kFp = uuid v4)
-  - was: App-Einstellungen (Gerätename, Standard-E-Mail-Adresse, eine zufällige Gerätekennung)
+    beleg: lib/services/branding_store.dart (Ordner "branding", Einstellung branding_json)
+  - was: Löschmarken – wird ein schon an den PC übergebener Satz am Handy gelöscht,
+      bleibt bis zur Bestätigung des PCs nur Typ, zufällige Satzkennung und Zeitpunkt
+    wo: in der App auf dem Gerät
+    beleg: lib/data/db.dart (Tabelle loeschmarken)
+  - was: Lizenzschlüssel, das vom Lizenzserver erhaltene signierte Token und eine
+      zufällig erzeugte Gerätekennung (UUID, ohne Hardware-Merkmale)
+    wo: im geschützten Schlüsselspeicher von Android (Keystore); ältere Werte aus
+      SharedPreferences werden einmalig umgezogen und dort gelöscht
+    beleg: lib/services/lizenz_dienst.dart (flutter_secure_storage; lizenz.key, lizenz.token, lizenz.fingerprint)
+  - was: App-Einstellungen (Gerätename, Standard-E-Mail-Adresse, zufällige
+      Gerätekennung für den Sync, Sync-Zustand, Liste nicht übernommener Dateien)
     wo: in der App auf dem Gerät
     beleg: lib/data/db.dart (Tabelle app_settings)
+  - was: keine Cloud-Sicherung und keine Mitnahme beim Gerätewechsel durch Android
+    wo: –
+    beleg: android/app/src/main/AndroidManifest.xml (allowBackup="false", dataExtractionRules)
+
+im_sync_ordner:
+  # Gemeinsamer Speicher des Geräts: Documents/GewerbePro-Sync/ (nicht app-eigen).
+  - was: companion-hello.json – UNVERSCHLÜSSELT. Genau sechs Felder – typ
+      ("companion_hello"), geraet_id (zufällige UUID), geraetename (vom Nutzer
+      vergeben, sonst leer), app_version, protokoll, erstellt_am. Keine erfassten Daten
+    wo: Documents/GewerbePro-Sync/phone-to-pc/companion-hello.json
+    wann: automatisch bei jedem App-Start und nach der Ordnerfreigabe (überschreibt die vorige)
+    wer_kann_es_sehen: ein per USB angeschlossener PC (MTP) und Apps, denen der
+      Nutzer Zugriff auf seine Dateien gewährt
+    wozu: damit GewerbePro das Gerät am Kabel erkennt und seine Anforderung an dieses Gerät richtet
+    beleg: lib/services/sync_eingang.dart (helloSchreiben); am AVD gemessen 26.09.2026
+  - was: Austauschpaket mit den noch nicht bestätigten Erfassungen – VERSCHLÜSSELT
+    wo: Documents/GewerbePro-Sync/phone-to-pc/companion_paket_<id>.json
+    wann: automatisch, wenn GewerbePro es über das USB-Kabel anfordert und die App im
+      Vordergrund ist; die App löscht es selbst nach der Quittung des PCs bzw. wenn
+      sie ein neueres ablegt
+    beleg: lib/services/sync_eingang.dart (anforderungBedienen, _eigenesPaketLoeschen)
+
+verschluesselung:
+  - wofuer: Austauschpaket, Import-Quittung, Rückpaket, Anforderung des PCs und
+      (seit 26.09.2026, Entscheidung E2) das Branding vom PC
+    wie: AES-256-GCM, Schlüssel aus dem Lizenzschlüssel. Umschlag v1 mit HKDF-SHA256;
+      Umschlag v2 mit PBKDF2-SHA256 (600.000 Durchläufe), Kopf mit Pakettyp als
+      Zusatzdaten gebunden. Das Handy schreibt v2, sobald der PC v2 gesendet hat
+    beleg: lib/services/sync_crypto.dart
+  - wofuer: Sicherung aller App-Daten
+    wie: Passwort des Nutzers, Argon2id (19 MiB, 2 Durchläufe) + AES-256-GCM
+    beleg: lib/services/sicherung_dienst.dart
 
 berechtigungen:
   - name: Internetzugriff
     wofuer: >-
-      Ausschließlich für die Lizenzaktivierung und die regelmäßige Lizenzprüfung
-      gegenüber dem FehlerFuchs-Lizenzserver. Kunden-, Auftrags- oder Belegdaten
+      Ausschließlich für die Lizenzaktivierung, die Lizenzprüfung und das Lösen der
+      Lizenz beim FehlerFuchs-Lizenzserver. Kunden-, Auftrags- oder Belegdaten
       werden dabei nicht übertragen.
     pflicht: true
-    beleg: android/app/src/main/AndroidManifest.xml (uses-permission INTERNET, jetzt auch im Release); lib/services/lizenz_dienst.dart
+    beleg: android/app/src/main/AndroidManifest.xml; lib/services/lizenz_dienst.dart
   - name: keine weiteren
     wofuer: >-
-      Sonst fordert die App keine Android-Berechtigung an (kein Standort, keine
-      Kontakte, keine Kamera, kein Speicher-Sonderrecht).
+      Sonst keine Android-Berechtigung (kein Standort, keine Kontakte, keine Kamera,
+      kein Speicher-Sonderrecht). Im fertig zusammengeführten Release-Manifest steht
+      außer INTERNET nur die interne Schutzberechtigung
+      DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION (AndroidX, keine Nutzerberechtigung).
+      Sichtbarkeitsabfragen (<queries>) für Teilen, Dateiauswahl, Kontakte (INSERT),
+      E-Mail und Links (SENDTO/VIEW) sind keine Berechtigungen.
     pflicht: false
-    beleg: android/app/src/main/AndroidManifest.xml – außer INTERNET nur der Standard-queries-Eintrag PROCESS_TEXT der Flutter-Vorlage
+    beleg: zusammengeführtes Manifest des lokalen Release-Baus vom 26.09.2026
 
 uebertragungen:
   - wohin: license.fehlerfuchs.eu (FehlerFuchs-Lizenzserver)
-    was: Lizenzschlüssel, eine zufällige Gerätekennung (UUID, ohne
-      Hardware-Merkmale), Produkt- und Plattformangabe sowie der vom Nutzer
-      vergebene Gerätename; KEINE Kunden-, Auftrags- oder Belegdaten
-    wann: bei der Lizenzaktivierung, bei der regelmäßigen Prüfung (u. a. beim
-      App-Start) und beim Lösen der Lizenz
+    was: Lizenzschlüssel, eine zufällige Gerätekennung (UUID, ohne Hardware-Merkmale),
+      App-Name ("GewerbePro"), Plattform ("Android") und bei der Aktivierung als
+      Gerätename der feste Text "Companion" – NICHT der vom Nutzer vergebene
+      Gerätename. Technisch bedingt die IP-Adresse und die Kennung
+      "GewerbePro-Companion-Lizenz" (User-Agent). KEINE Kunden-, Auftrags- oder Belegdaten
+    wann: bei der Aktivierung, bei jedem App-Start (Prüfung) und beim Lösen der Lizenz
     freiwillig: false
-    beleg: lib/services/lizenz_dienst.dart (_base = https://license.fehlerfuchs.eu; /v1/activate, /v1/validate, /v1/deactivate)
+    beleg: lib/services/lizenz_dienst.dart (/v1/activate, /v1/validate, /v1/deactivate); lib/screens/lizenz_screen.dart
+  - wohin: der eigene PC mit GewerbePro, automatisch über das USB-Kabel
+    was: das verschlüsselte Austauschpaket (alle noch nicht bestätigten Erfassungen,
+      dazu Löschmarken) und die unverschlüsselte companion-hello.json
+    wann: das Paket nur auf Anforderung von GewerbePro (am PC vom Nutzer ausgelöst),
+      solange die App im Vordergrund ist – ohne Handgriff am Handy; kein Internet
+    freiwillig: true
+    beleg: lib/services/sync_eingang.dart; lib/main.dart (Takt 3 s im Vordergrund)
+  - wohin: vom Nutzer im Speichern-Dialog gewählter Ort
+    was: das verschlüsselte Austauschpaket („Als Datei ablegen“) bzw. die mit Passwort
+      verschlüsselte Sicherung (alle Tabellen, PDFs und Branding; die Lizenz nicht)
+    wann: nur auf Nutzeraktion; der Ort kann auch ein Cloud-Anbieter sein, je nach Wahl
+      des Nutzers
+    freiwillig: true
+    beleg: lib/screens/sync_screen.dart, lib/screens/einstellungen_screen.dart (FilePicker.saveFile); lib/services/sicherung_dienst.dart
   - wohin: vom Nutzer im Android-Teilen-Dialog gewähltes Ziel (z. B. eine E-Mail-App)
     was: das erzeugte PDF (Quittung oder Fahrtenbuch)
-    wann: nur wenn der Nutzer "Teilen/Senden" auslöst; die App übergibt die Datei an das Betriebssystem, nicht an einen eigenen Dienst
+    wann: nur wenn der Nutzer „Teilen“ auslöst; die App übergibt die Datei an das
+      Betriebssystem, nicht an einen eigenen Dienst
     freiwillig: true
     beleg: lib/services/dokument_dienst.dart (Printing.sharePdf)
+  - wohin: Kontakte-App des Geräts
+    was: Name, Telefon, E-Mail, Firma und Anschrift eines Kunden – keine internen Notizen
+    wann: nur bei „Zu Kontakten hinzufügen“; der Nutzer speichert in der Kontakte-App selbst
+    freiwillig: true
+    beleg: MainActivity.kt (ContactsContract.Intents.Insert, ohne Berechtigung); lib/services/kontakt_aktion.dart
+  - wohin: Telefon-App bzw. Karten-App des Geräts
+    was: Telefonnummer (tel:) bzw. Adresse (geo:) des Kunden; kein Web-Kartendienst
+    wann: nur bei „Anrufen“ bzw. „Navigation“
+    freiwillig: true
+    beleg: lib/services/kontakt_aktion.dart
   - wohin: keine Übertragung der Geschäfts-/Kundendaten an FehlerFuchs
     was: nichts an FehlerFuchs
-    wann: der Datenaustausch mit GewerbePro läuft rein lokal (verschlüsselte
-      Paketdatei bzw. direkter USB-Weg); die erfassten Kunden-/Auftrags-/
-      Belegdaten verlassen das Gerät nur zum vom Nutzer bestimmten PC, nie an
-      einen FehlerFuchs-Server
+    wann: nie
     freiwillig: false
-    beleg: lib/services/sync_crypto.dart; lib/services/sync_ordner.dart; kein Netzwerk-Client für Geschäftsdaten
+    beleg: kein Netzwerk-Client außer lib/services/lizenz_dienst.dart
+
+vom_pc:
+  # Was die App aus dem Sync-Ordner (Documents/GewerbePro-Sync/pc-to-phone/) oder per
+  # Dateiauswahl übernimmt. Automatisch nur, solange die App im Vordergrund ist.
+  - was: Import-Quittung des PCs (markiert Sätze als übernommen)
+    beleg: lib/services/sync_eingang.dart
+  - was: Rückpaket (Katalog, Kunden, Aufgaben) – nur verschlüsselt
+    beleg: lib/data/db.dart (applyRueckpaket)
+  - was: Anforderung des PCs (löst das automatische Austauschpaket aus) – nur verschlüsselt
+    beleg: lib/services/sync_eingang.dart (anforderungBedienen)
+  - was: Branding (Firmendaten, Logo, Unterschrift) – nur verschlüsselt, Umschlag v2
+      mit Typ companion_branding; unverschlüsselte Dateien werden abgewiesen, ein
+      schon übernommenes Branding bleibt
+    beleg: lib/services/branding_store.dart (entschluesseln, uebernehmen); am AVD mit Datei von [FF_29] gemessen 26.09.2026
+  - was: nach der Übernahme löscht die App die Datei im Sync-Ordner selbst. Was sich
+      nicht prüfen lässt, bleibt liegen und wird in der App als „nicht übernommen“
+      mit Grund angezeigt; dabei ändert sich nichts
+    beleg: lib/services/sync_eingang.dart (verarbeiten, Quarantäne)
 
 fremde_dienste:
-  - name: Android-System für Teilen und Drucken (über die Bibliothek "printing")
-    wofuer: PDF ansehen, drucken oder an eine vom Nutzer gewählte App übergeben
+  - name: Android-Teilen (über die Bibliothek "printing", nur sharePdf)
+    wofuer: PDF an eine vom Nutzer gewählte App übergeben
     wann: nur bei ausdrücklicher Nutzeraktion
-  - name: Android-Dateiauswahl (über die Bibliothek "file_picker")
-    wofuer: Branding-Paket vom PC einlesen; die gewählte Datei wird nur gelesen
+  - name: Android-Dateiauswahl und Speichern-Dialog (über die Bibliothek "file_picker")
+    wofuer: >-
+      Lesen: Branding, Katalog, Rückpaket, Import-Quittung, Sicherungsdatei.
+      Schreiben: Austauschpaket und Sicherung. Die Kopien, die die Dateiauswahl im
+      App-Cache anlegt, löscht die App nach dem Import bzw. beim nächsten Start.
     wann: nur bei ausdrücklicher Nutzeraktion
   - name: Android-Ordnerfreigabe (Storage Access Framework, OPEN_DOCUMENT_TREE)
     wofuer: >-
-      Nur für den direkten USB-Weg: der Nutzer gibt EINMALIG den Sync-Ordner
-      „GewerbePro-Sync" frei, damit die App die vom PC dort abgelegten Antworten
-      (Import-Quittung, Rückpaket) lesen und nach der Übernahme löschen kann. Es
-      ist KEIN allgemeines Speicher-Sonderrecht (kein MANAGE_EXTERNAL_STORAGE);
-      die Freigabe gilt nur für den gewählten Ordner und lässt sich jederzeit
-      zurücknehmen.
+      Für den USB-Rückweg: Der Nutzer gibt EINMALIG einen Ordner frei. Die Freigabe
+      gilt für den Ordner, den er wählt – auf zwei Testgeräten war das „Documents“,
+      eine Ebene über „GewerbePro-Sync“. Die App liest und löscht darin nur in
+      GewerbePro-Sync/pc-to-phone und warnt, wenn dieser Ordner nicht erreichbar
+      ist. Kein allgemeines Speicher-Sonderrecht (kein MANAGE_EXTERNAL_STORAGE); die
+      Freigabe lässt sich jederzeit zurücknehmen.
     wann: nur nach ausdrücklicher Freigabe durch den Nutzer
 
 konto_noetig: false
@@ -114,45 +199,46 @@ absturzberichte: false
 daten_an_dritte_verkauft: false
 
 loeschung: >-
-  Alle Daten liegen ausschließlich auf dem Gerät im app-eigenen Speicher. Beim
-  Deinstallieren der App verschwinden sie vollständig. Einzelne Kunden, Entwürfe,
-  Fahrten, Aufgaben und Termine lassen sich in der App löschen; erzeugte PDFs
-  können unter Einstellungen entfernt werden (Datei und Eintrag). Die
-  handschriftliche Unterschrift wird nach dem Erzeugen des Quittungs-PDFs aus
-  dem Datensatz gelöscht und bleibt nur im PDF erhalten.
+  Die Daten in der App (Datenbank, PDFs, Branding) liegen im app-eigenen Speicher
+  und gehen weder in eine Cloud-Sicherung noch beim Gerätewechsel mit; beim
+  Deinstallieren löscht Android sie. Die Lizenzdaten im Schlüsselspeicher löscht
+  „Lizenz lösen“. NICHT gelöscht werden beim Deinstallieren: die Dateien im Ordner
+  Documents/GewerbePro-Sync (companion-hello.json, ggf. Pakete), abgelegte Austausch-
+  und Sicherungsdateien, geteilte PDFs und angelegte Kontakte. Einzelne Kunden,
+  Entwürfe, Fahrten, Aufgaben und Termine lassen sich in der App löschen; war ein
+  Satz schon beim PC, geht eine Löschmarke mit dem nächsten Paket an den PC (dort
+  wird er nur markiert, nicht gelöscht). Am PC bestätigte Sätze lassen sich nach
+  Rückfrage aufräumen. Erzeugte PDFs können unter Einstellungen entfernt werden.
+  Die handschriftliche Unterschrift wird nie im Datensatz gespeichert, nur im
+  Quittungs-PDF.
 
 besonderheiten: >-
-  Die App ist ein reiner Erfassungs-Begleiter zu GewerbePro. Gerechnet und
-  endgültig erzeugt wird alles am PC. Die eigentliche Erfassung läuft offline;
-  eine Internetverbindung braucht die App nur für die Lizenzaktivierung und
-  -prüfung gegenüber dem FehlerFuchs-Lizenzserver – dabei werden nur der
-  Lizenzschlüssel und eine zufällige Gerätekennung übertragen, keine Kundendaten.
-  Ein Benutzerkonto wird nicht angelegt; freigeschaltet wird über einen
-  Lizenzschlüssel. Der Datenaustausch mit dem PC ist ein bewusster Schritt des
-  Nutzers: Die App legt die erfassten Daten als VERSCHLÜSSELTES Paket ab
-  (AES-256-GCM, Schlüssel aus dem Lizenzschlüssel abgeleitet); ein automatischer
-  Versand findet nicht statt, und die Inhalte gehen nur an den vom Nutzer
-  bestimmten PC, nie an FehlerFuchs. Firmenlogo, Absenderangaben und Unterschrift
-  werden aus GewerbePro übernommen, damit Belege vor Ort im gewohnten Aussehen
-  erzeugt werden können. Da Kundendaten und Unterschriften erfasst werden,
-  verarbeitet der Nutzer mit dieser App personenbezogene Daten seiner eigenen
-  Kunden in eigener Verantwortung.
+  Die App ist ein Erfassungs-Begleiter zu GewerbePro. Gerechnet und endgültig
+  erzeugt wird am PC. Die Erfassung läuft offline; Internet braucht die App nur für
+  die Lizenz – dabei gehen Lizenzschlüssel, eine zufällige Gerätekennung, App-Name,
+  Plattform und der feste Text „Companion“ an den FehlerFuchs-Lizenzserver, keine
+  Kundendaten. Ein Benutzerkonto gibt es nicht. Der Austausch mit dem PC läuft nur
+  lokal: als Datei an einem Ort, den der Nutzer wählt, oder über das USB-Kabel. Am
+  Kabel kann GewerbePro die Erfassungen anfordern; die App legt sie dann ohne
+  Handgriff am Handy verschlüsselt in den Sync-Ordner, solange sie im Vordergrund
+  ist. Katalog, Kunden, Aufgaben und das Branding vom PC übernimmt sie von dort
+  ebenso automatisch. Alle Pakete sind mit AES-256-GCM verschlüsselt, der Schlüssel
+  kommt aus dem Lizenzschlüssel. Unverschlüsselt ist nur die Datei
+  companion-hello.json, mit der sich das Gerät beim PC meldet (zufällige Kennung,
+  Gerätename, Version, Zeitpunkt). Firmenlogo, Absender, Steuernummer,
+  Bankverbindung und Unterschrift übernimmt die App verschlüsselt aus GewerbePro,
+  damit Quittungen vor Ort im gewohnten Aussehen entstehen. Da Kundendaten und
+  Unterschriften erfasst werden, verarbeitet der Nutzer personenbezogene Daten
+  seiner eigenen Kunden in eigener Verantwortung.
 
-vorhandener_text: ""
+vorhandener_text: >-
+  In der App unter „Mehr → Impressum & Rechtliches“: Datenschutz-Kurzfassung nach
+  A-11.6 (offline, Stand 95c3716) mit Link auf https://fehlerfuchs.eu/datenschutz/.
 
 offene_fragen: >-
-  1. Die App ist noch nicht veröffentlicht. Ein Play-Store-Eintrag und das dortige
-  Datensicherheitsformular existieren nicht; Berechtigungen können sich bis zum
-  Release noch ändern.
-  2. Geprüft wurde der Quelltext und die Quell-Manifeste. Ob die Bibliotheken
-  "printing" und "file_picker" beim Zusammenbauen des Release-APK zusätzliche
-  Manifest-Einträge ergänzen, wurde an einem fertigen APK nicht nachgemessen.
-  3. Der Datenaustausch mit dem PC (verschlüsselte Paketdatei sowie der direkte
-  USB-Weg über MTP in den Ordner „Documents/GewerbePro-Sync") ist gebaut und
-  bleibt rein lokal – keine Übertragung an FehlerFuchs. Der automatische Rückweg
-  (PC→Handy) über eine einmalige Ordnerfreigabe (Storage Access Framework) ist
-  gebaut und auf einem Testgerät geprüft; auch er bleibt rein lokal. Ein
-  Relais-/Server-Weg ist zurückgestellt; käme er, entstünden neue Übertragungen,
-  die hier nachzutragen wären.
-  (Die frühere Frage zum Slug ist erledigt: "gewerbepro-companion" ist am
-  19.07.2026 in _SLUG-EIGENTUEMER.md bestätigt.)
+  1. Die App ist nicht veröffentlicht; das Play-Datenschutzformular ist noch nicht
+  ausgefüllt. Die Vorlage liegt in der Lieferung an [FF_00] vom 26.09.2026.
+  2. Das Branding kommt nur noch verschlüsselt an (E2). Dafür muss GewerbePro in
+  einer Version mit verschlüsseltem Branding-Export vorliegen ([FF_29], 1.1.0).
+  (Erledigt seit dem 20.08.: das Release-Manifest ist nachgemessen; der USB-Weg in
+  beide Richtungen ist gebaut und mit [FF_29] am AVD und an einem echten Gerät geprüft.)

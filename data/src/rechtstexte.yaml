@@ -26,9 +26,10 @@ rechtstexte:
     kurzbeschreibung: "Büro- und Auftragsverwaltung für Selbstständige und kleine Betriebe"
     editionen: "Gewerbe (kostenlos) und Pro (einmaliger Kauf)"
     lizenzschluessel: true
-    # 26.09.2026, DRITTE Fassung dieses Tages: erste = Ziffer 1.4 Companion-App (live 08:33),
+    # 26.09.2026, VIERTE Fassung dieses Tages: erste = Ziffer 1.4 Companion-App (live 08:33),
     # zweite = Zusatz Ziffer 5 (§§ 69d/69e UrhG) + zweiter Satz 12.3 (live 09:49),
-    # dritte = neue Ziffer 9.5 kostenfreie Editionen (Auftrag [FF_00] 10:08).
+    # dritte = neue Ziffer 9.5 kostenfreie Editionen (live 10:11),
+    # vierte = Ziffer 14 in du-Form (Rechtstext-Paket, Endabnahme Matthias 11:23).
     stand: "26.09.2026"
     vollstaendig: true
     ausstehend: []
@@ -57,6 +58,13 @@ rechtstexte:
         Für unentgeltlich bereitgestellte Software (kostenfreie Editionen) haftet der Anbieter,
         soweit gesetzlich zulässig, nur bei Vorsatz und grober Fahrlässigkeit; die Ziffern 9.2 und
         9.3 gelten nur für entgeltliche Editionen. Ziffer 9.1 bleibt unberührt.
+      # Ziffer 14 in du-Form - Endabnahme Matthias 26.09.2026, 11:23 (Anrede „du" für beide
+      # Anwendungen), Auftrag [FF_00] Rechtstext-Paket. Wort für Wort (B10/P10).
+      ziffer_14: >-
+        Der Kaufvertrag über die Software kommt mit dem jeweiligen Verkäufer zustande, über den du
+        die Software erworben hast. Für den Widerruf gelten dessen Bedingungen und dessen
+        Widerrufsbelehrung; sie werden dir im Bestellvorgang zur Verfügung gestellt. Diese
+        Vereinbarung regelt ausschließlich die Nutzung der Software.
       erweiterung_3_3: >-
         Im betrieblichen Einsatz sind zusätzlich eigene Beschäftigte des Nutzers sowie beauftragte
         Buchhaltungs- oder Steuerkanzleien im Rahmen der lizenzierten Nutzer- und Gerätezahl zur

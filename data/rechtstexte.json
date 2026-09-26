@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T10:09:27+02:00",
+  "generiert": "2026-09-26T11:31:15+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "rechtstexte": [
     {
@@ -20,6 +20,7 @@
         "zusatz_5": "Zwingende gesetzliche Nutzungsbefugnisse bleiben unberührt, insbesondere nach §§ 69d und 69e UrhG (u. a. bestimmungsgemäße Nutzung, Fehlerberichtigung, notwendige Sicherungskopie sowie Beobachten, Untersuchen und Testen des Programms).",
         "satz_12_3_2": "Dem Nutzer ist zuvor ein angemessener Zeitraum zum Export seiner Daten einzuräumen, damit der Zugriff auf aufbewahrungspflichtige Unterlagen nicht gefährdet wird.",
         "ziffer_9_5": "Für unentgeltlich bereitgestellte Software (kostenfreie Editionen) haftet der Anbieter, soweit gesetzlich zulässig, nur bei Vorsatz und grober Fahrlässigkeit; die Ziffern 9.2 und 9.3 gelten nur für entgeltliche Editionen. Ziffer 9.1 bleibt unberührt.",
+        "ziffer_14": "Der Kaufvertrag über die Software kommt mit dem jeweiligen Verkäufer zustande, über den du die Software erworben hast. Für den Widerruf gelten dessen Bedingungen und dessen Widerrufsbelehrung; sie werden dir im Bestellvorgang zur Verfügung gestellt. Diese Vereinbarung regelt ausschließlich die Nutzung der Software.",
         "erweiterung_3_3": "Im betrieblichen Einsatz sind zusätzlich eigene Beschäftigte des Nutzers sowie beauftragte Buchhaltungs- oder Steuerkanzleien im Rahmen der lizenzierten Nutzer- und Gerätezahl zur Nutzung berechtigt.",
         "uebertragung_4": "Einmalkauf mit dauerhafter, zeitlich unbefristeter Lizenz. Weitergabe nur, soweit gesetzlich zulässig; Voraussetzung ist, dass die bisherige Nutzung vollständig eingestellt, alle Programmkopien gelöscht oder unbrauchbar gemacht und Lizenzschlüssel sowie Lizenznachweise an den Erwerber übergeben werden. Eine Aufspaltung von Mehrplatzlizenzen ist nicht zulässig.",
         "eigenverantwortung_7_2": "Der Nutzer trägt die steuer- und handelsrechtlichen Pflichten selbst (z. B. GoBD, Aufbewahrungsfristen). Die Software erstellt Rechnungen, EÜR, E-Rechnungen und Berichte, ersetzt aber keine Steuerberatung. Der Nutzer ist ferner verantwortlich für die inhaltliche Richtigkeit und Vollständigkeit seiner Belege, Rechnungen und Buchungen.",

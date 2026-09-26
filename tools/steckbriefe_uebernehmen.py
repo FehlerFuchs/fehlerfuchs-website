@@ -126,7 +126,12 @@ ERSATZ_FELDNAMEN = {"uebertragungen", "auf_dem_geraet", "loeschung", "besonderhe
 ERSATZ_ENTSCHAERFEN = re.compile(
     r"https?://\S+"
     r"|\S+\.(?:html?|dart|kts?|ya?ml|json|md|txt|pdf|apk|aab|exe|iss|ps1|py)\b"
-    r"|\S*_\S*")
+    r"|\S*_\S*"
+    # Technische Werte, die wörtlich in ASCII bleiben MÜSSEN – nur genau diese Zeichenketten,
+    # nicht das Wort allgemein (26.09.2026, Rechtstext-Paket GewerbePro/Companion):
+    #   GewerbePro-Geraet  fester Gerätename, den GewerbePro an den Lizenzserver sendet
+    #   geraetename        Feldname in companion-hello.json (GewerbePro Companion)
+    r"|GewerbePro-Geraet|\bgeraetename\b")
 
 
 def ersatzschreibungen(daten):
