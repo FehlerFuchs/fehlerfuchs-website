@@ -222,7 +222,7 @@ media:
     height: 380
   # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
   # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
-  # Sobald echte Bilder da sind, ersetzt „screenshots:“ diese Zeile.
+  # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.
   platzhalter: 4
 
 links:

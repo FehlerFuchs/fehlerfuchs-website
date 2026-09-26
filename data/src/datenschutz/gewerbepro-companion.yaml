@@ -58,12 +58,12 @@ auf_dem_geraet:
     beleg: lib/data/db.dart (Tabelle app_settings)
   - was: keine Cloud-Sicherung und keine Mitnahme beim Gerätewechsel durch Android
     wo: –
-    beleg: android/app/src/main/AndroidManifest.xml (allowBackup=„false“, dataExtractionRules)
+    beleg: android/app/src/main/AndroidManifest.xml (allowBackup="false", dataExtractionRules)
 
 im_sync_ordner:
   # Gemeinsamer Speicher des Geräts: Documents/GewerbePro-Sync/ (nicht app-eigen).
   - was: companion-hello.json – UNVERSCHLÜSSELT. Genau sechs Felder – typ
-      („companion_hello“), geraet_id (zufällige UUID), geraetename (vom Nutzer
+      ("companion_hello"), geraet_id (zufällige UUID), geraetename (vom Nutzer
       vergeben, sonst leer), app_version, protokoll, erstellt_am. Keine erfassten Daten
     wo: Documents/GewerbePro-Sync/phone-to-pc/companion-hello.json
     wann: automatisch bei jedem App-Start und nach der Ordnerfreigabe (überschreibt die vorige)
@@ -176,7 +176,7 @@ fremde_dienste:
   - name: Android-Teilen (über die Bibliothek „printing“, nur sharePdf)
     wofuer: PDF an eine vom Nutzer gewählte App übergeben
     wann: nur bei ausdrücklicher Nutzeraktion
-  - name: Android-Dateiauswahl und Speichern-Dialog (über die Bibliothek „file_picker“)
+  - name: Android-Dateiauswahl und Speichern-Dialog (über die Bibliothek "file_picker")
     wofuer: >-
       Lesen: Branding, Katalog, Rückpaket, Import-Quittung, Sicherungsdatei.
       Schreiben: Austauschpaket und Sicherung. Die Kopien, die die Dateiauswahl im

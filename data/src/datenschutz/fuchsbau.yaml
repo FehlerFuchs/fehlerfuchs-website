@@ -12,7 +12,7 @@ auf_dem_geraet:
   - was: Tresor-Einträge (Titel und Passwort, optional Benutzername, URL, Kategorie, Notiz)
     wo: verschlüsselt im geschützten Speicher des Geräts
     beleg: lib/data/secure_vault_repository.dart (flutter_secure_storage,
-      Schluessel „fuchsbau_vault_v1“)
+      Schluessel "fuchsbau_vault_v1")
   - was: Prüfsummen von Tresor-PIN, Tresor-Passwort und Offline-Sicherheitsschlüssel;
       die eingegebenen Werte selbst werden nicht gespeichert
     wo: verschlüsselt im geschützten Speicher des Geräts
@@ -20,7 +20,7 @@ auf_dem_geraet:
       lib/core/security/security_key_service.dart (Argon2id-Hash + Salt)
   - was: Auswahl der aktiven Entsperr-Faktoren
     wo: verschlüsselt im geschützten Speicher des Geräts
-    beleg: lib/core/security/unlock_config.dart (Schluessel „fuchsbau_unlock_cfg“)
+    beleg: lib/core/security/unlock_config.dart (Schluessel "fuchsbau_unlock_cfg")
   - was: Einstellungen (Hell/Dunkel/System, Merker für die Einführung beim ersten Start,
       selbst ergänzte Wörter für den Passphrasen-Generator)
     wo: verschlüsselt im geschützten Speicher des Geräts

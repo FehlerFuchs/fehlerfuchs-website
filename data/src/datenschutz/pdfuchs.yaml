@@ -41,7 +41,7 @@ berechtigungen:
 
 # Von sich aus baut die Anwendung KEINE Verbindung auf. Es gibt genau eine
 # nutzerinitiierte Übertragung: das Support-/Kontaktformular (nur beim Absenden).
-# (Korrigiert 2026-08-07: die frühere Fassung „uebertragungen: []“ prüfte nur
+# (Korrigiert 2026-08-07: die frühere Fassung "uebertragungen: []" prüfte nur
 #  den Python-Programmkern und übersah die später ergänzte Support-Anbindung
 #  in der Flutter-Oberfläche.)
 uebertragungen:

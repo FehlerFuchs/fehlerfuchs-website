@@ -39,7 +39,7 @@ auf_dem_geraet:
 # mit; damit verlassen Scans, Einstellungen und Diagnosedaten das Geraet auch
 # ueber diesen Weg nicht.
 backup_ausgeschlossen:
-  wo: android:allowBackup=„false“, fullBackupContent=„false“, dataExtractionRules
+  wo: android:allowBackup="false", fullBackupContent="false", dataExtractionRules
   beleg: android/app/src/main/AndroidManifest.xml, android/app/src/main/res/xml/data_extraction_rules.xml
 
 berechtigungen:
@@ -57,7 +57,7 @@ berechtigungen:
     beleg: com.android.vending.BILLING, vom Paket in_app_purchase ergaenzt, im gemergten Release-Manifest enthalten
   # 2026-07-31 (Audit F-025): WRITE_EXTERNAL_STORAGE ENTFERNT. Das Speichern in
   # App-interne Verzeichnisse braucht keine Berechtigung; die Legacy-
-  # Schreibberechtigung war ungenutzt und ist per tools:node=„remove“ gestrichen.
+  # Schreibberechtigung war ungenutzt und ist per tools:node="remove" gestrichen.
   # 2026-08-17 (Fassung 1.2.0): Auch das optionale Schreiben in eine selbst
   # gewaehlte Standardablage laeuft ueber das Storage Access Framework und
   # braucht KEINE Speicher-Berechtigung.
@@ -72,11 +72,11 @@ berechtigungen:
   - name: Mikrofon
     wofuer: wird nicht angefordert. Die Kamera wird ohne Tonaufnahme geöffnet; es wird nie Audio aufgezeichnet
     pflicht: false
-    beleg: RECORD_AUDIO per tools:node=„remove“ entfernt in android/app/src/main/AndroidManifest.xml; enableAudio false in lib/features/scan/scan_screen.dart
+    beleg: RECORD_AUDIO per tools:node="remove" entfernt in android/app/src/main/AndroidManifest.xml; enableAudio false in lib/features/scan/scan_screen.dart
   - name: Zugriff auf Fotos und Videos
     wofuer: wird nicht angefordert. Bilder wählt man über den Android-Fotoauswahl-Dialog aus, der ohne diese Berechtigung auskommt
     pflicht: false
-    beleg: READ_MEDIA_IMAGES und READ_MEDIA_VIDEO per tools:node=„remove“ entfernt in android/app/src/main/AndroidManifest.xml; useAndroidPhotoPicker in lib/main.dart
+    beleg: READ_MEDIA_IMAGES und READ_MEDIA_VIDEO per tools:node="remove" entfernt in android/app/src/main/AndroidManifest.xml; useAndroidPhotoPicker in lib/main.dart
 
 uebertragungen:
   - wohin: Google Play (Abrechnung)

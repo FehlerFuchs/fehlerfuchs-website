@@ -1823,14 +1823,19 @@ def pruefe_typografie():
     """Anführungszeichen und Gedankenstriche einheitlich (Webseiten-Sichtung 26.09.2026, Befund 16).
 
     Regeln: „…“ statt „…" oder "…"; Gedankenstrich „ – “ statt „ - “ oder „ — “.
-    Ausnahme: Code-Schreibweisen in geraden Anführungszeichen (enthält = / _ :, ist ein
-    Kleinbuchstaben-Bezeichner oder steht hinter „=“) – z. B. allowBackup="false".
+    Ausnahme: Code-Schreibweisen in geraden Anführungszeichen (Regel siehe code_artig) –
+    z. B. allowBackup="false", "file_picker", "config.py".
     FEHLER in den Daten, die [FF_10] selbst pflegt; WARNUNG in den Datenschutz-Steckbriefen,
     die die Projekte einreichen (dort nicht an einem Anführungszeichen scheitern lassen).
     """
     def code_artig(innen, davor):
-        return (davor.rstrip().endswith("=") or any(c in innen for c in "=/_:")
-                or re.fullmatch(r"[a-z0-9.+-]+", innen) is not None)
+        # Code: steht hinter „=“, enthält „_“, enthält = / : . ohne Leerzeichen (config.py,
+        # image/png) oder ist ein YAML-Schlüssel (uebertragungen: []). NICHT Code: ein kleines
+        # Wort wie "gefunden" oder ein Titel wie "Info / Datenschutz" – das ist Fließtext.
+        return (davor.rstrip().endswith("=") or "_" in innen
+                or (not re.search(r"\s", innen) and any(c in innen for c in "=/:."))
+                or re.fullmatch(r"[a-z_]+:\s*\S*", innen) is not None
+                or re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)+", innen) is not None)   # Kennung: kein-tracking
 
     def funde(s):
         raus = [f"„…\" statt „…“: „{m.group(1)[:40]}\"" for m in TYPO_MISCH.finditer(s)]

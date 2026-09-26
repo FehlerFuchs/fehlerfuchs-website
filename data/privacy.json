@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T17:16:45+02:00",
+  "generiert": "2026-09-26T17:21:03+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1022,7 +1022,7 @@
         {
           "was": "Tresor-Einträge (Titel und Passwort, optional Benutzername, URL, Kategorie, Notiz)",
           "wo": "verschlüsselt im geschützten Speicher des Geräts",
-          "beleg": "lib/data/secure_vault_repository.dart (flutter_secure_storage, Schluessel „fuchsbau_vault_v1“)"
+          "beleg": "lib/data/secure_vault_repository.dart (flutter_secure_storage, Schluessel \"fuchsbau_vault_v1\")"
         },
         {
           "was": "Prüfsummen von Tresor-PIN, Tresor-Passwort und Offline-Sicherheitsschlüssel; die eingegebenen Werte selbst werden nicht gespeichert",
@@ -1032,7 +1032,7 @@
         {
           "was": "Auswahl der aktiven Entsperr-Faktoren",
           "wo": "verschlüsselt im geschützten Speicher des Geräts",
-          "beleg": "lib/core/security/unlock_config.dart (Schluessel „fuchsbau_unlock_cfg“)"
+          "beleg": "lib/core/security/unlock_config.dart (Schluessel \"fuchsbau_unlock_cfg\")"
         },
         {
           "was": "Einstellungen (Hell/Dunkel/System, Merker für die Einführung beim ersten Start, selbst ergänzte Wörter für den Passphrasen-Generator)",
@@ -1153,12 +1153,12 @@
         {
           "was": "keine Cloud-Sicherung und keine Mitnahme beim Gerätewechsel durch Android",
           "wo": "–",
-          "beleg": "android/app/src/main/AndroidManifest.xml (allowBackup=„false“, dataExtractionRules)"
+          "beleg": "android/app/src/main/AndroidManifest.xml (allowBackup=\"false\", dataExtractionRules)"
         }
       ],
       "im_sync_ordner": [
         {
-          "was": "companion-hello.json – UNVERSCHLÜSSELT. Genau sechs Felder – typ („companion_hello“), geraet_id (zufällige UUID), geraetename (vom Nutzer vergeben, sonst leer), app_version, protokoll, erstellt_am. Keine erfassten Daten",
+          "was": "companion-hello.json – UNVERSCHLÜSSELT. Genau sechs Felder – typ (\"companion_hello\"), geraet_id (zufällige UUID), geraetename (vom Nutzer vergeben, sonst leer), app_version, protokoll, erstellt_am. Keine erfassten Daten",
           "wo": "Documents/GewerbePro-Sync/phone-to-pc/companion-hello.json",
           "wann": "automatisch bei jedem App-Start und nach der Ordnerfreigabe (überschreibt die vorige)",
           "wer_kann_es_sehen": "ein per USB angeschlossener PC (MTP) und Apps, denen der Nutzer Zugriff auf seine Dateien gewährt",
@@ -1278,7 +1278,7 @@
           "wann": "nur bei ausdrücklicher Nutzeraktion"
         },
         {
-          "name": "Android-Dateiauswahl und Speichern-Dialog (über die Bibliothek „file_picker“)",
+          "name": "Android-Dateiauswahl und Speichern-Dialog (über die Bibliothek \"file_picker\")",
           "wofuer": "Lesen: Branding, Katalog, Rückpaket, Import-Quittung, Sicherungsdatei. Schreiben: Austauschpaket und Sicherung. Die Kopien, die die Dateiauswahl im App-Cache anlegt, löscht die App nach dem Import bzw. beim nächsten Start.",
           "wann": "nur bei ausdrücklicher Nutzeraktion"
         },
@@ -2196,7 +2196,7 @@
         }
       ],
       "backup_ausgeschlossen": {
-        "wo": "android:allowBackup=„false“, fullBackupContent=„false“, dataExtractionRules",
+        "wo": "android:allowBackup=\"false\", fullBackupContent=\"false\", dataExtractionRules",
         "beleg": "android/app/src/main/AndroidManifest.xml, android/app/src/main/res/xml/data_extraction_rules.xml"
       },
       "berechtigungen": [
@@ -2234,13 +2234,13 @@
           "name": "Mikrofon",
           "wofuer": "wird nicht angefordert. Die Kamera wird ohne Tonaufnahme geöffnet; es wird nie Audio aufgezeichnet",
           "pflicht": false,
-          "beleg": "RECORD_AUDIO per tools:node=„remove“ entfernt in android/app/src/main/AndroidManifest.xml; enableAudio false in lib/features/scan/scan_screen.dart"
+          "beleg": "RECORD_AUDIO per tools:node=\"remove\" entfernt in android/app/src/main/AndroidManifest.xml; enableAudio false in lib/features/scan/scan_screen.dart"
         },
         {
           "name": "Zugriff auf Fotos und Videos",
           "wofuer": "wird nicht angefordert. Bilder wählt man über den Android-Fotoauswahl-Dialog aus, der ohne diese Berechtigung auskommt",
           "pflicht": false,
-          "beleg": "READ_MEDIA_IMAGES und READ_MEDIA_VIDEO per tools:node=„remove“ entfernt in android/app/src/main/AndroidManifest.xml; useAndroidPhotoPicker in lib/main.dart"
+          "beleg": "READ_MEDIA_IMAGES und READ_MEDIA_VIDEO per tools:node=\"remove\" entfernt in android/app/src/main/AndroidManifest.xml; useAndroidPhotoPicker in lib/main.dart"
         }
       ],
       "uebertragungen": [
