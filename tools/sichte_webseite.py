@@ -75,9 +75,24 @@ class Seite(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.text, self.links, self.ids, self.dateien = [], [], set(), []
         self.titel, self._stumm, self._im_titel = "", 0, False
+        # SEO: was im Kopf und in der Gliederung steht
+        self.meta, self.canonical, self.lang, self.h1 = {}, None, None, 0
+        self.bilder_ohne_alt, self.jsonld = 0, 0
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        if tag == "html":
+            self.lang = a.get("lang")
+        if tag == "meta" and (a.get("name") or a.get("property")):
+            self.meta[(a.get("name") or a.get("property")).lower()] = a.get("content") or ""
+        if tag == "link" and a.get("rel") == "canonical":
+            self.canonical = a.get("href")
+        if tag == "h1":
+            self.h1 += 1
+        if tag == "img" and not (a.get("alt") or "").strip() and a.get("role") != "presentation" and a.get("aria-hidden") != "true":
+            self.bilder_ohne_alt += 1
+        if tag == "script" and a.get("type") == "application/ld+json":
+            self.jsonld += 1
         if tag in self.STUMM:
             self._stumm += 1
         if tag == "title":
@@ -205,6 +220,47 @@ def main():
             except ValueError:
                 befund("datum", pfad, f"Ungültiges Datum: {j}-{mo}-{d}")
 
+    # 2b) SEO – maschinell prüfbare Grundlagen. Schwere „seo“: kein Fehler, ein Verbesserungsvorschlag.
+    #     Richtwerte: Titel ≤ 60 Zeichen, Beschreibung 70–160 Zeichen (Anzeige in den Suchergebnissen).
+    titel_zu, beschr_zu = {}, {}
+    seo_tabelle = []
+    for pfad, s in seiten.items():
+        t = " ".join(s.titel.split())
+        d = " ".join((s.meta.get("description") or "").split())
+        titel_zu.setdefault(t, []).append(pfad)
+        if d:
+            beschr_zu.setdefault(d, []).append(pfad)
+        if not t:
+            befund("seo", pfad, "Kein Seitentitel (<title>)", "mittel")
+        elif len(t) > 60:
+            befund("seo", pfad, f"Seitentitel {len(t)} Zeichen (Richtwert ≤ 60, wird in Google abgeschnitten): „{t}“", "niedrig")
+        if not d:
+            befund("seo", pfad, "Keine Meta-Beschreibung — Google wählt dann selbst einen Ausschnitt", "mittel")
+        elif not 70 <= len(d) <= 160:
+            befund("seo", pfad, f"Meta-Beschreibung {len(d)} Zeichen (Richtwert 70–160)", "niedrig")
+        if s.h1 != 1:
+            befund("seo", pfad, f"{s.h1} Hauptüberschriften (H1) — Richtwert genau eine", "niedrig")
+        if not s.canonical:
+            befund("seo", pfad, "Keine Canonical-Adresse (<link rel=\"canonical\">)", "niedrig")
+        elif urllib.parse.urlparse(urllib.parse.urljoin(basis + pfad, s.canonical)).path != pfad:
+            befund("seo", pfad, f"Canonical zeigt auf eine andere Seite: {s.canonical}", "mittel")
+        if not s.lang:
+            befund("seo", pfad, "Keine Sprachangabe (<html lang>)", "niedrig")
+        if s.bilder_ohne_alt:
+            befund("seo", pfad, f"{s.bilder_ohne_alt} Bild(er) ohne Alternativtext (Barrierefreiheit und Bildersuche)", "niedrig")
+        if not s.meta.get("og:title") or not s.meta.get("og:description"):
+            befund("seo", pfad, "Vorschau beim Teilen unvollständig (og:title / og:description fehlt)", "niedrig")
+        if "noindex" in (s.meta.get("robots") or "").lower():
+            befund("seo", pfad, "Seite ist auf „noindex“ gesetzt — erscheint nicht in Google", "hoch")
+        seo_tabelle.append((pfad, len(t), len(d), s.h1, "ja" if s.canonical else "—", s.jsonld,
+                            s.bilder_ohne_alt, "ja" if s.meta.get("og:title") else "—"))
+    for t, pfade in titel_zu.items():
+        if t and len(pfade) > 1:
+            befund("seo", pfade[0], f"Gleicher Seitentitel auf {len(pfade)} Seiten: „{t}“ ({', '.join(pfade)})", "mittel")
+    for d, pfade in beschr_zu.items():
+        if len(pfade) > 1:
+            befund("seo", pfade[0], f"Gleiche Meta-Beschreibung auf {len(pfade)} Seiten ({', '.join(pfade)})", "niedrig")
+
     # 3) Links, Anker und eingebundene Dateien
     geprueft = {}
 
@@ -280,6 +336,10 @@ def main():
               "| Schwere | Art | Seite | Befund |", "|---|---|---|---|"]
     for b in sorted(befunde, key=lambda b: ({"hoch": 0, "mittel": 1, "niedrig": 2}[b["schwere"]], b["seite"])):
         zeilen.append(f"| {b['schwere']} | {b['art']} | `{b['seite']}` | {b['befund']} |")
+    zeilen += ["", "## SEO-Grundlagen je Seite", "",
+               "| Seite | Titel (Z.) | Beschreibung (Z.) | H1 | Canonical | JSON-LD | Bilder ohne Alt | og: |",
+               "|---|---:|---:|---:|---|---:|---:|---|"]
+    zeilen += [f"| `{r[0]}` | {r[1]} | {r[2]} | {r[3]} | {r[4]} | {r[5]} | {r[6]} | {r[7]} |" for r in sorted(seo_tabelle)]
     zeilen += ["", "## Seiten", ""] + [f"- `{p}` — {s.titel.strip()}" for p, s in sorted(seiten.items())]
     (ziel / "bericht.md").write_text("\n".join(zeilen) + "\n", encoding="utf-8")
     print(f"Seiten: {len(seiten)} | Links/Dateien: {len(geprueft)} | Befunde: {len(befunde)} "
