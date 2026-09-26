@@ -90,8 +90,9 @@ rechtstexte:
     plattform_wort: Windows-Desktop
     kurzbeschreibung: "Verwaltung des privaten Haushalts (Zählerstände, Verträge, Haushaltsbuch)"
     editionen: "Vollversion (einmaliger Kauf)"
+    edition_einzahl: true   # „in der Edition“ – Befund 3, Entscheidung Matthias A (26.09.2026)
     lizenzschluessel: true
-    stand: "03.09.2026"
+    stand: "26.09.2026"     # Ziffer 1.2 „in der Edition“ (Sichtung 26.09., Befund 3); vorher 03.09.2026
     vollstaendig: true
     ausstehend: []
     felder:
@@ -117,16 +118,21 @@ rechtstexte:
     plattform_wort: Android
     kurzbeschreibung: "Erfassung und PDF-Dokumentation von Meldungen zu Geräten und Anlagen (Firmenfassung)"
     editionen: "Firmenfassung mit Lizenzschlüssel je Arbeitsplatz (gestaffelt)"
+    edition_einzahl: true   # „in der Edition“ – Befund 3, Entscheidung Matthias A (26.09.2026)
     lizenzschluessel: true
-    stand: "03.09.2026"
+    stand: "26.09.2026"     # Ziffer 3.3 neu + 1.2 „in der Edition“ (Sichtung 26.09., Befund 3); vorher 03.09.2026
     vollstaendig: true
     ausstehend: []
     felder:
-      erweiterung_3_3: >-
-        Beschäftigte des lizenzierten Unternehmens, die Meldungen erfassen, im Rahmen der
-        lizenzierten Nutzer- und Geräteanzahl (Seats). Zusätzlich im Auftrag und unter Verantwortung
-        des Unternehmens tätige Dienstleister (z. B. Facility-, Hausmeister- oder Gebäudedienste).
-        Keine Nutzung über die lizenzierte Seat-Zahl hinaus.
+      # Ziffer 3.3 vollständig – Wortlaut freigegeben von Matthias am 26.09.2026 (Webseiten-Sichtung,
+      # Befund 3, Option A, über [FF_00]). Ersetzt das Satzbruchstück in erweiterung_3_3. Wort für Wort.
+      abschnitt_3_3: >-
+        Ein Gerätewechsel ist zulässig, sofern die Software auf dem bisherigen Gerät nicht weiter
+        genutzt wird. Zur Nutzung berechtigt sind Beschäftigte des lizenzierten Unternehmens, die
+        Meldungen erfassen, sowie im Auftrag und unter Verantwortung des Unternehmens tätige
+        Dienstleister (z. B. Facility-, Hausmeister- oder Gebäudedienste), jeweils im Rahmen der
+        lizenzierten Nutzer- und Geräteanzahl (Seats). Keine Nutzung über die lizenzierte Seat-Zahl
+        hinaus.
       uebertragung_4: >-
         Enterprise-Lizenzen werden unbegrenzt (dauerhaft) oder mit Ablaufdatum (Laufzeitlizenz)
         bereitgestellt. Dauerhafte Lizenz: Weitergabe nur, soweit gesetzlich zulässig; Voraussetzung
