@@ -1,28 +1,37 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T17:09:25+02:00",
+  "generiert": "2026-09-26T17:16:45+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "dienste": [
     {
       "id": "lizenzserver",
       "name": "Lizenzserver",
       "adresse": "license.fehlerfuchs.eu",
-      "zweck": "Stellt Lizenzschlüssel für kostenpflichtige Ausbaustufen aus und prüft sie. Ohne Kauf einer solchen Stufe wird er nie angesprochen.",
+      "zweck": "Stellt Lizenzschlüssel für kostenpflichtige Ausbaustufen aus und prüft sie. Außerdem nimmt er entgegen, was du über ein Formular abschickst: Kontakt- und Supportanfragen aus den Apps und von der Website, Einsendungen an den Wunscherfüller und die Teilnahme an Aktionen. Andere Anlässe gibt es nicht.",
       "betreiber": "eigen",
       "standort": "Deutschland",
-      "stand": "2026-07-19",
+      "stand": "2026-09-26",
       "uebermittelt": [
         "Lizenzschlüssel",
-        "Kennung des Geräts, auf dem freigeschaltet wird"
+        "Kennung des Geräts, auf dem freigeschaltet wird",
+        "Angaben aus Formularen, die du abschickst (Name, E-Mail, Nachricht, Anhänge)"
       ],
-      "aufbewahrung": "Lizenz und zugehörige Gerätekennung, solange die Lizenz gilt. Kaufabwicklung und Rechnungsdaten liegen beim Zahlungsdienstleister, nicht hier.",
+      "aufbewahrung": "Lizenz und zugehörige Gerätekennung, solange die Lizenz gilt. Kaufabwicklung und Rechnungsdaten liegen beim Zahlungsdienstleister, nicht hier. Wunsch-Einsendungen 90 Tage; Aktionsteilnahme: Name und E-Mail 90 Tage nach Vergabe.",
       "produkte": [
         "mobilereport",
         "mobilereport-enterprise",
         "gewerbepro",
-        "gewerbepro-companion"
+        "gewerbepro-companion",
+        "snapfuchs",
+        "orgafuchs",
+        "pdfuchs",
+        "pdfuchsreader",
+        "belegwerk",
+        "checkin-vita",
+        "up2date",
+        "dateiwaechter"
       ],
-      "hinweis": "Ohne Kauf einer kostenpflichtigen Stufe wird der Dienst nicht angesprochen. Die Kontakt- und Supportformulare der Apps laufen ebenfalls über ihn – dann ohne jeden Lizenzbezug."
+      "hinweis": "Beim Öffnen der Wunscherfüller- und der Aktionsseite fragt die Website nur einen Zählerstand ab – ohne Angaben von dir. Kontakt- und Supportanfragen werden als E-Mail weitergeleitet und nicht gespeichert. Wunsch-Einsendungen werden nach 90 Tagen gelöscht; bei Aktionen werden Name und E-Mail-Adresse 90 Tage nach der Vergabe entfernt."
     },
     {
       "id": "relaisserver",

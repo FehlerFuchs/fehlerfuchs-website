@@ -53,22 +53,36 @@ dienste:
   - id: lizenzserver
     name: Lizenzserver
     adresse: license.fehlerfuchs.eu
+    # Neu gefasst 26.09.2026 (Befund 2 Webseiten-Sichtung, Entscheidung Matthias B): Wortlaut
+    # gemessen von [FF_11] (16:41), freigegeben von Matthias im ChefBüro-Chat („Übernehmen, mit
+    # Nebenfeldern“), FREIGABE von [FF_00] 16:51. Vorher „wird nie angesprochen“ – falsch, denn
+    # Kontakt-, Support-, Wunsch- und Aktionsformulare laufen ebenfalls über den Dienst.
+    # Einzige Abweichung vom Wortlaut: „ — “ → „ – “ (Hausschreibweise, Befund 16).
     zweck: >-
       Stellt Lizenzschlüssel für kostenpflichtige Ausbaustufen aus und prüft
-      sie. Ohne Kauf einer solchen Stufe wird er nie angesprochen.
+      sie. Außerdem nimmt er entgegen, was du über ein Formular abschickst:
+      Kontakt- und Supportanfragen aus den Apps und von der Website,
+      Einsendungen an den Wunscherfüller und die Teilnahme an Aktionen.
+      Andere Anlässe gibt es nicht.
     betreiber: eigen
     standort: Deutschland
-    stand: "2026-07-19"
+    stand: "2026-09-26"
     # Nur was die APP oder der BROWSER dorthin sendet. Was der Dienst
     # intern speichert, gehoert in die Aufbewahrung darunter.
     uebermittelt:
       - Lizenzschlüssel
       - Kennung des Geräts, auf dem freigeschaltet wird
+      - Angaben aus Formularen, die du abschickst (Name, E-Mail, Nachricht, Anhänge)
     aufbewahrung: >-
       Lizenz und zugehörige Gerätekennung, solange die Lizenz gilt.
       Kaufabwicklung und Rechnungsdaten liegen beim Zahlungsdienstleister,
-      nicht hier.
-    produkte: [mobilereport, mobilereport-enterprise, gewerbepro, gewerbepro-companion]
+      nicht hier. Wunsch-Einsendungen 90 Tage; Aktionsteilnahme: Name und
+      E-Mail 90 Tage nach Vergabe.
+    # Lizenz-Apps plus alle Apps, deren Kontakt-/Supportformular über den Dienst läuft –
+    # Aufrufer gemessen von [FF_11] am 26.09.2026 per git grep (Beleg im Steckbrief lizenzserver).
+    produkte: [mobilereport, mobilereport-enterprise, gewerbepro, gewerbepro-companion,
+               snapfuchs, orgafuchs, pdfuchs, pdfuchsreader, belegwerk, checkin-vita,
+               up2date, dateiwaechter]
     # Korrigiert am 19.07.2026: Hier stand "der Dienst ist im Aufbau, bis er in
     # Betrieb geht baut keine veröffentlichte Anwendung eine Verbindung dorthin
     # auf". Beides war falsch – der Dienst läuft, und die veröffentlichte
@@ -76,9 +90,11 @@ dienste:
     # einmal stimmte und nie nachgezogen wurde: genau der Fall, für den es den
     # Steckbrief-Umlauf gibt.
     hinweis: >-
-      Ohne Kauf einer kostenpflichtigen Stufe wird der Dienst nicht
-      angesprochen. Die Kontakt- und Supportformulare der Apps laufen
-      ebenfalls über ihn – dann ohne jeden Lizenzbezug.
+      Beim Öffnen der Wunscherfüller- und der Aktionsseite fragt die Website
+      nur einen Zählerstand ab – ohne Angaben von dir. Kontakt- und
+      Supportanfragen werden als E-Mail weitergeleitet und nicht gespeichert.
+      Wunsch-Einsendungen werden nach 90 Tagen gelöscht; bei Aktionen werden
+      Name und E-Mail-Adresse 90 Tage nach der Vergabe entfernt.
 
   # Neu gefasst 26.09.2026 (Befund 6 Webseiten-Sichtung, Entscheidung Matthias A): gemessener
   # Stand von [FF_11-2] Relaisserver (ERGEBNIS 16:45, am laufenden Server und im Quellcode).
