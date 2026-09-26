@@ -116,8 +116,8 @@ features:
     items:
       - name: Erfassungspaket für den Import in GewerbePro erzeugen
         values: { standard: ja }
-      # C2 [FF_29-1]: umgesetzt in 1.0.0. Ein Cloud-/Server-Weg ist nicht gebaut; ob er kommt,
-      # ist nicht entschieden – deshalb hier NICHT als „geplant“ versprochen.
+      # C2 [FF_29-1]: umgesetzt in 1.0.0. Ein Cloud-/Server-/Relais-Weg ist gestrichen bzw. aufgeschoben,
+      # aus Sicherheitsgründen (Entscheidung Matthias 26.09.2026 16:52, über [FF_29-1]) – kein „geplant“.
       - name: Übertragung zum PC per USB-Kabel (automatisch) oder als verschlüsselte Datei
         values: { standard: ja }
         note: >-
