@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T19:07:50+02:00",
+  "generiert": "2026-09-26T20:21:04+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -3186,7 +3186,7 @@
       "kind": "produkt",
       "parent": "gewerbepro",
       "tagline": "Mobiler Erfassungs-Begleiter zu GewerbePro: Kunden, Auftrags-Entwürfe, Fahrten und Quittungen unterwegs aufnehmen – offline und ohne Konto.",
-      "description": "Die Companion-App ist die Android-Ergänzung zu GewerbePro. Sie erfasst unterwegs Kunden, Auftrags-Entwürfe mit Positionen, Fahrten, Aufgaben, Termine und Quittungen und arbeitet dabei vollständig offline. Gerechnet wird nichts auf dem Handy: Die App sammelt Rohdaten und übergibt sie verschlüsselt an GewerbePro auf dem PC – automatisch über das USB-Kabel oder als Datei –, und GewerbePro macht daraus Angebote, Aufträge und Belege. Für Quittungen vor Ort übernimmt sie das Firmen-Branding aus GewerbePro und erzeugt einen unterschriebenen Beleg als PDF.",
+      "description": "Die Companion-App ist die Android-Ergänzung zu GewerbePro. Sie erfasst unterwegs Kunden, Auftrags-Entwürfe mit Positionen, Fahrten, Aufgaben, Termine und Quittungen und arbeitet nach der einmaligen Aktivierung offline. Gerechnet wird nichts auf dem Handy: Die App sammelt Rohdaten und übergibt sie verschlüsselt an GewerbePro auf dem PC – automatisch über das USB-Kabel oder als Datei –, und GewerbePro macht daraus Angebote, Aufträge und Belege. Für Quittungen vor Ort übernimmt sie das Firmen-Branding aus GewerbePro und erzeugt einen unterschriebenen Beleg als PDF.",
       "audience": [
         "selbststaendige",
         "unternehmen"
@@ -4661,11 +4661,11 @@
         },
         "screenshots": []
       },
-      "status": "idee",
+      "status": "pausiert",
       "platforms": [
         {
           "os": "android",
-          "status": "idee",
+          "status": "pausiert",
           "distribution": "play-store",
           "requirements": "Android (geplant: minSdk 21 / targetSdk 35)"
         }

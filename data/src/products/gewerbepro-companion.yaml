@@ -18,7 +18,7 @@ tagline: >-
 description: >-
   Die Companion-App ist die Android-Ergänzung zu GewerbePro. Sie erfasst unterwegs
   Kunden, Auftrags-Entwürfe mit Positionen, Fahrten, Aufgaben, Termine und Quittungen
-  und arbeitet dabei vollständig offline. Gerechnet wird nichts auf dem Handy: Die App
+  und arbeitet nach der einmaligen Aktivierung offline. Gerechnet wird nichts auf dem Handy: Die App
   sammelt Rohdaten und übergibt sie verschlüsselt an GewerbePro auf dem PC –
   automatisch über das USB-Kabel oder als Datei –, und GewerbePro macht daraus
   Angebote, Aufträge und Belege. Für Quittungen vor Ort übernimmt sie das

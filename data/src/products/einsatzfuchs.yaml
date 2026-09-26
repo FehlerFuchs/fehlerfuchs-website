@@ -98,11 +98,11 @@ media:
   # es nicht gibt. Die leere Galerie ist hier die ehrlichere Angabe.
   screenshots: []
 
-status: idee
+status: pausiert
 
 platforms:
   - os: android
-    status: idee
+    status: pausiert
     distribution: play-store
     requirements: "Android (geplant: minSdk 21 / targetSdk 35)"
     # Geplante applicationId eu.fehlerfuchs.einsatzfuchs – noch nicht
