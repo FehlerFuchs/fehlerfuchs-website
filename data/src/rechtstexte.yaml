@@ -26,7 +26,9 @@ rechtstexte:
     kurzbeschreibung: "Büro- und Auftragsverwaltung für Selbstständige und kleine Betriebe"
     editionen: "Gewerbe (kostenlos) und Pro (einmaliger Kauf)"
     lizenzschluessel: true
-    stand: "26.09.2026"   # Ziffer 1.4 Companion-App (Auftrag [FF_00] 26.09.); vorher 03.09.2026
+    # 26.09.2026, ZWEITE Fassung dieses Tages: erste = Ziffer 1.4 Companion-App (live 08:33),
+    # zweite = Zusatz Ziffer 5 (§§ 69d/69e UrhG) + zweiter Satz 12.3 (Auftrag [FF_00] 09:44).
+    stand: "26.09.2026"
     vollstaendig: true
     ausstehend: []
     felder:
@@ -37,6 +39,16 @@ rechtstexte:
         Zur Software gehört auch die Begleit-App „GewerbePro Companion“ für Android. Sie wird
         kostenlos über Google Play bereitgestellt und ist nur zusammen mit einem gültigen
         GewerbePro-Lizenzschlüssel nutzbar. Für die Companion-App gilt diese Vereinbarung entsprechend.
+      # Ziffer 5, angehängter Satz, und 12.3, zweiter Satz - Wortlaut freigegeben von Matthias am
+      # 26.09.2026 ~09:45 (ChefBüro-Chat, Vorschläge 2 und 3 je „Ja"; Vorschlag 1, neue 9.5, abgelehnt).
+      # Wort für Wort übernommen (B10/P10). Vorschlag von [FF_29] vor dem Release 1.1.0.
+      zusatz_5: >-
+        Zwingende gesetzliche Nutzungsbefugnisse bleiben unberührt, insbesondere nach §§ 69d und
+        69e UrhG (u. a. bestimmungsgemäße Nutzung, Fehlerberichtigung, notwendige Sicherungskopie
+        sowie Beobachten, Untersuchen und Testen des Programms).
+      satz_12_3_2: >-
+        Dem Nutzer ist zuvor ein angemessener Zeitraum zum Export seiner Daten einzuräumen, damit
+        der Zugriff auf aufbewahrungspflichtige Unterlagen nicht gefährdet wird.
       erweiterung_3_3: >-
         Im betrieblichen Einsatz sind zusätzlich eigene Beschäftigte des Nutzers sowie beauftragte
         Buchhaltungs- oder Steuerkanzleien im Rahmen der lizenzierten Nutzer- und Gerätezahl zur
