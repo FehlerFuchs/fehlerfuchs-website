@@ -79,6 +79,10 @@ features:
         values: { free: ja, pro: ja, mobilereport-enterprise: ja }
       - name: Vollständig lokal und werbefrei
         values: { free: ja, pro: ja, mobilereport-enterprise: ja }
+      # 1.5.0 (26.09.2026), Wortlaut aus der Produkteinschreibung von [FF_20] (stand 26.09.).
+      - name: Passende Empfänger vorgeschlagen – nach Gebäude, sonst nach Bereich, jeweils passend zur Kategorie
+        values: { free: ja, pro: ja, mobilereport-enterprise: ja }
+        note: Seit 1.5.0. Wofür ein Empfänger zuständig ist, wird bei ihm festgelegt.
 
   - group: Vorgaben für das Team
     items:
@@ -86,9 +90,12 @@ features:
         values: { free: nein, pro: ja, mobilereport-enterprise: ja }
       - name: Admin-Bereich mit Master-Passwort (geschütztes Berichtsformat)
         values: { free: nein, pro: ja, mobilereport-enterprise: ja }
-      - name: Empfänger- und Verteilerlisten per CSV importieren
+        note: Seit 1.5.0 lässt sich dort auch die vorgeschlagene Empfänger-Auswahl sperren.
+      # Berichtigt 26.09.2026: Seit 1.4.0 lassen sich auch Orte aus Excel/CSV einlesen
+      # (die alte Notiz „nicht per CSV" war seitdem falsch), seit 1.5.0 mit Zuständigkeit.
+      - name: Orte und Empfänger aus Excel oder CSV einlesen, Empfänger mit Zuständigkeit (Spalten „Kategorie“ und „Gebäude“)
         values: { free: nein, pro: ja, mobilereport-enterprise: ja }
-        note: Bereiche und Standorte werden in der App angelegt (nicht per CSV).
+        note: Zuständigkeits-Spalten seit 1.5.0.
 
   - group: Logbuch
     items:

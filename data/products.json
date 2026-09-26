@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T08:01:07+02:00",
+  "generiert": "2026-09-26T08:23:38+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1271,6 +1271,15 @@
                 "pro": "ja",
                 "mobilereport-enterprise": "ja"
               }
+            },
+            {
+              "name": "Passende Empfänger vorgeschlagen – nach Gebäude, sonst nach Bereich, jeweils passend zur Kategorie",
+              "values": {
+                "free": "ja",
+                "pro": "ja",
+                "mobilereport-enterprise": "ja"
+              },
+              "note": "Seit 1.5.0. Wofür ein Empfänger zuständig ist, wird bei ihm festgelegt."
             }
           ]
         },
@@ -1291,16 +1300,17 @@
                 "free": "nein",
                 "pro": "ja",
                 "mobilereport-enterprise": "ja"
-              }
+              },
+              "note": "Seit 1.5.0 lässt sich dort auch die vorgeschlagene Empfänger-Auswahl sperren."
             },
             {
-              "name": "Empfänger- und Verteilerlisten per CSV importieren",
+              "name": "Orte und Empfänger aus Excel oder CSV einlesen, Empfänger mit Zuständigkeit (Spalten „Kategorie“ und „Gebäude“)",
               "values": {
                 "free": "nein",
                 "pro": "ja",
                 "mobilereport-enterprise": "ja"
               },
-              "note": "Bereiche und Standorte werden in der App angelegt (nicht per CSV)."
+              "note": "Zuständigkeits-Spalten seit 1.5.0."
             }
           ]
         },

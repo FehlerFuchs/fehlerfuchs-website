@@ -201,6 +201,23 @@ meldungen:
       klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz
       und „Was ist neu" direkt in der App. Alle Daten bleiben auf dem Gerät.
 
+  # MobileReport 1.5.0. Play-Store-App: kein Release im Modell (versionsagnostisch),
+  # Datum = Livegang im Play Store (26.09.2026, von [FF_20] um 08:16 auf der öffentlichen
+  # Store-Seite gemessen). Text aus dem „Was ist neu" von [FF_20] (P5 07:58, VOLLZUG 08:20),
+  # nichts erfunden (P8). KEINE Buildnummer nennen (54) - sichtbar ist 1.5.0.
+  - id: mobilereport-1-5-0
+    typ: update
+    produkt: mobilereport
+    datum: "2026-09-26"
+    titel: "MobileReport 1.5.0: passende Empfänger vorgeschlagen"
+    text: >-
+      Beim Melden schlägt MobileReport 1.5.0 jetzt die zuständigen Empfänger vor – nach
+      Gebäude, sonst nach Bereich, jeweils passend zur Kategorie. Passt niemand, bleibt es
+      beim Standard-Empfänger. Wofür ein Empfänger zuständig ist, legt man bei ihm fest; in
+      Pro und Enterprise auch über die neuen Spalten „Kategorie“ und „Gebäude“ der
+      Empfänger-Tabelle. Im Admin-Bereich lässt sich die Auswahl sperren. Alles bleibt wie
+      gewohnt auf dem Gerät.
+
   # OrgaFuchs 1.9.3 – Windows-Release 25.09. 21:28 (signiert, [FF_16]), Android im
   # Play Store live 25.09. 22:18 (P5 von [FF_13], versionCode 24). 'version: 1.9.3'
   # bindet die Meldung an den Windows-releases-Eintrag. Text aus dem App-Changelog von

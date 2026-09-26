@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T08:01:07+02:00",
+  "generiert": "2026-09-26T08:23:38+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "mobilereport-1-5-0",
+      "typ": "update",
+      "produkt": "mobilereport",
+      "datum": "2026-09-26",
+      "titel": "MobileReport 1.5.0: passende Empfänger vorgeschlagen",
+      "text": "Beim Melden schlägt MobileReport 1.5.0 jetzt die zuständigen Empfänger vor – nach Gebäude, sonst nach Bereich, jeweils passend zur Kategorie. Passt niemand, bleibt es beim Standard-Empfänger. Wofür ein Empfänger zuständig ist, legt man bei ihm fest; in Pro und Enterprise auch über die neuen Spalten „Kategorie“ und „Gebäude“ der Empfänger-Tabelle. Im Admin-Bereich lässt sich die Auswahl sperren. Alles bleibt wie gewohnt auf dem Gerät.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport"
+      }
+    },
     {
       "id": "pdfuchsreader-1-2-1",
       "typ": "update",

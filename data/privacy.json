@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T08:01:07+02:00",
+  "generiert": "2026-09-26T08:23:38+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1239,9 +1239,9 @@
     {
       "slug": "mobilereport",
       "name": "MobileReport",
-      "stand": "2026-09-25",
+      "stand": "2026-09-26",
       "geprueft_von": "20_MobileReport",
-      "fassung": "1.4.0+53 (seit 23.09.2026, 11:57 in der Play-Produktion, voller Roll-out; löste 1.4.0+52 ab, das von 07:32 bis 11:57 live war; zusammengeführte Consumer-App mit In-App-Kauf). Vorgänger 1.2.0+40 vom 31.07.2026. Geprüft an der einen Codebasis MobileReport_Master\u00001_App - der früher genannte Ordner FehlerFuchsMR_Pro ist seit dem 17.09.2026 Archiv.",
+      "fassung": "1.5.0+54 (seit 26.09.2026 in der Play-Produktion, voller Roll-out; am 26.09. um 08:16 auf der öffentlichen Store-Seite als 1.5.0 gemessen; zusammengeführte Consumer-App mit In-App-Kauf). Vorgänger 1.4.0+53 vom 23.09.2026. Geprüft an der einen Codebasis MobileReport_Master\u00001_App - der früher genannte Ordner FehlerFuchsMR_Pro ist seit dem 17.09.2026 Archiv.",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -1275,13 +1275,13 @@
           "name": "Kamera und Fotos",
           "wofuer": "Ein Foto zur Meldung aufnehmen oder ein vorhandenes Bild auswählen. Die App benutzt dafür die Bildauswahl des Betriebssystems und verlangt keinen eigenen Zugriff auf die Fotosammlung.",
           "pflicht": false,
-          "beleg": "image_picker (pubspec.yaml); gebautes Manifest 1.4.0+53 - keine CAMERA-/Speicher-Berechtigung"
+          "beleg": "image_picker (pubspec.yaml); gebautes Manifest 1.5.0+54 (wie 1.4.0+53) - keine CAMERA-/Speicher-Berechtigung"
         },
         {
           "name": "Kontakte",
           "wofuer": "Beim Auswählen eines Empfängers wird nur die E-Mail-Adresse des Kontakts übernommen, den der Nutzer selbst antippt. Auf das übrige Adressbuch hat die App keinen Zugriff.",
           "pflicht": false,
-          "beleg": "lib/services/contact_picker_service.dart - ACTION_PICK-Intent; gebautes Manifest 1.4.0+53 - kein READ_CONTACTS"
+          "beleg": "lib/services/contact_picker_service.dart - ACTION_PICK-Intent; gebautes Manifest 1.5.0+54 (wie 1.4.0+53) - kein READ_CONTACTS"
         },
         {
           "name": "Internet",
@@ -1293,7 +1293,7 @@
           "name": "Netzwerkstatus lesen",
           "wofuer": "Technische Berechtigung ohne Nachfrage beim Nutzer. Sie kommt nicht von FehlerFuchs, sondern mit der Telemetrie-Komponente der Google-Abrechnung (siehe unten): Diese prüft, ob eine Verbindung besteht, bevor sie sendet.",
           "pflicht": false,
-          "beleg": "android.permission.ACCESS_NETWORK_STATE im gebauten Manifest 1.4.0+53, laut Manifest-Merge-Bericht aus com.google.android.datatransport:transport-backend-cct:3.1.8"
+          "beleg": "android.permission.ACCESS_NETWORK_STATE im gebauten Manifest 1.5.0+54 (wie 1.4.0+53), laut Manifest-Merge-Bericht aus com.google.android.datatransport:transport-backend-cct:3.1.8"
         },
         {
           "name": "Abrechnung über Google Play",
@@ -1322,7 +1322,7 @@
           "was": "Technische Betriebsdaten der Google-Abrechnungsbibliothek (Firelog/ DataTransport), die Google mit dieser Bibliothek ausliefert. Meldungen, Fotos, PDFs, Empfänger und Eingaben des Nutzers sind davon NICHT betroffen. Welche Einzelwerte Google dabei erhebt, legt Google fest und ist von außen nicht einsehbar.",
           "wann": "ohne Zutun des Nutzers, sobald die Abrechnung angesprochen wird - das geschieht beim Start der App, weil sie dort den Kaufstatus der Pro-Freischaltung abgleicht",
           "freiwillig": false,
-          "beleg": "Nachgewiesen im Release-Bundle 1.1.0+39 (base/dex/classes.dex): CCT-Endpunkte verschränkt kodiert, com.google.android.datatransport.cct.CctBackendFactory, TransportBackendDiscovery, JobInfoSchedulerService, Kennung \"datatransport/3.1.8\". Transitiv über in_app_purchase -> com.android.billingclient. Keine firebase-analytics- oder Crashlytics-Klassen im Bundle. Im Enterprise-Bau (ohne Billing) 0 Treffer. Am 25.09.2026 im gebauten Manifest 1.4.0+53 bestätigt: transport-backend-cct:3.1.8 ist weiterhin eingebunden."
+          "beleg": "Nachgewiesen im Release-Bundle 1.1.0+39 (base/dex/classes.dex): CCT-Endpunkte verschränkt kodiert, com.google.android.datatransport.cct.CctBackendFactory, TransportBackendDiscovery, JobInfoSchedulerService, Kennung \"datatransport/3.1.8\". Transitiv über in_app_purchase -> com.android.billingclient. Keine firebase-analytics- oder Crashlytics-Klassen im Bundle. Im Enterprise-Bau (ohne Billing) 0 Treffer. Am 25.09.2026 im gebauten Manifest 1.4.0+53 bestätigt: transport-backend-cct:3.1.8 ist weiterhin eingebunden. Für 1.5.0+54 unverändert: Abhängigkeiten (pubspec.lock) und Android-Teil sind gegenüber 1.4.0+53 gleich geblieben."
         },
         {
           "wohin": "vom Nutzer gewählte E-Mail-App auf dem Gerät",
@@ -1370,9 +1370,9 @@
     {
       "slug": "mobilereport-enterprise",
       "name": "MobileReport Enterprise",
-      "stand": "2026-09-25",
+      "stand": "2026-09-26",
       "geprueft_von": "20_MobileReport",
-      "fassung": "1.4.0+53 (ausgeliefert seit 23.09.2026 auf zwei Wegen: Direkt-Download als APK über das GitHub-Release UND Managed Google Play, privat an die Kundenorganisation gebunden - öffentlich nicht gelistet). Vorgänger 1.0.2+6 vom 18.08.2026.",
+      "fassung": "1.5.0+54 (ausgeliefert seit 26.09.2026 auf zwei Wegen: Direkt-Download als APK über das GitHub-Release UND Managed Google Play, privat an die Kundenorganisation gebunden - öffentlich nicht gelistet). Vorgänger 1.4.0+53 vom 23.09.2026.",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -1399,6 +1399,11 @@
           "was": "lokales Zugriffsprotokoll",
           "wo": "Geräteeinstellungen der App",
           "beleg": "lib/services/access_log_service.dart"
+        },
+        {
+          "was": "Datensicherung (.mrbak) - nur, wenn der Nutzer sie selbst anlegt",
+          "wo": "Speicherort, den der Nutzer im System-Dialog wählt. Die Datei ist mit einem Passwort verschlüsselt (AES-GCM-256, Schlüssel per PBKDF2 mit 210 000 Runden) und enthält keinen lesbaren Inhalt; ohne das Passwort lässt sie sich nicht öffnen, auch nicht durch den Support. Lizenz und Admin-Passwort sind nicht enthalten.",
+          "beleg": "lib/enterprise/backup_tresor.dart, lib/enterprise/backup_service.dart"
         }
       ],
       "berechtigungen": [
@@ -1406,7 +1411,7 @@
           "name": "Internet",
           "wofuer": "Freischalten und Prüfen der Firmenlizenz sowie der Hinweis auf eine neuere Fassung. Zum Erfassen von Meldungen, zum Erzeugen der PDF-Berichte und fürs Logbuch wird sie nicht benötigt.",
           "pflicht": false,
-          "beleg": "gebautes Manifest 1.4.0+53 - einzige Nutzerberechtigung ist INTERNET; kein Billing, keine Kamera, keine Kontakte, kein Speicher"
+          "beleg": "gebautes Manifest 1.5.0+54 (aapt2, wie 1.4.0+53) - einzige Nutzerberechtigung ist INTERNET; kein Billing, keine Kamera, keine Kontakte, kein Speicher"
         }
       ],
       "uebertragungen": [
@@ -1459,12 +1464,12 @@
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
       "loeschung": "Meldungen, Bilder und Einstellungen liegen auf dem Gerät und lassen sich dort einzeln löschen; mit der Deinstallation verschwinden sie vollständig. Der belegte Arbeitsplatz lässt sich in der App wieder freigeben, damit die Lizenz auf einem anderen Gerät genutzt werden kann.",
-      "besonderheiten": "Die Geräte-Kennung ist keine Hardware-Kennung und wird nicht aus dem Gerät ausgelesen: Es ist eine beim ersten Start zufällig erzeugte Zufallsnummer, die geschützt auf dem Gerät liegt. Sie dient allein dazu, einen Arbeitsplatz zu zählen und bei erneuter Freischaltung nicht doppelt zu belegen; ein Rückschluss auf eine Person ist damit nicht möglich. Die App kennt den Zahlungsanbieter nicht, sie spricht ausschließlich die eigene Lizenz-Schnittstelle an. Nach dem Freischalten ist die Nutzung auch ohne Netzverbindung möglich. Das Firmen-Branding wird als Datei auf dem Gerät eingelesen und nicht aus dem Netz geladen.",
+      "besonderheiten": "Die Geräte-Kennung ist keine Hardware-Kennung und wird nicht aus dem Gerät ausgelesen: Es ist eine beim ersten Start zufällig erzeugte Zufallsnummer, die geschützt auf dem Gerät liegt. Sie dient allein dazu, einen Arbeitsplatz zu zählen und bei erneuter Freischaltung nicht doppelt zu belegen; ein Rückschluss auf eine Person ist damit nicht möglich. Die App kennt den Zahlungsanbieter nicht, sie spricht ausschließlich die eigene Lizenz-Schnittstelle an. Nach dem Freischalten ist die Nutzung auch ohne Netzverbindung möglich. Das Firmen-Branding wird als Datei auf dem Gerät eingelesen und nicht aus dem Netz geladen. Eine Datensicherung wird mit einem eigenen Passwort verschlüsselt; wer sie wieder einspielt, braucht dieses Passwort und zusätzlich das Master-Passwort des Geräts, sofern eines gesetzt ist.",
       "datenschutz_verbesserungen_1_0_2": "(1) Die automatische Android-Gerätesicherung ist abgeschaltet (allowBackup=false + eigene Backup-/Extraction-Regeln) - Meldungen, Bilder und Einstellungen verlassen das Gerät nicht mehr über die Google-Cloud-Gerätesicherung. (2) \"Alle Daten löschen\" räumt jetzt vollständig auf, einschließlich Zugriffsprotokoll und importiertem Branding-Logo (die Lizenz bleibt bewusst erhalten). (3) Wiederherstellung und Import prüfen jede Datei vor dem Schreiben (Größe, Herkunft, Inhalt); beschädigte oder fremde Dateien werden abgewiesen. (4) Der Admin-Passwortschutz nutzt ein stärkeres Verfahren (PBKDF2 statt einfachem Hash). (5) Die Lizenzlaufzeit wird auch offline strikt eingehalten; ein Zurücksetzen der Geräteuhr wird erkannt. (6) Der Update-Hinweis wird nur über eine verschlüsselte Verbindung geprüft und schweigt auf verwalteten Play-Geräten vollständig (kein latest.json-Abruf) - dort liefert Google die Updates, es entsteht keine zusätzliche Übertragung.",
       "datenschutz_aenderungen_1_4_0": "(1) Die Datensicherung (.mrbak) wird jetzt mit einem Passwort verschlüsselt: AES-GCM-256, Schlüssel aus dem Passwort per PBKDF2-HMAC-SHA256 mit 210 000 Runden, Salz und Nonce je Datei neu. Die Datei enthält danach keinen lesbaren Inhalt mehr - am Gerät gegengeprüft, 0 Treffer auf Klartext, ZIP-Marker oder Datenbankspuren. Ohne das Passwort ist die Sicherung nicht mehr zu öffnen, auch nicht durch den Support; es gibt keine Hintertür. Ältere, unverschlüsselte Sicherungen bleiben weiterhin lesbar, damit niemand seine alten Daten verliert. (2) Die Wiederherstellung verlangt zusätzlich das Master-Passwort des Geräts, sofern eines gesetzt ist (Befund MR-F-003): Wer am Gerät ist, kann nicht mehr einfach eine vorbereitete Datei einspielen und damit die Betriebsvorgaben ersetzen. (3) Die Lizenz und das Admin-Passwort sind NICHT Teil der Sicherung - daran ändert sich nichts. 🔴 Keine Meldepflicht im Play-Datensicherheitsformular: Der Nutzer wählt den Speicherort der Datei selbst im System-Dialog, die App greift danach nicht mehr darauf zu, und nichts verlässt das Gerät. Von [15] Managed Google Play am 23.09.2026 an Googles Formularhilfe belegt, nicht vermutet. (4) Belegt gegen die App selbst: lib/enterprise/backup_tresor.dart, lib/enterprise/backup_service.dart, lib/enterprise/backup_flows.dart.",
       "auslieferung": "Zwei Wege, beide mit derselben Auslieferungssignatur. (a) Direkt-Download als APK über das GitHub-Release (fehlerfuchs-downloads), Freischaltung per Lizenzschlüssel. (b) Managed Google Play: private Auslieferung an die Organisation des Kunden mit Android Enterprise; die App ist öffentlich nicht gelistet. Auf diesem Weg liefert und aktualisiert Google die App, weshalb der In-App-Updater dort schweigt. Der Lizenz- und Datenweg der App ist auf beiden Wegen identisch. Seit 1.4.0 (23.09.2026) wird für Weg (b) ein App Bundle ausgeliefert, das den Uploadschlüssel trägt; Google signiert es mit demselben Auslieferungsschlüssel um, den die Direkt-APK aus Weg (a) trägt. Beide Wege enden also weiterhin bei derselben Signatur - ein Kunde kann ohne Neuinstallation zwischen ihnen wechseln. Am 23.09.2026 von [15] in der Play Console und an beiden Artefakten nachgemessen.",
       "vorhandener_text": "lib/features/privacy/privacy_page.dart (In-App, gemeinsam mit der Consumer-Ausgabe; im Router ohne Ausgaben-Bedingung eingebunden, also auch in Enterprise erreichbar); Website fehlerfuchs.eu/datenschutz.html",
-      "entwicklungsstand": "Der veröffentlichte Datenschutzstand ist seit dem 23.09.2026 1.4.0+53 - auf beiden Wegen aus demselben Commit c6faf2b3. Die früher hier genannte 1.0.3+7 wurde nie ausgeliefert und geht in 1.4.0 auf.",
+      "entwicklungsstand": "Der veröffentlichte Datenschutzstand ist seit dem 26.09.2026 1.5.0+54 - auf beiden Wegen aus demselben App-Stand 61cb618f, datenschutzseitig unverändert gegenüber 1.4.0+53 (23.09.2026, Commit c6faf2b3). Die früher hier genannte 1.0.3+7 wurde nie ausgeliefert und ging in 1.4.0 auf.",
       "offene_fragen": "(1) Unbekannt, ob der Lizenzdienst serverseitig IP-Adressen oder Zeitpunkte protokolliert - das hängt vom Server ab, nicht von der App. (2) Unbekannt, ob der Abruf der Versionsdatei auf fehlerfuchs.eu serverseitig protokolliert wird. (3) Das Firmen-Setup (Provisioning) aus 00_Konzept\\PROVISIONING_FIRMENSETUP_KONZEPT.md ist bisher nur Konzept; im geprüften Code wurde dazu nichts gefunden. Unbekannt, ob Teile davon bereits außerhalb der geprüften Dateien vorbereitet sind.",
       "art": "anwendung"
     },

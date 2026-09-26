@@ -1,9 +1,15 @@
 slug: mobilereport
 name: MobileReport
-stand: "2026-09-25"
+stand: "2026-09-26"
 geprueft_von: 20_MobileReport
-fassung: "1.4.0+53 (seit 23.09.2026, 11:57 in der Play-Produktion, voller Roll-out; löste 1.4.0+52 ab, das von 07:32 bis 11:57 live war; zusammengeführte Consumer-App mit In-App-Kauf). Vorgänger 1.2.0+40 vom 31.07.2026. Geprüft an der einen Codebasis MobileReport_Master\01_App - der früher genannte Ordner FehlerFuchsMR_Pro ist seit dem 17.09.2026 Archiv."
+fassung: "1.5.0+54 (seit 26.09.2026 in der Play-Produktion, voller Roll-out; am 26.09. um 08:16 auf der öffentlichen Store-Seite als 1.5.0 gemessen; zusammengeführte Consumer-App mit In-App-Kauf). Vorgänger 1.4.0+53 vom 23.09.2026. Geprüft an der einen Codebasis MobileReport_Master\01_App - der früher genannte Ordner FehlerFuchsMR_Pro ist seit dem 17.09.2026 Archiv."
 
+# Nachgezogen am 26.09.2026 auf 1.5.0+54 (Runbook-Schritt 6.4, Logbuch #3221):
+# Datenschutzseitig keine Änderung. Neu ist ein Empfänger-Vorschlag nach Gebäude,
+# Bereich und Kategorie; die Zuständigkeiten liegen lokal wie die übrigen Empfängerdaten.
+# Gemessen: Berechtigungen im Manifest des AAB 1.5.0+54 identisch mit 1.4.0+53;
+# pubspec.lock und android/ gegenüber 1.4.0+53 unverändert (git diff).
+#
 # Überarbeitet am 25.09.2026 (Auftrag [10] WEBSEITE, Entscheidung Matthias vom 24.09.):
 # Ersatzschreibungen im Fließtext durch echte Umlaute ersetzt (S1). Schlüssel, slug und
 # Code-Bezeichner bleiben ASCII. Dabei am gebauten Stand nachgeprüft und berichtigt:
@@ -41,14 +47,14 @@ berechtigungen:
       benutzt dafür die Bildauswahl des Betriebssystems und verlangt keinen
       eigenen Zugriff auf die Fotosammlung.
     pflicht: false
-    beleg: image_picker (pubspec.yaml); gebautes Manifest 1.4.0+53 - keine CAMERA-/Speicher-Berechtigung
+    beleg: image_picker (pubspec.yaml); gebautes Manifest 1.5.0+54 (wie 1.4.0+53) - keine CAMERA-/Speicher-Berechtigung
   - name: Kontakte
     wofuer: >-
       Beim Auswählen eines Empfängers wird nur die E-Mail-Adresse des Kontakts
       übernommen, den der Nutzer selbst antippt. Auf das übrige Adressbuch hat
       die App keinen Zugriff.
     pflicht: false
-    beleg: lib/services/contact_picker_service.dart - ACTION_PICK-Intent; gebautes Manifest 1.4.0+53 - kein READ_CONTACTS
+    beleg: lib/services/contact_picker_service.dart - ACTION_PICK-Intent; gebautes Manifest 1.5.0+54 (wie 1.4.0+53) - kein READ_CONTACTS
   - name: Internet
     wofuer: >-
       Wird nur gebraucht, wenn der Nutzer das Support- und Kontaktformular
@@ -62,7 +68,7 @@ berechtigungen:
       FehlerFuchs, sondern mit der Telemetrie-Komponente der Google-Abrechnung
       (siehe unten): Diese prüft, ob eine Verbindung besteht, bevor sie sendet.
     pflicht: false
-    beleg: android.permission.ACCESS_NETWORK_STATE im gebauten Manifest 1.4.0+53, laut Manifest-Merge-Bericht aus com.google.android.datatransport:transport-backend-cct:3.1.8
+    beleg: android.permission.ACCESS_NETWORK_STATE im gebauten Manifest 1.5.0+54 (wie 1.4.0+53), laut Manifest-Merge-Bericht aus com.google.android.datatransport:transport-backend-cct:3.1.8
   - name: Abrechnung über Google Play
     wofuer: Einmaliger Kauf der Pro-Freischaltung im Google-Play-Store.
     pflicht: false
@@ -99,7 +105,8 @@ uebertragungen:
       com.android.billingclient. Keine firebase-analytics- oder
       Crashlytics-Klassen im Bundle. Im Enterprise-Bau (ohne Billing) 0 Treffer.
       Am 25.09.2026 im gebauten Manifest 1.4.0+53 bestätigt: transport-backend-cct:3.1.8
-      ist weiterhin eingebunden.
+      ist weiterhin eingebunden. Für 1.5.0+54 unverändert: Abhängigkeiten
+      (pubspec.lock) und Android-Teil sind gegenüber 1.4.0+53 gleich geblieben.
   - wohin: vom Nutzer gewählte E-Mail-App auf dem Gerät
     was: erzeugtes PDF als Anhang, Empfängeradresse und Betreff
     wann: nur wenn der Nutzer den Versand auslöst; das Verschicken passiert in der fremden E-Mail-App, nicht in dieser Anwendung
