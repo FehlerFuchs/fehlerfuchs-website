@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T20:33:59+02:00",
+  "generiert": "2026-09-26T20:40:05+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -851,6 +851,10 @@
         {
           "question": "Ersetzt es die Steuerberatung?",
           "answer": "Nein. Es unterstützt, strukturiert und dokumentiert. Steuerliche, rechtliche oder fachliche Entscheidungen bleiben bei dir beziehungsweise deiner Beratung."
+        },
+        {
+          "question": "Muss ich als Kleingewerbe E-Rechnungen schreiben?",
+          "answer": "Das hängt nicht an deinem Kleingewerbe, sondern an deiner Umsatzsteuer – „Kleingewerbe“ und „Kleinunternehmer“ sind zwei verschiedene Dinge. Bist du Kleinunternehmer nach § 19 UStG, schreibst du also keine Umsatzsteuer auf deine Rechnungen, musst du keine E-Rechnungen ausstellen; empfangen können musst du sie seit dem 1. Januar 2025 aber wie jedes Unternehmen. Rechnest du mit Umsatzsteuer ab, gilt für Rechnungen an andere Unternehmen: bis Ende 2026 noch Papier oder – mit Zustimmung deines Kunden – ein PDF, 2027 nur noch bei höchstens 800.000 € Gesamtumsatz im Vorjahr, ab 2028 die E-Rechnung für alle. Rechnungen an Privatkunden und Kleinbeträge bis 250 € brutto sind ausgenommen. In der Pro-Version erstellt, prüft und versendet GewerbePro E-Rechnungen als ZUGFeRD oder XRechnung. Das ist eine allgemeine Einordnung, keine Rechtsberatung – deinen Fall klärst du im Zweifel mit deiner Steuerberatung."
         },
         {
           "question": "Wie funktioniert die E-Rechnung?",
