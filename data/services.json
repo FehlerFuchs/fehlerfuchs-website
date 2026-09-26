@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T16:48:52+02:00",
+  "generiert": "2026-09-26T16:50:37+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "dienste": [
     {
@@ -28,20 +28,21 @@
       "id": "relaisserver",
       "name": "Relaisserver",
       "adresse": "relais.fehlerfuchs.eu",
-      "zweck": "Reicht verschlüsselte Nachrichten zwischen den eigenen Geräten einer Gruppe weiter, wenn sie nicht im selben Netz stehen. Er ist ein Briefkasten, kein Speicher: Der Inhalt wird unangetastet weitergeleitet und nicht abgelegt.",
+      "zweck": "Reicht Ende-zu-Ende-verschlüsselte Nachrichten zwischen den Geräten einer Gruppe weiter: Jeder Gruppen-Abgleich von OrgaFuchs läuft über ihn, ebenso die Dateiübertragung von DateiWächter Mobil zwischen gekoppelten Geräten. Den Inhalt sieht er nur verschlüsselt und legt ihn nicht ab.",
       "betreiber": "eigen",
       "standort": "Deutschland",
-      "stand": "2026-07-14",
+      "stand": "2026-09-26",
       "uebermittelt": [
-        "Gruppenkennung (ein selbst gewähltes Kennwort, nicht der Gruppenname)",
+        "eine pseudonyme Gruppenkennung (nicht der Gruppenname)",
         "Gerätekennung innerhalb der Gruppe",
+        "öffentliche Schlüssel für die Übergabe des Hauptgeräts",
         "der verschlüsselte Nachrichteninhalt"
       ],
-      "aufbewahrung": "Keine. Nachrichten werden weitergereicht und nicht gespeichert. Der Dienst kennt weder Namen noch Konten – es gibt keine Anmeldung.",
+      "aufbewahrung": "Die Inhalte werden nicht gespeichert – sie liegen nur während der Weitergabe im Arbeitsspeicher. Je Gruppe bleibt dauerhaft ein kleiner Eintrag ohne Inhalte und ohne Namen: eine pseudonyme Kennung, eine Zählnummer, zwei öffentliche Schlüssel, ein Prüfwert und der Zeitpunkt der letzten Nutzung. Er verhindert, dass eine fremde Stelle eine Gruppe übernimmt, und wird nicht gelöscht; Sicherungskopien davon liegen auf dem Server. Zugriffsprotokolle (IP-Adresse, Zeitpunkt, aufgerufener Pfad) werden nach Größe überschrieben.",
       "produkte": [
         "orgafuchs"
       ],
-      "hinweis": "Wer den Sync über das eigene Heimnetz betreibt oder ihn gar nicht nutzt, spricht diesen Dienst nie an."
+      "hinweis": "Es gibt keine Anmeldung, keine Konten und keine Mitgliederliste. Wer OrgaFuchs ohne Gruppe nutzt, spricht diesen Dienst nicht an."
     },
     {
       "id": "push",
@@ -50,12 +51,13 @@
       "zweck": "Schickt kurze Hinweise auf Geräte einer Gruppe, etwa wenn sich ein Plan geändert hat. Dieser Weg (ntfy) ist selbst betrieben.",
       "betreiber": "eigen",
       "standort": "Deutschland",
-      "stand": "2026-08-15",
+      "stand": "2026-09-26",
       "uebermittelt": [
-        "Themenkennung der Gruppe",
-        "der Hinweistext"
+        "eine pseudonyme Themenkennung der Gruppe (ein Hashwert, nicht der Gruppenname)",
+        "der Hinweis „es gibt Änderungen“ – ohne Inhalt",
+        "eine Präsenzmeldung – Gerätekennung, Rolle in der Gruppe, Zeitpunkt"
       ],
-      "aufbewahrung": "Hinweise werden zugestellt und danach verworfen.",
+      "aufbewahrung": "Hinweise und Präsenzmeldungen liegen höchstens 12 Stunden im Zwischenspeicher und verfallen dann.",
       "produkte": [
         "orgafuchs"
       ],
