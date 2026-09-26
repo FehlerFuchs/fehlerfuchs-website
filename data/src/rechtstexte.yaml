@@ -26,10 +26,17 @@ rechtstexte:
     kurzbeschreibung: "Büro- und Auftragsverwaltung für Selbstständige und kleine Betriebe"
     editionen: "Gewerbe (kostenlos) und Pro (einmaliger Kauf)"
     lizenzschluessel: true
-    stand: "03.09.2026"
+    stand: "26.09.2026"   # Ziffer 1.4 Companion-App (Auftrag [FF_00] 26.09.); vorher 03.09.2026
     vollstaendig: true
     ausstehend: []
     felder:
+      # Ziffer 1.4 - Wortlaut freigegeben von Matthias am 26.09.2026 (ChefBüro-Chat, Auswahl
+      # „Freigeben"), Wort für Wort übernommen, nicht umformulieren (B10/P10). Befund F-16 [FF_29-1].
+      # Die Webseiten-Fassung ist führend (Matthias 26.09.2026); [FF_29] und [FF_29-1] ziehen nach.
+      ziffer_1_4: >-
+        Zur Software gehört auch die Begleit-App „GewerbePro Companion“ für Android. Sie wird
+        kostenlos über Google Play bereitgestellt und ist nur zusammen mit einem gültigen
+        GewerbePro-Lizenzschlüssel nutzbar. Für die Companion-App gilt diese Vereinbarung entsprechend.
       erweiterung_3_3: >-
         Im betrieblichen Einsatz sind zusätzlich eigene Beschäftigte des Nutzers sowie beauftragte
         Buchhaltungs- oder Steuerkanzleien im Rahmen der lizenzierten Nutzer- und Gerätezahl zur

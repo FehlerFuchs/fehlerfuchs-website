@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T08:23:38+02:00",
+  "generiert": "2026-09-26T08:27:31+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "rechtstexte": [
     {
@@ -12,10 +12,11 @@
       "kurzbeschreibung": "Büro- und Auftragsverwaltung für Selbstständige und kleine Betriebe",
       "editionen": "Gewerbe (kostenlos) und Pro (einmaliger Kauf)",
       "lizenzschluessel": true,
-      "stand": "03.09.2026",
+      "stand": "26.09.2026",
       "vollstaendig": true,
       "ausstehend": [],
       "felder": {
+        "ziffer_1_4": "Zur Software gehört auch die Begleit-App „GewerbePro Companion“ für Android. Sie wird kostenlos über Google Play bereitgestellt und ist nur zusammen mit einem gültigen GewerbePro-Lizenzschlüssel nutzbar. Für die Companion-App gilt diese Vereinbarung entsprechend.",
         "erweiterung_3_3": "Im betrieblichen Einsatz sind zusätzlich eigene Beschäftigte des Nutzers sowie beauftragte Buchhaltungs- oder Steuerkanzleien im Rahmen der lizenzierten Nutzer- und Gerätezahl zur Nutzung berechtigt.",
         "uebertragung_4": "Einmalkauf mit dauerhafter, zeitlich unbefristeter Lizenz. Weitergabe nur, soweit gesetzlich zulässig; Voraussetzung ist, dass die bisherige Nutzung vollständig eingestellt, alle Programmkopien gelöscht oder unbrauchbar gemacht und Lizenzschlüssel sowie Lizenznachweise an den Erwerber übergeben werden. Eine Aufspaltung von Mehrplatzlizenzen ist nicht zulässig.",
         "eigenverantwortung_7_2": "Der Nutzer trägt die steuer- und handelsrechtlichen Pflichten selbst (z. B. GoBD, Aufbewahrungsfristen). Die Software erstellt Rechnungen, EÜR, E-Rechnungen und Berichte, ersetzt aber keine Steuerberatung. Der Nutzer ist ferner verantwortlich für die inhaltliche Richtigkeit und Vollständigkeit seiner Belege, Rechnungen und Buchungen.",
