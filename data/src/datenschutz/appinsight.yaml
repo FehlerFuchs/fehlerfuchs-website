@@ -34,14 +34,14 @@ auf_dem_geraet:
     beleg: android/app/src/main/kotlin/.../HintergrundAnalyse.kt (cacheDir/analyse,
       raeumeAuf); AndroidManifest.xml (allowBackup="false")
   - was: Diagnosedatei für eine Support-Nachricht (App-Version, Plattform,
-      Zahl analysierter und gesperrter Apps, Einstellungen - keine Paketnamen)
+      Zahl analysierter und gesperrter Apps, Einstellungen – keine Paketnamen)
     wo: temporärer Ordner der App, nur im Moment des Sendens, beim App-Start
       aufgeräumt
     beleg: lib/core/support/diagnose_anhang.dart; lib/features/transparency/about_page.dart
 
 berechtigungen:
   - name: Alle installierten Apps sehen
-    wofuer: Kernzweck der App - die installierten Apps auflisten und ihre
+    wofuer: Kernzweck der App – die installierten Apps auflisten und ihre
       Berechtigungen, Bestandteile und Tracker-Hinweise auswerten
     pflicht: true
     beleg: android/app/src/main/AndroidManifest.xml (QUERY_ALL_PACKAGES)
@@ -76,7 +76,7 @@ uebertragungen:
     freiwillig: true
     beleg: lib/core/report/report_service.dart (Share.shareXFiles)
   - wohin: vom Nutzer gewählte Mail-App (Support-Nachricht an support@fehlerfuchs.eu)
-    was: der vom Nutzer geschriebene Text und - abwählbar - die Diagnosedatei
+    was: der vom Nutzer geschriebene Text und – abwählbar – die Diagnosedatei
     wann: nur wenn der Nutzer unter Info eine Support-Nachricht schreibt; gesendet
       wird von der Mail-App, erst nach Bestätigung des Nutzers dort
     freiwillig: true
@@ -101,15 +101,15 @@ daten_an_dritte_verkauft: false
 loeschung: >-
   Alle Daten liegen auf dem Gerät: die App-Einstellungen, die Ergebnisse der
   Paketuntersuchung im Zwischenspeicher (jederzeit über „Cache leeren“ in den
-  Android-Einstellungen löschbar) und - nur während des Teilens oder Sendens -
+  Android-Einstellungen löschbar) und – nur während des Teilens oder Sendens –
   eine vorübergehende Bericht- oder Diagnosedatei, die spätestens beim nächsten
   App-Start entfernt wird. Beim Deinstallieren verschwindet alles. Berichte, die du selbst weitergegeben oder abgespeichert hast, liegen
   dort, wohin du sie gelegt hast, und müssen dort gelöscht werden.
 
 besonderheiten: >-
   AppInsight liest Angaben über andere Apps: Name, angeforderte Berechtigungen,
-  Bestandteile, Signatur und Installationsquelle sowie - wenn du die Nutzungsdaten
-  freigibst - Speicher-, Nutzungs- und Datenverbrauchswerte. Seit dem 24.09.2026
+  Bestandteile, Signatur und Installationsquelle sowie – wenn du die Nutzungsdaten
+  freigibst – Speicher-, Nutzungs- und Datenverbrauchswerte. Seit dem 24.09.2026
   untersucht es außerdem das Installationspaket (APK) jeder App, das Android für
   jede App lesbar macht: Netzwerk-Regeln, Namen der Programmbausteine
   (Tracker-Erkennung) und Server-Adressen im Code. Das Paket wird nur gelesen, nichts daraus

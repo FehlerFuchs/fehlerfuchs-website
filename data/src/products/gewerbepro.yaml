@@ -71,7 +71,7 @@ editions:
       kein Abo), 3 Arbeitsplätze für Desktop und Companion-App zusammen. Kauf über
       Digistore24, 30 Tage Rückgaberecht.
     # Einführungspreis 89 € (Streichpreis 129 €), Einmalzahlung. Digistore24-Produkt
-    # 723253 (angelegt 17.08.2026, „Aktiv = Nein" bis Testkauf/Freigabe durch Matthias
+    # 723253 (angelegt 17.08.2026, „Aktiv = Nein“ bis Testkauf/Freigabe durch Matthias
     # Schacht). Der Kauf-Button steht bewusst schon jetzt: Digistore prüft die
     # Live-Verkaufsseite als Teil der Genehmigung (DS24-Handoff LOG-083). Kaufweg unten
     # in links.checkout.
@@ -83,10 +83,10 @@ editions:
     price: { model: offen }
 
 releases:
-  # 1.1.0 (26.09.2026): Handoff [FF_16] Code Signing (12:24, veröffentlicht auf „push" von
+  # 1.1.0 (26.09.2026): Handoff [FF_16] Code Signing (12:24, veröffentlicht auf „push“ von
   # Matthias, nur der Installer signiert wie 1.0.0). Von [FF_10] gegen GitHub geprüft
   # (gh release view gewerbepro-v1.1.0: kein Entwurf, Asset 116.055.880 B, sha256
-  # 62c2f6b9…b748 – stimmen). notes aus dem Text der Release-Seite („Neu in 1.1.0"),
+  # 62c2f6b9…b748 – stimmen). notes aus dem Text der Release-Seite („Neu in 1.1.0“),
   # nichts erfunden (P8). Wortlaut identisch zu updates/gewerbepro/latest.json.
   - version: "1.1.0"
     date: "2026-09-26"
@@ -116,7 +116,7 @@ releases:
       source: GitHub-Release-Asset
     sha256: "48c7351dc9314d011897a7f26703ea07311d72f30ca2835e52ca79942277316b"
     signed: true
-    # Wortlaut identisch zu updates/gewerbepro/latest.json — die App zeigt diesen
+    # Wortlaut identisch zu updates/gewerbepro/latest.json – die App zeigt diesen
     # Text wörtlich im Update-Hinweis an.
     notes: "GewerbePro 1.0.0: Erstes Stable-Release (löst die 0.3.x-Beta ab). Großer Oberflächen-Umbau mit Cockpit-Dashboard, Dokumenteneingang und geführten Touren. Digital signiert (Herausgeber FehlerFuchs); die Visual-C++-Runtime ist im Installer gebündelt (kein separater Download nötig)."
   # Signierte Beta 0.3.3 (Azure Trusted Signing, Herausgeber FehlerFuchs,
@@ -134,7 +134,7 @@ releases:
       source: GitHub-Release-Asset
     sha256: "80bf503349438945cbbd42d5ba29d27cab4ccbd37859616521dec000bc82f424"
     signed: true
-    # Wortlaut identisch zu updates/gewerbepro/latest.json — die App zeigt diesen
+    # Wortlaut identisch zu updates/gewerbepro/latest.json – die App zeigt diesen
     # Text wörtlich im Update-Hinweis an.
     notes: "GewerbePro 0.3.3 (Beta): Digital signiert (Herausgeber FehlerFuchs). Neu gegenüber 0.3.2: Zustimmung zur EULA im Setup."
   # Signierte Beta 0.3.2 (11.08.2026); bleibt als Release-Historie.
@@ -150,7 +150,7 @@ releases:
       source: GitHub-Release-Asset
     sha256: "fe6841ecb6bfda17ab138f8ec62a00ef927036d4766c5e3277b2b95d42450200"
     signed: true
-    # Wortlaut identisch zu updates/gewerbepro/latest.json — die App zeigt diesen
+    # Wortlaut identisch zu updates/gewerbepro/latest.json – die App zeigt diesen
     # Text wörtlich im Update-Hinweis an. Änderungen hier ändern den Text in der App.
     notes: "GewerbePro 0.3.2 (Beta): Erste digital signierte Fassung (Herausgeber FehlerFuchs) – bei Installation erscheint der verifizierte Herausgebername. Dazu Korrekturen aus dem internen Prüfbericht gegenüber 0.3.1."
   - version: "0.3.1"
@@ -165,7 +165,7 @@ releases:
       source: GitHub-Release-Asset
     sha256: "3ffd2fb6381549ae75de42d6cbcbbb8dd8541f78f515a6a2072fcbf1f4d2be9c"
     signed: false
-    # Wortlaut identisch zu updates/gewerbepro/latest.json — die App zeigt diesen
+    # Wortlaut identisch zu updates/gewerbepro/latest.json – die App zeigt diesen
     # Text wörtlich im Update-Hinweis an. Änderungen hier ändern den Text in der App.
     notes: "GewerbePro 0.3.1 (Beta): Eigenes Firmenlogo auf allen Belegen und in der Seitenleiste, frei anpassbare Programmfarben (Pro), gemeinsame Beleg-Fußzeile mit hinterlegbarer Unterschrift. PDFuchs neu mit QR-Code-Generator (Pro) und Scannen (Windows-WIA), Ausgabeordner-Einstellung. Werkzeug-Diagnose (OCR/KoSIT/Java), Lizenzschlüssel anzeigen und kopieren. Behoben: Editionserkennung direkt nach dem Update."
   - version: "0.3.0"
@@ -181,7 +181,7 @@ releases:
 
 # Merkmalsmatrix. Die Schlüssel unter 'values' müssen Editions-IDs von oben sein –
 # das Prüfskript vergleicht das. Zwei Zeilen der alten HTML-Tabelle stehen bewusst
-# NICHT hier: „Verfügbarkeit / Preis" und „Download / Kauf" sind keine Merkmale,
+# NICHT hier: „Verfügbarkeit / Preis“ und „Download / Kauf“ sind keine Merkmale,
 # sondern ergeben sich aus editions[].price und releases[].
 features:
   - group: Kern
@@ -243,9 +243,9 @@ features:
       - name: Export – Kontakte (vCard) und Kalender (ICS)
         values: { free: ja, pro: ja, vather: ja }
         note: CSV-Import/Export ist in Vorbereitung – derzeit in keiner Edition enthalten.
-      - name: Gebrandete Beleg-PDFs (eigenes Logo & Farben, ohne „Erstellt mit"-Hinweis)
+      - name: Gebrandete Beleg-PDFs (eigenes Logo & Farben, ohne „Erstellt mit“-Hinweis)
         values: { free: nein, pro: ja, vather: ja }
-      - name: Hinweis „Erstellt mit FehlerFuchs Gewerbe" auf Belegen
+      - name: Hinweis „Erstellt mit FehlerFuchs Gewerbe“ auf Belegen
         values: { free: ja, pro: nein, vather: nein }
         note: In der Free-Edition steht dieser Hinweis auf allen Belegen.
 
@@ -419,18 +419,18 @@ links:
   # (astro/tools/weiterleitungen.mjs).
   #
   # Sie ist NICHT die Adresse der Produktseite. Die heisst /produkte/<slug>/
-  # und leitet sich aus dem Slug ab - deshalb hiess das Feld frueher 'page'
+  # und leitet sich aus dem Slug ab – deshalb hiess das Feld frueher 'page'
   # und wurde am 21.07.2026 umbenannt: Der alte Name legte nahe, hier stehe,
   # wo das Produkt heute zu finden ist. Eine Pruefung schloss daraus, SnapFuchs
   # habe keine eigene Seite, obwohl es sie seit einem Tag hatte.
   #
-  # Fehlt das Feld, gab es vorher keine eigene Seite - dann ist auch nichts
+  # Fehlt das Feld, gab es vorher keine eigene Seite – dann ist auch nichts
   # weiterzuleiten.
   alt_html: /apps/gewerbepro.html
   release: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/gewerbepro-v1.0.0
   # Kauf-Weg: Digistore24-Produkt 723253 (89 €, Streichpreis 129 €). Muster wie
   # HaushaltsManager (checkout-ds24.com/product/<ID>). Produkt ist bis zur
-  # Freigabe/Testkauf durch Matthias „Aktiv = Nein"; der Button steht laut
+  # Freigabe/Testkauf durch Matthias „Aktiv = Nein“; der Button steht laut
   # DS24-Handoff LOG-083 trotzdem schon, weil Digistore die Live-Seite prüft.
   checkout: "https://www.checkout-ds24.com/product/723253"
   # betaSignup entfernt (17.08.2026): Der Beta-Tester-Weg ist beendet, der Endpunkt
@@ -441,6 +441,6 @@ manifests:
   updateFeed: updates/gewerbepro/latest.json
 
 notes: >-
-  Vorläufer hieß „KleinGewerbe"; apps/kleingewerbe.html leitet weiter. Die alten
+  Vorläufer hieß „KleinGewerbe“; apps/kleingewerbe.html leitet weiter. Die alten
   Free-/Pro-Beta-ZIPs (Tags kleingewerbe-free/-pro) sind durch den Installer ersetzt
   und werden bewusst nicht mehr als Release geführt.

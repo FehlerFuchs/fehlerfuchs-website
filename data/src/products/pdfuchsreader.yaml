@@ -45,8 +45,8 @@ editions:
 
 releases: []
 
-# Funktionsübersicht. Übernommen aus den Abschnitten „Funktionen" und
-# „Was (noch) nicht dabei ist" auf apps/pdfuchsreader.html.
+# Funktionsübersicht. Übernommen aus den Abschnitten „Funktionen“ und
+# „Was (noch) nicht dabei ist“ auf apps/pdfuchsreader.html.
 #
 # Die letzte Gruppe ist Absicht: Was eine App bewusst NICHT tut, gehört auf die
 # Seite. Wer OCR sucht, soll das hier erfahren und nicht erst nach dem Herunterladen.
@@ -83,7 +83,7 @@ features:
         values: { standard: ja }
       - name: Über den Android-Druckdialog ausdrucken
         values: { standard: ja }
-      - name: PDFs aus anderen Apps direkt öffnen („Öffnen mit")
+      - name: PDFs aus anderen Apps direkt öffnen („Öffnen mit“)
         values: { standard: ja }
       - name: Verlauf zuletzt geöffneter Dokumente
         values: { standard: ja }
@@ -202,12 +202,12 @@ links:
   # (astro/tools/weiterleitungen.mjs).
   #
   # Sie ist NICHT die Adresse der Produktseite. Die heisst /produkte/<slug>/
-  # und leitet sich aus dem Slug ab - deshalb hiess das Feld frueher 'page'
+  # und leitet sich aus dem Slug ab – deshalb hiess das Feld frueher 'page'
   # und wurde am 21.07.2026 umbenannt: Der alte Name legte nahe, hier stehe,
   # wo das Produkt heute zu finden ist. Eine Pruefung schloss daraus, SnapFuchs
   # habe keine eigene Seite, obwohl es sie seit einem Tag hatte.
   #
-  # Fehlt das Feld, gab es vorher keine eigene Seite - dann ist auch nichts
+  # Fehlt das Feld, gab es vorher keine eigene Seite – dann ist auch nichts
   # weiterzuleiten.
   alt_html: /apps/pdfuchsreader.html
   contact: /kontakt.html?app=PDFuchs%20Reader&topic=interesse

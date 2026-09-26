@@ -72,8 +72,8 @@ meldungen:
     text: >-
       PDFuchs Reader bekommt den neuen PDFuchs-Reader-Look in Hell und Dunkel. PDFs
       öffnen jetzt zuverlässiger – kein leeres Bild mehr beim ersten Versuch –, und
-      „Öffnen mit" aus anderen Apps läuft stabil. Extern geöffnete Dateien werden nicht
-      mehr dauerhaft kopiert und landen nicht in „Zuletzt geöffnet"; stattdessen steht
+      „Öffnen mit“ aus anderen Apps läuft stabil. Extern geöffnete Dateien werden nicht
+      mehr dauerhaft kopiert und landen nicht in „Zuletzt geöffnet“; stattdessen steht
       der echte Dateiname da. Dazu klarere Hinweise, wenn man den Reader als Standard-App
       festlegt, und ein aktualisiertes Handbuch in der App.
 
@@ -109,7 +109,7 @@ meldungen:
       MobileReport 1.2.0 bringt Support und Kontakt direkt in die App – auf Wunsch mit
       Diagnosedaten, sonst ohne. Die App ist von der automatischen Android-Cloud-Sicherung
       ausgenommen, sodass die Meldungen gezielt auf dem Gerät bleiben, und die
-      Datenschutz-Hinweise sind ehrlicher gefasst. „Alle Daten löschen" räumt jetzt
+      Datenschutz-Hinweise sind ehrlicher gefasst. „Alle Daten löschen“ räumt jetzt
       vollständig auf, der Admin-Passwortschutz ist stärker, und mit sehr großen Import-
       und Bilddateien geht die App robuster um.
 
@@ -123,7 +123,7 @@ meldungen:
       Bildschirmbreite an, Schriftgröße und Lesethema (hell, sepia, dunkel) sind frei
       wählbar, das Inhaltsverzeichnis führt direkt zum Kapitel, und Lesezeichen merken
       sich die Stelle je Buch. Auch der PDF-Teil bekommt eigene Lesezeichen. Kostenlos,
-      werbefrei, offline — wie gehabt.
+      werbefrei, offline – wie gehabt.
 
   # MobileReport Enterprise 1.5.0 (26.09.2026: Direkt-APK 07:57, Managed Play privat). Nachgetragen
   # nach der Webseiten-Sichtung 26.09., Befund 8 (Entscheidung Matthias A). 'version: 1.5.0' bindet
@@ -167,7 +167,7 @@ meldungen:
     text: >-
       Eine Sicherheits- und Datenschutz-Überarbeitung nach externer Prüfung: Die automatische
       Android-Sicherung ist abgeschaltet, sodass alles gezielt in der App bleibt; „Alle Daten
-      löschen" räumt jetzt vollständig auf; Wiederherstellung und Import prüfen jede Datei vor
+      löschen“ räumt jetzt vollständig auf; Wiederherstellung und Import prüfen jede Datei vor
       dem Schreiben; der Admin-Passwortschutz ist stärker (PBKDF2); und die Lizenzlaufzeit wird
       auch offline strikt eingehalten. Die Firmenfassung ist zudem ab sofort auch über Managed
       Google Play zu beziehen – zusätzlich zum Direkt-Download.
@@ -178,7 +178,7 @@ meldungen:
     datum: "2026-08-17"
     titel: "SnapFuchs 1.2.0: Name vergeben, Ablage selbst bestimmt"
     text: >-
-      Zwei kleine Handgriffe, die im Alltag viel ausmachen — und beide kostenlos:
+      Zwei kleine Handgriffe, die im Alltag viel ausmachen – und beide kostenlos:
       Ein Dokument bekommt jetzt schon beim Scannen seinen Namen, der dann auch der
       Dateiname beim Teilen ist. Und wer möchte, legt einen eigenen Ordner auf dem
       Gerät fest, in den jeder Export zusätzlich wandert. Der Ordner wird einmal
@@ -215,7 +215,7 @@ meldungen:
       Kopplung per QR-Code) mit sicherem Gerätewechsel und Notfall-Wiederherstellung;
       optimierte Kalenderansichten mit Startbildschirm-Widgets für Tag, Woche und Monat;
       klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz
-      und „Was ist neu" direkt in der App. Alle Daten bleiben auf dem Gerät.
+      und „Was ist neu“ direkt in der App. Alle Daten bleiben auf dem Gerät.
 
   # GewerbePro 1.1.0 (Windows-Release 26.09.2026 12:24, signiert, Handoff [FF_16]).
   # 'version: 1.1.0' bindet die Meldung an den releases-Eintrag. Text aus „Neu in 1.1.0"
@@ -264,7 +264,7 @@ meldungen:
       deutlich robuster: Jede Änderung wird zuerst auf dem Gerät gesichert, bis das
       Hauptgerät sie bestätigt hat – auch bei Funklöchern geht nichts verloren. Dienste
       und Kategorien erreichen jetzt alle Familiengeräte. Mehr Datenschutz: keine Kopien
-      in fremden Cloud-Backups, und „Alle Daten löschen" entfernt wirklich alles. Unter
+      in fremden Cloud-Backups, und „Alle Daten löschen“ entfernt wirklich alles. Unter
       Windows startet OrgaFuchs auch ohne installierte Visual-C++-Laufzeit, läuft nur
       einmal und lässt sich sauber deinstallieren. Alles bleibt auf dem Gerät, ohne Konto.
 
@@ -279,7 +279,7 @@ meldungen:
     titel: "OrgaFuchs 1.9.2: Koppeln weiterer Geräte zuverlässiger"
     text: >-
       OrgaFuchs 1.9.2 ist ein signiertes Wartungs-Update, das auf 1.9.1 aufbaut und
-      zwei Fehler beim Koppeln weiterer Geräte behebt: „Code vorbereiten" funktioniert
+      zwei Fehler beim Koppeln weiterer Geräte behebt: „Code vorbereiten“ funktioniert
       jetzt auch, wenn gerade kein Abgleich läuft. Und nach einem Hauptgerät-Wechsel
       erscheint ein verständlicher Hinweis zum Neu-Koppeln statt einer kryptischen
       Fehlermeldung, falls ein Gerät dabei offline war. Der übrige Funktionsumfang
@@ -334,12 +334,12 @@ meldungen:
     version: "1.6.1"
     titel: "OrgaFuchs 1.6.1: Nachrichten an alle – mit Postfach"
     text: >-
-      Neu in OrgaFuchs 1.6.1: „Nachricht an alle" – schick der ganzen Familie in
+      Neu in OrgaFuchs 1.6.1: „Nachricht an alle“ – schick der ganzen Familie in
       Sekunden eine kurze Nachricht. Sie landet bei allen im Postfach und als
       Benachrichtigung, Ende-zu-Ende über deinen eigenen Relay verteilt, nicht über
       fremde Server; Ungelesenes bleibt markiert, bis du es liest. Außerdem sind
       Sonn-/Feiertage und Ferien im Kalender jetzt farblich hervorgehoben (Tag,
-      Woche, Monat), die Geräteliste zeigt „zuletzt aktiv", und der
+      Woche, Monat), die Geräteliste zeigt „zuletzt aktiv“, und der
       Hintergrund-Empfang läuft auf Android 14/15 stabiler. Dazu viele kleinere Verbesserungen.
 
   # HaushaltsManager: erste öffentliche Veröffentlichung. 'version: 1.0.0' bindet
@@ -371,7 +371,7 @@ meldungen:
       zuletzt vor allem an OrgaFuchs, SnapFuchs, MobileReport und GewerbePro:
       Beschreibungen geschärft, Sicherheit und Datenschutz nachgezogen und den
       Update-Weg repariert. Neue Ankündigungen kommen wieder, sobald das Nächste
-      wirklich fertig ist. — Matthias (Matze) von FehlerFuchs
+      wirklich fertig ist. – Matthias (Matze) von FehlerFuchs
 
   # Die zwei OrgaFuchs-Play-Ablehnungsmeldungen (18.07. + 24.07.) am 05.08.2026
   # aus dem Feed entfernt: Der ganze Weg steht bereits als Zeitleiste (umwege)
@@ -411,12 +411,12 @@ meldungen:
     datum: "2026-07-21"
     titel: "SnapFuchs 1.1.0: die Kamera zeigt, was sie erkennt"
     text: >-
-      Der erkannte Dokumentrand wird jetzt live eingezeichnet — orange heißt
+      Der erkannte Dokumentrand wird jetzt live eingezeichnet – orange heißt
       erkannt, grün heißt stabil. Man sieht vor dem Auslösen, ob es sitzt. Die
       Erkennung selbst wurde an 1.000 Aufnahmen mit hinterlegten Soll-Ecken neu
       vermessen und findet nun auch farbige, dunkle und gemusterte Vorlagen.
       Dazu: helles Erscheinungsbild (kostenlos), ein geführter Rundgang,
-      ausführliche Hilfe in der App — und für Pro der Stapelscan, eigene
+      ausführliche Hilfe in der App – und für Pro der Stapelscan, eigene
       Dateinamen und wählbares Seitenformat.
 
   - id: website-2-0
@@ -486,7 +486,7 @@ meldungen:
       Die offene Beta ist digital signiert (Herausgeber FehlerFuchs): Bei der
       Installation ist der geprüfte Herausgeber sichtbar. Neu in 0.3.3 ist die
       Zustimmung zur EULA im Setup. Wer die Beta schon nutzt, findet das Update in
-      der App unter „Auf Updates prüfen".
+      der App unter „Auf Updates prüfen“.
 
   - id: gewerbepro-0-3-1
     typ: update
@@ -498,7 +498,7 @@ meldungen:
       einstellen und in die gemeinsame Beleg-Fußzeile passt eine hinterlegte
       Unterschrift. Der eingebaute PDFuchs bekommt einen QR-Code-Generator und kann
       unter Windows direkt scannen. Wer die Beta schon nutzt, findet das Update in
-      der App unter „Auf Updates prüfen".
+      der App unter „Auf Updates prüfen“.
 
   - id: gewerbepro-0-3-0
     typ: test

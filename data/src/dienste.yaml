@@ -37,7 +37,7 @@ auftragsverarbeiter:
     avv: >-
       Vereinbarung zur Auftragsverarbeitung nach Art. 28 Abs. 3 DSGVO,
       Fassung 1.2, Stand 06/2023. Sie ist Bestandteil der AGB und gilt fuer
-      jeden gebuchten Vertrag - auch ohne ausdruecklichen Verweis (Ziffer 1.1).
+      jeden gebuchten Vertrag – auch ohne ausdruecklichen Verweis (Ziffer 1.1).
     avv_quelle: https://www.ionos.de/terms-gtc/avv/
     standort: >-
       Verarbeitung in der EU bzw. im EWR; bei Drittlandtransfer sichert IONOS
@@ -135,7 +135,7 @@ dienste:
     hinweis: >-
       Zum zuverlässigen Wecken der App aus dem Ruhezustand kommt auf Android
       zusätzlich ein inhaltsloser Weck-Push über Google Firebase (siehe Eintrag
-      „Weck-Push"). Wer Benachrichtigungen aus lässt, spricht beides nicht an.
+      „Weck-Push“). Wer Benachrichtigungen aus lässt, spricht beides nicht an.
 
   # Seit dem FCM-Livegang 13.08.2026 (Android). Bewusst als eigener Eintrag neben
   # 'push'/'relaisserver' (Entscheidung Matze 17.08.2026, E1): Betreiber der Registry
@@ -160,7 +160,7 @@ dienste:
     standort: Deutschland (Registry); Zustellung über Google
     stand: "2026-08-15"
     uebermittelt:
-      - an Google die Push-Zustelladresse des Geräts (FCM-Token) und ein leeres Wecksignal (ein einziges Feld „wakeup")
+      - an Google die Push-Zustelladresse des Geräts (FCM-Token) und ein leeres Wecksignal (ein einziges Feld „wakeup“)
       - in der Registry auf dem Relaisserver eine pseudonyme Geräte-Kennung, der Gruppen-Hash (sha256 des Sync-Kennworts, nicht rückrechenbar), das FCM-Token, die Plattform, die Kennung des auslösenden Geräts (nur zum Selbst-Ausschluss) und ein Zeitstempel
     aufbewahrung: >-
       Pro Gerät eine Zeile in der Registry, solange das Gerät angemeldet ist; bei
@@ -178,7 +178,7 @@ dienste:
       Nur auf Android und nur bei eingeschalteten Benachrichtigungen. Der Weckruf
       ist inhaltsblind: Was sich geändert hat, erfährt weder der Weckpfad noch
       Google – der eigentliche Abgleich läuft Ende-zu-Ende über das Relais. Die
-      selbst betriebene ntfy-Variante („Benachrichtigungen") ist die Alternative
+      selbst betriebene ntfy-Variante („Benachrichtigungen“) ist die Alternative
       ohne Google.
 
   - id: digistore24
@@ -279,7 +279,7 @@ fremdziele:
     erklaerung: https://www.paypal.com/de/legalhub/privacy-full
     was: >-
       Der Knopf ist ein Verweis; eingebunden ist nichts, auch der QR-Code liegt
-      hier. Einzelheiten stehen im Abschnitt „Freiwillige Unterstützung".
+      hier. Einzelheiten stehen im Abschnitt „Freiwillige Unterstützung“.
 
   - adresse: www.checkout-ds24.com
     zweck: Kaufabwicklung
@@ -288,7 +288,7 @@ fremdziele:
     erklaerung: https://www.digistore24.com/page/privacy/1/de
     was: >-
       Die Bestellseite von Digistore24. Einzelheiten stehen im Abschnitt „Kauf
-      einer kostenpflichtigen Fassung".
+      einer kostenpflichtigen Fassung“.
 
   # Nur verlinkt, nicht angesteuert: die Anbieterangaben im Impressum und in
   # der Datenschutzerklärung selbst.
@@ -297,7 +297,7 @@ fremdziele:
     anbieter: IONOS SE
     anschrift: Elgendorfer Straße 57, 56410 Montabaur, Deutschland
     erklaerung: https://www.ionos.de/terms-gtc/datenschutzerklaerung/
-    was: Verweis auf die Angaben des Hosters. Einzelheiten unter „Wo alles liegt".
+    was: Verweis auf die Angaben des Hosters. Einzelheiten unter „Wo alles liegt“.
 
   - adresse: www.digistore24.com
     zweck: Angaben zum Zahlungsanbieter

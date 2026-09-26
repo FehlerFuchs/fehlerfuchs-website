@@ -2,7 +2,7 @@ slug: mobilereport-enterprise
 name: MobileReport Enterprise
 stand: "2026-09-26"
 geprueft_von: 20_MobileReport
-fassung: "1.5.0+54 (ausgeliefert seit 26.09.2026 auf zwei Wegen: Direkt-Download als APK über das GitHub-Release UND Managed Google Play, privat an die Kundenorganisation gebunden - öffentlich nicht gelistet). Vorgänger 1.4.0+53 vom 23.09.2026."
+fassung: "1.5.0+54 (ausgeliefert seit 26.09.2026 auf zwei Wegen: Direkt-Download als APK über das GitHub-Release UND Managed Google Play, privat an die Kundenorganisation gebunden – öffentlich nicht gelistet). Vorgänger 1.4.0+53 vom 23.09.2026."
 
 # Nachgezogen am 26.09.2026 auf 1.5.0+54 (Runbook-Schritt 6.4, Logbuch #3221):
 # Datenschutzseitig keine Änderung. Neu ist ein Empfänger-Vorschlag nach Gebäude,
@@ -44,7 +44,7 @@ auf_dem_geraet:
   # 25.09.2026 ergänzt (Hinweis [10], Logbuch #2880): Die Verschlüsselung stand
   # bisher nur in datenschutz_aenderungen_1_4_0 - ein Feld, das die Karte nicht
   # anzeigt. Die Zusatzfelder unten bleiben als Nachweis stehen.
-  - was: Datensicherung (.mrbak) - nur, wenn der Nutzer sie selbst anlegt
+  - was: Datensicherung (.mrbak) – nur, wenn der Nutzer sie selbst anlegt
     wo: >-
       Speicherort, den der Nutzer im System-Dialog wählt. Die Datei ist mit einem
       Passwort verschlüsselt (AES-GCM-256, Schlüssel per PBKDF2 mit 210 000 Runden)
@@ -60,20 +60,20 @@ berechtigungen:
       Fassung. Zum Erfassen von Meldungen, zum Erzeugen der PDF-Berichte und fürs
       Logbuch wird sie nicht benötigt.
     pflicht: false
-    beleg: gebautes Manifest 1.5.0+54 (aapt2, wie 1.4.0+53) - einzige Nutzerberechtigung ist INTERNET; kein Billing, keine Kamera, keine Kontakte, kein Speicher
+    beleg: gebautes Manifest 1.5.0+54 (aapt2, wie 1.4.0+53) – einzige Nutzerberechtigung ist INTERNET; kein Billing, keine Kamera, keine Kontakte, kein Speicher
 
 uebertragungen:
   - wohin: license.fehlerfuchs.eu
     was: >-
       Lizenzschlüssel, zufällige Geräte-Kennung, optional ein selbst vergebener
-      Gerätename und die Angabe "Android". Ausdrücklich KEINE Meldungen,
+      Gerätename und die Angabe „Android“. Ausdrücklich KEINE Meldungen,
       Bilder, PDFs oder Einstellungen.
     wann: bei Aktivierung, Online-Prüfung und Freigabe eines Arbeitsplatzes
     freiwillig: false
     beleg: lib/enterprise/license_service.dart (Zeilen 63-79; /v1/activate, /v1/validate, /v1/deactivate)
   - wohin: fehlerfuchs.eu
     was: Abruf einer Versionsdatei (updates/mobilereport-enterprise/latest.json) für den Update-Hinweis; es werden keine Inhalte gesendet
-    wann: beim Prüfen auf eine neuere Fassung - nur bei Direkt-Installation; auf verwalteten Play-Geräten findet kein Abruf statt
+    wann: beim Prüfen auf eine neuere Fassung – nur bei Direkt-Installation; auf verwalteten Play-Geräten findet kein Abruf statt
     freiwillig: false
     beleg: lib/services/update_service.dart (Zeile 76)
   - wohin: fehlerfuchs.eu im Browser des Geräts
@@ -91,7 +91,7 @@ uebertragungen:
   - wohin: vom Nutzer gewählte E-Mail-App auf dem Gerät, Adressat FehlerFuchs
     was: >-
       selbst geschriebene Support-Nachricht; optional die vom Nutzer
-      angehängten Screenshots; optional - und nur bei GESETZTEM Haken -
+      angehängten Screenshots; optional – und nur bei GESETZTEM Haken –
       Diagnosedaten: App-Fassung und Paketname, Build-Modus, Android-Fassung
       und SDK, Hersteller und Gerätemodell, unterstützte ABIs, Sprache,
       Zeitzone, Bildschirmauflösung, Edition sowie der app-eigene Fehlerlog.
@@ -145,9 +145,9 @@ besonderheiten: >-
 # ausgeliefert mit 1.0.2 (18.08.2026):
 datenschutz_verbesserungen_1_0_2: >-
   (1) Die automatische Android-Gerätesicherung ist abgeschaltet (allowBackup=false
-  + eigene Backup-/Extraction-Regeln) - Meldungen, Bilder und Einstellungen verlassen
+  + eigene Backup-/Extraction-Regeln) – Meldungen, Bilder und Einstellungen verlassen
   das Gerät nicht mehr über die Google-Cloud-Gerätesicherung.
-  (2) "Alle Daten löschen" räumt jetzt vollständig auf, einschließlich
+  (2) „Alle Daten löschen“ räumt jetzt vollständig auf, einschließlich
   Zugriffsprotokoll und importiertem Branding-Logo (die Lizenz bleibt bewusst erhalten).
   (3) Wiederherstellung und Import prüfen jede Datei vor dem Schreiben (Größe,
   Herkunft, Inhalt); beschädigte oder fremde Dateien werden abgewiesen.
@@ -155,7 +155,7 @@ datenschutz_verbesserungen_1_0_2: >-
   (5) Die Lizenzlaufzeit wird auch offline strikt eingehalten; ein Zurücksetzen der
   Geräteuhr wird erkannt.
   (6) Der Update-Hinweis wird nur über eine verschlüsselte Verbindung geprüft und
-  schweigt auf verwalteten Play-Geräten vollständig (kein latest.json-Abruf) - dort
+  schweigt auf verwalteten Play-Geräten vollständig (kein latest.json-Abruf) – dort
   liefert Google die Updates, es entsteht keine zusätzliche Übertragung.
 
 # Datenschutzrelevante Änderung aus 1.4.0 (23.09.2026):
@@ -163,7 +163,7 @@ datenschutz_aenderungen_1_4_0: >-
   (1) Die Datensicherung (.mrbak) wird jetzt mit einem Passwort verschlüsselt:
   AES-GCM-256, Schlüssel aus dem Passwort per PBKDF2-HMAC-SHA256 mit 210 000
   Runden, Salz und Nonce je Datei neu. Die Datei enthält danach keinen
-  lesbaren Inhalt mehr - am Gerät gegengeprüft, 0 Treffer auf Klartext,
+  lesbaren Inhalt mehr – am Gerät gegengeprüft, 0 Treffer auf Klartext,
   ZIP-Marker oder Datenbankspuren. Ohne das Passwort ist die Sicherung nicht
   mehr zu öffnen, auch nicht durch den Support; es gibt keine Hintertür.
   Ältere, unverschlüsselte Sicherungen bleiben weiterhin lesbar, damit
@@ -172,7 +172,7 @@ datenschutz_aenderungen_1_4_0: >-
   Geräts, sofern eines gesetzt ist (Befund MR-F-003): Wer am Gerät ist, kann
   nicht mehr einfach eine vorbereitete Datei einspielen und damit die
   Betriebsvorgaben ersetzen.
-  (3) Die Lizenz und das Admin-Passwort sind NICHT Teil der Sicherung - daran
+  (3) Die Lizenz und das Admin-Passwort sind NICHT Teil der Sicherung – daran
   ändert sich nichts.
   🔴 Keine Meldepflicht im Play-Datensicherheitsformular: Der Nutzer wählt den
   Speicherort der Datei selbst im System-Dialog, die App greift danach nicht
@@ -191,20 +191,20 @@ auslieferung: >-
   Seit 1.4.0 (23.09.2026) wird für Weg (b) ein App Bundle ausgeliefert, das den
   Uploadschlüssel trägt; Google signiert es mit demselben Auslieferungsschlüssel
   um, den die Direkt-APK aus Weg (a) trägt. Beide Wege enden also weiterhin bei
-  derselben Signatur - ein Kunde kann ohne Neuinstallation zwischen ihnen wechseln.
+  derselben Signatur – ein Kunde kann ohne Neuinstallation zwischen ihnen wechseln.
   Am 23.09.2026 von [15] in der Play Console und an beiden Artefakten nachgemessen.
 
 vorhandener_text: lib/features/privacy/privacy_page.dart (In-App, gemeinsam mit der Consumer-Ausgabe; im Router ohne Ausgaben-Bedingung eingebunden, also auch in Enterprise erreichbar); Website fehlerfuchs.eu/datenschutz.html
 
 entwicklungsstand: >-
-  Der veröffentlichte Datenschutzstand ist seit dem 26.09.2026 1.5.0+54 - auf
+  Der veröffentlichte Datenschutzstand ist seit dem 26.09.2026 1.5.0+54 – auf
   beiden Wegen aus demselben App-Stand 61cb618f, datenschutzseitig unverändert
   gegenüber 1.4.0+53 (23.09.2026, Commit c6faf2b3). Die früher hier genannte
   1.0.3+7 wurde nie ausgeliefert und ging in 1.4.0 auf.
 
 offene_fragen: >-
   (1) Unbekannt, ob der Lizenzdienst serverseitig IP-Adressen oder Zeitpunkte
-  protokolliert - das hängt vom Server ab, nicht von der App.
+  protokolliert – das hängt vom Server ab, nicht von der App.
   (2) Unbekannt, ob der Abruf der Versionsdatei auf fehlerfuchs.eu serverseitig
   protokolliert wird.
   (3) Das Firmen-Setup (Provisioning) aus

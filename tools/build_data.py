@@ -1814,6 +1814,60 @@ def pruefe_bild_metadaten():
             melde(warnungen, "bilder", f"{f.relative_to(ROOT)}: nicht lesbar ({e}).")
 
 
+TYPO_MISCH = re.compile(r'„([^“”"\n]{1,160})"')
+TYPO_GERADE = re.compile(r'(?<![„\w\\])"([^"\n\\]{1,160}?)"')
+TYPO_STRICH = re.compile(r"(?<=\S) (-|—) (?=\S)")
+
+
+def pruefe_typografie():
+    """Anführungszeichen und Gedankenstriche einheitlich (Webseiten-Sichtung 26.09.2026, Befund 16).
+
+    Regeln: „…“ statt „…" oder "…"; Gedankenstrich „ – “ statt „ - “ oder „ — “.
+    Ausnahme: Code-Schreibweisen in geraden Anführungszeichen (enthält = / _ :, ist ein
+    Kleinbuchstaben-Bezeichner oder steht hinter „=“) – z. B. allowBackup="false".
+    FEHLER in den Daten, die [FF_10] selbst pflegt; WARNUNG in den Datenschutz-Steckbriefen,
+    die die Projekte einreichen (dort nicht an einem Anführungszeichen scheitern lassen).
+    """
+    def code_artig(innen, davor):
+        return (davor.rstrip().endswith("=") or any(c in innen for c in "=/_:")
+                or re.fullmatch(r"[a-z0-9.+-]+", innen) is not None)
+
+    def funde(s):
+        raus = [f"„…\" statt „…“: „{m.group(1)[:40]}\"" for m in TYPO_MISCH.finditer(s)]
+        raus += [f"gerade \"…\": \"{m.group(1)[:40]}\"" for m in TYPO_GERADE.finditer(s)
+                 if not code_artig(m.group(1), s[:m.start()])]
+        raus += [f"„ {m.group(1)} “ statt „ – “: …{s[max(0, m.start() - 20):m.end() + 12]}…"
+                 for m in TYPO_STRICH.finditer(s)]
+        return raus
+
+    for datei in sorted(SRC.rglob("*.yaml")):
+        if "_sicherungen" in datei.parts:
+            continue
+        ziel = warnungen if "datenschutz" in datei.parts else fehler
+        try:
+            daten = lies_yaml(datei)
+        except Exception:
+            continue    # YAML-Fehler meldet die jeweilige Prüfung selbst
+        anzahl, beispiele = 0, []
+
+        def lauf(x):
+            nonlocal anzahl
+            if isinstance(x, dict):
+                for v in x.values():
+                    lauf(v)
+            elif isinstance(x, list):
+                for v in x:
+                    lauf(v)
+            elif isinstance(x, str):
+                f = funde(x)
+                anzahl += len(f)
+                beispiele.extend(f[:2 - len(beispiele)] if len(beispiele) < 2 else [])
+        lauf(daten)
+        if anzahl:
+            melde(ziel, "typografie", f"{datei.relative_to(SRC)}: {anzahl}× uneinheitliche Anführungszeichen "
+                                      f"oder Striche – z. B. {'; '.join(beispiele)}")
+
+
 def pruefe_gesperrte_woerter():
     """Durchsucht alle Textquellen nach Woertern, die nicht veroeffentlicht werden.
 
@@ -2325,6 +2379,7 @@ def main():
         rechtstexte = pruefe_rechtstexte(produkte, fehler)
 
         pruefe_gesperrte_woerter()
+        pruefe_typografie()
         pruefe_bild_metadaten()
         pruefe_steckbrief_sichtbar(steckbriefe)
         pruefe_alte_adressen(produkte)

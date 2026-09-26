@@ -4,7 +4,7 @@
 # Diese Datei ist die Quelle. Geprüft wird sie gegen
 # data/schema/product.schema.json; erzeugt daraus wird data/products.json.
 #
-# Bearbeitet über die Werkstatt (astro, /werkstatt/) oder von Hand — beides
+# Bearbeitet über die Werkstatt (astro, /werkstatt/) oder von Hand – beides
 # ist erlaubt. Nach jeder Änderung:
 #     cd website && python tools/build_data.py
 
@@ -32,7 +32,7 @@ description: >-
   und zwei Bezugswege (Direkt-Download oder Managed Google Play).
 audience: [unternehmen]
 # Firmenversion → förmliche Anrede (Sie); steuert Template-Texte wie den
-# Handlungswege-Titel. Consumer-Produkte ohne dieses Feld bleiben beim „du".
+# Handlungswege-Titel. Consumer-Produkte ohne dieses Feld bleiben beim „du“.
 ansprache: sie
 accent: "#0C5E74"   # Farbe der App
 
@@ -44,17 +44,17 @@ platforms:
   # Weg 1: Direkt-Download der APK (unsigniert, sha256-geprüft), Installation außerhalb Play.
   - os: android
     status: verfuegbar
-    requirements: "Android — Direkt-Download (APK), Installation außerhalb des Play Stores"
+    requirements: "Android – Direkt-Download (APK), Installation außerhalb des Play Stores"
     distribution: github-release
     since: "2026-07-06"
   # Weg 2 (18.08.2026, Entscheidung Matthias): Managed Google Play – private Auslieferung
   # an die Organisation des Kunden (Android Enterprise). Die Play-Listing-URL existiert
   # (App-ID eu.fehlerfuchs.mobilereport.enterprise), ist aber NUR für Mitglieder der
-  # Kundenorganisation installierbar → kein öffentlicher „kostenlos"-Store-Knopf; storeId
+  # Kundenorganisation installierbar → kein öffentlicher „kostenlos“-Store-Knopf; storeId
   # nur als Beleg/Referenz, kein links.store gesetzt.
   - os: android
     status: verfuegbar
-    requirements: "Managed Google Play — private Auslieferung an die Organisation des Kunden (Android Enterprise), auf Anfrage"
+    requirements: "Managed Google Play – private Auslieferung an die Organisation des Kunden (Android Enterprise), auf Anfrage"
     distribution: managed-google-play
     storeId: eu.fehlerfuchs.mobilereport.enterprise
 
@@ -94,11 +94,11 @@ editions:
 # ACHTUNG: Aus diesen Angaben entstehen die Manifeste, die ausgelieferte
 # Apps lesen. Der Text unter notes erscheint WÖRTLICH im Update-Hinweis.
 releases:
-  # 1.5.0 (26.09.2026): GitHub-Release von [FF_20] auf Matthias' „release ja" (07:56),
+  # 1.5.0 (26.09.2026): GitHub-Release von [FF_20] auf Matthias' „release ja“ (07:56),
   # veröffentlicht 07:57 (P5-Meldung [FF_20]; Managed Play privat live, P5 [FF_15]).
   # Von [FF_10] gegengeprüft: gh release view mobilereport-enterprise-v1.5.0 = kein Entwurf,
   # Asset 65.647.752 B, sha256 f09988ef…6cea; öffentliche URL HTTP 200, Content-Length
-  # stimmt. Dateiname NEU nach P13 (Schema A) - nicht mehr MobileReport-Enterprise-<V>.apk.
+  # stimmt. Dateiname NEU nach P13 (Schema A) – nicht mehr MobileReport-Enterprise-<V>.apk.
   # notes wörtlich aus dem von [FF_20] vorbereiteten latest.json-Inhalt (MELDUNG 07:26).
   - version: "1.5.0"
     date: "2026-09-26"
@@ -155,7 +155,7 @@ releases:
     signed: false
     notes: >-
       1.0.2: Sicherheits- und Datenschutz-Überarbeitung nach externer Prüfung. Automatische
-      Android-Sicherung abgeschaltet, „Alle Daten löschen" räumt vollständig auf, Wiederherstellung
+      Android-Sicherung abgeschaltet, „Alle Daten löschen“ räumt vollständig auf, Wiederherstellung
       und Import prüfen Dateien vor dem Schreiben, stärkerer Admin-Passwortschutz (PBKDF2),
       Lizenzlaufzeit auch offline strikt eingehalten.
   - version: "1.0.1"
@@ -171,7 +171,7 @@ releases:
       1.0.1: Betreff für Meldungen, Fotos per Ziehen sortieren (erstes Bild = Hauptbild),
       Name als Pflichtfeld mit optionalem Standard-Speichern, einstellbare maximale
       Bildanzahl, Profil-Feld Position/Funktion, überarbeitete Einstellungen (Bereich
-      "Verwaltung") und Fix für die Admin-/Branding-Übernahme.
+      „Verwaltung“) und Fix für die Admin-/Branding-Übernahme.
   - version: "1.0.0"
     date: "2026-07-06"
     channel: stable
@@ -222,7 +222,7 @@ faq:
   - question: Wie funktioniert die Lizenzierung für mehrere Mitarbeitende?
     answer: >-
       Einmalkauf je Arbeitsplatz, mit Staffelpreisen. Ein Arbeitsplatz ist umbelegbar: Über
-      „Deaktivieren" geben Sie ihn auf einem Gerät frei, danach lässt er sich auf einem anderen Gerät
+      „Deaktivieren“ geben Sie ihn auf einem Gerät frei, danach lässt er sich auf einem anderen Gerät
       aktivieren – praktisch bei Geräte- oder Personalwechsel.
   - question: Was brauchen wir für die Auslieferung über Managed Google Play?
     answer: >-
@@ -237,7 +237,7 @@ faq:
       fertig. Kein Server, keine Cloud-Einrichtung.
   - question: Was passiert bei Gerätewechsel oder -verlust?
     answer: >-
-      Beim geplanten Wechsel geben Sie den Arbeitsplatz auf dem alten Gerät frei („Deaktivieren") und
+      Beim geplanten Wechsel geben Sie den Arbeitsplatz auf dem alten Gerät frei („Deaktivieren“) und
       aktivieren ihn auf dem neuen. Ist ein Gerät verloren, geben wir den Arbeitsplatz auf Anfrage
       über den Support frei. Ihre Meldungen liegen lokal auf dem jeweiligen Gerät – für die Übernahme
       nutzen Sie die Datensicherung.
@@ -269,7 +269,7 @@ media:
     height: 365
   # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
   # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
-  # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.
+  # Sobald echte Bilder da sind, ersetzt „screenshots:“ diese Zeile.
   platzhalter: 4
 # Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
 # Die helle Fassung – die Seite bleibt eine Website, kein Bildschirmfoto.
@@ -291,12 +291,12 @@ links:
   # (astro/tools/weiterleitungen.mjs).
   #
   # Sie ist NICHT die Adresse der Produktseite. Die heisst /produkte/<slug>/
-  # und leitet sich aus dem Slug ab - deshalb hiess das Feld frueher 'page'
+  # und leitet sich aus dem Slug ab – deshalb hiess das Feld frueher 'page'
   # und wurde am 21.07.2026 umbenannt: Der alte Name legte nahe, hier stehe,
   # wo das Produkt heute zu finden ist. Eine Pruefung schloss daraus, SnapFuchs
   # habe keine eigene Seite, obwohl es sie seit einem Tag hatte.
   #
-  # Fehlt das Feld, gab es vorher keine eigene Seite - dann ist auch nichts
+  # Fehlt das Feld, gab es vorher keine eigene Seite – dann ist auch nichts
   # weiterzuleiten.
   alt_html: /apps/mobilereport-enterprise.html
   release: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mobilereport-enterprise-v1.5.0"

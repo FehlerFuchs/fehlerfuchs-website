@@ -6,7 +6,7 @@ fassung: "v0.1.0_dev (Vorabfassung, noch nicht veröffentlicht)"
 
 # Hinweis für die Pflege: Die angezeigten Felder (auf_dem_geraet,
 # berechtigungen, loeschung, besonderheiten) beschreiben, WAS mit Daten
-# geschieht. Technische Nachweise gehören ausschließlich in "beleg".
+# geschieht. Technische Nachweise gehören ausschließlich in „beleg“.
 # lokal_only: false (Haus-Konvention, analog DateiWächter/HaushaltsManager) -
 # die einzige Außenverbindung ist der nutzerinitiierte Support-/Kontaktversand
 # an license.fehlerfuchs.eu; ohne ausdrückliches Absenden passiert nichts.
@@ -41,16 +41,16 @@ berechtigungen:
 
 # Von sich aus baut die Anwendung KEINE Verbindung auf. Es gibt genau eine
 # nutzerinitiierte Übertragung: das Support-/Kontaktformular (nur beim Absenden).
-# (Korrigiert 2026-08-07: die frühere Fassung "uebertragungen: []" prüfte nur
+# (Korrigiert 2026-08-07: die frühere Fassung „uebertragungen: []“ prüfte nur
 #  den Python-Programmkern und übersah die später ergänzte Support-Anbindung
 #  in der Flutter-Oberfläche.)
 uebertragungen:
-  - was: Nutzerinitiierte Support-/Kontaktnachricht (freiwillige Angaben - Name,
+  - was: Nutzerinitiierte Support-/Kontaktnachricht (freiwillige Angaben – Name,
       E-Mail, Nachricht, App-Version, Betriebssystem-Angabe; optional vom Nutzer
       ausgewählte Dateianhänge)
     wohin: license.fehlerfuchs.eu (FehlerFuchs-Kontakt-Bridge, EU/IONOS), per HTTPS
     wann: ausschließlich beim ausdrücklichen Absenden des Support-Formulars;
-      sonst besteht keine Verbindung (Fallback bei Fehler - lokales E-Mail-Programm)
+      sonst besteht keine Verbindung (Fallback bei Fehler – lokales E-Mail-Programm)
     beleg: 11_App_Flutter/pdfuchs_desktop/lib/support/kontakt_service.dart:20-58
 
 # Laufen alle lokal auf dem Gerät. Sie sehen den Dokumentinhalt, weil sie ihn

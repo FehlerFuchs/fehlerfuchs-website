@@ -61,6 +61,6 @@ offene_fragen: >-
   1) Ob Cloudflare beim Bibliotheks-Abruf IP-Adressen protokolliert, hängt vom
   CDN-Betreiber ab und ist von der App aus nicht feststellbar.
   2) Nach Umstellung auf JSON-Persistenz (Netzlaufwerk) muss der Abschnitt
-  „auf_dem_geraet"/„loeschung" neu gefasst werden.
+  „auf_dem_geraet“/„loeschung“ neu gefasst werden.
   3) Vor Produktivbetrieb müssen Authentisierung, Rechte, Dateisperre und
   Schutzbedarf der Personaleinsatz- und Abwesenheitsdaten fachlich/rechtlich abgenommen werden.

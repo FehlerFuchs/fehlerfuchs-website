@@ -67,9 +67,9 @@ aktionen:
     vorspann: >-
       SnapFuchs ist seit dem 20. Juli im Play Store: ein Dokumenten-Scanner für
       Android, der komplett auf deinem Gerät arbeitet. Zur Veröffentlichung
-      verschenke ich 100 Codes für die Pro-Fassung — an Menschen, die so etwas
+      verschenke ich 100 Codes für die Pro-Fassung – an Menschen, die so etwas
       tatsächlich brauchen und mir sagen, was noch fehlt.
-    was_es_gibt: einen Code für SnapFuchs Pro — dauerhaft, kein Abo
+    was_es_gibt: einen Code für SnapFuchs Pro – dauerhaft, kein Abo
 
     # Die Gegenleistung, um die gebeten wird - freundlich, nicht als
     # Bedingung. Sie steht bewusst NICHT im Formular und nicht als Haekchen:
@@ -78,15 +78,15 @@ aktionen:
     bitte:
       titel: Eine Bitte zum Schluss
       text: >-
-        Hinter FehlerFuchs steht kein Team — es ist ein Mensch, der abends und
+        Hinter FehlerFuchs steht kein Team – es ist ein Mensch, der abends und
         an Wochenenden entwickelt. Was im Play Store am meisten hilft, kostet
         dich zwei Minuten: eine Rezension. Sie entscheidet darüber, ob eine App
         überhaupt jemandem angezeigt wird, und sie ist für einen
-        Einzelentwickler der Unterschied zwischen „gefunden" und „gibt es
-        eigentlich auch".
+        Einzelentwickler der Unterschied zwischen „gefunden“ und „gibt es
+        eigentlich auch“.
       nachsatz: >-
         Ehrlich, bitte. Auch drei Sterne mit einem Satz, was fehlt, helfen mir
-        mehr als fünf ohne Worte — daraus wird das nächste Update.
+        mehr als fünf ohne Worte – daraus wird das nächste Update.
 
     # Der wichtigste Satz der ganzen Seite, und der am leichtesten misszu-
     # verstehende: Die Frist gehoert zum CODE, nicht zur Freischaltung. Wer
@@ -95,7 +95,7 @@ aktionen:
     # Frist auftaucht.
     dauerhaft: >-
       Die Frist gilt nur für den Code. Einmal eingelöst, bleibt Pro dauerhaft
-      freigeschaltet — kein Abo, keine Folgekosten.
+      freigeschaltet – kein Abo, keine Folgekosten.
 
     # Als Zeitstempel, nicht als Text: Daraus rechnet die Seite, wie lange die
     # Aktion noch läuft. Ein Datum, das nur als Wort dasteht, kann das nicht.
@@ -106,12 +106,12 @@ aktionen:
     # — da hilft eine nummerierte Liste, in der man die Zeile wiederfindet.
     einloesen:
       - SnapFuchs aus dem Play Store laden
-      - In der App auf „Pro aktivieren" tippen
-      - Als Zahlungsart „Code" wählen
-      - Den Code aus der Mail einfügen — fertig
+      - In der App auf „Pro aktivieren“ tippen
+      - Als Zahlungsart „Code“ wählen
+      - Den Code aus der Mail einfügen – fertig
     einloesen_hinweis: >-
       Es geht auch über den Play Store selbst (Profilbild · Zahlungen und Abos ·
-      Code einlösen) — der Weg über die App ist nur kürzer. Danach ist Pro
+      Code einlösen) – der Weg über die App ist nur kürzer. Danach ist Pro
       dauerhaft freigeschaltet, ohne Ablaufdatum, auf jedem Gerät mit demselben
       Google-Konto.
     # Aus diesen zwei Zeilen entsteht die Meldung auf 'Aktuelles' und der
@@ -124,11 +124,11 @@ aktionen:
       text: >-
         SnapFuchs ist im Play Store, und zur Veröffentlichung verschenke ich 100
         Codes für die Pro-Fassung. Eine Frage beantworten, Alias und E-Mail
-        angeben, Code bekommen — mehr ist es nicht. Wer einlöst, behält Pro
+        angeben, Code bekommen – mehr ist es nicht. Wer einlöst, behält Pro
         dauerhaft: kein Abo, keine Folgekosten. Solange der Vorrat reicht.
 
     danach: >-
-      Alle Codes sind verteilt — danke fürs Mitmachen. Wer einen bekommen hat,
+      Alle Codes sind verteilt – danke fürs Mitmachen. Wer einen bekommen hat,
       behält Pro dauerhaft. SnapFuchs gibt es weiterhin kostenlos im Play Store;
       die Pro-Fassung ist dort ein einmaliger Kauf, kein Abo.
 
@@ -166,7 +166,7 @@ aktionen:
       - Zeitpunkt der Anforderung
       - der zugeteilte Code
     rechtsgrundlage: >-
-      Art. 6 Abs. 1 lit. b DSGVO — die Zusendung wird selbst angefordert.
+      Art. 6 Abs. 1 lit. b DSGVO – die Zusendung wird selbst angefordert.
     frist: 90 Tage nach der Anforderung
     wo: Lizenzserver (license.fehlerfuchs.eu)
     nicht_gespeichert:
@@ -175,5 +175,5 @@ aktionen:
       - keine Auswertung, wer den Code eingelöst hat
     hinweis: >-
       Nach 90 Tagen wird die Zuordnung gelöscht. Der Code selbst bleibt als
-      vergeben vermerkt — sonst würde er ein zweites Mal ausgegeben, obwohl ihn
+      vergeben vermerkt – sonst würde er ein zweites Mal ausgegeben, obwohl ihn
       jemand hat. Ein Personenbezug besteht dann nicht mehr.

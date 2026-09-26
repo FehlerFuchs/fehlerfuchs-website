@@ -82,7 +82,7 @@ uebertragungen:
     beleg: 05_Engine/belegwerk_core/belegwerk_core/paperless/api.py
   - wohin: FehlerFuchs Support-Bridge auf einem EU-Server
     was: freiwillige Nachricht, Name, Rückfrage-E-Mail, Betreff, Fehlercode, App-Version, Betriebssystem und bewusst ausgewählte Anhänge
-    wann: ausschließlich nach Klick auf "Senden" im Dialog "Hilfe & Feedback"
+    wann: ausschließlich nach Klick auf „Senden“ im Dialog „Hilfe & Feedback“
     freiwillig: true
     beleg: 11_App_Flutter/belegwerk_desktop/lib/core/support_bridge.dart
 

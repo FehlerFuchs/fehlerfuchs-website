@@ -12,7 +12,7 @@ auf_dem_geraet:
   - was: Tresor-Einträge (Titel und Passwort, optional Benutzername, URL, Kategorie, Notiz)
     wo: verschlüsselt im geschützten Speicher des Geräts
     beleg: lib/data/secure_vault_repository.dart (flutter_secure_storage,
-      Schluessel "fuchsbau_vault_v1")
+      Schluessel „fuchsbau_vault_v1“)
   - was: Prüfsummen von Tresor-PIN, Tresor-Passwort und Offline-Sicherheitsschlüssel;
       die eingegebenen Werte selbst werden nicht gespeichert
     wo: verschlüsselt im geschützten Speicher des Geräts
@@ -20,7 +20,7 @@ auf_dem_geraet:
       lib/core/security/security_key_service.dart (Argon2id-Hash + Salt)
   - was: Auswahl der aktiven Entsperr-Faktoren
     wo: verschlüsselt im geschützten Speicher des Geräts
-    beleg: lib/core/security/unlock_config.dart (Schluessel "fuchsbau_unlock_cfg")
+    beleg: lib/core/security/unlock_config.dart (Schluessel „fuchsbau_unlock_cfg“)
   - was: Einstellungen (Hell/Dunkel/System, Merker für die Einführung beim ersten Start,
       selbst ergänzte Wörter für den Passphrasen-Generator)
     wo: verschlüsselt im geschützten Speicher des Geräts
@@ -56,7 +56,7 @@ uebertragungen:
     beleg: lib/features/security_key/security_key_show_screen.dart (Printing.layoutPdf)
   - wohin: Zwischenablage des Geräts (systemweit, grundsätzlich für andere Apps lesbar)
     was: ein einzelnes Passwort oder der verschlüsselte Backup-Text
-    wann: nur wenn der Nutzer "Kopieren" wählt; Passwörter werden nach 30 Sekunden,
+    wann: nur wenn der Nutzer „Kopieren“ wählt; Passwörter werden nach 30 Sekunden,
       Backup-Texte nach 2 Minuten gelöscht. Inzwischen veränderter fremder Inhalt bleibt erhalten.
     freiwillig: true
     beleg: lib/core/security/clipboard_service.dart; lib/features/backup/backup_screen.dart
@@ -99,7 +99,7 @@ offene_fragen: >-
   abgesichert ist, hängt vom Gerät und der Android-Fassung ab und lässt sich aus der
   App heraus nicht zusichern.
   2) Was der vom Nutzer gewählte Android-Druckdienst mit dem PDF des Sicherheitsschlüssels
-  macht, liegt außerhalb der App - es kann auch ein Netzwerk- oder Cloud-Druckdienst sein.
+  macht, liegt außerhalb der App – es kann auch ein Netzwerk- oder Cloud-Druckdienst sein.
   3) Die App ist noch nicht veröffentlicht; eine Verteilung über Google Play ist geplant.
   Was Google im Zuge der Verteilung selbst erhebt, ist hier nicht abgebildet und muss vor
   der Veröffentlichung ergänzt werden.

@@ -27,7 +27,7 @@ wordmark:
   - { text: "Werk", color: "#B45309", weight: bold }
 
 # Auf 'entwicklung' korrigiert (BelegWerk-Bitte vom 05.08.2026, bestätigt Matthias
-# 22.08.2026): 'pruefung' suggerierte eine Reife, die es nicht gibt — RC vorhanden,
+# 22.08.2026): 'pruefung' suggerierte eine Reife, die es nicht gibt – RC vorhanden,
 # aber nicht signiert, kein öffentlicher Release, dazu ein offener P1 (unsichtbares
 # WebView-Fenster). BEWUSST OHNE Versionsnummer auf der Seite (Wunsch BelegWerk).
 status: entwicklung
@@ -222,7 +222,7 @@ media:
     height: 380
   # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
   # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
-  # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.
+  # Sobald echte Bilder da sind, ersetzt „screenshots:“ diese Zeile.
   platzhalter: 4
 
 links:
@@ -230,5 +230,5 @@ links:
 
 notes: >-
   Anbindung an Paperless bedeutet, dass Daten an ein selbst betriebenes Archiv gehen.
-  Das Merkmal „keine-cloud" ist deshalb bewusst nicht gesetzt – es hängt davon ab,
+  Das Merkmal „keine-cloud“ ist deshalb bewusst nicht gesetzt – es hängt davon ab,
   wo der Nutzer sein Paperless betreibt.

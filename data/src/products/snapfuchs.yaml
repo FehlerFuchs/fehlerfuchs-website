@@ -180,14 +180,14 @@ features:
         values: { free: ja, pro: ja }
       - name: Ausführliche Hilfe zu jeder Funktion
         values: { free: ja, pro: ja }
-      - name: „Problem melden" und Kontakt direkt aus der App
+      - name: „Problem melden“ und Kontakt direkt aus der App
         values: { free: ja, pro: ja }
       - name: Transparenz-Seite – welche Bausteine stecken drin, was geht nach außen
         values: { free: ja, pro: ja }
 
   - group: Erscheinungsbild
     items:
-      - name: Hinweis „Erstellt mit SnapFuchs" auf der letzten Seite
+      - name: Hinweis „Erstellt mit SnapFuchs“ auf der letzten Seite
         values: { free: ja, pro: nein }
         note: In Pro entfällt der Hinweis.
       - name: Wasserzeichen in Form und Position frei wählbar
@@ -219,7 +219,7 @@ umwege:
     text: >-
       SnapFuchs hatte die Berechtigung, auf alle Bilder des Geräts zuzugreifen.
       Google verlangt die aber nur dort, wo eine App das ständig braucht – für den
-      seltenen Fall „Bild aus der Galerie holen" ist der Fotoauswahl-Dialog von
+      seltenen Fall „Bild aus der Galerie holen“ ist der Fotoauswahl-Dialog von
       Android vorgesehen, der ganz ohne Berechtigung auskommt. Zu Recht, ehrlich
       gesagt: weniger Zugriff ist genau das, wofür FehlerFuchs steht. Also die drei
       Medien-Berechtigungen entfernt, auf den Android-Fotopicker umgestellt und neu
@@ -259,7 +259,7 @@ media:
     - src: /img/screenshots/snapfuchs/handy-01.png
       alt: >-
         Werbebild „100 % lokaler Dokumentenscanner – Kein Konto, keine Cloud,
-        keine Werbung". Darunter der Startbildschirm: der Fuchskopf in einem
+        keine Werbung“. Darunter der Startbildschirm: der Fuchskopf in einem
         orangefarbenen Scanrahmen.
       width: 620
       height: 1342
@@ -267,16 +267,16 @@ media:
       titel: Dunkel von Anfang an – ein heller Bildschirm blendet beim Scannen
     - src: /img/screenshots/snapfuchs/handy-02.png
       alt: >-
-        Werbebild „Scannen mit einem Tipp". Darunter die Startseite mit der
+        Werbebild „Scannen mit einem Tipp“. Darunter die Startseite mit der
         Liste zuletzt gespeicherter PDFs und einer großen orangefarbenen
-        Kamerataste am unteren Rand, beschriftet „Tippen zum Scannen".
+        Kamerataste am unteren Rand, beschriftet „Tippen zum Scannen“.
       width: 620
       height: 1342
       geraet: handy
       titel: Tippen zum Scannen – mehr braucht der Anfang nicht
     - src: /img/screenshots/snapfuchs/handy-03.png
       alt: >-
-        Werbebild „Erkennt die Ränder von selbst". Darunter die Kameraansicht:
+        Werbebild „Erkennt die Ränder von selbst“. Darunter die Kameraansicht:
         ein schräg auf dem Tisch liegendes Testblatt, um das die App einen
         grünen Rahmen mit vier Eckpunkten gelegt hat.
       width: 620
@@ -285,16 +285,16 @@ media:
       titel: Der Rahmen sitzt, bevor man auslöst
     - src: /img/screenshots/snapfuchs/handy-04.png
       alt: >-
-        Werbebild „Kanten selbst korrigieren". Darunter die Ansicht „Ecken
-        justieren": dasselbe Blatt mit vier großen Griffen an den Ecken und
-        einer Schaltfläche „Entzerren".
+        Werbebild „Kanten selbst korrigieren“. Darunter die Ansicht „Ecken
+        justieren“: dasselbe Blatt mit vier großen Griffen an den Ecken und
+        einer Schaltfläche „Entzerren“.
       width: 620
       height: 1342
       geraet: handy
       titel: Sitzt der Rahmen nicht, zieht man ihn zurecht
     - src: /img/screenshots/snapfuchs/handy-05.png
       alt: >-
-        Werbebild „PDF-Werkzeuge an Bord". Darunter die Liste: Zusammenführen,
+        Werbebild „PDF-Werkzeuge an Bord“. Darunter die Liste: Zusammenführen,
         Drehen, Seiten löschen, Seiten neu ordnen, Aufteilen – mit dem Hinweis,
         dass alle Vorgänge lokal auf dem Gerät laufen.
       width: 620
@@ -303,16 +303,16 @@ media:
       titel: Zusammenführen, drehen, teilen – ohne Umweg über einen Dienst
     - src: /img/screenshots/snapfuchs/handy-06.png
       alt: >-
-        Werbebild „QR- & Barcodes offline lesen". Darunter die Scanansicht mit
+        Werbebild „QR- & Barcodes offline lesen“. Darunter die Scanansicht mit
         einem grünen Suchrahmen und dem Hinweis „Code in den grünen Rahmen
-        halten".
+        halten“.
       width: 620
       height: 1342
       geraet: handy
       titel: Codes lesen, ohne dass jemand mitliest
     - src: /img/screenshots/snapfuchs/handy-07.png
       alt: >-
-        Werbebild „Mehr können mit SnapFuchs Pro". Darunter die Übersicht der
+        Werbebild „Mehr können mit SnapFuchs Pro“. Darunter die Übersicht der
         freigeschalteten Funktionen: ohne Wasserzeichen, durchsuchbares PDF,
         Tabelle nach Excel oder CSV, E-Signatur, PDF-Werkzeuge.
       width: 620
@@ -321,7 +321,7 @@ media:
       titel: Was Pro dazugibt – einmaliger Kauf, kein Abo
     - src: /img/screenshots/snapfuchs/handy-08.png
       alt: >-
-        Werbebild „100 % lokal. Kein Tracking." Darunter die Einstellungen mit
+        Werbebild „100 % lokal. Kein Tracking.“ Darunter die Einstellungen mit
         Erscheinungsbild, Wasserzeichen, Dateinamen und Seitenformat sowie
         einem ausführlichen Datenschutzabschnitt.
       width: 620

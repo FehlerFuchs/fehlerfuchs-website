@@ -1,8 +1,8 @@
 # BERICHTIGUNG 02.09.2026: frühere offene Frage 1 (was der Support-Dienst
 # serverseitig protokolliert) war seit 23.08. überholt – [11] Lizenzserver hat
 # es an dem Tag für /v1/contact belegt; steht jetzt im Übertragungseintrag als
-# Feld "serverseitig". Quelle nachgezogen aus der zentralen, belegten Fassung
-# 00-1_Produktdoku - Vertrieb und Recht\Datenschutz-Steckbriefe\checkin-vita.yaml
+# Feld „serverseitig“. Quelle nachgezogen aus der zentralen, belegten Fassung
+# 00-1_Produktdoku – Vertrieb und Recht\Datenschutz-Steckbriefe\checkin-vita.yaml
 # (Stand 02.09., Ausnahme Matthias 02.09.). [23] pausiert seit 31.08.
 slug: checkin-vita
 name: CheckInVita
@@ -67,7 +67,7 @@ berechtigungen:
 uebertragungen:
   - wohin: license.fehlerfuchs.eu
     was: Betreff und Nachrichtentext; freiwillig Name und E-Mail-Adresse; App-Version und Betriebssystem-Bezeichnung; vom Nutzer bewusst ausgewählte Dateianhänge; auf ausdrückliche Zustimmung eine technische Diagnosedatei (nur App-Version, System, Zeitstempel)
-    wann: nur wenn der Nutzer im Support-/Kontaktformular auf „Senden" tippt
+    wann: nur wenn der Nutzer im Support-/Kontaktformular auf „Senden“ tippt
     freiwillig: true
     beleg: lib/data/support/support_service.dart (MultipartRequest auf /v1/contact)
     serverseitig: >-
@@ -78,7 +78,7 @@ uebertragungen:
       Der Inhalt geht als E-Mail an den konfigurierten Posteingang.
   - wohin: fehlerfuchs.eu
     was: gewöhnlicher Seitenaufruf im externen Browser; es werden keine App-Daten übergeben
-    wann: nur wenn der Nutzer im Über-Bildschirm „Solche Projekte unterstützen?" antippt
+    wann: nur wenn der Nutzer im Über-Bildschirm „Solche Projekte unterstützen?“ antippt
     freiwillig: true
     beleg: lib/features/about/about_screen.dart (kUnterstuetzenUrl)
   - wohin: die vom Nutzer gewählte E-Mail- bzw. Telefon-App auf dem Gerät
@@ -100,7 +100,7 @@ daten_an_dritte_verkauft: false
 
 loeschung: >-
   Alle Daten liegen auf dem Gerät. Einzelne Einträge lassen sich in der App
-  löschen; unter Einstellungen entfernt „Alle Daten löschen" sämtliche
+  löschen; unter Einstellungen entfernt „Alle Daten löschen“ sämtliche
   Einträge, Stammdaten und Einstellungen unwiderruflich. Beim Deinstallieren
   der App verschwinden alle Daten mit. Selbst erzeugte Export-, Backup- und
   Abgleich-Dateien liegen dort, wo der Nutzer sie abgelegt hat, und müssen

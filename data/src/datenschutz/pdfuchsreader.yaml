@@ -7,10 +7,10 @@ geprueft_von: >-
   gegengeprüft und korrigiert: (a) das Netzverhalten ist nicht mehr
   netzwerkfrei, sondern hat einen NUTZERINITIIERTEN Support-/Kontaktweg
   (seit 25.07.2026); (b) es gibt inzwischen eine lokale Einstellungsdatei
-  (settings.json) inkl. „Zuletzt geöffnet"; (c) Installer ist Inno Setup
+  (settings.json) inkl. „Zuletzt geöffnet“; (c) Installer ist Inno Setup
   (installer_flutter.iss), nicht mehr NSIS. Frühere Angaben entsprechend berichtigt.
 fassung: >-
-  Zweite Fassung vom 19.07.2026 - gegenüber der ersten Einreichung desselben
+  Zweite Fassung vom 19.07.2026 – gegenüber der ersten Einreichung desselben
   Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt.
   Zwei Fassungen tragen heute diesen Slug.
   (A) Android-Fassung 1.1.0 (versionCode 3, Paket eu.fehlerfuchs.pdfuchsreader):
@@ -19,7 +19,7 @@ fassung: >-
   (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht
   veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und
   Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, Inno-Setup-Skript
-  (installer_flutter.iss). Kein Laufzeit-Mitschnitt des Netzwerkverkehrs -
+  (installer_flutter.iss). Kein Laufzeit-Mitschnitt des Netzwerkverkehrs –
   siehe offene Frage 4. Windows-Teil am 19.08.2026 gegen den aktuellen Stand
   gegengeprüft und berichtigt (Netzverhalten, Einstellungsdatei, Installer).
 
@@ -33,7 +33,7 @@ lokal_only: false
 
 auf_dem_geraet:
   # --- Android-Fassung ---
-  - was: Liste „Zuletzt geöffnet" (Dateipfad, Dateiname, Öffnungsdatum)
+  - was: Liste „Zuletzt geöffnet“ (Dateipfad, Dateiname, Öffnungsdatum)
     wo: im Einstellungsspeicher der App auf dem Gerät
     beleg: 05_App/pdfuchsreader_mobile/lib/core/recent/recent_store.dart
   - was: Einstellung Anzeigemodus (Hell/Dunkel/System)
@@ -45,7 +45,7 @@ auf_dem_geraet:
   - was: Vom Nutzer erzeugte bearbeitete PDF-Kopien (<name>_bearbeitet[_N].pdf)
     wo: App-Dokumentenordner der App; Originale und vorhandene Kopien werden nie überschrieben
     beleg: 05_App/pdfuchsreader_mobile/lib/features/editor/seiten_editor_screen.dart
-  - was: Per „Öffnen mit"/Teilen hereingereichte PDFs und EPUBs (größenbegrenzte Arbeitskopie)
+  - was: Per „Öffnen mit“/Teilen hereingereichte PDFs und EPUBs (größenbegrenzte Arbeitskopie)
     wo: Zwischenspeicher (Cache) der App
     beleg: 05_App/pdfuchsreader_mobile/android/app/src/main/kotlin/eu/fehlerfuchs/pdfuchsreader/MainActivity.kt (kopiereNachCache)
   - was: Eigene Lesezeichen (Seite beziehungsweise Kapitel je Dokument) und Wiederleseposition
@@ -56,7 +56,7 @@ auf_dem_geraet:
     wo: der vom Nutzer gewählte Speicherort
     beleg: (Windows) 05_Engine/pdfuchs_core/pdfuchs_core/config.py:61
   - was: Ergebnisdateien der Verarbeitung (z. B. Texterkennung, Miniaturen, korrigierte Seiten)
-    wo: in einem Ausgabeordner im Programmverzeichnis - nicht in den eigenen Dateien des Nutzers
+    wo: in einem Ausgabeordner im Programmverzeichnis – nicht in den eigenen Dateien des Nutzers
     beleg: (Windows) 05_Engine/pdfuchs_core/pdfuchs_core/config.py:61
   - was: Datei license_state.json mit einem lokalen Zählerstand zur Programmnutzung; keine personenbezogenen Angaben
     wo: >-
@@ -69,11 +69,11 @@ auf_dem_geraet:
     beleg: (Windows) 05_Engine/pdfuchs_core/pdfuchs_core/render.py:29 (TemporaryDirectory)
   - was: >-
       (Windows, berichtigt 19.08.2026) Nutzereinstellungen und Liste „Zuletzt
-      geöffnet": persönlicher Anzeigename (Alias), gewählter Ablageordner,
-      zuletzt geöffnete Dokumente und - nur wenn der Nutzer sie im
-      PDFuchs-Windows-Paket selbst einträgt - optionale lokale Stammdaten
+      geöffnet“: persönlicher Anzeigename (Alias), gewählter Ablageordner,
+      zuletzt geöffnete Dokumente und – nur wenn der Nutzer sie im
+      PDFuchs-Windows-Paket selbst einträgt – optionale lokale Stammdaten
       (z. B. Name, Adresse, IBAN für das Ausfüllen von Formularen). Rein lokal,
-      keine Übertragung. (Die frühere Angabe „keine Einstellungsdatei" war
+      keine Übertragung. (Die frühere Angabe „keine Einstellungsdatei“ war
       überholt.)
     wo: Datei settings.json im Anwendungsdatenordner des Benutzers (%APPDATA%\PDFuchs)
     beleg: (Windows) 11_App_Flutter/pdfuchs_desktop/lib/settings/app_settings.dart
@@ -92,9 +92,9 @@ berechtigungen:
       Technischer Name eu.fehlerfuchs.pdfuchsreader.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION,
       von AndroidX erzeugt; ausgelesen aus
       build/app/intermediates/bundle_manifest/release/.../AndroidManifest.xml
-  - name: (Android - keine weiteren)
+  - name: (Android – keine weiteren)
     wofuer: >-
-      Die App fordert keine weiteren Berechtigungen an - insbesondere keinen
+      Die App fordert keine weiteren Berechtigungen an – insbesondere keinen
       Zugriff auf Speicher, Kamera, Standort, Kontakte oder Mikrofon.
     pflicht: false
     beleg: >-
@@ -106,7 +106,7 @@ berechtigungen:
     wofuer: Öffnen und Speichern der vom Nutzer gewählten PDF-Dateien
     pflicht: true
     beleg: (Windows) Desktopanwendung ohne Manifest-Berechtigungsmodell
-  - name: (Windows) Registrierung als PDF-Anwendung („Öffnen mit"), optional
+  - name: (Windows) Registrierung als PDF-Anwendung („Öffnen mit“), optional
     wofuer: >-
       Nur wenn der Nutzer diese Option bei der Installation wählt. Der Reader
       wird dann als mögliche Anwendung zum Öffnen von PDF-Dateien eingetragen;
@@ -115,16 +115,16 @@ berechtigungen:
       Benutzerkonto, nicht für den ganzen Rechner, und werden beim
       Deinstallieren wieder entfernt.
     pflicht: false
-    beleg: '(Windows) 92_Tools/installer_flutter.iss (Komponente „assoc": HKCU Software\Classes\Applications\PDFuchsReader.exe; nur angemeldetes Benutzerkonto; beim Deinstallieren entfernt)'
+    beleg: '(Windows) 92_Tools/installer_flutter.iss (Komponente „assoc“: HKCU Software\Classes\Applications\PDFuchsReader.exe; nur angemeldetes Benutzerkonto; beim Deinstallieren entfernt)'
 
 uebertragungen:
   - wohin: license.fehlerfuchs.eu
     was: >-
       Nachrichtentext, freiwillig Name und E-Mail-Adresse, Ziel (Support/Kontakt),
-      Betreff, Thema, App-Name, Edition „Free", App-Version, Android-Version,
-      Gerätehersteller und Modell. Keine Dateianhänge - das dafür vorgesehene
+      Betreff, Thema, App-Name, Edition „Free“, App-Version, Android-Version,
+      Gerätehersteller und Modell. Keine Dateianhänge – das dafür vorgesehene
       Feld wird vom Support-Formular nicht befüllt.
-    wann: Nur wenn der Nutzer das Support-/Kontaktformular ausfüllt und „Senden" drückt (nur Android-Fassung)
+    wann: Nur wenn der Nutzer das Support-/Kontaktformular ausfüllt und „Senden“ drückt (nur Android-Fassung)
     freiwillig: true
     beleg: 05_App/pdfuchsreader_mobile/lib/core/kontakt/kontakt_service.dart (Zeile 19, 37-56) und lib/core/kontakt/kontext.dart
   - wohin: E-Mail-App des Nutzers (mailto an support@ bzw. info@fehlerfuchs.eu)
@@ -139,7 +139,7 @@ uebertragungen:
     beleg: lib/features/home/support_dialog.dart (Zeile 7), lib/features/legal/impressum_screen.dart (Zeile 59, 65), lib/features/legal/datenschutz_screen.dart (Zeile 76)
   - wohin: Vom Nutzer gewählte fremde App bzw. Android-Druckdienst
     was: Die geöffnete PDF-Datei
-    wann: Nur wenn der Nutzer „Teilen" oder „Drucken" auslöst; wohin sie geht, bestimmt der Nutzer
+    wann: Nur wenn der Nutzer „Teilen“ oder „Drucken“ auslöst; wohin sie geht, bestimmt der Nutzer
     freiwillig: true
     beleg: 05_App/pdfuchsreader_mobile/lib/features/viewer/viewer_screen.dart (Zeile 53, 62)
   # --- Windows-Fassung (berichtigt 19.08.2026 gegen den aktuellen Quellstand;
@@ -159,9 +159,9 @@ uebertragungen:
     beleg: (Windows) 11_App_Flutter/pdfuchs_desktop/lib/legal/impressum_screen.dart; lib/support/support_screen.dart
   - wohin: download.pytorch.org (offizieller PyTorch-Paketindex)
     was: CUDA-Pakete für die optionale GPU-Beschleunigung; betrifft nur den Installer, nicht die laufende App
-    wann: NUR wenn der Nutzer die optionale Installer-Komponente „GPU-Beschleunigung" wählt (Standard ist CPU, kein Download)
+    wann: NUR wenn der Nutzer die optionale Installer-Komponente „GPU-Beschleunigung“ wählt (Standard ist CPU, kein Download)
     freiwillig: true
-    beleg: (Windows) 92_Tools/enable_cuda.ps1; 92_Tools/installer_flutter.iss (Komponente „ffdetr", nicht vorausgewählt)
+    beleg: (Windows) 92_Tools/enable_cuda.ps1; 92_Tools/installer_flutter.iss (Komponente „ffdetr“, nicht vorausgewählt)
 
 fremde_dienste:
   - name: PDFium (über die Bibliothek pdfrx)
@@ -176,7 +176,7 @@ fremde_dienste:
       Lokal, nur auf Auslösung durch den Nutzer. Tesseract wird ausschließlich
       als lokaler Unterprozess gestartet; Sprachdaten liegen lokal daneben, es
       werden keine Adressen, Proxys oder Onlinedienste übergeben. Gilt NUR für
-      die Windows-Fassung - die Android-Fassung enthält bewusst kein OCR.
+      die Windows-Fassung – die Android-Fassung enthält bewusst kein OCR.
   - name: (Windows) PDFium über pypdfium2
     wofuer: Darstellung der PDF-Seiten
     wann: Lokal, bei jeder Anzeige
@@ -189,7 +189,7 @@ daten_an_dritte_verkauft: false
 
 loeschung: >-
   Android: Alle Daten liegen auf dem Gerät. Einträge der Liste „Zuletzt
-  geöffnet" lassen sich einzeln entfernen oder komplett leeren. Beim
+  geöffnet“ lassen sich einzeln entfernen oder komplett leeren. Beim
   Deinstallieren verschwinden App-Einstellungen, Zuletzt-Liste, Handbuch-Kopie,
   Lesezeichen, Wiederlesepositionen, im App-Ordner erzeugte bearbeitete Kopien
   und der Zwischenspeicher.
@@ -201,7 +201,7 @@ loeschung: >-
   Angaben) und settings.json (%APPDATA%\PDFuchs; die Nutzereinstellungen inkl.
   optional selbst eingetragener Stammdaten). Beide werden bei der Deinstallation
   bewusst nicht mit entfernt.
-  In beiden Fassungen bleiben die eigenen Dokumente des Nutzers unangetastet -
+  In beiden Fassungen bleiben die eigenen Dokumente des Nutzers unangetastet –
   Originale werden nie überschrieben.
 
 besonderheiten: >-
@@ -209,10 +209,10 @@ besonderheiten: >-
   keine Verbindung nach draußen und keine automatische Update-Prüfung. Es gibt
   kein Konto, keine Anmeldung, keine Werbung, keine Nutzungsmessung und keine
   In-App-Käufe. In BEIDEN Fassungen entsteht eine Verbindung nur, wenn der
-  Nutzer sie selbst auslöst - vor allem beim Absenden des
+  Nutzer sie selbst auslöst – vor allem beim Absenden des
   Support-/Kontaktformulars (an license.fehlerfuchs.eu) sowie beim Öffnen externer Links.
   (Berichtigung 19.08.2026: die frühere Aussage, die Windows-Fassung stelle
-  „überhaupt keine Verbindung" her, war seit 25.07.2026 überholt.) Beim
+  „überhaupt keine Verbindung“ her, war seit 25.07.2026 überholt.) Beim
   Windows-Installer kann der Nutzer optional eine GPU-Komponente wählen, die dann
   CUDA-Pakete aus dem offiziellen PyTorch-Index nachlädt (Standard: aus).
   Bearbeitete PDF-Dateien werden immer als neue Kopie gespeichert, die
@@ -227,13 +227,13 @@ vorhandener_text: >-
 
 offene_fragen: >-
   1. (erledigt) Windows- und Android-Reader teilen bewusst den Slug
-  „pdfuchsreader"; Eigentümer und gemeinsame Pflege liegen bei [26] PDFuchs.
+  „pdfuchsreader“; Eigentümer und gemeinsame Pflege liegen bei [26] PDFuchs.
   2. (geklärt, Beleg [11] Lizenzserver via [26-1], 23.08.2026) Der Kontakt-Endpunkt
   /v1/contact auf license.fehlerfuchs.eu speichert den Nachrichteninhalt NICHT in der
   Datenbank; die IP dient nur als kurzlebiger Redis-Schlüssel der Missbrauchsbremse
   (Stunde/Tag), es wird kein User-Agent übernommen, und bei Erfolg protokolliert der
   Dienst weder Anfrageinhalt noch IP. Offen bleibt allein die Aufbewahrung im
-  E-Mail-Postfach, an das der Supportinhalt weitergeleitet wird - sie richtet sich
+  E-Mail-Postfach, an das der Supportinhalt weitergeleitet wird – sie richtet sich
   nach dem Postfach.
   3. (erledigt) Das ungenutzte Paket permission_handler wurde mit Version 1.0.1
   (07.08.2026) entfernt; es hatte ohnehin keine Datenschutzwirkung.

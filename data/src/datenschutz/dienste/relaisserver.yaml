@@ -1,8 +1,8 @@
 slug: relaisserver
-name: FehlerFuchs Relaisserver (Dienst - Relais und Push)
+name: FehlerFuchs Relaisserver (Dienst – Relais und Push)
 stand: "2026-09-26"
 geprueft_von: Relaisserver
-fassung: "Stand 25.09.2026 - relay-orgafuchs-ofsp1 (dazu relay-orgafuchs als Rückfall), relay-fcm, relay-dateiwaechter, ntfy v2.9.0, relay-admin, relay-sicht-signer, Caddy 2"
+fassung: "Stand 25.09.2026 – relay-orgafuchs-ofsp1 (dazu relay-orgafuchs als Rückfall), relay-fcm, relay-dateiwaechter, ntfy v2.9.0, relay-admin, relay-sicht-signer, Caddy 2"
 
 # Hinweis: Dies ist die DIENST-Ebene (dritte Schicht), kein Endnutzer-Produkt.
 # Gerätebezogene Felder (auf_dem_geraet, berechtigungen) entfallen daher.
@@ -11,18 +11,18 @@ lokal_only: false
 # Was der Dienst speichert bzw. vorübergehend vorhält.
 serverseitig:
   - was: Nachrichteninhalte des Gruppen-Sync (Ende-zu-Ende verschlüsselt)
-    wo: nirgends - nur im Arbeitsspeicher weitergereicht (Warteschlange höchstens 2 MB je Verbindung), kein Schreiben auf Platte; der Container läuft schreibgeschützt
+    wo: nirgends – nur im Arbeitsspeicher weitergereicht (Warteschlange höchstens 2 MB je Verbindung), kein Schreiben auf Platte; der Container läuft schreibgeschützt
     beleg: 32_OrgaFuchs/06_Relay/relay_server.dart (Quelle des laufenden OFSP/1-Relays); Container relay-orgafuchs-ofsp1 ReadonlyRootfs=true, DATA_QUEUE_BYTES=2097152
-  - was: Epochen-Fence des Gruppen-Sync (pseudonym) - je Gruppenlinie ein Eintrag mit opaker Linien-Kennung, Epochennummer, zwei öffentlichen Schlüsseln (aktueller Host, Wiederherstellung), Prüfwert der letzten Übergabe und Zeitpunkt der letzten Nutzung. Keine Inhalte, keine Namen
-    wo: kleine Datei im Volume des Relays (einzige beschreibbare Stelle), dazu Sicherungskopien auf dem Server - stündlich (die letzten 14) und monatlich
-    beleg: 32_OrgaFuchs/06_Relay/fence.dart (FenceEntry; "Kein TTL/GC - einmal initialisierter Zustand wird nie gelöscht"); 05_Server/scripts/fence_backup.sh
-  - was: FCM-Weck-Registry (pseudonym) - je registriertem Gerät eine Zeile
-    wo: kleine SQLite-Datei im Volume des Sidecars relay-fcm; Felder - vom Client vergebene Gerätekennung, FCM-Gerätetoken (Google-Zustelladresse), Gruppen-Hash (sha256 des Gruppen-Sync-Tokens), Plattform, actorKey (nur Selbst-Ausschluss), Zeitstempel. Keine Namen, keine Konten, keine Anmeldung mit Identität
+  - was: Epochen-Fence des Gruppen-Sync (pseudonym) – je Gruppenlinie ein Eintrag mit opaker Linien-Kennung, Epochennummer, zwei öffentlichen Schlüsseln (aktueller Host, Wiederherstellung), Prüfwert der letzten Übergabe und Zeitpunkt der letzten Nutzung. Keine Inhalte, keine Namen
+    wo: kleine Datei im Volume des Relays (einzige beschreibbare Stelle), dazu Sicherungskopien auf dem Server – stündlich (die letzten 14) und monatlich
+    beleg: 32_OrgaFuchs/06_Relay/fence.dart (FenceEntry; „Kein TTL/GC – einmal initialisierter Zustand wird nie gelöscht“); 05_Server/scripts/fence_backup.sh
+  - was: FCM-Weck-Registry (pseudonym) – je registriertem Gerät eine Zeile
+    wo: kleine SQLite-Datei im Volume des Sidecars relay-fcm; Felder – vom Client vergebene Gerätekennung, FCM-Gerätetoken (Google-Zustelladresse), Gruppen-Hash (sha256 des Gruppen-Sync-Tokens), Plattform, actorKey (nur Selbst-Ausschluss), Zeitstempel. Keine Namen, keine Konten, keine Anmeldung mit Identität
     beleg: 05_Server/apps/relay-fcm/app.py (Tabelle tokens)
-  - was: Push-Meldungen auf zwei pseudonymen Themen je Gruppe (Themenname aus einem Hash des Gruppen-Tokens) - Änderungsmeldung (sinngemäß "es gibt Änderungen", keine Nutzdaten) und Präsenzmeldung (Geräte-ID, Rolle in der Gruppe, Zeitstempel)
+  - was: Push-Meldungen auf zwei pseudonymen Themen je Gruppe (Themenname aus einem Hash des Gruppen-Tokens) – Änderungsmeldung (sinngemäß „es gibt Änderungen“, keine Nutzdaten) und Präsenzmeldung (Geräte-ID, Rolle in der Gruppe, Zeitstempel)
     wo: Zwischenspeicher des Push-Dienstes, höchstens 12 Stunden
     beleg: 05_Server/compose/docker-compose.yml (NTFY_CACHE_DURATION=12h, NTFY_CACHE_FILE); 32_OrgaFuchs/05_App/orgafuchs/lib/services/push_ntfy.dart (themaFuer, praesenzMelden)
-  - was: Zugriffsprotokolle des Reverse-Proxy (Client-IP, Zeitpunkt, aufgerufener Pfad ohne Query-Parameter - der Teil ab dem Fragezeichen wird vor dem Schreiben entfernt)
+  - was: Zugriffsprotokolle des Reverse-Proxy (Client-IP, Zeitpunkt, aufgerufener Pfad ohne Query-Parameter – der Teil ab dem Fragezeichen wird vor dem Schreiben entfernt)
     wo: rotierende Container-Logs (je Dienst max. 3 x 10 MB), keine Archivierung, nicht im Backup
     beleg: 05_Server/proxy/Caddyfile (log-Direktive je Site mit format filter, request>uri ohne Query-Teil, live seit 31.08.2026); 05_Server/compose/docker-compose.yml (logging max-size/max-file)
   - was: aggregierte Zähler (Anzahl Push-Meldungen, aktive Themen, Dienst-Health)
@@ -47,7 +47,7 @@ uebertragungen:
     freiwillig: false
     beleg: 05_Server/scripts/monitor.sh
   - wohin: eigener Gotify-Server von FehlerFuchs (Benachrichtigung auf das Telefon des Betreibers)
-    was: kurze Betriebsmeldung - Zahl der erreichbaren Endpunkte und laufenden Container, Störung oder Entwarnung; keine Nutzerdaten
+    was: kurze Betriebsmeldung – Zahl der erreichbaren Endpunkte und laufenden Container, Störung oder Entwarnung; keine Nutzerdaten
     wann: einmal täglich sowie bei Störung und Entwarnung
     freiwillig: false
     beleg: 05_Server/scripts/monitor.sh (gotify_push)
@@ -108,12 +108,12 @@ vorhandener_text: 01_Konzept/Sicherheitskonzept.md
 
 offene_fragen: >-
   (1) Die Zugriffsprotokolle des Reverse-Proxy rotieren nach Größe und werden
-  nicht archiviert - eine feste Aufbewahrungsfrist in Tagen ist damit nicht
+  nicht archiviert – eine feste Aufbewahrungsfrist in Tagen ist damit nicht
   definiert. Die Query-Parameter (bei Sync-Verbindungen Gruppen- und
   Gerätekennung) werden seit dem 31.08.2026 nicht mehr protokolliert.
   (2) Unbekannt, ob und wie lange der Hoster auf Netzwerkebene eigene Protokolle
-  führt - das liegt außerhalb der eigenen Konfiguration.
-  (3) FCM/Google: Die Rolle ist entschieden (Matthias, 03.09.2026) - Google ist
+  führt – das liegt außerhalb der eigenen Konfiguration.
+  (3) FCM/Google: Die Rolle ist entschieden (Matthias, 03.09.2026) – Google ist
   Auftragsverarbeiter nach Art. 28 DSGVO, die Übermittlung in die USA stützt
   sich auf das EU-US Data Privacy Framework und die Standardvertragsklauseln.
   Offen ist nur noch eine optionale anwaltliche Bestätigung.

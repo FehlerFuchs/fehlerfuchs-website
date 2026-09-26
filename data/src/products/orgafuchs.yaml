@@ -72,7 +72,7 @@ umwege:
     nach: pruefung
     grund: Zweite Ablehnung – diesmal wegen der Ferien-Anzeige
     text: >-
-      Die zweite Runde, ein anderer Vorwurf: „Misleading Claims". Weil die App
+      Die zweite Runde, ein anderer Vorwurf: „Misleading Claims“. Weil die App
       Feiertage und Schulferien je Bundesland anzeigt, hat die Prüfung
       geschlossen, hier gebe jemand behördliche Auskünfte – eine Behörden-App
       ohne Quellenangabe. Tatsächlich sind es Kalenderdaten für die
@@ -128,7 +128,7 @@ releases:
       Signierte Windows-Fassung 1.9.3 (Herausgeber FehlerFuchs), löst 1.9.2 ab.
       Deutlich stabilerer Familien-Sync: Jede Änderung wird zuerst auf dem Gerät
       gesichert und erst gelöscht, wenn das Hauptgerät sie bestätigt hat. Dienste und
-      Kategorien erreichen jetzt alle Familiengeräte. „Alle Daten löschen" entfernt
+      Kategorien erreichen jetzt alle Familiengeräte. „Alle Daten löschen“ entfernt
       wirklich alles, unverschlüsselte Verbindungen sind abgeschaltet. Unter Windows
       prüft das Update die Signatur des Installers strenger, OrgaFuchs startet auch ohne
       installierte Visual-C++-Laufzeit, läuft nur einmal und deinstalliert sich sauber.
@@ -153,7 +153,7 @@ releases:
     notes: >-
       Signierte Windows-Fassung 1.9.2 (Herausgeber FehlerFuchs), ein Bugfix-Release
       über 1.9.1. Es behebt zwei Fehler beim Koppeln weiterer Geräte: „Code
-      vorbereiten" funktioniert jetzt auch, wenn gerade kein Abgleich läuft, und nach
+      vorbereiten“ funktioniert jetzt auch, wenn gerade kein Abgleich läuft, und nach
       einem Hauptgerät-Wechsel erscheint ein verständlicher Hinweis zum Neu-Koppeln
       statt einer kryptischen Fehlermeldung. Der übrige Funktionsumfang bleibt
       unverändert (Kalender-Konfigurator, Jahres- und Schuljahreskalender zum
@@ -219,10 +219,10 @@ releases:
     signed: true
     notes: >-
       Signierte Windows-Fassung (Herausgeber FehlerFuchs). Neu: „Nachricht an
-      alle" mit Postfach – kurze Nachrichten an die Gruppe, Ende-zu-Ende über den
+      alle“ mit Postfach – kurze Nachrichten an die Gruppe, Ende-zu-Ende über den
       eigenen Relay verteilt; empfangene Nachrichten werden zuverlässig angezeigt.
       Dazu Feiertage und Ferien im Kalender farblich hervorgehoben und „zuletzt
-      aktiv" in der Geräteliste. Löst 1.5.0/1.6.0 ab.
+      aktiv“ in der Geräteliste. Löst 1.5.0/1.6.0 ab.
 
 # Funktionsübersicht. Übernommen aus dem Abschnitt „Funktionen" auf
 # apps/orgafuchs.html – also aus dem, was heute schon veröffentlicht ist.
@@ -271,7 +271,7 @@ features:
       - name: Nachrichten an alle – mit Postfach, Ende-zu-Ende verschlüsselt
         values: { standard: ja }
         note: Kurze Klartext-Nachrichten an die Gruppe; sie landen bei allen im Postfach und als Benachrichtigung, verteilt über den eigenen Relay statt über fremde Server. Ungelesenes bleibt markiert.
-      - name: Geräteliste zeigt „zuletzt aktiv"
+      - name: Geräteliste zeigt „zuletzt aktiv“
         values: { standard: ja }
         note: Auf dem Hauptgerät erkennst du so alte, ungenutzte Geräte leichter.
       - name: Konto oder Registrierung nötig

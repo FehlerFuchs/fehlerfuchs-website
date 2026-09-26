@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T17:02:17+02:00",
+  "generiert": "2026-09-26T17:09:25+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -60,7 +60,7 @@
       "produkt": "orgafuchs",
       "version": "1.9.3",
       "titel": "OrgaFuchs 1.9.3: stabilerer Familien-Sync",
-      "text": "OrgaFuchs 1.9.3 ist für Windows und Android da und macht den Familien-Sync deutlich robuster: Jede Änderung wird zuerst auf dem Gerät gesichert, bis das Hauptgerät sie bestätigt hat – auch bei Funklöchern geht nichts verloren. Dienste und Kategorien erreichen jetzt alle Familiengeräte. Mehr Datenschutz: keine Kopien in fremden Cloud-Backups, und „Alle Daten löschen\" entfernt wirklich alles. Unter Windows startet OrgaFuchs auch ohne installierte Visual-C++-Laufzeit, läuft nur einmal und lässt sich sauber deinstallieren. Alles bleibt auf dem Gerät, ohne Konto.",
+      "text": "OrgaFuchs 1.9.3 ist für Windows und Android da und macht den Familien-Sync deutlich robuster: Jede Änderung wird zuerst auf dem Gerät gesichert, bis das Hauptgerät sie bestätigt hat – auch bei Funklöchern geht nichts verloren. Dienste und Kategorien erreichen jetzt alle Familiengeräte. Mehr Datenschutz: keine Kopien in fremden Cloud-Backups, und „Alle Daten löschen“ entfernt wirklich alles. Unter Windows startet OrgaFuchs auch ohne installierte Visual-C++-Laufzeit, läuft nur einmal und lässt sich sauber deinstallieren. Alles bleibt auf dem Gerät, ohne Konto.",
       "datum": "2026-09-25",
       "datumQuelle": "Release 1.9.3",
       "wege": {
@@ -107,7 +107,7 @@
       "produkt": "orgafuchs",
       "version": "1.9.2",
       "titel": "OrgaFuchs 1.9.2: Koppeln weiterer Geräte zuverlässiger",
-      "text": "OrgaFuchs 1.9.2 ist ein signiertes Wartungs-Update, das auf 1.9.1 aufbaut und zwei Fehler beim Koppeln weiterer Geräte behebt: „Code vorbereiten\" funktioniert jetzt auch, wenn gerade kein Abgleich läuft. Und nach einem Hauptgerät-Wechsel erscheint ein verständlicher Hinweis zum Neu-Koppeln statt einer kryptischen Fehlermeldung, falls ein Gerät dabei offline war. Der übrige Funktionsumfang bleibt unverändert – Kalender-Konfigurator, Kalender zum Ausdrucken, Wandpläne je Einrichtung, Sync ohne Cloud. Alles bleibt auf dem Gerät, ohne Konto.",
+      "text": "OrgaFuchs 1.9.2 ist ein signiertes Wartungs-Update, das auf 1.9.1 aufbaut und zwei Fehler beim Koppeln weiterer Geräte behebt: „Code vorbereiten“ funktioniert jetzt auch, wenn gerade kein Abgleich läuft. Und nach einem Hauptgerät-Wechsel erscheint ein verständlicher Hinweis zum Neu-Koppeln statt einer kryptischen Fehlermeldung, falls ein Gerät dabei offline war. Der übrige Funktionsumfang bleibt unverändert – Kalender-Konfigurator, Kalender zum Ausdrucken, Wandpläne je Einrichtung, Sync ohne Cloud. Alles bleibt auf dem Gerät, ohne Konto.",
       "datum": "2026-09-13",
       "datumQuelle": "Release 1.9.2",
       "wege": {
@@ -149,7 +149,7 @@
       "produkt": "pdfuchsreader",
       "datum": "2026-08-26",
       "titel": "PDFuchs Reader 1.2.0: frisches Design, zuverlässiger öffnen",
-      "text": "PDFuchs Reader bekommt den neuen PDFuchs-Reader-Look in Hell und Dunkel. PDFs öffnen jetzt zuverlässiger – kein leeres Bild mehr beim ersten Versuch –, und „Öffnen mit\" aus anderen Apps läuft stabil. Extern geöffnete Dateien werden nicht mehr dauerhaft kopiert und landen nicht in „Zuletzt geöffnet\"; stattdessen steht der echte Dateiname da. Dazu klarere Hinweise, wenn man den Reader als Standard-App festlegt, und ein aktualisiertes Handbuch in der App.",
+      "text": "PDFuchs Reader bekommt den neuen PDFuchs-Reader-Look in Hell und Dunkel. PDFs öffnen jetzt zuverlässiger – kein leeres Bild mehr beim ersten Versuch –, und „Öffnen mit“ aus anderen Apps läuft stabil. Extern geöffnete Dateien werden nicht mehr dauerhaft kopiert und landen nicht in „Zuletzt geöffnet“; stattdessen steht der echte Dateiname da. Dazu klarere Hinweise, wenn man den Reader als Standard-App festlegt, und ein aktualisiertes Handbuch in der App.",
       "datumQuelle": "eigene Angabe",
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader"
@@ -161,7 +161,7 @@
       "produkt": "pdfuchsreader",
       "datum": "2026-08-19",
       "titel": "PDFuchs Reader liest jetzt auch E-Books",
-      "text": "Die neue Fassung öffnet neben PDF auch EPUB-Dateien: Der Text passt sich der Bildschirmbreite an, Schriftgröße und Lesethema (hell, sepia, dunkel) sind frei wählbar, das Inhaltsverzeichnis führt direkt zum Kapitel, und Lesezeichen merken sich die Stelle je Buch. Auch der PDF-Teil bekommt eigene Lesezeichen. Kostenlos, werbefrei, offline — wie gehabt.",
+      "text": "Die neue Fassung öffnet neben PDF auch EPUB-Dateien: Der Text passt sich der Bildschirmbreite an, Schriftgröße und Lesethema (hell, sepia, dunkel) sind frei wählbar, das Inhaltsverzeichnis führt direkt zum Kapitel, und Lesezeichen merken sich die Stelle je Buch. Auch der PDF-Teil bekommt eigene Lesezeichen. Kostenlos, werbefrei, offline – wie gehabt.",
       "datumQuelle": "eigene Angabe",
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader"
@@ -173,7 +173,7 @@
       "produkt": "mobilereport-enterprise",
       "version": "1.0.2",
       "titel": "MobileReport Enterprise 1.0.2",
-      "text": "Eine Sicherheits- und Datenschutz-Überarbeitung nach externer Prüfung: Die automatische Android-Sicherung ist abgeschaltet, sodass alles gezielt in der App bleibt; „Alle Daten löschen\" räumt jetzt vollständig auf; Wiederherstellung und Import prüfen jede Datei vor dem Schreiben; der Admin-Passwortschutz ist stärker (PBKDF2); und die Lizenzlaufzeit wird auch offline strikt eingehalten. Die Firmenfassung ist zudem ab sofort auch über Managed Google Play zu beziehen – zusätzlich zum Direkt-Download.",
+      "text": "Eine Sicherheits- und Datenschutz-Überarbeitung nach externer Prüfung: Die automatische Android-Sicherung ist abgeschaltet, sodass alles gezielt in der App bleibt; „Alle Daten löschen“ räumt jetzt vollständig auf; Wiederherstellung und Import prüfen jede Datei vor dem Schreiben; der Admin-Passwortschutz ist stärker (PBKDF2); und die Lizenzlaufzeit wird auch offline strikt eingehalten. Die Firmenfassung ist zudem ab sofort auch über Managed Google Play zu beziehen – zusätzlich zum Direkt-Download.",
       "datum": "2026-08-18",
       "datumQuelle": "Release 1.0.2",
       "wege": {
@@ -186,7 +186,7 @@
       "produkt": "snapfuchs",
       "datum": "2026-08-17",
       "titel": "SnapFuchs 1.2.0: Name vergeben, Ablage selbst bestimmt",
-      "text": "Zwei kleine Handgriffe, die im Alltag viel ausmachen — und beide kostenlos: Ein Dokument bekommt jetzt schon beim Scannen seinen Namen, der dann auch der Dateiname beim Teilen ist. Und wer möchte, legt einen eigenen Ordner auf dem Gerät fest, in den jeder Export zusätzlich wandert. Der Ordner wird einmal ausgewählt; eine Speicher-Berechtigung braucht SnapFuchs dafür nicht.",
+      "text": "Zwei kleine Handgriffe, die im Alltag viel ausmachen – und beide kostenlos: Ein Dokument bekommt jetzt schon beim Scannen seinen Namen, der dann auch der Dateiname beim Teilen ist. Und wer möchte, legt einen eigenen Ordner auf dem Gerät fest, in den jeder Export zusätzlich wandert. Der Ordner wird einmal ausgewählt; eine Speicher-Berechtigung braucht SnapFuchs dafür nicht.",
       "datumQuelle": "eigene Angabe",
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.snapfuchs"
@@ -212,7 +212,7 @@
       "produkt": "orgafuchs",
       "version": "1.6.1",
       "titel": "OrgaFuchs 1.6.1: Nachrichten an alle – mit Postfach",
-      "text": "Neu in OrgaFuchs 1.6.1: „Nachricht an alle\" – schick der ganzen Familie in Sekunden eine kurze Nachricht. Sie landet bei allen im Postfach und als Benachrichtigung, Ende-zu-Ende über deinen eigenen Relay verteilt, nicht über fremde Server; Ungelesenes bleibt markiert, bis du es liest. Außerdem sind Sonn-/Feiertage und Ferien im Kalender jetzt farblich hervorgehoben (Tag, Woche, Monat), die Geräteliste zeigt „zuletzt aktiv\", und der Hintergrund-Empfang läuft auf Android 14/15 stabiler. Dazu viele kleinere Verbesserungen.",
+      "text": "Neu in OrgaFuchs 1.6.1: „Nachricht an alle“ – schick der ganzen Familie in Sekunden eine kurze Nachricht. Sie landet bei allen im Postfach und als Benachrichtigung, Ende-zu-Ende über deinen eigenen Relay verteilt, nicht über fremde Server; Ungelesenes bleibt markiert, bis du es liest. Außerdem sind Sonn-/Feiertage und Ferien im Kalender jetzt farblich hervorgehoben (Tag, Woche, Monat), die Geräteliste zeigt „zuletzt aktiv“, und der Hintergrund-Empfang läuft auf Android 14/15 stabiler. Dazu viele kleinere Verbesserungen.",
       "datum": "2026-08-14",
       "datumQuelle": "Release 1.6.1",
       "wege": {
@@ -240,7 +240,7 @@
       "produkt": "gewerbepro",
       "version": "0.3.3",
       "titel": "GewerbePro 0.3.3 – digital signiert",
-      "text": "Die offene Beta ist digital signiert (Herausgeber FehlerFuchs): Bei der Installation ist der geprüfte Herausgeber sichtbar. Neu in 0.3.3 ist die Zustimmung zur EULA im Setup. Wer die Beta schon nutzt, findet das Update in der App unter „Auf Updates prüfen\".",
+      "text": "Die offene Beta ist digital signiert (Herausgeber FehlerFuchs): Bei der Installation ist der geprüfte Herausgeber sichtbar. Neu in 0.3.3 ist die Zustimmung zur EULA im Setup. Wer die Beta schon nutzt, findet das Update in der App unter „Auf Updates prüfen“.",
       "datum": "2026-08-12",
       "datumQuelle": "Release 0.3.3",
       "wege": {
@@ -267,7 +267,7 @@
       "typ": "store",
       "produkt": "orgafuchs",
       "titel": "OrgaFuchs ist im Play Store",
-      "text": "Der lokale Familien- und Schichtplaner ist da – kostenlos, werbefrei und ohne Konto. Nach den finalen Tests und der Sicherheitshärtung ist einiges dazugekommen: ein Ende-zu-Ende-verschlüsselter Live-Sync über ein gehärtetes Relais (OFSP/1, Kopplung per QR-Code) mit sicherem Gerätewechsel und Notfall-Wiederherstellung; optimierte Kalenderansichten mit Startbildschirm-Widgets für Tag, Woche und Monat; klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz und „Was ist neu\" direkt in der App. Alle Daten bleiben auf dem Gerät.",
+      "text": "Der lokale Familien- und Schichtplaner ist da – kostenlos, werbefrei und ohne Konto. Nach den finalen Tests und der Sicherheitshärtung ist einiges dazugekommen: ein Ende-zu-Ende-verschlüsselter Live-Sync über ein gehärtetes Relais (OFSP/1, Kopplung per QR-Code) mit sicherem Gerätewechsel und Notfall-Wiederherstellung; optimierte Kalenderansichten mit Startbildschirm-Widgets für Tag, Woche und Monat; klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz und „Was ist neu“ direkt in der App. Alle Daten bleiben auf dem Gerät.",
       "datum": "2026-08-08",
       "datumQuelle": "platforms[android].since",
       "wege": {
@@ -279,7 +279,7 @@
       "typ": "hinweis",
       "datum": "2026-08-01",
       "titel": "Kurz erklärt – warum es zuletzt ruhiger war",
-      "text": "In den letzten Wochen ist hier bewusst wenig Neues erschienen. Die Zeit ist stattdessen in die bestehenden Produkte geflossen – geprüft, nachgebessert und abgesichert, damit verlässlich bleibt, was schon da ist. Gearbeitet haben wir zuletzt vor allem an OrgaFuchs, SnapFuchs, MobileReport und GewerbePro: Beschreibungen geschärft, Sicherheit und Datenschutz nachgezogen und den Update-Weg repariert. Neue Ankündigungen kommen wieder, sobald das Nächste wirklich fertig ist. — Matthias (Matze) von FehlerFuchs",
+      "text": "In den letzten Wochen ist hier bewusst wenig Neues erschienen. Die Zeit ist stattdessen in die bestehenden Produkte geflossen – geprüft, nachgebessert und abgesichert, damit verlässlich bleibt, was schon da ist. Gearbeitet haben wir zuletzt vor allem an OrgaFuchs, SnapFuchs, MobileReport und GewerbePro: Beschreibungen geschärft, Sicherheit und Datenschutz nachgezogen und den Update-Weg repariert. Neue Ankündigungen kommen wieder, sobald das Nächste wirklich fertig ist. – Matthias (Matze) von FehlerFuchs",
       "datumQuelle": "eigene Angabe"
     },
     {
@@ -288,7 +288,7 @@
       "produkt": "mobilereport",
       "datum": "2026-07-31",
       "titel": "MobileReport 1.2.0: Support aus der App, mehr Datenschutz",
-      "text": "MobileReport 1.2.0 bringt Support und Kontakt direkt in die App – auf Wunsch mit Diagnosedaten, sonst ohne. Die App ist von der automatischen Android-Cloud-Sicherung ausgenommen, sodass die Meldungen gezielt auf dem Gerät bleiben, und die Datenschutz-Hinweise sind ehrlicher gefasst. „Alle Daten löschen\" räumt jetzt vollständig auf, der Admin-Passwortschutz ist stärker, und mit sehr großen Import- und Bilddateien geht die App robuster um.",
+      "text": "MobileReport 1.2.0 bringt Support und Kontakt direkt in die App – auf Wunsch mit Diagnosedaten, sonst ohne. Die App ist von der automatischen Android-Cloud-Sicherung ausgenommen, sodass die Meldungen gezielt auf dem Gerät bleiben, und die Datenschutz-Hinweise sind ehrlicher gefasst. „Alle Daten löschen“ räumt jetzt vollständig auf, der Admin-Passwortschutz ist stärker, und mit sehr großen Import- und Bilddateien geht die App robuster um.",
       "datumQuelle": "eigene Angabe",
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport"
@@ -318,7 +318,7 @@
       "produkt": "snapfuchs",
       "datum": "2026-07-21",
       "titel": "SnapFuchs 1.1.0: die Kamera zeigt, was sie erkennt",
-      "text": "Der erkannte Dokumentrand wird jetzt live eingezeichnet — orange heißt erkannt, grün heißt stabil. Man sieht vor dem Auslösen, ob es sitzt. Die Erkennung selbst wurde an 1.000 Aufnahmen mit hinterlegten Soll-Ecken neu vermessen und findet nun auch farbige, dunkle und gemusterte Vorlagen. Dazu: helles Erscheinungsbild (kostenlos), ein geführter Rundgang, ausführliche Hilfe in der App — und für Pro der Stapelscan, eigene Dateinamen und wählbares Seitenformat.",
+      "text": "Der erkannte Dokumentrand wird jetzt live eingezeichnet – orange heißt erkannt, grün heißt stabil. Man sieht vor dem Auslösen, ob es sitzt. Die Erkennung selbst wurde an 1.000 Aufnahmen mit hinterlegten Soll-Ecken neu vermessen und findet nun auch farbige, dunkle und gemusterte Vorlagen. Dazu: helles Erscheinungsbild (kostenlos), ein geführter Rundgang, ausführliche Hilfe in der App – und für Pro der Stapelscan, eigene Dateinamen und wählbares Seitenformat.",
       "datumQuelle": "eigene Angabe",
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.snapfuchs"
@@ -351,7 +351,7 @@
       "datum": "2026-07-20",
       "datumQuelle": "Start der Aktion",
       "titel": "Release-Geschenk – 100 Codes für SnapFuchs Pro",
-      "text": "SnapFuchs ist im Play Store, und zur Veröffentlichung verschenke ich 100 Codes für die Pro-Fassung. Eine Frage beantworten, Alias und E-Mail angeben, Code bekommen — mehr ist es nicht. Wer einlöst, behält Pro dauerhaft: kein Abo, keine Folgekosten. Solange der Vorrat reicht.",
+      "text": "SnapFuchs ist im Play Store, und zur Veröffentlichung verschenke ich 100 Codes für die Pro-Fassung. Eine Frage beantworten, Alias und E-Mail angeben, Code bekommen – mehr ist es nicht. Wer einlöst, behält Pro dauerhaft: kein Abo, keine Folgekosten. Solange der Vorrat reicht.",
       "hervorgehoben": true,
       "wege": {
         "aktion": "/aktion/snapfuchs-promo/"
@@ -375,7 +375,7 @@
       "produkt": "gewerbepro",
       "version": "0.3.1",
       "titel": "GewerbePro 0.3.1 – Logo, Farben und Unterschrift",
-      "text": "Belege tragen jetzt das eigene Firmenlogo, die Programmfarben lassen sich frei einstellen und in die gemeinsame Beleg-Fußzeile passt eine hinterlegte Unterschrift. Der eingebaute PDFuchs bekommt einen QR-Code-Generator und kann unter Windows direkt scannen. Wer die Beta schon nutzt, findet das Update in der App unter „Auf Updates prüfen\".",
+      "text": "Belege tragen jetzt das eigene Firmenlogo, die Programmfarben lassen sich frei einstellen und in die gemeinsame Beleg-Fußzeile passt eine hinterlegte Unterschrift. Der eingebaute PDFuchs bekommt einen QR-Code-Generator und kann unter Windows direkt scannen. Wer die Beta schon nutzt, findet das Update in der App unter „Auf Updates prüfen“.",
       "datum": "2026-07-16",
       "datumQuelle": "Release 0.3.1",
       "wege": {

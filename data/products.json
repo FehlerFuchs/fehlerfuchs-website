@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T17:02:17+02:00",
+  "generiert": "2026-09-26T17:09:25+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -790,7 +790,7 @@
               "note": "CSV-Import/Export ist in Vorbereitung – derzeit in keiner Edition enthalten."
             },
             {
-              "name": "Gebrandete Beleg-PDFs (eigenes Logo & Farben, ohne „Erstellt mit\"-Hinweis)",
+              "name": "Gebrandete Beleg-PDFs (eigenes Logo & Farben, ohne „Erstellt mit“-Hinweis)",
               "values": {
                 "free": "nein",
                 "pro": "ja",
@@ -798,7 +798,7 @@
               }
             },
             {
-              "name": "Hinweis „Erstellt mit FehlerFuchs Gewerbe\" auf Belegen",
+              "name": "Hinweis „Erstellt mit FehlerFuchs Gewerbe“ auf Belegen",
               "values": {
                 "free": "ja",
                 "pro": "nein",
@@ -982,7 +982,7 @@
       "manifests": {
         "updateFeed": "updates/gewerbepro/latest.json"
       },
-      "notes": "Vorläufer hieß „KleinGewerbe\"; apps/kleingewerbe.html leitet weiter. Die alten Free-/Pro-Beta-ZIPs (Tags kleingewerbe-free/-pro) sind durch den Installer ersetzt und werden bewusst nicht mehr als Release geführt."
+      "notes": "Vorläufer hieß „KleinGewerbe“; apps/kleingewerbe.html leitet weiter. Die alten Free-/Pro-Beta-ZIPs (Tags kleingewerbe-free/-pro) sind durch den Installer ersetzt und werden bewusst nicht mehr als Release geführt."
     },
     {
       "slug": "haushaltsmanager",
@@ -1195,7 +1195,7 @@
         "checkout": "https://www.checkout-ds24.com/product/721203",
         "contact": "/kontakt.html?app=HaushaltsManager&topic=interesse"
       },
-      "notes": "Öffentliche Produktfassung (sauberer Fork) des privaten HaushaltsManagers; Produkt-Code 36_HaushaltsManager Markt. Der private Ordner HaushaltsManager_PRIVAT (echte Daten) bleibt gesperrt und wird nie veröffentlicht. Slug und geprueft_von sind projektseitig geklärt (Eigentümer _Markt). Vertriebsmodell wie MobileReport: freier öffentlicher Download der signierten .exe (GitHub-Release, 1.0.0 eingetragen), Lizenzschlüssel (20 €, 5 Arbeitsplätze) über Digistore24 (Produkt 721203). Testkauf und „Aktiv = Ja\" sind abgeschlossen; offen bleiben echte Screenshots aus dem Projekt."
+      "notes": "Öffentliche Produktfassung (sauberer Fork) des privaten HaushaltsManagers; Produkt-Code 36_HaushaltsManager Markt. Der private Ordner HaushaltsManager_PRIVAT (echte Daten) bleibt gesperrt und wird nie veröffentlicht. Slug und geprueft_von sind projektseitig geklärt (Eigentümer _Markt). Vertriebsmodell wie MobileReport: freier öffentlicher Download der signierten .exe (GitHub-Release, 1.0.0 eingetragen), Lizenzschlüssel (20 €, 5 Arbeitsplätze) über Digistore24 (Produkt 721203). Testkauf und „Aktiv = Ja“ sind abgeschlossen; offen bleiben echte Screenshots aus dem Projekt."
     },
     {
       "slug": "mobilereport",
@@ -1498,14 +1498,14 @@
         {
           "os": "android",
           "status": "verfuegbar",
-          "requirements": "Android — Direkt-Download (APK), Installation außerhalb des Play Stores",
+          "requirements": "Android – Direkt-Download (APK), Installation außerhalb des Play Stores",
           "distribution": "github-release",
           "since": "2026-07-06"
         },
         {
           "os": "android",
           "status": "verfuegbar",
-          "requirements": "Managed Google Play — private Auslieferung an die Organisation des Kunden (Android Enterprise), auf Anfrage",
+          "requirements": "Managed Google Play – private Auslieferung an die Organisation des Kunden (Android Enterprise), auf Anfrage",
           "distribution": "managed-google-play",
           "storeId": "eu.fehlerfuchs.mobilereport.enterprise"
         }
@@ -1640,7 +1640,7 @@
           },
           "sha256": "059be7e3060195c3ff7a4761638dd9744e43c7b5d67c14a89c1132ed4489734e",
           "signed": false,
-          "notes": "1.0.2: Sicherheits- und Datenschutz-Überarbeitung nach externer Prüfung. Automatische Android-Sicherung abgeschaltet, „Alle Daten löschen\" räumt vollständig auf, Wiederherstellung und Import prüfen Dateien vor dem Schreiben, stärkerer Admin-Passwortschutz (PBKDF2), Lizenzlaufzeit auch offline strikt eingehalten."
+          "notes": "1.0.2: Sicherheits- und Datenschutz-Überarbeitung nach externer Prüfung. Automatische Android-Sicherung abgeschaltet, „Alle Daten löschen“ räumt vollständig auf, Wiederherstellung und Import prüfen Dateien vor dem Schreiben, stärkerer Admin-Passwortschutz (PBKDF2), Lizenzlaufzeit auch offline strikt eingehalten."
         },
         {
           "version": "1.0.1",
@@ -1656,7 +1656,7 @@
           },
           "sha256": "3e990a428ed208be11587e779ce1eba02f8efbc81d192092a928270d75ca30a5",
           "signed": false,
-          "notes": "1.0.1: Betreff für Meldungen, Fotos per Ziehen sortieren (erstes Bild = Hauptbild), Name als Pflichtfeld mit optionalem Standard-Speichern, einstellbare maximale Bildanzahl, Profil-Feld Position/Funktion, überarbeitete Einstellungen (Bereich \"Verwaltung\") und Fix für die Admin-/Branding-Übernahme."
+          "notes": "1.0.1: Betreff für Meldungen, Fotos per Ziehen sortieren (erstes Bild = Hauptbild), Name als Pflichtfeld mit optionalem Standard-Speichern, einstellbare maximale Bildanzahl, Profil-Feld Position/Funktion, überarbeitete Einstellungen (Bereich „Verwaltung“) und Fix für die Admin-/Branding-Übernahme."
         },
         {
           "version": "1.0.0",
@@ -1698,7 +1698,7 @@
         },
         {
           "question": "Wie funktioniert die Lizenzierung für mehrere Mitarbeitende?",
-          "answer": "Einmalkauf je Arbeitsplatz, mit Staffelpreisen. Ein Arbeitsplatz ist umbelegbar: Über „Deaktivieren\" geben Sie ihn auf einem Gerät frei, danach lässt er sich auf einem anderen Gerät aktivieren – praktisch bei Geräte- oder Personalwechsel."
+          "answer": "Einmalkauf je Arbeitsplatz, mit Staffelpreisen. Ein Arbeitsplatz ist umbelegbar: Über „Deaktivieren“ geben Sie ihn auf einem Gerät frei, danach lässt er sich auf einem anderen Gerät aktivieren – praktisch bei Geräte- oder Personalwechsel."
         },
         {
           "question": "Was brauchen wir für die Auslieferung über Managed Google Play?",
@@ -1710,7 +1710,7 @@
         },
         {
           "question": "Was passiert bei Gerätewechsel oder -verlust?",
-          "answer": "Beim geplanten Wechsel geben Sie den Arbeitsplatz auf dem alten Gerät frei („Deaktivieren\") und aktivieren ihn auf dem neuen. Ist ein Gerät verloren, geben wir den Arbeitsplatz auf Anfrage über den Support frei. Ihre Meldungen liegen lokal auf dem jeweiligen Gerät – für die Übernahme nutzen Sie die Datensicherung."
+          "answer": "Beim geplanten Wechsel geben Sie den Arbeitsplatz auf dem alten Gerät frei („Deaktivieren“) und aktivieren ihn auf dem neuen. Ist ein Gerät verloren, geben wir den Arbeitsplatz auf Anfrage über den Support frei. Ihre Meldungen liegen lokal auf dem jeweiligen Gerät – für die Übernahme nutzen Sie die Datensicherung."
         },
         {
           "question": "Können wir Daten sichern und übertragen?",
@@ -1810,7 +1810,7 @@
           "von": "pruefung",
           "nach": "pruefung",
           "grund": "Zweite Ablehnung – diesmal wegen der Ferien-Anzeige",
-          "text": "Die zweite Runde, ein anderer Vorwurf: „Misleading Claims\". Weil die App Feiertage und Schulferien je Bundesland anzeigt, hat die Prüfung geschlossen, hier gebe jemand behördliche Auskünfte – eine Behörden-App ohne Quellenangabe. Tatsächlich sind es Kalenderdaten für die Familienplanung, wie sie jede Kalender-App führt. Ich habe die Store-Beschreibung geschärft: eine Quelle für die Daten genannt und klargestellt, dass OrgaFuchs keine Behörde ist und keine vertritt. Am 24. Juli erneut eingereicht, am Programm wieder nichts geändert."
+          "text": "Die zweite Runde, ein anderer Vorwurf: „Misleading Claims“. Weil die App Feiertage und Schulferien je Bundesland anzeigt, hat die Prüfung geschlossen, hier gebe jemand behördliche Auskünfte – eine Behörden-App ohne Quellenangabe. Tatsächlich sind es Kalenderdaten für die Familienplanung, wie sie jede Kalender-App führt. Ich habe die Store-Beschreibung geschärft: eine Quelle für die Daten genannt und klargestellt, dass OrgaFuchs keine Behörde ist und keine vertritt. Am 24. Juli erneut eingereicht, am Programm wieder nichts geändert."
         }
       ],
       "privacy": [
@@ -1852,7 +1852,7 @@
           },
           "sha256": "a068bfbea160b14641eb5a18e5b518993deec2971839d1a1a9e360c924e5d76b",
           "signed": true,
-          "notes": "Signierte Windows-Fassung 1.9.3 (Herausgeber FehlerFuchs), löst 1.9.2 ab. Deutlich stabilerer Familien-Sync: Jede Änderung wird zuerst auf dem Gerät gesichert und erst gelöscht, wenn das Hauptgerät sie bestätigt hat. Dienste und Kategorien erreichen jetzt alle Familiengeräte. „Alle Daten löschen\" entfernt wirklich alles, unverschlüsselte Verbindungen sind abgeschaltet. Unter Windows prüft das Update die Signatur des Installers strenger, OrgaFuchs startet auch ohne installierte Visual-C++-Laufzeit, läuft nur einmal und deinstalliert sich sauber."
+          "notes": "Signierte Windows-Fassung 1.9.3 (Herausgeber FehlerFuchs), löst 1.9.2 ab. Deutlich stabilerer Familien-Sync: Jede Änderung wird zuerst auf dem Gerät gesichert und erst gelöscht, wenn das Hauptgerät sie bestätigt hat. Dienste und Kategorien erreichen jetzt alle Familiengeräte. „Alle Daten löschen“ entfernt wirklich alles, unverschlüsselte Verbindungen sind abgeschaltet. Unter Windows prüft das Update die Signatur des Installers strenger, OrgaFuchs startet auch ohne installierte Visual-C++-Laufzeit, läuft nur einmal und deinstalliert sich sauber."
         },
         {
           "version": "1.9.2",
@@ -1868,7 +1868,7 @@
           },
           "sha256": "74c175ce7cb4575897a0d2f8e360d0dfd384d8db0717960e57b21fbeb1d14c17",
           "signed": true,
-          "notes": "Signierte Windows-Fassung 1.9.2 (Herausgeber FehlerFuchs), ein Bugfix-Release über 1.9.1. Es behebt zwei Fehler beim Koppeln weiterer Geräte: „Code vorbereiten\" funktioniert jetzt auch, wenn gerade kein Abgleich läuft, und nach einem Hauptgerät-Wechsel erscheint ein verständlicher Hinweis zum Neu-Koppeln statt einer kryptischen Fehlermeldung. Der übrige Funktionsumfang bleibt unverändert (Kalender-Konfigurator, Jahres- und Schuljahreskalender zum Ausdrucken, Wandpläne je Einrichtung, Sync ohne Cloud). Löst 1.9.1 ab."
+          "notes": "Signierte Windows-Fassung 1.9.2 (Herausgeber FehlerFuchs), ein Bugfix-Release über 1.9.1. Es behebt zwei Fehler beim Koppeln weiterer Geräte: „Code vorbereiten“ funktioniert jetzt auch, wenn gerade kein Abgleich läuft, und nach einem Hauptgerät-Wechsel erscheint ein verständlicher Hinweis zum Neu-Koppeln statt einer kryptischen Fehlermeldung. Der übrige Funktionsumfang bleibt unverändert (Kalender-Konfigurator, Jahres- und Schuljahreskalender zum Ausdrucken, Wandpläne je Einrichtung, Sync ohne Cloud). Löst 1.9.1 ab."
         },
         {
           "version": "1.9.1",
@@ -1916,7 +1916,7 @@
           },
           "sha256": "3ff1f3eeec65d331f16c9551a2dd034af08cfa2b400c6793dd470692d241696b",
           "signed": true,
-          "notes": "Signierte Windows-Fassung (Herausgeber FehlerFuchs). Neu: „Nachricht an alle\" mit Postfach – kurze Nachrichten an die Gruppe, Ende-zu-Ende über den eigenen Relay verteilt; empfangene Nachrichten werden zuverlässig angezeigt. Dazu Feiertage und Ferien im Kalender farblich hervorgehoben und „zuletzt aktiv\" in der Geräteliste. Löst 1.5.0/1.6.0 ab."
+          "notes": "Signierte Windows-Fassung (Herausgeber FehlerFuchs). Neu: „Nachricht an alle“ mit Postfach – kurze Nachrichten an die Gruppe, Ende-zu-Ende über den eigenen Relay verteilt; empfangene Nachrichten werden zuverlässig angezeigt. Dazu Feiertage und Ferien im Kalender farblich hervorgehoben und „zuletzt aktiv“ in der Geräteliste. Löst 1.5.0/1.6.0 ab."
         }
       ],
       "features": [
@@ -2021,7 +2021,7 @@
               "note": "Kurze Klartext-Nachrichten an die Gruppe; sie landen bei allen im Postfach und als Benachrichtigung, verteilt über den eigenen Relay statt über fremde Server. Ungelesenes bleibt markiert."
             },
             {
-              "name": "Geräteliste zeigt „zuletzt aktiv\"",
+              "name": "Geräteliste zeigt „zuletzt aktiv“",
               "values": {
                 "standard": "ja"
               },
@@ -2325,7 +2325,7 @@
               }
             },
             {
-              "name": "PDFs aus anderen Apps direkt öffnen („Öffnen mit\")",
+              "name": "PDFs aus anderen Apps direkt öffnen („Öffnen mit“)",
               "values": {
                 "standard": "ja"
               }
@@ -2800,7 +2800,7 @@
               }
             },
             {
-              "name": "„Problem melden\" und Kontakt direkt aus der App",
+              "name": "„Problem melden“ und Kontakt direkt aus der App",
               "values": {
                 "free": "ja",
                 "pro": "ja"
@@ -2819,7 +2819,7 @@
           "group": "Erscheinungsbild",
           "items": [
             {
-              "name": "Hinweis „Erstellt mit SnapFuchs\" auf der letzten Seite",
+              "name": "Hinweis „Erstellt mit SnapFuchs“ auf der letzten Seite",
               "values": {
                 "free": "ja",
                 "pro": "nein"
@@ -2857,7 +2857,7 @@
           "von": "pruefung",
           "nach": "entwicklung",
           "grund": "Ablehnung durch Google Play",
-          "text": "SnapFuchs hatte die Berechtigung, auf alle Bilder des Geräts zuzugreifen. Google verlangt die aber nur dort, wo eine App das ständig braucht – für den seltenen Fall „Bild aus der Galerie holen\" ist der Fotoauswahl-Dialog von Android vorgesehen, der ganz ohne Berechtigung auskommt. Zu Recht, ehrlich gesagt: weniger Zugriff ist genau das, wofür FehlerFuchs steht. Also die drei Medien-Berechtigungen entfernt, auf den Android-Fotopicker umgestellt und neu eingereicht."
+          "text": "SnapFuchs hatte die Berechtigung, auf alle Bilder des Geräts zuzugreifen. Google verlangt die aber nur dort, wo eine App das ständig braucht – für den seltenen Fall „Bild aus der Galerie holen“ ist der Fotoauswahl-Dialog von Android vorgesehen, der ganz ohne Berechtigung auskommt. Zu Recht, ehrlich gesagt: weniger Zugriff ist genau das, wofür FehlerFuchs steht. Also die drei Medien-Berechtigungen entfernt, auf den Android-Fotopicker umgestellt und neu eingereicht."
         }
       ],
       "media": {
@@ -2871,7 +2871,7 @@
         "screenshots": [
           {
             "src": "/img/screenshots/snapfuchs/handy-01.png",
-            "alt": "Werbebild „100 % lokaler Dokumentenscanner – Kein Konto, keine Cloud, keine Werbung\". Darunter der Startbildschirm: der Fuchskopf in einem orangefarbenen Scanrahmen.",
+            "alt": "Werbebild „100 % lokaler Dokumentenscanner – Kein Konto, keine Cloud, keine Werbung“. Darunter der Startbildschirm: der Fuchskopf in einem orangefarbenen Scanrahmen.",
             "width": 620,
             "height": 1342,
             "geraet": "handy",
@@ -2879,7 +2879,7 @@
           },
           {
             "src": "/img/screenshots/snapfuchs/handy-02.png",
-            "alt": "Werbebild „Scannen mit einem Tipp\". Darunter die Startseite mit der Liste zuletzt gespeicherter PDFs und einer großen orangefarbenen Kamerataste am unteren Rand, beschriftet „Tippen zum Scannen\".",
+            "alt": "Werbebild „Scannen mit einem Tipp“. Darunter die Startseite mit der Liste zuletzt gespeicherter PDFs und einer großen orangefarbenen Kamerataste am unteren Rand, beschriftet „Tippen zum Scannen“.",
             "width": 620,
             "height": 1342,
             "geraet": "handy",
@@ -2887,7 +2887,7 @@
           },
           {
             "src": "/img/screenshots/snapfuchs/handy-03.png",
-            "alt": "Werbebild „Erkennt die Ränder von selbst\". Darunter die Kameraansicht: ein schräg auf dem Tisch liegendes Testblatt, um das die App einen grünen Rahmen mit vier Eckpunkten gelegt hat.",
+            "alt": "Werbebild „Erkennt die Ränder von selbst“. Darunter die Kameraansicht: ein schräg auf dem Tisch liegendes Testblatt, um das die App einen grünen Rahmen mit vier Eckpunkten gelegt hat.",
             "width": 620,
             "height": 1342,
             "geraet": "handy",
@@ -2895,7 +2895,7 @@
           },
           {
             "src": "/img/screenshots/snapfuchs/handy-04.png",
-            "alt": "Werbebild „Kanten selbst korrigieren\". Darunter die Ansicht „Ecken justieren\": dasselbe Blatt mit vier großen Griffen an den Ecken und einer Schaltfläche „Entzerren\".",
+            "alt": "Werbebild „Kanten selbst korrigieren“. Darunter die Ansicht „Ecken justieren“: dasselbe Blatt mit vier großen Griffen an den Ecken und einer Schaltfläche „Entzerren“.",
             "width": 620,
             "height": 1342,
             "geraet": "handy",
@@ -2903,7 +2903,7 @@
           },
           {
             "src": "/img/screenshots/snapfuchs/handy-05.png",
-            "alt": "Werbebild „PDF-Werkzeuge an Bord\". Darunter die Liste: Zusammenführen, Drehen, Seiten löschen, Seiten neu ordnen, Aufteilen – mit dem Hinweis, dass alle Vorgänge lokal auf dem Gerät laufen.",
+            "alt": "Werbebild „PDF-Werkzeuge an Bord“. Darunter die Liste: Zusammenführen, Drehen, Seiten löschen, Seiten neu ordnen, Aufteilen – mit dem Hinweis, dass alle Vorgänge lokal auf dem Gerät laufen.",
             "width": 620,
             "height": 1342,
             "geraet": "handy",
@@ -2911,7 +2911,7 @@
           },
           {
             "src": "/img/screenshots/snapfuchs/handy-06.png",
-            "alt": "Werbebild „QR- & Barcodes offline lesen\". Darunter die Scanansicht mit einem grünen Suchrahmen und dem Hinweis „Code in den grünen Rahmen halten\".",
+            "alt": "Werbebild „QR- & Barcodes offline lesen“. Darunter die Scanansicht mit einem grünen Suchrahmen und dem Hinweis „Code in den grünen Rahmen halten“.",
             "width": 620,
             "height": 1342,
             "geraet": "handy",
@@ -2919,7 +2919,7 @@
           },
           {
             "src": "/img/screenshots/snapfuchs/handy-07.png",
-            "alt": "Werbebild „Mehr können mit SnapFuchs Pro\". Darunter die Übersicht der freigeschalteten Funktionen: ohne Wasserzeichen, durchsuchbares PDF, Tabelle nach Excel oder CSV, E-Signatur, PDF-Werkzeuge.",
+            "alt": "Werbebild „Mehr können mit SnapFuchs Pro“. Darunter die Übersicht der freigeschalteten Funktionen: ohne Wasserzeichen, durchsuchbares PDF, Tabelle nach Excel oder CSV, E-Signatur, PDF-Werkzeuge.",
             "width": 620,
             "height": 1342,
             "geraet": "handy",
@@ -2927,7 +2927,7 @@
           },
           {
             "src": "/img/screenshots/snapfuchs/handy-08.png",
-            "alt": "Werbebild „100 % lokal. Kein Tracking.\" Darunter die Einstellungen mit Erscheinungsbild, Wasserzeichen, Dateinamen und Seitenformat sowie einem ausführlichen Datenschutzabschnitt.",
+            "alt": "Werbebild „100 % lokal. Kein Tracking.“ Darunter die Einstellungen mit Erscheinungsbild, Wasserzeichen, Dateinamen und Seitenformat sowie einem ausführlichen Datenschutzabschnitt.",
             "width": 620,
             "height": 1342,
             "geraet": "handy",
@@ -3831,7 +3831,7 @@
       "links": {
         "contact": "/kontakt.html?app=BelegWerk&topic=interesse"
       },
-      "notes": "Anbindung an Paperless bedeutet, dass Daten an ein selbst betriebenes Archiv gehen. Das Merkmal „keine-cloud\" ist deshalb bewusst nicht gesetzt – es hängt davon ab, wo der Nutzer sein Paperless betreibt."
+      "notes": "Anbindung an Paperless bedeutet, dass Daten an ein selbst betriebenes Archiv gehen. Das Merkmal „keine-cloud“ ist deshalb bewusst nicht gesetzt – es hängt davon ab, wo der Nutzer sein Paperless betreibt."
     },
     {
       "slug": "checkin-vita",

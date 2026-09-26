@@ -26,11 +26,11 @@ accent: "#6F9E1B"   # Marken-Limette (HaushaltsManager-Markensatz 28.07.2026)
 # freier, öffentlicher Download (releases[] -> signierte .exe als GitHub-Release),
 # gekauft wird der Lizenzschlüssel über Digistore24 (links.checkout, Produkt
 # 721203). Status 'verfuegbar' schaltet beide CTAs frei (statuses.yaml:
-# cta [download, kauf]); die Seite zeigt "Herunterladen" UND "Kaufen".
+# cta [download, kauf]); die Seite zeigt „Herunterladen“ UND „Kaufen“.
 # 'vorabSichtbar' entfällt (mit 'verfuegbar' überflüssig). Der signierte Release
-# 1.0.0 ist eingetragen -> die Seite zeigt "Herunterladen" UND "Kaufen". Signierung
+# 1.0.0 ist eingetragen -> die Seite zeigt „Herunterladen“ UND „Kaufen“. Signierung
 # (12.08.) und Digistore-Testkauf sind durch; Matthias hat das Produkt 721203 am
-# 13.08. auf "Aktiv = Ja" gestellt -> der Kaufweg ist regulär scharf.
+# 13.08. auf „Aktiv = Ja“ gestellt -> der Kaufweg ist regulär scharf.
 status: verfuegbar
 
 platforms:
@@ -144,7 +144,7 @@ theme:
   # Rahmen lesbar sind. Top-Level 'accent' bleibt die Marken-Limette #6F9E1B.
   akzent: "#5E8717"
 
-# Bild-Wortmarke als Seitentitel (Markensatz HaushaltsManager, „von FehlerFuchs",
+# Bild-Wortmarke als Seitentitel (Markensatz HaushaltsManager, „von FehlerFuchs“,
 # helle Fassung – passt zum hellen Seiten-Theme). Screenshots folgen vom Projekt;
 # bis dahin Platzhalter-Motive in der Galerie.
 media:
@@ -156,8 +156,8 @@ media:
   platzhalter: 4
 
 links:
-  # Digistore24-Kasse, Produkt 721203 (Einmalkauf 20 €). Speist den "Kaufen"-Knopf
-  # ([slug].astro liest produkt.links.checkout). Produkt seit 13.08.2026 "Aktiv = Ja"
+  # Digistore24-Kasse, Produkt 721203 (Einmalkauf 20 €). Speist den „Kaufen“-Knopf
+  # ([slug].astro liest produkt.links.checkout). Produkt seit 13.08.2026 „Aktiv = Ja“
   # (Matthias) – regulärer öffentlicher Verkauf. (Digistore prüft nach dem
   # Scharfschalten noch einige Stunden nach; der Kauflink ist trotzdem live.)
   checkout: "https://www.checkout-ds24.com/product/721203"
@@ -170,5 +170,5 @@ notes: >-
   veröffentlicht. Slug und geprueft_von sind projektseitig geklärt (Eigentümer
   _Markt). Vertriebsmodell wie MobileReport: freier öffentlicher Download der
   signierten .exe (GitHub-Release, 1.0.0 eingetragen), Lizenzschlüssel (20 €,
-  5 Arbeitsplätze) über Digistore24 (Produkt 721203). Testkauf und „Aktiv = Ja"
+  5 Arbeitsplätze) über Digistore24 (Produkt 721203). Testkauf und „Aktiv = Ja“
   sind abgeschlossen; offen bleiben echte Screenshots aus dem Projekt.

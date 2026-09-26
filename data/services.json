@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T17:02:17+02:00",
+  "generiert": "2026-09-26T17:09:25+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "dienste": [
     {
@@ -61,7 +61,7 @@
       "produkte": [
         "orgafuchs"
       ],
-      "hinweis": "Zum zuverlässigen Wecken der App aus dem Ruhezustand kommt auf Android zusätzlich ein inhaltsloser Weck-Push über Google Firebase (siehe Eintrag „Weck-Push\"). Wer Benachrichtigungen aus lässt, spricht beides nicht an."
+      "hinweis": "Zum zuverlässigen Wecken der App aus dem Ruhezustand kommt auf Android zusätzlich ein inhaltsloser Weck-Push über Google Firebase (siehe Eintrag „Weck-Push“). Wer Benachrichtigungen aus lässt, spricht beides nicht an."
     },
     {
       "id": "fcm",
@@ -72,7 +72,7 @@
       "standort": "Deutschland (Registry); Zustellung über Google",
       "stand": "2026-08-15",
       "uebermittelt": [
-        "an Google die Push-Zustelladresse des Geräts (FCM-Token) und ein leeres Wecksignal (ein einziges Feld „wakeup\")",
+        "an Google die Push-Zustelladresse des Geräts (FCM-Token) und ein leeres Wecksignal (ein einziges Feld „wakeup“)",
         "in der Registry auf dem Relaisserver eine pseudonyme Geräte-Kennung, der Gruppen-Hash (sha256 des Sync-Kennworts, nicht rückrechenbar), das FCM-Token, die Plattform, die Kennung des auslösenden Geräts (nur zum Selbst-Ausschluss) und ein Zeitstempel"
       ],
       "aufbewahrung": "Pro Gerät eine Zeile in der Registry, solange das Gerät angemeldet ist; bei Abmeldung sofort gelöscht, bei einem von Google als ungültig gemeldeten Token automatisch beim nächsten Weckversuch. Keine feste Frist, keine Namen, keine Konten.",
@@ -80,7 +80,7 @@
       "produkte": [
         "orgafuchs"
       ],
-      "hinweis": "Nur auf Android und nur bei eingeschalteten Benachrichtigungen. Der Weckruf ist inhaltsblind: Was sich geändert hat, erfährt weder der Weckpfad noch Google – der eigentliche Abgleich läuft Ende-zu-Ende über das Relais. Die selbst betriebene ntfy-Variante („Benachrichtigungen\") ist die Alternative ohne Google."
+      "hinweis": "Nur auf Android und nur bei eingeschalteten Benachrichtigungen. Der Weckruf ist inhaltsblind: Was sich geändert hat, erfährt weder der Weckpfad noch Google – der eigentliche Abgleich läuft Ende-zu-Ende über das Relais. Die selbst betriebene ntfy-Variante („Benachrichtigungen“) ist die Alternative ohne Google."
     },
     {
       "id": "digistore24",
@@ -127,7 +127,7 @@
         "Betrieb des virtuellen Servers, auf dem Lizenz- und Relaisdienst laufen",
         "Postfach und Mailversand (SMTP)"
       ],
-      "avv": "Vereinbarung zur Auftragsverarbeitung nach Art. 28 Abs. 3 DSGVO, Fassung 1.2, Stand 06/2023. Sie ist Bestandteil der AGB und gilt fuer jeden gebuchten Vertrag - auch ohne ausdruecklichen Verweis (Ziffer 1.1).",
+      "avv": "Vereinbarung zur Auftragsverarbeitung nach Art. 28 Abs. 3 DSGVO, Fassung 1.2, Stand 06/2023. Sie ist Bestandteil der AGB und gilt fuer jeden gebuchten Vertrag – auch ohne ausdruecklichen Verweis (Ziffer 1.1).",
       "avv_quelle": "https://www.ionos.de/terms-gtc/avv/",
       "standort": "Verarbeitung in der EU bzw. im EWR; bei Drittlandtransfer sichert IONOS die Voraussetzungen nach Art. 44 ff. DSGVO zu (Ziffer 4.3).",
       "unterauftragnehmer": "Allgemein genehmigt (Ziffer 10.1); die jeweils eingesetzten Stellen stehen in Anhang 2 des Vertrags, Aenderungen werden angekuendigt.",
@@ -159,7 +159,7 @@
       "anbieter": "PayPal (Europe) S.à r.l. et Cie, S.C.A.",
       "anschrift": "22-24 Boulevard Royal, L-2449 Luxemburg",
       "erklaerung": "https://www.paypal.com/de/legalhub/privacy-full",
-      "was": "Der Knopf ist ein Verweis; eingebunden ist nichts, auch der QR-Code liegt hier. Einzelheiten stehen im Abschnitt „Freiwillige Unterstützung\"."
+      "was": "Der Knopf ist ein Verweis; eingebunden ist nichts, auch der QR-Code liegt hier. Einzelheiten stehen im Abschnitt „Freiwillige Unterstützung“."
     },
     {
       "adresse": "www.checkout-ds24.com",
@@ -167,7 +167,7 @@
       "anbieter": "Digistore24 GmbH",
       "anschrift": "St.-Godehard-Straße 32, 31139 Hildesheim, Deutschland",
       "erklaerung": "https://www.digistore24.com/page/privacy/1/de",
-      "was": "Die Bestellseite von Digistore24. Einzelheiten stehen im Abschnitt „Kauf einer kostenpflichtigen Fassung\"."
+      "was": "Die Bestellseite von Digistore24. Einzelheiten stehen im Abschnitt „Kauf einer kostenpflichtigen Fassung“."
     },
     {
       "adresse": "www.ionos.de",
@@ -175,7 +175,7 @@
       "anbieter": "IONOS SE",
       "anschrift": "Elgendorfer Straße 57, 56410 Montabaur, Deutschland",
       "erklaerung": "https://www.ionos.de/terms-gtc/datenschutzerklaerung/",
-      "was": "Verweis auf die Angaben des Hosters. Einzelheiten unter „Wo alles liegt\"."
+      "was": "Verweis auf die Angaben des Hosters. Einzelheiten unter „Wo alles liegt“."
     },
     {
       "adresse": "www.digistore24.com",

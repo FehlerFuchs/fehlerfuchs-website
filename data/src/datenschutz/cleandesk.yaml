@@ -2,7 +2,7 @@ slug: cleandesk
 name: FehlerFuchs CleanDesk
 stand: "2026-09-25"
 geprueft_von: 24_CleanDesk (Codex-Reparatur)
-fassung: "0.2.0 (csproj) - Entwicklungsstand, noch nicht veröffentlicht"
+fassung: "0.2.0 (csproj) – Entwicklungsstand, noch nicht veröffentlicht"
 
 # Windows-Desktop-Anwendung (.NET 8 / WPF, net8.0-windows). Im gesamten
 # Quellcode gibt es keinen einzigen Netzwerkaufruf; die csproj enthaelt
@@ -38,7 +38,7 @@ berechtigungen:
     pflicht: true
     beleg: src/CleanDesk/Core/Scanner.cs, src/CleanDesk/Core/DuplicateFinder.cs
   - name: Schreiben und Verschieben in den Papierkorb in den gewählten Ordnern
-    wofuer: Sortieren (kopieren) und Duplikate in den Papierkorb - ausschließlich
+    wofuer: Sortieren (kopieren) und Duplikate in den Papierkorb – ausschließlich
       nach ausdrücklicher Bestätigung im Dialog
     pflicht: false
     beleg: src/CleanDesk/Safety/SafeMover.cs, src/CleanDesk/Safety/RecycleBin.cs
@@ -87,7 +87,7 @@ besonderheiten: >-
   Dateinamen des Nutzers und können dadurch personenbezogene Angaben in Pfadnamen
   enthalten; sie verbleiben lokal und werden nicht versendet.
 
-vorhandener_text: src/CleanDesk/Views/InfoView.xaml (Seite "Info / Datenschutz" in der App)
+vorhandener_text: src/CleanDesk/Views/InfoView.xaml (Seite „Info / Datenschutz“ in der App)
 
 offene_fragen: >-
   1) Die Anwendung ist nicht veröffentlicht und besitzt keine Installations- oder

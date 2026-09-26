@@ -4,7 +4,7 @@ stand: "2026-09-24"
 geprueft_von: 21_CoppiceMail + Codex_Umzugsreparatur
 fassung: "1.0.2-rc.1+6 (Flutter/Dart, Windows-Desktop) – pausierter interner technischer Release-Kandidat, nicht veröffentlicht"
 
-# WICHTIG: CoppiceMail ist ein E-Mail-Programm. "Lokal" heißt hier NICHT, dass keine
+# WICHTIG: CoppiceMail ist ein E-Mail-Programm. „Lokal“ heißt hier NICHT, dass keine
 # Daten das Gerät verlassen. Für Abruf und Versand verbindet sich die Anwendung mit
 # den Mailservern, die der Nutzer selbst einrichtet. Alles Weitere entsteht nur durch
 # Funktionen, die der Nutzer aktiv einschaltet oder auslöst.
@@ -21,7 +21,7 @@ auf_dem_geraet:
   - was: Zugangsdaten der Postfächer (Passwörter und Token)
     wo: NICHT in der Datenbank. Die Windows-Umsetzung von flutter_secure_storage legt sie in einer mit DPAPI verschlüsselten Datei im App-Datenbereich des angemeldeten Windows-Benutzers ab
     beleg: 21_App_Flutter/coppicemail_desktop/lib/data/secrets.dart
-  - was: Prozess- und Fehlerprotokoll (Zeitpunkt, Vorgang, Ergebnis). E-Mail-Adressen werden maskiert, Nachrichteninhalte nicht protokolliert. Konten erscheinen nur als lokale Nummer der Form "Konto#3", nicht mit Name oder Adresse
+  - was: Prozess- und Fehlerprotokoll (Zeitpunkt, Vorgang, Ergebnis). E-Mail-Adressen werden maskiert, Nachrichteninhalte nicht protokolliert. Konten erscheinen nur als lokale Nummer der Form „Konto#3“, nicht mit Name oder Adresse
     wo: rotierende Protokolldatei im App-Datenordner
     beleg: 21_App_Flutter/coppicemail_desktop/lib/services/log.dart, lib/mail/mail_service.dart
   - was: Sicherheitsjournal der Automatik und Sperrprotokoll der Abwesenheitsantwort (Ziel nur als HMAC-SHA-256-Pseudonym, Postfachkennung, Aktion, Zustand, Zeitpunkt; keine Nachrichteninhalte)
@@ -67,7 +67,7 @@ uebertragungen:
     beleg: 21_App_Flutter/coppicemail_desktop/lib/mail/mail_service.dart
   - wohin: Server Dritter, die der Absender einer HTML-Nachricht angegeben hat
     was: Abruf externer Bilder. Standardmäßig blockiert; eine Freigabe gilt jeweils nur für die geöffnete Nachricht
-    wann: nur nach Klick auf "Bilder laden"
+    wann: nur nach Klick auf „Bilder laden“
     freiwillig: true
     beleg: 21_App_Flutter/coppicemail_desktop/lib/ui/mail_html_view.dart, lib/mail/html_sanitizer.dart
   - wohin: die Website, auf die ein Link in einer Nachricht verweist
@@ -81,7 +81,7 @@ uebertragungen:
     beleg: 21_App_Flutter/coppicemail_desktop/lib/services/update_check.dart
   - wohin: die vom Nutzer eingetragene Paperless-Instanz
     was: der ausgewählte Anhang und das Zugangstoken
-    wann: nur nach Klick auf "An Paperless"
+    wann: nur nach Klick auf „An Paperless“
     freiwillig: true
     beleg: 21_App_Flutter/coppicemail_desktop/lib/mail/uebergabe.dart
   - wohin: lokales Programm oder lokaler Eingangsordner (PDFuchs, E-Rechnung, BelegWerk)
@@ -116,13 +116,13 @@ absturzberichte: false
 daten_an_dritte_verkauft: false
 
 loeschung: >-
-  In der Anwendung entfernt "Lokale App-Daten zurücksetzen" die Datenbankinhalte
+  In der Anwendung entfernt „Lokale App-Daten zurücksetzen“ die Datenbankinhalte
   (SQLite mit secure_delete und anschließendem VACUUM), den DPAPI-geschützten Speicher
   der Zugangsdaten und die Protokolle. Erfolg wird erst nach technischer Prüfung
   gemeldet; schlägt sie fehl, bleibt die Anwendung geöffnet.
-  Der Deinstaller fragt getrennt "Daten behalten" oder "Daten entfernen".
-  "Daten behalten" ist die Vorgabe; eine unbeaufsichtigte Deinstallation fragt nicht und
-  behält den Profilordner immer. Nur ein ausdrücklich bestätigtes "Daten entfernen"
+  Der Deinstaller fragt getrennt „Daten behalten“ oder „Daten entfernen“.
+  „Daten behalten“ ist die Vorgabe; eine unbeaufsichtigte Deinstallation fragt nicht und
+  behält den Profilordner immer. Nur ein ausdrücklich bestätigtes „Daten entfernen“
   löscht den Profilordner einschließlich der unverschlüsselten Sicherungen vor
   Schemaänderungen. Das wurde in einer vollständigen Deinstallations-Testreihe geprüft.
   Wird ein einzelnes Postfach entfernt, verschwinden auch dessen Automatik- und
@@ -142,7 +142,7 @@ besonderheiten: >-
   Gmail und Outlook werden derzeit App-Passwörter benötigt, da moderne Anmeldeverfahren
   noch nicht unterstützt werden.
 
-vorhandener_text: In der Anwendung unter "Info & Hilfe" sowie im Impressum; eine eigenständige Datenschutzdatei im Projekt gibt es bisher nicht.
+vorhandener_text: In der Anwendung unter „Info & Hilfe“ sowie im Impressum; eine eigenständige Datenschutzdatei im Projekt gibt es bisher nicht.
 
 offene_fragen: >-
   1) Impressum, Datenschutzerklärung und Haftungshinweise sind noch nicht juristisch

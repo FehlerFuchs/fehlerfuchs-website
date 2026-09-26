@@ -12,7 +12,7 @@ fassung: "1.0.0 (MVP: Tray, App-Erkennung, Versionsabgleich, Autostart, Feedback
 lokal_only: false
 
 auf_dem_geraet:
-  - was: Einstellungen (Schalter "Beta-Fassungen anbieten")
+  - was: Einstellungen (Schalter „Beta-Fassungen anbieten“)
     wo: lokaler App-Einstellungsspeicher (shared_preferences)
     beleg: lib/settings.dart
   - was: Autostart-Eintrag, nur wenn der Nutzer ihn einschaltet
@@ -51,14 +51,14 @@ uebertragungen:
   - wohin: fehlerfuchs.eu
     was: nichts vom Nutzer – es wird nur die öffentliche Datei versions.json
       abgerufen (lesend). Der Server sieht die Anfrage und damit die IP-Adresse.
-    wann: automatisch beim Start und beim Klick auf "Erneut suchen"
+    wann: automatisch beim Start und beim Klick auf „Erneut suchen“
     freiwillig: false
     beleg: lib/version_check.dart – GET https://fehlerfuchs.eu/versions.json (Paket http)
   - wohin: Server von FehlerFuchs (EU, IONOS)
     was: die eingegebene Nachricht sowie – nur wenn angegeben – Name und E-Mail;
       auf ausdrücklichen Wunsch zusätzlich eine technische Diagnose
       (App-Version, Betriebssystem, Spracheinstellung), keine persönlichen Daten
-    wann: nur wenn der Nutzer im Feedback-Fenster aktiv auf "Senden" tippt
+    wann: nur wenn der Nutzer im Feedback-Fenster aktiv auf „Senden“ tippt
     freiwillig: true
     beleg: lib/support.dart – POST an license.fehlerfuchs.eu/v1/contact (Paket http)
 

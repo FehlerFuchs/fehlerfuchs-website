@@ -3,33 +3,33 @@ name: OrgaFuchs
 stand: "2026-09-25"
 geprueft_von: 32_OrgaFuchs
 # PRUEFUNG 25.09.2026 ([32], Auftrag [10] + Bautag): Umlaute im Fliesstext (S1) und INHALT gegen den
-# gebauten Stand 1.9.3+22 (Commit 3d95ba2) gemessen - zusammengefuehrtes Release-Manifest (aapt2 dump
+# gebauten Stand 1.9.3+22 (Commit 3d95ba2) gemessen – zusammengefuehrtes Release-Manifest (aapt2 dump
 # permissions) + Code. Berichtigt: (1) Kalender-Berechtigung READ/WRITE_CALENDAR fehlte (seit 1.8.0,
 # lokaler Geraetekalender, opt-in); (2) FOREGROUND_SERVICE_SHORT_SERVICE fehlte (Baustein workmanager,
 # Wiederbeleber alle 30 min bei Netz); (3) ACCESS_WIFI_STATE ist NICHT mehr im Manifest, ACCESS_NETWORK_STATE
 # kommt von connectivity_plus; (4) Heimnetz-/LAN-Sync (HTTP 7842) und Gruppen-Passwort sind ENTFERNT
-# (lib/features/sync/sync_page.dart:17, ofsp_pairing_page.dart:19) - Kopplung nur per QR-Einladung (OFSP);
+# (lib/features/sync/sync_page.dart:17, ofsp_pairing_page.dart:19) – Kopplung nur per QR-Einladung (OFSP);
 # (5) Relais ist in der App NICHT einstellbar (fest orgafuchs.relais.fehlerfuchs.eu,
-# orgafuchs_kern/lib/sync/protocol/ofsp_transport.dart:28; providers.dart:42 ohne endpoint) - frei
+# orgafuchs_kern/lib/sync/protocol/ofsp_transport.dart:28; providers.dart:42 ohne endpoint) – frei
 # einstellbar ist nur der Push-Server (ntfy); (6) fassung auf 1.9.3. Belege nur bei geaenderten Eintraegen
 # nachgezogen; die uebrigen Zeilenangaben stammen aus 1.6.x (Kernpaket-Umbau 22.09.) und sind nicht neu geprueft.
 # PRUEFUNG 23.08.2026: Telefonnummer gemaess Vorgabe aus dem In-App-Impressum entfernt;
 # Anschrift, E-Mail und Verweis auf das vollstaendige Online-Impressum bleiben vorhanden.
 # NACHTRAG 1.6.0/1.6.1 (14./15.08.2026): KEIN neues Uebertragungsziel, KEINE neue
 # Datenkategorie, KEINE Weitergabe an Dritte. Relevante Aenderungen:
-#  - "Nachricht an alle" (frueher "Erinnerung an alle"): kurze Klartext-Nachrichten an die
+#  - „Nachricht an alle“ (frueher „Erinnerung an alle“): kurze Klartext-Nachrichten an die
 #    Gruppe reisen ENDE-ZU-ENDE ueber den bereits gelisteten Relais-Kanal (im verschluesselten
-#    Umschlag, wie Plan-/Termindaten) - NICHT ueber Google. Der FCM-Weckruf bleibt inhaltslos.
-#    Ein "Postfach" macht empfangene Nachrichten lokal im Nachgang lesbar (kein Netz, kein
+#    Umschlag, wie Plan-/Termindaten) – NICHT ueber Google. Der FCM-Weckruf bleibt inhaltslos.
+#    Ein „Postfach“ macht empfangene Nachrichten lokal im Nachgang lesbar (kein Netz, kein
 #    neues Ziel). -> unter uebertragungen (Relais) mit aufgenommen.
 #  - FCM ist seit 1.5.0 gelistet (Weck-Push, inhaltslos, nur Android, nur bei eingeschalteten
-#    Benachrichtigungen) - unveraendert gueltig. Der veraltete "kein Firebase"-Stand betrifft nur
+#    Benachrichtigungen) – unveraendert gueltig. Der veraltete „kein Firebase“-Stand betrifft nur
 #    aeltere Webseiten-Kopien; DIESE Fassung bildet FCM korrekt ab.
 #  - Windows 1.6.1 signiert + veroeffentlicht (GitHub-Release orgafuchs-v1.6.1); Android 1.6.1 im
 #    Play-Rollout.
 # NACHTRAG 1.4.5 (12.08.2026): Die Windows-Fassung erhaelt eine In-App-Update-
 # Pruefung. NEUES UEBERTRAGUNGSZIEL github.com/api.github.com (nur Windows):
-# Abruf der oeffentlichen Versionsliste und - auf Nutzerwunsch - Download der
+# Abruf der oeffentlichen Versionsliste und – auf Nutzerwunsch – Download der
 # signierten Setup-Datei; KEINE Nutzerinhalte, GitHub sieht technisch die IP.
 # Geprueft wird beim Start hoechstens einmal taeglich sowie manuell ueber "Nach
 # Updates suchen". Die heruntergeladene Datei wird vor dem Start fail-closed
@@ -37,8 +37,8 @@ geprueft_von: 32_OrgaFuchs
 # Store). Aufgenommen unter uebertragungen, fremde_dienste und berechtigungen.
 # 19.07.2026, zweite Fassung des Tages: technische Angaben (Dateinamen,
 # Bezeichner, Portangabe, Schaltervariablen) aus den veroeffentlichten Feldern
-# entfernt; sachlich unveraendert, die Belege stehen weiterhin in "beleg".
-fassung: "1.9.3 (versionCode 22), Release-Kandidat vom 25.09.2026; im Feld bis zur Auslieferung 1.9.2 (versionCode 21). Gegenüber der früheren Fassung 1.6.1 neu bzw. geändert: optionale Anzeige der Dienste und Termine in einem eigenen, rein lokalen Gerätekalender (nur Android, Kalender-Berechtigung, nichts verlässt das Gerät); der frühere Abgleich direkt im Heimnetz und das Gruppen-Passwort sind entfernt - Geräte werden nur noch per QR-Einladung gekoppelt und gleichen Ende-zu-Ende-verschlüsselt über das Relais ab. Kein neues Übertragungsziel, keine Weitergabe an Dritte. Frühere Fassung: 1.6.1 (versionCode 15): Windows signiert+veröffentlicht (Release orgafuchs-v1.6.1), Android 1.6.1 im Play-Rollout. Enthält Firebase Cloud Messaging (Google) als inhaltslosen Weck-Push (seit 1.5.0; nur Android, nur bei eingeschalteten Benachrichtigungen), Windows-Update-Prüfung (github.com) sowie NEU 'Nachricht an alle' + Postfach: kurze Klartext-Nachrichten an die Gruppe reisen Ende-zu-Ende über den Relais-Kanal (NICHT über Google), Postfach zeigt sie lokal im Nachgang. KEIN neues Übertragungsziel/keine neue Datenkategorie ggü. 1.5.0. Play-Data-Safety unverändert (Firebase/Gerätekennungen bereits deklariert)."
+# entfernt; sachlich unveraendert, die Belege stehen weiterhin in „beleg“.
+fassung: "1.9.3 (versionCode 22), Release-Kandidat vom 25.09.2026; im Feld bis zur Auslieferung 1.9.2 (versionCode 21). Gegenüber der früheren Fassung 1.6.1 neu bzw. geändert: optionale Anzeige der Dienste und Termine in einem eigenen, rein lokalen Gerätekalender (nur Android, Kalender-Berechtigung, nichts verlässt das Gerät); der frühere Abgleich direkt im Heimnetz und das Gruppen-Passwort sind entfernt – Geräte werden nur noch per QR-Einladung gekoppelt und gleichen Ende-zu-Ende-verschlüsselt über das Relais ab. Kein neues Übertragungsziel, keine Weitergabe an Dritte. Frühere Fassung: 1.6.1 (versionCode 15): Windows signiert+veröffentlicht (Release orgafuchs-v1.6.1), Android 1.6.1 im Play-Rollout. Enthält Firebase Cloud Messaging (Google) als inhaltslosen Weck-Push (seit 1.5.0; nur Android, nur bei eingeschalteten Benachrichtigungen), Windows-Update-Prüfung (github.com) sowie NEU 'Nachricht an alle' + Postfach: kurze Klartext-Nachrichten an die Gruppe reisen Ende-zu-Ende über den Relais-Kanal (NICHT über Google), Postfach zeigt sie lokal im Nachgang. KEIN neues Übertragungsziel/keine neue Datenkategorie ggü. 1.5.0. Play-Data-Safety unverändert (Firebase/Gerätekennungen bereits deklariert)."
 # Pruefvermerk 01.08.2026: Steckbrief weiterhin gueltig fuer den veroeffentlichungsreifen
 # Stand 1.0.0. Interne Weiterentwicklung (Host-Uebergabe, geplanter Notfall-Recovery) laeuft
 # ueber die bereits gelisteten Kanaele (Relais bleibt Ende-zu-Ende-verschluesselt/inhaltsblind)
@@ -55,8 +55,8 @@ fassung: "1.9.3 (versionCode 22), Release-Kandidat vom 25.09.2026; im Feld bis z
 #    vorhanden), aber NEUE ANZEIGEFLAECHE: Inhalte sind fuer andere am Geraet sichtbar und liegen
 #    im lokalen App-/Widget-Speicher (kein Netz, keine Cloud). -> unter auf_dem_geraet + besonder-
 #    heiten aufnehmen.
-#  - Kiosk "Bildschirm eingeschaltet lassen" (Paket wakelock_plus): haelt nur das Display wach;
-#    bereits vorhandene WAKE_LOCK-Berechtigung, jetzt aktiv genutzt (wofuer bei "Geraet wachhalten"
+#  - Kiosk „Bildschirm eingeschaltet lassen“ (Paket wakelock_plus): haelt nur das Display wach;
+#    bereits vorhandene WAKE_LOCK-Berechtigung, jetzt aktiv genutzt (wofuer bei „Geraet wachhalten“
 #    ergaenzen). Keine Datenuebertragung.
 #  - Windows-Hintergrundbetrieb (Tray, Pakete window_manager/tray_manager): reine Desktop-UI,
 #    keine Android-Berechtigung, keine neue Uebertragung.
@@ -110,7 +110,7 @@ auf_dem_geraet:
   - was: die Schlüssel und Gerätekennungen der Familiengruppe für den Ende-zu-Ende-verschlüsselten Abgleich (aus der QR-Einladung) sowie die Liste der gekoppelten Geräte
     wo: im geschützten Schlüsselspeicher des Geräts und in der lokalen Datenbank der App
     beleg: lib/sync/platform_vault.dart; orgafuchs_kern/lib/data/database.dart (Tabellen sync_meta, sync_actors)
-  - was: auf Wunsch (nur Android) Dienste und Termine als Einträge in einem eigenen, rein lokalen Kalender „OrgaFuchs (nur Ansicht)"
+  - was: auf Wunsch (nur Android) Dienste und Termine als Einträge in einem eigenen, rein lokalen Kalender „OrgaFuchs (nur Ansicht)“
     wo: im Kalenderspeicher des Geräts unter einem lokalen Konto, nie in einem Kalender-Sync-Konto; für Kalender-Apps auf dem Gerät sichtbar; Abschalten entfernt den Kalender wieder
     beleg: lib/services/kalender_spiegel.dart; android/app/src/main/kotlin/eu/fehlerfuchs/orgafuchs/KalenderSpiegel.kt (ACCOUNT_TYPE_LOCAL)
 
@@ -122,9 +122,9 @@ berechtigungen:
   - name: Netzwerkstatus
     wofuer: prüfen, ob eine Verbindung besteht, damit Abgleich und Hintergrundarbeiten nur mit Netz laufen
     pflicht: false
-    beleg: zusammengefuehrtes AndroidManifest (ACCESS_NETWORK_STATE, Baustein connectivity_plus) - steht nicht in der App-eigenen Manifestdatei; ACCESS_WIFI_STATE wird seit dem Wegfall des Heimnetz-Syncs nicht mehr angefordert
+    beleg: zusammengefuehrtes AndroidManifest (ACCESS_NETWORK_STATE, Baustein connectivity_plus) – steht nicht in der App-eigenen Manifestdatei; ACCESS_WIFI_STATE wird seit dem Wegfall des Heimnetz-Syncs nicht mehr angefordert
   - name: Kalender (lesen und schreiben)
-    wofuer: nur wenn „OrgaFuchs im Geräte-Kalender zeigen" eingeschaltet ist (nur Android) - einen eigenen, rein lokalen Kalender anlegen und die Dienste und Termine hineinschreiben, damit sie in der Kalender-App erscheinen; fremde Kalender werden nicht ausgewertet, nichts verlässt das Gerät
+    wofuer: nur wenn „OrgaFuchs im Geräte-Kalender zeigen“ eingeschaltet ist (nur Android) – einen eigenen, rein lokalen Kalender anlegen und die Dienste und Termine hineinschreiben, damit sie in der Kalender-App erscheinen; fremde Kalender werden nicht ausgewertet, nichts verlässt das Gerät
     pflicht: false
     beleg: android/app/src/main/AndroidManifest.xml (READ_CALENDAR, WRITE_CALENDAR); android/app/src/main/kotlin/eu/fehlerfuchs/orgafuchs/KalenderSpiegel.kt; lib/features/info/datenschutz_page.dart:125-129
   - name: Kamera
@@ -142,11 +142,11 @@ berechtigungen:
   - name: Autostart nach Geräteneustart
     wofuer: wird von den mitgelieferten Bausteinen für Hintergrundbetrieb und Benachrichtigungen angefordert; solange die Hinweise ausgeschaltet sind, baut die App von sich aus keine Verbindung auf
     pflicht: false
-    beleg: zusammengefuehrtes AndroidManifest (RECEIVE_BOOT_COMPLETED) - steht nicht in der App-eigenen Manifestdatei
+    beleg: zusammengefuehrtes AndroidManifest (RECEIVE_BOOT_COMPLETED) – steht nicht in der App-eigenen Manifestdatei
   - name: Gerät wachhalten
     wofuer: hält auf Wunsch den Bildschirm nur während der geöffneten Kiosk-/Küchenansicht eingeschaltet; wird beim Verlassen freigegeben
     pflicht: false
-    beleg: zusammengefuehrtes AndroidManifest (WAKE_LOCK) - steht nicht in der App-eigenen Manifestdatei
+    beleg: zusammengefuehrtes AndroidManifest (WAKE_LOCK) – steht nicht in der App-eigenen Manifestdatei
   - name: Vibration
     wofuer: kurze Rückmeldung beim Schnelleintrag sowie Benachrichtigungen
     pflicht: false
@@ -159,21 +159,21 @@ berechtigungen:
 uebertragungen:
   - wohin: fehlerfuchs.eu
     was: Abruf der Schulferien des eingestellten Bundeslandes (Download einer öffentlichen JSON-Datei); gesendet wird nur die Anfrage selbst, keine Nutzerinhalte
-    wann: beim App-Start automatisch, höchstens etwa einmal im Monat, sobald ein Bundesland eingestellt ist; zusätzlich manuell über "Feiertage & Ferien aktualisieren"
+    wann: beim App-Start automatisch, höchstens etwa einmal im Monat, sobald ein Bundesland eingestellt ist; zusätzlich manuell über „Feiertage & Ferien aktualisieren“
     freiwillig: false
     beleg: lib/services/schulferien.dart:29+85-96, lib/providers.dart:172-183, lib/features/home/home_shell.dart:32
   - wohin: orgafuchs.relais.fehlerfuchs.eu (fest eingestellt, von FehlerFuchs betrieben)
-    was: Ende-zu-Ende-verschlüsselte Sync-Nachrichten (Plan-, Personen- und Termindaten sowie kurze Klartext-Nachrichten an die Gruppe - "Nachricht an alle" - im verschlüsselten Umschlag) samt Gruppen- und Gerätekennung zur Adressierung; das Relais kann die Inhalte nicht lesen
+    was: Ende-zu-Ende-verschlüsselte Sync-Nachrichten (Plan-, Personen- und Termindaten sowie kurze Klartext-Nachrichten an die Gruppe – „Nachricht an alle“ – im verschlüsselten Umschlag) samt Gruppen- und Gerätekennung zur Adressierung; das Relais kann die Inhalte nicht lesen
     wann: nur wenn der Nutzer Geräte zu einem gemeinsamen Familienplan verbindet (ab Werk aus)
     freiwillig: true
     beleg: orgafuchs_kern/lib/sync/protocol/ofsp_transport.dart:28-31 (productionEndpoint), lib/providers.dart:42, lib/features/sync/ofsp_pairing_page.dart:75
   - wohin: ntfy.relais.fehlerfuchs.eu (Vorbelegung), wahlweise ntfy.sh oder eine selbst eingetragene Adresse
-    was: Benachrichtigungssignal "es gibt Änderungen" samt Themenkennung; keine Planinhalte
+    was: Benachrichtigungssignal „es gibt Änderungen“ samt Themenkennung; keine Planinhalte
     wann: nur wenn der Nutzer Push einschaltet (ab Werk aus)
     freiwillig: true
     beleg: lib/services/push_ntfy.dart, lib/core/server_dropdown.dart:107-108, lib/services/push_controller.dart:30-31
   - wohin: license.fehlerfuchs.eu
-    was: Support-/Kontaktformular - eingegebene Nachricht, optional Name und E-Mail, dazu App-Name, Version, Betriebssystem, Gerätebezeichnung und optional angehängte Diagnose-/Protokolldateien
+    was: Support-/Kontaktformular – eingegebene Nachricht, optional Name und E-Mail, dazu App-Name, Version, Betriebssystem, Gerätebezeichnung und optional angehängte Diagnose-/Protokolldateien
     wann: nur wenn der Nutzer das Formular absendet
     freiwillig: true
     beleg: lib/services/kontakt_service.dart:20-58, lib/features/info/kontakt_page.dart
@@ -183,28 +183,28 @@ uebertragungen:
     freiwillig: true
     beleg: lib/features/info/info_page.dart:13-17
   - wohin: github.com / api.github.com (nur Windows-Fassung)
-    was: Abruf der öffentlichen Versionsliste der FehlerFuchs-Downloads und - auf Nutzerwunsch - Download der signierten Setup-Datei; gesendet wird nur die Anfrage, keine Nutzerinhalte (GitHub sieht technisch die IP-Adresse)
-    wann: nur in der Windows-Fassung; beim App-Start höchstens einmal täglich sowie manuell über "Nach Updates suchen". Die Android-Fassung aktualisiert über den Play Store und baut dafür keine eigene Verbindung auf
+    was: Abruf der öffentlichen Versionsliste der FehlerFuchs-Downloads und – auf Nutzerwunsch – Download der signierten Setup-Datei; gesendet wird nur die Anfrage, keine Nutzerinhalte (GitHub sieht technisch die IP-Adresse)
+    wann: nur in der Windows-Fassung; beim App-Start höchstens einmal täglich sowie manuell über „Nach Updates suchen“. Die Android-Fassung aktualisiert über den Play Store und baut dafür keine eigene Verbindung auf
     freiwillig: false
     beleg: lib/services/update_service.dart, lib/services/update_ui.dart, lib/features/info/info_page.dart, lib/features/home/home_screen.dart
   - wohin: Firebase Cloud Messaging / Google (nur Android)
-    was: Registrierung des Geräts mit einer Push-Kennung bei Google und Empfang reiner Weck-Nachrichten; KEINE Termine/Namen/Planinhalte (nur Signal "es gibt Änderungen"). Google sieht technisch die Push-Kennung, die IP-Adresse und den Zeitpunkt
+    was: Registrierung des Geräts mit einer Push-Kennung bei Google und Empfang reiner Weck-Nachrichten; KEINE Termine/Namen/Planinhalte (nur Signal „es gibt Änderungen“). Google sieht technisch die Push-Kennung, die IP-Adresse und den Zeitpunkt
     wann: nur wenn Benachrichtigungen eingeschaltet sind; die Wecknachricht löst das Relais aus, nicht die App
     freiwillig: true
     beleg: lib/services/fcm_dienst.dart, android/app/google-services.json, android/app/src/main/AndroidManifest.xml
 
 fremde_dienste:
-  - name: Google ML Kit - Barcode Scanning (mitgeliefertes Modell, über die Bibliothek mobile_scanner)
+  - name: Google ML Kit – Barcode Scanning (mitgeliefertes Modell, über die Bibliothek mobile_scanner)
     wofuer: Erkennung des Beitritts-QR-Codes; die Erkennung läuft auf dem Gerät
     wann: nur solange der QR-Scanner geöffnet ist
   - name: ntfy (quelloffener Benachrichtigungsdienst)
     wofuer: Push-Signal bei Änderungen; vorbelegt ist ein selbst betriebener Server, alternativ ntfy.sh oder ein eigener
     wann: nur bei eingeschaltetem Push
-  - name: GitHub (Microsoft) - Auslieferung der Windows-Aktualisierungen
+  - name: GitHub (Microsoft) – Auslieferung der Windows-Aktualisierungen
     wofuer: stellt die öffentliche Versionsliste und die signierte Setup-Datei für die Selbst-Aktualisierung der Windows-Fassung bereit; kein Konto, keine Anmeldung, keine Nutzerinhalte
     wann: nur bei der Windows-Update-Prüfung (automatisch höchstens täglich beim Start oder manuell)
-  - name: Firebase Cloud Messaging (Google) - zuverlässiger Weck-Push (nur Android)
-    wofuer: weckt die App aus Doze/geschlossenem Zustand für den Empfang von Änderungen; das Gerät registriert sich mit einer Push-Kennung bei Google. In der Nachricht KEINE Termine/Namen/Planinhalte (nur Wecksignal) - der eigentliche Abgleich bleibt Ende-zu-Ende-verschlüsselt über das Relais
+  - name: Firebase Cloud Messaging (Google) – zuverlässiger Weck-Push (nur Android)
+    wofuer: weckt die App aus Doze/geschlossenem Zustand für den Empfang von Änderungen; das Gerät registriert sich mit einer Push-Kennung bei Google. In der Nachricht KEINE Termine/Namen/Planinhalte (nur Wecksignal) – der eigentliche Abgleich bleibt Ende-zu-Ende-verschlüsselt über das Relais
     wann: nur bei eingeschalteten Benachrichtigungen (Android)
   - name: Kein Google-Konto, kein Analytics, kein Play Billing, keine Karten, keine Schriften aus dem Netz
     wofuer: nicht eingebunden (App ist kostenlos, keine In-App-Käufe). Firebase wird ausschließlich für den Weck-Push genutzt (s. o.), NICHT für Analytics/Werbung/Tracking
@@ -219,7 +219,7 @@ daten_an_dritte_verkauft: false
 loeschung: >-
   Alle Inhalte liegen auf dem Gerät. Einzelne Einträge, Personen und Dienste
   lassen sich in der App löschen; der Einrichtungsassistent kann im Modus
-  "Komplett neu" den gesamten Bestand zurücksetzen. Mit der Deinstallation
+  „Komplett neu“ den gesamten Bestand zurücksetzen. Mit der Deinstallation
   verschwinden Datenbank, Protokolle, PDF-Ablage und Sicherungen im App-Ordner.
   Beim Abgleich über das Relais liegen dort nur verschlüsselte, kurzlebige Nachrichten;
   ohne die Schlüssel der Familiengruppe sind sie nicht lesbar. Über das Support-Formular
@@ -227,11 +227,11 @@ loeschung: >-
 
 besonderheiten: >-
   Der Abgleich zwischen mehreren Geräten kommt ohne Konto und ohne
-  Registrierung aus: Ein Gerät ist "Hauptgerät", weitere treten über eine
+  Registrierung aus: Ein Gerät ist „Hauptgerät“, weitere treten über eine
   QR-Einladung des Hauptgeräts bei, die mit einem Kurzcode bestätigt wird. Die
   Einladung überträgt die Schlüssel für die Ende-zu-Ende-Verschlüsselung; das
   Relais sieht daher nur verschlüsselte Daten sowie Gruppen- und Gerätekennungen
-  für die Zustellung - weder Namen noch Inhalte. Das Relais ist fest eingestellt
+  für die Zustellung – weder Namen noch Inhalte. Das Relais ist fest eingestellt
   und wird von FehlerFuchs betrieben; der Benachrichtigungsserver ist frei
   wählbar und lässt sich auch selbst betreiben. Einen Abgleich direkt im
   Heimnetz ohne Server gibt es nicht mehr. Die App zeigt eine Übersicht der verwendeten
@@ -251,7 +251,7 @@ offene_fragen: >-
   1) Unklar, ob und wie lange die angefragten Server (fehlerfuchs.eu für die
   Schulferien, das Relais, der ntfy-Server, license.fehlerfuchs.eu sowie
   github.com für die Windows-Update-Prüfung) IP-Adressen oder Zugriffe
-  protokollieren - das hängt vom Serverbetrieb ab, nicht von der App.
+  protokollieren – das hängt vom Serverbetrieb ab, nicht von der App.
   2) Unklar, ob das mitgelieferte Google-ML-Kit-Barcodemodul eigene Verbindungen
   zu Google aufbaut (etwa Modell- oder Telemetriezugriffe); aus dem App-Code ist
   keine solche Verbindung ersichtlich, die Bibliothek wurde nicht im
