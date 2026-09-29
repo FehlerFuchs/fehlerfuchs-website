@@ -1,6 +1,6 @@
 slug: orgafuchs
 name: OrgaFuchs
-stand: "2026-09-25"
+stand: "2026-09-27"
 geprueft_von: 32_OrgaFuchs
 # PRUEFUNG 25.09.2026 ([32], Auftrag [10] + Bautag): Umlaute im Fliesstext (S1) und INHALT gegen den
 # gebauten Stand 1.9.3+22 (Commit 3d95ba2) gemessen – zusammengefuehrtes Release-Manifest (aapt2 dump
@@ -38,7 +38,11 @@ geprueft_von: 32_OrgaFuchs
 # 19.07.2026, zweite Fassung des Tages: technische Angaben (Dateinamen,
 # Bezeichner, Portangabe, Schaltervariablen) aus den veroeffentlichten Feldern
 # entfernt; sachlich unveraendert, die Belege stehen weiterhin in „beleg“.
-fassung: "1.9.3 (versionCode 22), Release-Kandidat vom 25.09.2026; im Feld bis zur Auslieferung 1.9.2 (versionCode 21). Gegenüber der früheren Fassung 1.6.1 neu bzw. geändert: optionale Anzeige der Dienste und Termine in einem eigenen, rein lokalen Gerätekalender (nur Android, Kalender-Berechtigung, nichts verlässt das Gerät); der frühere Abgleich direkt im Heimnetz und das Gruppen-Passwort sind entfernt – Geräte werden nur noch per QR-Einladung gekoppelt und gleichen Ende-zu-Ende-verschlüsselt über das Relais ab. Kein neues Übertragungsziel, keine Weitergabe an Dritte. Frühere Fassung: 1.6.1 (versionCode 15): Windows signiert+veröffentlicht (Release orgafuchs-v1.6.1), Android 1.6.1 im Play-Rollout. Enthält Firebase Cloud Messaging (Google) als inhaltslosen Weck-Push (seit 1.5.0; nur Android, nur bei eingeschalteten Benachrichtigungen), Windows-Update-Prüfung (github.com) sowie NEU 'Nachricht an alle' + Postfach: kurze Klartext-Nachrichten an die Gruppe reisen Ende-zu-Ende über den Relais-Kanal (NICHT über Google), Postfach zeigt sie lokal im Nachgang. KEIN neues Übertragungsziel/keine neue Datenkategorie ggü. 1.5.0. Play-Data-Safety unverändert (Firebase/Gerätekennungen bereits deklariert)."
+# 27.09.2026 ([32], ST-1): fassung/stand auf den AUSGELIEFERTEN Stand 1.9.3
+# (versionCode 24; Windows 25.09. 21:29, Google Play 25.09. 22:18) gezogen;
+# Zeichen nach Befund 16 von [10] („…“, Gedankenstrich „ – “). Sachlich
+# unveraendert. Sicherung: 32_OrgaFuchs\99_Logs\Sicherungen\.
+fassung: "1.9.3 (versionCode 24), ausgeliefert am 25.09.2026 für Windows und Google Play. Gegenüber der früheren Fassung 1.6.1 neu bzw. geändert: optionale Anzeige der Dienste und Termine in einem eigenen, rein lokalen Gerätekalender (nur Android, Kalender-Berechtigung, nichts verlässt das Gerät); der frühere Abgleich direkt im Heimnetz und das Gruppen-Passwort sind entfernt – Geräte werden nur noch per QR-Einladung gekoppelt und gleichen Ende-zu-Ende-verschlüsselt über das Relais ab. Kein neues Übertragungsziel, keine Weitergabe an Dritte. Frühere Fassung: 1.6.1 (versionCode 15): Windows signiert+veröffentlicht (Release orgafuchs-v1.6.1), Android 1.6.1 im Play-Rollout. Enthält Firebase Cloud Messaging (Google) als inhaltslosen Weck-Push (seit 1.5.0; nur Android, nur bei eingeschalteten Benachrichtigungen), Windows-Update-Prüfung (github.com) sowie NEU „Nachricht an alle“ + Postfach: kurze Klartext-Nachrichten an die Gruppe reisen Ende-zu-Ende über den Relais-Kanal (NICHT über Google), Postfach zeigt sie lokal im Nachgang. KEIN neues Übertragungsziel/keine neue Datenkategorie ggü. 1.5.0. Play-Data-Safety unverändert (Firebase/Gerätekennungen bereits deklariert)."
 # Pruefvermerk 01.08.2026: Steckbrief weiterhin gueltig fuer den veroeffentlichungsreifen
 # Stand 1.0.0. Interne Weiterentwicklung (Host-Uebergabe, geplanter Notfall-Recovery) laeuft
 # ueber die bereits gelisteten Kanaele (Relais bleibt Ende-zu-Ende-verschluesselt/inhaltsblind)

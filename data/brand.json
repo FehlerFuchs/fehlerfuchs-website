@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T20:40:05+02:00",
+  "generiert": "2026-09-29T04:22:11+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "name": "FehlerFuchs",
   "slogan": "Einfach kleine Helfer.",
@@ -89,6 +89,271 @@
       "FehlerFuchs ist der Rahmen, unter dem nach und nach mehrere solcher Helfer entstehen. MobileReport war der Anfang – inzwischen wächst die Familie Stück für Stück (Programme für den PC, weitere Apps in Arbeit). Wenn dir etwas auffällt oder fehlt, freue ich mich über jede Rückmeldung."
     ]
   },
+  "werte_artikel": [
+    {
+      "titel": "Einfach & ehrlich",
+      "anker": "wert-einfach-ehrlich",
+      "unterzeile": "Ein Helfer, ein Problem. Und dann ist Schluss.",
+      "grund": [
+        {
+          "absatz": "Jeder Helfer fängt bei mir mit einer schlichten Frage an: *Was genau nervt – und was ist das Kleinste, das dieses Problem wirklich löst?* Dann baue ich genau das. [[Und dann höre ich auf.|einfach]] SnapFuchs scannt Dokumente. OrgaFuchs plant Familie und Schichten. MobileReport hält Mängel fest. Keine dieser Apps will dein neues [[digitales Zuhause|kennst]] werden, dich möglichst lange festhalten oder dir morgen etwas [[verkaufen|ehrlich]], das du heute noch nicht brauchst."
+        },
+        {
+          "absatz": "Das klingt selbstverständlich. Leider ist es das nicht mehr."
+        }
+      ],
+      "vertiefungen": [
+        {
+          "id": "kennst",
+          "typ": "beispiel",
+          "titel": "Kennst du das?",
+          "bloecke": [
+            {
+              "absatz": "Kennst du das? Du lädst dir eine App für eine einzige Sache herunter – sagen wir, um einen Brief einzuscannen. Beim ersten Start will sie ein Konto. Dann Zugriff auf deine Kontakte. Dann Mitteilungen. Dann zeigt sie dir einen Rundgang durch zwölf Funktionen, die du nie gesucht hast, und am Ende steht ein Abo-Angebot mit „nur heute“-Rabatt. Den Brief hast du immer noch nicht gescannt."
+            },
+            {
+              "absatz": "Genau so soll sich FehlerFuchs nie anfühlen."
+            }
+          ]
+        },
+        {
+          "id": "einfach",
+          "typ": "aufklappen",
+          "titel": "Einfach heißt nicht dürftig",
+          "bloecke": [
+            {
+              "absatz": "„Einfach“ heißt dabei nicht „dürftig“. Einfach ist das, was übrig bleibt, wenn man alles weglässt, was nur dem Hersteller nützt. Ein Knopf zu wenig ist meistens besser als ein Knopf zu viel."
+            }
+          ]
+        },
+        {
+          "id": "ehrlich",
+          "typ": "randnotiz",
+          "titel": "Und „ehrlich“?",
+          "bloecke": [
+            {
+              "absatz": "Und „ehrlich“ heißt für mich: Ich verspreche nur, was die App wirklich kann. Wenn ein Helfer etwas nicht kann, steht das da – nicht irgendwo im Kleingedruckten, sondern dort, wo du es suchst. Wenn eine Funktion Geld kostet, siehst du das, bevor du sie brauchst, und nicht mittendrin. Und wenn etwas schiefgeht, sagt dir die App, was los ist, statt so zu tun, als wäre nichts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "titel": "Datensparsam",
+      "anker": "wert-datensparsam",
+      "unterzeile": "Was nicht gesammelt wird, kann nicht verloren gehen – nicht verkauft und nicht missbraucht werden.",
+      "grund": [
+        {
+          "absatz": "FehlerFuchs geht den [[umgekehrten Weg|geschaeft]]: **Ich sammle nicht, was ich nicht brauche. Und ich brauche [[fast nichts|konkret]].**"
+        },
+        {
+          "absatz": "Datensparsamkeit ist dabei kein Verzicht, sondern Entlastung. Daten, die ich [[nie habe|webseite]], muss ich nicht schützen, nicht verwalten, nicht erklären. Und du musst mir nicht vertrauen, dass ich gut auf sie aufpasse – denn es gibt sie schlicht nicht."
+        }
+      ],
+      "vertiefungen": [
+        {
+          "id": "geschaeft",
+          "typ": "aufklappen",
+          "titel": "Wie Daten zum Geschäft werden",
+          "bloecke": [
+            {
+              "absatz": "Daten sind das Geschäftsmodell unserer Zeit. Viele kostenlose Apps sind nicht deshalb kostenlos, weil jemand großzügig ist, sondern weil du bezahlst: mit dem, was du tust, wo du bist, wann du schläfst, was du tippst, wen du kennst. In vielen Apps stecken Bausteine von Werbe- und Analysefirmen, die jede Bewegung mitschreiben – oft ohne dass die App selbst davon irgendetwas „braucht“. Aus solchen Daten entstehen Profile, und mit Profilen wird gehandelt. Dazu kommen Datenlecks: Immer wieder landen Millionen Datensätze dort, wo sie nie hätten sein dürfen. Nicht, weil jemand böse war, sondern weil etwas gespeichert wurde, das es nicht hätte geben müssen."
+            }
+          ]
+        },
+        {
+          "id": "konkret",
+          "typ": "popover",
+          "titel": "Was FehlerFuchs weglässt",
+          "bloecke": [
+            {
+              "absatz": "Konkret heißt das:"
+            },
+            {
+              "liste": [
+                "**Kein Konto.** Du musst dich nirgends anmelden, um einen Helfer zu benutzen. Kein Passwort, das irgendwo gestohlen werden kann.",
+                "**Keine Cloud.** Deine Daten werden nicht auf einen Server geschickt, „damit es bequemer ist“.",
+                "**Kein Tracking.** Keine Werbe-ID, keine Nutzungsstatistik im Hintergrund, kein „Wir verbessern unser Angebot“-Mitschnitt.",
+                "**Keine Werbung** – also auch keine Werbenetzwerke, die mitlesen."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "webseite",
+          "typ": "randnotiz",
+          "titel": "Auch diese Webseite",
+          "bloecke": [
+            {
+              "absatz": "Das gilt übrigens auch für diese Webseite. Sie zählt dich nicht, sie legt kein Profil von dir an, und die Crawler großer KI-Firmen sind in ihrer robots.txt ausdrücklich ausgesperrt: Die Texte hier sind für Menschen geschrieben, nicht als Futter für Trainingsdaten."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "titel": "Lokal",
+      "anker": "wert-lokal",
+      "unterzeile": "Deine Daten gehören auf dein Gerät. Punkt.",
+      "grund": [
+        {
+          "absatz": "Bei FehlerFuchs liegt alles, was du erfasst, **[[auf deinem Gerät|cloud]]** – als Datei oder Datenbank, die dir gehört. Deine gescannten Dokumente, deine Dienstpläne, deine Mängelberichte. Niemand sonst hat einen [[Schlüssel|schluessel]] dazu."
+        },
+        {
+          "absatz": "Lokal heißt am Ende: [[Kontrolle|vorteile]]. Nicht die Illusion von Kontrolle über irgendwelche Einstellungsmenüs, sondern ganz wörtlich. Deine Daten sind da, wo du bist."
+        }
+      ],
+      "vertiefungen": [
+        {
+          "id": "cloud",
+          "typ": "popover",
+          "titel": "Und die Cloud?",
+          "bloecke": [
+            {
+              "absatz": "„In der Cloud“ klingt nach einem luftigen, sicheren Ort. In Wahrheit heißt es: *auf dem Computer von jemand anderem.* In einem Rechenzentrum, dessen Betreiber du nicht kennst, in einem Land, dessen Gesetze du vielleicht nicht kennst, unter Nutzungsbedingungen, die sich jederzeit ändern können. Wird der Dienst eingestellt, verkauft oder teurer, bist du davon abhängig. Ist der Server weg, sind deine Daten es womöglich auch. Und was „nur zur Verbesserung des Dienstes“ ausgewertet wird, entscheidest nicht du."
+            }
+          ]
+        },
+        {
+          "id": "schluessel",
+          "typ": "beispiel",
+          "titel": "Weitergeben – wenn du willst",
+          "bloecke": [
+            {
+              "absatz": "Und wenn du etwas weitergeben willst, dann entscheidest **du**, was, wann und an wen – zum Beispiel als PDF, das du per Mail verschickst, ausdruckst oder auf einen Stick legst. Weitergeben ist bei FehlerFuchs eine bewusste Handlung, kein Hintergrundprozess."
+            }
+          ]
+        },
+        {
+          "id": "vorteile",
+          "typ": "aufklappen",
+          "titel": "Was das praktisch bringt",
+          "bloecke": [
+            {
+              "absatz": "Das hat ganz praktische Vorteile:"
+            },
+            {
+              "liste": [
+                "**Die Helfer funktionieren offline.** Im Keller ohne Empfang, im Funkloch auf dem Land, im Flugzeug. Keine Verbindung ist bei FehlerFuchs kein Fehler, sondern der Normalfall.",
+                "**Sie sind schnell**, weil nichts erst über das Internet hin- und hergeschickt wird.",
+                "**Sie hängen an keinem Server.** Eine lokale App läuft auch dann noch, wenn es mich in zehn Jahren nicht mehr gäbe."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "titel": "Fair",
+      "anker": "wert-fair",
+      "unterzeile": "Das Grundlegende bleibt frei. Wirklich. Für immer.",
+      "grund": [
+        {
+          "absatz": "FehlerFuchs entsteht in meiner Freizeit, ohne [[Investoren|muster]], die Rendite sehen wollen. Genau deshalb geht das: Es gibt niemanden, der mich zwingt, aus dir mehr herauszuholen."
+        }
+      ],
+      "vertiefungen": [
+        {
+          "id": "muster",
+          "typ": "vorher-nachher",
+          "titel": "Das bekannte Muster – und was FehlerFuchs anders macht",
+          "bloecke": [
+            {
+              "absatz": "Viel Software funktioniert heute nach einem bekannten Muster: Erst ist sie kostenlos und großzügig. Dann, wenn genug Menschen darauf angewiesen sind, wandern Funktionen hinter eine Bezahlschranke. Aus dem einmaligen Kauf wird ein Abo, aus dem Abo ein teureres Abo. Kündigen ist gut versteckt. Werbung wird lauter, und wer sie loswerden will, zahlt monatlich. Das hat mit Fairness nichts zu tun – das ist Abhängigkeit mit Ansage."
+            },
+            {
+              "absatz": "FehlerFuchs macht das nicht mit."
+            },
+            {
+              "liste": [
+                "**Keine Werbung.** Nirgends, auch nicht „dezent“.",
+                "**Das Grundlegende bleibt kostenlos.** Was eine App im Kern können muss, um ihr Problem zu lösen, kostet nichts – und daran ändert sich nachträglich auch nichts. Keine Funktion, die heute frei ist, wird dir morgen weggenommen, um sie dir zurückzuverkaufen.",
+                "**Pro ist ein Extra, kein Erpressungsmittel.** Einzelne Helfer haben eine Pro-Fassung für Leute, die mehr brauchen. Die kaufst du **einmal**, und sie gehört dir. Kein Abo, das still weiterläuft, keine jährliche Verlängerung, die du vergessen hast.",
+                "**Keine künstlichen Abhängigkeiten.** Deine Daten liegen in normalen Formaten bei dir. Du kannst jederzeit gehen und nimmst alles mit.",
+                "**Kein Monopolstreben.** FehlerFuchs will nicht alles für dich sein. Wenn ein anderes Werkzeug für dich besser passt, dann nimm das."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "titel": "Transparent",
+      "anker": "wert-transparent",
+      "unterzeile": "Du sollst nicht glauben müssen. Du sollst sehen können.",
+      "grund": [
+        {
+          "absatz": "Ich möchte [[das Gegenteil|gegenteil]]. Du sollst mich nicht durchschauen müssen – **und du sollst gar nicht erst durchleuchtet werden.**"
+        },
+        {
+          "absatz": "Transparenz ist für mich kein Werbewort, sondern eine [[Arbeitsweise|arbeitsweise]]: Alles, was eine App tut, soll sie auch offen sagen können, ohne dass es peinlich wäre."
+        }
+      ],
+      "vertiefungen": [
+        {
+          "id": "gegenteil",
+          "typ": "popover",
+          "titel": "Wovon das Gegenteil?",
+          "bloecke": [
+            {
+              "absatz": "Viele Apps und Plattformen wissen erstaunlich viel über dich: welche anderen Apps du benutzt, wo du dich aufhältst, wann du aufstehst, was dich interessiert, womöglich wie es dir gerade geht. Oft ist nicht einmal klar, *wer* das alles erfährt – hinter einer App stehen häufig Dutzende Partnerfirmen. Die Datenschutzerklärung dazu ist so lang, dass sie niemand liest. Und genau darauf ist sie angelegt."
+            }
+          ]
+        },
+        {
+          "id": "arbeitsweise",
+          "typ": "aufklappen",
+          "titel": "Was das konkret heißt",
+          "bloecke": [
+            {
+              "absatz": "Transparent heißt bei FehlerFuchs:"
+            },
+            {
+              "liste": [
+                "**Offen, was eine App verarbeitet.** Welche Daten ein Helfer anfasst und welche nicht, steht klar da – nicht verteilt auf dreißig Seiten Juristendeutsch.",
+                "**Löschen ohne Umweg.** Alles, was du in einer App angelegt hast, kannst du jederzeit selbst löschen. Kein Antrag, kein „Bitte wenden Sie sich an unseren Support“, keine Frist.",
+                "**Nachvollziehbare Änderungen.** Wenn sich an einem Helfer etwas ändert, steht in den Versionshinweisen, was und warum – in normaler Sprache statt „Fehlerbehebungen und Leistungsverbesserungen“.",
+                "**Ehrliche Berechtigungen.** Eine App fragt nur nach dem, was sie für ihre Aufgabe wirklich braucht. Ein Dokumentenscanner braucht die Kamera – nicht dein Adressbuch."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "titel": "Verständlich",
+      "anker": "wert-verstaendlich",
+      "unterzeile": "Klare Sprache statt Fachchinesisch.",
+      "grund": [
+        {
+          "absatz": "Software spricht oft eine seltsame Sprache. „Synchronisierung fehlgeschlagen (Code 0x80070005).“ „Möchten Sie die Änderungen verwerfen? Ja / Nein / Abbrechen.“ Datenschutzhinweise, die man dreimal lesen muss, um zu merken, dass man gerade etwas Wichtiges erlaubt hat. Das ist kein Zufall und keine Nebensache: Wer nicht versteht, was passiert, kann nicht [[selbst entscheiden|regeln]]."
+        },
+        {
+          "absatz": "Und wenn doch einmal etwas unklar ist oder hakt: **Schreib mir.** Hinter FehlerFuchs steht kein Callcenter und kein Chatbot, der dich im Kreis schickt."
+        }
+      ],
+      "vertiefungen": [
+        {
+          "id": "regeln",
+          "typ": "merksatz",
+          "titel": "Bei FehlerFuchs gilt",
+          "bloecke": [
+            {
+              "absatz": "Bei FehlerFuchs gilt:"
+            },
+            {
+              "liste": [
+                "**Eine Schaltfläche sagt, was passiert.** Nicht „OK“, sondern „Speichern“. Nicht „Weiter“, sondern „Als PDF teilen“.",
+                "**Eine Fehlermeldung sagt, was los ist und was du tun kannst.** Ohne Code, ohne Schuldzuweisung.",
+                "**Die Apps sprechen Deutsch** – mit echten Umlauten und ganzen Sätzen.",
+                "**Auch Rechtstexte sollen lesbar sein.** Sie müssen rechtlich stimmen – aber sie dürfen trotzdem so geschrieben sein, dass man sie versteht."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "kontakt": {
     "ueberschrift": "Kontakt",
     "text": "Fragen, Interesse oder Feedback? Schreib mir über das kurze Kontaktformular – ich melde mich per E-Mail oder (auf Wunsch) telefonisch zurück."

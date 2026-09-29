@@ -29,6 +29,23 @@
 
 meldungen:
 
+  # OrgaFuchs 1.9.4 (versionCode 25). Nur Android: im Play Store live seit 27.09.2026 16:52
+  # (P5 von [FF_13] vom 29.09.2026 04:08, Vorgang #V_0002). Windows 1.9.4 steht noch aus
+  # (Signierung/P1 offen, P12) – daher KEIN 'version' (es gibt keinen Windows-releases-Eintrag).
+  # Text nach „Was ist neu" im Store, nichts erfunden (P8). KEINE Buildnummer nennen.
+  - id: orgafuchs-1-9-4
+    typ: update
+    produkt: orgafuchs
+    datum: "2026-09-27"
+    titel: "OrgaFuchs 1.9.4: Widgets mit Tagesansicht"
+    text: >-
+      OrgaFuchs 1.9.4 ist für Android im Play Store da. Die Widgets für Monat und Woche
+      zeigen wieder alle Einträge; im Widget lässt sich blättern und zwischen Tag, Woche und
+      Monat umschalten. Neu ist eine Tagesansicht im Widget: Dienste, Termine und Notizen als
+      Liste mit Uhrzeit und wem es gehört. Der Sync verbindet sich nach längeren Ausfällen von
+      selbst wieder, und entfernte Geräte erfahren es klar und verbinden sich ohne Datenverlust
+      neu. Die Windows-Fassung 1.9.4 folgt.
+
   # PDFuchs Reader 1.2.1. Play-Store-App: kein Release im Modell. Live seit
   # 25.09.2026 10:09 (Produktion, 100 %), belegt durch die P5-Meldung von [13]
   # vom 25.09.2026. Text nach „Was ist neu" im Store, ohne Zusatz.

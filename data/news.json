@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-26T20:40:05+02:00",
+  "generiert": "2026-09-29T04:22:11+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "orgafuchs-1-9-4",
+      "typ": "update",
+      "produkt": "orgafuchs",
+      "datum": "2026-09-27",
+      "titel": "OrgaFuchs 1.9.4: Widgets mit Tagesansicht",
+      "text": "OrgaFuchs 1.9.4 ist für Android im Play Store da. Die Widgets für Monat und Woche zeigen wieder alle Einträge; im Widget lässt sich blättern und zwischen Tag, Woche und Monat umschalten. Neu ist eine Tagesansicht im Widget: Dienste, Termine und Notizen als Liste mit Uhrzeit und wem es gehört. Der Sync verbindet sich nach längeren Ausfällen von selbst wieder, und entfernte Geräte erfahren es klar und verbinden sich ohne Datenverlust neu. Die Windows-Fassung 1.9.4 folgt.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
+      }
+    },
     {
       "id": "mobilereport-enterprise-1-5-0",
       "typ": "update",

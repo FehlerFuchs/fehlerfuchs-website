@@ -15,8 +15,8 @@ description: >-
   Inhalte lesen kann – ohne Cloud-Speicher, ohne Konto.
 audience: [privat, vereine, unternehmen]
 accent: "#B4652A"   # Farbe der App
-# Android ist seit 08.08.2026 regulär im Google Play Store (Play-Stand 1.9.3 live
-# seit 25.09.2026 22:18, versionCode 24, belegt von [FF_13]), der Windows-Download als
+# Android ist seit 08.08.2026 regulär im Google Play Store (Play-Stand 1.9.4 live
+# seit 27.09.2026 16:52, versionCode 25, belegt von [FF_13]), der Windows-Download als
 # GitHub-Release 'orgafuchs-v1.9.3' (signiert, 25.09.2026 21:28; löst 1.9.2 ab).
 # Beide Plattformen 'verfuegbar' → Gesamtstatus 'verfuegbar'.
 # 'vorabSichtbar' ist mit 'verfuegbar' überflüssig und daher entfernt.
