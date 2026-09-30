@@ -45,6 +45,9 @@ anbieter:
   emailKontakt: info@fehlerfuchs.eu
   telefon: +49 176 44 79 89 21
   duns: "317270302"
+  # Bewertungslink des Google-Unternehmensprofils (aus dem Profil, 30.09.2026). Steht auf /kontakt/ –
+  # Entscheidung Matthias 30.09.2026 18:0x (Profil-Verbesserungen, Möglichkeit D). Kein Tracking-Parameter.
+  googleBewertung: https://g.page/r/CXbBr2WtMwoCECE/review
   ustId: DE463451160
   kleinunternehmer: true
   domain: fehlerfuchs.eu

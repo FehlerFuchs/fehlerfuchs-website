@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-30T16:34:50+02:00",
+  "generiert": "2026-09-30T18:16:14+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "dienste": [
     {
@@ -161,6 +161,14 @@
       "anschrift": "Gordon House, Barrow Street, Dublin 4, Irland",
       "erklaerung": "https://policies.google.com/privacy",
       "was": "Der Verweis öffnet den Google-Play-Store. Was dort geschieht, verantwortet Google; für die Nutzung des Stores brauchst du ein Google-Konto."
+    },
+    {
+      "adresse": "g.page",
+      "zweck": "Bewertung bei Google (freiwillig)",
+      "anbieter": "Google Ireland Limited",
+      "anschrift": "Gordon House, Barrow Street, Dublin 4, Irland",
+      "erklaerung": "https://policies.google.com/privacy",
+      "was": "Der Verweis auf der Kontaktseite öffnet die Bewertungsseite des FehlerFuchs-Unternehmensprofils bei Google. Was dort geschieht, verantwortet Google; zum Bewerten brauchst du ein Google-Konto."
     },
     {
       "adresse": "www.paypal.com",

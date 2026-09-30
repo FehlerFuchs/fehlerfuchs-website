@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-30T16:34:50+02:00",
+  "generiert": "2026-09-30T18:16:14+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "name": "FehlerFuchs",
   "slogan": "Einfach kleine Helfer.",
@@ -43,6 +43,7 @@
     "emailKontakt": "info@fehlerfuchs.eu",
     "telefon": "+49 176 44 79 89 21",
     "duns": "317270302",
+    "googleBewertung": "https://g.page/r/CXbBr2WtMwoCECE/review",
     "ustId": "DE463451160",
     "kleinunternehmer": true,
     "domain": "fehlerfuchs.eu"

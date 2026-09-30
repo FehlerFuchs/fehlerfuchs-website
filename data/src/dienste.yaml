@@ -293,6 +293,18 @@ fremdziele:
       Der Verweis öffnet den Google-Play-Store. Was dort geschieht, verantwortet
       Google; für die Nutzung des Stores brauchst du ein Google-Konto.
 
+  # Bewertungslink auf /kontakt/ (Entscheidung Matthias 30.09.2026, Profil-Verbesserungen D).
+  # Muster wie play.google.com: gleicher Anbieter, reiner Verweis, nichts eingebunden.
+  - adresse: g.page
+    zweck: Bewertung bei Google (freiwillig)
+    anbieter: Google Ireland Limited
+    anschrift: Gordon House, Barrow Street, Dublin 4, Irland
+    erklaerung: https://policies.google.com/privacy
+    was: >-
+      Der Verweis auf der Kontaktseite öffnet die Bewertungsseite des
+      FehlerFuchs-Unternehmensprofils bei Google. Was dort geschieht, verantwortet
+      Google; zum Bewerten brauchst du ein Google-Konto.
+
   - adresse: www.paypal.com
     zweck: Freiwillige Unterstützung
     anbieter: PayPal (Europe) S.à r.l. et Cie, S.C.A.
