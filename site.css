@@ -89,7 +89,10 @@ a{color:var(--action)}
 .mainnav a:hover{background:var(--cream);color:var(--action)}
 .mainnav a[aria-current="page"]{color:var(--action);background:var(--hover-nav)}
 .tabbar,.tab-sheet{display:none}
-.tab-more-cb{position:absolute;opacity:0;pointer-events:none}
+/* Das Kästchen hinter „Mehr“: auf breiten Schirmen gar nicht da (kein unsichtbarer
+   Tab-Halt), am Handy per Tastatur erreichbar – der Fokus zeigt sich an „Mehr“.
+   Vorher aria-hidden UND fokussierbar (Lighthouse „aria-hidden-focus“, 30.09.2026). */
+.tab-more-cb{display:none}
 @media (max-width:719px){
   .mainnav{display:none}
   body{padding-bottom:78px}
@@ -98,6 +101,8 @@ a{color:var(--action)}
   .tabbar svg{width:23px;height:23px}
   .tabbar a[aria-current="page"]{color:var(--action)}
   .tab-sheet{position:fixed;left:0;right:0;bottom:70px;z-index:49;background:var(--flaeche);border-top:1px solid var(--rand);box-shadow:0 -6px 16px var(--schatten);padding:6px}
+  .tab-more-cb{display:block;position:fixed;right:0;bottom:0;width:1px;height:1px;margin:0;opacity:0;pointer-events:none}
+  .tab-more-cb:focus-visible ~ .tabbar label[for="tabmore"]{outline:3px solid var(--accent,#D97706);outline-offset:-3px;border-radius:10px}
   .tab-more-cb:checked ~ .tab-sheet{display:block}
   .tab-sheet a{display:flex;align-items:center;gap:12px;padding:12px 14px;font-size:.98rem;color:var(--brown);text-decoration:none;border-radius:10px}
   .tab-sheet a[aria-current="page"]{color:var(--action);background:var(--hover-nav)}
@@ -164,15 +169,17 @@ footer{margin-top:30px;color:var(--muted);font-size:.82rem;border-top:1px solid 
    Sprungleiste am linken Rand. Erzeugt von /sprungpunkte.js.
    --------------------------------------------------------------------------- */
 .sprungleiste{position:fixed;left:10px;top:50%;transform:translateY(-50%);
-              z-index:40;display:flex;flex-direction:column;gap:7px;
+              z-index:40;display:flex;flex-direction:column;gap:0;
               align-items:flex-start;padding:6px}
 
 /* Der Verweis ist die FLÄCHE, der Punkt darin ein eigenes Element. Beides in
    einem zu haben ginge auch – aber dann skaliert das Vergrößern beim
    Überfahren die Beschriftung gleich mit, weil sie ein Kind ist. Nebenbei
-   ergibt die Fläche ein Klickziel, das man auch trifft. */
+   ergibt die Fläche ein Klickziel, das man auch trifft.
+   24 × 24 px ohne Abstand (vorher 22 × 16 + 7 px): Mindestgröße für Klickziele
+   (Lighthouse „target-size“, SEO-Check 30.09.2026); der sichtbare Abstand bleibt fast gleich. */
 .sprungpunkt{position:relative;display:grid;place-items:center;
-             width:22px;height:16px;text-decoration:none;flex:none}
+             width:24px;height:24px;text-decoration:none;flex:none}
 .sprungpunkt::before{content:'';width:9px;height:9px;border-radius:50%;
                      background:var(--rand-stark);
                      transition:background .15s,transform .15s,box-shadow .15s}
