@@ -314,7 +314,11 @@ def main():
 
     # 5) Ausgabe
     (ziel / "befunde.json").write_text(json.dumps(befunde, ensure_ascii=False, indent=2), encoding="utf-8")
-    vorher = sorted([p for p in AUSGABE.iterdir() if p.is_dir() and p.name < heute.isoformat()], reverse=True)
+    # Nur echte Sichtungsläufe (mit Seitentexten) taugen als Vergleich – Sonderordner wie
+    # „2026-09-27_SEO-Bewertung“ haben kein texte\ und ließen sonst alle Seiten als NEU
+    # erscheinen (Sichtung 29.09., Befund 6, ENTSCHEIDUNG A #3787).
+    vorher = sorted([p for p in AUSGABE.iterdir()
+                     if p.is_dir() and p.name < heute.isoformat() and (p / "texte").is_dir()], reverse=True)
     geaendert = []
     if vorher:
         alt = vorher[0] / "texte"
