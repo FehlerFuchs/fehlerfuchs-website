@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-30T09:18:15+02:00",
+  "generiert": "2026-09-30T13:28:25+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "pdfuchsreader-1-3-0",
+      "typ": "update",
+      "produkt": "pdfuchsreader",
+      "datum": "2026-09-30",
+      "titel": "PDFuchs Reader 1.3.0: große E-Books und Suche im ganzen Buch",
+      "text": "PDFuchs Reader 1.3.0 öffnet auch sehr umfangreiche E-Books und Sammelbände schnell – Kapitel werden erst beim Lesen geladen. Neu ist die Suche im ganzen E-Book mit Sprung zur Fundstelle, und Lesezeichen und „Weiterlesen“ merken sich die genaue Stelle im Kapitel. Die Anzeige ist auf allen Android-Versionen randlos; Impressum und Datenschutzhinweise sind überarbeitet.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader"
+      }
+    },
     {
       "id": "orgafuchs-1-9-4",
       "typ": "update",

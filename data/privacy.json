@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-30T09:18:15+02:00",
+  "generiert": "2026-09-30T13:28:25+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1940,7 +1940,7 @@
       "name": "PDFuchs Reader",
       "stand": "2026-09-30",
       "geprueft_von": "26_PDFuchs (Slug-Eigentümer seit 18.08.2026; führt Android- und Windows-Teil). Windows-Teil am 19.08.2026 gegen den aktuellen Quellstand gegengeprüft und korrigiert: (a) das Netzverhalten ist nicht mehr netzwerkfrei, sondern hat einen NUTZERINITIIERTEN Support-/Kontaktweg (seit 25.07.2026); (b) es gibt inzwischen eine lokale Einstellungsdatei (settings.json) inkl. „Zuletzt geöffnet“; (c) Installer ist Inno Setup (installer_flutter.iss), nicht mehr NSIS. Frühere Angaben entsprechend berichtigt.",
-      "fassung": "Zweite Fassung vom 19.07.2026 – gegenüber der ersten Einreichung desselben Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt. Zwei Fassungen tragen heute diesen Slug. (A) Android-Fassung 1.1.0 (versionCode 3, Paket eu.fehlerfuchs.pdfuchsreader): seit 19.08.2026 vollständig in Google Play ausgerollt. Geprüft am aktuellen Code und Manifest; kein neuer Release-Build im gesperrten Reparaturlauf. (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, Inno-Setup-Skript (installer_flutter.iss). Kein Laufzeit-Mitschnitt des Netzwerkverkehrs – siehe offene Frage 4. Windows-Teil am 19.08.2026 gegen den aktuellen Stand gegengeprüft und berichtigt (Netzverhalten, Einstellungsdatei, Installer).",
+      "fassung": "Zweite Fassung vom 19.07.2026 – gegenüber der ersten Einreichung desselben Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt. Zwei Fassungen tragen heute diesen Slug. (A) Android-Fassung 1.3.0 (versionCode 6, Paket eu.fehlerfuchs.pdfuchsreader): seit 30.09.2026 12:47 in Google Play veröffentlicht, voller Rollout (Meldung [FF_13] nach P5). Vorher im Emulator und auf einem Fire-Tablet geprüft. Geprüft am aktuellen Code und Manifest. 1.3.0 ändert am Datenfluss nichts; neu ist nur die feinere Lesestelle (Kapitel, Teil, Absatz) in „Zuletzt geöffnet“ und in den Lesezeichen. Der Datenschutztext in der App ist neu nach den sechs Fragen (A-11.6) gegliedert und von Matthias bestätigt (P10, 30.09.2026). (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, Inno-Setup-Skript (installer_flutter.iss). Kein Laufzeit-Mitschnitt des Netzwerkverkehrs – siehe offene Frage 4. Windows-Teil am 19.08.2026 gegen den aktuellen Stand gegengeprüft und berichtigt (Netzverhalten, Einstellungsdatei, Installer).",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -2047,11 +2047,11 @@
           "beleg": "05_App/pdfuchsreader_mobile/lib/features/support/support_screen.dart (Zeile 95)"
         },
         {
-          "wohin": "fehlerfuchs.eu (Seiten unterstuetzen.html, impressum.html, kontakt.html, datenschutz.html)",
+          "wohin": "fehlerfuchs.eu (Seiten /unterstuetzen/, /impressum/, /kontakt/, /datenschutz/)",
           "was": "Normaler Seitenaufruf im externen Browser; die App selbst sendet dabei keine Inhalte",
           "wann": "Nur wenn der Nutzer den jeweiligen Verweis antippt",
           "freiwillig": true,
-          "beleg": "lib/features/home/support_dialog.dart (Zeile 7), lib/features/legal/impressum_screen.dart (Zeile 59, 65), lib/features/legal/datenschutz_screen.dart (Zeile 76)"
+          "beleg": "lib/features/home/support_dialog.dart (Zeile 7), lib/features/legal/impressum_screen.dart (Zeile 65, 71), lib/features/legal/datenschutz_screen.dart (Zeile 136)"
         },
         {
           "wohin": "Vom Nutzer gewählte fremde App bzw. Android-Druckdienst",
@@ -2111,7 +2111,7 @@
       "daten_an_dritte_verkauft": false,
       "loeschung": "Android: Alle Daten liegen auf dem Gerät. Einträge der Liste „Zuletzt geöffnet“ lassen sich einzeln entfernen oder komplett leeren. Beim Deinstallieren verschwinden App-Einstellungen, Zuletzt-Liste, Handbuch-Kopie, Lesezeichen, Wiederlesepositionen, im App-Ordner erzeugte bearbeitete Kopien und der Zwischenspeicher. Windows: Das Deinstallieren entfernt das Programmverzeichnis, die Desktop- und Startmenü-Verknüpfungen sowie die bei der Installation gesetzten Einträge. Zwei Dateien bleiben dabei im Anwendungsdatenordner des Benutzers zurück und können jederzeit von Hand gelöscht werden: license_state.json (%LOCALAPPDATA%\\PDFuchs; nur ein lokaler Zählerstand, keine personenbezogenen Angaben) und settings.json (%APPDATA%\\PDFuchs; die Nutzereinstellungen inkl. optional selbst eingetragener Stammdaten). Beide werden bei der Deinstallation bewusst nicht mit entfernt. In beiden Fassungen bleiben die eigenen Dokumente des Nutzers unangetastet – Originale werden nie überschrieben.",
       "besonderheiten": "Beide Fassungen sind offline voll benutzbar; ohne Zutun des Nutzers entsteht keine Verbindung nach draußen und keine automatische Update-Prüfung. Es gibt kein Konto, keine Anmeldung, keine Werbung, keine Nutzungsmessung und keine In-App-Käufe. In BEIDEN Fassungen entsteht eine Verbindung nur, wenn der Nutzer sie selbst auslöst – vor allem beim Absenden des Support-/Kontaktformulars (an license.fehlerfuchs.eu) sowie beim Öffnen externer Links. Beim Windows-Installer kann der Nutzer optional eine GPU-Komponente wählen, die dann CUDA-Pakete aus dem offiziellen PyTorch-Index nachlädt (Standard: aus). Bearbeitete PDF-Dateien werden immer als neue Kopie gespeichert, die Ursprungsdatei bleibt unverändert. Die Android-Fassung wird über Google Play vertrieben; Google erhält dabei die üblichen Installations- und Kontodaten des Store-Vorgangs, worauf die App selbst keinen Einfluss hat.",
-      "vorhandener_text": "Android: 05_App/pdfuchsreader_mobile/lib/features/legal/datenschutz_screen.dart (Datenschutztext in der App, verweist auf https://fehlerfuchs.eu/datenschutz.html). Windows: 09_Releases/Datenschutz_Lokalhinweis_01072026.md",
+      "vorhandener_text": "Android: 05_App/pdfuchsreader_mobile/lib/features/legal/datenschutz_screen.dart (Datenschutztext in der App nach den sechs Fragen, verweist auf https://fehlerfuchs.eu/datenschutz/). Windows: 09_Releases/Datenschutz_Lokalhinweis_01072026.md",
       "offene_fragen": "1. (erledigt) Windows- und Android-Reader teilen bewusst den Slug „pdfuchsreader“; Eigentümer und gemeinsame Pflege liegen bei [26] PDFuchs. 2. (geklärt, Beleg [11] Lizenzserver via [26-1], 23.08.2026) Der Kontakt-Endpunkt /v1/contact auf license.fehlerfuchs.eu speichert den Nachrichteninhalt NICHT in der Datenbank; die IP dient nur als kurzlebiger Redis-Schlüssel der Missbrauchsbremse (Stunde/Tag), es wird kein User-Agent übernommen, und bei Erfolg protokolliert der Dienst weder Anfrageinhalt noch IP. Offen bleibt allein die Aufbewahrung im E-Mail-Postfach, an das der Supportinhalt weitergeleitet wird – sie richtet sich nach dem Postfach. 3. (erledigt) Das ungenutzte Paket permission_handler wurde mit Version 1.0.1 (07.08.2026) entfernt; es hatte ohnehin keine Datenschutzwirkung. 4. (aus der Windows-Zulieferung) Das Netzverhalten der mitgelieferten Tesseract-Binary selbst wurde nicht per Mitschnitt geprüft; geprüft wurde nur, was PDFuchs aufruft und übergibt. 5. (aus der Windows-Zulieferung) Ob Aktionen, die im Reader ausgelöst werden, den lokalen Zähler in license_state.json mitschreiben, wurde nicht abschließend geprüft: Reader und Suite nutzen denselben Programmkern, ein reader-eigener Schreibzugriff wurde jedoch nicht gefunden.",
       "art": "anwendung"
     },

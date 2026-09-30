@@ -13,9 +13,13 @@ fassung: >-
   Zweite Fassung vom 19.07.2026 – gegenüber der ersten Einreichung desselben
   Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt.
   Zwei Fassungen tragen heute diesen Slug.
-  (A) Android-Fassung 1.1.0 (versionCode 3, Paket eu.fehlerfuchs.pdfuchsreader):
-  seit 19.08.2026 vollständig in Google Play ausgerollt. Geprüft am aktuellen
-  Code und Manifest; kein neuer Release-Build im gesperrten Reparaturlauf.
+  (A) Android-Fassung 1.3.0 (versionCode 6, Paket eu.fehlerfuchs.pdfuchsreader):
+  seit 30.09.2026 12:47 in Google Play veröffentlicht, voller Rollout (Meldung
+  [FF_13] nach P5). Vorher im Emulator und auf einem Fire-Tablet geprüft.
+  Geprüft am aktuellen Code und Manifest. 1.3.0 ändert am Datenfluss nichts; neu ist nur
+  die feinere Lesestelle (Kapitel, Teil, Absatz) in „Zuletzt geöffnet“ und in
+  den Lesezeichen. Der Datenschutztext in der App ist neu nach den sechs
+  Fragen (A-11.6) gegliedert und von Matthias bestätigt (P10, 30.09.2026).
   (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht
   veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und
   Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, Inno-Setup-Skript
@@ -131,18 +135,18 @@ uebertragungen:
     wann: Nur als Ausweichweg, wenn der Versand oben fehlschlägt; der Nutzer muss die Mail selbst abschicken
     freiwillig: true
     beleg: 05_App/pdfuchsreader_mobile/lib/features/support/support_screen.dart (Zeile 95)
-  - wohin: fehlerfuchs.eu (Seiten unterstuetzen.html, impressum.html, kontakt.html, datenschutz.html)
+  - wohin: fehlerfuchs.eu (Seiten /unterstuetzen/, /impressum/, /kontakt/, /datenschutz/)
     was: Normaler Seitenaufruf im externen Browser; die App selbst sendet dabei keine Inhalte
     wann: Nur wenn der Nutzer den jeweiligen Verweis antippt
     freiwillig: true
-    beleg: lib/features/home/support_dialog.dart (Zeile 7), lib/features/legal/impressum_screen.dart (Zeile 59, 65), lib/features/legal/datenschutz_screen.dart (Zeile 76)
+    beleg: lib/features/home/support_dialog.dart (Zeile 7), lib/features/legal/impressum_screen.dart (Zeile 65, 71), lib/features/legal/datenschutz_screen.dart (Zeile 136)
   - wohin: Vom Nutzer gewählte fremde App bzw. Android-Druckdienst
     was: Die geöffnete PDF-Datei
     wann: Nur wenn der Nutzer „Teilen“ oder „Drucken“ auslöst; wohin sie geht, bestimmt der Nutzer
     freiwillig: true
     beleg: 05_App/pdfuchsreader_mobile/lib/features/viewer/viewer_screen.dart (Zeile 53, 62)
   # --- Windows-Fassung (berichtigt 19.08.2026 gegen den aktuellen Quellstand;
-  #     die frühere Angabe „keine Übertragung" war seit 25.07.2026 überholt) ---
+  #     die frühere Angabe „keine Übertragung“ war seit 25.07.2026 überholt) ---
   - wohin: license.fehlerfuchs.eu (FehlerFuchs-Kontakt-Bridge, EU/IONOS), per HTTPS
     was: >-
       Nachrichtentext, freiwillig Name und E-Mail, App-Name, App-Version und
@@ -210,8 +214,7 @@ besonderheiten: >-
   In-App-Käufe. In BEIDEN Fassungen entsteht eine Verbindung nur, wenn der
   Nutzer sie selbst auslöst – vor allem beim Absenden des
   Support-/Kontaktformulars (an license.fehlerfuchs.eu) sowie beim Öffnen externer Links.
-  Beim
-  Windows-Installer kann der Nutzer optional eine GPU-Komponente wählen, die dann
+  Beim Windows-Installer kann der Nutzer optional eine GPU-Komponente wählen, die dann
   CUDA-Pakete aus dem offiziellen PyTorch-Index nachlädt (Standard: aus).
   Bearbeitete PDF-Dateien werden immer als neue Kopie gespeichert, die
   Ursprungsdatei bleibt unverändert. Die Android-Fassung wird über Google Play
@@ -220,7 +223,8 @@ besonderheiten: >-
 
 vorhandener_text: >-
   Android: 05_App/pdfuchsreader_mobile/lib/features/legal/datenschutz_screen.dart
-  (Datenschutztext in der App, verweist auf https://fehlerfuchs.eu/datenschutz.html).
+  (Datenschutztext in der App nach den sechs Fragen, verweist auf
+  https://fehlerfuchs.eu/datenschutz/).
   Windows: 09_Releases/Datenschutz_Lokalhinweis_01072026.md
 
 offene_fragen: >-

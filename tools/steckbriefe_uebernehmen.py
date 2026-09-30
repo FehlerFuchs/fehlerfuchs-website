@@ -127,6 +127,9 @@ ERSATZ_ENTSCHAERFEN = re.compile(
     r"https?://\S+"
     r"|\S+\.(?:html?|dart|kts?|ya?ml|json|md|txt|pdf|apk|aab|exe|iss|ps1|py)\b"
     r"|\S*_\S*"
+    # Seitenpfade der Website in der Form /unterstuetzen/ (seit den Adressen ohne .html;
+    # Fehlalarm beim Steckbrief pdfuchsreader 1.3.0 am 30.09.2026)
+    r"|/[\w./-]*/"
     # Technische Werte, die wörtlich in ASCII bleiben MÜSSEN – nur genau diese Zeichenketten,
     # nicht das Wort allgemein (26.09.2026, Rechtstext-Paket GewerbePro/Companion):
     #   GewerbePro-Geraet  fester Gerätename, den GewerbePro an den Lizenzserver sendet
