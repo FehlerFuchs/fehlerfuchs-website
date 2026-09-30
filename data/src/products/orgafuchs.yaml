@@ -2,7 +2,7 @@ slug: orgafuchs
 name: OrgaFuchs
 fullName: FehlerFuchs OrgaFuchs
 # SEO (2026-08-09): Windows (signiert, 1.9.3) + Android seit 08.08. verfügbar.
-seoTitel: "OrgaFuchs – Familien- & Schichtplaner, offline für Windows & Android"
+seoTitel: "OrgaFuchs – Familien- & Schichtplaner (Windows, Android)"
 seoBeschreibung: "Familien- und Schichtplaner für Dienste, Termine und Notizen: Monatskalender, PDF-Export, Ende-zu-Ende-verschlüsselter Sync der eigenen Geräte – für Windows & Android, ohne Konto."
 tags: ["Schichtplaner", "Familienplaner", "Dienstplan", "Kalender", "Windows", "Android", "offline", "ohne Cloud"]
 kind: produkt
@@ -270,7 +270,7 @@ features:
         note: Ende-zu-Ende-verschlüsselt über das Relais von FehlerFuchs; der Server kann die Inhalte nicht lesen.
       - name: Nachrichten an alle – mit Postfach, Ende-zu-Ende verschlüsselt
         values: { standard: ja }
-        note: Kurze Klartext-Nachrichten an die Gruppe; sie landen bei allen im Postfach und als Benachrichtigung, verteilt über das Relais von FehlerFuchs statt über fremde Server. Ungelesenes bleibt markiert.
+        note: Kurze Text-Nachrichten an die Gruppe; sie landen bei allen im Postfach und als Benachrichtigung, verteilt über das Relais von FehlerFuchs statt über fremde Server. Ungelesenes bleibt markiert.
       - name: Geräteliste zeigt „zuletzt aktiv“
         values: { standard: ja }
         note: Auf dem Hauptgerät erkennst du so alte, ungenutzte Geräte leichter.

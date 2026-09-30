@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-29T04:22:11+02:00",
+  "generiert": "2026-09-30T09:05:32+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -453,7 +453,7 @@
       "datum": "2026-07-09",
       "titel": "MobileReport ist jetzt im Play Store",
       "text": "Das kleine Melde-Logbuch für Geräte und Anlagen steht ab sofort im Google Play Store: Beschreibung, Fotos, Ort und Zeit erfassen, daraus ein sauberes PDF und eine vorbereitete E-Mail. Alles bleibt auf dem Gerät.",
-      "datumQuelle": "eigene Angabe",
+      "datumQuelle": "platforms[android].since",
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport"
       }

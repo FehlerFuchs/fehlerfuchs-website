@@ -19,6 +19,9 @@ status: verfuegbar
 platforms:
   - os: android
     status: verfuegbar
+    # Veröffentlicht im Play Store am 09.07.2026 (Meldung mobilereport-free-play);
+    # nachgetragen nach Sichtung 29.09., Befund 4 (ENTSCHEIDUNG A, #3787).
+    since: "2026-07-09"
     distribution: play-store
     storeId: eu.fehlerfuchs.mobilereport
     # Präzisierung nach MobileReport-Prüfbericht F-001 (30.07.2026): Seit dem

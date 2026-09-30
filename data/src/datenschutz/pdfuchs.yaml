@@ -1,12 +1,12 @@
 slug: pdfuchs
 name: PDFuchs
-stand: "2026-09-25"
+stand: "2026-09-29"
 geprueft_von: 26_PDFuchs
-fassung: "v0.1.0_dev (Vorabfassung, noch nicht veröffentlicht)"
+fassung: "v0.1.1_dev (Vorabfassung, noch nicht veröffentlicht)"
 
 # Hinweis für die Pflege: Die angezeigten Felder (auf_dem_geraet,
 # berechtigungen, loeschung, besonderheiten) beschreiben, WAS mit Daten
-# geschieht. Technische Nachweise gehören ausschließlich in „beleg“.
+# geschieht. Technische Nachweise gehören ausschließlich in "beleg".
 # lokal_only: false (Haus-Konvention, analog DateiWächter/HaushaltsManager) -
 # die einzige Außenverbindung ist der nutzerinitiierte Support-/Kontaktversand
 # an license.fehlerfuchs.eu; ohne ausdrückliches Absenden passiert nichts.
@@ -45,13 +45,15 @@ berechtigungen:
 #  den Python-Programmkern und übersah die später ergänzte Support-Anbindung
 #  in der Flutter-Oberfläche.)
 uebertragungen:
-  - was: Nutzerinitiierte Support-/Kontaktnachricht (freiwillige Angaben – Name,
-      E-Mail, Nachricht, App-Version, Betriebssystem-Angabe; optional vom Nutzer
-      ausgewählte Dateianhänge)
+  - was: Nutzerinitiierte Support-/Kontaktnachricht – Nachricht, freiwillig Name
+      und E-Mail, dazu App-Version, Ausgabe und Windows-Version. Keine
+      Dateianhänge, kein Gerätename
     wohin: license.fehlerfuchs.eu (FehlerFuchs-Kontakt-Bridge, EU/IONOS), per HTTPS
-    wann: ausschließlich beim ausdrücklichen Absenden des Support-Formulars;
-      sonst besteht keine Verbindung (Fallback bei Fehler – lokales E-Mail-Programm)
-    beleg: 11_App_Flutter/pdfuchs_desktop/lib/support/kontakt_service.dart:20-58
+    wann: ausschließlich beim ausdrücklichen Absenden des Support-Formulars,
+      sonst besteht keine Verbindung. Bei einer Netzstörung öffnet PDFuchs das
+      lokale E-Mail-Programm mit der vorbereiteten Nachricht; gesendet wird erst
+      dort durch den Nutzer
+    beleg: 11_App_Flutter/pdfuchs_desktop/lib/support/kontakt_service.dart:20-58 und lib/support/support_screen.dart:60-110
 
 # Laufen alle lokal auf dem Gerät. Sie sehen den Dokumentinhalt, weil sie ihn
 # verarbeiten; sie geben nichts weiter.
@@ -94,8 +96,9 @@ besonderheiten: >-
   PDFuchs verarbeitet Dokumente vollständig auf dem eigenen Rechner. Die
   Anwendung stellt von sich aus keine Verbindung ins Internet her. Eine
   Übertragung erfolgt nur, wenn der Nutzer das Support-/Kontaktformular
-  ausdrücklich absendet; dann gehen die dort eingegebenen freiwilligen Angaben
-  (und optionale Dateianhänge) per HTTPS an die FehlerFuchs-Kontakt-Bridge
+  ausdrücklich absendet; dann gehen die Nachricht, die dort eingegebenen
+  freiwilligen Angaben sowie App-Version und Windows-Version per HTTPS an die
+  FehlerFuchs-Kontakt-Bridge
   (license.fehlerfuchs.eu, EU/IONOS). Ein Konto oder eine Anmeldung gibt es
   nicht. Die Angaben zur Testphase und zur Zahl erstellter Formulare bleiben
   ausschließlich auf dem Gerät. Wird ein Scanner benutzt, werden Angaben zum

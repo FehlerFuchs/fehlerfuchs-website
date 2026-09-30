@@ -68,13 +68,12 @@ auf_dem_geraet:
     wo: im Temp-Ordner von Windows; sie werden nach Gebrauch automatisch wieder entfernt
     beleg: (Windows) 05_Engine/pdfuchs_core/pdfuchs_core/render.py:29 (TemporaryDirectory)
   - was: >-
-      (Windows, berichtigt 19.08.2026) Nutzereinstellungen und Liste „Zuletzt
+      (Windows) Nutzereinstellungen und Liste „Zuletzt
       geöffnet“: persönlicher Anzeigename (Alias), gewählter Ablageordner,
       zuletzt geöffnete Dokumente und – nur wenn der Nutzer sie im
       PDFuchs-Windows-Paket selbst einträgt – optionale lokale Stammdaten
       (z. B. Name, Adresse, IBAN für das Ausfüllen von Formularen). Rein lokal,
-      keine Übertragung. (Die frühere Angabe „keine Einstellungsdatei“ war
-      überholt.)
+      keine Übertragung.
     wo: Datei settings.json im Anwendungsdatenordner des Benutzers (%APPDATA%\PDFuchs)
     beleg: (Windows) 11_App_Flutter/pdfuchs_desktop/lib/settings/app_settings.dart
 
@@ -211,8 +210,7 @@ besonderheiten: >-
   In-App-Käufe. In BEIDEN Fassungen entsteht eine Verbindung nur, wenn der
   Nutzer sie selbst auslöst – vor allem beim Absenden des
   Support-/Kontaktformulars (an license.fehlerfuchs.eu) sowie beim Öffnen externer Links.
-  (Berichtigung 19.08.2026: die frühere Aussage, die Windows-Fassung stelle
-  „überhaupt keine Verbindung“ her, war seit 25.07.2026 überholt.) Beim
+  Beim
   Windows-Installer kann der Nutzer optional eine GPU-Komponente wählen, die dann
   CUDA-Pakete aus dem offiziellen PyTorch-Index nachlädt (Standard: aus).
   Bearbeitete PDF-Dateien werden immer als neue Kopie gespeichert, die

@@ -158,7 +158,9 @@ features:
 
   - group: Ordnung
     items:
-      - name: Zielordner selbst festlegen
+      # Umbenannt nach Sichtung 29.09., Befund 1 (ENTSCHEIDUNG A, #3787): Pro-Grenze am Code
+      # geprüft – Ordner als Ziel beim Speichern ist Pro (features/document/ordner_auswahl.dart).
+      - name: Speicherort je Export frei wählen
         values: { free: nein, pro: ja }
       - name: Muster für Dateinamen (Datum, Zähler, eigener Text)
         values: { free: nein, pro: ja }
@@ -264,7 +266,7 @@ media:
       width: 620
       height: 1342
       geraet: handy
-      titel: Dunkel von Anfang an – ein heller Bildschirm blendet beim Scannen
+      titel: 100 % lokal – kein Konto, keine Cloud, keine Werbung
     - src: /img/screenshots/snapfuchs/handy-02.png
       alt: >-
         Werbebild „Scannen mit einem Tipp“. Darunter die Startseite mit der

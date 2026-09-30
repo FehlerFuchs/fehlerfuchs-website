@@ -45,8 +45,8 @@ platforms:
     hinweis:
       wenn: entwicklung
       text: >-
-        Release Candidate, noch kein öffentlicher Download; digitale Signierung
-        und freigegebener Alltagstest stehen vor der Finalversion aus.
+        Ein Vorab-Stand ist fertig; noch kein öffentlicher Download. Vor der
+        Endfassung fehlen noch die digitale Signatur und der Alltagstest.
 
 privacy: [inhalte-lokal, kein-tracking, werbefrei]
 
