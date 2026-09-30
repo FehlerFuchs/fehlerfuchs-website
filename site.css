@@ -44,6 +44,10 @@
      statt 3,19 : 1 (WCAG AA 4,5). Entscheidung Matthias 30.09.2026, SEO-Check 4a „A“ (#3866).
      Hover dunkler: --brown. Im Dunkeln unverändert (siehe unten). */
   --knopf:#b45309; --knopf-hover:#7C3F16;
+  /* Schlagzeile der Startseite: #D67506 statt #D97706 – derselbe Orangeton, einen Hauch dunkler,
+     3,07 : 1 statt 2,99 : 1 auf --bg (große Schrift braucht 3 : 1). Entscheidung Matthias
+     30.09.2026 13:44 „A“. Im Dunkeln unverändert --orange. */
+  --schlagzeile:#D67506;
   /* Semantik-Pillen (Merkmale, Status-Badges). EINE Quelle fuer die drei
      Bedeutungen gut/warnung/schlecht - je Flaeche, Rand, Text. Im Hellen die
      bekannten Pastelltoene; im Dunkeln bewusst DEZENT und WARM (dunkler Grund,
@@ -63,7 +67,7 @@
   --green:#6fae86; --blue:#7ab0ff; --petrol:#3aa6c0; --accent:#f2743a;
   --flaeche:#211812; --rand:#3a2c22; --rand-stark:#4a382b; --leise:#9c8672;
   --hover-nav:#2a1f17; --schatten:rgba(0,0,0,.30); --orange-tief:#f59a3a;
-  --knopf:#e8891f; --knopf-hover:#f59a3a;
+  --knopf:#e8891f; --knopf-hover:#f59a3a; --schlagzeile:#e8891f;
   /* Dezent-warm statt weissem Leuchten: dunkler Grund, getoenter Text. */
   --gut-flaeche:#231c12; --gut-rand:#3f4a2e; --gut-text:#b9cf90;
   --warn-flaeche:#241a10; --warn-rand:#4a3820; --warn-text:#e6a95c;
