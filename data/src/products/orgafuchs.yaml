@@ -23,11 +23,14 @@ accent: "#B4652A"   # Farbe der App
 status: verfuegbar
 
 platforms:
-    # Kein 'since' hier: Das Windows-Datum liefert der releases-Eintrag (date
-    # 2026-08-08). Zusätzlich würde 'since' die Datumsableitung der Store-Meldung
-    # brechen – die verlangt genau EINE Plattform mit 'since' (das ist android).
+    # Windows öffentlich seit 08.08.2026 mit 1.4.3 (ANTWORT [FF_32] 30.09.2026 14:57:
+    # „1.0.0 war store-bereit, wurde aber nicht öffentlich freigegeben“), nachgetragen
+    # nach Sichtung 29.09., Befund 4 (ENTSCHEIDUNG A, #3787). Weil jetzt zwei Plattformen
+    # 'since' tragen, hat die Store-Meldung 'orgafuchs-play-veroeffentlichung' ihr Datum
+    # ausdrücklich (sonst bräche die Ableitung, die genau EIN 'since' verlangt).
   - os: windows
     status: verfuegbar
+    since: "2026-08-08"
     requirements: Windows 10/11 (64-bit)
     distribution: github-release
   - os: android

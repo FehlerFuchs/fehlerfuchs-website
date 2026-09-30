@@ -240,6 +240,7 @@ meldungen:
   - id: orgafuchs-play-veroeffentlichung
     typ: store
     produkt: orgafuchs
+    datum: "2026-08-08"   # = platforms[android].since; ausdrücklich, seit Windows auch 'since' trägt (30.09.2026)
     titel: OrgaFuchs ist im Play Store
     text: >-
       Der lokale Familien- und Schichtplaner ist da – kostenlos, werbefrei und ohne

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-30T13:28:25+02:00",
+  "generiert": "2026-09-30T16:17:00+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -290,10 +290,10 @@
       "id": "orgafuchs-play-veroeffentlichung",
       "typ": "store",
       "produkt": "orgafuchs",
+      "datum": "2026-08-08",
       "titel": "OrgaFuchs ist im Play Store",
       "text": "Der lokale Familien- und Schichtplaner ist da – kostenlos, werbefrei und ohne Konto. Nach den finalen Tests und der Sicherheitshärtung ist einiges dazugekommen: ein Ende-zu-Ende-verschlüsselter Live-Sync über ein gehärtetes Relais (OFSP/1, Kopplung per QR-Code) mit sicherem Gerätewechsel und Notfall-Wiederherstellung; optimierte Kalenderansichten mit Startbildschirm-Widgets für Tag, Woche und Monat; klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz und „Was ist neu“ direkt in der App. Alle Daten bleiben auf dem Gerät.",
-      "datum": "2026-08-08",
-      "datumQuelle": "platforms[android].since",
+      "datumQuelle": "eigene Angabe",
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
       }
