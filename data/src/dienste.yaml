@@ -173,8 +173,8 @@ dienste:
       (Firebase Cloud Messaging); die Geräte-Registry liegt auf dem eigenen
       Relaisserver.
     betreiber: eigen
-    standort: Deutschland (Registry); Zustellung über Google
-    stand: "2026-08-15"
+    standort: Deutschland (Registry bei IONOS, Rechenzentrum Berlin); Zustellung über Google
+    stand: "2026-09-30"
     uebermittelt:
       - an Google die Push-Zustelladresse des Geräts (FCM-Token) und ein leeres Wecksignal (ein einziges Feld „wakeup“)
       - in der Registry auf dem Relaisserver eine pseudonyme Geräte-Kennung, der Gruppen-Hash (sha256 des Sync-Kennworts, nicht rückrechenbar), das FCM-Token, die Plattform, die Kennung des auslösenden Geräts (nur zum Selbst-Ausschluss) und ein Zeitstempel
@@ -184,11 +184,16 @@ dienste:
       automatisch beim nächsten Weckversuch. Keine feste Frist, keine Namen, keine
       Konten.
     # Rechtliche Einordnung (03.09.2026, belegt): siehe Kommentar oben.
+    # Seit 30.09.2026 wortgleich aus dem Steckbrief relaisserver.yaml (fremde_dienste → Google, hinweis;
+    # [FF_11-2], Entscheidung Matthias R1) – ohne die internen Beleg- und Entscheidungsvermerke.
     drittland: >-
-      Google verarbeitet FCM-Token und Zustellmetadaten als Auftragsverarbeiter
-      nach Art. 28 DSGVO (Firebase Data Processing Terms). Die Übermittlung in die
-      USA stützt sich auf das EU-US Data Privacy Framework (Google LLC zertifiziert)
-      und die Standardvertragsklauseln.
+      Google verarbeitet FCM-Token und Zustellmetadaten als Auftragsverarbeiter nach Art. 28
+      DSGVO. Grundlage sind die Firebase Data Processing and Security Terms; sie gelten als
+      Teil des Firebase-Vertrags ohne gesonderte Unterschrift. Die Übermittlung in die USA
+      stützt sich auf das EU-US Data Privacy Framework (Google LLC zertifiziert), die
+      Standardvertragsklauseln dienen als Rückfall. Firebase verarbeitet dabei
+      Firebase-Installations-IDs; Google speichert sie bis zur Löschung und entfernt sie
+      danach binnen 180 Tagen auch aus Sicherungen.
     produkte: [orgafuchs]
     hinweis: >-
       Nur auf Android und nur bei eingeschalteten Benachrichtigungen. Der Weckruf

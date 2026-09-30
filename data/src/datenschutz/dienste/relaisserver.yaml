@@ -1,6 +1,6 @@
 slug: relaisserver
 name: FehlerFuchs Relaisserver (Dienst – Relais und Push)
-stand: "2026-09-26"
+stand: "2026-09-30"
 geprueft_von: Relaisserver
 fassung: "Stand 25.09.2026 – relay-orgafuchs-ofsp1 (dazu relay-orgafuchs als Rückfall), relay-fcm, relay-dateiwaechter, ntfy v2.9.0, relay-admin, relay-sicht-signer, Caddy 2"
 
@@ -17,7 +17,7 @@ serverseitig:
     wo: kleine Datei im Volume des Relays (einzige beschreibbare Stelle), dazu Sicherungskopien auf dem Server – stündlich (die letzten 14) und monatlich
     beleg: 32_OrgaFuchs/06_Relay/fence.dart (FenceEntry; „Kein TTL/GC – einmal initialisierter Zustand wird nie gelöscht“); 05_Server/scripts/fence_backup.sh
   - was: FCM-Weck-Registry (pseudonym) – je registriertem Gerät eine Zeile
-    wo: kleine SQLite-Datei im Volume des Sidecars relay-fcm; Felder – vom Client vergebene Gerätekennung, FCM-Gerätetoken (Google-Zustelladresse), Gruppen-Hash (sha256 des Gruppen-Sync-Tokens), Plattform, actorKey (nur Selbst-Ausschluss), Zeitstempel. Keine Namen, keine Konten, keine Anmeldung mit Identität
+    wo: kleine SQLite-Datei im Volume des Sidecars relay-fcm auf dem eigenen Server bei IONOS, Rechenzentrum Deutschland (Berlin; laut IONOS-Angaben bei der Einrichtung am 13.07.2026); Felder – vom Client vergebene Gerätekennung, FCM-Gerätetoken (Google-Zustelladresse), Gruppen-Hash (sha256 des Gruppen-Sync-Tokens), Plattform, actorKey (nur Selbst-Ausschluss), Zeitstempel. Keine Namen, keine Konten, keine Anmeldung mit Identität
     beleg: 05_Server/apps/relay-fcm/app.py (Tabelle tokens)
   - was: Push-Meldungen auf zwei pseudonymen Themen je Gruppe (Themenname aus einem Hash des Gruppen-Tokens) – Änderungsmeldung (sinngemäß „es gibt Änderungen“, keine Nutzdaten) und Präsenzmeldung (Geräte-ID, Rolle in der Gruppe, Zeitstempel)
     wo: Zwischenspeicher des Push-Dienstes, höchstens 12 Stunden
@@ -56,7 +56,7 @@ fremde_dienste:
   - name: Google (Firebase Cloud Messaging)
     wofuer: Zustellung des inhaltslosen Weck-Signals an Android-Geräte (content-blind); es wird das FCM-Gerätetoken als Zustelladresse und ein leeres Wecksignal übergeben
     wann: bei Gruppenänderung
-    hinweis: Google verarbeitet FCM-Token und Zustellmetadaten als Auftragsverarbeiter nach Art. 28 DSGVO (Firebase Data Processing Terms). Die Übermittlung in die USA stützt sich auf das EU-US Data Privacy Framework (Google LLC zertifiziert) und die Standardvertragsklauseln. Entschieden von Matthias am 03.09.2026; eine anwaltliche Bestätigung ist optional.
+    hinweis: Google verarbeitet FCM-Token und Zustellmetadaten als Auftragsverarbeiter nach Art. 28 DSGVO. Grundlage sind die Firebase Data Processing and Security Terms; sie gelten als Teil des Firebase-Vertrags ohne gesonderte Unterschrift. Die Übermittlung in die USA stützt sich auf das EU-US Data Privacy Framework (Google LLC zertifiziert), die Standardvertragsklauseln dienen als Rückfall. Firebase verarbeitet dabei Firebase-Installations-IDs; Google speichert sie bis zur Löschung und entfernt sie danach binnen 180 Tagen auch aus Sicherungen. Belegstufe – laut Googles Firebase-Datenschutzseite und Firebase-Bedingungen, nachgesehen am 30.09.2026. Entscheidung Matthias vom 03.09.2026, bestätigt am 30.09.2026 (R1 – auf Googles eigene Einordnung gestützt, keine Rechtsberatung); eine anwaltliche Bestätigung ist optional.
   - name: IONOS
     wofuer: Hosting des Servers und Versand der Betriebsmeldungen
     wann: dauerhaft

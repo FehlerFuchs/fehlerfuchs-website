@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-30T16:17:00+02:00",
+  "generiert": "2026-09-30T16:34:50+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "dienste": [
     {
@@ -78,14 +78,14 @@
       "adresse": "relais.fehlerfuchs.eu (Registry) · Google Firebase Cloud Messaging (Zustellung)",
       "zweck": "Weckt die Android-App zuverlässig aus dem Ruhezustand, damit Änderungen auch bei geschlossener App ankommen. Übertragen wird nur ein inhaltsloses Wecksignal – kein Termin, kein Text, keine Namen. Zugestellt wird über Google (Firebase Cloud Messaging); die Geräte-Registry liegt auf dem eigenen Relaisserver.",
       "betreiber": "eigen",
-      "standort": "Deutschland (Registry); Zustellung über Google",
-      "stand": "2026-08-15",
+      "standort": "Deutschland (Registry bei IONOS, Rechenzentrum Berlin); Zustellung über Google",
+      "stand": "2026-09-30",
       "uebermittelt": [
         "an Google die Push-Zustelladresse des Geräts (FCM-Token) und ein leeres Wecksignal (ein einziges Feld „wakeup“)",
         "in der Registry auf dem Relaisserver eine pseudonyme Geräte-Kennung, der Gruppen-Hash (sha256 des Sync-Kennworts, nicht rückrechenbar), das FCM-Token, die Plattform, die Kennung des auslösenden Geräts (nur zum Selbst-Ausschluss) und ein Zeitstempel"
       ],
       "aufbewahrung": "Pro Gerät eine Zeile in der Registry, solange das Gerät angemeldet ist; bei Abmeldung sofort gelöscht, bei einem von Google als ungültig gemeldeten Token automatisch beim nächsten Weckversuch. Keine feste Frist, keine Namen, keine Konten.",
-      "drittland": "Google verarbeitet FCM-Token und Zustellmetadaten als Auftragsverarbeiter nach Art. 28 DSGVO (Firebase Data Processing Terms). Die Übermittlung in die USA stützt sich auf das EU-US Data Privacy Framework (Google LLC zertifiziert) und die Standardvertragsklauseln.",
+      "drittland": "Google verarbeitet FCM-Token und Zustellmetadaten als Auftragsverarbeiter nach Art. 28 DSGVO. Grundlage sind die Firebase Data Processing and Security Terms; sie gelten als Teil des Firebase-Vertrags ohne gesonderte Unterschrift. Die Übermittlung in die USA stützt sich auf das EU-US Data Privacy Framework (Google LLC zertifiziert), die Standardvertragsklauseln dienen als Rückfall. Firebase verarbeitet dabei Firebase-Installations-IDs; Google speichert sie bis zur Löschung und entfernt sie danach binnen 180 Tagen auch aus Sicherungen.",
       "produkte": [
         "orgafuchs"
       ],
