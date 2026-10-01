@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 185" width="500" height="185" role="img" aria-label="Der FehlerFuchs kn&#252;llt ein Lizenzblatt mit rotem Ausrufezeichen zusammen und wirft es in den Papierkorb. Danach l&#228;uft eine dicke blaue Tr&#228;ne &#252;ber sein Gesicht. Mit der L&#246;schung erlischt die Lizenz."><style>
+  /* Grundzustand = ruhiges Bild: Fuchs, Lizenzblatt mit Warnzeichen, Papierkorb. Wer keine Bewegung will, sieht genau das. */
+  .kugel, .kugelflug, .traene { opacity: 0; }
+  .fuchsneig, .blatt, .kugel, .traene { transform-box: fill-box; }
+  .fuchsneig { transform-origin: 50% 100%; }
+  .blatt, .kugel, .traene { transform-origin: 50% 50%; }
+  /* Der Korb besteht aus zwei Schichten (Rueckseite mit dem oberen Rand, Vorderteil); die Kugel taucht dazwischen ein.
+     Beide wippen um denselben Drehpunkt (Korbboden, Mitte), sonst liefe der Rand auseinander oder stuende still. */
+  .korb { transform-box: view-box; transform-origin: 409px 162px; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fuchsneig { animation: neigen   12s ease-in-out infinite; }
+    .blatt     { animation: knuellen 12s ease-in-out infinite; }
+    .kugelflug { animation: flug     12s ease-in-out infinite; }
+    .kugel     { animation: kugel    12s ease-in-out infinite; }
+    .korb      { animation: wippen   12s ease-in-out infinite; }
+    .traene    { animation: traene   12s ease-in infinite; }
+  }
+
+  /* 0-1,8 s ruht alles (das Standbild). 1,8-3,0 s der Fuchs neigt den Kopf, das Blatt wird zusammengeknuellt.
+     3,0-6,1 s die Kugel fliegt im Bogen in den Korb, der Korb wippt. Danach (ab 6,1 s) waechst am linken Auge,
+     dem ohne Linse, eine dicke blaue Traene, rollt ueber das Fell, tropft vom Gesicht und faellt aus dem Bild.
+     Ab 10,4 s blendet das Blatt sanft wieder ein (nahtlose Schleife). Nichts blinkt, nichts flackert. */
+  @keyframes neigen {
+    0.00%, 13.50% { transform: rotate(0deg); }
+    19.50% { transform: rotate(-4deg); }
+    27.00% { transform: rotate(3deg); }
+    34.50%, 100.00% { transform: rotate(0deg); }
+  }
+  @keyframes knuellen {
+    0.00%, 15.00% { opacity: 1; transform: scale(1) rotate(0deg); }
+    18.00% { opacity: 1; transform: scale(0.82, 0.9) rotate(-6deg); }
+    21.00% { opacity: 1; transform: scale(0.6, 0.55) rotate(8deg); }
+    23.25% { opacity: 1; transform: scale(0.45) rotate(-4deg); }
+    24.42%, 85.83% { opacity: 0; transform: scale(0.4) rotate(0deg); }
+    86.67% { opacity: 0; transform: scale(1) rotate(0deg); }
+    97.50% { opacity: 1; transform: scale(1) rotate(0deg); }
+    100.00% { opacity: 1; transform: scale(1) rotate(0deg); }
+  }
+  @keyframes kugel {
+    0.00%, 23.25% { opacity: 0; transform: scale(0.7) rotate(0deg); }
+    24.75% { opacity: 1; transform: scale(1) rotate(0deg); }
+    43.50% { opacity: 1; transform: scale(1) rotate(200deg); }
+    49.50% { opacity: 1; transform: scale(0.85) rotate(220deg); }
+    51.00%, 100.00% { opacity: 0; transform: scale(0.8) rotate(220deg); }
+  }
+  @keyframes flug {
+    0.00%, 23.25% { opacity: 0; transform: translate(0px, 0px); }
+    24.75% { opacity: 1; transform: translate(0px, 0px); }
+    30.75% { transform: translate(58px, -52px); }
+    36.75% { transform: translate(112px, -50px); }
+    41.25% { transform: translate(140px, -22px); }
+    45.75% { opacity: 1; transform: translate(146px, 6px); }
+    49.50% { opacity: 1; transform: translate(146px, 24px); }
+    51.00%, 100.00% { opacity: 0; transform: translate(146px, 24px); }
+  }
+  @keyframes wippen {
+    0.00%, 43.50% { transform: rotate(0deg); }
+    46.50% { transform: rotate(2.4deg); }
+    49.50% { transform: rotate(-1.6deg); }
+    52.50%, 100.00% { transform: rotate(0deg); }
+  }
+  @keyframes traene {
+    0.00%, 50.83% { opacity: 0; transform: translate(0px, -3px) scale(0.3); }
+    58.33% { opacity: 1; transform: translate(0px, 0px) scale(1); }
+    62.50% { opacity: 1; transform: translate(0px, 2px) scale(1); }
+    70.83% { opacity: 1; transform: translate(-1px, 46px) scale(1, 1); }
+    75.00% { opacity: 1; transform: translate(-1px, 78px) scale(0.95, 1.08); }
+    79.17% { opacity: 1; transform: translate(-1px, 128px) scale(0.9, 1.15); }
+    80.00%, 100.00% { opacity: 0; transform: translate(-1px, 132px) scale(0.9, 1.15); }
+  }
+</style><g transform="translate(36.00 17.00) scale(0.39894) translate(-78.0 -80.0)"><g class="fuchsneig"><path d="M96,96 L186,150 L256,185 L326,150 L416,96 L396,250 L256,440 L116,250 Z" fill="#D97706"/><path d="M132,120 L186,150 L158,182 Z" fill="#7C3F16"/><path d="M380,120 L326,150 L354,182 Z" fill="#7C3F16"/><path d="M198,250 L314,250 L256,430 Z" fill="#FFF7ED"/><path d="M192,228 L232,222 L214,250 Z" fill="#2B160B"/><circle cx="306" cy="236" r="30" fill="#7C3F16"/><circle cx="306" cy="236" r="22" fill="#0E2540"/><circle cx="306" cy="236" r="13" fill="#2563EB"/><circle cx="306" cy="236" r="6" fill="#7DD3FC"/><path d="M243,372 L269,372 L256,392 Z" fill="#2B160B"/></g></g><g transform="translate(88.26 96.02) scale(0.8 0.88)"><g class="traene" opacity="0"><path d="M0,-14 C6,-4 11,3 11,8 A11,11 0 0 1 -11,8 C-11,3 -6,-4 0,-14 Z" fill="#2563EB" stroke="#7DD3FC" stroke-width="1.6" stroke-linejoin="round"/><circle cx="-4" cy="6" r="3.2" fill="#7DD3FC"/></g></g><g class="korb"><ellipse cx="409" cy="66" rx="39" ry="7.5" fill="#1A0F08" stroke="#E8D0B0" stroke-width="3"/></g><g transform="translate(265 88)"><g class="kugelflug" opacity="0"><g class="kugel" opacity="0"><path d="M-19,-6 L-9,-18 L4,-21 L16,-12 L21,2 L13,16 L-2,21 L-15,14 Z" fill="#FFF7ED" stroke="#F59E42" stroke-width="3.2" stroke-linejoin="round"/><path d="M-9,-18 L-3,-2 L13,16 M4,-21 L-3,-2 L-15,14 M16,-12 L6,3" stroke="#CDB59A" stroke-width="2.6" fill="none" stroke-linecap="round"/><circle cx="9" cy="-8" r="4.2" fill="#D93729"/></g></g></g><g class="korb"><path d="M370,66 Q409,76 448,66 L438,157 Q409,166 380,157 Z" fill="#C9A27A" stroke="#E8D0B0" stroke-width="3" stroke-linejoin="round"/><path d="M392,74 L395,158 M409,76 L409,160 M426,74 L423,158" stroke="#A07850" stroke-width="3.5" stroke-linecap="round" fill="none"/></g><g transform="translate(265 88) rotate(-5)"><g class="blatt"><rect x="-39" y="-50" width="78" height="100" rx="6" fill="#FFF7ED" stroke="#F59E42" stroke-width="3.5"/><circle cx="-18" cy="-27" r="8.5" fill="none" stroke="#D97706" stroke-width="4.5"/><rect x="-10" y="-29.2" width="21" height="4.5" rx="1.5" fill="#D97706"/><rect x="-3" y="-25" width="4.5" height="8" fill="#D97706"/><rect x="5" y="-25" width="4.5" height="6" fill="#D97706"/><rect x="-27" y="-2" width="54" height="5" rx="2.5" fill="#CDB59A"/><rect x="-27" y="11" width="44" height="5" rx="2.5" fill="#CDB59A"/><rect x="-27" y="24" width="50" height="5" rx="2.5" fill="#CDB59A"/><rect x="-27" y="37" width="30" height="5" rx="2.5" fill="#CDB59A"/><circle cx="36" cy="-44" r="22" fill="#D93729" stroke="#FFD3C8" stroke-width="3.5"/><path d="M33.30,-56.50 L38.70,-56.50 L37.62,-39.22 L34.38,-39.22 Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.35" stroke-linejoin="round"/><circle cx="36" cy="-33.28" r="2.30" fill="#FFFFFF"/></g></g></svg>
