@@ -29,6 +29,22 @@
 
 meldungen:
 
+  # AppInsight 1.0.1 (versionCode 5). Play-Store-App. Live seit 01.10.2026 08:47 (Console), gemeldet
+  # von [FF_13] (Sitzungsnachricht 09:26; die P5-Datei lag nicht im Posteingang), Store-Seite von
+  # [FF_10] um 09:27 nachgemessen: Version 1.0.1. Text = „Was ist neu“ aus
+  # 22_AppInsight\09_Releases\FehlerFuchs_AppInsight_Play_v1.0.1_5_RELEASE-NOTES.md, nichts erfunden
+  # (P8). KEINE Buildnummer nennen (vc 5). Kein 'version' (Play-App, kein Release im Modell).
+  - id: appinsight-1-0-1
+    typ: update
+    produkt: appinsight
+    datum: "2026-10-01"
+    titel: "AppInsight 1.0.1: kleine Verbesserungen nach dem Start"
+    text: >-
+      AppInsight 1.0.1 ist im Play Store. Lange App-Namen werden bei großer Schrift nicht
+      mehr mitten im Wort getrennt, die Meldung „Internetsperre aktiv“ erscheint sofort,
+      sobald du eine App sperrst, und das Impressum in der App nennt jetzt auch die
+      Anschrift.
+
   # GewerbePro Companion 1.0.0 (versionCode 1). Play-Store-App, erste Version. Live seit
   # 01.10.2026 05:29 (Console), belegt durch das P5-Ergebnis von [FF_13] 07:39 und die
   # BERICHTIGUNG 07:44. Text nach „Was ist neu“ im Store, nichts erfunden (P8).

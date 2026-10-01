@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-01T07:41:45+02:00",
+  "generiert": "2026-10-01T09:27:45+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "appinsight-1-0-1",
+      "typ": "update",
+      "produkt": "appinsight",
+      "datum": "2026-10-01",
+      "titel": "AppInsight 1.0.1: kleine Verbesserungen nach dem Start",
+      "text": "AppInsight 1.0.1 ist im Play Store. Lange App-Namen werden bei großer Schrift nicht mehr mitten im Wort getrennt, die Meldung „Internetsperre aktiv“ erscheint sofort, sobald du eine App sperrst, und das Impressum in der App nennt jetzt auch die Anschrift.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.appinsight"
+      }
+    },
     {
       "id": "gewerbepro-companion-play-veroeffentlichung",
       "typ": "store",
