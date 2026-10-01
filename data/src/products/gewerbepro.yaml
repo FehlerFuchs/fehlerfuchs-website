@@ -26,11 +26,11 @@ platforms:
     since: "2026-08-17"        # 1.0.0 – erstes Stable-Release (Beta lief ab 15.07.)
   # Companion-App „GewerbePro Companion“ (G4: „GewerbePro Mobil“ war ein Arbeitsname): in der
   # Vollversion enthalten, Freischaltung per Lizenzschlüssel (belegt einen der 3 Arbeitsplätze,
-  # C1 [FF_29-1]). Bezug über Google Play. Status wie die Companion-Seite: seit 26.09.2026 in der
-  # Store-Prüfung (G6 – beide Seiten auf einem Stand, Befund 5).
+  # C1 [FF_29-1]). Bezug über Google Play. Status wie die Companion-Seite: im Play Store verfügbar
+  # seit 01.10.2026 (G6 – beide Seiten auf einem Stand; Sichtung 01.10.2026, Befund 1).
   - os: android
-    status: pruefung
-    since: "2026-09-26"
+    status: verfuegbar
+    since: "2026-10-01"
     requirements: Android, Bezug über Google Play; Freischaltung per Lizenzcode
     distribution: play-store
 

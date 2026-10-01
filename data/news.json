@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-01T10:25:48+02:00",
+  "generiert": "2026-10-01T17:39:03+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -37,6 +37,18 @@
       "datumQuelle": "platforms[android].since",
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.appinsight"
+      }
+    },
+    {
+      "id": "orgafuchs-1-9-7",
+      "typ": "update",
+      "produkt": "orgafuchs",
+      "datum": "2026-10-01",
+      "titel": "OrgaFuchs 1.9.7: Benachrichtigungen erst auf Wunsch, sparsamer beim Abgleich",
+      "text": "OrgaFuchs 1.9.7 ist für Android im Play Store da. Die App meldet sich erst bei Googles Benachrichtigungsdienst an, wenn du Benachrichtigungen einschaltest – nicht mehr schon beim ersten Start. In einer neu angelegten Familie erreichen Änderungen des Hauptgeräts die anderen Geräte sofort. Ist das Hauptgerät nicht erreichbar, fragt die App nicht mehr alle paar Sekunden nach, sondern versucht es nach ein paar Minuten erneut. Das schont den Akku.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
       }
     },
     {

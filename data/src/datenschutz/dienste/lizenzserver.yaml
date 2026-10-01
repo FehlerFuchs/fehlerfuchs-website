@@ -39,7 +39,7 @@ auf_dem_geraet:
     wo: Datenbank auf dem Server; Löschung nach 90 Tagen. Es wird keine IP-Adresse gespeichert
     beleg: Tabelle wuensche; adapter/app/db.py, record_wunsch und cleanup; adapter/app/main.py, wunsch_einreichen
   - was: Teilnahme an der SnapFuchs-Aktion (selbst gewählter Anzeigename, E-Mail-Adresse, Zeitpunkt, der zugeteilte Gutscheincode)
-    wo: Datenbank auf dem Server; nach 90 Tagen werden Anzeigename und E-Mail gelöscht — der Code bleibt nur noch als „vergeben" vermerkt, ohne Bezug zu einer Person. Es wird keine IP-Adresse gespeichert
+    wo: Datenbank auf dem Server; nach 90 Tagen werden Anzeigename und E-Mail gelöscht — der Code bleibt nur noch als „vergeben“ vermerkt, ohne Bezug zu einer Person. Es wird keine IP-Adresse gespeichert
     beleg: Tabelle aktion_codes; adapter/app/db.py, aktion_code_vergeben und cleanup; adapter/app/main.py, aktion_code_anfordern
   - was: IP-Adressen als kurzlebige Zählwerte gegen Missbrauch (Kontaktformular, Wunscherfüller, Aktion, Tester-Registrierung, Löschantrag)
     wo: Zwischenspeicher auf dem Server, automatische Löschung nach 1 Stunde bzw. 24 Stunden
@@ -148,7 +148,7 @@ loeschung: >-
   Anonymisierung — die Sperre gegen doppelte Gratislizenzen funktioniert weiter.
   Einsendungen aus dem Wunscherfüller werden nach 90 Tagen gelöscht; bei der Teilnahme
   an Aktionen werden Anzeigename und E-Mail-Adresse 90 Tage nach der Vergabe entfernt,
-  der Code bleibt nur noch als „vergeben" vermerkt. Die
+  der Code bleibt nur noch als „vergeben“ vermerkt. Die
   Zählschlüssel mit IP-Adressen im Zwischenspeicher löschen sich selbst nach längstens
   24 Stunden. Die Betriebsprotokolle des Servers sind auf höchstens drei Dateien à 10 MB
   je Dienst begrenzt und werden danach überschrieben; sie enthalten keine

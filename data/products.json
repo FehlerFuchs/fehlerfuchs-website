@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-01T10:25:48+02:00",
+  "generiert": "2026-10-01T17:39:03+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -237,7 +237,7 @@
       "name": "Branding-Konfigurator",
       "fullName": "FehlerFuchs Branding-Konfigurator für MobileReport Enterprise",
       "seoTitel": "Branding-Konfigurator für MobileReport Enterprise",
-      "seoBeschreibung": "Firmenname, Logo und Farben für MobileReport Enterprise im Browser zusammenstellen, live in App- und PDF-Vorschau prüfen und als .mrbrand-Datei laden – ohne Upload.",
+      "seoBeschreibung": "Firmenname, Logo und Farben für MobileReport Enterprise im Browser zusammenstellen, in App- und PDF-Vorschau prüfen, als .mrbrand-Datei laden – ohne Upload.",
       "tags": [
         "Branding",
         "MobileReport",
@@ -654,8 +654,8 @@
         },
         {
           "os": "android",
-          "status": "pruefung",
-          "since": "2026-09-26",
+          "status": "verfuegbar",
+          "since": "2026-10-01",
           "requirements": "Android, Bezug über Google Play; Freischaltung per Lizenzcode",
           "distribution": "play-store"
         }
@@ -1425,7 +1425,7 @@
       "name": "HaushaltsManager",
       "fullName": "FehlerFuchs HaushaltsManager",
       "seoTitel": "HaushaltsManager – Haushaltsbuch & Zählerstände (Windows)",
-      "seoBeschreibung": "Lokales Windows-Programm für den Haushalt: Zählerstände, Verträge, Haushaltsbuch, Solar & Energiedaten (ENPAL, PowerFox), Auswertungen, PDF – ohne Konto, ohne Tracking.",
+      "seoBeschreibung": "Windows-Programm für den Haushalt: Zählerstände, Verträge, Haushaltsbuch, Solar & Energie (ENPAL, PowerFox), Auswertungen, PDF – ohne Konto, ohne Tracking.",
       "tags": [
         "Haushaltsbuch",
         "Zählerstände",
@@ -1910,7 +1910,7 @@
       "name": "MobileReport Enterprise",
       "fullName": "FehlerFuchs MobileReport Enterprise",
       "seoTitel": "MobileReport Enterprise – Fotodoku-App für Firmen",
-      "seoBeschreibung": "Fotodoku und PDF-Berichte für Unternehmen: Bezug als Direkt-Download (APK) oder über Managed Google Play, eigenes Branding, Lizenz je Arbeitsplatz – strikt lokal.",
+      "seoBeschreibung": "Fotodoku und PDF-Berichte für Unternehmen: Direkt-Download (APK) oder Managed Google Play, eigenes Branding, Lizenz je Arbeitsplatz – strikt lokal.",
       "tags": [
         "Fotodokumentation",
         "Baustellendokumentation",
@@ -2200,7 +2200,7 @@
       "name": "OrgaFuchs",
       "fullName": "FehlerFuchs OrgaFuchs",
       "seoTitel": "OrgaFuchs – Familien- & Schichtplaner (Windows, Android)",
-      "seoBeschreibung": "Familien- und Schichtplaner für Dienste, Termine und Notizen: Monatskalender, PDF-Export, Ende-zu-Ende-verschlüsselter Sync der eigenen Geräte – für Windows & Android, ohne Konto.",
+      "seoBeschreibung": "Familien- und Schichtplaner für Dienste, Termine und Notizen: Monatskalender, PDF-Export, verschlüsselter Sync eigener Geräte – Windows & Android, ohne Konto.",
       "tags": [
         "Schichtplaner",
         "Familienplaner",
@@ -2628,7 +2628,7 @@
       "name": "PDFuchs Reader",
       "fullName": "FehlerFuchs PDFuchs Reader",
       "seoTitel": "PDFuchs Reader – PDF- & EPUB-Reader für Android, werbefrei",
-      "seoBeschreibung": "Kostenloser, werbefreier PDF- & E-Book-Reader für Android: PDF und EPUB lesen, Lesezeichen, Volltextsuche, teilen, drucken – ohne Konto, alles lokal auf dem Gerät.",
+      "seoBeschreibung": "Kostenloser, werbefreier PDF- & E-Book-Reader für Android: PDF und EPUB lesen, Lesezeichen, Volltextsuche, teilen, drucken – ohne Konto, alles auf dem Gerät.",
       "tags": [
         "PDF-Reader",
         "E-Book-Reader",
@@ -3394,7 +3394,7 @@
       "name": "BelegWerk",
       "fullName": "FehlerFuchs BelegWerk",
       "seoTitel": "BelegWerk – Belegverwaltung für Windows mit Paperless-ngx",
-      "seoBeschreibung": "Belege und PDFs lokal verwalten: Eingangskorb, visuelle Prüfung, ASN und Ablage zwischen Scanner, Paperless-ngx und Dateiablage – auf dem eigenen Windows-PC, ohne Cloud.",
+      "seoBeschreibung": "Belege und PDFs lokal verwalten: Eingangskorb, Prüfung, ASN und Ablage zwischen Scanner, Paperless-ngx und Dateiablage – auf dem Windows-PC, ohne Cloud.",
       "tags": [
         "Belegverwaltung",
         "Dokumentenverwaltung",
@@ -3887,7 +3887,7 @@
         }
       ],
       "privacy": [
-        "nur-lokal",
+        "inhalte-lokal",
         "keine-cloud",
         "kein-konto",
         "kein-tracking",
@@ -4066,7 +4066,7 @@
       "name": "CoppiceMail",
       "fullName": "FehlerFuchs CoppiceMail",
       "seoTitel": "CoppiceMail – E-Mail-Programm für Belege & Büropost",
-      "seoBeschreibung": "Lokales, datensparsames E-Mail-Programm mit Belegfokus: Mail öffnen, Anhang als Beleg ablegen, archivieren – kurze Wege, ohne FehlerFuchs-Cloud und ohne Tracking.",
+      "seoBeschreibung": "Lokales, datensparsames E-Mail-Programm mit Belegfokus: Mail öffnen, Anhang als Beleg ablegen, archivieren – kurze Wege, ohne FehlerFuchs-Cloud, ohne Tracking.",
       "tags": [
         "E-Mail-Programm",
         "Belege",

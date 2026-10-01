@@ -24,7 +24,7 @@ platforms:
     status: entwicklung
     distribution: keiner
 
-privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
+privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
 editions:
   - id: standard
