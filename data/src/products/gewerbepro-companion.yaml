@@ -55,8 +55,8 @@ wordmark:
 # 26.09.2026: 1.0.0 (1) bei Google Play zur Prüfung eingereicht (Produktion, ohne Testphase;
 # eu.fehlerfuchs.gewerbepro_companion) - gemeldet von [FF_13] 16:01. Anzeige „In Store-Prüfung“
 # nach Klarstellung Matthias 16:03 (im [FF_13]-Chat, weitergereicht): Die Webseite meldet die
-# Store-Prüfung wie bei jeder App. LIVE: P5-Ergebnis [FF_13] 01.10.2026 07:39 - live
-# frühestens 07:16, spätestens 07:36; Store-Seite von [FF_10] um 07:40 nachgemessen
+# Store-Prüfung wie bei jeder App. LIVE seit 01.10.2026 05:29 (Console, BERICHTIGUNG [FF_13] 07:44;
+# P5-Ergebnis 07:39 nannte eine Spanne). Store-Seite von [FF_10] um 07:40 nachgemessen
 # (HTTP 200, Version 1.0.0). Der Absatz „Löschen beim Lizenzserver“ ist seit 26.09. live
 # (website 3050d6e); Steckbrief am 01.10. erneut geprüft: unverändert.
 status: verfuegbar

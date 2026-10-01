@@ -18,16 +18,16 @@ description: >-
 audience: [privat]
 accent: "#C2410C"   # Farbe der App
 # 24.09.2026 ~22:30 bei Google Play zur Pruefung eingereicht (1.0.0 / versionCode 4,
-# [13], Logbuch #2770). LIVE: P5-Meldung [FF_13] 01.10.2026 07:19 - live zwischen 30.09.
-# 19:41 (noch nicht sichtbar) und 01.10. 07:16 (sichtbar); Store-Seite von [FF_10] am
-# 01.10.2026 07:40 nachgemessen (HTTP 200, Version 1.0.0). 'since' = erster belegter Tag.
+# [13], Logbuch #2770). LIVE seit 01.10.2026 05:29 (Console, BERICHTIGUNG [FF_13] 07:44; P5-Meldung 07:19 nannte
+# nur eine Spanne). Store-Seite von [FF_10] am 01.10.2026 07:40 nachgemessen (HTTP 200,
+# Version 1.0.0).
 # 'vorabSichtbar' ist mit 'verfuegbar' ueberfluessig und daher entfernt.
 status: verfuegbar
 
 platforms:
   - os: android
     status: verfuegbar
-    since: "2026-10-01"   # erster belegter Live-Tag (genaue Uhrzeit aus der Console nicht gemessen)
+    since: "2026-10-01"   # Livegang 05:29 laut Console
     distribution: play-store
     storeId: eu.fehlerfuchs.appinsight
 

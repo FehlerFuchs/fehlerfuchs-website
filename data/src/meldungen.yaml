@@ -30,8 +30,8 @@
 meldungen:
 
   # GewerbePro Companion 1.0.0 (versionCode 1). Play-Store-App, erste Version. Live seit
-  # 01.10.2026 (frühestens 07:16, spätestens 07:36), belegt durch das P5-Ergebnis von [FF_13]
-  # vom 01.10.2026 07:39. Text nach „Was ist neu“ im Store, nichts erfunden (P8).
+  # 01.10.2026 05:29 (Console), belegt durch das P5-Ergebnis von [FF_13] 07:39 und die
+  # BERICHTIGUNG 07:44. Text nach „Was ist neu“ im Store, nichts erfunden (P8).
   # typ 'store': Datum aus platforms[android].since, Play-Link aus storeId.
   - id: gewerbepro-companion-play-veroeffentlichung
     typ: store
@@ -45,8 +45,8 @@ meldungen:
       Firmen-Branding kommen vom PC zurück. Dazu eine verschlüsselte Sicherung mit eigenem
       Passwort. Kein Konto, keine Werbung, kein Tracking.
 
-  # AppInsight 1.0.0 (versionCode 4). Play-Store-App, erste Version. Live zwischen 30.09.2026
-  # 19:41 und 01.10.2026 07:16, belegt durch die P5-Meldung von [FF_13] vom 01.10.2026 07:19.
+  # AppInsight 1.0.0 (versionCode 4). Play-Store-App, erste Version. Live seit 01.10.2026
+  # 05:29 (Console), belegt durch die P5-Meldung von [FF_13] 07:19 und die BERICHTIGUNG 07:44.
   # Eigene Release-Notes gibt es nicht; der Text fasst die Produktbeschreibung von [FF_22]
   # (appinsight.yaml) zusammen, nichts erfunden (P8). typ 'store': Datum aus 'since'.
   - id: appinsight-play-veroeffentlichung
