@@ -74,6 +74,8 @@ features:
         values: { standard: ja }
       - name: Inhaltsverzeichnis führt direkt zum Kapitel
         values: { standard: ja }
+      - name: Suche im ganzen E-Book mit Sprung zur Fundstelle
+        values: { standard: ja }
       - name: Lesezeichen merken sich die Stelle – je Buch
         values: { standard: ja }
 

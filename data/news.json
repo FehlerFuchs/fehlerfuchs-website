@@ -1,8 +1,44 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-09-30T18:16:14+02:00",
+  "generiert": "2026-10-01T07:41:45+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "gewerbepro-companion-play-veroeffentlichung",
+      "typ": "store",
+      "produkt": "gewerbepro-companion",
+      "titel": "GewerbePro Companion ist im Play Store",
+      "text": "Die Begleit-App zu GewerbePro (ab GewerbePro 1.1.0) ist da. Unterwegs erfasst sie Kunden, Auftrags-Entwürfe, Fahrtenbuch, Termine, Aufgaben und Quittungen mit Unterschrift. Der Austausch mit dem PC läuft nur lokal – per USB-Kabel oder als Datei, verschlüsselt mit deinem Lizenzschlüssel; Katalog, Kunden, Aufgaben und dein Firmen-Branding kommen vom PC zurück. Dazu eine verschlüsselte Sicherung mit eigenem Passwort. Kein Konto, keine Werbung, kein Tracking.",
+      "datum": "2026-10-01",
+      "datumQuelle": "platforms[android].since",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.gewerbepro_companion"
+      }
+    },
+    {
+      "id": "appinsight-play-veroeffentlichung",
+      "typ": "store",
+      "produkt": "appinsight",
+      "titel": "AppInsight ist im Play Store",
+      "text": "AppInsight zeigt verständlich, was installierte Apps anfordern – Berechtigungen in Alltagssprache, Tracker-Hinweise, Speicher und Nutzung, mit einer Ampel je App. Das Paket wird nur gelesen, nie ausgeführt, und alles bleibt auf deinem Gerät. Kostenlos, ohne Konto und ohne Werbung.",
+      "datum": "2026-10-01",
+      "datumQuelle": "platforms[android].since",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.appinsight"
+      }
+    },
+    {
+      "id": "orgafuchs-1-9-5",
+      "typ": "update",
+      "produkt": "orgafuchs",
+      "datum": "2026-09-30",
+      "titel": "OrgaFuchs 1.9.5: zuverlässiger Abgleich mit dem Geräte-Kalender",
+      "text": "OrgaFuchs 1.9.5 ist für Android im Play Store da. Neue und geänderte Dienste und Termine erscheinen jetzt zuverlässig im Kalender deines Geräts. Versehentlich dort gelöschte OrgaFuchs-Einträge stellt die App beim nächsten Abgleich wieder her, und der Abgleich läuft im Hintergrund – die App hängt dabei nicht mehr.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
+      }
+    },
     {
       "id": "pdfuchsreader-1-3-0",
       "typ": "update",
@@ -325,7 +361,10 @@
       "datum": "2026-07-24",
       "titel": "GewerbePro bekommt einen mobilen Begleiter",
       "text": "In Arbeit: eine Android-App, die unterwegs Kunden, Auftrags-Entwürfe, Fahrten und Quittungen erfasst und als Paket an GewerbePro auf dem PC übergibt – offline und ohne Konto. Bisher läuft nur ein Testbau; einen Download gibt es noch nicht. Wer Bescheid bekommen möchte, meldet sich über die Produktseite.",
-      "datumQuelle": "eigene Angabe"
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.gewerbepro_companion"
+      }
     },
     {
       "id": "up2date-in-arbeit",
