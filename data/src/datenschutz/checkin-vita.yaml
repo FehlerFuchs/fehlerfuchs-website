@@ -1,18 +1,12 @@
-# BERICHTIGUNG 02.09.2026: frühere offene Frage 1 (was der Support-Dienst
-# serverseitig protokolliert) war seit 23.08. überholt – [11] Lizenzserver hat
-# es an dem Tag für /v1/contact belegt; steht jetzt im Übertragungseintrag als
-# Feld „serverseitig“. Quelle nachgezogen aus der zentralen, belegten Fassung
-# 00-1_Produktdoku – Vertrieb und Recht\Datenschutz-Steckbriefe\checkin-vita.yaml
-# (Stand 02.09., Ausnahme Matthias 02.09.). [23] pausiert seit 31.08.
 slug: checkin-vita
 name: CheckInVita
-stand: "2026-09-02"
+stand: "2026-10-02"
 geprueft_von: 23_CheckInVita
-fassung: "0.2.0+1 – Android-Stand, noch nicht veröffentlicht; Windows-Port vorhanden, Build derzeit paketbedingt blockiert"
+fassung: "0.2.0+1 – Android-Stand 02.10.2026, noch nicht veröffentlicht; Windows wird nicht ausgeliefert"
 
 # Ohne aktives Zutun des Nutzers verlässt kein Datum das Gerät.
-# Das Support-Formular sendet auf Wunsch an license.fehlerfuchs.eu (siehe unten). Deshalb false, wie bei
-# PDFuchs Reader (Sichtung 01.10.2026, Befund 5; Entscheidung Matthias, Option A).
+# Das Support-Formular sendet auf Wunsch an license.fehlerfuchs.eu; deshalb false
+# (Entscheidung Matthias 01.10.2026, Befund 5 der Webseiten-Sichtung, Logbuch #4149).
 lokal_only: false
 
 auf_dem_geraet:
@@ -40,9 +34,9 @@ auf_dem_geraet:
   - was: erzeugte PDF-Übersichten (Werte-Zusammenfassung, Medikamenten-Plan)
     wo: app-privates Dateiverzeichnis
     beleg: lib/data/documents/document_service.dart
-  - was: vom Nutzer selbst erzeugte Export- und Abgleich-Dateien (CSV, JSON-Backup, .cvsync)
+  - was: vom Nutzer selbst erzeugte Export-, Backup- und Abgleich-Dateien (CSV, Excel-Tabelle, ZIP-Backup mit Einträgen, Einstellungen, Fotos und PDFs, .cvsync)
     wo: vom Nutzer gewählter Speicherort
-    beleg: lib/shared/utils/file_share.dart
+    beleg: lib/shared/utils/file_share.dart, lib/data/backup/backup_service.dart (buildArchive)
 
 berechtigungen:
   - name: Kamera
@@ -69,7 +63,7 @@ berechtigungen:
 uebertragungen:
   - wohin: license.fehlerfuchs.eu
     was: Betreff und Nachrichtentext; freiwillig Name und E-Mail-Adresse; App-Version und Betriebssystem-Bezeichnung; vom Nutzer bewusst ausgewählte Dateianhänge; auf ausdrückliche Zustimmung eine technische Diagnosedatei (nur App-Version, System, Zeitstempel)
-    wann: nur wenn der Nutzer im Support-/Kontaktformular auf „Senden“ tippt
+    wann: nur wenn der Nutzer im Support-/Kontaktformular auf „Senden" tippt
     freiwillig: true
     beleg: lib/data/support/support_service.dart (MultipartRequest auf /v1/contact)
     serverseitig: >-
@@ -80,7 +74,7 @@ uebertragungen:
       Der Inhalt geht als E-Mail an den konfigurierten Posteingang.
   - wohin: fehlerfuchs.eu
     was: gewöhnlicher Seitenaufruf im externen Browser; es werden keine App-Daten übergeben
-    wann: nur wenn der Nutzer im Über-Bildschirm „Solche Projekte unterstützen?“ antippt
+    wann: nur wenn der Nutzer im Über-Bildschirm „Solche Projekte unterstützen?" antippt
     freiwillig: true
     beleg: lib/features/about/about_screen.dart (kUnterstuetzenUrl)
   - wohin: die vom Nutzer gewählte E-Mail- bzw. Telefon-App auf dem Gerät
@@ -102,11 +96,12 @@ daten_an_dritte_verkauft: false
 
 loeschung: >-
   Alle Daten liegen auf dem Gerät. Einzelne Einträge lassen sich in der App
-  löschen; unter Einstellungen entfernt „Alle Daten löschen“ sämtliche
-  Einträge, Stammdaten und Einstellungen unwiderruflich. Beim Deinstallieren
-  der App verschwinden alle Daten mit. Selbst erzeugte Export-, Backup- und
-  Abgleich-Dateien liegen dort, wo der Nutzer sie abgelegt hat, und müssen
-  von ihm selbst gelöscht werden.
+  löschen; unter Einstellungen entfernt „Alle Daten löschen" sämtliche
+  Einträge, Fotos, PDF-Dokumente, Stammdaten, Einstellungen und geplanten
+  Erinnerungen unwiderruflich (Beleg: lib/data/maintenance/data_eraser.dart).
+  Beim Deinstallieren der App verschwinden alle Daten mit. Selbst erzeugte
+  Export-, Backup- und Abgleich-Dateien liegen dort, wo der Nutzer sie
+  abgelegt hat, und muss er selbst löschen.
 
 besonderheiten: >-
   CheckInVita ist ein Gesundheits-Tagebuch und ausdrücklich kein Medizinprodukt
@@ -123,10 +118,39 @@ besonderheiten: >-
   Galerie werden über den Auswahldialog des Systems ausgewählt, die App erhält
   dabei keinen Zugriff auf die übrigen Fotos. Ebenso wird keine Berechtigung
   für exakte Weckzeiten angefordert; Erinnerungen können daher um einige
-  Minuten abweichen.
+  Minuten abweichen. Stand 02.10.2026: Die App ist von der automatischen
+  Android-Sicherung (Cloud) und von der automatischen Übertragung auf ein
+  neues Gerät ausgenommen (allowBackup=false, Ausschlussregeln; Beleg:
+  android/app/src/main/AndroidManifest.xml und res/xml/*; auf einem
+  Test-Emulator gemessen: „Backup is not allowed"). Wer das Gerät wechselt,
+  nutzt das ZIP-Backup oder den Sync-Abgleich. Das ZIP-Backup enthält Einträge,
+  Einstellungen, Fotos und PDFs und ist unverschlüsselt. Die App-Sperre
+  (Biometrie/Geräte-PIN) öffnet nur bei erfolgreicher Prüfung; bei Abbruch oder
+  Fehler bleibt die App gesperrt.
 
-vorhandener_text: lib/features/legal/legal_screen.dart (kPrivacyText, in der App unter Über → Datenschutzerklärung); ausführlich in 03_Doku/Datenschutzerklaerung_CheckInVita.md
+vorhandener_text: lib/features/legal/legal_screen.dart (kPrivacyText und kImpressumText, vollständig offline, Wortlaut von Matthias bestätigt 02.10.2026, Logbuch #4190)
+
+# BERICHTIGUNG 02.09.2026 durch [00] ChefBüro:
+# Die frühere offene Frage 1 lautete, man könne "aus der App heraus nicht
+# feststellen", was der Dienst serverseitig protokolliert. Das war seit dem
+# 23.08.2026 überholt - [11] Lizenzserver hatte es an diesem Tag belegt. Der
+# belegte Stand steht jetzt oben beim Übertragungseintrag im Feld
+# "serverseitig". Die Frage ist deshalb gestrichen, nicht offen geblieben.
+#
+# Warum ChefBüro und nicht [23]: [23] CheckInVita ist seit dem 31.08.2026
+# pausiert (Register 3.19), die Koordination liegt bei [00]. Eine Pausierung
+# überträgt kein Schreibrecht am fremden Slug (B9) - deshalb hat [00-1] den
+# Punkt vorgelegt statt selbst zu ändern, und deshalb steht diese Änderung
+# unter einer ausdrücklichen Ausnahme: Entscheidung Matthias Schacht,
+# 02.09.2026. Der Grund für die Eile ist die Außenwirkung: Dieser Steckbrief
+# speist die öffentliche Datenschutzseite von fehlerfuchs.eu. Wer dort
+# schreibt, er wisse nicht, was sein eigener Server protokolliert, sagt
+# etwas über seine Rechenschaftspflicht.
+#
+# [23] kann die Berichtigung nach dem Aufwachen prüfen und widersprechen;
+# eine Meldung liegt in seinem Posteingang.
 
 offene_fragen: >-
   Für die Windows-Fassung ist noch nicht abschließend entschieden, ob sie bei
+  Veröffentlichung eine Aktualisierungsprüfung erhält; heute enthält sie keine.
   Veröffentlichung eine Aktualisierungsprüfung erhält; heute enthält sie keine.
