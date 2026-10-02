@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-02T06:39:40+02:00",
+  "generiert": "2026-10-02T17:05:30+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -282,6 +282,18 @@
           "wofuer": "bereits geplante Erinnerungen nach einem Neustart erneut einplanen",
           "pflicht": false,
           "beleg": "android/app/src/main/AndroidManifest.xml (RECEIVE_BOOT_COMPLETED)"
+        },
+        {
+          "name": "Vibration",
+          "wofuer": "Erinnerungen dürfen das Gerät vibrieren lassen (kommt aus dem Benachrichtigungs-Plugin)",
+          "pflicht": false,
+          "beleg": "APK-Manifest nach dem Bau (VIBRATE, aus flutter_local_notifications)"
+        },
+        {
+          "name": "Fingerabdruck (ältere Android-Fassungen)",
+          "wofuer": "optionaler App-Lock auf älteren Geräten (kommt aus dem Biometrie-Plugin)",
+          "pflicht": false,
+          "beleg": "APK-Manifest nach dem Bau (USE_FINGERPRINT, aus local_auth_android)"
         },
         {
           "name": "Internet",
