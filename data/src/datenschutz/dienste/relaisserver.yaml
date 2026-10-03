@@ -1,8 +1,8 @@
 slug: relaisserver
-name: FehlerFuchs Relaisserver (Dienst – Relais und Push)
-stand: "2026-09-30"
+name: FehlerFuchs Relaisserver (Dienst - Relais und Push)
+stand: "2026-10-03"
 geprueft_von: Relaisserver
-fassung: "Stand 25.09.2026 – relay-orgafuchs-ofsp1 (dazu relay-orgafuchs als Rückfall), relay-fcm, relay-dateiwaechter, ntfy v2.9.0, relay-admin, relay-sicht-signer, Caddy 2"
+fassung: "Stand 03.10.2026 - relay-orgafuchs-ofsp1 (dazu relay-orgafuchs als Rückfall), relay-fcm 0.4, relay-dateiwaechter, ntfy v2.28.0, relay-admin, relay-sicht-signer, Caddy 2"
 
 # Hinweis: Dies ist die DIENST-Ebene (dritte Schicht), kein Endnutzer-Produkt.
 # Gerätebezogene Felder (auf_dem_geraet, berechtigungen) entfallen daher.
@@ -11,20 +11,20 @@ lokal_only: false
 # Was der Dienst speichert bzw. vorübergehend vorhält.
 serverseitig:
   - was: Nachrichteninhalte des Gruppen-Sync (Ende-zu-Ende verschlüsselt)
-    wo: nirgends – nur im Arbeitsspeicher weitergereicht (Warteschlange höchstens 2 MB je Verbindung), kein Schreiben auf Platte; der Container läuft schreibgeschützt
-    beleg: 32_OrgaFuchs/06_Relay/relay_server.dart (Quelle des laufenden OFSP/1-Relays); Container relay-orgafuchs-ofsp1 ReadonlyRootfs=true, DATA_QUEUE_BYTES=2097152
-  - was: Epochen-Fence des Gruppen-Sync (pseudonym) – je Gruppenlinie ein Eintrag mit opaker Linien-Kennung, Epochennummer, zwei öffentlichen Schlüsseln (aktueller Host, Wiederherstellung), Prüfwert der letzten Übergabe und Zeitpunkt der letzten Nutzung. Keine Inhalte, keine Namen
-    wo: kleine Datei im Volume des Relays (einzige beschreibbare Stelle), dazu Sicherungskopien auf dem Server – stündlich (die letzten 14) und monatlich
-    beleg: 32_OrgaFuchs/06_Relay/fence.dart (FenceEntry; „Kein TTL/GC – einmal initialisierter Zustand wird nie gelöscht“); 05_Server/scripts/fence_backup.sh
-  - was: FCM-Weck-Registry (pseudonym) – je registriertem Gerät eine Zeile
-    wo: kleine SQLite-Datei im Volume des Sidecars relay-fcm auf dem eigenen Server bei IONOS, Rechenzentrum Deutschland (Berlin; laut IONOS-Angaben bei der Einrichtung am 13.07.2026); Felder – vom Client vergebene Gerätekennung, FCM-Gerätetoken (Google-Zustelladresse), Gruppen-Hash (sha256 des Gruppen-Sync-Tokens), Plattform, actorKey (nur Selbst-Ausschluss), Zeitstempel. Keine Namen, keine Konten, keine Anmeldung mit Identität
-    beleg: 05_Server/apps/relay-fcm/app.py (Tabelle tokens)
-  - was: Push-Meldungen auf zwei pseudonymen Themen je Gruppe (Themenname aus einem Hash des Gruppen-Tokens) – Änderungsmeldung (sinngemäß „es gibt Änderungen“, keine Nutzdaten) und Präsenzmeldung (Geräte-ID, Rolle in der Gruppe, Zeitstempel)
+    wo: nirgends - nur im Arbeitsspeicher weitergereicht (Warteschlange höchstens 2 MB je Verbindung), kein Schreiben auf Platte; der Container läuft schreibgeschützt. Ist der Empfänger nicht verbunden, verfällt die Nachricht
+    beleg: 32_OrgaFuchs/06_Relay/relay_server.dart (Quelle des laufenden OFSP/1-Relays; Zeile 286 Zustellung nur an verbundene Empfänger, Zeilen 780-783 Puffergrenzen); Container relay-orgafuchs-ofsp1 ReadonlyRootfs=true, DATA_QUEUE_BYTES=2097152
+  - was: Epochen-Fence des Gruppen-Sync (pseudonym) - je Gruppenlinie ein Eintrag mit opaker Linien-Kennung, Epochennummer, zwei öffentlichen Schlüsseln (aktueller Host, Wiederherstellung), Prüfwert der letzten Übergabe und Zeitpunkt der letzten Nutzung. Keine Inhalte, keine Namen
+    wo: kleine Datei im Volume des Relays (einzige beschreibbare Stelle), dazu Sicherungskopien auf dem Server - stündlich (die letzten 14) und monatlich
+    beleg: 32_OrgaFuchs/06_Relay/fence.dart (Zeile 14 „Kein TTL/GC - einmal initialisierter Zustand wird nie geloescht“); 05_Server/_vorbereitung_folgeauftraege/ofsp1_fence_v05_build/fence_backup.sh (byte-gleich mit /opt/relais/scripts/fence_backup.sh; Zeilen 21 und 50 Stundenkopien, 44-49 Monatskopien)
+  - was: FCM-Weck-Registry (pseudonym) - je registriertem Gerät eine Zeile
+    wo: kleine SQLite-Datei im Volume des Sidecars relay-fcm auf dem eigenen Server bei IONOS, Rechenzentrum Deutschland (Berlin; laut IONOS-Angaben bei der Einrichtung am 13.07.2026); Felder - vom Client vergebene Gerätekennung, FCM-Gerätetoken (Google-Zustelladresse), Gruppen-Hash (sha256 des Gruppen-Sync-Tokens), Plattform, actorKey (nur Selbst-Ausschluss), Zeitstempel der letzten Anmeldung. Keine Namen, keine Konten, keine Anmeldung mit Identität
+    beleg: 05_Server/apps/relay-fcm/app.py (Tabelle tokens; Zeilen 17 und 100-114 Löschung nach 90 Tagen ohne Erneuerung, einmal täglich)
+  - was: Push-Meldungen auf zwei pseudonymen Themen je Gruppe (Themenname aus einem Hash des Gruppen-Tokens) - Änderungsmeldung (sinngemäß „es gibt Änderungen“, keine Nutzdaten) und Präsenzmeldung (Geräte-ID, Rolle in der Gruppe, Zeitstempel)
     wo: Zwischenspeicher des Push-Dienstes, höchstens 12 Stunden
     beleg: 05_Server/compose/docker-compose.yml (NTFY_CACHE_DURATION=12h, NTFY_CACHE_FILE); 32_OrgaFuchs/05_App/orgafuchs/lib/services/push_ntfy.dart (themaFuer, praesenzMelden)
-  - was: Zugriffsprotokolle des Reverse-Proxy (Client-IP, Zeitpunkt, aufgerufener Pfad ohne Query-Parameter – der Teil ab dem Fragezeichen wird vor dem Schreiben entfernt)
-    wo: rotierende Container-Logs (je Dienst max. 3 x 10 MB), keine Archivierung, nicht im Backup
-    beleg: 05_Server/proxy/Caddyfile (log-Direktive je Site mit format filter, request>uri ohne Query-Teil, live seit 31.08.2026); 05_Server/compose/docker-compose.yml (logging max-size/max-file)
+  - was: Zugriffsprotokolle des Reverse-Proxy (Client-IP, Zeitpunkt, User-Agent, aufgerufener Pfad ohne Query-Parameter - der Teil ab dem Fragezeichen wird vor dem Schreiben entfernt)
+    wo: rotierende Container-Logs (je Dienst max. 3 x 10 MB), überschrieben nach Größe, nicht nach Tagen; keine Archivierung, nicht im Backup. Für den DateiWächter-Relay und den Signierdienst wird kein Zugriffsprotokoll geschrieben
+    beleg: 05_Server/proxy/Caddyfile (log-Direktive je Site mit format filter, request>uri ohne Query-Teil, live seit 31.08.2026; Zeilen 207-229 ohne log); 05_Server/compose/docker-compose.yml (logging max-size/max-file)
   - was: aggregierte Zähler (Anzahl Push-Meldungen, aktive Themen, Dienst-Health)
     wo: nur dienstintern, ohne Personenbezug; Verwaltungszugang liefert keine Einzeldatensätze
     beleg: 05_Server/apps/relay-admin/admin_server.dart (items liefert immer eine leere Liste)
@@ -47,7 +47,7 @@ uebertragungen:
     freiwillig: false
     beleg: 05_Server/scripts/monitor.sh
   - wohin: eigener Gotify-Server von FehlerFuchs (Benachrichtigung auf das Telefon des Betreibers)
-    was: kurze Betriebsmeldung – Zahl der erreichbaren Endpunkte und laufenden Container, Störung oder Entwarnung; keine Nutzerdaten
+    was: kurze Betriebsmeldung - Zahl der erreichbaren Endpunkte und laufenden Container, Störung oder Entwarnung; keine Nutzerdaten
     wann: einmal täglich sowie bei Störung und Entwarnung
     freiwillig: false
     beleg: 05_Server/scripts/monitor.sh (gotify_push)
@@ -56,7 +56,7 @@ fremde_dienste:
   - name: Google (Firebase Cloud Messaging)
     wofuer: Zustellung des inhaltslosen Weck-Signals an Android-Geräte (content-blind); es wird das FCM-Gerätetoken als Zustelladresse und ein leeres Wecksignal übergeben
     wann: bei Gruppenänderung
-    hinweis: Google verarbeitet FCM-Token und Zustellmetadaten als Auftragsverarbeiter nach Art. 28 DSGVO. Grundlage sind die Firebase Data Processing and Security Terms; sie gelten als Teil des Firebase-Vertrags ohne gesonderte Unterschrift. Die Übermittlung in die USA stützt sich auf das EU-US Data Privacy Framework (Google LLC zertifiziert), die Standardvertragsklauseln dienen als Rückfall. Firebase verarbeitet dabei Firebase-Installations-IDs; Google speichert sie bis zur Löschung und entfernt sie danach binnen 180 Tagen auch aus Sicherungen. Belegstufe – laut Googles Firebase-Datenschutzseite und Firebase-Bedingungen, nachgesehen am 30.09.2026. Entscheidung Matthias vom 03.09.2026, bestätigt am 30.09.2026 (R1 – auf Googles eigene Einordnung gestützt, keine Rechtsberatung); eine anwaltliche Bestätigung ist optional.
+    hinweis: Google verarbeitet FCM-Token und Zustellmetadaten als Auftragsverarbeiter nach Art. 28 DSGVO. Grundlage sind die Firebase Data Processing and Security Terms; sie gelten als Teil des Firebase-Vertrags ohne gesonderte Unterschrift. Die Übermittlung in die USA stützt sich auf das EU-US Data Privacy Framework (Google LLC zertifiziert), die Standardvertragsklauseln dienen als Rückfall. Firebase verarbeitet dabei Firebase-Installations-IDs; Google speichert sie bis zur Löschung und entfernt sie danach binnen 180 Tagen auch aus Sicherungen. Belegstufe - laut Googles Firebase-Datenschutzseite und Firebase-Bedingungen, nachgesehen am 30.09.2026. Entscheidung Matthias vom 03.09.2026, bestätigt am 30.09.2026 (R1 - auf Googles eigene Einordnung gestützt, keine Rechtsberatung); eine anwaltliche Bestätigung ist optional.
   - name: IONOS
     wofuer: Hosting des Servers und Versand der Betriebsmeldungen
     wann: dauerhaft
@@ -81,14 +81,17 @@ loeschung: >-
   bestehen nur während der Übertragung. Der Epochen-Fence des Gruppen-Sync ist
   bewusst unbefristet: Sein Eintrag je Gruppenlinie wird nie gelöscht, weil er
   verhindert, dass eine fremde Stelle eine Gruppe übernimmt; er enthält nur
-  Kennung, Zahlen, öffentliche Schlüssel und einen Zeitpunkt, und die
-  Monatskopien seiner Sicherung werden ebenfalls nicht rotiert. Push-Meldungen verfallen nach
-  spätestens zwölf Stunden, Zugriffsprotokolle werden durch Rotation
-  überschrieben. Die FCM-Weck-Registry hält je Gerät einen pseudonymen
-  Eintrag, bis sich das Gerät abmeldet (dann sofort gelöscht) oder Google den
-  Token als ungültig meldet (dann automatisch entfernt). Es gibt keine
-  identitätsbehafteten Konten und damit keinen personenbezogenen Datenbestand,
-  der auf Antrag zu löschen wäre.
+  Kennung, Zahlen, öffentliche Schlüssel und einen Zeitpunkt und lässt sich
+  nicht einzeln löschen. Die Monatskopien seiner Sicherung werden ebenfalls
+  nicht rotiert. Push-Meldungen verfallen nach spätestens zwölf Stunden,
+  Zugriffsprotokolle werden nach Größe durch Rotation überschrieben. Die
+  FCM-Weck-Registry hält je Gerät einen pseudonymen Eintrag: Meldet sich das
+  Gerät in der App ab, wird er sofort gelöscht; meldet Google den Token als
+  ungültig, wird er automatisch entfernt; wurde er 90 Tage nicht erneuert
+  (die App erneuert ihn bei jedem Start), wird er automatisch gelöscht. Es gibt
+  keine identitätsbehafteten Konten und damit keinen personenbezogenen
+  Datenbestand, der auf Antrag einer Person zugeordnet und gelöscht werden
+  könnte.
 
 besonderheiten: >-
   Das Relais ist bewusst inhaltsblind: Die Nutzdaten werden bereits auf dem
@@ -96,24 +99,25 @@ besonderheiten: >-
   es anhand einer Zielkennung weiter. Es gibt keine identitätsbehafteten Konten
   und keine Mitgliederliste. Dauerhaft gespeichert werden nur zwei kleine,
   pseudonyme Bestände: die FCM-Token-Registry für die Weckfunktion
-  (Gerätekennung, FCM-Token, Gruppen-Hash) und der Epochen-Fence des
-  Gruppen-Sync (Kennung, Epoche, öffentliche Schlüssel, Zeitpunkt). Auch die FCM-Weckung selbst ist
-  content-blind: an Google geht nur der Anstoß zu synchronisieren, kein Inhalt.
-  Push (ntfy) läuft über eine selbst betriebene Instanz. Der Verwaltungszugang
-  für die interne Serverübersicht liefert ausschließlich aggregierte Zahlen
-  ohne Personenbezug. Die Zugriffsprotokolle enthalten seit dem 31.08.2026
-  keine Query-Parameter mehr.
+  (Gerätekennung, FCM-Token, Gruppen-Hash; höchstens 90 Tage ohne Erneuerung)
+  und der Epochen-Fence des Gruppen-Sync (Kennung, Epoche, öffentliche
+  Schlüssel, Zeitpunkt). Auch die FCM-Weckung selbst ist content-blind: an
+  Google geht nur der Anstoß zu synchronisieren, kein Inhalt. Push (ntfy) läuft
+  über eine selbst betriebene Instanz. Der Verwaltungszugang für die interne
+  Serverübersicht liefert ausschließlich aggregierte Zahlen ohne Personenbezug.
+  Die Zugriffsprotokolle enthalten seit dem 31.08.2026 keine Query-Parameter
+  mehr.
 
 vorhandener_text: 01_Konzept/Sicherheitskonzept.md
 
 offene_fragen: >-
   (1) Die Zugriffsprotokolle des Reverse-Proxy rotieren nach Größe und werden
-  nicht archiviert – eine feste Aufbewahrungsfrist in Tagen ist damit nicht
+  nicht archiviert - eine feste Aufbewahrungsfrist in Tagen ist damit nicht
   definiert. Die Query-Parameter (bei Sync-Verbindungen Gruppen- und
   Gerätekennung) werden seit dem 31.08.2026 nicht mehr protokolliert.
   (2) Unbekannt, ob und wie lange der Hoster auf Netzwerkebene eigene Protokolle
-  führt – das liegt außerhalb der eigenen Konfiguration.
-  (3) FCM/Google: Die Rolle ist entschieden (Matthias, 03.09.2026) – Google ist
+  führt - das liegt außerhalb der eigenen Konfiguration.
+  (3) FCM/Google: Die Rolle ist entschieden (Matthias, 03.09.2026) - Google ist
   Auftragsverarbeiter nach Art. 28 DSGVO, die Übermittlung in die USA stützt
   sich auf das EU-US Data Privacy Framework und die Standardvertragsklauseln.
   Offen ist nur noch eine optionale anwaltliche Bestätigung.
