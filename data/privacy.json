@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-03T07:14:47+02:00",
+  "generiert": "2026-10-03T15:14:47+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -207,9 +207,9 @@
     {
       "slug": "checkin-vita",
       "name": "CheckInVita",
-      "stand": "2026-10-02",
+      "stand": "2026-10-03",
       "geprueft_von": "23_CheckInVita",
-      "fassung": "0.2.0+1 – Android-Stand 02.10.2026, noch nicht veröffentlicht; Windows wird nicht ausgeliefert",
+      "fassung": "0.2.0+1 – Android-Stand 03.10.2026, noch nicht veröffentlicht; Windows wird nicht ausgeliefert",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -223,7 +223,7 @@
           "beleg": "lib/data/database/tables/"
         },
         {
-          "was": "Behandler-Kontakte, Impfungen, Rezeptanfragen, Mail-Verlauf, Kostenübernahmen",
+          "was": "Behandler-Kontakte, Rezeptanfragen, Mail-Verlauf, Kostenübernahmen",
           "wo": "lokale Datenbank (SQLite)",
           "beleg": "lib/data/database/app_database.dart"
         },
@@ -238,12 +238,7 @@
           "beleg": "lib/data/hive/app_config.dart"
         },
         {
-          "was": "selbst erzeugte Gerätekennung und Gerätename – nur für den Abgleich zwischen zwei eigenen Geräten",
-          "wo": "lokale Schlüssel-Wert-Ablage (Hive)",
-          "beleg": "lib/data/hive/app_config.dart (deviceId, deviceName)"
-        },
-        {
-          "was": "selbst aufgenommene oder ausgewählte Fotos zu Einträgen",
+          "was": "selbst aufgenommene oder ausgewählte Fotos (Fortschrittsfotos in vier Ansichten, an keinen Tageseintrag gebunden)",
           "wo": "app-privates Dateiverzeichnis",
           "beleg": "lib/data/documents/document_service.dart"
         },
@@ -253,21 +248,15 @@
           "beleg": "lib/data/documents/document_service.dart"
         },
         {
-          "was": "vom Nutzer selbst erzeugte Export-, Backup- und Abgleich-Dateien (CSV, Excel-Tabelle, ZIP-Backup mit Einträgen, Einstellungen, Fotos und PDFs, .cvsync)",
+          "was": "vom Nutzer selbst erzeugte Export- und Backup-Dateien (CSV, Excel-Tabelle, ZIP-Backup mit Einträgen, Einstellungen, Fotos und PDFs)",
           "wo": "vom Nutzer gewählter Speicherort",
           "beleg": "lib/shared/utils/file_share.dart, lib/data/backup/backup_service.dart (buildArchive)"
         }
       ],
       "berechtigungen": [
         {
-          "name": "Kamera",
-          "wofuer": "Foto zu einem Tagebuch-Eintrag aufnehmen",
-          "pflicht": false,
-          "beleg": "android/app/src/main/AndroidManifest.xml (CAMERA)"
-        },
-        {
           "name": "Benachrichtigungen",
-          "wofuer": "Erinnerungen an Injektion und Rezeptbestellung",
+          "wofuer": "Erinnerungen an Injektion und Rezeptbestellung (Uhrzeit, „Einen Tag vorher“ und Ausschalter stellt der Nutzer selbst ein; die Mitteilung nennt keinen Präparatnamen)",
           "pflicht": false,
           "beleg": "android/app/src/main/AndroidManifest.xml (POST_NOTIFICATIONS)"
         },
@@ -306,7 +295,7 @@
         {
           "wohin": "license.fehlerfuchs.eu",
           "was": "Betreff und Nachrichtentext; freiwillig Name und E-Mail-Adresse; App-Version und Betriebssystem-Bezeichnung; vom Nutzer bewusst ausgewählte Dateianhänge; auf ausdrückliche Zustimmung eine technische Diagnosedatei (nur App-Version, System, Zeitstempel)",
-          "wann": "nur wenn der Nutzer im Support-/Kontaktformular auf „Senden\" tippt",
+          "wann": "nur wenn der Nutzer im Support-/Kontaktformular auf „Senden“ tippt",
           "freiwillig": true,
           "beleg": "lib/data/support/support_service.dart (MultipartRequest auf /v1/contact)",
           "serverseitig": "Belegt von [11] Lizenzserver am 23.08.2026 für /v1/contact: kein Anfrageinhalt in der Datenbank; die IP-Adresse nur als kurzlebiger Redis-Schlüssel der Missbrauchsbremse; kein User-Agent; bei erfolgreicher Zustellung weder Anfrageinhalt noch IP im Protokoll. Der Inhalt geht als E-Mail an den konfigurierten Posteingang."
@@ -314,7 +303,7 @@
         {
           "wohin": "fehlerfuchs.eu",
           "was": "gewöhnlicher Seitenaufruf im externen Browser; es werden keine App-Daten übergeben",
-          "wann": "nur wenn der Nutzer im Über-Bildschirm „Solche Projekte unterstützen?\" antippt",
+          "wann": "nur wenn der Nutzer im Über-Bildschirm „Solche Projekte unterstützen?“ antippt",
           "freiwillig": true,
           "beleg": "lib/features/about/about_screen.dart (kUnterstuetzenUrl)"
         },
@@ -332,8 +321,10 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen auf dem Gerät. Einzelne Einträge lassen sich in der App löschen; unter Einstellungen entfernt „Alle Daten löschen\" sämtliche Einträge, Fotos, PDF-Dokumente, Stammdaten, Einstellungen und geplanten Erinnerungen unwiderruflich (Beleg: lib/data/maintenance/data_eraser.dart). Beim Deinstallieren der App verschwinden alle Daten mit. Selbst erzeugte Export-, Backup- und Abgleich-Dateien liegen dort, wo der Nutzer sie abgelegt hat, und muss er selbst löschen.",
-      "besonderheiten": "CheckInVita ist ein Gesundheits-Tagebuch und ausdrücklich kein Medizinprodukt nach MDR 2017/745; es findet keine Bewertung und keine Diagnose statt. Die erfassten Angaben können besonders schützenswerte Gesundheitsdaten nach Art. 9 DSGVO sein – sie bleiben ausschließlich lokal. Die Internet-Berechtigung besteht allein für das nutzerinitiierte Support-/Kontaktformular; ein automatischer Upload existiert nicht. Vor dem Anhängen von Dateien warnt die App ausdrücklich davor, sensible Gesundheitsdaten mitzuschicken. Der optionale Abgleich zwischen zwei eigenen Geräten läuft über eine Datei, die der Nutzer selbst per Kabel kopiert – ohne Server und ohne Netzverbindung; die Datei ist unverschlüsselt, worauf die App vor jedem Export hinweist. Auf eine Berechtigung für den Fotospeicher wird bewusst verzichtet: Bilder aus der Galerie werden über den Auswahldialog des Systems ausgewählt, die App erhält dabei keinen Zugriff auf die übrigen Fotos. Ebenso wird keine Berechtigung für exakte Weckzeiten angefordert; Erinnerungen können daher um einige Minuten abweichen. Stand 02.10.2026: Die App ist von der automatischen Android-Sicherung (Cloud) und von der automatischen Übertragung auf ein neues Gerät ausgenommen (allowBackup=false, Ausschlussregeln; Beleg: android/app/src/main/AndroidManifest.xml und res/xml/*; auf einem Test-Emulator gemessen: „Backup is not allowed\"). Wer das Gerät wechselt, nutzt das ZIP-Backup oder den Sync-Abgleich. Das ZIP-Backup enthält Einträge, Einstellungen, Fotos und PDFs und ist unverschlüsselt. Die App-Sperre (Biometrie/Geräte-PIN) öffnet nur bei erfolgreicher Prüfung; bei Abbruch oder Fehler bleibt die App gesperrt.",
+      "loeschung": "Alle Daten liegen auf dem Gerät. Einzelne Einträge lassen sich in der App löschen; unter Einstellungen entfernt „Alle Daten löschen“ sämtliche Erinnerungen unwiderruflich. Beim Deinstallieren der App verschwinden alle Daten mit. Selbst erzeugte Export- und Backup-Dateien liegen dort, wo der Nutzer sie abgelegt hat; sie müssen von ihm selbst gelöscht werden.",
+      "loeschung_beleg": "lib/data/maintenance/data_eraser.dart",
+      "besonderheiten": "CheckInVita ist ein Gesundheits-Tagebuch und ausdrücklich kein Medizinprodukt nach MDR 2017/745; es findet keine Bewertung und keine Diagnose statt. Die erfassten Angaben können besonders schützenswerte Gesundheitsdaten nach Art. 9 DSGVO sein – sie bleiben ausschließlich lokal. Die Internet-Berechtigung besteht allein für das nutzerinitiierte Support-/Kontaktformular; ein automatischer Upload existiert nicht. Vor dem Anhängen von Dateien warnt die App ausdrücklich davor, sensible Gesundheitsdaten mitzuschicken. Export- und Backup-Dateien überträgt der Nutzer selbst – ohne Server und ohne Netzverbindung; sie sind unverschlüsselt, worauf die App vor jedem Export hinweist. Die App hat keine Kamera-Berechtigung: Ein Fortschrittsfoto nimmt die Kamera-App des Geräts auf, die App erhält nur das fertige Bild. Auf eine Berechtigung für den Fotospeicher wird bewusst verzichtet: Bilder aus der Galerie werden über den Auswahldialog des Systems ausgewählt, die App erhält dabei keinen Zugriff auf die übrigen Fotos. Ebenso wird keine Berechtigung für exakte Weckzeiten angefordert; Erinnerungen können daher um einige Minuten abweichen. Stand 02.10.2026: Die App ist von der automatischen Android-Sicherung (Cloud) und von der automatischen Übertragung auf ein neues Gerät ausgenommen (allowBackup=false, Ausschlussregeln; auf einem Test-Emulator gemessen: „Backup is not allowed“). Wer das Gerät wechselt, nutzt das ZIP-Backup; einen Abgleich zwischen zwei Geräten gibt es nicht (seit 02.10.2026 aus der App entfernt). Das ZIP-Backup enthält Einträge, Einstellungen, Fotos und PDFs und ist unverschlüsselt. Die App-Sperre (Biometrie/Geräte-PIN) öffnet nur bei erfolgreicher Prüfung; bei Abbruch oder Fehler bleibt die App gesperrt.",
+      "besonderheiten_beleg": "android/app/src/main/AndroidManifest.xml und android/app/src/main/res/xml/*",
       "vorhandener_text": "lib/features/legal/legal_screen.dart (kPrivacyText und kImpressumText, vollständig offline, Wortlaut von Matthias bestätigt 02.10.2026, Logbuch",
       "offene_fragen": "Für die Windows-Fassung ist noch nicht abschließend entschieden, ob sie bei Veröffentlichung eine Aktualisierungsprüfung erhält; heute enthält sie keine. Veröffentlichung eine Aktualisierungsprüfung erhält; heute enthält sie keine.",
       "art": "anwendung"
