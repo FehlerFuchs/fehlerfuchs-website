@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-02T17:05:30+02:00",
+  "generiert": "2026-10-03T07:14:47+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -622,7 +622,7 @@
       "name": "GewerbePro",
       "fullName": "FehlerFuchs GewerbePro",
       "seoTitel": "GewerbePro – Rechnungsprogramm fürs Kleingewerbe, ohne Abo",
-      "seoBeschreibung": "Büro- und Rechnungsprogramm für Kleingewerbe und Kleinunternehmer: Angebote, Rechnungen, E-Rechnung (ZUGFeRD/XRechnung), EÜR – lokal, ohne Cloud, ohne Abo.",
+      "seoBeschreibung": "Rechnungsprogramm fürs Kleingewerbe – Grundversion kostenlos: Kunden, Angebote, Rechnungen, EÜR. Pro mit E-Rechnung (ZUGFeRD/XRechnung). Lokal, ohne Abo.",
       "tags": [
         "Rechnung",
         "E-Rechnung",
