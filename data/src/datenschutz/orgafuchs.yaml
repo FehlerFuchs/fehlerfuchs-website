@@ -1,35 +1,62 @@
 slug: orgafuchs
 name: OrgaFuchs
-stand: "2026-09-27"
+stand: "2026-10-01"
 geprueft_von: 32_OrgaFuchs
+# NACHTRAG 01.10.2026 17:36 ([32]): 1.9.7 (29) live seit 01.10. 14:26 (P5 [FF_13]); fassung nachgezogen.
+# NACHTRAG 01.10.2026 13:40 ([32]): 1.9.6 (28) eingereicht 12:50, von Matthias angehalten, wird durch 1.9.7 (29) ersetzt;
+# NACHTRAG 01.10.2026 13:37 ([32]): fassung auf 1.9.7 (29) vorbereitet; 1.9.7 aendert nur das
+# Wiederholverhalten ohne erreichbares Hauptgeraet, keine Uebertragung neu oder anders.
+# BERICHTIGUNG 01.10.2026 12:35 ([32], Frage [FF_13] zu Diagnosedaten): Kontaktformular sendet die
+# Geraetebezeichnung NICHT immer, sondern nur in der optionalen Diagnosedatei (kontakt_page.dart: Feld
+# geraet bleibt leer; diagnose.dart sammeln()). Inhalt der Diagnosedatei aufgezaehlt.
+# NACHTRAG 01.10.2026 12:15 ([32], Entscheidung Matthias A #4028 und B #4079/#4080): ab Android 1.9.6
+# (versionCode 28, Commit 09edf55) startet Firebase NUR nach Einwilligung (FirebaseInitProvider entfernt,
+# firebase_messaging_auto_init_enabled=false). GEMESSEN mit Release-APK 1.9.6+28 auf AVD, Erststart nach
+# "Daten loeschen" ohne Einwilligung: 0 Verbindungen der App (Socketliste UID 10209, Protokoll-Proxy),
+# Firebase nicht gestartet; mit Einwilligung (Build 27, gleiches Manifest) startet Firebase, Weckruf
+# zugestellt. Steckbrief damit zurueck auf "nur mit Einwilligung"; der Stand bis 1.9.5 bleibt als
+# Geschichte vermerkt. Sicherung: 32_OrgaFuchs\99_Logs\Sicherungen\orgafuchs.yaml.vor-1.9.6_2026-10-01
+# NACHTRAG 01.10.2026 ([32], Baufreigabe [FF_00] KS-2026-10-01-01, Entscheidung Matthias A #4012, B8):
+# Weckweg vollstaendig abgebildet und GEMESSEN (Release-APK 1.9.5+26 auf AVD, Erststart nach
+# "Daten loeschen", ohne Einwilligung, Mitschnitt ueber Protokoll-Proxy + Socketliste der App-UID):
+# (1) NEU unter uebertragungen: einmalige Firebase-Anmeldung bei Google (firebaseinstallations.
+#     googleapis.com) beim ERSTEN Start - auch ohne eingeschaltete Benachrichtigungen. Gemessen
+#     08:31:33 Start, 08:31:35 Verbindung, 1386 B hoch / 4770 B runter (TLS, Inhalt nicht eingesehen);
+#     zweiter Start: keine Verbindung. Abstellung liegt als Vorlage bei Matthias (nicht umgesetzt).
+# (2) NEU unter uebertragungen: Anmeldung beim Relais fuer den Weckruf (Geraetekennung, Push-Kennung,
+#     Gruppen-Hash, Geraeteschluessel-Kennung) - lib/services/fcm_dienst.dart:147-203.
+# (3) Googles Rolle nach relaisserver.yaml (Stand 30.09.2026, [FF_11-2]): Auftragsverarbeiter, DPF,
+#     Standardvertragsklauseln als Rueckfall; Firebase-Installations-IDs bis Loeschung, danach 180 Tage.
+# (4) fassung auf den ausgelieferten Stand Android 1.9.5 (26) / Windows 1.9.3 (24).
+# Sicherung: 32_OrgaFuchs\99_Logs\Sicherungen\orgafuchs.yaml.vor-Weckweg_2026-10-01
 # PRUEFUNG 25.09.2026 ([32], Auftrag [10] + Bautag): Umlaute im Fliesstext (S1) und INHALT gegen den
-# gebauten Stand 1.9.3+22 (Commit 3d95ba2) gemessen – zusammengefuehrtes Release-Manifest (aapt2 dump
+# gebauten Stand 1.9.3+22 (Commit 3d95ba2) gemessen - zusammengefuehrtes Release-Manifest (aapt2 dump
 # permissions) + Code. Berichtigt: (1) Kalender-Berechtigung READ/WRITE_CALENDAR fehlte (seit 1.8.0,
 # lokaler Geraetekalender, opt-in); (2) FOREGROUND_SERVICE_SHORT_SERVICE fehlte (Baustein workmanager,
 # Wiederbeleber alle 30 min bei Netz); (3) ACCESS_WIFI_STATE ist NICHT mehr im Manifest, ACCESS_NETWORK_STATE
 # kommt von connectivity_plus; (4) Heimnetz-/LAN-Sync (HTTP 7842) und Gruppen-Passwort sind ENTFERNT
-# (lib/features/sync/sync_page.dart:17, ofsp_pairing_page.dart:19) – Kopplung nur per QR-Einladung (OFSP);
+# (lib/features/sync/sync_page.dart:17, ofsp_pairing_page.dart:19) - Kopplung nur per QR-Einladung (OFSP);
 # (5) Relais ist in der App NICHT einstellbar (fest orgafuchs.relais.fehlerfuchs.eu,
-# orgafuchs_kern/lib/sync/protocol/ofsp_transport.dart:28; providers.dart:42 ohne endpoint) – frei
+# orgafuchs_kern/lib/sync/protocol/ofsp_transport.dart:28; providers.dart:42 ohne endpoint) - frei
 # einstellbar ist nur der Push-Server (ntfy); (6) fassung auf 1.9.3. Belege nur bei geaenderten Eintraegen
 # nachgezogen; die uebrigen Zeilenangaben stammen aus 1.6.x (Kernpaket-Umbau 22.09.) und sind nicht neu geprueft.
 # PRUEFUNG 23.08.2026: Telefonnummer gemaess Vorgabe aus dem In-App-Impressum entfernt;
 # Anschrift, E-Mail und Verweis auf das vollstaendige Online-Impressum bleiben vorhanden.
 # NACHTRAG 1.6.0/1.6.1 (14./15.08.2026): KEIN neues Uebertragungsziel, KEINE neue
 # Datenkategorie, KEINE Weitergabe an Dritte. Relevante Aenderungen:
-#  - „Nachricht an alle“ (frueher „Erinnerung an alle“): kurze Klartext-Nachrichten an die
+#  - "Nachricht an alle" (frueher "Erinnerung an alle"): kurze Klartext-Nachrichten an die
 #    Gruppe reisen ENDE-ZU-ENDE ueber den bereits gelisteten Relais-Kanal (im verschluesselten
-#    Umschlag, wie Plan-/Termindaten) – NICHT ueber Google. Der FCM-Weckruf bleibt inhaltslos.
-#    Ein „Postfach“ macht empfangene Nachrichten lokal im Nachgang lesbar (kein Netz, kein
+#    Umschlag, wie Plan-/Termindaten) - NICHT ueber Google. Der FCM-Weckruf bleibt inhaltslos.
+#    Ein "Postfach" macht empfangene Nachrichten lokal im Nachgang lesbar (kein Netz, kein
 #    neues Ziel). -> unter uebertragungen (Relais) mit aufgenommen.
 #  - FCM ist seit 1.5.0 gelistet (Weck-Push, inhaltslos, nur Android, nur bei eingeschalteten
-#    Benachrichtigungen) – unveraendert gueltig. Der veraltete „kein Firebase“-Stand betrifft nur
+#    Benachrichtigungen) - unveraendert gueltig. Der veraltete "kein Firebase"-Stand betrifft nur
 #    aeltere Webseiten-Kopien; DIESE Fassung bildet FCM korrekt ab.
 #  - Windows 1.6.1 signiert + veroeffentlicht (GitHub-Release orgafuchs-v1.6.1); Android 1.6.1 im
 #    Play-Rollout.
 # NACHTRAG 1.4.5 (12.08.2026): Die Windows-Fassung erhaelt eine In-App-Update-
 # Pruefung. NEUES UEBERTRAGUNGSZIEL github.com/api.github.com (nur Windows):
-# Abruf der oeffentlichen Versionsliste und – auf Nutzerwunsch – Download der
+# Abruf der oeffentlichen Versionsliste und - auf Nutzerwunsch - Download der
 # signierten Setup-Datei; KEINE Nutzerinhalte, GitHub sieht technisch die IP.
 # Geprueft wird beim Start hoechstens einmal taeglich sowie manuell ueber "Nach
 # Updates suchen". Die heruntergeladene Datei wird vor dem Start fail-closed
@@ -37,12 +64,12 @@ geprueft_von: 32_OrgaFuchs
 # Store). Aufgenommen unter uebertragungen, fremde_dienste und berechtigungen.
 # 19.07.2026, zweite Fassung des Tages: technische Angaben (Dateinamen,
 # Bezeichner, Portangabe, Schaltervariablen) aus den veroeffentlichten Feldern
-# entfernt; sachlich unveraendert, die Belege stehen weiterhin in „beleg“.
+# entfernt; sachlich unveraendert, die Belege stehen weiterhin in "beleg".
 # 27.09.2026 ([32], ST-1): fassung/stand auf den AUSGELIEFERTEN Stand 1.9.3
 # (versionCode 24; Windows 25.09. 21:29, Google Play 25.09. 22:18) gezogen;
 # Zeichen nach Befund 16 von [10] („…“, Gedankenstrich „ – “). Sachlich
 # unveraendert. Sicherung: 32_OrgaFuchs\99_Logs\Sicherungen\.
-fassung: "1.9.3 (versionCode 24), ausgeliefert am 25.09.2026 für Windows und Google Play. Gegenüber der früheren Fassung 1.6.1 neu bzw. geändert: optionale Anzeige der Dienste und Termine in einem eigenen, rein lokalen Gerätekalender (nur Android, Kalender-Berechtigung, nichts verlässt das Gerät); der frühere Abgleich direkt im Heimnetz und das Gruppen-Passwort sind entfernt – Geräte werden nur noch per QR-Einladung gekoppelt und gleichen Ende-zu-Ende-verschlüsselt über das Relais ab. Kein neues Übertragungsziel, keine Weitergabe an Dritte. Frühere Fassung: 1.6.1 (versionCode 15): Windows signiert+veröffentlicht (Release orgafuchs-v1.6.1), Android 1.6.1 im Play-Rollout. Enthält Firebase Cloud Messaging (Google) als inhaltslosen Weck-Push (seit 1.5.0; nur Android, nur bei eingeschalteten Benachrichtigungen), Windows-Update-Prüfung (github.com) sowie NEU „Nachricht an alle“ + Postfach: kurze Klartext-Nachrichten an die Gruppe reisen Ende-zu-Ende über den Relais-Kanal (NICHT über Google), Postfach zeigt sie lokal im Nachgang. KEIN neues Übertragungsziel/keine neue Datenkategorie ggü. 1.5.0. Play-Data-Safety unverändert (Firebase/Gerätekennungen bereits deklariert)."
+fassung: "Android 1.9.7 (versionCode 29), bei Google Play seit 01.10.2026 (14:26); sie ersetzt 1.9.6 (versionCode 28), deren Veröffentlichung angehalten und verworfen wurde – 1.9.6 hat keine Nutzer erreicht. Mit 1.9.7: Firebase meldet sich erst nach der Einwilligung bei Google an; ein neu angelegtes Hauptgerät weckt die anderen Geräte sofort; ist das Hauptgerät nicht erreichbar, fragen die anderen Geräte seltener nach. Keine neue Datenart, kein neues Übertragungsziel. Ausgeliefert: Android 1.9.5 (versionCode 26), bei Google Play seit 30.09.2026; Windows 1.9.3 (versionCode 24) seit 25.09.2026. Android 1.9.4 und 1.9.5 bringen Korrekturen an Abgleich, Startbildschirm-Widgets und lokalem Gerätekalender – kein neues Übertragungsziel. Am 01.10.2026 neu erfasst und gemessen: Beim ersten Start meldet sich die App einmal bei Google Firebase an, auch ohne eingeschaltete Benachrichtigungen (siehe Übertragungen); die Anmeldung des Geräts beim Relais für den Weckruf ist jetzt eigens aufgeführt. Frühere Fassung: 1.9.3 (versionCode 24), ausgeliefert am 25.09.2026 für Windows und Google Play. Gegenüber der früheren Fassung 1.6.1 neu bzw. geändert: optionale Anzeige der Dienste und Termine in einem eigenen, rein lokalen Gerätekalender (nur Android, Kalender-Berechtigung, nichts verlässt das Gerät); der frühere Abgleich direkt im Heimnetz und das Gruppen-Passwort sind entfernt – Geräte werden nur noch per QR-Einladung gekoppelt und gleichen Ende-zu-Ende-verschlüsselt über das Relais ab. Kein neues Übertragungsziel, keine Weitergabe an Dritte. Frühere Fassung: 1.6.1 (versionCode 15): Windows signiert+veröffentlicht (Release orgafuchs-v1.6.1), Android 1.6.1 im Play-Rollout. Enthält Firebase Cloud Messaging (Google) als inhaltslosen Weck-Push (seit 1.5.0; nur Android, nur bei eingeschalteten Benachrichtigungen), Windows-Update-Prüfung (github.com) sowie NEU „Nachricht an alle“ + Postfach: kurze Klartext-Nachrichten an die Gruppe reisen Ende-zu-Ende über den Relais-Kanal (NICHT über Google), Postfach zeigt sie lokal im Nachgang. KEIN neues Übertragungsziel/keine neue Datenkategorie ggü. 1.5.0. Play-Data-Safety unverändert (Firebase/Gerätekennungen bereits deklariert)."
 # Pruefvermerk 01.08.2026: Steckbrief weiterhin gueltig fuer den veroeffentlichungsreifen
 # Stand 1.0.0. Interne Weiterentwicklung (Host-Uebergabe, geplanter Notfall-Recovery) laeuft
 # ueber die bereits gelisteten Kanaele (Relais bleibt Ende-zu-Ende-verschluesselt/inhaltsblind)
@@ -59,8 +86,8 @@ fassung: "1.9.3 (versionCode 24), ausgeliefert am 25.09.2026 für Windows und Go
 #    vorhanden), aber NEUE ANZEIGEFLAECHE: Inhalte sind fuer andere am Geraet sichtbar und liegen
 #    im lokalen App-/Widget-Speicher (kein Netz, keine Cloud). -> unter auf_dem_geraet + besonder-
 #    heiten aufnehmen.
-#  - Kiosk „Bildschirm eingeschaltet lassen“ (Paket wakelock_plus): haelt nur das Display wach;
-#    bereits vorhandene WAKE_LOCK-Berechtigung, jetzt aktiv genutzt (wofuer bei „Geraet wachhalten“
+#  - Kiosk "Bildschirm eingeschaltet lassen" (Paket wakelock_plus): haelt nur das Display wach;
+#    bereits vorhandene WAKE_LOCK-Berechtigung, jetzt aktiv genutzt (wofuer bei "Geraet wachhalten"
 #    ergaenzen). Keine Datenuebertragung.
 #  - Windows-Hintergrundbetrieb (Tray, Pakete window_manager/tray_manager): reine Desktop-UI,
 #    keine Android-Berechtigung, keine neue Uebertragung.
@@ -163,7 +190,7 @@ berechtigungen:
 uebertragungen:
   - wohin: fehlerfuchs.eu
     was: Abruf der Schulferien des eingestellten Bundeslandes (Download einer öffentlichen JSON-Datei); gesendet wird nur die Anfrage selbst, keine Nutzerinhalte
-    wann: beim App-Start automatisch, höchstens etwa einmal im Monat, sobald ein Bundesland eingestellt ist; zusätzlich manuell über „Feiertage & Ferien aktualisieren“
+    wann: beim App-Start automatisch, höchstens etwa einmal im Monat, sobald ein Bundesland eingestellt ist; zusätzlich manuell über "Feiertage & Ferien aktualisieren"
     freiwillig: false
     beleg: lib/services/schulferien.dart:29+85-96, lib/providers.dart:172-183, lib/features/home/home_shell.dart:32
   - wohin: orgafuchs.relais.fehlerfuchs.eu (fest eingestellt, von FehlerFuchs betrieben)
@@ -172,12 +199,12 @@ uebertragungen:
     freiwillig: true
     beleg: orgafuchs_kern/lib/sync/protocol/ofsp_transport.dart:28-31 (productionEndpoint), lib/providers.dart:42, lib/features/sync/ofsp_pairing_page.dart:75
   - wohin: ntfy.relais.fehlerfuchs.eu (Vorbelegung), wahlweise ntfy.sh oder eine selbst eingetragene Adresse
-    was: Benachrichtigungssignal „es gibt Änderungen“ samt Themenkennung; keine Planinhalte
+    was: Benachrichtigungssignal "es gibt Änderungen" samt Themenkennung; keine Planinhalte
     wann: nur wenn der Nutzer Push einschaltet (ab Werk aus)
     freiwillig: true
     beleg: lib/services/push_ntfy.dart, lib/core/server_dropdown.dart:107-108, lib/services/push_controller.dart:30-31
   - wohin: license.fehlerfuchs.eu
-    was: Support-/Kontaktformular – eingegebene Nachricht, optional Name und E-Mail, dazu App-Name, Version, Betriebssystem, Gerätebezeichnung und optional angehängte Diagnose-/Protokolldateien
+    was: Support-/Kontaktformular – eingegebene Nachricht, optional Name und E-Mail, dazu App-Name, Version und Betriebssystem. Nur wenn der Schalter „Technische Diagnose anhängen“ eingeschaltet ist (ab Werk aus), zusätzlich eine Diagnosedatei mit Gerätemodell, Android-Version, Prozessorarchitektur, Sprache, Zeitzone, Bildschirmgröße, Sync-Rolle, Push an/aus, Design und die letzten Einträge des Fehlerprotokolls der App; keine Namen, keine Planinhalte, kein Standort
     wann: nur wenn der Nutzer das Formular absendet
     freiwillig: true
     beleg: lib/services/kontakt_service.dart:20-58, lib/features/info/kontakt_page.dart
@@ -188,14 +215,24 @@ uebertragungen:
     beleg: lib/features/info/info_page.dart:13-17
   - wohin: github.com / api.github.com (nur Windows-Fassung)
     was: Abruf der öffentlichen Versionsliste der FehlerFuchs-Downloads und – auf Nutzerwunsch – Download der signierten Setup-Datei; gesendet wird nur die Anfrage, keine Nutzerinhalte (GitHub sieht technisch die IP-Adresse)
-    wann: nur in der Windows-Fassung; beim App-Start höchstens einmal täglich sowie manuell über „Nach Updates suchen“. Die Android-Fassung aktualisiert über den Play Store und baut dafür keine eigene Verbindung auf
+    wann: nur in der Windows-Fassung; beim App-Start höchstens einmal täglich sowie manuell über "Nach Updates suchen". Die Android-Fassung aktualisiert über den Play Store und baut dafür keine eigene Verbindung auf
     freiwillig: false
     beleg: lib/services/update_service.dart, lib/services/update_ui.dart, lib/features/info/info_page.dart, lib/features/home/home_screen.dart
   - wohin: Firebase Cloud Messaging / Google (nur Android)
-    was: Registrierung des Geräts mit einer Push-Kennung bei Google und Empfang reiner Weck-Nachrichten; KEINE Termine/Namen/Planinhalte (nur Signal „es gibt Änderungen“). Google sieht technisch die Push-Kennung, die IP-Adresse und den Zeitpunkt
+    was: Registrierung des Geräts mit einer Push-Kennung bei Google und Empfang reiner Weck-Nachrichten; KEINE Termine/Namen/Planinhalte (nur Signal "es gibt Änderungen"). Google sieht technisch die Push-Kennung, die IP-Adresse und den Zeitpunkt
     wann: nur wenn Benachrichtigungen eingeschaltet sind; die Wecknachricht löst das Relais aus, nicht die App
     freiwillig: true
     beleg: lib/services/fcm_dienst.dart, android/app/google-services.json, android/app/src/main/AndroidManifest.xml
+  - wohin: orgafuchs.relais.fehlerfuchs.eu – Weckdienst (nur Android, von FehlerFuchs betrieben)
+    was: Anmeldung des Geräts für den Weckruf – eine in der App erzeugte Gerätekennung, die Push-Kennung von Google, ein Prüfwert (Hash) der Gruppenkennung und die Kennung des Geräteschlüssels (damit das auslösende Gerät sich nicht selbst weckt); keine Namen, keine Inhalte. Beim Ausschalten der Benachrichtigungen meldet sich das Gerät ab, der Eintrag wird gelöscht
+    wann: nur wenn Benachrichtigungen eingeschaltet sind und das Gerät mit anderen verbunden ist; erneut, wenn Google die Push-Kennung wechselt
+    freiwillig: true
+    beleg: lib/services/fcm_dienst.dart:147-203 (Anmelden/Abmelden), Dienst-Steckbrief relaisserver.yaml (FCM-Weck-Registry)
+  - wohin: Google Firebase (firebaseinstallations.googleapis.com, nur Android)
+    was: Anmeldung der App-Installation bei Firebase – eine zufällig erzeugte Installationskennung zusammen mit der Kennung der App; keine Termine, Namen oder Planinhalte. Google sieht technisch die IP-Adresse und den Zeitpunkt
+    wann: ab Version 1.9.6 erst, wenn Benachrichtigungen eingeschaltet werden (Einwilligung); vorher keine Verbindung zu Google. Bis einschließlich 1.9.5 geschah die Anmeldung einmalig beim ersten Start, auch ohne Einwilligung
+    freiwillig: true
+    beleg: Messung 01.10.2026 auf Emulator, Erststart ohne Einwilligung - 1.9.5+26 eine Verbindung zu firebaseinstallations.googleapis.com 2 s nach dem Start; 1.9.6+28 keine Verbindung der App (Protokoll-Proxy, Socketliste der App). Ab 1.9.6 im Manifest kein FirebaseInitProvider, firebase_messaging_auto_init_enabled=false; Firebase startet nur in lib/services/fcm_dienst.dart (initialisieren, nur mit Einwilligung) bzw. im Hintergrund-Handler einer Wecknachricht
 
 fremde_dienste:
   - name: Google ML Kit – Barcode Scanning (mitgeliefertes Modell, über die Bibliothek mobile_scanner)
@@ -209,7 +246,8 @@ fremde_dienste:
     wann: nur bei der Windows-Update-Prüfung (automatisch höchstens täglich beim Start oder manuell)
   - name: Firebase Cloud Messaging (Google) – zuverlässiger Weck-Push (nur Android)
     wofuer: weckt die App aus Doze/geschlossenem Zustand für den Empfang von Änderungen; das Gerät registriert sich mit einer Push-Kennung bei Google. In der Nachricht KEINE Termine/Namen/Planinhalte (nur Wecksignal) – der eigentliche Abgleich bleibt Ende-zu-Ende-verschlüsselt über das Relais
-    wann: nur bei eingeschalteten Benachrichtigungen (Android)
+    wann: nur bei eingeschalteten Benachrichtigungen (Android); ab Version 1.9.6 gilt das auch für die Anmeldung bei Firebase (bis 1.9.5 einmalig beim ersten Start, siehe Übertragungen)
+    hinweis: Google verarbeitet Push-Kennung, Installationskennung und Zustelldaten als Auftragsverarbeiter nach Art. 28 DSGVO auf Grundlage der Firebase Data Processing and Security Terms. Die Übermittlung in die USA stützt sich auf das EU-US Data Privacy Framework, Standardvertragsklauseln dienen als Rückfall. Google speichert Firebase-Installationskennungen bis zur Löschung und entfernt sie danach binnen 180 Tagen auch aus Sicherungen. Belegstufe - laut Googles Firebase-Datenschutzseite und Firebase-Bedingungen, übernommen aus dem Dienst-Steckbrief relaisserver.yaml (Stand 30.09.2026); Entscheidung Matthias vom 03.09.2026, bestätigt am 30.09.2026 (keine Rechtsberatung)
   - name: Kein Google-Konto, kein Analytics, kein Play Billing, keine Karten, keine Schriften aus dem Netz
     wofuer: nicht eingebunden (App ist kostenlos, keine In-App-Käufe). Firebase wird ausschließlich für den Weck-Push genutzt (s. o.), NICHT für Analytics/Werbung/Tracking
     wann: entfällt
@@ -223,15 +261,18 @@ daten_an_dritte_verkauft: false
 loeschung: >-
   Alle Inhalte liegen auf dem Gerät. Einzelne Einträge, Personen und Dienste
   lassen sich in der App löschen; der Einrichtungsassistent kann im Modus
-  „Komplett neu“ den gesamten Bestand zurücksetzen. Mit der Deinstallation
+  "Komplett neu" den gesamten Bestand zurücksetzen. Mit der Deinstallation
   verschwinden Datenbank, Protokolle, PDF-Ablage und Sicherungen im App-Ordner.
   Beim Abgleich über das Relais liegen dort nur verschlüsselte, kurzlebige Nachrichten;
   ohne die Schlüssel der Familiengruppe sind sie nicht lesbar. Über das Support-Formular
-  gesendete Nachrichten werden auf Anfrage per E-Mail gelöscht.
+  gesendete Nachrichten werden auf Anfrage per E-Mail gelöscht. Die Anmeldung für den
+  Weckruf beim Relais wird beim Ausschalten der Benachrichtigungen gelöscht; ungültige
+  Push-Kennungen entfernt das Relais selbst. Firebase-Installationskennungen speichert
+  Google bis zur Löschung und entfernt sie danach binnen 180 Tagen auch aus Sicherungen.
 
 besonderheiten: >-
   Der Abgleich zwischen mehreren Geräten kommt ohne Konto und ohne
-  Registrierung aus: Ein Gerät ist „Hauptgerät“, weitere treten über eine
+  Registrierung aus: Ein Gerät ist "Hauptgerät", weitere treten über eine
   QR-Einladung des Hauptgeräts bei, die mit einem Kurzcode bestätigt wird. Die
   Einladung überträgt die Schlüssel für die Ende-zu-Ende-Verschlüsselung; das
   Relais sieht daher nur verschlüsselte Daten sowie Gruppen- und Gerätekennungen
@@ -265,3 +306,7 @@ offene_fragen: >-
   4) Nicht geprüft, ob die dem Support-Formular optional angehängte
   Diagnosedatei in Einzelfällen Inhalte aus Dienstplänen enthalten kann; sie ist
   als rein technische Zusammenfassung angelegt (lib/core/diagnose/diagnose.dart).
+  5) Bis 1.9.5 bereits angelegte Firebase-Installationskennungen bleiben bei
+  Google, bis Google sie nach seinen Regeln löscht; die App löscht sie nicht
+  von sich aus. Ab 1.9.6 entsteht ohne Einwilligung keine neue Kennung
+  (gemessen 01.10.2026).
