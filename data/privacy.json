@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-03T15:14:47+02:00",
+  "generiert": "2026-10-03T15:57:14+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -321,7 +321,7 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen auf dem Gerät. Einzelne Einträge lassen sich in der App löschen; unter Einstellungen entfernt „Alle Daten löschen“ sämtliche Erinnerungen unwiderruflich. Beim Deinstallieren der App verschwinden alle Daten mit. Selbst erzeugte Export- und Backup-Dateien liegen dort, wo der Nutzer sie abgelegt hat; sie müssen von ihm selbst gelöscht werden.",
+      "loeschung": "Alle Daten liegen auf dem Gerät. Einzelne Einträge lassen sich in der App löschen; unter Einstellungen entfernt „Alle Daten löschen“ sämtliche Einträge, Fotos, PDF-Dokumente, Stammdaten, Einstellungen und geplanten Erinnerungen unwiderruflich. Beim Deinstallieren der App verschwinden alle Daten mit. Selbst erzeugte Export- und Backup-Dateien liegen dort, wo der Nutzer sie abgelegt hat; sie müssen von ihm selbst gelöscht werden.",
       "loeschung_beleg": "lib/data/maintenance/data_eraser.dart",
       "besonderheiten": "CheckInVita ist ein Gesundheits-Tagebuch und ausdrücklich kein Medizinprodukt nach MDR 2017/745; es findet keine Bewertung und keine Diagnose statt. Die erfassten Angaben können besonders schützenswerte Gesundheitsdaten nach Art. 9 DSGVO sein – sie bleiben ausschließlich lokal. Die Internet-Berechtigung besteht allein für das nutzerinitiierte Support-/Kontaktformular; ein automatischer Upload existiert nicht. Vor dem Anhängen von Dateien warnt die App ausdrücklich davor, sensible Gesundheitsdaten mitzuschicken. Export- und Backup-Dateien überträgt der Nutzer selbst – ohne Server und ohne Netzverbindung; sie sind unverschlüsselt, worauf die App vor jedem Export hinweist. Die App hat keine Kamera-Berechtigung: Ein Fortschrittsfoto nimmt die Kamera-App des Geräts auf, die App erhält nur das fertige Bild. Auf eine Berechtigung für den Fotospeicher wird bewusst verzichtet: Bilder aus der Galerie werden über den Auswahldialog des Systems ausgewählt, die App erhält dabei keinen Zugriff auf die übrigen Fotos. Ebenso wird keine Berechtigung für exakte Weckzeiten angefordert; Erinnerungen können daher um einige Minuten abweichen. Stand 02.10.2026: Die App ist von der automatischen Android-Sicherung (Cloud) und von der automatischen Übertragung auf ein neues Gerät ausgenommen (allowBackup=false, Ausschlussregeln; auf einem Test-Emulator gemessen: „Backup is not allowed“). Wer das Gerät wechselt, nutzt das ZIP-Backup; einen Abgleich zwischen zwei Geräten gibt es nicht (seit 02.10.2026 aus der App entfernt). Das ZIP-Backup enthält Einträge, Einstellungen, Fotos und PDFs und ist unverschlüsselt. Die App-Sperre (Biometrie/Geräte-PIN) öffnet nur bei erfolgreicher Prüfung; bei Abbruch oder Fehler bleibt die App gesperrt.",
       "besonderheiten_beleg": "android/app/src/main/AndroidManifest.xml und android/app/src/main/res/xml/*",
