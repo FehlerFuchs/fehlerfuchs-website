@@ -4,15 +4,15 @@ fullName: FehlerFuchs OrgaFuchs
 # SEO (2026-08-09): Windows (signiert, 1.9.3) + Android seit 08.08. verfügbar.
 seoTitel: "OrgaFuchs – Familien- & Schichtplaner (Windows, Android)"
 seoBeschreibung: "Familien- und Schichtplaner für Dienste, Termine und Notizen: Monatskalender, PDF-Export, verschlüsselter Sync eigener Geräte – Windows & Android, ohne Konto."
-tags: ["Schichtplaner", "Familienplaner", "Dienstplan", "Kalender", "Windows", "Android", "offline", "ohne Cloud"]
+tags: ["Schichtplaner", "Familienplaner", "Dienstplan", "Kalender", "Windows", "Android", "Ende-zu-Ende-verschlüsselt"]
 kind: produkt
-tagline: Der lokale Familien- und Team-Planer für Schicht- und Dienstpläne – offline, mit eigenem Sync ohne Cloud.
+tagline: Schicht- und Dienstplaner für Wechseldienst und Familie – ohne Konto, ohne Werbung, mit Ende-zu-Ende-verschlüsseltem Abgleich zwischen deinen Geräten.
 description: >-
   Plant Dienste, Schichten, Termine und Notizen für die ganze Familie oder ein kleines
   Team: Monatskalender, Schnelleintrag, PDF-Export als Monat, Jahr oder Blanko-Vorlage.
-  Alle Daten bleiben auf den eigenen Geräten. Verbunden werden sie per QR-Einladung; der
-  Abgleich läuft Ende-zu-Ende-verschlüsselt über ein Relais von FehlerFuchs, das keine
-  Inhalte lesen kann – ohne Cloud-Speicher, ohne Konto.
+  Es gibt kein Konto und keine Registrierung; die Pläne liegen auf dem Gerät. Wer mehrere
+  Geräte nutzen will, verbindet sie per QR-Code mit dem Hauptgerät. Der Abgleich läuft
+  Ende-zu-Ende-verschlüsselt über das Relais von FehlerFuchs, das die Inhalte nicht lesen kann.
 audience: [privat, vereine, unternehmen]
 accent: "#B4652A"   # Farbe der App
 # Android ist seit 08.08.2026 regulär im Google Play Store (Play-Stand 1.9.7 live
@@ -84,7 +84,7 @@ umwege:
       klargestellt, dass OrgaFuchs keine Behörde ist und keine vertritt. Am
       24. Juli erneut eingereicht, am Programm wieder nichts geändert.
 
-privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, eigener-sync, offline-faehig]
+privacy: [kein-konto, kein-tracking, werbefrei, offline-faehig]
 
 # Namen, unter denen sich die Windows-Installer in der Registry eintragen –
 # für die Zuordnung im Update-Helfer Up2Date (versions.json). OrgaFuchs trägt
@@ -160,7 +160,7 @@ releases:
       einem Hauptgerät-Wechsel erscheint ein verständlicher Hinweis zum Neu-Koppeln
       statt einer kryptischen Fehlermeldung. Der übrige Funktionsumfang bleibt
       unverändert (Kalender-Konfigurator, Jahres- und Schuljahreskalender zum
-      Ausdrucken, Wandpläne je Einrichtung, Sync ohne Cloud). Löst 1.9.1 ab.
+      Ausdrucken, Wandpläne je Einrichtung). Löst 1.9.1 ab.
   # 1.9.1: Signier-/Manifest-Fakten aus dem [16]-Handoff (12.09., zweistufig App+
   # Installer signiert), gegen GitHub geprüft (gh: Asset, 17.482.632 B, sha256
   # 2474fa9c…6fab – stimmen). Fasst die Windows-Releases 1.8.0/1.8.1/1.9.0/1.9.1
@@ -268,12 +268,12 @@ features:
       # Berichtigt 25.09.2026: Heimnetz-Sync und Gruppen-Passwort gibt es spätestens seit 1.9.2 nicht
       # mehr, das Relais ist in der App fest (gemessen von [32], Steckbrief 25.09.; bei
       # [10] am OrgaFuchs-Repo gegengeprüft: Stand 1.9.2 ohne Port 7842).
-      - name: Eigener Sync statt Cloud – Beitritt per QR-Einladung
+      - name: Abgleich zwischen mehreren Geräten – Beitritt per QR-Einladung
         values: { standard: ja }
         note: Ende-zu-Ende-verschlüsselt über das Relais von FehlerFuchs; der Server kann die Inhalte nicht lesen.
       - name: Nachrichten an alle – mit Postfach, Ende-zu-Ende verschlüsselt
         values: { standard: ja }
-        note: Kurze Text-Nachrichten an die Gruppe; sie landen bei allen im Postfach und als Benachrichtigung, verteilt über das Relais von FehlerFuchs statt über fremde Server. Ungelesenes bleibt markiert.
+        note: Kurze Text-Nachrichten an die Gruppe; sie landen bei allen im Postfach und als Benachrichtigung. Der Versand läuft Ende-zu-Ende-verschlüsselt über das Relais von FehlerFuchs. Ungelesenes bleibt markiert.
       - name: Geräteliste zeigt „zuletzt aktiv“
         values: { standard: ja }
         note: Auf dem Hauptgerät erkennst du so alte, ungenutzte Geräte leichter.
@@ -346,7 +346,7 @@ media:
       width: 620
       height: 1342
       geraet: handy
-      titel: "Sync ohne Cloud"
+      titel: "Abgleich zwischen deinen Geräten"
     - src: /img/screenshots/orgafuchs/handy-07-einrichtung.png
       alt: "Werbebild „In wenigen Minuten eingerichtet“ mit der Einrichtungshilfe und ihren vier abgehakten Schritten"
       width: 620

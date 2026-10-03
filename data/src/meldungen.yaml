@@ -395,7 +395,7 @@ meldungen:
       erscheint ein verständlicher Hinweis zum Neu-Koppeln statt einer kryptischen
       Fehlermeldung, falls ein Gerät dabei offline war. Der übrige Funktionsumfang
       bleibt unverändert – Kalender-Konfigurator, Kalender zum Ausdrucken, Wandpläne
-      je Einrichtung, Sync ohne Cloud. Alles bleibt auf dem Gerät, ohne Konto.
+      je Einrichtung. Es gibt kein Konto.
 
   # OrgaFuchs 1.9.1 (Windows-Release 12.09., signiert; Android/Play 1.9.0 live,
   # 1.9.1 in Prüfung). 'version: 1.9.1' bindet die Meldung an den releases-Eintrag.

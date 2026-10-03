@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-03T18:31:20+02:00",
+  "generiert": "2026-10-03T18:36:04+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -2208,12 +2208,11 @@
         "Kalender",
         "Windows",
         "Android",
-        "offline",
-        "ohne Cloud"
+        "Ende-zu-Ende-verschlüsselt"
       ],
       "kind": "produkt",
-      "tagline": "Der lokale Familien- und Team-Planer für Schicht- und Dienstpläne – offline, mit eigenem Sync ohne Cloud.",
-      "description": "Plant Dienste, Schichten, Termine und Notizen für die ganze Familie oder ein kleines Team: Monatskalender, Schnelleintrag, PDF-Export als Monat, Jahr oder Blanko-Vorlage. Alle Daten bleiben auf den eigenen Geräten. Verbunden werden sie per QR-Einladung; der Abgleich läuft Ende-zu-Ende-verschlüsselt über ein Relais von FehlerFuchs, das keine Inhalte lesen kann – ohne Cloud-Speicher, ohne Konto.",
+      "tagline": "Schicht- und Dienstplaner für Wechseldienst und Familie – ohne Konto, ohne Werbung, mit Ende-zu-Ende-verschlüsseltem Abgleich zwischen deinen Geräten.",
+      "description": "Plant Dienste, Schichten, Termine und Notizen für die ganze Familie oder ein kleines Team: Monatskalender, Schnelleintrag, PDF-Export als Monat, Jahr oder Blanko-Vorlage. Es gibt kein Konto und keine Registrierung; die Pläne liegen auf dem Gerät. Wer mehrere Geräte nutzen will, verbindet sie per QR-Code mit dem Hauptgerät. Der Abgleich läuft Ende-zu-Ende-verschlüsselt über das Relais von FehlerFuchs, das die Inhalte nicht lesen kann.",
       "audience": [
         "privat",
         "vereine",
@@ -2256,12 +2255,9 @@
         }
       ],
       "privacy": [
-        "inhalte-lokal",
-        "keine-cloud",
         "kein-konto",
         "kein-tracking",
         "werbefrei",
-        "eigener-sync",
         "offline-faehig"
       ],
       "windowsDisplayNames": [
@@ -2310,7 +2306,7 @@
           },
           "sha256": "74c175ce7cb4575897a0d2f8e360d0dfd384d8db0717960e57b21fbeb1d14c17",
           "signed": true,
-          "notes": "Signierte Windows-Fassung 1.9.2 (Herausgeber FehlerFuchs), ein Bugfix-Release über 1.9.1. Es behebt zwei Fehler beim Koppeln weiterer Geräte: „Code vorbereiten“ funktioniert jetzt auch, wenn gerade kein Abgleich läuft, und nach einem Hauptgerät-Wechsel erscheint ein verständlicher Hinweis zum Neu-Koppeln statt einer kryptischen Fehlermeldung. Der übrige Funktionsumfang bleibt unverändert (Kalender-Konfigurator, Jahres- und Schuljahreskalender zum Ausdrucken, Wandpläne je Einrichtung, Sync ohne Cloud). Löst 1.9.1 ab."
+          "notes": "Signierte Windows-Fassung 1.9.2 (Herausgeber FehlerFuchs), ein Bugfix-Release über 1.9.1. Es behebt zwei Fehler beim Koppeln weiterer Geräte: „Code vorbereiten“ funktioniert jetzt auch, wenn gerade kein Abgleich läuft, und nach einem Hauptgerät-Wechsel erscheint ein verständlicher Hinweis zum Neu-Koppeln statt einer kryptischen Fehlermeldung. Der übrige Funktionsumfang bleibt unverändert (Kalender-Konfigurator, Jahres- und Schuljahreskalender zum Ausdrucken, Wandpläne je Einrichtung). Löst 1.9.1 ab."
         },
         {
           "version": "1.9.1",
@@ -2449,7 +2445,7 @@
               }
             },
             {
-              "name": "Eigener Sync statt Cloud – Beitritt per QR-Einladung",
+              "name": "Abgleich zwischen mehreren Geräten – Beitritt per QR-Einladung",
               "values": {
                 "standard": "ja"
               },
@@ -2460,7 +2456,7 @@
               "values": {
                 "standard": "ja"
               },
-              "note": "Kurze Text-Nachrichten an die Gruppe; sie landen bei allen im Postfach und als Benachrichtigung, verteilt über das Relais von FehlerFuchs statt über fremde Server. Ungelesenes bleibt markiert."
+              "note": "Kurze Text-Nachrichten an die Gruppe; sie landen bei allen im Postfach und als Benachrichtigung. Der Versand läuft Ende-zu-Ende-verschlüsselt über das Relais von FehlerFuchs. Ungelesenes bleibt markiert."
             },
             {
               "name": "Geräteliste zeigt „zuletzt aktiv“",
@@ -2563,7 +2559,7 @@
             "width": 620,
             "height": 1342,
             "geraet": "handy",
-            "titel": "Sync ohne Cloud"
+            "titel": "Abgleich zwischen deinen Geräten"
           },
           {
             "src": "/img/screenshots/orgafuchs/handy-07-einrichtung.png",
