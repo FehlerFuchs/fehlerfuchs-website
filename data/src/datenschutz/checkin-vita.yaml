@@ -126,9 +126,27 @@ besonderheiten: >-
   (seit 02.10.2026 aus der App entfernt). Das ZIP-Backup enthält Einträge,
   Einstellungen, Fotos und PDFs und ist unverschlüsselt. Die App-Sperre
   (Biometrie/Geräte-PIN) öffnet nur bei erfolgreicher Prüfung; bei Abbruch oder
-  Fehler bleibt die App gesperrt.
+  Fehler bleibt die App gesperrt. CheckInVita ist für Erwachsene ab 18 Jahren
+  bestimmt. Rechtsgrundlagen: Für die Daten auf dem Gerät verarbeitet der Anbieter nichts. Das
+  Support-Formular verarbeitet Nachricht, freiwillig Name und E-Mail zur
+  Beantwortung der Anfrage (Art. 6 Abs. 1 lit. b, bei allgemeinen Anfragen
+  lit. f DSGVO); Gesundheitsdaten in Nachricht oder Anhängen auf Grundlage der
+  ausdrücklichen Einwilligung mit dem Absenden (Art. 9 Abs. 2 lit. a und Art. 6
+  Abs. 1 lit. a DSGVO); die technische Diagnosedatei nur mit Einwilligung
+  (Art. 6 Abs. 1 lit. a); die kurzzeitige Verarbeitung der IP-Adresse dient der
+  Abwehr von Missbrauch (Art. 6 Abs. 1 lit. f). Speicherdauer: Eine
+  Supportnachricht bleibt als E-Mail im Postfach, solange sie für Rückfragen
+  gebraucht wird; die IP-Adresse fließt kurz in eine Missbrauchsbremse ein und
+  wird spätestens nach 24 Stunden gelöscht.
+  Das Support-Formular nennt die Einwilligung und die IP-Verarbeitung und
+  verlinkt auf die Datenschutzerklärung in der App.
 
-besonderheiten_beleg: android/app/src/main/AndroidManifest.xml und android/app/src/main/res/xml/*
+besonderheiten_beleg: >-
+  android/app/src/main/AndroidManifest.xml und android/app/src/main/res/xml/*. 
+  Rechtsgrundlagen, Altersgrenze und Speicherdauer: Stand 03.10.2026, Freigabe
+  Matthias (Logbuch 4418); Löschfrist der IP-Adresse belegt von FF_11 (Logbuch
+  4416, mailer.py Zeilen 40 bis 47); Wortlaut in
+  lib/features/legal/legal_screen.dart (kPrivacyText, Abschnitt 6 e und f).
 
 vorhandener_text: lib/features/legal/legal_screen.dart (kPrivacyText und kImpressumText, vollständig offline, Wortlaut von Matthias bestätigt 02.10.2026, Logbuch #4190)
 
