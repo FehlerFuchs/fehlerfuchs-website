@@ -81,7 +81,7 @@ editions:
     # einmaliges Kaufprodukt, kein Abo. Der Preis ist der deutsche
     # Endkundenpreis inklusive Mehrwertsteuer; Google rechnet je Land um.
     summary: Voller Funktionsumfang, freigeschaltet per einmaligem In-App-Kauf.
-    price: { model: iap, amount: 5.00, currency: EUR, vatIncluded: true, recurring: false }
+    price: { model: iap, amount: 5.99, currency: EUR, vatIncluded: true, recurring: false }
 
 releases: []
 
@@ -260,13 +260,13 @@ media:
   screenshots:
     - src: /img/screenshots/snapfuchs/handy-01.png
       alt: >-
-        Werbebild „100 % lokaler Dokumentenscanner – Kein Konto, keine Cloud,
-        keine Werbung“. Darunter der Startbildschirm: der Fuchskopf in einem
-        orangefarbenen Scanrahmen.
-      width: 620
-      height: 1342
+        Werbebild „Dokumente scannen. Lokal. Kein Konto, keine Cloud, keine
+        Werbung.“ Darunter die Startseite mit der Liste der letzten Dokumente,
+        dem Knopf zur Pro-Freischaltung und dem großen runden Kameraknopf.
+      width: 1242
+      height: 2484
       geraet: handy
-      titel: 100 % lokal – kein Konto, keine Cloud, keine Werbung
+      titel: Scannen auf dem Gerät – kein Konto, keine Cloud, keine Werbung
     - src: /img/screenshots/snapfuchs/handy-02.png
       alt: >-
         Werbebild „Scannen mit einem Tipp“. Darunter die Startseite mit der
@@ -323,11 +323,11 @@ media:
       titel: Was Pro dazugibt – einmaliger Kauf, kein Abo
     - src: /img/screenshots/snapfuchs/handy-08.png
       alt: >-
-        Werbebild „100 % lokal. Kein Tracking.“ Darunter die Einstellungen mit
-        Erscheinungsbild, Wasserzeichen, Dateinamen und Seitenformat sowie
-        einem ausführlichen Datenschutzabschnitt.
-      width: 620
-      height: 1342
+        Werbebild „Deine Scans bleiben hier“. Darunter der Datenschutzabschnitt
+        der Einstellungen: was auf dem Gerät bleibt und was trotzdem nach außen
+        geht.
+      width: 1242
+      height: 2484
       geraet: handy
       titel: Alles einstellbar – und nachlesbar, was wohin geht
 links:

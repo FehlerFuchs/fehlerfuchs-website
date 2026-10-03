@@ -1,7 +1,10 @@
 slug: orgafuchs
 name: OrgaFuchs
-stand: "2026-10-01"
+stand: "2026-10-03"
 geprueft_von: 32_OrgaFuchs
+# BERICHTIGUNG 03.10.2026 19:13 ([32], Baufreigabe [FF_00] #4509): ntfy war als „Vorbelegung“ beschrieben. Im Code ist
+# ab Werk KEIN ntfy-Server eingetragen (settings_page.dart:88 leer); ntfy.relais.fehlerfuchs.eu ist nur ein Vorschlag
+# in der Auswahl unter „Erweitert: Fallback-Dienst“. Übertragung ntfy und fremder Dienst ntfy entsprechend berichtigt.
 # NACHTRAG 01.10.2026 17:36 ([32]): 1.9.7 (29) live seit 01.10. 14:26 (P5 [FF_13]); fassung nachgezogen.
 # NACHTRAG 01.10.2026 13:40 ([32]): 1.9.6 (28) eingereicht 12:50, von Matthias angehalten, wird durch 1.9.7 (29) ersetzt;
 # NACHTRAG 01.10.2026 13:37 ([32]): fassung auf 1.9.7 (29) vorbereitet; 1.9.7 aendert nur das
@@ -190,7 +193,7 @@ berechtigungen:
 uebertragungen:
   - wohin: fehlerfuchs.eu
     was: Abruf der Schulferien des eingestellten Bundeslandes (Download einer öffentlichen JSON-Datei); gesendet wird nur die Anfrage selbst, keine Nutzerinhalte
-    wann: beim App-Start automatisch, höchstens etwa einmal im Monat, sobald ein Bundesland eingestellt ist; zusätzlich manuell über "Feiertage & Ferien aktualisieren"
+    wann: beim App-Start automatisch, höchstens etwa einmal im Monat, sobald ein Bundesland eingestellt ist; zusätzlich manuell über „Feiertage & Ferien aktualisieren“
     freiwillig: false
     beleg: lib/services/schulferien.dart:29+85-96, lib/providers.dart:172-183, lib/features/home/home_shell.dart:32
   - wohin: orgafuchs.relais.fehlerfuchs.eu (fest eingestellt, von FehlerFuchs betrieben)
@@ -198,11 +201,11 @@ uebertragungen:
     wann: nur wenn der Nutzer Geräte zu einem gemeinsamen Familienplan verbindet (ab Werk aus)
     freiwillig: true
     beleg: orgafuchs_kern/lib/sync/protocol/ofsp_transport.dart:28-31 (productionEndpoint), lib/providers.dart:42, lib/features/sync/ofsp_pairing_page.dart:75
-  - wohin: ntfy.relais.fehlerfuchs.eu (Vorbelegung), wahlweise ntfy.sh oder eine selbst eingetragene Adresse
-    was: Benachrichtigungssignal "es gibt Änderungen" samt Themenkennung; keine Planinhalte
-    wann: nur wenn der Nutzer Push einschaltet (ab Werk aus)
+  - wohin: ein selbst eingetragener ntfy-Server – ab Werk keiner; in der Auswahl vorgeschlagen ntfy.relais.fehlerfuchs.eu, wahlweise ntfy.sh oder eine eigene Adresse
+    was: Benachrichtigungssignal „es gibt Änderungen“ samt Themenkennung; keine Planinhalte
+    wann: 'nur wenn Benachrichtigungen eingeschaltet sind UND unter „Erweitert: Fallback-Dienst“ ein ntfy-Server eingetragen ist (gedacht für Geräte ohne Google-Dienste und für Windows)'
     freiwillig: true
-    beleg: lib/services/push_ntfy.dart, lib/core/server_dropdown.dart:107-108, lib/services/push_controller.dart:30-31
+    beleg: 'lib/services/push_ntfy.dart, lib/core/server_dropdown.dart:110-116 (Vorschlagsliste), lib/features/settings/settings_page.dart:88 (Feld leer) und 781-795 (Erweitert: Fallback-Dienst), lib/services/push_controller.dart (abonniert nur bei eingetragener Adresse)'
   - wohin: license.fehlerfuchs.eu
     was: Support-/Kontaktformular – eingegebene Nachricht, optional Name und E-Mail, dazu App-Name, Version und Betriebssystem. Nur wenn der Schalter „Technische Diagnose anhängen“ eingeschaltet ist (ab Werk aus), zusätzlich eine Diagnosedatei mit Gerätemodell, Android-Version, Prozessorarchitektur, Sprache, Zeitzone, Bildschirmgröße, Sync-Rolle, Push an/aus, Design und die letzten Einträge des Fehlerprotokolls der App; keine Namen, keine Planinhalte, kein Standort
     wann: nur wenn der Nutzer das Formular absendet
@@ -215,11 +218,11 @@ uebertragungen:
     beleg: lib/features/info/info_page.dart:13-17
   - wohin: github.com / api.github.com (nur Windows-Fassung)
     was: Abruf der öffentlichen Versionsliste der FehlerFuchs-Downloads und – auf Nutzerwunsch – Download der signierten Setup-Datei; gesendet wird nur die Anfrage, keine Nutzerinhalte (GitHub sieht technisch die IP-Adresse)
-    wann: nur in der Windows-Fassung; beim App-Start höchstens einmal täglich sowie manuell über "Nach Updates suchen". Die Android-Fassung aktualisiert über den Play Store und baut dafür keine eigene Verbindung auf
+    wann: nur in der Windows-Fassung; beim App-Start höchstens einmal täglich sowie manuell über „Nach Updates suchen“. Die Android-Fassung aktualisiert über den Play Store und baut dafür keine eigene Verbindung auf
     freiwillig: false
     beleg: lib/services/update_service.dart, lib/services/update_ui.dart, lib/features/info/info_page.dart, lib/features/home/home_screen.dart
   - wohin: Firebase Cloud Messaging / Google (nur Android)
-    was: Registrierung des Geräts mit einer Push-Kennung bei Google und Empfang reiner Weck-Nachrichten; KEINE Termine/Namen/Planinhalte (nur Signal "es gibt Änderungen"). Google sieht technisch die Push-Kennung, die IP-Adresse und den Zeitpunkt
+    was: Registrierung des Geräts mit einer Push-Kennung bei Google und Empfang reiner Weck-Nachrichten; KEINE Termine/Namen/Planinhalte (nur Signal „es gibt Änderungen“). Google sieht technisch die Push-Kennung, die IP-Adresse und den Zeitpunkt
     wann: nur wenn Benachrichtigungen eingeschaltet sind; die Wecknachricht löst das Relais aus, nicht die App
     freiwillig: true
     beleg: lib/services/fcm_dienst.dart, android/app/google-services.json, android/app/src/main/AndroidManifest.xml
@@ -239,8 +242,8 @@ fremde_dienste:
     wofuer: Erkennung des Beitritts-QR-Codes; die Erkennung läuft auf dem Gerät
     wann: nur solange der QR-Scanner geöffnet ist
   - name: ntfy (quelloffener Benachrichtigungsdienst)
-    wofuer: Push-Signal bei Änderungen; vorbelegt ist ein selbst betriebener Server, alternativ ntfy.sh oder ein eigener
-    wann: nur bei eingeschaltetem Push
+    wofuer: Ausweichweg für das Push-Signal bei Änderungen (Geräte ohne Google-Dienste, Windows); ab Werk ist kein Server eingetragen, vorgeschlagen wird der von FehlerFuchs betriebene, alternativ ntfy.sh oder ein eigener
+    wann: nur bei eingeschalteten Benachrichtigungen und eingetragenem Server
   - name: GitHub (Microsoft) – Auslieferung der Windows-Aktualisierungen
     wofuer: stellt die öffentliche Versionsliste und die signierte Setup-Datei für die Selbst-Aktualisierung der Windows-Fassung bereit; kein Konto, keine Anmeldung, keine Nutzerinhalte
     wann: nur bei der Windows-Update-Prüfung (automatisch höchstens täglich beim Start oder manuell)
@@ -261,7 +264,7 @@ daten_an_dritte_verkauft: false
 loeschung: >-
   Alle Inhalte liegen auf dem Gerät. Einzelne Einträge, Personen und Dienste
   lassen sich in der App löschen; der Einrichtungsassistent kann im Modus
-  "Komplett neu" den gesamten Bestand zurücksetzen. Mit der Deinstallation
+  „Komplett neu“ den gesamten Bestand zurücksetzen. Mit der Deinstallation
   verschwinden Datenbank, Protokolle, PDF-Ablage und Sicherungen im App-Ordner.
   Beim Abgleich über das Relais liegen dort nur verschlüsselte, kurzlebige Nachrichten;
   ohne die Schlüssel der Familiengruppe sind sie nicht lesbar. Über das Support-Formular
@@ -272,7 +275,7 @@ loeschung: >-
 
 besonderheiten: >-
   Der Abgleich zwischen mehreren Geräten kommt ohne Konto und ohne
-  Registrierung aus: Ein Gerät ist "Hauptgerät", weitere treten über eine
+  Registrierung aus: Ein Gerät ist „Hauptgerät“, weitere treten über eine
   QR-Einladung des Hauptgeräts bei, die mit einem Kurzcode bestätigt wird. Die
   Einladung überträgt die Schlüssel für die Ende-zu-Ende-Verschlüsselung; das
   Relais sieht daher nur verschlüsselte Daten sowie Gruppen- und Gerätekennungen

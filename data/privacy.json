@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-03T18:36:04+02:00",
+  "generiert": "2026-10-03T19:27:14+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1631,7 +1631,7 @@
     {
       "slug": "orgafuchs",
       "name": "OrgaFuchs",
-      "stand": "2026-10-01",
+      "stand": "2026-10-03",
       "geprueft_von": "32_OrgaFuchs",
       "fassung": "Android 1.9.7 (versionCode 29), bei Google Play seit 01.10.2026 (14:26); sie ersetzt 1.9.6 (versionCode 28), deren Veröffentlichung angehalten und verworfen wurde – 1.9.6 hat keine Nutzer erreicht. Mit 1.9.7: Firebase meldet sich erst nach der Einwilligung bei Google an; ein neu angelegtes Hauptgerät weckt die anderen Geräte sofort; ist das Hauptgerät nicht erreichbar, fragen die anderen Geräte seltener nach. Keine neue Datenart, kein neues Übertragungsziel. Ausgeliefert: Android 1.9.5 (versionCode 26), bei Google Play seit 30.09.2026; Windows 1.9.3 (versionCode 24) seit 25.09.2026. Android 1.9.4 und 1.9.5 bringen Korrekturen an Abgleich, Startbildschirm-Widgets und lokalem Gerätekalender – kein neues Übertragungsziel. Am 01.10.2026 neu erfasst und gemessen: Beim ersten Start meldet sich die App einmal bei Google Firebase an, auch ohne eingeschaltete Benachrichtigungen (siehe Übertragungen); die Anmeldung des Geräts beim Relais für den Weckruf ist jetzt eigens aufgeführt. Frühere Fassung: 1.9.3 (versionCode 24), ausgeliefert am 25.09.2026 für Windows und Google Play. Gegenüber der früheren Fassung 1.6.1 neu bzw. geändert: optionale Anzeige der Dienste und Termine in einem eigenen, rein lokalen Gerätekalender (nur Android, Kalender-Berechtigung, nichts verlässt das Gerät); der frühere Abgleich direkt im Heimnetz und das Gruppen-Passwort sind entfernt – Geräte werden nur noch per QR-Einladung gekoppelt und gleichen Ende-zu-Ende-verschlüsselt über das Relais ab. Kein neues Übertragungsziel, keine Weitergabe an Dritte. Frühere Fassung: 1.6.1 (versionCode 15): Windows signiert+veröffentlicht (Release orgafuchs-v1.6.1), Android 1.6.1 im Play-Rollout. Enthält Firebase Cloud Messaging (Google) als inhaltslosen Weck-Push (seit 1.5.0; nur Android, nur bei eingeschalteten Benachrichtigungen), Windows-Update-Prüfung (github.com) sowie NEU „Nachricht an alle“ + Postfach: kurze Klartext-Nachrichten an die Gruppe reisen Ende-zu-Ende über den Relais-Kanal (NICHT über Google), Postfach zeigt sie lokal im Nachgang. KEIN neues Übertragungsziel/keine neue Datenkategorie ggü. 1.5.0. Play-Data-Safety unverändert (Firebase/Gerätekennungen bereits deklariert).",
       "lokal_only": false,
@@ -1763,7 +1763,7 @@
         {
           "wohin": "fehlerfuchs.eu",
           "was": "Abruf der Schulferien des eingestellten Bundeslandes (Download einer öffentlichen JSON-Datei); gesendet wird nur die Anfrage selbst, keine Nutzerinhalte",
-          "wann": "beim App-Start automatisch, höchstens etwa einmal im Monat, sobald ein Bundesland eingestellt ist; zusätzlich manuell über \"Feiertage & Ferien aktualisieren\"",
+          "wann": "beim App-Start automatisch, höchstens etwa einmal im Monat, sobald ein Bundesland eingestellt ist; zusätzlich manuell über „Feiertage & Ferien aktualisieren“",
           "freiwillig": false,
           "beleg": "lib/services/schulferien.dart:29+85-96, lib/providers.dart:172-183, lib/features/home/home_shell.dart:32"
         },
@@ -1775,11 +1775,11 @@
           "beleg": "orgafuchs_kern/lib/sync/protocol/ofsp_transport.dart:28-31 (productionEndpoint), lib/providers.dart:42, lib/features/sync/ofsp_pairing_page.dart:75"
         },
         {
-          "wohin": "ntfy.relais.fehlerfuchs.eu (Vorbelegung), wahlweise ntfy.sh oder eine selbst eingetragene Adresse",
-          "was": "Benachrichtigungssignal \"es gibt Änderungen\" samt Themenkennung; keine Planinhalte",
-          "wann": "nur wenn der Nutzer Push einschaltet (ab Werk aus)",
+          "wohin": "ein selbst eingetragener ntfy-Server – ab Werk keiner; in der Auswahl vorgeschlagen ntfy.relais.fehlerfuchs.eu, wahlweise ntfy.sh oder eine eigene Adresse",
+          "was": "Benachrichtigungssignal „es gibt Änderungen“ samt Themenkennung; keine Planinhalte",
+          "wann": "nur wenn Benachrichtigungen eingeschaltet sind UND unter „Erweitert: Fallback-Dienst“ ein ntfy-Server eingetragen ist (gedacht für Geräte ohne Google-Dienste und für Windows)",
           "freiwillig": true,
-          "beleg": "lib/services/push_ntfy.dart, lib/core/server_dropdown.dart:107-108, lib/services/push_controller.dart:30-31"
+          "beleg": "lib/services/push_ntfy.dart, lib/core/server_dropdown.dart:110-116 (Vorschlagsliste), lib/features/settings/settings_page.dart:88 (Feld leer) und 781-795 (Erweitert: Fallback-Dienst), lib/services/push_controller.dart (abonniert nur bei eingetragener Adresse)"
         },
         {
           "wohin": "license.fehlerfuchs.eu",
@@ -1798,13 +1798,13 @@
         {
           "wohin": "github.com / api.github.com (nur Windows-Fassung)",
           "was": "Abruf der öffentlichen Versionsliste der FehlerFuchs-Downloads und – auf Nutzerwunsch – Download der signierten Setup-Datei; gesendet wird nur die Anfrage, keine Nutzerinhalte (GitHub sieht technisch die IP-Adresse)",
-          "wann": "nur in der Windows-Fassung; beim App-Start höchstens einmal täglich sowie manuell über \"Nach Updates suchen\". Die Android-Fassung aktualisiert über den Play Store und baut dafür keine eigene Verbindung auf",
+          "wann": "nur in der Windows-Fassung; beim App-Start höchstens einmal täglich sowie manuell über „Nach Updates suchen“. Die Android-Fassung aktualisiert über den Play Store und baut dafür keine eigene Verbindung auf",
           "freiwillig": false,
           "beleg": "lib/services/update_service.dart, lib/services/update_ui.dart, lib/features/info/info_page.dart, lib/features/home/home_screen.dart"
         },
         {
           "wohin": "Firebase Cloud Messaging / Google (nur Android)",
-          "was": "Registrierung des Geräts mit einer Push-Kennung bei Google und Empfang reiner Weck-Nachrichten; KEINE Termine/Namen/Planinhalte (nur Signal \"es gibt Änderungen\"). Google sieht technisch die Push-Kennung, die IP-Adresse und den Zeitpunkt",
+          "was": "Registrierung des Geräts mit einer Push-Kennung bei Google und Empfang reiner Weck-Nachrichten; KEINE Termine/Namen/Planinhalte (nur Signal „es gibt Änderungen“). Google sieht technisch die Push-Kennung, die IP-Adresse und den Zeitpunkt",
           "wann": "nur wenn Benachrichtigungen eingeschaltet sind; die Wecknachricht löst das Relais aus, nicht die App",
           "freiwillig": true,
           "beleg": "lib/services/fcm_dienst.dart, android/app/google-services.json, android/app/src/main/AndroidManifest.xml"
@@ -1832,8 +1832,8 @@
         },
         {
           "name": "ntfy (quelloffener Benachrichtigungsdienst)",
-          "wofuer": "Push-Signal bei Änderungen; vorbelegt ist ein selbst betriebener Server, alternativ ntfy.sh oder ein eigener",
-          "wann": "nur bei eingeschaltetem Push"
+          "wofuer": "Ausweichweg für das Push-Signal bei Änderungen (Geräte ohne Google-Dienste, Windows); ab Werk ist kein Server eingetragen, vorgeschlagen wird der von FehlerFuchs betriebene, alternativ ntfy.sh oder ein eigener",
+          "wann": "nur bei eingeschalteten Benachrichtigungen und eingetragenem Server"
         },
         {
           "name": "GitHub (Microsoft) – Auslieferung der Windows-Aktualisierungen",
@@ -1857,8 +1857,8 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Inhalte liegen auf dem Gerät. Einzelne Einträge, Personen und Dienste lassen sich in der App löschen; der Einrichtungsassistent kann im Modus \"Komplett neu\" den gesamten Bestand zurücksetzen. Mit der Deinstallation verschwinden Datenbank, Protokolle, PDF-Ablage und Sicherungen im App-Ordner. Beim Abgleich über das Relais liegen dort nur verschlüsselte, kurzlebige Nachrichten; ohne die Schlüssel der Familiengruppe sind sie nicht lesbar. Über das Support-Formular gesendete Nachrichten werden auf Anfrage per E-Mail gelöscht. Die Anmeldung für den Weckruf beim Relais wird beim Ausschalten der Benachrichtigungen gelöscht; ungültige Push-Kennungen entfernt das Relais selbst. Firebase-Installationskennungen speichert Google bis zur Löschung und entfernt sie danach binnen 180 Tagen auch aus Sicherungen.",
-      "besonderheiten": "Der Abgleich zwischen mehreren Geräten kommt ohne Konto und ohne Registrierung aus: Ein Gerät ist \"Hauptgerät\", weitere treten über eine QR-Einladung des Hauptgeräts bei, die mit einem Kurzcode bestätigt wird. Die Einladung überträgt die Schlüssel für die Ende-zu-Ende-Verschlüsselung; das Relais sieht daher nur verschlüsselte Daten sowie Gruppen- und Gerätekennungen für die Zustellung – weder Namen noch Inhalte. Das Relais ist fest eingestellt und wird von FehlerFuchs betrieben; der Benachrichtigungsserver ist frei wählbar und lässt sich auch selbst betreiben. Einen Abgleich direkt im Heimnetz ohne Server gibt es nicht mehr. Die App zeigt eine Übersicht der verwendeten Open-Source-Bausteine und Datenquellen. Da Dienstpläne mittelbar Rückschlüsse auf Arbeits- und Abwesenheitszeiten mehrerer Personen zulassen, können die lokal gespeicherten Inhalte sensibel sein.",
+      "loeschung": "Alle Inhalte liegen auf dem Gerät. Einzelne Einträge, Personen und Dienste lassen sich in der App löschen; der Einrichtungsassistent kann im Modus „Komplett neu“ den gesamten Bestand zurücksetzen. Mit der Deinstallation verschwinden Datenbank, Protokolle, PDF-Ablage und Sicherungen im App-Ordner. Beim Abgleich über das Relais liegen dort nur verschlüsselte, kurzlebige Nachrichten; ohne die Schlüssel der Familiengruppe sind sie nicht lesbar. Über das Support-Formular gesendete Nachrichten werden auf Anfrage per E-Mail gelöscht. Die Anmeldung für den Weckruf beim Relais wird beim Ausschalten der Benachrichtigungen gelöscht; ungültige Push-Kennungen entfernt das Relais selbst. Firebase-Installationskennungen speichert Google bis zur Löschung und entfernt sie danach binnen 180 Tagen auch aus Sicherungen.",
+      "besonderheiten": "Der Abgleich zwischen mehreren Geräten kommt ohne Konto und ohne Registrierung aus: Ein Gerät ist „Hauptgerät“, weitere treten über eine QR-Einladung des Hauptgeräts bei, die mit einem Kurzcode bestätigt wird. Die Einladung überträgt die Schlüssel für die Ende-zu-Ende-Verschlüsselung; das Relais sieht daher nur verschlüsselte Daten sowie Gruppen- und Gerätekennungen für die Zustellung – weder Namen noch Inhalte. Das Relais ist fest eingestellt und wird von FehlerFuchs betrieben; der Benachrichtigungsserver ist frei wählbar und lässt sich auch selbst betreiben. Einen Abgleich direkt im Heimnetz ohne Server gibt es nicht mehr. Die App zeigt eine Übersicht der verwendeten Open-Source-Bausteine und Datenquellen. Da Dienstpläne mittelbar Rückschlüsse auf Arbeits- und Abwesenheitszeiten mehrerer Personen zulassen, können die lokal gespeicherten Inhalte sensibel sein.",
       "vorhandener_text": "Vollständige Offline-Datenschutzerklärung in lib/features/info/datenschutz_page.dart, erreichbar über Einstellungen -> Info & Rechtliches; zusätzlicher Link auf die kanonische Online-Fassung https://fehlerfuchs.eu/datenschutz/. In-App-Impressum mit Anschrift und E-Mail, ohne Telefonnummer, Transparenzseite lib/features/info/open_source_page.dart und Offline-Changelog.",
       "offene_fragen": "1) Unklar, ob und wie lange die angefragten Server (fehlerfuchs.eu für die Schulferien, das Relais, der ntfy-Server, license.fehlerfuchs.eu sowie github.com für die Windows-Update-Prüfung) IP-Adressen oder Zugriffe protokollieren – das hängt vom Serverbetrieb ab, nicht von der App. 2) Unklar, ob das mitgelieferte Google-ML-Kit-Barcodemodul eigene Verbindungen zu Google aufbaut (etwa Modell- oder Telemetriezugriffe); aus dem App-Code ist keine solche Verbindung ersichtlich, die Bibliothek wurde nicht im Netzwerkmitschnitt geprüft. 3) Unklar, welche Daten der Endpunkt license.fehlerfuchs.eu nach Empfang einer Support-Anfrage speichert und wie lange. 4) Nicht geprüft, ob die dem Support-Formular optional angehängte Diagnosedatei in Einzelfällen Inhalte aus Dienstplänen enthalten kann; sie ist als rein technische Zusammenfassung angelegt (lib/core/diagnose/diagnose.dart). 5) Bis 1.9.5 bereits angelegte Firebase-Installationskennungen bleiben bei Google, bis Google sie nach seinen Regeln löscht; die App löscht sie nicht von sich aus. Ab 1.9.6 entsteht ohne Einwilligung keine neue Kennung (gemessen 01.10.2026).",
       "art": "anwendung"
@@ -2177,19 +2177,19 @@
     {
       "slug": "snapfuchs",
       "name": "SnapFuchs",
-      "stand": "2026-09-25",
+      "stand": "2026-10-03",
       "geprueft_von": "30_SnapFuchs",
       "fassung": "1.2.0 (versionCode 9)",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
           "was": "Exportierte PDFs (auch in selbst angelegten Ordnern)",
-          "wo": "App-eigenes Dokumentenverzeichnis, Unterordner \"SnapFuchs\"",
+          "wo": "App-eigenes Dokumentenverzeichnis, Unterordner „SnapFuchs“",
           "beleg": "lib/core/storage/dokument_speicher.dart"
         },
         {
           "was": "Kopien der Exporte in einer selbst gewählten Standardablage (optional, nur wenn eingerichtet)",
-          "wo": "vom Nutzer per Android-Ordnerauswahl (SAF) bestimmter Ordner auf dem Gerät, z. B. in \"Dateien\"; sichtbar im Dateimanager",
+          "wo": "vom Nutzer per Android-Ordnerauswahl (SAF) bestimmter Ordner auf dem Gerät, z. B. in „Dateien“; sichtbar im Dateimanager",
           "beleg": "lib/core/storage/extern_ablage.dart, lib/models/extern_ablage_ziel.dart, android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt"
         },
         {
@@ -2271,7 +2271,7 @@
         },
         {
           "wohin": "license.fehlerfuchs.eu",
-          "was": "Nachrichtentext, freiwillig Name und E-Mail-Adresse, App-Name sowie optional angehängte Bilder. Nur wenn der Nutzer den Haken \"Diagnosedaten mitsenden\" setzt, kommen zusätzlich App-Version, Android-Version, Gerätemodell und Edition mit sowie eine Diagnosedatei mit Technikdaten und dem App-eigenen Fehlerlog",
+          "was": "Nachrichtentext, freiwillig Name und E-Mail-Adresse, App-Name sowie optional angehängte Bilder. Nur wenn der Nutzer den Haken „Diagnosedaten mitsenden“ setzt, kommen zusätzlich App-Version, Android-Version, Gerätemodell und Edition mit sowie eine Diagnosedatei mit Technikdaten und dem App-eigenen Fehlerlog",
           "wann": "nur wenn der Nutzer das Feedback-Formular aktiv absendet",
           "freiwillig": true,
           "beleg": "lib/core/kontakt/kontakt_service.dart, lib/features/info/feedback_screen.dart"
@@ -2286,7 +2286,7 @@
         {
           "wohin": "vom Nutzer gescannte Adresse (QR-Code)",
           "was": "Aufruf der im Code enthaltenen Adresse im externen Browser",
-          "wann": "nur nach Antippen von \"Öffnen\" im Ergebnisdialog",
+          "wann": "nur nach Antippen von „Öffnen“ im Ergebnisdialog",
           "freiwillig": true,
           "beleg": "lib/features/code/code_scan_screen.dart"
         },

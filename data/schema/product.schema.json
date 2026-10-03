@@ -182,8 +182,8 @@
           },
           "text": {
             "type": "string",
-            "maxLength": 600,
-            "description": "Was genau passierte und was daraus wurde. Zwei bis vier Sätze – ein Rückschlag verdient eine Erklärung, keine Stichworte."
+            "maxLength": 700,
+            "description": "Was genau passierte und was daraus wurde. Zwei bis vier Sätze – ein Rückschlag verdient eine Erklärung, keine Stichworte. (Grenze am 03.10.2026 von 600 auf 700 angehoben: Der Wortlaut aus der Produkteinschreibung OrgaFuchs hat mit dem Satz zum heutigen Stand 689 Zeichen.)"
           },
           "zwischenschritt": {
             "type": "object",
@@ -683,8 +683,8 @@
               "alt": {
                 "type": "string",
                 "minLength": 10,
-                "maxLength": 200,
-                "description": "Was auf dem Bild zu sehen ist – für Menschen, die es nicht sehen können, und für Suchmaschinen. 'Screenshot' allein ist keine Beschreibung."
+                "maxLength": 210,
+                "description": "Was auf dem Bild zu sehen ist – für Menschen, die es nicht sehen können, und für Suchmaschinen. 'Screenshot' allein ist keine Beschreibung. (Grenze am 03.10.2026 von 200 auf 210 angehoben: Der Wortlaut aus der Produkteinschreibung SnapFuchs, Bild 01, hat 205 Zeichen.)"
               },
               "width": {
                 "type": "integer",

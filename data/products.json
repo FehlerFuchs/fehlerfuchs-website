@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-03T18:36:04+02:00",
+  "generiert": "2026-10-03T19:27:14+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -2208,11 +2208,12 @@
         "Kalender",
         "Windows",
         "Android",
+        "offline",
         "Ende-zu-Ende-verschlüsselt"
       ],
       "kind": "produkt",
       "tagline": "Schicht- und Dienstplaner für Wechseldienst und Familie – ohne Konto, ohne Werbung, mit Ende-zu-Ende-verschlüsseltem Abgleich zwischen deinen Geräten.",
-      "description": "Plant Dienste, Schichten, Termine und Notizen für die ganze Familie oder ein kleines Team: Monatskalender, Schnelleintrag, PDF-Export als Monat, Jahr oder Blanko-Vorlage. Es gibt kein Konto und keine Registrierung; die Pläne liegen auf dem Gerät. Wer mehrere Geräte nutzen will, verbindet sie per QR-Code mit dem Hauptgerät. Der Abgleich läuft Ende-zu-Ende-verschlüsselt über das Relais von FehlerFuchs, das die Inhalte nicht lesen kann.",
+      "description": "Plant Dienste, Schichten, Termine und Notizen für die ganze Familie oder ein kleines Team: Monatskalender, Schnelleintrag, PDF-Export als Monat, Jahr oder Blanko-Vorlage. Es gibt kein Konto und keine Registrierung; die Pläne liegen auf dem Gerät. Wer mehrere Geräte nutzen will, verbindet sie per QR-Code mit dem Hauptgerät und bestätigt die Kopplung mit einem Kurzcode. Der Abgleich läuft Ende-zu-Ende-verschlüsselt über das Relais von FehlerFuchs, das die Inhalte nicht lesen kann.",
       "audience": [
         "privat",
         "vereine",
@@ -2243,7 +2244,7 @@
           "von": "pruefung",
           "nach": "pruefung",
           "grund": "Automatisch abgelehnt, kein Mensch beteiligt",
-          "text": "Die Prüfsoftware hat die Einstellungsseite für den Gruppen-Sync als Bezahlschranke oder nicht deklarierten Login gewertet. Beides ist sie nicht: Dort trägt man eine Relay-Adresse und ein selbst gewähltes Gruppen-Passwort ein, um die eigenen Geräte zu verbinden. Kein Konto, keine Anmeldung, keine Zahlung. Am Programm wurde nichts geändert – es gab nichts zu ändern. Ärgerlich ist nicht die Prüfung, sondern dass eine unsichere Maschine durchentscheidet, statt einen Menschen hinzuzuziehen. Ein Blick hätte gereicht; so kostet es sieben bis vierzehn Tage."
+          "text": "Die Prüfsoftware hat die Einstellungsseite für den Gruppen-Sync als Bezahlschranke oder nicht deklarierten Login gewertet. Beides ist sie nicht: Damals trug man dort eine Relay-Adresse und ein selbst gewähltes Gruppen-Passwort ein, um die eigenen Geräte zu verbinden. Kein Konto, keine Anmeldung, keine Zahlung. Am Programm wurde nichts geändert – es gab nichts zu ändern. Ärgerlich ist nicht die Prüfung, sondern dass eine unsichere Maschine durchentscheidet, statt einen Menschen hinzuzuziehen. Ein Blick hätte gereicht; so kostet es sieben bis vierzehn Tage. (Heute gibt es beides so nicht mehr: Das Relais ist fest eingestellt, und Geräte verbinden sich per QR-Einladung mit Kurzcode.)"
         },
         {
           "datum": "2026-07-24",
@@ -2306,7 +2307,7 @@
           },
           "sha256": "74c175ce7cb4575897a0d2f8e360d0dfd384d8db0717960e57b21fbeb1d14c17",
           "signed": true,
-          "notes": "Signierte Windows-Fassung 1.9.2 (Herausgeber FehlerFuchs), ein Bugfix-Release über 1.9.1. Es behebt zwei Fehler beim Koppeln weiterer Geräte: „Code vorbereiten“ funktioniert jetzt auch, wenn gerade kein Abgleich läuft, und nach einem Hauptgerät-Wechsel erscheint ein verständlicher Hinweis zum Neu-Koppeln statt einer kryptischen Fehlermeldung. Der übrige Funktionsumfang bleibt unverändert (Kalender-Konfigurator, Jahres- und Schuljahreskalender zum Ausdrucken, Wandpläne je Einrichtung). Löst 1.9.1 ab."
+          "notes": "Signierte Windows-Fassung 1.9.2 (Herausgeber FehlerFuchs), ein Bugfix-Release über 1.9.1. Es behebt zwei Fehler beim Koppeln weiterer Geräte: „Code vorbereiten“ funktioniert jetzt auch, wenn gerade kein Abgleich läuft, und nach einem Hauptgerät-Wechsel erscheint ein verständlicher Hinweis zum Neu-Koppeln statt einer kryptischen Fehlermeldung. Der übrige Funktionsumfang bleibt unverändert (Kalender-Konfigurator, Jahres- und Schuljahreskalender zum Ausdrucken, Wandpläne je Einrichtung, verschlüsselter Abgleich zwischen den Geräten). Löst 1.9.1 ab."
         },
         {
           "version": "1.9.1",
@@ -2439,10 +2440,11 @@
           "group": "Geräte und Daten",
           "items": [
             {
-              "name": "Alle Daten ausschließlich auf dem Gerät (SQLite)",
+              "name": "Pläne in einer lokalen Datenbank auf dem Gerät (SQLite)",
               "values": {
                 "standard": "ja"
-              }
+              },
+              "note": "Kein Speicher in einer Cloud. Bei verbundenen Geräten liegt eine Kopie auf jedem Gerät der Familie; das Relais reicht nur verschlüsselt weiter und speichert keine Inhalte."
             },
             {
               "name": "Abgleich zwischen mehreren Geräten – Beitritt per QR-Einladung",
@@ -2555,11 +2557,11 @@
           },
           {
             "src": "/img/screenshots/orgafuchs/handy-06-sync.png",
-            "alt": "Werbebild „Sync ohne Cloud, Ende-zu-Ende verschlüsselt“ mit der Geräteseite: Hauptgerät oder Beitreten, QR-Scan, Wahl zwischen eigenem Netz und Relay",
+            "alt": "Werbebild „Geräte sicher verbinden – Ende-zu-Ende verschlüsselt, ein Code genügt“ mit der Seite „Geräte verbinden“: Hinweis „Sicher verbunden“ und Knopf „Gerät verbinden“.",
             "width": 620,
-            "height": 1342,
+            "height": 1242,
             "geraet": "handy",
-            "titel": "Abgleich zwischen deinen Geräten"
+            "titel": "Geräte sicher verbinden"
           },
           {
             "src": "/img/screenshots/orgafuchs/handy-07-einrichtung.png",
@@ -3023,7 +3025,7 @@
           "summary": "Voller Funktionsumfang, freigeschaltet per einmaligem In-App-Kauf.",
           "price": {
             "model": "iap",
-            "amount": 5.0,
+            "amount": 5.99,
             "currency": "EUR",
             "vatIncluded": true,
             "recurring": false
@@ -3315,11 +3317,11 @@
         "screenshots": [
           {
             "src": "/img/screenshots/snapfuchs/handy-01.png",
-            "alt": "Werbebild „100 % lokaler Dokumentenscanner – Kein Konto, keine Cloud, keine Werbung“. Darunter der Startbildschirm: der Fuchskopf in einem orangefarbenen Scanrahmen.",
-            "width": 620,
-            "height": 1342,
+            "alt": "Werbebild „Dokumente scannen. Lokal. Kein Konto, keine Cloud, keine Werbung.“ Darunter die Startseite mit der Liste der letzten Dokumente, dem Knopf zur Pro-Freischaltung und dem großen runden Kameraknopf.",
+            "width": 1242,
+            "height": 2484,
             "geraet": "handy",
-            "titel": "100 % lokal – kein Konto, keine Cloud, keine Werbung"
+            "titel": "Scannen auf dem Gerät – kein Konto, keine Cloud, keine Werbung"
           },
           {
             "src": "/img/screenshots/snapfuchs/handy-02.png",
@@ -3371,9 +3373,9 @@
           },
           {
             "src": "/img/screenshots/snapfuchs/handy-08.png",
-            "alt": "Werbebild „100 % lokal. Kein Tracking.“ Darunter die Einstellungen mit Erscheinungsbild, Wasserzeichen, Dateinamen und Seitenformat sowie einem ausführlichen Datenschutzabschnitt.",
-            "width": 620,
-            "height": 1342,
+            "alt": "Werbebild „Deine Scans bleiben hier“. Darunter der Datenschutzabschnitt der Einstellungen: was auf dem Gerät bleibt und was trotzdem nach außen geht.",
+            "width": 1242,
+            "height": 2484,
             "geraet": "handy",
             "titel": "Alles einstellbar – und nachlesbar, was wohin geht"
           }

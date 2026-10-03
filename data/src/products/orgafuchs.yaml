@@ -4,15 +4,16 @@ fullName: FehlerFuchs OrgaFuchs
 # SEO (2026-08-09): Windows (signiert, 1.9.3) + Android seit 08.08. verfügbar.
 seoTitel: "OrgaFuchs – Familien- & Schichtplaner (Windows, Android)"
 seoBeschreibung: "Familien- und Schichtplaner für Dienste, Termine und Notizen: Monatskalender, PDF-Export, verschlüsselter Sync eigener Geräte – Windows & Android, ohne Konto."
-tags: ["Schichtplaner", "Familienplaner", "Dienstplan", "Kalender", "Windows", "Android", "Ende-zu-Ende-verschlüsselt"]
+tags: ["Schichtplaner", "Familienplaner", "Dienstplan", "Kalender", "Windows", "Android", "offline", "Ende-zu-Ende-verschlüsselt"]
 kind: produkt
 tagline: Schicht- und Dienstplaner für Wechseldienst und Familie – ohne Konto, ohne Werbung, mit Ende-zu-Ende-verschlüsseltem Abgleich zwischen deinen Geräten.
 description: >-
   Plant Dienste, Schichten, Termine und Notizen für die ganze Familie oder ein kleines
   Team: Monatskalender, Schnelleintrag, PDF-Export als Monat, Jahr oder Blanko-Vorlage.
   Es gibt kein Konto und keine Registrierung; die Pläne liegen auf dem Gerät. Wer mehrere
-  Geräte nutzen will, verbindet sie per QR-Code mit dem Hauptgerät. Der Abgleich läuft
-  Ende-zu-Ende-verschlüsselt über das Relais von FehlerFuchs, das die Inhalte nicht lesen kann.
+  Geräte nutzen will, verbindet sie per QR-Code mit dem Hauptgerät und bestätigt die
+  Kopplung mit einem Kurzcode. Der Abgleich läuft Ende-zu-Ende-verschlüsselt über das
+  Relais von FehlerFuchs, das die Inhalte nicht lesen kann.
 audience: [privat, vereine, unternehmen]
 accent: "#B4652A"   # Farbe der App
 # Android ist seit 08.08.2026 regulär im Google Play Store (Play-Stand 1.9.7 live
@@ -62,12 +63,14 @@ umwege:
     text: >-
       Die Prüfsoftware hat die Einstellungsseite für den Gruppen-Sync als
       Bezahlschranke oder nicht deklarierten Login gewertet. Beides ist sie
-      nicht: Dort trägt man eine Relay-Adresse und ein selbst gewähltes
+      nicht: Damals trug man dort eine Relay-Adresse und ein selbst gewähltes
       Gruppen-Passwort ein, um die eigenen Geräte zu verbinden. Kein Konto,
       keine Anmeldung, keine Zahlung. Am Programm wurde nichts geändert – es
       gab nichts zu ändern. Ärgerlich ist nicht die Prüfung, sondern dass eine
       unsichere Maschine durchentscheidet, statt einen Menschen hinzuzuziehen.
-      Ein Blick hätte gereicht; so kostet es sieben bis vierzehn Tage.
+      Ein Blick hätte gereicht; so kostet es sieben bis vierzehn Tage. (Heute
+      gibt es beides so nicht mehr: Das Relais ist fest eingestellt, und Geräte
+      verbinden sich per QR-Einladung mit Kurzcode.)
 
   - datum: "2026-07-24"
     os: android
@@ -160,7 +163,7 @@ releases:
       einem Hauptgerät-Wechsel erscheint ein verständlicher Hinweis zum Neu-Koppeln
       statt einer kryptischen Fehlermeldung. Der übrige Funktionsumfang bleibt
       unverändert (Kalender-Konfigurator, Jahres- und Schuljahreskalender zum
-      Ausdrucken, Wandpläne je Einrichtung). Löst 1.9.1 ab.
+      Ausdrucken, Wandpläne je Einrichtung, verschlüsselter Abgleich zwischen den Geräten). Löst 1.9.1 ab.
   # 1.9.1: Signier-/Manifest-Fakten aus dem [16]-Handoff (12.09., zweistufig App+
   # Installer signiert), gegen GitHub geprüft (gh: Asset, 17.482.632 B, sha256
   # 2474fa9c…6fab – stimmen). Fasst die Windows-Releases 1.8.0/1.8.1/1.9.0/1.9.1
@@ -263,8 +266,9 @@ features:
 
   - group: Geräte und Daten
     items:
-      - name: Alle Daten ausschließlich auf dem Gerät (SQLite)
+      - name: Pläne in einer lokalen Datenbank auf dem Gerät (SQLite)
         values: { standard: ja }
+        note: Kein Speicher in einer Cloud. Bei verbundenen Geräten liegt eine Kopie auf jedem Gerät der Familie; das Relais reicht nur verschlüsselt weiter und speichert keine Inhalte.
       # Berichtigt 25.09.2026: Heimnetz-Sync und Gruppen-Passwort gibt es spätestens seit 1.9.2 nicht
       # mehr, das Relais ist in der App fest (gemessen von [32], Steckbrief 25.09.; bei
       # [10] am OrgaFuchs-Repo gegengeprüft: Stand 1.9.2 ohne Port 7842).
@@ -342,11 +346,11 @@ media:
       geraet: handy
       titel: "Auch im Dunkelmodus"
     - src: /img/screenshots/orgafuchs/handy-06-sync.png
-      alt: "Werbebild „Sync ohne Cloud, Ende-zu-Ende verschlüsselt“ mit der Geräteseite: Hauptgerät oder Beitreten, QR-Scan, Wahl zwischen eigenem Netz und Relay"
+      alt: "Werbebild „Geräte sicher verbinden – Ende-zu-Ende verschlüsselt, ein Code genügt“ mit der Seite „Geräte verbinden“: Hinweis „Sicher verbunden“ und Knopf „Gerät verbinden“."
       width: 620
-      height: 1342
+      height: 1242
       geraet: handy
-      titel: "Abgleich zwischen deinen Geräten"
+      titel: "Geräte sicher verbinden"
     - src: /img/screenshots/orgafuchs/handy-07-einrichtung.png
       alt: "Werbebild „In wenigen Minuten eingerichtet“ mit der Einrichtungshilfe und ihren vier abgehakten Schritten"
       width: 620

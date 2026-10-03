@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-03T18:36:04+02:00",
+  "generiert": "2026-10-03T19:27:14+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "dienste": [
     {
@@ -89,7 +89,7 @@
       "produkte": [
         "orgafuchs"
       ],
-      "hinweis": "Nur auf Android und nur bei eingeschalteten Benachrichtigungen. Der Weckruf ist inhaltsblind: Was sich geändert hat, erfährt weder der Weckpfad noch Google – der eigentliche Abgleich läuft Ende-zu-Ende über das Relais. Die selbst betriebene ntfy-Variante („Benachrichtigungen“) ist die Alternative ohne Google."
+      "hinweis": "Nur auf Android und nur bei eingeschalteten Benachrichtigungen. Der Weckruf ist inhaltsblind: Was sich geändert hat, erfährt weder der Weckpfad noch Google – der eigentliche Abgleich läuft Ende-zu-Ende über das Relais. Für Geräte ohne Google-Dienste und für Windows lässt sich unter „Erweitert: Fallback-Dienst“ ein ntfy-Server eintragen (Vorschlag in der Auswahl: der von FehlerFuchs) – dann ganz ohne Google. Ab Werk ist kein ntfy-Server eingetragen."
     },
     {
       "id": "digistore24",
