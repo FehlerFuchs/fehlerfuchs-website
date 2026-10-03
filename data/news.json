@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-03T20:12:36+02:00",
+  "generiert": "2026-10-03T20:51:27+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -144,7 +144,7 @@
       "produkt": "orgafuchs",
       "version": "1.9.3",
       "titel": "OrgaFuchs 1.9.3: stabilerer Familien-Sync",
-      "text": "OrgaFuchs 1.9.3 ist für Windows und Android da und macht den Familien-Sync deutlich robuster: Jede Änderung wird zuerst auf dem Gerät gesichert, bis das Hauptgerät sie bestätigt hat – auch bei Funklöchern geht nichts verloren. Dienste und Kategorien erreichen jetzt alle Familiengeräte. Mehr Datenschutz: keine Kopien in fremden Cloud-Backups, und „Alle Daten löschen“ entfernt wirklich alles. Unter Windows startet OrgaFuchs auch ohne installierte Visual-C++-Laufzeit, läuft nur einmal und lässt sich sauber deinstallieren. Alles bleibt auf dem Gerät, ohne Konto.",
+      "text": "OrgaFuchs 1.9.3 ist für Windows und Android da und macht den Familien-Sync deutlich robuster: Jede Änderung wird zuerst auf dem Gerät gesichert, bis das Hauptgerät sie bestätigt hat – auch bei Funklöchern geht nichts verloren. Dienste und Kategorien erreichen jetzt alle Familiengeräte. Mehr Datenschutz: keine Kopien in fremden Cloud-Backups, und „Alle Daten löschen“ entfernt wirklich alles. Unter Windows startet OrgaFuchs auch ohne installierte Visual-C++-Laufzeit, läuft nur einmal und lässt sich sauber deinstallieren. Es gibt kein Konto.",
       "datum": "2026-09-25",
       "datumQuelle": "Release 1.9.3",
       "wege": {
@@ -205,7 +205,7 @@
       "produkt": "orgafuchs",
       "version": "1.9.1",
       "titel": "OrgaFuchs 1.9.1: Kalender-Konfigurator und Kalender zum Ausdrucken",
-      "text": "Neu in OrgaFuchs: ein interaktiver Kalender-Konfigurator mit Live-Vorschau – der Wandplan lässt sich komplett offline zusammenstellen (Zeitraum, Personen und Einrichtungen frei wählbar). Dazu Jahres- und Schuljahreskalender zum Ausdrucken (A3/A4, gefüllt oder blanko), besser lesbare Wandpläne mit einer Spalte je Einrichtung samt Blanko-Vorlage und Öffnungs-/Betreuungszeiten (Hort, Kita) als dezentes Band. Der Sync von Einrichtungen läuft jetzt zuverlässig und sicher; ein kurzer Verbindungsabbruch bricht ihn nicht mehr ab. Auf Android lässt sich OrgaFuchs optional im Geräte-Kalender anzeigen – rein lokal. Alles bleibt auf dem Gerät, ohne Cloud und ohne Konto.",
+      "text": "Neu in OrgaFuchs: ein interaktiver Kalender-Konfigurator mit Live-Vorschau – der Wandplan lässt sich komplett offline zusammenstellen (Zeitraum, Personen und Einrichtungen frei wählbar). Dazu Jahres- und Schuljahreskalender zum Ausdrucken (A3/A4, gefüllt oder blanko), besser lesbare Wandpläne mit einer Spalte je Einrichtung samt Blanko-Vorlage und Öffnungs-/Betreuungszeiten (Hort, Kita) als dezentes Band. Der Sync von Einrichtungen läuft jetzt zuverlässig und sicher; ein kurzer Verbindungsabbruch bricht ihn nicht mehr ab. Auf Android lässt sich OrgaFuchs optional im Geräte-Kalender anzeigen – rein lokal. Es gibt kein Konto.",
       "datum": "2026-09-12",
       "datumQuelle": "Release 1.9.1",
       "wege": {
@@ -352,7 +352,7 @@
       "produkt": "orgafuchs",
       "datum": "2026-08-08",
       "titel": "OrgaFuchs ist im Play Store",
-      "text": "Der lokale Familien- und Schichtplaner ist da – kostenlos, werbefrei und ohne Konto. Nach den finalen Tests und der Sicherheitshärtung ist einiges dazugekommen: ein Ende-zu-Ende-verschlüsselter Live-Sync über ein gehärtetes Relais (OFSP/1, Kopplung per QR-Code) mit sicherem Gerätewechsel und Notfall-Wiederherstellung; optimierte Kalenderansichten mit Startbildschirm-Widgets für Tag, Woche und Monat; klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz und „Was ist neu“ direkt in der App. Alle Daten bleiben auf dem Gerät.",
+      "text": "Der lokale Familien- und Schichtplaner ist da – kostenlos, werbefrei und ohne Konto. Nach den finalen Tests und der Sicherheitshärtung ist einiges dazugekommen: ein Ende-zu-Ende-verschlüsselter Live-Sync über ein gehärtetes Relais (OFSP/1, Kopplung per QR-Code) mit sicherem Gerätewechsel und Notfall-Wiederherstellung; optimierte Kalenderansichten mit Startbildschirm-Widgets für Tag, Woche und Monat; klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz und „Was ist neu“ direkt in der App. Die Pläne liegen auf dem Gerät; der Abgleich läuft Ende-zu-Ende-verschlüsselt über das Relais.",
       "datumQuelle": "eigene Angabe",
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"

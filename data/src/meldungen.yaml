@@ -326,7 +326,7 @@ meldungen:
       Kopplung per QR-Code) mit sicherem Gerätewechsel und Notfall-Wiederherstellung;
       optimierte Kalenderansichten mit Startbildschirm-Widgets für Tag, Woche und Monat;
       klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz
-      und „Was ist neu“ direkt in der App. Alle Daten bleiben auf dem Gerät.
+      und „Was ist neu“ direkt in der App. Die Pläne liegen auf dem Gerät; der Abgleich läuft Ende-zu-Ende-verschlüsselt über das Relais.
 
   # GewerbePro 1.1.0 (Windows-Release 26.09.2026 12:24, signiert, Handoff [FF_16]).
   # 'version: 1.1.0' bindet die Meldung an den releases-Eintrag. Text aus „Neu in 1.1.0"
@@ -377,7 +377,7 @@ meldungen:
       und Kategorien erreichen jetzt alle Familiengeräte. Mehr Datenschutz: keine Kopien
       in fremden Cloud-Backups, und „Alle Daten löschen“ entfernt wirklich alles. Unter
       Windows startet OrgaFuchs auch ohne installierte Visual-C++-Laufzeit, läuft nur
-      einmal und lässt sich sauber deinstallieren. Alles bleibt auf dem Gerät, ohne Konto.
+      einmal und lässt sich sauber deinstallieren. Es gibt kein Konto.
 
   # OrgaFuchs 1.9.2 (Windows-Release 13.09., signiert; Bugfix über 1.9.1; Play 1.9.2
   # live seit 13.09.). 'version: 1.9.2' bindet die Meldung an den releases-Eintrag.
@@ -415,7 +415,7 @@ meldungen:
       (Hort, Kita) als dezentes Band. Der Sync von Einrichtungen läuft jetzt
       zuverlässig und sicher; ein kurzer Verbindungsabbruch bricht ihn nicht mehr
       ab. Auf Android lässt sich OrgaFuchs optional im Geräte-Kalender anzeigen –
-      rein lokal. Alles bleibt auf dem Gerät, ohne Cloud und ohne Konto.
+      rein lokal. Es gibt kein Konto.
 
   # OrgaFuchs 1.7.0 (Changelog). 'version: 1.7.0' bindet die Meldung an den
   # releases-Eintrag (Windows-Release 30.08., signiert; Android 1.7.0+16 parallel

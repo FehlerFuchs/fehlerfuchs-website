@@ -181,8 +181,8 @@ dienste:
     aufbewahrung: >-
       Pro Gerät eine Zeile in der Registry, solange das Gerät angemeldet ist; bei
       Abmeldung sofort gelöscht, bei einem von Google als ungültig gemeldeten Token
-      automatisch beim nächsten Weckversuch. Keine feste Frist, keine Namen, keine
-      Konten.
+      automatisch beim nächsten Weckversuch; wurde der Eintrag 90 Tage nicht erneuert,
+      wird er automatisch gelöscht. Keine Namen, keine Konten.
     # Rechtliche Einordnung (03.09.2026, belegt): siehe Kommentar oben.
     # Seit 30.09.2026 wortgleich aus dem Steckbrief relaisserver.yaml (fremde_dienste → Google, hinweis;
     # [FF_11-2], Entscheidung Matthias R1) – ohne die internen Beleg- und Entscheidungsvermerke.
