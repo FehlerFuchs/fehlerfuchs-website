@@ -51,6 +51,11 @@ _spec = _ilu.spec_from_file_location("steckbriefe_uebernehmen", WEBSITE / "tools
 _steck = _ilu.module_from_spec(_spec)
 _spec.loader.exec_module(_steck)
 ersatzschreibungen = _steck.ersatzschreibungen
+# Typografie (gerade Anführungszeichen, Bindestrich statt Gedankenstrich): dieselben Regeln wie beim Einlesen – eine Quelle.
+_typ_spec = _ilu.spec_from_file_location("typografie", WEBSITE / "tools" / "typografie.py")
+_typ = _ilu.module_from_spec(_typ_spec)
+_typ_spec.loader.exec_module(_typ)
+typografie_funde = _typ.funde
 
 # Gesperrte Wörter: nur die Prüfsummen aus build_data.py (dort ist die einzige Liste).
 _bd = (WEBSITE / "tools" / "build_data.py").read_text(encoding="utf-8")
@@ -199,6 +204,13 @@ def main():
         (ziel / "texte" / f"{seitenname(pfad)}.txt").write_text(f"# {pfad}\n# Titel: {s.titel.strip()}\n\n{text}\n", encoding="utf-8")
         for w in ersatzschreibungen({"text": text}):
             befund("umlaut", pfad, f"Ersatzschreibung statt Umlaut: „{w}“")
+        typo = typografie_funde(text)
+        anf = [x for x in typo if "statt „ – “" not in x]
+        strich = [x for x in typo if "statt „ – “" in x]
+        if anf:
+            befund("typografie", pfad, f"{len(anf)}x gerade Anführungszeichen im Text statt „…“, z. B. {anf[0]}", "niedrig")
+        if strich:
+            befund("typografie", pfad, f"{len(strich)}x Bindestrich oder langer Strich statt Gedankenstrich „ – “, z. B. {strich[0]}", "niedrig")
         for m in DOPPELWORT.finditer(text):
             befund("doppelwort", pfad, f"Wort doppelt: „{m.group(0)}“", "niedrig")
         for m in PLATZHALTER.finditer(text):

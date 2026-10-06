@@ -39,6 +39,7 @@ from datetime import date
 from pathlib import Path
 
 import yaml
+from typografie import funde as typo_funde    # Regeln: tools/typografie.py (eine Quelle)
 
 HIER = Path(__file__).resolve().parent
 WEBSITE = HIER.parent
@@ -158,6 +159,25 @@ def ersatzschreibungen(daten):
     lauf(daten)
     return sorted(funde)
 
+def typografie_funde(daten):
+    """Gerade Anführungszeichen und Bindestriche statt Gedankenstrich im Fließtext (Hinweis, kein Abbruch)."""
+    treffer = []
+
+    def lauf(wert):
+        if isinstance(wert, dict):
+            for schluessel, inhalt in wert.items():
+                if schluessel not in ERSATZ_NICHT_PRUEFEN:
+                    lauf(inhalt)
+        elif isinstance(wert, list):
+            for inhalt in wert:
+                lauf(inhalt)
+        elif isinstance(wert, str):
+            treffer.extend(typo_funde(wert))
+
+    lauf(daten)
+    return treffer
+
+
 # Kennungen, die es im Produktmodell (noch) nicht gibt, deren Steckbrief aber
 # trotzdem gilt. Wer hier etwas eintraegt, muss sagen warum - deshalb ist der
 # Grund Pflichttext und keine leere Zeichenkette.
@@ -206,6 +226,12 @@ def pruefe(text, daten, erlaubte_kennungen):
         mehr = f" (+{len(ersatz) - 8} weitere)" if len(ersatz) > 8 else ""
         funde.append(f"Ersatzschreibung statt Umlaut (S1): {', '.join(ersatz[:8])}{mehr} - "
                      f"bitte mit echten Umlauten neu einreichen")
+
+    typo = typografie_funde(daten)
+    if typo:
+        hinweise.append(f"Typografie: {len(typo)}x gerade Anfuehrungszeichen oder Bindestriche statt Gedankenstrich "
+                        f"im Fliesstext (z. B. {typo[0]}) - die Website zeigt sie so an. Quelle berichtigen lassen, "
+                        f"nicht auf der Website von Hand aendern")
 
     fehlt = [f for f in PFLICHT if not daten.get(f)]
     if fehlt:
