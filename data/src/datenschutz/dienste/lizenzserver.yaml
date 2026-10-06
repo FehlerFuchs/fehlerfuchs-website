@@ -1,8 +1,8 @@
 slug: lizenzserver
 name: FehlerFuchs Lizenzserver
-stand: "2026-10-03"
+stand: "2026-10-06"
 geprueft_von: 11_Lizenzserver
-fassung: "Adapter-Stand 20.07.2026 (kein Versionsschema); Admin-API 1.0; mit Löschlauf, Wunscherfüller und Löschantrag (live seit 01.10.2026; Weg „nur E-Mail“ und Frist für Ereignis-Kennungen seit 03.10.2026)"
+fassung: "Adapter-Stand 20.07.2026 (kein Versionsschema); Admin-API 1.0; mit Löschlauf, Wunscherfüller und Löschantrag (live seit 01.10.2026; Weg „nur E-Mail“ und Frist für Ereignis-Kennungen seit 03.10.2026; Datensicherung mit Löschjournal seit 06.10.2026)"
 
 # Kein Endnutzer-Programm, sondern ein Server-Dienst. Daten verlassen das Gerät
 # des Nutzers zwangsläufig, sobald eine App den Dienst anspricht.
@@ -53,6 +53,12 @@ auf_dem_geraet:
   - was: nach einem Löschantrag gesperrte Lizenz (Lizenzschlüssel, Bestellnummer, Status „gesperrt“, ohne E-Mail-Adresse und ohne Namen) samt Vormerkung (Lizenz-Kennung, Produkt, Bestellnummer, Sperrfrist)
     wo: Lizenzdatenbank und Datenbank auf dem Server; gesperrt bis 31.12. des dritten Jahres nach dem Jahr der Löschung, danach automatisch gelöscht
     beleg: Tabellen dsgvo_sperren und dsgvo_lizenzen; adapter/app/dsgvo.py, _vollziehen und faellige_lizenzen_loeschen; adapter/app/cleanup.py
+  - was: verschlüsselte Sicherungen aller oben genannten Datenbank-Inhalte (Lizenzdaten, Roh-Aufrufe, Tester, Wünsche, Aktion, Antragsprotokoll, Sperren) und des Löschjournals
+    wo: auf dem Server 14 Tage; täglich als verschlüsselte Kopie vom eigenen NAS im Heimnetz von FehlerFuchs abgeholt und dort 30 Tage aufbewahrt
+    beleg: wartung/db_sicherung.sh, wartung/db_bereitstellen.sh, /etc/cron.d/ff-license-dbsicherung, /etc/cron.d/ff-license-naspull
+  - was: Löschjournal (Zeitpunkt, zufällige Antragskennung, Lizenz-Kennung, Bestellnummer, E-Mail nur als gesalzener Prüfwert)
+    wo: auf dem Server außerhalb der Datenbank, 31 Tage
+    beleg: adapter/app/loeschjournal.py
 
 # Berechtigungen: entfällt — Server-Dienst, kein Manifest, keine Geräteberechtigungen.
 
@@ -171,7 +177,12 @@ loeschung: >-
   (Datum, Ergebnis, zufällige Kennung) wird nach 3 Jahren gelöscht. Die
   Lizenzsoftware führt keine eigenen Protokolle mit E-Mail-Adressen (gemessen am
   01.10.2026: Anfrage- und Ereignisprotokoll leer, keine Adressen in den
-  Betriebsprotokollen der Dienste).
+  Betriebsprotokollen der Dienste). Täglich wird eine verschlüsselte Sicherung der
+  Datenbanken erstellt, 14 Tage auf dem Server und als verschlüsselte Kopie 30 Tage auf
+  dem eigenen NAS aufbewahrt. Gelöschte Daten verschwinden damit spätestens nach 30 Tagen
+  auch aus allen Sicherungen. Muss eine Sicherung zurückgespielt werden, werden alle
+  Löschungen seit ihrem Zeitpunkt anhand eines Löschjournals sofort erneut ausgeführt;
+  gelöschte Daten kommen so nicht zurück.
 
 besonderheiten: >-
   Der Lizenzserver ist ein Hintergrunddienst, kein Programm für Endnutzer.
@@ -216,3 +227,5 @@ offene_fragen: >-
   Aufräumlauf ist auf dem Server eingeplant und läuft: gemessen am 03.10.2026
   (/etc/cron.d/ff-license-cleanup, 03:30 Europe/Berlin; Läufe 30.09. bis 03.10. im
   Protokoll, letzter Lauf ohne Fehler; kein Roh-Aufruf älter als 90 Tage).
+  (4) Datensicherung seit 06.10.2026: erster Wiederherstellungstest in abgetrennter Instanz
+  IDENTISCH (56 Tabellen), 3 Sekunden; vierteljährliche Wiederholung als Wiedervorlage.

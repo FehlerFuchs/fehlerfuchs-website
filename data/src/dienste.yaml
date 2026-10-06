@@ -66,7 +66,9 @@ dienste:
       Andere Anlässe gibt es nicht.
     betreiber: eigen
     standort: Deutschland
-    stand: "2026-09-26"
+    stand: "2026-10-06"
+    # Satz zur Datensicherung in der Aufbewahrung: von Matthias freigegeben am 06.10.2026
+    # (P10, Logbuch #4869), wortgleich übernommen auf Auftrag von [FF_00] (12:56:17).
     # Nur was die APP oder der BROWSER dorthin sendet. Was der Dienst
     # intern speichert, gehoert in die Aufbewahrung darunter.
     uebermittelt:
@@ -78,6 +80,12 @@ dienste:
       Kaufabwicklung und Rechnungsdaten liegen beim Zahlungsdienstleister,
       nicht hier. Wunsch-Einsendungen 90 Tage; Aktionsteilnahme: Name und
       E-Mail 90 Tage nach Vergabe.
+      Zur Sicherheit erstellen wir jeden Tag eine verschlüsselte Sicherung der
+      Datenbank unseres Lizenzservers. Wir bewahren sie 14 Tage auf dem Server und
+      30 Tage als verschlüsselte Kopie auf unserem eigenen Speicher auf. Löschen
+      wir deine Daten, sind sie spätestens nach 30 Tagen auch aus allen Sicherungen
+      verschwunden. Müssten wir einmal eine Sicherung zurückspielen, löschen wir
+      deine Daten dabei sofort erneut.
     # Lizenz-Apps plus alle Apps, deren Kontakt-/Supportformular über den Dienst läuft –
     # Aufrufer gemessen von [FF_11] am 26.09.2026 per git grep (Beleg im Steckbrief lizenzserver).
     produkte: [mobilereport, mobilereport-enterprise, gewerbepro, gewerbepro-companion,
