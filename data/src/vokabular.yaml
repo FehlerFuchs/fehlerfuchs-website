@@ -192,7 +192,7 @@ wunschStatus:
   nicht-umsetzbar:
     label: Nicht umsetzbar
     erklaerung: Geht leider nicht – die Begründung steht im Kommentar.
-    color: "var(--leise)"
+    color: "var(--leise-text)"
     bg: "var(--cream)"
     border: "var(--rand)"
     order: 4
@@ -232,6 +232,6 @@ meilensteinStand:
     border: "var(--rand)"
   pausiert:
     label: pausiert
-    color: "var(--leise)"
+    color: "var(--leise-text)"
     bg: "var(--cream)"
     border: "var(--rand)"

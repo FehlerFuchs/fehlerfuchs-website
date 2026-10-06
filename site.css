@@ -36,6 +36,11 @@
   /* Karten-/Rand-/Hover-/Text-Toene als Tokens, damit der Dunkelmodus sie fassen
      kann (frueher in den Komponenten hartkodiert). */
   --flaeche:#ffffff; --rand:#f0e2d2; --rand-stark:#e8d5bd; --leise:#a6907c;
+  /* Leise Schrift: --leise (#a6907c) bleibt für Linien und Pfeile; als TEXT erreicht er auf Creme nur 2,87 : 1.
+     --leise-text #7a6656 hat 5,1 : 1 auf Creme, im Dunkeln bleibt der Wert (4,9 : 1). Audit AUDIT#04, F-022. */
+  --leise-text:#7a6656;
+  /* Fließtext in Meldungen und Wünschen: war fest #4a3a2e und im Dunkeln unlesbar (1,7 : 1). Audit AUDIT#04, F-006. */
+  --fliess:#4a3a2e;
   --hover-nav:#fbeee2; --schatten:rgba(124,63,22,.06);
   /* Knopf-Hover: im Hellen dunkler, im Dunkeln heller als --orange - deshalb ein
      eigener Token statt eines festen Dunkelmach-Filters. */
@@ -66,6 +71,8 @@
   --action:#f2743a; --app:#5fb07d; --lens:#7ab0ff; --bg:#17120f;
   --green:#6fae86; --blue:#7ab0ff; --petrol:#3aa6c0; --accent:#f2743a;
   --flaeche:#211812; --rand:#3a2c22; --rand-stark:#4a382b; --leise:#9c8672;
+  --leise-text:#9c8672;
+  --fliess:#d8cab9;
   --hover-nav:#2a1f17; --schatten:rgba(0,0,0,.30); --orange-tief:#f59a3a;
   --knopf:#e8891f; --knopf-hover:#f59a3a; --schlagzeile:#e8891f;
   /* Dezent-warm statt weissem Leuchten: dunkler Grund, getoenter Text. */

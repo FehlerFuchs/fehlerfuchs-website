@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-03T20:57:26+02:00",
+  "generiert": "2026-10-06T04:33:51+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "statuses": {
     "verfuegbar": {
@@ -92,7 +92,7 @@
     "idee": {
       "label": "Idee",
       "short": "Idee",
-      "color": "var(--leise)",
+      "color": "var(--leise-text)",
       "bg": "var(--cream)",
       "border": "var(--rand)",
       "order": 7,
@@ -104,7 +104,7 @@
     "pausiert": {
       "label": "Pausiert",
       "short": "pausiert",
-      "color": "var(--leise)",
+      "color": "var(--leise-text)",
       "bg": "var(--cream)",
       "border": "var(--rand)",
       "order": 8,
@@ -116,7 +116,7 @@
     "eingestellt": {
       "label": "Eingestellt",
       "short": "eingestellt",
-      "color": "var(--leise)",
+      "color": "var(--leise-text)",
       "bg": "var(--cream)",
       "border": "var(--rand)",
       "order": 9,

@@ -91,7 +91,7 @@ konzept:
 idee:
   label: Idee
   short: Idee
-  color: "var(--leise)"
+  color: "var(--leise-text)"
   bg: "var(--cream)"
   border: "var(--rand)"
   order: 7
@@ -101,7 +101,7 @@ idee:
 pausiert:
   label: Pausiert
   short: pausiert
-  color: "var(--leise)"
+  color: "var(--leise-text)"
   bg: "var(--cream)"
   border: "var(--rand)"
   order: 8
@@ -111,7 +111,7 @@ pausiert:
 eingestellt:
   label: Eingestellt
   short: eingestellt
-  color: "var(--leise)"
+  color: "var(--leise-text)"
   bg: "var(--cream)"
   border: "var(--rand)"
   order: 9

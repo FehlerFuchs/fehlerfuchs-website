@@ -17,6 +17,7 @@ Minimalprüfung, die alle im Schema verwendeten Konstrukte abdeckt.
 """
 
 import hashlib
+import os
 import pathlib
 import random
 import json
@@ -33,7 +34,9 @@ except ImportError:
     sys.exit("FEHLER: PyYAML fehlt.  Installation:  pip install pyyaml")
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = ROOT / "data" / "src"
+# FF_DATEN_QUELLE: nur für die Vorabprüfung der Werkstatt (Audit AUDIT#04, F-003). Sie prüft eine
+# Kopie von data/src, bevor etwas in die gültige Quelle geschrieben wird. Ohne die Variable gilt data/src.
+SRC = Path(os.environ["FF_DATEN_QUELLE"]).resolve() if os.environ.get("FF_DATEN_QUELLE") else ROOT / "data" / "src"
 SCHEMA_FILE = ROOT / "data" / "schema" / "product.schema.json"
 MELDUNG_SCHEMA_FILE = ROOT / "data" / "schema" / "meldung.schema.json"
 OUT_PRODUCTS = ROOT / "data" / "products.json"
