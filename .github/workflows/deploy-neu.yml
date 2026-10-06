@@ -62,7 +62,9 @@ jobs:
           python-version: '3.12'
 
       - name: PyYAML installieren
-        run: pip install pyyaml
+        # Feste Version (Audit AUDIT#04, F-012): derselbe Quellenverbund soll denselben Bau ergeben.
+        # 6.0.3 ist die Fassung, mit der das Datenmodell lokal geprüft wird.
+        run: pip install pyyaml==6.0.3
 
       - name: Datenmodell erzeugen und pruefen
         working-directory: website
@@ -90,7 +92,7 @@ jobs:
       - name: Health-/Version-JSON stempeln
         run: |
           cat > astro/dist/health.json <<EOF
-          { "ok": true, "service": "website", "version": "${GITHUB_SHA::7}", "deployed_at": "$(date -u +%FT%TZ)" }
+          { "ok": true, "service": "website", "version": "${GITHUB_SHA::7}", "website_sha": "${GITHUB_SHA}", "astro_sha": "$(git -C astro rev-parse HEAD)", "deployed_at": "$(date -u +%FT%TZ)" }
           EOF
 
       - name: CNAME mitnehmen
@@ -106,6 +108,9 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: astro/dist
+          # 90 statt 1 Tag (Audit AUDIT#04, F-012): Das ausgelieferte Artefakt bleibt für einen
+          # Rückweg und einen Hashvergleich erhalten.
+          retention-days: 90
 
       - name: Zu GitHub Pages deployen
         id: deployment
