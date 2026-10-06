@@ -192,6 +192,14 @@ OHNE_PRODUKTSEITE = {
 }
 
 
+# Steckbriefe, die die Website bewusst NICHT führt. Die Quelle in 00-1 bleibt, die Website spiegelt sie nicht.
+# Wer einen Eintrag hinzufügt, nennt Datum und Grund.
+AUSGENOMMEN = {
+    "coppicemail": "Produktseite und Steckbrief entfernt am 06.10.2026 (Entscheidung Matthias): dauerhaft geschlossen "
+                   "seit 31.08.2026, nie veröffentlicht, also nie Nutzer.",
+}
+
+
 def slugs_der_website():
     ordner = WEBSITE / "data" / "src" / "products"
     return {p.stem for p in ordner.glob("*.yaml")}
@@ -267,6 +275,10 @@ def sammle(ordner, erlaubte, unterordner=""):
             ergebnis.append((datei, unterordner, None, [],
                              ["Zulieferung, noch nicht eingearbeitet - wird nicht "
                               "uebernommen. Nach dem Einarbeiten nach _erledigt\\ legen."]))
+            continue
+        if datei.stem in AUSGENOMMEN:
+            ergebnis.append((datei, unterordner, None, [],
+                             ["nicht gespiegelt: " + AUSGENOMMEN[datei.stem]]))
             continue
         text = datei.read_text(encoding="utf-8")
         try:

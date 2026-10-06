@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-06T12:08:17+02:00",
+  "generiert": "2026-10-06T12:30:34+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -4059,77 +4059,6 @@
         "alt_html": "/apps/cleandesk.html",
         "contact": "/kontakt.html?app=CleanDesk&topic=interesse"
       }
-    },
-    {
-      "slug": "coppicemail",
-      "name": "CoppiceMail",
-      "fullName": "FehlerFuchs CoppiceMail",
-      "seoTitel": "CoppiceMail – E-Mail-Programm für Belege & Büropost",
-      "seoBeschreibung": "Lokales, datensparsames E-Mail-Programm mit Belegfokus: Mail öffnen, Anhang als Beleg ablegen, archivieren – kurze Wege, ohne FehlerFuchs-Cloud, ohne Tracking.",
-      "tags": [
-        "E-Mail-Programm",
-        "Belege",
-        "Büropost",
-        "datensparsam",
-        "Windows",
-        "lokale Datenhaltung"
-      ],
-      "kind": "produkt",
-      "tagline": "Das lokale, datensparsame E-Mail-Programm für Belege und Büropost – der Weg Mail, Anhang, Beleg, Archiv so kurz wie möglich.",
-      "description": "E-Mail-Programm mit Belegfokus: Nachricht öffnen, Anhang erkennen, als Beleg ablegen, archivieren – ohne Umwege. CoppiceMail wurde als reine Flutter/Dart-App neu aufgebaut; ein Vorab-Stand ist fertig und geprüft. Das Projekt ruht derzeit und ist nicht veröffentlicht.",
-      "audience": [
-        "selbststaendige",
-        "unternehmen"
-      ],
-      "accent": "#0F5132",
-      "status": "entwicklung",
-      "vorabSichtbar": true,
-      "platforms": [
-        {
-          "os": "windows",
-          "status": "entwicklung",
-          "distribution": "keiner",
-          "hinweis": {
-            "wenn": "entwicklung",
-            "text": "Ein Vorab-Stand ist fertig und geprüft; das Projekt ruht derzeit. Noch kein öffentlicher Download."
-          }
-        }
-      ],
-      "privacy": [
-        "kein-konto",
-        "kein-tracking",
-        "werbefrei"
-      ],
-      "editions": [],
-      "releases": [],
-      "media": {
-        "lockup": {
-          "src": "/img/lockups/coppicemail.svg",
-          "alt": "CoppiceMail – von FehlerFuchs",
-          "width": 1649,
-          "height": 360
-        },
-        "platzhalter": 4
-      },
-      "statusGrund": {
-        "wenn": "entwicklung",
-        "text": "Ein Vorab-Stand ist fertig und geprüft, aber bewusst noch nicht öffentlich: CoppiceMail ruht derzeit. Vor einer Veröffentlichung stehen noch die digitale Signatur, ein Test auf frisch eingerichteten Rechnern und die rechtliche Prüfung aus – lieber sorgfältig als schnell."
-      },
-      "theme": {
-        "modus": "hell",
-        "hintergrund": "#FBF7F2",
-        "flaeche": "#FFFFFF",
-        "rand": "#E7DACC",
-        "text": "#1A140F",
-        "textLeise": "#6B5B50",
-        "akzent": "#0F5132",
-        "quelle": "21_CoppiceMail/21_App_Flutter/coppicemail_desktop/lib/theme/app_colors.dart"
-      },
-      "links": {
-        "alt_html": "/apps/coppicemail.html",
-        "contact": "/kontakt.html?app=CoppiceMail&topic=interesse"
-      },
-      "notes": "1.0.2-rc.1+6 als technischer Release-Kandidat gebaut und am Host geprüft; Projekt pausiert, noch kein öffentlicher Download. Regel (CoppiceMail 28.07.2026): Status, Download und Datenschutz nur GEMEINSAM in einem Release-Schritt freischalten. Datenschutz-Steckbrief v2 und die dazu passenden privacy-Merkmale sind bereits übernommen; offen bleibt die eigentliche Release-Freigabe."
     },
     {
       "slug": "dateiwaechter",
