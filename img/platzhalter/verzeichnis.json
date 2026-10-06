@@ -1,0 +1,482 @@
+[
+  {
+    "datei": "/img/platzhalter/fuchskopf-handy.svg",
+    "motiv": "fuchskopf",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "FehlerFuchs",
+    "text": "Bilder folgen, sobald es etwas zu zeigen gibt."
+  },
+  {
+    "datei": "/img/platzhalter/fuchskopf-desktop.svg",
+    "motiv": "fuchskopf",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "FehlerFuchs",
+    "text": "Bilder folgen, sobald es etwas zu zeigen gibt."
+  },
+  {
+    "datei": "/img/platzhalter/fuchskopf-quer.svg",
+    "motiv": "fuchskopf",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "FehlerFuchs",
+    "text": "Bilder folgen, sobald es etwas zu zeigen gibt."
+  },
+  {
+    "datei": "/img/platzhalter/schluessel-handy.svg",
+    "motiv": "schluessel",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "In Arbeit",
+    "text": "Wird gerade geschraubt."
+  },
+  {
+    "datei": "/img/platzhalter/schluessel-desktop.svg",
+    "motiv": "schluessel",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "In Arbeit",
+    "text": "Wird gerade geschraubt."
+  },
+  {
+    "datei": "/img/platzhalter/schluessel-quer.svg",
+    "motiv": "schluessel",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "In Arbeit",
+    "text": "Wird gerade geschraubt."
+  },
+  {
+    "datei": "/img/platzhalter/zahnrad-handy.svg",
+    "motiv": "zahnrad",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Läuft schon",
+    "text": "Die Technik steht, die Bilder kommen."
+  },
+  {
+    "datei": "/img/platzhalter/zahnrad-desktop.svg",
+    "motiv": "zahnrad",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Läuft schon",
+    "text": "Die Technik steht, die Bilder kommen."
+  },
+  {
+    "datei": "/img/platzhalter/zahnrad-quer.svg",
+    "motiv": "zahnrad",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Läuft schon",
+    "text": "Die Technik steht, die Bilder kommen."
+  },
+  {
+    "datei": "/img/platzhalter/dokument-handy.svg",
+    "motiv": "dokument",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Auf Papier",
+    "text": "Erst der Inhalt, dann das Bild."
+  },
+  {
+    "datei": "/img/platzhalter/dokument-desktop.svg",
+    "motiv": "dokument",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Auf Papier",
+    "text": "Erst der Inhalt, dann das Bild."
+  },
+  {
+    "datei": "/img/platzhalter/dokument-quer.svg",
+    "motiv": "dokument",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Auf Papier",
+    "text": "Erst der Inhalt, dann das Bild."
+  },
+  {
+    "datei": "/img/platzhalter/ordner-handy.svg",
+    "motiv": "ordner",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Alles an seinem Platz",
+    "text": "Sortiert wird schon, gezeigt noch nicht."
+  },
+  {
+    "datei": "/img/platzhalter/ordner-desktop.svg",
+    "motiv": "ordner",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Alles an seinem Platz",
+    "text": "Sortiert wird schon, gezeigt noch nicht."
+  },
+  {
+    "datei": "/img/platzhalter/ordner-quer.svg",
+    "motiv": "ordner",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Alles an seinem Platz",
+    "text": "Sortiert wird schon, gezeigt noch nicht."
+  },
+  {
+    "datei": "/img/platzhalter/kompass-handy.svg",
+    "motiv": "kompass",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Die Richtung stimmt",
+    "text": "Bilder folgen auf dem Weg."
+  },
+  {
+    "datei": "/img/platzhalter/kompass-desktop.svg",
+    "motiv": "kompass",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Die Richtung stimmt",
+    "text": "Bilder folgen auf dem Weg."
+  },
+  {
+    "datei": "/img/platzhalter/kompass-quer.svg",
+    "motiv": "kompass",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Die Richtung stimmt",
+    "text": "Bilder folgen auf dem Weg."
+  },
+  {
+    "datei": "/img/platzhalter/gluehbirne-handy.svg",
+    "motiv": "gluehbirne",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Gute Idee",
+    "text": "Noch mehr Idee als Anwendung."
+  },
+  {
+    "datei": "/img/platzhalter/gluehbirne-desktop.svg",
+    "motiv": "gluehbirne",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Gute Idee",
+    "text": "Noch mehr Idee als Anwendung."
+  },
+  {
+    "datei": "/img/platzhalter/gluehbirne-quer.svg",
+    "motiv": "gluehbirne",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Gute Idee",
+    "text": "Noch mehr Idee als Anwendung."
+  },
+  {
+    "datei": "/img/platzhalter/schloss-handy.svg",
+    "motiv": "schloss",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Bleibt hier",
+    "text": "Kein Upload, keine Wolke – auch nicht für Bilder."
+  },
+  {
+    "datei": "/img/platzhalter/schloss-desktop.svg",
+    "motiv": "schloss",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Bleibt hier",
+    "text": "Kein Upload, keine Wolke – auch nicht für Bilder."
+  },
+  {
+    "datei": "/img/platzhalter/schloss-quer.svg",
+    "motiv": "schloss",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Bleibt hier",
+    "text": "Kein Upload, keine Wolke – auch nicht für Bilder."
+  },
+  {
+    "datei": "/img/platzhalter/keineWolke-handy.svg",
+    "motiv": "keineWolke",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Ohne Cloud",
+    "text": "Alles auf dem eigenen Gerät."
+  },
+  {
+    "datei": "/img/platzhalter/keineWolke-desktop.svg",
+    "motiv": "keineWolke",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Ohne Cloud",
+    "text": "Alles auf dem eigenen Gerät."
+  },
+  {
+    "datei": "/img/platzhalter/keineWolke-quer.svg",
+    "motiv": "keineWolke",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Ohne Cloud",
+    "text": "Alles auf dem eigenen Gerät."
+  },
+  {
+    "datei": "/img/platzhalter/baustelle-handy.svg",
+    "motiv": "baustelle",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Baustelle",
+    "text": "Wird gerade gebaut."
+  },
+  {
+    "datei": "/img/platzhalter/baustelle-desktop.svg",
+    "motiv": "baustelle",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Baustelle",
+    "text": "Wird gerade gebaut."
+  },
+  {
+    "datei": "/img/platzhalter/baustelle-quer.svg",
+    "motiv": "baustelle",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Baustelle",
+    "text": "Wird gerade gebaut."
+  },
+  {
+    "datei": "/img/platzhalter/blende-handy.svg",
+    "motiv": "blende",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Bild folgt",
+    "text": "Die Blende ist noch zu."
+  },
+  {
+    "datei": "/img/platzhalter/blende-desktop.svg",
+    "motiv": "blende",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Bild folgt",
+    "text": "Die Blende ist noch zu."
+  },
+  {
+    "datei": "/img/platzhalter/blende-quer.svg",
+    "motiv": "blende",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Bild folgt",
+    "text": "Die Blende ist noch zu."
+  },
+  {
+    "datei": "/img/platzhalter/sanduhr-handy.svg",
+    "motiv": "sanduhr",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Braucht noch",
+    "text": "Aufgeschoben ist nicht aufgehoben."
+  },
+  {
+    "datei": "/img/platzhalter/sanduhr-desktop.svg",
+    "motiv": "sanduhr",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Braucht noch",
+    "text": "Aufgeschoben ist nicht aufgehoben."
+  },
+  {
+    "datei": "/img/platzhalter/sanduhr-quer.svg",
+    "motiv": "sanduhr",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Braucht noch",
+    "text": "Aufgeschoben ist nicht aufgehoben."
+  },
+  {
+    "datei": "/img/platzhalter/handwerk-handy.svg",
+    "motiv": "handwerk",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Maßarbeit",
+    "text": "Von Hand gebaut, Stück für Stück."
+  },
+  {
+    "datei": "/img/platzhalter/handwerk-desktop.svg",
+    "motiv": "handwerk",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Maßarbeit",
+    "text": "Von Hand gebaut, Stück für Stück."
+  },
+  {
+    "datei": "/img/platzhalter/handwerk-quer.svg",
+    "motiv": "handwerk",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Maßarbeit",
+    "text": "Von Hand gebaut, Stück für Stück."
+  },
+  {
+    "datei": "/img/platzhalter/fenster-handy.svg",
+    "motiv": "fenster",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Die Anwendung",
+    "text": "Bildschirmfotos folgen."
+  },
+  {
+    "datei": "/img/platzhalter/fenster-desktop.svg",
+    "motiv": "fenster",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Die Anwendung",
+    "text": "Bildschirmfotos folgen."
+  },
+  {
+    "datei": "/img/platzhalter/fenster-quer.svg",
+    "motiv": "fenster",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Die Anwendung",
+    "text": "Bildschirmfotos folgen."
+  },
+  {
+    "datei": "/img/platzhalter/kalender-handy.svg",
+    "motiv": "kalender",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Steht im Plan",
+    "text": "Ein Termin wäre ein Versprechen."
+  },
+  {
+    "datei": "/img/platzhalter/kalender-desktop.svg",
+    "motiv": "kalender",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Steht im Plan",
+    "text": "Ein Termin wäre ein Versprechen."
+  },
+  {
+    "datei": "/img/platzhalter/kalender-quer.svg",
+    "motiv": "kalender",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Steht im Plan",
+    "text": "Ein Termin wäre ein Versprechen."
+  },
+  {
+    "datei": "/img/platzhalter/flieger-handy.svg",
+    "motiv": "flieger",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Unterwegs",
+    "text": "Kommt noch."
+  },
+  {
+    "datei": "/img/platzhalter/flieger-desktop.svg",
+    "motiv": "flieger",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Unterwegs",
+    "text": "Kommt noch."
+  },
+  {
+    "datei": "/img/platzhalter/flieger-quer.svg",
+    "motiv": "flieger",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Unterwegs",
+    "text": "Kommt noch."
+  }
+]
