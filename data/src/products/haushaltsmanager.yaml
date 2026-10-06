@@ -75,6 +75,32 @@ editions:
 # Erste öffentliche, signierte Windows-Fassung. sha256/Bytes lokal am signierten
 # Artefakt UND gegen das GitHub-Asset gegengeprüft (byte-identisch, signtool /pa OK).
 releases:
+  # 1.1.0 (06.10.2026): Meldung [FF_16] Code Signing (17:40, veröffentlicht auf „push“ von
+  # Matthias 17:39:28). Von [FF_10] gegen GitHub geprüft (gh release view haushaltsmanager-v1.1.0:
+  # kein Entwurf, keine Vorabversion, Asset 20.665.632 B, sha256 1434938f…1719 – stimmen).
+  # notes aus dem Text der Release-Seite, nichts erfunden (P8); auf die Prüfgrenze von 600 Zeichen
+  # gekürzt (Auswahl und Kürzung einzelner Sätze, kein neuer Inhalt). Vollständig auf der Release-Seite.
+  - version: "1.1.0"
+    date: "2026-10-06"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.0/FehlerFuchs_HaushaltsManager_Setup_1.1.0.exe
+    filename: FehlerFuchs_HaushaltsManager_Setup_1.1.0.exe
+    size:
+      bytes: 20665632
+      label: "19,7 MB"
+      source: GitHub-Release-Asset
+    sha256: "1434938f6adf7923b218cd624174dd8ab10e21250c83bee06e59b1c2a4bf1719"
+    signed: true
+    notes: |-
+      HaushaltsManager 1.1.0 – Stabilität, Datenschutz und Rechtstexte
+      - Kein Absturz mehr beim Beenden der App.
+      - Die kostenlose Testphase läuft volle 30 Tage; eine zurückgestellte Systemuhr verlängert sie nicht mehr.
+      - Berechnungen über die Sommer- und Winterzeitumstellung sind korrigiert; einmalige Zahlungen werden nur noch einmal gezählt.
+      - Der lesbare JSON-Export enthält jetzt alle Daten; die Sicherung (SQLite) ist klar davon getrennt.
+      - Datenschutzhinweise und die Lizenzvereinbarung (EULA) sind jetzt in der App nachlesbar.
+  # 1.0.0: Erste öffentliche, signierte Windows-Fassung. sha256/Bytes lokal am signierten
+  # Artefakt UND gegen das GitHub-Asset gegengeprüft (byte-identisch, signtool /pa OK).
   - version: "1.0.0"
     date: "2026-08-12"
     channel: stable

@@ -484,6 +484,22 @@ meldungen:
       Frei herunterladen und mit Testphase ausprobieren; die Vollversion gibt es als
       Einmalkauf (20 €, 5 Arbeitsplätze) über Digistore24.
 
+  # HaushaltsManager 1.1.0 (Windows-Release 06.10.2026 17:40, signiert, Meldung [FF_16]).
+  # 'version: 1.1.0' bindet die Meldung an den releases-Eintrag. Text aus der Release-Seite,
+  # nichts erfunden (P8).
+  - id: haushaltsmanager-1-1-0
+    typ: update
+    produkt: haushaltsmanager
+    version: "1.1.0"
+    titel: "HaushaltsManager 1.1.0: Stabilität, Datenschutz und Rechtstexte"
+    text: >-
+      Kein Absturz mehr beim Beenden der App. Die kostenlose Testphase läuft volle
+      30 Tage; eine zurückgestellte Systemuhr verlängert sie nicht mehr. Berechnungen
+      über die Sommer- und Winterzeitumstellung sind korrigiert, einmalige Zahlungen
+      werden nur noch einmal gezählt. Der lesbare JSON-Export enthält jetzt alle Daten,
+      die Sicherung (SQLite) ist klar davon getrennt. Datenschutzhinweise und die
+      Lizenzvereinbarung (EULA) sind jetzt in der App nachlesbar.
+
   # Statusmeldung „warum es länger nichts Neues gab" (ChefBüro-Auftrag 2,
   # 01.08.2026). Kein Changelog, keine Versionsnummern; Fakten aus dem
   # Gesamt-Logbuch. Signatur mit Matzes Website-Ausnahme zur Namensregel.

@@ -1,8 +1,22 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-06T15:46:15+02:00",
+  "generiert": "2026-10-06T17:43:34+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "haushaltsmanager-1-1-0",
+      "typ": "update",
+      "produkt": "haushaltsmanager",
+      "version": "1.1.0",
+      "titel": "HaushaltsManager 1.1.0: Stabilität, Datenschutz und Rechtstexte",
+      "text": "Kein Absturz mehr beim Beenden der App. Die kostenlose Testphase läuft volle 30 Tage; eine zurückgestellte Systemuhr verlängert sie nicht mehr. Berechnungen über die Sommer- und Winterzeitumstellung sind korrigiert, einmalige Zahlungen werden nur noch einmal gezählt. Der lesbare JSON-Export enthält jetzt alle Daten, die Sicherung (SQLite) ist klar davon getrennt. Datenschutzhinweise und die Lizenzvereinbarung (EULA) sind jetzt in der App nachlesbar.",
+      "datum": "2026-10-06",
+      "datumQuelle": "Release 1.1.0",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.0/FehlerFuchs_HaushaltsManager_Setup_1.1.0.exe",
+        "kauf": "https://www.checkout-ds24.com/product/721203"
+      }
+    },
     {
       "id": "snapfuchs-1-2-1",
       "typ": "update",
