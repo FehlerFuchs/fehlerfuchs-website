@@ -9,7 +9,7 @@
 name: FehlerFuchs
 slogan: Einfach kleine Helfer.
 untertitel: Kleine, lokale Helfer-Apps – mit Haltung.
-claim: Datensparsam, ohne Cloud und ohne Tracking – von einem Menschen gemacht.
+claim: Datensparsam, auf deinem Gerät, ohne Konto und ohne Werbung – von einem Menschen gemacht.
 
 # Die sechs Leitsätze. Jeder ist ein Versprechen, das die Produkte einlösen
 # müssen – die Datenschutz-Merkmale im Produktmodell sind die Belege dafür.
@@ -17,7 +17,7 @@ leitsaetze:
   - titel: Einfach & ehrlich
     text: löst ein konkretes Problem, sonst nichts.
   - titel: Datensparsam
-    text: ohne Cloud, Tracking oder Konto.
+    text: arbeitet auf deinem Gerät, ohne Konto und ohne Werbung.
   - titel: Lokal
     text: deine Daten bleiben bei dir.
   - titel: Fair
@@ -118,8 +118,8 @@ idee:
     - >-
       Die Apps entstehen komplett in meiner Freizeit – einfach, weil mir genau dieses
       Tüfteln Spaß macht. Mein Anspruch dabei: kleine, ehrliche Werkzeuge, die ein
-      konkretes Problem lösen und sonst nichts. Datensparsam, ohne Cloud, ohne Tracking,
-      ohne Konto – die Daten bleiben dort, wo sie hingehören: bei dir.
+      konkretes Problem lösen und sonst nichts. Datensparsam, auf dem Gerät,
+      ohne Konto, ohne Werbung – die Daten bleiben dort, wo sie hingehören: bei dir.
     - >-
       Es wird kostenlose Apps geben – und einzelne Apps mit optionaler Pro-Version, die
       noch individueller ist oder mehr Funktionen bietet. Wichtig ist mir aber: Das
@@ -205,7 +205,7 @@ werte_artikel:
     - liste:
       - '**Kein Konto.** Du musst dich nirgends anmelden, um einen Helfer zu benutzen. Kein Passwort, das irgendwo
         gestohlen werden kann.'
-      - '**Keine Cloud.** Deine Daten werden nicht auf einen Server geschickt, „damit es bequemer ist“.'
+      - '**Keine Pflicht-Cloud.** Deine Daten werden nicht auf einen Server geschickt, „damit es bequemer ist“. Was nach außen geht, steht bei jeder Anwendung im Datenschutz.'
       - '**Kein Tracking.** Keine Werbe-ID, keine Nutzungsstatistik im Hintergrund, kein „Wir verbessern unser Angebot“-Mitschnitt.'
       - '**Keine Werbung** – also auch keine Werbenetzwerke, die mitlesen.'
   - id: webseite
