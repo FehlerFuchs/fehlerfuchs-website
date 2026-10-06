@@ -49,12 +49,33 @@ jobs:
         with:
           path: website
 
-      - name: Vorlagen auschecken (privates astro-Repository)
+      - name: Astro-Stand aus astro-ref.txt lesen
+        # Der Deploy baut genau den Astro-Commit, der in astro-ref.txt steht (Audit AUDIT#04, F-012;
+        # Entscheidung Matthias E7 Nr. 3, #4812). Ohne gültige Datei bricht der Lauf ab, bevor etwas gebaut wird.
+        id: pin
+        run: |
+          ref="$(tr -d '[:space:]' < website/astro-ref.txt)"
+          if ! printf '%s' "$ref" | grep -Eq '^[0-9a-f]{40}$'; then
+            echo "::error::website/astro-ref.txt fehlt oder ist kein 40-stelliger Commit-Hash"
+            exit 1
+          fi
+          echo "ref=$ref" >> "$GITHUB_OUTPUT"
+
+      - name: Vorlagen auschecken (privates astro-Repository, festgeschriebener Stand)
         uses: actions/checkout@v4
         with:
           repository: FehlerFuchs/fehlerfuchs-website-astro
+          ref: ${{ steps.pin.outputs.ref }}
           token: ${{ secrets.ASTRO_REPO_TOKEN }}
           path: astro
+
+      - name: Hinweis, wenn astro:main weiter ist als der Pin
+        # Nur ein Hinweis, kein Abbruch: Wer Astro-Änderungen veröffentlichen will, setzt den Pin neu.
+        run: |
+          git -C astro fetch --quiet origin main || true
+          if [ "$(git -C astro rev-parse FETCH_HEAD 2>/dev/null)" != "$(git -C astro rev-parse HEAD)" ]; then
+            echo "::warning::astro:main ist weiter als astro-ref.txt - gebaut wird der festgeschriebene Stand ${{ steps.pin.outputs.ref }}"
+          fi
 
       - name: Python bereitstellen
         uses: actions/setup-python@v5
