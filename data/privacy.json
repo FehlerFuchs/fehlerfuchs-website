@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-06T04:33:51+02:00",
+  "generiert": "2026-10-06T11:36:07+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1396,7 +1396,7 @@
       "name": "MobileReport",
       "stand": "2026-09-26",
       "geprueft_von": "20_MobileReport",
-      "fassung": "1.5.0+54 (seit 26.09.2026 in der Play-Produktion, voller Roll-out; am 26.09. um 08:16 auf der öffentlichen Store-Seite als 1.5.0 gemessen; zusammengeführte Consumer-App mit In-App-Kauf). Vorgänger 1.4.0+53 vom 23.09.2026. Geprüft an der einen Codebasis MobileReport_Master\\01_App - der früher genannte Ordner FehlerFuchsMR_Pro ist seit dem 17.09.2026 Archiv.",
+      "fassung": "1.5.0+54 (seit 26.09.2026 in der Play-Produktion, voller Roll-out; am 26.09. um 08:16 auf der öffentlichen Store-Seite als 1.5.0 gemessen; zusammengeführte Consumer-App mit In-App-Kauf). Vorgänger 1.4.0+53 vom 23.09.2026. Geprüft an der einen Codebasis MobileReport_Master\\01_App – der früher genannte Ordner FehlerFuchsMR_Pro ist seit dem 17.09.2026 Archiv.",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -1430,13 +1430,13 @@
           "name": "Kamera und Fotos",
           "wofuer": "Ein Foto zur Meldung aufnehmen oder ein vorhandenes Bild auswählen. Die App benutzt dafür die Bildauswahl des Betriebssystems und verlangt keinen eigenen Zugriff auf die Fotosammlung.",
           "pflicht": false,
-          "beleg": "image_picker (pubspec.yaml); gebautes Manifest 1.5.0+54 (wie 1.4.0+53) - keine CAMERA-/Speicher-Berechtigung"
+          "beleg": "image_picker (pubspec.yaml); gebautes Manifest 1.5.0+54 (wie 1.4.0+53) – keine CAMERA-/Speicher-Berechtigung"
         },
         {
           "name": "Kontakte",
           "wofuer": "Beim Auswählen eines Empfängers wird nur die E-Mail-Adresse des Kontakts übernommen, den der Nutzer selbst antippt. Auf das übrige Adressbuch hat die App keinen Zugriff.",
           "pflicht": false,
-          "beleg": "lib/services/contact_picker_service.dart - ACTION_PICK-Intent; gebautes Manifest 1.5.0+54 (wie 1.4.0+53) - kein READ_CONTACTS"
+          "beleg": "lib/services/contact_picker_service.dart – ACTION_PICK-Intent; gebautes Manifest 1.5.0+54 (wie 1.4.0+53) – kein READ_CONTACTS"
         },
         {
           "name": "Internet",
@@ -1468,14 +1468,14 @@
         {
           "wohin": "Google Play (Play Billing)",
           "was": "Kauf- bzw. Wiederherstellungsvorgang der Pro-Freischaltung; keine Meldungsinhalte",
-          "wann": "beim Kauf und bei \"Käufe wiederherstellen\"",
+          "wann": "beim Kauf und bei „Käufe wiederherstellen“",
           "freiwillig": true,
           "beleg": "lib/consumer/pro_controller.dart (in_app_purchase)"
         },
         {
           "wohin": "firebaselogging.googleapis.com bzw. firebaselogging-pa.googleapis.com (Google)",
           "was": "Technische Betriebsdaten der Google-Abrechnungsbibliothek (Firelog/DataTransport), die Google mit dieser Bibliothek ausliefert. Meldungen, Fotos, PDFs, Empfänger und Eingaben des Nutzers sind davon NICHT betroffen. Welche Einzelwerte Google dabei erhebt, legt Google fest und ist von außen nicht einsehbar.",
-          "wann": "ohne Zutun des Nutzers, sobald die Abrechnung angesprochen wird - das geschieht beim Start der App, weil sie dort den Kaufstatus der Pro-Freischaltung abgleicht",
+          "wann": "ohne Zutun des Nutzers, sobald die Abrechnung angesprochen wird – das geschieht beim Start der App, weil sie dort den Kaufstatus der Pro-Freischaltung abgleicht",
           "freiwillig": false,
           "beleg": "Nachgewiesen im Release-Bundle 1.1.0+39 (base/dex/classes.dex): CCT-Endpunkte verschränkt kodiert, com.google.android.datatransport.cct.CctBackendFactory, TransportBackendDiscovery, JobInfoSchedulerService, Kennung \"datatransport/3.1.8\". Transitiv über in_app_purchase -> com.android.billingclient. Keine firebase-analytics- oder Crashlytics-Klassen im Bundle. Im Enterprise-Bau (ohne Billing) 0 Treffer. Am 25.09.2026 im gebauten Manifest 1.4.0+53 bestätigt: transport-backend-cct:3.1.8 ist weiterhin eingebunden. Für 1.5.0+54 unverändert: Abhängigkeiten (pubspec.lock) und Android-Teil sind gegenüber 1.4.0+53 gleich geblieben."
         },
@@ -1489,7 +1489,7 @@
         {
           "wohin": "externer Browser des Geräts",
           "was": "Aufruf öffentlicher Webseiten (Enterprise-Produktseite, Unterstützen-Seite)",
-          "wann": "nur wenn der Nutzer einen Link antippt; davor erscheint eine Bestätigungsabfrage (\"Browser öffnen?\")",
+          "wann": "nur wenn der Nutzer einen Link antippt; davor erscheint eine Bestätigungsabfrage („Browser öffnen?“)",
           "freiwillig": true,
           "beleg": "lib/widgets/external_link.dart (url_launcher), lib/consumer/pro_unlock_page.dart"
         }
@@ -1517,9 +1517,9 @@
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
       "loeschung": "Alle Daten liegen auf dem Gerät. Einzelne Meldungen und Bilder lassen sich in der App löschen; zusätzlich gibt es eine Aufräum-Funktion für Bilddateien, die zu keiner Meldung mehr gehören. Mit der Deinstallation verschwinden Datenbank, Bilder und Einstellungen. Bereits gesendete Support-Nachrichten auf Anfrage per E-Mail.",
-      "besonderheiten": "Meldungen können Fotos enthalten, die der Nutzer selbst aufnimmt. Die App weist ausdrücklich darauf hin, keine Patientendaten oder sonstigen sensiblen Inhalte zu fotografieren oder einzutragen. Sie ist kein Nachweissystem, kein Ticketsystem und keine Medizintechnik-Software. Der Versand ist bewusst manuell: die App bereitet eine E-Mail vor, verschickt aber nichts selbst. Was der Nutzer eingibt - Meldungen, Fotos, PDFs, Empfänger - verlässt das Gerät nur, wenn er es selbst auslöst: beim Absenden des Support-Formulars oder beim Verschicken eines Berichts aus seiner Mail-App. Diagnosedaten werden nur nach ausdrücklicher Zustimmung mitgesendet und sind vorher in der App einsehbar. Die \"Pro\"-Freischaltung ist ein einmaliger In-App-Kauf (kein Abo). Davon zu trennen ist ein Punkt, der seit dem Einbau des In-App-Kaufs zutrifft: Die Abrechnungsbibliothek von Google bringt eine eigene Telemetrie mit, die beim Start Betriebsdaten an Google sendet, ohne dass der Nutzer etwas tut. Sie stammt nicht von FehlerFuchs, lässt sich nicht einfach herauslösen und betrifft keine Inhalte aus der App - erwähnt gehört sie trotzdem.",
+      "besonderheiten": "Meldungen können Fotos enthalten, die der Nutzer selbst aufnimmt. Die App weist ausdrücklich darauf hin, keine Patientendaten oder sonstigen sensiblen Inhalte zu fotografieren oder einzutragen. Sie ist kein Nachweissystem, kein Ticketsystem und keine Medizintechnik-Software. Der Versand ist bewusst manuell: die App bereitet eine E-Mail vor, verschickt aber nichts selbst. Was der Nutzer eingibt – Meldungen, Fotos, PDFs, Empfänger – verlässt das Gerät nur, wenn er es selbst auslöst: beim Absenden des Support-Formulars oder beim Verschicken eines Berichts aus seiner Mail-App. Diagnosedaten werden nur nach ausdrücklicher Zustimmung mitgesendet und sind vorher in der App einsehbar. Die „Pro“-Freischaltung ist ein einmaliger In-App-Kauf (kein Abo). Davon zu trennen ist ein Punkt, der seit dem Einbau des In-App-Kaufs zutrifft: Die Abrechnungsbibliothek von Google bringt eine eigene Telemetrie mit, die beim Start Betriebsdaten an Google sendet, ohne dass der Nutzer etwas tut. Sie stammt nicht von FehlerFuchs, lässt sich nicht einfach herauslösen und betrifft keine Inhalte aus der App – erwähnt gehört sie trotzdem.",
       "vorhandener_text": "lib/features/privacy/privacy_page.dart (In-App); Website fehlerfuchs.eu/datenschutz.html",
-      "offene_fragen": "(1) Erledigt, gemessen am 25.09.2026: Die öffentliche Datensicherheits-Angabe im Play Store stand früher auf \"Keine Daten erhoben\". Sie nennt inzwischen als erhoben und geteilt: bisherige Käufe, Diagnosedaten, andere In-App-Mitteilungen sowie Name und E-Mail-Adresse; dazu Verschlüsselung bei der Übertragung und Löschung auf Antrag. Nachgesehen auf der öffentlichen Store-Seite ohne Anmeldung. (2) Die Google-Telemetrie ist im gebauten Bundle zweifelsfrei enthalten; nicht gemessen ist, wie oft sie sendet und welche Einzelwerte dabei übertragen werden - das legt Google fest. Eine Messung am Gerät steht aus. Ebenfalls offen: ob sie sich abschalten lässt, ohne die Abrechnung zu beschädigen. (3) Ob \"tracking: false\" und das Website-Merkmal \"kein-tracking\" angesichts dieser Telemetrie so stehenbleiben können, ist eine Bewertungsfrage. FehlerFuchs selbst verfolgt niemanden und wertet nichts aus; die Daten gehen an Google, nicht an uns. Die Entscheidung über die Wortwahl auf der Website liegt nicht bei diesem Projekt. (4) Unbekannt, ob beim Drucken/Teilen Daten an System- oder Cloud-Druckdienste des Geräts gelangen - das hängt vom Gerät ab, nicht von der App. (5) Ob die Kontakt-Bridge serverseitig IP-Adressen protokolliert, hängt vom Server ab, nicht von der App.",
+      "offene_fragen": "(1) Erledigt, gemessen am 25.09.2026: Die öffentliche Datensicherheits-Angabe im Play Store stand früher auf „Keine Daten erhoben“. Sie nennt inzwischen als erhoben und geteilt: bisherige Käufe, Diagnosedaten, andere In-App-Mitteilungen sowie Name und E-Mail-Adresse; dazu Verschlüsselung bei der Übertragung und Löschung auf Antrag. Nachgesehen auf der öffentlichen Store-Seite ohne Anmeldung. (2) Die Google-Telemetrie ist im gebauten Bundle zweifelsfrei enthalten; nicht gemessen ist, wie oft sie sendet und welche Einzelwerte dabei übertragen werden – das legt Google fest. Eine Messung am Gerät steht aus. Ebenfalls offen: ob sie sich abschalten lässt, ohne die Abrechnung zu beschädigen. (3) Ob \"tracking: false\" und das Website-Merkmal \"kein-tracking\" angesichts dieser Telemetrie so stehenbleiben können, ist eine Bewertungsfrage. FehlerFuchs selbst verfolgt niemanden und wertet nichts aus; die Daten gehen an Google, nicht an uns. Die Entscheidung über die Wortwahl auf der Website liegt nicht bei diesem Projekt. (4) Unbekannt, ob beim Drucken/Teilen Daten an System- oder Cloud-Druckdienste des Geräts gelangen – das hängt vom Gerät ab, nicht von der App. (5) Ob die Kontakt-Bridge serverseitig IP-Adressen protokolliert, hängt vom Server ab, nicht von der App.",
       "art": "anwendung"
     },
     {
@@ -1957,12 +1957,12 @@
       "slug": "pdfuchsreader",
       "name": "PDFuchs Reader",
       "stand": "2026-09-30",
-      "geprueft_von": "26_PDFuchs (Slug-Eigentümer seit 18.08.2026; führt Android- und Windows-Teil). Windows-Teil am 19.08.2026 gegen den aktuellen Quellstand gegengeprüft und korrigiert: (a) das Netzverhalten ist nicht mehr netzwerkfrei, sondern hat einen NUTZERINITIIERTEN Support-/Kontaktweg (seit 25.07.2026); (b) es gibt inzwischen eine lokale Einstellungsdatei (settings.json) inkl. „Zuletzt geöffnet\"; (c) Installer ist Inno Setup (installer_flutter.iss), nicht mehr NSIS. Frühere Angaben entsprechend berichtigt.",
-      "fassung": "Zweite Fassung vom 19.07.2026 - gegenüber der ersten Einreichung desselben Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt. Zwei Fassungen tragen heute diesen Slug. (A) Android-Fassung 1.3.0 (versionCode 6, Paket eu.fehlerfuchs.pdfuchsreader): seit 30.09.2026 12:47 in Google Play veröffentlicht, voller Rollout (Meldung [FF_13] nach P5). Vorher im Emulator und auf einem Fire-Tablet geprüft. Geprüft am aktuellen Code und Manifest. 1.3.0 ändert am Datenfluss nichts; neu ist nur die feinere Lesestelle (Kapitel, Teil, Absatz) in „Zuletzt geöffnet\" und in den Lesezeichen. Der Datenschutztext in der App ist neu nach den sechs Fragen (A-11.6) gegliedert und von Matthias bestätigt (P10, 30.09.2026). (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, Inno-Setup-Skript (installer_flutter.iss). Kein Laufzeit-Mitschnitt des Netzwerkverkehrs - siehe offene Frage 4. Windows-Teil am 19.08.2026 gegen den aktuellen Stand gegengeprüft und berichtigt (Netzverhalten, Einstellungsdatei, Installer).",
+      "geprueft_von": "26_PDFuchs (Slug-Eigentümer seit 18.08.2026; führt Android- und Windows-Teil). Windows-Teil am 19.08.2026 gegen den aktuellen Quellstand gegengeprüft und korrigiert: (a) das Netzverhalten ist nicht mehr netzwerkfrei, sondern hat einen NUTZERINITIIERTEN Support-/Kontaktweg (seit 25.07.2026); (b) es gibt inzwischen eine lokale Einstellungsdatei (settings.json) inkl. „Zuletzt geöffnet“; (c) Installer ist Inno Setup (installer_flutter.iss), nicht mehr NSIS. Frühere Angaben entsprechend berichtigt.",
+      "fassung": "Zweite Fassung vom 19.07.2026 – gegenüber der ersten Einreichung desselben Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt. Zwei Fassungen tragen heute diesen Slug. (A) Android-Fassung 1.3.0 (versionCode 6, Paket eu.fehlerfuchs.pdfuchsreader): seit 30.09.2026 12:47 in Google Play veröffentlicht, voller Rollout (Meldung [FF_13] nach P5). Vorher im Emulator und auf einem Fire-Tablet geprüft. Geprüft am aktuellen Code und Manifest. 1.3.0 ändert am Datenfluss nichts; neu ist nur die feinere Lesestelle (Kapitel, Teil, Absatz) in „Zuletzt geöffnet“ und in den Lesezeichen. Der Datenschutztext in der App ist neu nach den sechs Fragen (A-11.6) gegliedert und von Matthias bestätigt (P10, 30.09.2026). (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, Inno-Setup-Skript (installer_flutter.iss). Kein Laufzeit-Mitschnitt des Netzwerkverkehrs - siehe offene Frage 4. Windows-Teil am 19.08.2026 gegen den aktuellen Stand gegengeprüft und berichtigt (Netzverhalten, Einstellungsdatei, Installer).",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
-          "was": "Liste „Zuletzt geöffnet\" (Dateipfad, Dateiname, Öffnungsdatum)",
+          "was": "Liste „Zuletzt geöffnet“ (Dateipfad, Dateiname, Öffnungsdatum)",
           "wo": "im Einstellungsspeicher der App auf dem Gerät",
           "beleg": "05_App/pdfuchsreader_mobile/lib/core/recent/recent_store.dart"
         },
@@ -1982,7 +1982,7 @@
           "beleg": "05_App/pdfuchsreader_mobile/lib/features/editor/seiten_editor_screen.dart"
         },
         {
-          "was": "Per „Öffnen mit\"/Teilen hereingereichte PDFs und EPUBs (größenbegrenzte Arbeitskopie)",
+          "was": "Per „Öffnen mit“/Teilen hereingereichte PDFs und EPUBs (größenbegrenzte Arbeitskopie)",
           "wo": "Zwischenspeicher (Cache) der App",
           "beleg": "05_App/pdfuchsreader_mobile/android/app/src/main/kotlin/eu/fehlerfuchs/pdfuchsreader/MainActivity.kt (kopiereNachCache)"
         },
@@ -1998,7 +1998,7 @@
         },
         {
           "was": "Ergebnisdateien der Verarbeitung (z. B. Texterkennung, Miniaturen, korrigierte Seiten)",
-          "wo": "in einem Ausgabeordner im Programmverzeichnis - nicht in den eigenen Dateien des Nutzers",
+          "wo": "in einem Ausgabeordner im Programmverzeichnis – nicht in den eigenen Dateien des Nutzers",
           "beleg": "(Windows) 05_Engine/pdfuchs_core/pdfuchs_core/config.py:61"
         },
         {
@@ -2012,7 +2012,7 @@
           "beleg": "(Windows) 05_Engine/pdfuchs_core/pdfuchs_core/render.py:29 (TemporaryDirectory)"
         },
         {
-          "was": "(Windows) Nutzereinstellungen und Liste „Zuletzt geöffnet\": persönlicher Anzeigename (Alias), gewählter Ablageordner, zuletzt geöffnete Dokumente und - nur wenn der Nutzer sie im PDFuchs-Windows-Paket selbst einträgt - optionale lokale Stammdaten (z. B. Name, Adresse, IBAN für das Ausfüllen von Formularen). Rein lokal, keine Übertragung.",
+          "was": "(Windows) Nutzereinstellungen und Liste „Zuletzt geöffnet“: persönlicher Anzeigename (Alias), gewählter Ablageordner, zuletzt geöffnete Dokumente und – nur wenn der Nutzer sie im PDFuchs-Windows-Paket selbst einträgt – optionale lokale Stammdaten (z. B. Name, Adresse, IBAN für das Ausfüllen von Formularen). Rein lokal, keine Übertragung.",
           "wo": "Datei settings.json im Anwendungsdatenordner des Benutzers (%APPDATA%\\PDFuchs)",
           "beleg": "(Windows) 11_App_Flutter/pdfuchs_desktop/lib/settings/app_settings.dart"
         }
@@ -2031,8 +2031,8 @@
           "beleg": "Technischer Name eu.fehlerfuchs.pdfuchsreader.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION, von AndroidX erzeugt; ausgelesen aus build/app/intermediates/bundle_manifest/release/.../AndroidManifest.xml"
         },
         {
-          "name": "(Android - keine weiteren)",
-          "wofuer": "Die App fordert keine weiteren Berechtigungen an - insbesondere keinen Zugriff auf Speicher, Kamera, Standort, Kontakte oder Mikrofon.",
+          "name": "(Android – keine weiteren)",
+          "wofuer": "Die App fordert keine weiteren Berechtigungen an – insbesondere keinen Zugriff auf Speicher, Kamera, Standort, Kontakte oder Mikrofon.",
           "pflicht": false,
           "beleg": "Release-Manifest von 1.0.0 vollständig ausgelesen; aktuelles Manifest und Abhängigkeiten statisch geprüft. Sie enthalten weiterhin keine fachliche Berechtigung außer INTERNET. Das ungenutzte Paket permission_handler ist seit 07.08.2026 entfernt."
         },
@@ -2043,17 +2043,17 @@
           "beleg": "(Windows) Desktopanwendung ohne Manifest-Berechtigungsmodell"
         },
         {
-          "name": "(Windows) Registrierung als PDF-Anwendung („Öffnen mit\"), optional",
+          "name": "(Windows) Registrierung als PDF-Anwendung („Öffnen mit“), optional",
           "wofuer": "Nur wenn der Nutzer diese Option bei der Installation wählt. Der Reader wird dann als mögliche Anwendung zum Öffnen von PDF-Dateien eingetragen; welches Programm der Standard ist, entscheidet der Nutzer weiterhin selbst in den Windows-Einstellungen. Die Einträge gelten nur für das angemeldete Benutzerkonto, nicht für den ganzen Rechner, und werden beim Deinstallieren wieder entfernt.",
           "pflicht": false,
-          "beleg": "(Windows) 92_Tools/installer_flutter.iss (Komponente „assoc\": HKCU Software\\Classes\\Applications\\PDFuchsReader.exe; nur angemeldetes Benutzerkonto; beim Deinstallieren entfernt)"
+          "beleg": "(Windows) 92_Tools/installer_flutter.iss (Komponente „assoc“: HKCU Software\\Classes\\Applications\\PDFuchsReader.exe; nur angemeldetes Benutzerkonto; beim Deinstallieren entfernt)"
         }
       ],
       "uebertragungen": [
         {
           "wohin": "license.fehlerfuchs.eu",
-          "was": "Nachrichtentext, freiwillig Name und E-Mail-Adresse, Ziel (Support/Kontakt), Betreff, Thema, App-Name, Edition „Free\", App-Version, Android-Version, Gerätehersteller und Modell. Keine Dateianhänge - das dafür vorgesehene Feld wird vom Support-Formular nicht befüllt.",
-          "wann": "Nur wenn der Nutzer das Support-/Kontaktformular ausfüllt und „Senden\" drückt (nur Android-Fassung)",
+          "was": "Nachrichtentext, freiwillig Name und E-Mail-Adresse, Ziel (Support/Kontakt), Betreff, Thema, App-Name, Edition „Free“, App-Version, Android-Version, Gerätehersteller und Modell. Keine Dateianhänge – das dafür vorgesehene Feld wird vom Support-Formular nicht befüllt.",
+          "wann": "Nur wenn der Nutzer das Support-/Kontaktformular ausfüllt und „Senden“ drückt (nur Android-Fassung)",
           "freiwillig": true,
           "beleg": "05_App/pdfuchsreader_mobile/lib/core/kontakt/kontakt_service.dart (Zeile 19, 37-56) und lib/core/kontakt/kontext.dart"
         },
@@ -2074,7 +2074,7 @@
         {
           "wohin": "Vom Nutzer gewählte fremde App bzw. Android-Druckdienst",
           "was": "Die geöffnete PDF-Datei",
-          "wann": "Nur wenn der Nutzer „Teilen\" oder „Drucken\" auslöst; wohin sie geht, bestimmt der Nutzer",
+          "wann": "Nur wenn der Nutzer „Teilen“ oder „Drucken“ auslöst; wohin sie geht, bestimmt der Nutzer",
           "freiwillig": true,
           "beleg": "05_App/pdfuchsreader_mobile/lib/features/viewer/viewer_screen.dart (Zeile 53, 62)"
         },
@@ -2095,9 +2095,9 @@
         {
           "wohin": "download.pytorch.org (offizieller PyTorch-Paketindex)",
           "was": "CUDA-Pakete für die optionale GPU-Beschleunigung; betrifft nur den Installer, nicht die laufende App",
-          "wann": "NUR wenn der Nutzer die optionale Installer-Komponente „GPU-Beschleunigung\" wählt (Standard ist CPU, kein Download)",
+          "wann": "NUR wenn der Nutzer die optionale Installer-Komponente „GPU-Beschleunigung“ wählt (Standard ist CPU, kein Download)",
           "freiwillig": true,
-          "beleg": "(Windows) 92_Tools/enable_cuda.ps1; 92_Tools/installer_flutter.iss (Komponente „ffdetr\", nicht vorausgewählt)"
+          "beleg": "(Windows) 92_Tools/enable_cuda.ps1; 92_Tools/installer_flutter.iss (Komponente „ffdetr“, nicht vorausgewählt)"
         }
       ],
       "fremde_dienste": [
@@ -2114,7 +2114,7 @@
         {
           "name": "(Windows) Tesseract OCR, mitgeliefert",
           "wofuer": "Texterkennung, wenn der Nutzer OCR auslöst",
-          "wann": "Lokal, nur auf Auslösung durch den Nutzer. Tesseract wird ausschließlich als lokaler Unterprozess gestartet; Sprachdaten liegen lokal daneben, es werden keine Adressen, Proxys oder Onlinedienste übergeben. Gilt NUR für die Windows-Fassung - die Android-Fassung enthält bewusst kein OCR."
+          "wann": "Lokal, nur auf Auslösung durch den Nutzer. Tesseract wird ausschließlich als lokaler Unterprozess gestartet; Sprachdaten liegen lokal daneben, es werden keine Adressen, Proxys oder Onlinedienste übergeben. Gilt NUR für die Windows-Fassung – die Android-Fassung enthält bewusst kein OCR."
         },
         {
           "name": "(Windows) PDFium über pypdfium2",
@@ -2127,10 +2127,10 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Android: Alle Daten liegen auf dem Gerät. Einträge der Liste „Zuletzt geöffnet\" lassen sich einzeln entfernen oder komplett leeren. Beim Deinstallieren verschwinden App-Einstellungen, Zuletzt-Liste, Handbuch-Kopie, Lesezeichen, Wiederlesepositionen, im App-Ordner erzeugte bearbeitete Kopien und der Zwischenspeicher. Windows: Das Deinstallieren entfernt das Programmverzeichnis, die Desktop- und Startmenü-Verknüpfungen sowie die bei der Installation gesetzten Einträge. Zwei Dateien bleiben dabei im Anwendungsdatenordner des Benutzers zurück und können jederzeit von Hand gelöscht werden: license_state.json (%LOCALAPPDATA%\\PDFuchs; nur ein lokaler Zählerstand, keine personenbezogenen Angaben) und settings.json (%APPDATA%\\PDFuchs; die Nutzereinstellungen inkl. optional selbst eingetragener Stammdaten). Beide werden bei der Deinstallation bewusst nicht mit entfernt. In beiden Fassungen bleiben die eigenen Dokumente des Nutzers unangetastet - Originale werden nie überschrieben.",
-      "besonderheiten": "Beide Fassungen sind offline voll benutzbar; ohne Zutun des Nutzers entsteht keine Verbindung nach draußen und keine automatische Update-Prüfung. Es gibt kein Konto, keine Anmeldung, keine Werbung, keine Nutzungsmessung und keine In-App-Käufe. In BEIDEN Fassungen entsteht eine Verbindung nur, wenn der Nutzer sie selbst auslöst - vor allem beim Absenden des Support-/Kontaktformulars (an license.fehlerfuchs.eu) sowie beim Öffnen externer Links. Beim Windows-Installer kann der Nutzer optional eine GPU-Komponente wählen, die dann CUDA-Pakete aus dem offiziellen PyTorch-Index nachlädt (Standard: aus). Bearbeitete PDF-Dateien werden immer als neue Kopie gespeichert, die Ursprungsdatei bleibt unverändert. Die Android-Fassung wird über Google Play vertrieben; Google erhält dabei die üblichen Installations- und Kontodaten des Store-Vorgangs, worauf die App selbst keinen Einfluss hat.",
+      "loeschung": "Android: Alle Daten liegen auf dem Gerät. Einträge der Liste „Zuletzt geöffnet“ lassen sich einzeln entfernen oder komplett leeren. Beim Deinstallieren verschwinden App-Einstellungen, Zuletzt-Liste, Handbuch-Kopie, Lesezeichen, Wiederlesepositionen, im App-Ordner erzeugte bearbeitete Kopien und der Zwischenspeicher. Windows: Das Deinstallieren entfernt das Programmverzeichnis, die Desktop- und Startmenü-Verknüpfungen sowie die bei der Installation gesetzten Einträge. Zwei Dateien bleiben dabei im Anwendungsdatenordner des Benutzers zurück und können jederzeit von Hand gelöscht werden: license_state.json (%LOCALAPPDATA%\\PDFuchs; nur ein lokaler Zählerstand, keine personenbezogenen Angaben) und settings.json (%APPDATA%\\PDFuchs; die Nutzereinstellungen inkl. optional selbst eingetragener Stammdaten). Beide werden bei der Deinstallation bewusst nicht mit entfernt. In beiden Fassungen bleiben die eigenen Dokumente des Nutzers unangetastet - Originale werden nie überschrieben.",
+      "besonderheiten": "Beide Fassungen sind offline voll benutzbar; ohne Zutun des Nutzers entsteht keine Verbindung nach draußen und keine automatische Update-Prüfung. Es gibt kein Konto, keine Anmeldung, keine Werbung, keine Nutzungsmessung und keine In-App-Käufe. In BEIDEN Fassungen entsteht eine Verbindung nur, wenn der Nutzer sie selbst auslöst – vor allem beim Absenden des Support-/Kontaktformulars (an license.fehlerfuchs.eu) sowie beim Öffnen externer Links. Beim Windows-Installer kann der Nutzer optional eine GPU-Komponente wählen, die dann CUDA-Pakete aus dem offiziellen PyTorch-Index nachlädt (Standard: aus). Bearbeitete PDF-Dateien werden immer als neue Kopie gespeichert, die Ursprungsdatei bleibt unverändert. Die Android-Fassung wird über Google Play vertrieben; Google erhält dabei die üblichen Installations- und Kontodaten des Store-Vorgangs, worauf die App selbst keinen Einfluss hat.",
       "vorhandener_text": "Android: 05_App/pdfuchsreader_mobile/lib/features/legal/datenschutz_screen.dart (Datenschutztext in der App nach den sechs Fragen, verweist auf https://fehlerfuchs.eu/datenschutz/). Windows: 09_Releases/Datenschutz_Lokalhinweis_01072026.md",
-      "offene_fragen": "1. (erledigt) Windows- und Android-Reader teilen bewusst den Slug „pdfuchsreader\"; Eigentümer und gemeinsame Pflege liegen bei [26] PDFuchs. 2. (geklärt, Beleg [11] Lizenzserver via [26-1], 23.08.2026) Der Kontakt-Endpunkt /v1/contact auf license.fehlerfuchs.eu speichert den Nachrichteninhalt NICHT in der Datenbank; die IP dient nur als kurzlebiger Redis-Schlüssel der Missbrauchsbremse (Stunde/Tag), es wird kein User-Agent übernommen, und bei Erfolg protokolliert der Dienst weder Anfrageinhalt noch IP. Offen bleibt allein die Aufbewahrung im E-Mail-Postfach, an das der Supportinhalt weitergeleitet wird - sie richtet sich nach dem Postfach. 3. (erledigt) Das ungenutzte Paket permission_handler wurde mit Version 1.0.1 (07.08.2026) entfernt; es hatte ohnehin keine Datenschutzwirkung. 4. (aus der Windows-Zulieferung) Das Netzverhalten der mitgelieferten Tesseract-Binary selbst wurde nicht per Mitschnitt geprüft; geprüft wurde nur, was PDFuchs aufruft und übergibt. 5. (aus der Windows-Zulieferung) Ob Aktionen, die im Reader ausgelöst werden, den lokalen Zähler in license_state.json mitschreiben, wurde nicht abschließend geprüft: Reader und Suite nutzen denselben Programmkern, ein reader-eigener Schreibzugriff wurde jedoch nicht gefunden.",
+      "offene_fragen": "1. (erledigt) Windows- und Android-Reader teilen bewusst den Slug „pdfuchsreader“; Eigentümer und gemeinsame Pflege liegen bei [26] PDFuchs. 2. (geklärt, Beleg [11] Lizenzserver via [26-1], 23.08.2026) Der Kontakt-Endpunkt /v1/contact auf license.fehlerfuchs.eu speichert den Nachrichteninhalt NICHT in der Datenbank; die IP dient nur als kurzlebiger Redis-Schlüssel der Missbrauchsbremse (Stunde/Tag), es wird kein User-Agent übernommen, und bei Erfolg protokolliert der Dienst weder Anfrageinhalt noch IP. Offen bleibt allein die Aufbewahrung im E-Mail-Postfach, an das der Supportinhalt weitergeleitet wird – sie richtet sich nach dem Postfach. 3. (erledigt) Das ungenutzte Paket permission_handler wurde mit Version 1.0.1 (07.08.2026) entfernt; es hatte ohnehin keine Datenschutzwirkung. 4. (aus der Windows-Zulieferung) Das Netzverhalten der mitgelieferten Tesseract-Binary selbst wurde nicht per Mitschnitt geprüft; geprüft wurde nur, was PDFuchs aufruft und übergibt. 5. (aus der Windows-Zulieferung) Ob Aktionen, die im Reader ausgelöst werden, den lokalen Zähler in license_state.json mitschreiben, wurde nicht abschließend geprüft: Reader und Suite nutzen denselben Programmkern, ein reader-eigener Schreibzugriff wurde jedoch nicht gefunden.",
       "art": "anwendung"
     },
     {

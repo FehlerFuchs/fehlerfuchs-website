@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-06T04:33:51+02:00",
+  "generiert": "2026-10-06T11:36:07+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "snapfuchs-1-2-1",
+      "typ": "update",
+      "produkt": "snapfuchs",
+      "datum": "2026-10-05",
+      "titel": "SnapFuchs 1.2.1: Datenschutzerklärung offline, sichereres Speichern",
+      "text": "SnapFuchs 1.2.1 ist im Play Store. Die vollständige Datenschutzerklärung steht jetzt auch offline in der App. Scans und Exporte gehen auch bei Störungen nicht verloren, große PDFs blockieren die App nicht mehr, und Fehlermeldungen sind klarer. Durchsuchbare PDFs behalten Sonderzeichen wie č, ł oder kyrillische Schrift, QR-Codes aus Bildern werden erkannt, und Bildschirmleser werden besser unterstützt. Behoben: Der erste Export nach dem Start landete nicht in der Standardablage.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.snapfuchs"
+      }
+    },
     {
       "id": "appinsight-1-0-1",
       "typ": "update",

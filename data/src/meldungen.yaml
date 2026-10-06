@@ -29,6 +29,22 @@
 
 meldungen:
 
+  # SnapFuchs 1.2.1 (versionCode 10). Play-Store-App. Live seit 05.10.2026 15:48 (Console), gemeldet von
+  # [FF_13] (MELDUNG P5 05.10.2026 18:43, Store-Seite dort um 18:43 gelesen). Text = „Neu in 1.2.1“ aus dem
+  # Store, nichts erfunden (P8). KEINE Buildnummer nennen. Kein 'version' (Play-App, kein Release im Modell).
+  - id: snapfuchs-1-2-1
+    typ: update
+    produkt: snapfuchs
+    datum: "2026-10-05"
+    titel: "SnapFuchs 1.2.1: Datenschutzerklärung offline, sichereres Speichern"
+    text: >-
+      SnapFuchs 1.2.1 ist im Play Store. Die vollständige Datenschutzerklärung steht jetzt auch
+      offline in der App. Scans und Exporte gehen auch bei Störungen nicht verloren, große PDFs
+      blockieren die App nicht mehr, und Fehlermeldungen sind klarer. Durchsuchbare PDFs behalten
+      Sonderzeichen wie č, ł oder kyrillische Schrift, QR-Codes aus Bildern werden erkannt, und
+      Bildschirmleser werden besser unterstützt. Behoben: Der erste Export nach dem Start landete
+      nicht in der Standardablage.
+
   # AppInsight 1.0.1 (versionCode 5). Play-Store-App. Live seit 01.10.2026 08:47 (Console), gemeldet
   # von [FF_13] (Sitzungsnachricht 09:26; die P5-Datei lag nicht im Posteingang), Store-Seite von
   # [FF_10] um 09:27 nachgemessen: Version 1.0.1. Text = „Was ist neu“ aus
