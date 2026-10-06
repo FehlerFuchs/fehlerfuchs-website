@@ -1,8 +1,8 @@
 slug: checkin-vita
 name: CheckInVita
-stand: "2026-10-03"
+stand: "2026-10-06"
 geprueft_von: 23_CheckInVita
-fassung: "0.2.0+1 – Android-Stand 03.10.2026, noch nicht veröffentlicht; Windows wird nicht ausgeliefert"
+fassung: "0.3.0 – Android-Stand 06.10.2026, noch nicht veröffentlicht; Windows wird nicht ausgeliefert"
 
 # Ohne aktives Zutun des Nutzers verlässt kein Datum das Gerät.
 # Das Support-Formular sendet auf Wunsch an license.fehlerfuchs.eu; deshalb false
@@ -13,7 +13,7 @@ auf_dem_geraet:
   - was: Tagebuch-Einträge (Gewicht, Blutdruck, Puls, Blutzucker, HbA1c, SpO2, Temperatur, Atemfrequenz, Schritte, Schlaf, Notizen)
     wo: lokale Datenbank (SQLite)
     beleg: lib/data/database/app_database.dart
-  - was: Medikamente, Medikationsplan, Injektionstherapien und Injektionsprotokoll
+  - was: Medikamente (auf Wunsch mit PZN und EAN der Packung), Medikationsplan, Injektionstherapien und Injektionsprotokoll
     wo: lokale Datenbank (SQLite)
     beleg: lib/data/database/tables/
   - was: Behandler-Kontakte, Rezeptanfragen, Mail-Verlauf, Kostenübernahmen
@@ -31,13 +31,16 @@ auf_dem_geraet:
   - was: erzeugte PDF-Übersichten (Werte-Zusammenfassung, Medikamenten-Plan)
     wo: app-privates Dateiverzeichnis
     beleg: lib/data/documents/document_service.dart
-  - was: vom Nutzer selbst erzeugte Export- und Backup-Dateien (CSV, Excel-Tabelle, ZIP-Backup mit Einträgen, Einstellungen, Fotos und PDFs)
+  - was: vom Nutzer selbst erzeugte Export- und Backup-Dateien (CSV, JSON, Excel-Tabelle, ZIP-Backup mit Einträgen, Einstellungen, Fotos und PDFs; einzelne Bereiche über „Daten austauschen“)
     wo: vom Nutzer gewählter Speicherort
-    beleg: lib/shared/utils/file_share.dart, lib/data/backup/backup_service.dart (buildArchive)
+    beleg: lib/shared/utils/file_share.dart, lib/data/backup/backup_service.dart (buildArchive), lib/data/exchange/exchange_service.dart
+  - was: Dateien im Austauschordner des Entwicklerzugriffs (JSON, CSV; Gesundheitsdaten im Klartext möglich), nur solange der Schalter an ist
+    wo: eigener Ordner der App im externen Speicher (Android/data/eu.fehlerfuchs.checkinvita/files/austausch)
+    beleg: lib/data/exchange/adb_folder.dart
 
 berechtigungen:
   - name: Benachrichtigungen
-    wofuer: Erinnerungen an Injektion und Rezeptbestellung (Uhrzeit, „Einen Tag vorher“ und Ausschalter stellt der Nutzer selbst ein; die Mitteilung nennt keinen Präparatnamen)
+    wofuer: Erinnerungen an Injektion und Rezeptbestellung (Uhrzeit, „Einen Tag vorher“ und Ausschalter stellt der Nutzer selbst ein; die Mitteilung nennt keinen Präparatnamen; nur bei gesetztem Haken „PZN/EAN in der Rezept-Erinnerung“ (anfangs aus) stehen PZN und EAN der Packung darin)
     pflicht: false
     beleg: android/app/src/main/AndroidManifest.xml (POST_NOTIFICATIONS)
   - name: Biometrie
@@ -83,6 +86,11 @@ uebertragungen:
     wann: beim Öffnen einer Mailvorlage oder einer Telefonnummer
     freiwillig: true
     beleg: lib/features/communication/mail_service.dart, lib/features/communication/care_providers_screen.dart
+  - wohin: ein vom Nutzer per USB-Kabel verbundener Rechner (ADB)
+    was: Dateien aus dem Austauschordner; die App stellt dafür keine Netzverbindung her
+    wann: nur wenn der Nutzer den Schalter „Entwicklerzugriff per ADB“ eingeschaltet und USB-Debugging am Gerät erlaubt hat und am Rechner Dateien abholt oder ablegt
+    freiwillig: true
+    beleg: lib/data/exchange/adb_folder.dart, lib/features/settings/settings_screen.dart (_adbCard)
 
 # Keine eingebundenen Fremddienste: kein Firebase, keine Analyse-Bibliothek,
 # keine Kartendienste, keine Schriften aus dem Netz (Poppins liegt lokal bei),
@@ -98,8 +106,8 @@ daten_an_dritte_verkauft: false
 loeschung: >-
   Alle Daten liegen auf dem Gerät. Einzelne Einträge lassen sich in der App
   löschen; unter Einstellungen entfernt „Alle Daten löschen“ sämtliche
-  Einträge, Fotos, PDF-Dokumente, Stammdaten, Einstellungen und geplanten
-  Erinnerungen unwiderruflich. Beim Deinstallieren der App verschwinden alle
+  Einträge, Fotos, PDF-Dokumente, Stammdaten, Einstellungen, den Austauschordner des
+  Entwicklerzugriffs und geplante Erinnerungen unwiderruflich. Beim Deinstallieren der App verschwinden alle
   Daten mit. Selbst erzeugte Export- und Backup-Dateien liegen dort, wo der
   Nutzer sie abgelegt hat; sie müssen von ihm selbst gelöscht werden.
 loeschung_beleg: lib/data/maintenance/data_eraser.dart
@@ -140,6 +148,13 @@ besonderheiten: >-
   wird spätestens nach 24 Stunden gelöscht.
   Das Support-Formular nennt die Einwilligung und die IP-Verarbeitung und
   verlinkt auf die Datenschutzerklärung in der App.
+  Entwicklerzugriff per ADB: Ein Schalter in den Einstellungen (anfangs aus, bleibt
+  an bis zum Ausschalten, Hinweis auf der Startseite) macht den eigenen
+  Austauschordner der App für ADB nutzbar; die Dateien sind unverschlüsselt,
+  andere Apps haben ab Android 11 keinen Zugriff, ausgeschaltet wird der Ordner
+  geleert. Die App ist nicht debuggable und öffnet keine Schnittstelle für andere
+  Apps. PZN und EAN stehen nur in der lokalen Datenbank und – nur bei gesetztem
+  Haken, anfangs aus – im Text der Rezeptmail und der Rezept-Erinnerung.
 
 besonderheiten_beleg: >-
   android/app/src/main/AndroidManifest.xml und android/app/src/main/res/xml/*. 

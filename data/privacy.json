@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-06T14:19:05+02:00",
+  "generiert": "2026-10-06T15:46:15+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -207,9 +207,9 @@
     {
       "slug": "checkin-vita",
       "name": "CheckInVita",
-      "stand": "2026-10-03",
+      "stand": "2026-10-06",
       "geprueft_von": "23_CheckInVita",
-      "fassung": "0.2.0+1 – Android-Stand 03.10.2026, noch nicht veröffentlicht; Windows wird nicht ausgeliefert",
+      "fassung": "0.3.0 – Android-Stand 06.10.2026, noch nicht veröffentlicht; Windows wird nicht ausgeliefert",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -218,7 +218,7 @@
           "beleg": "lib/data/database/app_database.dart"
         },
         {
-          "was": "Medikamente, Medikationsplan, Injektionstherapien und Injektionsprotokoll",
+          "was": "Medikamente (auf Wunsch mit PZN und EAN der Packung), Medikationsplan, Injektionstherapien und Injektionsprotokoll",
           "wo": "lokale Datenbank (SQLite)",
           "beleg": "lib/data/database/tables/"
         },
@@ -248,15 +248,20 @@
           "beleg": "lib/data/documents/document_service.dart"
         },
         {
-          "was": "vom Nutzer selbst erzeugte Export- und Backup-Dateien (CSV, Excel-Tabelle, ZIP-Backup mit Einträgen, Einstellungen, Fotos und PDFs)",
+          "was": "vom Nutzer selbst erzeugte Export- und Backup-Dateien (CSV, JSON, Excel-Tabelle, ZIP-Backup mit Einträgen, Einstellungen, Fotos und PDFs; einzelne Bereiche über „Daten austauschen“)",
           "wo": "vom Nutzer gewählter Speicherort",
-          "beleg": "lib/shared/utils/file_share.dart, lib/data/backup/backup_service.dart (buildArchive)"
+          "beleg": "lib/shared/utils/file_share.dart, lib/data/backup/backup_service.dart (buildArchive), lib/data/exchange/exchange_service.dart"
+        },
+        {
+          "was": "Dateien im Austauschordner des Entwicklerzugriffs (JSON, CSV; Gesundheitsdaten im Klartext möglich), nur solange der Schalter an ist",
+          "wo": "eigener Ordner der App im externen Speicher (Android/data/eu.fehlerfuchs.checkinvita/files/austausch)",
+          "beleg": "lib/data/exchange/adb_folder.dart"
         }
       ],
       "berechtigungen": [
         {
           "name": "Benachrichtigungen",
-          "wofuer": "Erinnerungen an Injektion und Rezeptbestellung (Uhrzeit, „Einen Tag vorher“ und Ausschalter stellt der Nutzer selbst ein; die Mitteilung nennt keinen Präparatnamen)",
+          "wofuer": "Erinnerungen an Injektion und Rezeptbestellung (Uhrzeit, „Einen Tag vorher“ und Ausschalter stellt der Nutzer selbst ein; die Mitteilung nennt keinen Präparatnamen; nur bei gesetztem Haken „PZN/EAN in der Rezept-Erinnerung“ (anfangs aus) stehen PZN und EAN der Packung darin)",
           "pflicht": false,
           "beleg": "android/app/src/main/AndroidManifest.xml (POST_NOTIFICATIONS)"
         },
@@ -313,6 +318,13 @@
           "wann": "beim Öffnen einer Mailvorlage oder einer Telefonnummer",
           "freiwillig": true,
           "beleg": "lib/features/communication/mail_service.dart, lib/features/communication/care_providers_screen.dart"
+        },
+        {
+          "wohin": "ein vom Nutzer per USB-Kabel verbundener Rechner (ADB)",
+          "was": "Dateien aus dem Austauschordner; die App stellt dafür keine Netzverbindung her",
+          "wann": "nur wenn der Nutzer den Schalter „Entwicklerzugriff per ADB“ eingeschaltet und USB-Debugging am Gerät erlaubt hat und am Rechner Dateien abholt oder ablegt",
+          "freiwillig": true,
+          "beleg": "lib/data/exchange/adb_folder.dart, lib/features/settings/settings_screen.dart (_adbCard)"
         }
       ],
       "fremde_dienste": [],
@@ -321,9 +333,9 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen auf dem Gerät. Einzelne Einträge lassen sich in der App löschen; unter Einstellungen entfernt „Alle Daten löschen“ sämtliche Einträge, Fotos, PDF-Dokumente, Stammdaten, Einstellungen und geplanten Erinnerungen unwiderruflich. Beim Deinstallieren der App verschwinden alle Daten mit. Selbst erzeugte Export- und Backup-Dateien liegen dort, wo der Nutzer sie abgelegt hat; sie müssen von ihm selbst gelöscht werden.",
+      "loeschung": "Alle Daten liegen auf dem Gerät. Einzelne Einträge lassen sich in der App löschen; unter Einstellungen entfernt „Alle Daten löschen“ sämtliche Einträge, Fotos, PDF-Dokumente, Stammdaten, Einstellungen, den Austauschordner des Entwicklerzugriffs und geplante Erinnerungen unwiderruflich. Beim Deinstallieren der App verschwinden alle Daten mit. Selbst erzeugte Export- und Backup-Dateien liegen dort, wo der Nutzer sie abgelegt hat; sie müssen von ihm selbst gelöscht werden.",
       "loeschung_beleg": "lib/data/maintenance/data_eraser.dart",
-      "besonderheiten": "CheckInVita ist ein Gesundheits-Tagebuch und ausdrücklich kein Medizinprodukt nach MDR 2017/745; es findet keine Bewertung und keine Diagnose statt. Die erfassten Angaben können besonders schützenswerte Gesundheitsdaten nach Art. 9 DSGVO sein – sie bleiben ausschließlich lokal. Die Internet-Berechtigung besteht allein für das nutzerinitiierte Support-/Kontaktformular; ein automatischer Upload existiert nicht. Vor dem Anhängen von Dateien warnt die App ausdrücklich davor, sensible Gesundheitsdaten mitzuschicken. Export- und Backup-Dateien überträgt der Nutzer selbst – ohne Server und ohne Netzverbindung; sie sind unverschlüsselt, worauf die App vor jedem Export hinweist. Die App hat keine Kamera-Berechtigung: Ein Fortschrittsfoto nimmt die Kamera-App des Geräts auf, die App erhält nur das fertige Bild. Auf eine Berechtigung für den Fotospeicher wird bewusst verzichtet: Bilder aus der Galerie werden über den Auswahldialog des Systems ausgewählt, die App erhält dabei keinen Zugriff auf die übrigen Fotos. Ebenso wird keine Berechtigung für exakte Weckzeiten angefordert; Erinnerungen können daher um einige Minuten abweichen. Stand 02.10.2026: Die App ist von der automatischen Android-Sicherung (Cloud) und von der automatischen Übertragung auf ein neues Gerät ausgenommen (allowBackup=false, Ausschlussregeln; auf einem Test-Emulator gemessen: „Backup is not allowed“). Wer das Gerät wechselt, nutzt das ZIP-Backup; einen Abgleich zwischen zwei Geräten gibt es nicht (seit 02.10.2026 aus der App entfernt). Das ZIP-Backup enthält Einträge, Einstellungen, Fotos und PDFs und ist unverschlüsselt. Die App-Sperre (Biometrie/Geräte-PIN) öffnet nur bei erfolgreicher Prüfung; bei Abbruch oder Fehler bleibt die App gesperrt. CheckInVita ist für Erwachsene ab 18 Jahren bestimmt. Rechtsgrundlagen: Für die Daten auf dem Gerät verarbeitet der Anbieter nichts. Das Support-Formular verarbeitet Nachricht, freiwillig Name und E-Mail zur Beantwortung der Anfrage (Art. 6 Abs. 1 lit. b, bei allgemeinen Anfragen lit. f DSGVO); Gesundheitsdaten in Nachricht oder Anhängen auf Grundlage der ausdrücklichen Einwilligung mit dem Absenden (Art. 9 Abs. 2 lit. a und Art. 6 Abs. 1 lit. a DSGVO); die technische Diagnosedatei nur mit Einwilligung (Art. 6 Abs. 1 lit. a); die kurzzeitige Verarbeitung der IP-Adresse dient der Abwehr von Missbrauch (Art. 6 Abs. 1 lit. f). Speicherdauer: Eine Supportnachricht bleibt als E-Mail im Postfach, solange sie für Rückfragen gebraucht wird; die IP-Adresse fließt kurz in eine Missbrauchsbremse ein und wird spätestens nach 24 Stunden gelöscht. Das Support-Formular nennt die Einwilligung und die IP-Verarbeitung und verlinkt auf die Datenschutzerklärung in der App.",
+      "besonderheiten": "CheckInVita ist ein Gesundheits-Tagebuch und ausdrücklich kein Medizinprodukt nach MDR 2017/745; es findet keine Bewertung und keine Diagnose statt. Die erfassten Angaben können besonders schützenswerte Gesundheitsdaten nach Art. 9 DSGVO sein – sie bleiben ausschließlich lokal. Die Internet-Berechtigung besteht allein für das nutzerinitiierte Support-/Kontaktformular; ein automatischer Upload existiert nicht. Vor dem Anhängen von Dateien warnt die App ausdrücklich davor, sensible Gesundheitsdaten mitzuschicken. Export- und Backup-Dateien überträgt der Nutzer selbst – ohne Server und ohne Netzverbindung; sie sind unverschlüsselt, worauf die App vor jedem Export hinweist. Die App hat keine Kamera-Berechtigung: Ein Fortschrittsfoto nimmt die Kamera-App des Geräts auf, die App erhält nur das fertige Bild. Auf eine Berechtigung für den Fotospeicher wird bewusst verzichtet: Bilder aus der Galerie werden über den Auswahldialog des Systems ausgewählt, die App erhält dabei keinen Zugriff auf die übrigen Fotos. Ebenso wird keine Berechtigung für exakte Weckzeiten angefordert; Erinnerungen können daher um einige Minuten abweichen. Stand 02.10.2026: Die App ist von der automatischen Android-Sicherung (Cloud) und von der automatischen Übertragung auf ein neues Gerät ausgenommen (allowBackup=false, Ausschlussregeln; auf einem Test-Emulator gemessen: „Backup is not allowed“). Wer das Gerät wechselt, nutzt das ZIP-Backup; einen Abgleich zwischen zwei Geräten gibt es nicht (seit 02.10.2026 aus der App entfernt). Das ZIP-Backup enthält Einträge, Einstellungen, Fotos und PDFs und ist unverschlüsselt. Die App-Sperre (Biometrie/Geräte-PIN) öffnet nur bei erfolgreicher Prüfung; bei Abbruch oder Fehler bleibt die App gesperrt. CheckInVita ist für Erwachsene ab 18 Jahren bestimmt. Rechtsgrundlagen: Für die Daten auf dem Gerät verarbeitet der Anbieter nichts. Das Support-Formular verarbeitet Nachricht, freiwillig Name und E-Mail zur Beantwortung der Anfrage (Art. 6 Abs. 1 lit. b, bei allgemeinen Anfragen lit. f DSGVO); Gesundheitsdaten in Nachricht oder Anhängen auf Grundlage der ausdrücklichen Einwilligung mit dem Absenden (Art. 9 Abs. 2 lit. a und Art. 6 Abs. 1 lit. a DSGVO); die technische Diagnosedatei nur mit Einwilligung (Art. 6 Abs. 1 lit. a); die kurzzeitige Verarbeitung der IP-Adresse dient der Abwehr von Missbrauch (Art. 6 Abs. 1 lit. f). Speicherdauer: Eine Supportnachricht bleibt als E-Mail im Postfach, solange sie für Rückfragen gebraucht wird; die IP-Adresse fließt kurz in eine Missbrauchsbremse ein und wird spätestens nach 24 Stunden gelöscht. Das Support-Formular nennt die Einwilligung und die IP-Verarbeitung und verlinkt auf die Datenschutzerklärung in der App. Entwicklerzugriff per ADB: Ein Schalter in den Einstellungen (anfangs aus, bleibt an bis zum Ausschalten, Hinweis auf der Startseite) macht den eigenen Austauschordner der App für ADB nutzbar; die Dateien sind unverschlüsselt, andere Apps haben ab Android 11 keinen Zugriff, ausgeschaltet wird der Ordner geleert. Die App ist nicht debuggable und öffnet keine Schnittstelle für andere Apps. PZN und EAN stehen nur in der lokalen Datenbank und – nur bei gesetztem Haken, anfangs aus – im Text der Rezeptmail und der Rezept-Erinnerung.",
       "besonderheiten_beleg": "android/app/src/main/AndroidManifest.xml und android/app/src/main/res/xml/*.  Rechtsgrundlagen, Altersgrenze und Speicherdauer: Stand 03.10.2026, Freigabe Matthias (Logbuch 4418); Löschfrist der IP-Adresse belegt von FF_11 (Logbuch 4416, mailer.py Zeilen 40 bis 47); Wortlaut in lib/features/legal/legal_screen.dart (kPrivacyText, Abschnitt 6 e und f).",
       "vorhandener_text": "lib/features/legal/legal_screen.dart (kPrivacyText und kImpressumText, vollständig offline, Wortlaut von Matthias bestätigt 02.10.2026, Logbuch",
       "offene_fragen": "Für die Windows-Fassung ist noch nicht abschließend entschieden, ob sie bei Veröffentlichung eine Aktualisierungsprüfung erhält; heute enthält sie keine. Veröffentlichung eine Aktualisierungsprüfung erhält; heute enthält sie keine.",
