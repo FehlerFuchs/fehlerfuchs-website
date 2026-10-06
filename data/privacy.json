@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-06T11:36:07+02:00",
+  "generiert": "2026-10-06T11:50:21+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -2177,9 +2177,9 @@
     {
       "slug": "snapfuchs",
       "name": "SnapFuchs",
-      "stand": "2026-10-03",
+      "stand": "2026-10-06",
       "geprueft_von": "30_SnapFuchs",
-      "fassung": "1.2.0 (versionCode 9)",
+      "fassung": "1.2.1 (versionCode 10)",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -2317,7 +2317,7 @@
       "daten_an_dritte_verkauft": false,
       "loeschung": "Alle Inhalte liegen auf dem Gerät. Einzelne Dokumente und Ordner lassen sich in der App löschen; alles Übrige (Einstellungen, Fehlerlog, Cache) verschwindet mit der Deinstallation. Per Feedback gesendete Nachrichten liegen im Support-Postfach und werden auf Anfrage gelöscht.",
       "besonderheiten": "Texterkennung, Tabellenerkennung, das Lesen von QR-Codes und Barcodes sowie alle PDF-Werkzeuge laufen vollständig auf dem Gerät und bauen dafür keine Verbindung nach außen auf. Es gibt kein Konto und keine Registrierung. Bilder aus der Galerie werden über den Android-Fotoauswahl-Dialog ausgewählt; deshalb fordert die App keine Berechtigung für Fotos oder Videos an. In der kostenlosen Fassung tragen die erzeugten PDFs ein Wasserzeichen, das nach dem einmaligen Kauf entfällt. Der Kaufstatus wird auf dem Gerät gespeichert und zusätzlich bei Google Play abgefragt. Optional lässt sich eine Standardablage einrichten: Exporte werden dann zusätzlich in einen selbst gewählten Ordner auf dem Gerät geschrieben; die Ordnerwahl läuft über den Android-Ordnerauswahl-Dialog (SAF) und braucht keine Speicher-Berechtigung. Der beim Scannen vergebene Dokumentname bleibt nur im Arbeitsspeicher und bestimmt lediglich den Dateinamen beim Export.",
-      "vorhandener_text": "Kein eigenes Dokument. Ein Datenschutz-Abschnitt steht in der App unter Einstellungen (lib/features/settings/settings_screen.dart); das Impressum verweist auf die Website.",
+      "vorhandener_text": "Seit Fassung 1.2.1 steht die veröffentlichte Datenschutzerklärung von fehlerfuchs.eu (allgemeiner Teil und Abschnitt SnapFuchs) offline in der App unter Menü › Rechtstexte › Datenschutz, wortgleich gebündelt (assets/rechtstexte/datenschutz_snapfuchs.md). Zusätzlich ein kurzer Datenschutz-Abschnitt unter Einstellungen (lib/features/settings/settings_screen.dart); das Impressum verweist auf die Website.",
       "offene_fragen": "1) ACCESS_NETWORK_STATE steht nur wegen eingebundener Bausteine im Manifest; im eigenen Code wird der Netzwerkstatus nirgends abgefragt. Die Berechtigung bleibt vorerst drin, weil die Kaufabwicklung sie voraussetzen dürfte; sie ist nicht sensibel und wird dem Nutzer nicht angezeigt. 2) Ob und wie lange der Kontakt-Server IP-Adressen protokolliert, hängt vom Server ab und ist aus dem App-Code nicht feststellbar.",
       "art": "anwendung"
     },

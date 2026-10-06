@@ -56,6 +56,8 @@ status: verfuegbar
 platforms:
   - os: android
     status: verfuegbar
+    # Voraussetzung nach Produkteinschreibung 06.10.2026 (minSdk 24, belegt von FF_30/FF_00)
+    requirements: Android 7.0 oder neuer
     distribution: play-store
     storeId: eu.fehlerfuchs.snapfuchs
     since: "2026-07-20"
