@@ -13,7 +13,8 @@ name: Website 2.0 bauen und deployen
 #      Dispatch) baut neu und zieht dabei den aktuellen astro-Stand.
 #   2. Datenmodell erzeugen und pruefen. Meldet build_data.py einen Fehler,
 #      bricht der Ablauf ab - es geht nichts kaputt live.
-#   3. Alle Oberflaechenpruefungen. Auch sie duerfen den Bau anhalten.
+#   3. Alle Oberflaechenpruefungen. Auch sie duerfen den Bau anhalten. Nach dem Bauen misst eine Browserpruefung
+#      die fertigen Seiten in Chrome (Ueberlauf, Kontrast).
 #   4. Bauen und das Ergebnis zu GitHub Pages hochladen.
 #
 # VORAUSSETZUNG: ein Geheimnis namens ASTRO_REPO_TOKEN.
@@ -109,6 +110,12 @@ jobs:
       - name: Bauen
         working-directory: astro
         run: npm run build
+
+      - name: Browserpruefung (echter Chrome, Ueberlauf und Kontrast, hell und dunkel)
+        # Das Bauergebnis wird in Chrome gerendert und gemessen (Audit AUDIT#04, F-015; Entscheidung Matthias E1 A,
+        # 06.10.2026). Chrome ist auf ubuntu-latest vorinstalliert. Ein Fund haelt den Deploy an.
+        working-directory: astro
+        run: CHROME="$(command -v google-chrome || command -v chromium)" npm run browser
 
       - name: Health-/Version-JSON stempeln
         run: |
