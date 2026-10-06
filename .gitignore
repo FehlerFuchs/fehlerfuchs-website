@@ -44,3 +44,13 @@ id_ed25519*
 .netrc
 credentials.json
 service-account*.json
+
+# Pflichtmuster aus Regel R1 (Rest der Liste), ergänzt 06.10.2026 nach Audit AUDIT#04 F-013.
+build/
+dist/
+.dart_tool/
+node_modules/
+*.apk
+*.aab
+*.exe
+*.msi
