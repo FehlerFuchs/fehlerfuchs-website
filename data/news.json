@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-06T17:43:34+02:00",
+  "generiert": "2026-10-06T18:08:57+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "snapfuchs-1-2-2",
+      "typ": "update",
+      "produkt": "snapfuchs",
+      "datum": "2026-10-06",
+      "titel": "SnapFuchs 1.2.2: randlose Anzeige, kleiner und schneller",
+      "text": "SnapFuchs 1.2.2 ist im Play Store. Randlose Anzeige: Hinweise und Knöpfe liegen nicht mehr unter der Navigationsleiste. Die App ist durch optimierten Programmcode kleiner und schneller, und die Bausteine für die Kamera-Berechtigung sind aktualisiert. Behoben: Nach einmaligem „Nicht erlauben“ fragte die App sofort ein zweites Mal nach der Kamera.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.snapfuchs"
+      }
+    },
     {
       "id": "haushaltsmanager-1-1-0",
       "typ": "update",

@@ -29,6 +29,20 @@
 
 meldungen:
 
+  # SnapFuchs 1.2.2 (versionCode 11). Play-Store-App. Live seit 06.10.2026 18:01 (Console), gemeldet von
+  # [FF_13] (MELDUNG P5 06.10.2026 18:07, Store-Seite dort um 18:07:21 gelesen). Text = „Neu in 1.2.2“ aus dem
+  # Store, nichts erfunden (P8). KEINE Buildnummer nennen. Kein 'version' (Play-App, kein Release im Modell).
+  - id: snapfuchs-1-2-2
+    typ: update
+    produkt: snapfuchs
+    datum: "2026-10-06"
+    titel: "SnapFuchs 1.2.2: randlose Anzeige, kleiner und schneller"
+    text: >-
+      SnapFuchs 1.2.2 ist im Play Store. Randlose Anzeige: Hinweise und Knöpfe liegen nicht
+      mehr unter der Navigationsleiste. Die App ist durch optimierten Programmcode kleiner und
+      schneller, und die Bausteine für die Kamera-Berechtigung sind aktualisiert. Behoben: Nach
+      einmaligem „Nicht erlauben“ fragte die App sofort ein zweites Mal nach der Kamera.
+
   # SnapFuchs 1.2.1 (versionCode 10). Play-Store-App. Live seit 05.10.2026 15:48 (Console), gemeldet von
   # [FF_13] (MELDUNG P5 05.10.2026 18:43, Store-Seite dort um 18:43 gelesen). Text = „Neu in 1.2.1“ aus dem
   # Store, nichts erfunden (P8). KEINE Buildnummer nennen. Kein 'version' (Play-App, kein Release im Modell).
