@@ -1,71 +1,80 @@
-# Format überführt am 26.09.2026 von [FF_10] (Webseiten-Sichtung, Befund 1, Entscheidung Matthias A):
-# nur die Form (Felder was/wo, name/wofuer, wohin/was/wann), Inhalt unverändert. Gegenlesen: Projekt.
-slug: haushaltsmanager        # Vorschlag; noch nicht in _SLUG-EIGENTUEMER.md eingetragen – Eintragung läuft parallel
+# Geprüft gegen HaushaltsManager 1.1.0 (Quellstand 69ccd0d, veröffentlicht 06.10.2026) von [FF_36] am 07.10.2026.
+# Jede Angabe am Code bzw. im VM-Lauf 06.10.2026 nachgesehen. Format wie Fassung [FF_10] 26.09.2026.
+slug: haushaltsmanager
 slug_vorschlag: false
 name: HaushaltsManager
-stand: "2026-08-11"
+stand: "2026-10-07"
 geprueft_von: 36_HaushaltsManager Markt
 fassung: >-
-  Am gebauten Produkt 1.0.0 geprüft (Produktfassung ohne private Daten, sauberer
-  Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Neu ggü. 0.11.1:
-  Lizenz-Aktivierung gegen den FehlerFuchs-Lizenzserver (nur Schlüssel + anonyme Geräte-Kennung) nach
-  einer kostenlosen Testphase sowie ein nutzerinitiierter App-Update-Check (liest nur eine
-  öffentliche Versionsliste). Code-Signing steht noch aus.
+  Am gebauten und veröffentlichten Produkt 1.1.0 geprüft (Produktfassung ohne private Daten,
+  sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Installer, Programmdatei
+  und Deinstaller sind mit der FehlerFuchs-Signatur versehen (zweistufig signiert). Neu ggü. 1.0.0:
+  vollständiger lesbarer JSON-Export, Lizenzvereinbarung und erweiterte Datenschutzhinweise in der
+  App, Deinstaller fragt nach dem Entfernen der lokalen Daten.
 
 lokal_only: false   # optionale, standardmäßig ausgeschaltete Datenverbindungen + eine minimale Lizenzprüfung, siehe uebertragungen
 
 auf_dem_geraet:
 - was: Vollständige Haushaltsdaten in einer lokalen SQLite-Datenbank – Zählerstände (Strom/Gas/Wasser),
-    Verträge inkl. Kündigungsfristen, Haushaltsbuch, Vorhaben/Projekte, Solar & Speicher
-  wo: lokal, %APPDATA%\eu.fehlerfuchs.privat\HaushaltsManager\HaushaltsManager\
-- was: Erzeugte PDF-Dokumente (Vertrags-/Kündigungsschreiben, Monats-/Jahresberichte) und JSON-Exporte
+    Verträge inkl. Kündigungsfristen, Haushaltsbuch, Vorhaben/Projekte, Solar & Speicher, Anwendungsprotokoll
+  wo: lokal, %APPDATA%\eu.fehlerfuchs.privat\HaushaltsManager\HaushaltsManager\ (oder ein vom Nutzer gewählter
+    Speicherort)
+- was: Erzeugte PDF-Dokumente (Vertrags-/Kündigungsschreiben, Monats-/Jahresberichte) und lesbare
+    JSON-Exporte aller Fachdaten
   wo: lokal, dort wo der Nutzer sie speichert
-- was: Datenbank-Sicherungen (Backups)
+- was: Datenbank-Sicherungen (SQLite-Kopie, zum Wiederherstellen)
   wo: lokal, vom Nutzer angelegt
 - was: Optionale anonyme Beispieldaten zum Ausprobieren
-  wo: lokal, jederzeit entfernbar
+  wo: lokal, in der Datenbank; sie werden wie eigene Einträge einzeln in der App gelöscht
+- was: Support-Paket (Protokoll und Systemangaben, ohne Zugangsdaten)
+  wo: lokal, nur wenn der Nutzer es erzeugt; versendet wird es nur durch den Nutzer selbst
 
 berechtigungen:
 - name: Lesen/Schreiben der eigenen SQLite-Datenbank und der vom Nutzer gewählten Export-/PDF-/Backup-Ordner
     (lokal)
 - name: Optionaler per-user Autostart-Eintrag (HKCU\...\Run, ohne Administratorrechte), nur wenn der Nutzer
-    den Hintergrunddienst einschaltet
+    ihn bei der Installation („Im Hintergrund mit Windows starten“, standardmäßig aus) oder in der App
+    (Hintergrunddienst) einschaltet
   wofuer: startet die App versteckt im Tray
 
-  # Ausdrücklich NICHT: Kamera/Mikro/Kontakte; keine Administratorrechte. Standortkoordinaten
-  # nur, wenn der Nutzer die optionale Wetterfunktion einschaltet und einen Standort wählt.
+  # Ausdrücklich NICHT: Kamera/Mikro/Kontakte; keine Administratorrechte für die App selbst. Der Installer
+  # lädt bei Bedarf die Microsoft Visual C++ Laufzeit nach; nur dafür fragt Windows einmal nach (UAC).
+  # Standortkoordinaten nur, wenn der Nutzer die optionale Wetterfunktion einschaltet und einen Standort wählt.
 
 uebertragungen:
 - wohin: Open-Meteo (api.open-meteo.com, archive-api.open-meteo.com)
   was: 'Wetterdaten zur wetterbereinigten Erklärung von Heizperioden: Nur die vom Nutzer gewählten Koordinaten
-    (Standort). Kein Schlüssel, kein Konto. Sonst werden keine Nutzerdaten gesendet; IP-Adresse und Zeitpunkt
-    fallen wie bei jedem Web-Abruf technisch an.'
-  wann: nur bei aktivierter Wetterfunktion, beim Abruf durch den Nutzer
+    (Standort) und der abgefragte Zeitraum. Kein Schlüssel, kein Konto. Sonst werden keine Nutzerdaten gesendet;
+    IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.'
+  wann: nur bei aktivierter Wetterfunktion, beim Abruf durch den Nutzer oder – wenn er es einschaltet – automatisch
+    beim Start bzw. im Hintergrunddienst
   freiwillig: true
-  beleg: Standardmäßig aus, opt-in; einzeln abschaltbar
-- wohin: PowerFox Cloud-API (offizielle Kunden-API 2.0, HTTPS, HTTP Basic Auth)
+  beleg: Standardmäßig aus (weather_auto_sync = 0), opt-in; einzeln abschaltbar
+- wohin: PowerFox Cloud-API (backend.powerfox.energy, offizielle Kunden-API 2.0, HTTPS, HTTP Basic Auth)
   was: 'Abruf eigener Zähler-/Verbrauchsdaten aus dem PowerFox-Konto des Nutzers: Nutzt die EIGENEN Zugangsdaten
     des Nutzers (E-Mail + Passwort seines PowerFox-Kontos). Das Passwort liegt ausschließlich im Windows-Anmeldespeicher.
     Abgerufen werden die Verbrauchsdaten des eigenen Kontos.'
-  wann: nur bei aktivierter PowerFox-Anbindung, beim Abruf/Sync durch den Nutzer
+  wann: nur bei aktivierter PowerFox-Anbindung, beim Abruf/Sync durch den Nutzer oder im eingestellten Intervall
   freiwillig: true
-  beleg: Standardmäßig aus, opt-in; vom Nutzer selbst beauftragte Verbindung zu seinem eigenen Konto
-- wohin: ENPAL / InfluxDB im eigenen Heimnetz (lokale IP + Token)
-  was: 'Abruf von Solar-/Speicherdaten aus der ENPAL-/InfluxDB-Instanz im Heimnetz: Nur lokale Verbindung
-    im eigenen Netz per IP und Token. Verlässt das Heimnetz nicht. Der Token liegt ausschließlich im Windows-Anmeldespeicher.'
-  wann: nur bei aktivierter Anbindung, beim Abruf/Sync durch den Nutzer
+  beleg: Standardmäßig aus (powerfox_cloud_auto_sync = 0), opt-in; vom Nutzer selbst beauftragte Verbindung zu seinem
+    eigenen Konto
+- wohin: ENPAL / InfluxDB unter der vom Nutzer eingetragenen Adresse (gewöhnlich im eigenen Heimnetz, IP + Token)
+  was: 'Abruf von Solar-/Speicherdaten aus der ENPAL-/InfluxDB-Instanz: Verbindung nur zu der vom Nutzer eingetragenen
+    Adresse, gewöhnlich im eigenen Netz. Der Token liegt ausschließlich im Windows-Anmeldespeicher; übertragen wird er
+    verschlüsselt nur, wenn die Adresse mit https:// beginnt, sonst unverschlüsselt im Heimnetz (die App weist bei
+    der Eingabe darauf hin).'
+  wann: nur bei aktivierter Anbindung, beim Abruf/Sync durch den Nutzer oder im eingestellten Intervall
   freiwillig: true
-  beleg: Standardmäßig aus, opt-in; reine Heimnetz-Verbindung, verlässt das lokale Netz nicht
+  beleg: Standardmäßig aus (enpal_auto_sync = 0), opt-in; keine Verbindung zu Enpal-Servern
 - wohin: FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU/Deutschland, HTTPS)
-  was: 'Lizenzaktivierung und -prüfung (Kaufschutz nach der kostenlosen Testphase): Es werden AUSSCHLIESSLICH
-    der Lizenzschlüssel und eine anonyme, zufällig erzeugte Geräte-Kennung übertragen (Aktivieren/Prüfen/Freigeben).
-    KEINE Haushalts-, Zähler-, Vertrags- oder sonstigen Nutzerdaten. Nach der Aktivierung läuft die App
-    offline weiter; nur in größeren Abständen ist eine kurze Online-Prüfung nötig. IP-Adresse und Zeitpunkt
-    fallen wie bei jedem Web-Abruf technisch an.'
-  wann: bei der Aktivierung sowie in größeren Abständen zur Gültigkeitsprüfung
+  was: 'Lizenzaktivierung, -prüfung und Freigabe eines Geräts (Kaufschutz nach der kostenlosen Testphase): Übertragen
+    werden der Lizenzschlüssel, eine anonyme, zufällig erzeugte Geräte-Kennung, die Produktkennung „HaushaltsManager“
+    und bei der Aktivierung die Plattform „Windows“. KEINE Haushalts-, Zähler-, Vertrags- oder sonstigen Nutzerdaten.
+    Nach der Aktivierung läuft die App offline weiter; nur in größeren Abständen ist eine kurze Online-Prüfung nötig.
+    IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.'
+  wann: bei der Aktivierung, bei der Freigabe eines Geräts sowie in größeren Abständen zur Gültigkeitsprüfung
   freiwillig: false
-  beleg: Notwendige Kaufabsicherung nach der Testphase; minimaler Datenumfang (nur Schlüssel + anonyme
-    Kennung)
+  beleg: Notwendige Kaufabsicherung nach der Testphase; minimaler Datenumfang
 - wohin: Öffentliche Versionsliste auf fehlerfuchs.eu (versions.json, HTTPS)
   was: 'Freiwillige Suche nach einer neueren App-Version: Nur ein lesender Abruf einer öffentlichen Datei;
     es werden KEINE Nutzerdaten gesendet. Kein automatischer Download/Install – die App meldet nur, ob
@@ -73,13 +82,21 @@ uebertragungen:
   wann: nur wenn der Nutzer „Nach App-Updates suchen“ anklickt
   freiwillig: true
   beleg: Nutzerinitiiert; reiner Lesezugriff auf eine öffentliche Liste, keine Telemetrie
+- wohin: Microsoft (aka.ms, Download der Visual C++ Laufzeit) – nur durch den Installer
+  was: 'Einmaliger Download des Microsoft Visual C++ Redistributable, falls es auf dem Rechner fehlt. Der Installer
+    prüft vor dem Start die Microsoft-Signatur der Datei. Es werden keine Nutzerdaten gesendet; IP-Adresse und
+    Zeitpunkt fallen technisch an.'
+  wann: nur während der Installation und nur, wenn die Laufzeit fehlt
+  freiwillig: false
+  beleg: Voraussetzung für den Programmstart; Bestandteil von Windows-Programmen dieser Art
 
 fremde_dienste:
-  - "Open-Meteo – genutzter Wetterdienst (nur bei aktivierter Wetterfunktion; ohne Schlüssel/Konto, es werden nur die gewählten Koordinaten gesendet)"
+  - "Open-Meteo – genutzter Wetterdienst (nur bei aktivierter Wetterfunktion; ohne Schlüssel/Konto, es werden nur die gewählten Koordinaten und der Zeitraum gesendet)"
   - "PowerFox Cloud – vom Nutzer beauftragte Verbindung zu seinem EIGENEN PowerFox-Konto (offizielle Kunden-API 2.0, mit den eigenen Zugangsdaten des Nutzers)"
-  - "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU) – Lizenzaktivierung/-prüfung; überträgt nur Lizenzschlüssel + anonyme Geräte-Kennung, keine Nutzerdaten"
+  - "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU) – Lizenzaktivierung/-prüfung/-freigabe; überträgt nur Lizenzschlüssel, anonyme Geräte-Kennung, Produktkennung und Plattform, keine Nutzerdaten"
   - "Digistore24 – Wiederverkäufer beim Kauf der Lizenz (Merchant of Record); die App selbst spricht nicht mit Digistore, sondern nur mit dem Lizenzserver"
-  # ENPAL/InfluxDB ist kein fremder Cloud-Dienst, sondern eine reine Verbindung im eigenen Heimnetz.
+  - "Microsoft – Download der Visual C++ Laufzeit durch den Installer, nur wenn sie fehlt"
+  # ENPAL/InfluxDB ist kein fremder Cloud-Dienst, sondern eine Verbindung zur vom Nutzer eingetragenen Adresse.
   # Komponenten-Update erfolgt rein lokal aus einer vom Nutzer gewählten JSON-Datei – KEINE Netzverbindung.
 
 konto_noetig: false
@@ -90,41 +107,44 @@ daten_an_dritte_verkauft: false
 
 loeschung: >-
   Alle Daten liegen ausschließlich lokal in der SQLite-Datenbank unter
-  %APPDATA%\eu.fehlerfuchs.privat\HaushaltsManager\HaushaltsManager\ (sofern du in der App keinen anderen Speicherort gewählt hast). Es werden keine Haushaltsdaten an FehlerFuchs oder Dritte übertragen.
-  Die Datenbank sowie erzeugte PDFs, Exporte und Backups kann der Nutzer jederzeit selbst
-  löschen; der Deinstaller entfernt das Programm. Optionale Beispieldaten lassen sich in der
-  App wieder entfernen. Zugangsdaten (PowerFox, ENPAL) stehen nur im Windows-Anmeldespeicher
-  und werden dort vom Nutzer entfernt.
+  %APPDATA%\eu.fehlerfuchs.privat\HaushaltsManager\HaushaltsManager\ (sofern du in der App keinen anderen Speicherort
+  gewählt hast). Es werden keine Haushaltsdaten an FehlerFuchs oder Dritte übertragen. Einträge (auch die optionalen
+  Beispieldaten) lassen sich in der App einzeln löschen; die Datenbank sowie erzeugte PDFs, Exporte und Sicherungen
+  kann der Nutzer jederzeit selbst löschen. Der Deinstaller entfernt das Programm und fragt, ob auch der Datenordner
+  (und eine vom Nutzer verlegte Datenbank) entfernt werden soll – Standard ist „behalten“. Zugangsdaten (PowerFox,
+  ENPAL) und Lizenzangaben stehen nur im Windows-Anmeldespeicher und werden dort vom Nutzer entfernt. Die Löschung
+  der beim Lizenzserver gespeicherten Lizenzdaten (E-Mail-Adresse und Geräteaktivierungen) kann unter
+  https://fehlerfuchs.eu/datenschutz/loeschantrag/ beantragt werden.
 
 besonderheiten: >-
   Kernversprechen: „Alle Daten bleiben auf diesem Gerät.“ HaushaltsManager ist privacy-first
   und offline-first – kein Konto, kein Tracking, keine Werbung, keine Telemetrie, keine
   automatischen Absturzberichte. Alle drei Außenverbindungen (Open-Meteo, PowerFox-Cloud,
-  ENPAL/InfluxDB im Heimnetz) sind standardmäßig AUS und einzeln zuschalt- bzw. abschaltbar.
+  ENPAL/InfluxDB) sind standardmäßig AUS und einzeln zuschalt- bzw. abschaltbar.
   Ein optionaler Hintergrunddienst (Tray-Symbol, standardmäßig aus) hält – nur wenn der Nutzer
   ihn und die jeweilige Verbindung aktiviert – die aktivierten Abrufe (PowerFox/Wetter/ENPAL)
   auch bei geschlossenem Fenster und auf Wunsch ab Windows-Start am Laufen; ohne Aktivierung
   bestehen keinerlei Hintergrundverbindungen.
   Das Komponenten-Update läuft ausschließlich über eine lokal vom Nutzer ausgewählte
-  JSON-Datei ohne jede Netzverbindung; Zugangsdaten in solchen Paketen sind ausdrücklich
-  verboten. Zugangsdaten (PowerFox-Passwort, ENPAL-Token, Lizenzschlüssel und Offline-Token)
-  liegen ausschließlich im Windows-Anmeldespeicher.
-  Kaufabsicherung: Nach einer kostenlosen Testphase wird die App mit einem Lizenzschlüssel
-  aktiviert. Dabei verlassen NUR der Schlüssel und eine anonyme, zufällige Geräte-Kennung das
-  Gerät (Ziel: license.fehlerfuchs.eu, EU); es werden keinerlei Haushaltsdaten übertragen. Der
+  JSON-Datei ohne jede Netzverbindung; es ändert nur ausdrücklich erlaubte Einstellungen in geprüften
+  Wertebereichen, Zugangsdaten in solchen Paketen sind verboten. Zugangsdaten (PowerFox-Passwort,
+  ENPAL-Token, Lizenzschlüssel und Offline-Token) liegen ausschließlich im Windows-Anmeldespeicher;
+  der Lizenzschlüssel wird nicht protokolliert.
+  Kaufabsicherung: Nach einer kostenlosen Testphase von 30 Tagen wird die App mit einem Lizenzschlüssel
+  aktiviert. Dabei verlassen nur Schlüssel, eine anonyme, zufällige Geräte-Kennung, Produktkennung und
+  Plattform das Gerät (Ziel: license.fehlerfuchs.eu, EU); es werden keinerlei Haushaltsdaten übertragen. Der
   Server stellt ein Ed25519-signiertes Offline-Token aus, sodass die App anschließend offline
   läuft und nur in größeren Abständen kurz online prüft. Eine Lizenz gilt für bis zu fünf
   Geräte; ein Gerät kann in der App wieder freigegeben werden. Der App-Update-Check ist
   nutzerinitiiert und liest nur eine öffentliche Versionsliste (keine Telemetrie).
-  Anbieterkennzeichnung in der App (Impressum): FehlerFuchs,
-  Geschäftsbezeichnung/Marke von Matthias Schacht, E-Mail admin@fehlerfuchs.eu.
+  Die Lizenzvereinbarung (EULA) und die Datenschutzhinweise sind offline in der App nachlesbar
+  („Hilfe & Recht“). Anbieterkennzeichnung in der App (Impressum): FehlerFuchs,
+  Geschäftsbezeichnung/Marke von Matthias Schacht, Susanne-Bohl-Straße 8, 07747 Jena,
+  E-Mail admin@fehlerfuchs.eu.
 
 vorhandener_text: ""
 
 offene_fragen: >-
-  1) Der Slug „haushaltsmanager“ steht noch nicht in `_SLUG-EIGENTUEMER.md`; die Eintragung
-  läuft parallel (deshalb slug_vorschlag: false). 2) Monetarisierung entschieden: Einmalkauf
-  20,00 € (Brutto) über Digistore24, Lizenzaktivierung über den FehlerFuchs-Lizenzserver,
-  fünf Arbeitsplätze je Lizenz. 3) Offen bleibt das Code-Signing (Azure Trusted Signing) –
-  danach signierte Datei + sha256 + Download-URL nachreichen. 4) Serverseitig zu bestätigen:
-  Produktkennung „HaushaltsManager“ (App-Feld) und 30-Tage-Offline-Karenz je Produkt.
+  1) Monetarisierung entschieden: Einmalkauf 20,00 € (Brutto) über Digistore24, Lizenzaktivierung über
+  den FehlerFuchs-Lizenzserver, fünf Arbeitsplätze je Lizenz. 2) Serverseitig zu bestätigen (nicht am
+  Programm prüfbar): Produktkennung „HaushaltsManager“ (App-Feld) und 30-Tage-Offline-Karenz je Produkt.

@@ -1,8 +1,8 @@
 slug: appinsight
 name: FehlerFuchs AppInsight
-stand: "2026-09-24"
+stand: "2026-10-01"
 geprueft_von: 22_AppInsight
-fassung: "1.0.0 (noch nicht veröffentlicht)"
+fassung: "1.0.1 (versionCode 5), seit 01.10.2026 bei Google Play"
 
 # Die App besitzt keine Berechtigung für Internetzugriff und kann daher von
 # sich aus nichts senden oder abrufen.
@@ -133,5 +133,5 @@ offene_fragen: >-
   sondern eine Übergabe an die Mail-App des Nutzers (siehe Übertragungen). Die
   App selbst sendet weiterhin nichts. Ein Versand über einen eigenen Server ist
   nicht gebaut; käme er, wäre dieser Steckbrief zu erneuern.
-  2) Die App ist noch nicht veröffentlicht (Stand 1.0.0). Alle Angaben
-  beziehen sich auf den heutigen Entwicklungsstand, nicht auf eine Store-Fassung.
+  2) Erledigt am 01.10.2026: 1.0.0 (versionCode 4) und 1.0.1 (5) sind bei Google Play in der
+  Produktion veröffentlicht. Die Angaben beschreiben die Store-Fassung 1.0.1.

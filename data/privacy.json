@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-06T18:08:57+02:00",
+  "generiert": "2026-10-07T04:33:56+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -156,7 +156,7 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Die Deinstallation entfernt das Programm, nicht aber absichtlich die Benutzerdokumente. Konfiguration, Journal, Aktivitätslog, Zähler, Drucklog, Stempelvorlagen, Vorschau-Cache und Quarantäne können im lokalen BelegWerk-Benutzerordner gelöscht werden. Im Eingang können Belege nach deutlicher Rückfrage samt Sidecars und verknüpften Arbeitskopien dauerhaft gelöscht werden; bereits übergebene Zielkopien und der Journalnachweis bleiben erhalten. Paperless-Tokens werden getrennt in der Windows-Anmeldeinformationsverwaltung entfernt. Arbeitskopien, Consume-Übergaben und Dateiablagen löscht der Nutzer in den von ihm gewählten Zielordnern. Daten in Paperless werden in der jeweiligen Instanz gelöscht.",
+      "loeschung": "Die Deinstallation entfernt das Programm, nicht aber absichtlich die Benutzerdokumente. Konfiguration, Journal, Aktivitätslog, Zähler, Drucklog, Stempelvorlagen, Vorschau-Cache und Quarantäne können im lokalen BelegWerk-Benutzerordner gelöscht werden. Im Eingang können Belege nach deutlicher Rückfrage samt Sidecars und verknüpften Arbeitskopien dauerhaft gelöscht werden; bereits übergebene Zielkopien und der Journalnachweis bleiben erhalten. Paperless-Tokens werden getrennt in der Windows-Anmeldeinformationsverwaltung entfernt. Arbeitskopien, Consume- Übergaben und Dateiablagen löscht der Nutzer in den von ihm gewählten Zielordnern. Daten in Paperless werden in der jeweiligen Instanz gelöscht.",
       "besonderheiten": "Originale werden nicht überschrieben. Consume- und Dateiablage verwenden kollisionsfreie Namen; die zusätzliche Dateiablage prüft Quelle und Ziel per SHA-256. PDF-Stempel und externe PDF-Werkzeuge arbeiten ausschließlich mit neuen Arbeitskopien im lokalen BelegWerk-Datenordner. Paperless und Dateiablage haben getrennte Status- und Wiederholaktionen. Sidecars sind auf 64 KiB und eine Positivliste unkritischer Metadaten begrenzt; unbekannte geheime Felder werden ignoriert. Tokens erscheinen weder in UI-Ausgaben noch in Diagnoseberichten. Der Aktivitätsverlauf speichert keine Dateinamen, Pfade, E-Mail-Adressen, Dokumentinhalte oder externen Aufgabenkennungen. Technische Korrelationskennungen werden mit einem zufälligen lokalen Schlüssel gebildet; ältere ungeschützte Kurzkennungen werden entfernt. Bestehende Einträge werden über eine versionierte Einmalmigration in eine sichere Ereignisform überführt; jeder Eintrag erhält eine verständliche Erklärung und einen nächsten Schritt. Der direkte Paperless-Status arbeitet lesend. Lokale Docker-Protokolle werden vor der Anzeige auf Zugangsdaten geprüft und maskiert. Der Support-Dialog nennt die Übertragung vor dem Absenden und begrenzt Anhänge auf fünf Dateien und zusammen 10 MB.",
       "vorhandener_text": "",
       "offene_fragen": "Vor einer öffentlichen Finalfreigabe sind die tatsächlichen Lösch- und Aufbewahrungsfristen der zentralen Support-Bridge nochmals mit dem Serverbetrieb abzugleichen. Protokollierung und Aufbewahrung einer vom Nutzer selbst betriebenen Paperless-Instanz liegen außerhalb von BelegWerk.",
@@ -464,9 +464,9 @@
     {
       "slug": "appinsight",
       "name": "FehlerFuchs AppInsight",
-      "stand": "2026-09-24",
+      "stand": "2026-10-01",
       "geprueft_von": "22_AppInsight",
-      "fassung": "1.0.0 (noch nicht veröffentlicht)",
+      "fassung": "1.0.1 (versionCode 5), seit 01.10.2026 bei Google Play",
       "lokal_only": true,
       "auf_dem_geraet": [
         {
@@ -569,7 +569,7 @@
       "loeschung": "Alle Daten liegen auf dem Gerät: die App-Einstellungen, die Ergebnisse der Paketuntersuchung im Zwischenspeicher (jederzeit über „Cache leeren“ in den Android-Einstellungen löschbar) und – nur während des Teilens oder Sendens – eine vorübergehende Bericht- oder Diagnosedatei, die spätestens beim nächsten App-Start entfernt wird. Beim Deinstallieren verschwindet alles. Berichte, die du selbst weitergegeben oder abgespeichert hast, liegen dort, wohin du sie gelegt hast, und müssen dort gelöscht werden.",
       "besonderheiten": "AppInsight liest Angaben über andere Apps: Name, angeforderte Berechtigungen, Bestandteile, Signatur und Installationsquelle sowie – wenn du die Nutzungsdaten freigibst – Speicher-, Nutzungs- und Datenverbrauchswerte. Seit dem 24.09.2026 untersucht es außerdem das Installationspaket (APK) jeder App, das Android für jede App lesbar macht: Netzwerk-Regeln, Namen der Programmbausteine (Tracker-Erkennung) und Server-Adressen im Code. Das Paket wird nur gelesen, nichts daraus ausgeführt. Daten anderer Apps liest es nicht; Android schottet Apps gegeneinander ab. Die gesamte Auswertung findet auf dem Gerät statt. Die optionale Internetsperre arbeitet mit einer geräteinternen Sperre, die den Datenverkehr der gesperrten Apps verwirft: Es gibt keine Weiterleitung über einen Server und keine Aufzeichnung des Datenverkehrs. Die Ampel-Einordnung ist eine Einschätzung nach festen Regeln, kein Urteil über eine App.",
       "vorhandener_text": "Datenschutzerklärung im Volltext, offline in der App unter Info → Datenschutzerklärung (lib/features/transparency/rechtstexte.dart, Stand 24.09.2026), dazu „Warum braucht AppInsight Berechtigungen?“ unter Info und Einstellungen (lib/features/transparency/about_page.dart). Webfassung: https://fehlerfuchs.eu/datenschutz/#app-appinsight",
-      "offene_fragen": "1) Erledigt am 22.09.2026: Die Kontaktfunktion ist keine Zwischenablage mehr, sondern eine Übergabe an die Mail-App des Nutzers (siehe Übertragungen). Die App selbst sendet weiterhin nichts. Ein Versand über einen eigenen Server ist nicht gebaut; käme er, wäre dieser Steckbrief zu erneuern. 2) Die App ist noch nicht veröffentlicht (Stand 1.0.0). Alle Angaben beziehen sich auf den heutigen Entwicklungsstand, nicht auf eine Store-Fassung.",
+      "offene_fragen": "1) Erledigt am 22.09.2026: Die Kontaktfunktion ist keine Zwischenablage mehr, sondern eine Übergabe an die Mail-App des Nutzers (siehe Übertragungen). Die App selbst sendet weiterhin nichts. Ein Versand über einen eigenen Server ist nicht gebaut; käme er, wäre dieser Steckbrief zu erneuern. 2) Erledigt am 01.10.2026: 1.0.0 (versionCode 4) und 1.0.1 (5) sind bei Google Play in der Produktion veröffentlicht. Die Angaben beschreiben die Store-Fassung 1.0.1.",
       "art": "anwendung"
     },
     {
@@ -1159,26 +1159,30 @@
       "slug": "haushaltsmanager",
       "slug_vorschlag": false,
       "name": "HaushaltsManager",
-      "stand": "2026-08-11",
+      "stand": "2026-10-07",
       "geprueft_von": "36_HaushaltsManager Markt",
-      "fassung": "Am gebauten Produkt 1.0.0 geprüft (Produktfassung ohne private Daten, sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Neu ggü. 0.11.1: Lizenz-Aktivierung gegen den FehlerFuchs-Lizenzserver (nur Schlüssel + anonyme Geräte-Kennung) nach einer kostenlosen Testphase sowie ein nutzerinitiierter App-Update-Check (liest nur eine öffentliche Versionsliste). Code-Signing steht noch aus.",
+      "fassung": "Am gebauten und veröffentlichten Produkt 1.1.0 geprüft (Produktfassung ohne private Daten, sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Installer, Programmdatei und Deinstaller sind mit der FehlerFuchs-Signatur versehen (zweistufig signiert). Neu ggü. 1.0.0: vollständiger lesbarer JSON-Export, Lizenzvereinbarung und erweiterte Datenschutzhinweise in der App, Deinstaller fragt nach dem Entfernen der lokalen Daten.",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
-          "was": "Vollständige Haushaltsdaten in einer lokalen SQLite-Datenbank – Zählerstände (Strom/Gas/Wasser), Verträge inkl. Kündigungsfristen, Haushaltsbuch, Vorhaben/Projekte, Solar & Speicher",
-          "wo": "lokal, %APPDATA%\\eu.fehlerfuchs.privat\\HaushaltsManager\\HaushaltsManager\\"
+          "was": "Vollständige Haushaltsdaten in einer lokalen SQLite-Datenbank – Zählerstände (Strom/Gas/Wasser), Verträge inkl. Kündigungsfristen, Haushaltsbuch, Vorhaben/Projekte, Solar & Speicher, Anwendungsprotokoll",
+          "wo": "lokal, %APPDATA%\\eu.fehlerfuchs.privat\\HaushaltsManager\\HaushaltsManager\\ (oder ein vom Nutzer gewählter Speicherort)"
         },
         {
-          "was": "Erzeugte PDF-Dokumente (Vertrags-/Kündigungsschreiben, Monats-/Jahresberichte) und JSON-Exporte",
+          "was": "Erzeugte PDF-Dokumente (Vertrags-/Kündigungsschreiben, Monats-/Jahresberichte) und lesbare JSON-Exporte aller Fachdaten",
           "wo": "lokal, dort wo der Nutzer sie speichert"
         },
         {
-          "was": "Datenbank-Sicherungen (Backups)",
+          "was": "Datenbank-Sicherungen (SQLite-Kopie, zum Wiederherstellen)",
           "wo": "lokal, vom Nutzer angelegt"
         },
         {
           "was": "Optionale anonyme Beispieldaten zum Ausprobieren",
-          "wo": "lokal, jederzeit entfernbar"
+          "wo": "lokal, in der Datenbank; sie werden wie eigene Einträge einzeln in der App gelöscht"
+        },
+        {
+          "was": "Support-Paket (Protokoll und Systemangaben, ohne Zugangsdaten)",
+          "wo": "lokal, nur wenn der Nutzer es erzeugt; versendet wird es nur durch den Nutzer selbst"
         }
       ],
       "berechtigungen": [
@@ -1186,38 +1190,38 @@
           "name": "Lesen/Schreiben der eigenen SQLite-Datenbank und der vom Nutzer gewählten Export-/PDF-/Backup-Ordner (lokal)"
         },
         {
-          "name": "Optionaler per-user Autostart-Eintrag (HKCU\\...\\Run, ohne Administratorrechte), nur wenn der Nutzer den Hintergrunddienst einschaltet",
+          "name": "Optionaler per-user Autostart-Eintrag (HKCU\\...\\Run, ohne Administratorrechte), nur wenn der Nutzer ihn bei der Installation („Im Hintergrund mit Windows starten“, standardmäßig aus) oder in der App (Hintergrunddienst) einschaltet",
           "wofuer": "startet die App versteckt im Tray"
         }
       ],
       "uebertragungen": [
         {
           "wohin": "Open-Meteo (api.open-meteo.com, archive-api.open-meteo.com)",
-          "was": "Wetterdaten zur wetterbereinigten Erklärung von Heizperioden: Nur die vom Nutzer gewählten Koordinaten (Standort). Kein Schlüssel, kein Konto. Sonst werden keine Nutzerdaten gesendet; IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.",
-          "wann": "nur bei aktivierter Wetterfunktion, beim Abruf durch den Nutzer",
+          "was": "Wetterdaten zur wetterbereinigten Erklärung von Heizperioden: Nur die vom Nutzer gewählten Koordinaten (Standort) und der abgefragte Zeitraum. Kein Schlüssel, kein Konto. Sonst werden keine Nutzerdaten gesendet; IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.",
+          "wann": "nur bei aktivierter Wetterfunktion, beim Abruf durch den Nutzer oder – wenn er es einschaltet – automatisch beim Start bzw. im Hintergrunddienst",
           "freiwillig": true,
-          "beleg": "Standardmäßig aus, opt-in; einzeln abschaltbar"
+          "beleg": "Standardmäßig aus (weather_auto_sync = 0), opt-in; einzeln abschaltbar"
         },
         {
-          "wohin": "PowerFox Cloud-API (offizielle Kunden-API 2.0, HTTPS, HTTP Basic Auth)",
+          "wohin": "PowerFox Cloud-API (backend.powerfox.energy, offizielle Kunden-API 2.0, HTTPS, HTTP Basic Auth)",
           "was": "Abruf eigener Zähler-/Verbrauchsdaten aus dem PowerFox-Konto des Nutzers: Nutzt die EIGENEN Zugangsdaten des Nutzers (E-Mail + Passwort seines PowerFox-Kontos). Das Passwort liegt ausschließlich im Windows-Anmeldespeicher. Abgerufen werden die Verbrauchsdaten des eigenen Kontos.",
-          "wann": "nur bei aktivierter PowerFox-Anbindung, beim Abruf/Sync durch den Nutzer",
+          "wann": "nur bei aktivierter PowerFox-Anbindung, beim Abruf/Sync durch den Nutzer oder im eingestellten Intervall",
           "freiwillig": true,
-          "beleg": "Standardmäßig aus, opt-in; vom Nutzer selbst beauftragte Verbindung zu seinem eigenen Konto"
+          "beleg": "Standardmäßig aus (powerfox_cloud_auto_sync = 0), opt-in; vom Nutzer selbst beauftragte Verbindung zu seinem eigenen Konto"
         },
         {
-          "wohin": "ENPAL / InfluxDB im eigenen Heimnetz (lokale IP + Token)",
-          "was": "Abruf von Solar-/Speicherdaten aus der ENPAL-/InfluxDB-Instanz im Heimnetz: Nur lokale Verbindung im eigenen Netz per IP und Token. Verlässt das Heimnetz nicht. Der Token liegt ausschließlich im Windows-Anmeldespeicher.",
-          "wann": "nur bei aktivierter Anbindung, beim Abruf/Sync durch den Nutzer",
+          "wohin": "ENPAL / InfluxDB unter der vom Nutzer eingetragenen Adresse (gewöhnlich im eigenen Heimnetz, IP + Token)",
+          "was": "Abruf von Solar-/Speicherdaten aus der ENPAL-/InfluxDB-Instanz: Verbindung nur zu der vom Nutzer eingetragenen Adresse, gewöhnlich im eigenen Netz. Der Token liegt ausschließlich im Windows-Anmeldespeicher; übertragen wird er verschlüsselt nur, wenn die Adresse mit https:// beginnt, sonst unverschlüsselt im Heimnetz (die App weist bei der Eingabe darauf hin).",
+          "wann": "nur bei aktivierter Anbindung, beim Abruf/Sync durch den Nutzer oder im eingestellten Intervall",
           "freiwillig": true,
-          "beleg": "Standardmäßig aus, opt-in; reine Heimnetz-Verbindung, verlässt das lokale Netz nicht"
+          "beleg": "Standardmäßig aus (enpal_auto_sync = 0), opt-in; keine Verbindung zu Enpal-Servern"
         },
         {
           "wohin": "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU/Deutschland, HTTPS)",
-          "was": "Lizenzaktivierung und -prüfung (Kaufschutz nach der kostenlosen Testphase): Es werden AUSSCHLIESSLICH der Lizenzschlüssel und eine anonyme, zufällig erzeugte Geräte-Kennung übertragen (Aktivieren/Prüfen/Freigeben). KEINE Haushalts-, Zähler-, Vertrags- oder sonstigen Nutzerdaten. Nach der Aktivierung läuft die App offline weiter; nur in größeren Abständen ist eine kurze Online-Prüfung nötig. IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.",
-          "wann": "bei der Aktivierung sowie in größeren Abständen zur Gültigkeitsprüfung",
+          "was": "Lizenzaktivierung, -prüfung und Freigabe eines Geräts (Kaufschutz nach der kostenlosen Testphase): Übertragen werden der Lizenzschlüssel, eine anonyme, zufällig erzeugte Geräte-Kennung, die Produktkennung „HaushaltsManager“ und bei der Aktivierung die Plattform „Windows“. KEINE Haushalts-, Zähler-, Vertrags- oder sonstigen Nutzerdaten. Nach der Aktivierung läuft die App offline weiter; nur in größeren Abständen ist eine kurze Online-Prüfung nötig. IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.",
+          "wann": "bei der Aktivierung, bei der Freigabe eines Geräts sowie in größeren Abständen zur Gültigkeitsprüfung",
           "freiwillig": false,
-          "beleg": "Notwendige Kaufabsicherung nach der Testphase; minimaler Datenumfang (nur Schlüssel + anonyme Kennung)"
+          "beleg": "Notwendige Kaufabsicherung nach der Testphase; minimaler Datenumfang"
         },
         {
           "wohin": "Öffentliche Versionsliste auf fehlerfuchs.eu (versions.json, HTTPS)",
@@ -1225,23 +1229,31 @@
           "wann": "nur wenn der Nutzer „Nach App-Updates suchen“ anklickt",
           "freiwillig": true,
           "beleg": "Nutzerinitiiert; reiner Lesezugriff auf eine öffentliche Liste, keine Telemetrie"
+        },
+        {
+          "wohin": "Microsoft (aka.ms, Download der Visual C++ Laufzeit) – nur durch den Installer",
+          "was": "Einmaliger Download des Microsoft Visual C++ Redistributable, falls es auf dem Rechner fehlt. Der Installer prüft vor dem Start die Microsoft-Signatur der Datei. Es werden keine Nutzerdaten gesendet; IP-Adresse und Zeitpunkt fallen technisch an.",
+          "wann": "nur während der Installation und nur, wenn die Laufzeit fehlt",
+          "freiwillig": false,
+          "beleg": "Voraussetzung für den Programmstart; Bestandteil von Windows-Programmen dieser Art"
         }
       ],
       "fremde_dienste": [
-        "Open-Meteo – genutzter Wetterdienst (nur bei aktivierter Wetterfunktion; ohne Schlüssel/Konto, es werden nur die gewählten Koordinaten gesendet)",
+        "Open-Meteo – genutzter Wetterdienst (nur bei aktivierter Wetterfunktion; ohne Schlüssel/Konto, es werden nur die gewählten Koordinaten und der Zeitraum gesendet)",
         "PowerFox Cloud – vom Nutzer beauftragte Verbindung zu seinem EIGENEN PowerFox-Konto (offizielle Kunden-API 2.0, mit den eigenen Zugangsdaten des Nutzers)",
-        "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU) – Lizenzaktivierung/-prüfung; überträgt nur Lizenzschlüssel + anonyme Geräte-Kennung, keine Nutzerdaten",
-        "Digistore24 – Wiederverkäufer beim Kauf der Lizenz (Merchant of Record); die App selbst spricht nicht mit Digistore, sondern nur mit dem Lizenzserver"
+        "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU) – Lizenzaktivierung/-prüfung/-freigabe; überträgt nur Lizenzschlüssel, anonyme Geräte-Kennung, Produktkennung und Plattform, keine Nutzerdaten",
+        "Digistore24 – Wiederverkäufer beim Kauf der Lizenz (Merchant of Record); die App selbst spricht nicht mit Digistore, sondern nur mit dem Lizenzserver",
+        "Microsoft – Download der Visual C++ Laufzeit durch den Installer, nur wenn sie fehlt"
       ],
       "konto_noetig": false,
       "tracking": false,
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen ausschließlich lokal in der SQLite-Datenbank unter %APPDATA%\\eu.fehlerfuchs.privat\\HaushaltsManager\\HaushaltsManager\\ (sofern du in der App keinen anderen Speicherort gewählt hast). Es werden keine Haushaltsdaten an FehlerFuchs oder Dritte übertragen. Die Datenbank sowie erzeugte PDFs, Exporte und Backups kann der Nutzer jederzeit selbst löschen; der Deinstaller entfernt das Programm. Optionale Beispieldaten lassen sich in der App wieder entfernen. Zugangsdaten (PowerFox, ENPAL) stehen nur im Windows-Anmeldespeicher und werden dort vom Nutzer entfernt.",
-      "besonderheiten": "Kernversprechen: „Alle Daten bleiben auf diesem Gerät.“ HaushaltsManager ist privacy-first und offline-first – kein Konto, kein Tracking, keine Werbung, keine Telemetrie, keine automatischen Absturzberichte. Alle drei Außenverbindungen (Open-Meteo, PowerFox-Cloud, ENPAL/InfluxDB im Heimnetz) sind standardmäßig AUS und einzeln zuschalt- bzw. abschaltbar. Ein optionaler Hintergrunddienst (Tray-Symbol, standardmäßig aus) hält – nur wenn der Nutzer ihn und die jeweilige Verbindung aktiviert – die aktivierten Abrufe (PowerFox/Wetter/ENPAL) auch bei geschlossenem Fenster und auf Wunsch ab Windows-Start am Laufen; ohne Aktivierung bestehen keinerlei Hintergrundverbindungen. Das Komponenten-Update läuft ausschließlich über eine lokal vom Nutzer ausgewählte JSON-Datei ohne jede Netzverbindung; Zugangsdaten in solchen Paketen sind ausdrücklich verboten. Zugangsdaten (PowerFox-Passwort, ENPAL-Token, Lizenzschlüssel und Offline-Token) liegen ausschließlich im Windows-Anmeldespeicher. Kaufabsicherung: Nach einer kostenlosen Testphase wird die App mit einem Lizenzschlüssel aktiviert. Dabei verlassen NUR der Schlüssel und eine anonyme, zufällige Geräte-Kennung das Gerät (Ziel: license.fehlerfuchs.eu, EU); es werden keinerlei Haushaltsdaten übertragen. Der Server stellt ein Ed25519-signiertes Offline-Token aus, sodass die App anschließend offline läuft und nur in größeren Abständen kurz online prüft. Eine Lizenz gilt für bis zu fünf Geräte; ein Gerät kann in der App wieder freigegeben werden. Der App-Update-Check ist nutzerinitiiert und liest nur eine öffentliche Versionsliste (keine Telemetrie). Anbieterkennzeichnung in der App (Impressum): FehlerFuchs, Geschäftsbezeichnung/Marke von Matthias Schacht, E-Mail admin@fehlerfuchs.eu.",
+      "loeschung": "Alle Daten liegen ausschließlich lokal in der SQLite-Datenbank unter %APPDATA%\\eu.fehlerfuchs.privat\\HaushaltsManager\\HaushaltsManager\\ (sofern du in der App keinen anderen Speicherort gewählt hast). Es werden keine Haushaltsdaten an FehlerFuchs oder Dritte übertragen. Einträge (auch die optionalen Beispieldaten) lassen sich in der App einzeln löschen; die Datenbank sowie erzeugte PDFs, Exporte und Sicherungen kann der Nutzer jederzeit selbst löschen. Der Deinstaller entfernt das Programm und fragt, ob auch der Datenordner (und eine vom Nutzer verlegte Datenbank) entfernt werden soll – Standard ist „behalten“. Zugangsdaten (PowerFox, ENPAL) und Lizenzangaben stehen nur im Windows-Anmeldespeicher und werden dort vom Nutzer entfernt. Die Löschung der beim Lizenzserver gespeicherten Lizenzdaten (E-Mail-Adresse und Geräteaktivierungen) kann unter https://fehlerfuchs.eu/datenschutz/loeschantrag/ beantragt werden.",
+      "besonderheiten": "Kernversprechen: „Alle Daten bleiben auf diesem Gerät.“ HaushaltsManager ist privacy-first und offline-first – kein Konto, kein Tracking, keine Werbung, keine Telemetrie, keine automatischen Absturzberichte. Alle drei Außenverbindungen (Open-Meteo, PowerFox-Cloud, ENPAL/InfluxDB) sind standardmäßig AUS und einzeln zuschalt- bzw. abschaltbar. Ein optionaler Hintergrunddienst (Tray-Symbol, standardmäßig aus) hält – nur wenn der Nutzer ihn und die jeweilige Verbindung aktiviert – die aktivierten Abrufe (PowerFox/Wetter/ENPAL) auch bei geschlossenem Fenster und auf Wunsch ab Windows-Start am Laufen; ohne Aktivierung bestehen keinerlei Hintergrundverbindungen. Das Komponenten-Update läuft ausschließlich über eine lokal vom Nutzer ausgewählte JSON-Datei ohne jede Netzverbindung; es ändert nur ausdrücklich erlaubte Einstellungen in geprüften Wertebereichen, Zugangsdaten in solchen Paketen sind verboten. Zugangsdaten (PowerFox-Passwort, ENPAL-Token, Lizenzschlüssel und Offline-Token) liegen ausschließlich im Windows-Anmeldespeicher; der Lizenzschlüssel wird nicht protokolliert. Kaufabsicherung: Nach einer kostenlosen Testphase von 30 Tagen wird die App mit einem Lizenzschlüssel aktiviert. Dabei verlassen nur Schlüssel, eine anonyme, zufällige Geräte-Kennung, Produktkennung und Plattform das Gerät (Ziel: license.fehlerfuchs.eu, EU); es werden keinerlei Haushaltsdaten übertragen. Der Server stellt ein Ed25519-signiertes Offline-Token aus, sodass die App anschließend offline läuft und nur in größeren Abständen kurz online prüft. Eine Lizenz gilt für bis zu fünf Geräte; ein Gerät kann in der App wieder freigegeben werden. Der App-Update-Check ist nutzerinitiiert und liest nur eine öffentliche Versionsliste (keine Telemetrie). Die Lizenzvereinbarung (EULA) und die Datenschutzhinweise sind offline in der App nachlesbar („Hilfe & Recht“). Anbieterkennzeichnung in der App (Impressum): FehlerFuchs, Geschäftsbezeichnung/Marke von Matthias Schacht, Susanne-Bohl-Straße 8, 07747 Jena, E-Mail admin@fehlerfuchs.eu.",
       "vorhandener_text": "",
-      "offene_fragen": "1) Der Slug „haushaltsmanager“ steht noch nicht in `_SLUG-EIGENTUEMER.md`; die Eintragung läuft parallel (deshalb slug_vorschlag: false). 2) Monetarisierung entschieden: Einmalkauf 20,00 € (Brutto) über Digistore24, Lizenzaktivierung über den FehlerFuchs-Lizenzserver, fünf Arbeitsplätze je Lizenz. 3) Offen bleibt das Code-Signing (Azure Trusted Signing) – danach signierte Datei + sha256 + Download-URL nachreichen. 4) Serverseitig zu bestätigen: Produktkennung „HaushaltsManager“ (App-Feld) und 30-Tage-Offline-Karenz je Produkt.",
+      "offene_fragen": "1) Monetarisierung entschieden: Einmalkauf 20,00 € (Brutto) über Digistore24, Lizenzaktivierung über den FehlerFuchs-Lizenzserver, fünf Arbeitsplätze je Lizenz. 2) Serverseitig zu bestätigen (nicht am Programm prüfbar): Produktkennung „HaushaltsManager“ (App-Feld) und 30-Tage-Offline-Karenz je Produkt.",
       "art": "anwendung"
     },
     {
@@ -1674,7 +1686,7 @@
           "was": "Anmeldung der App-Installation bei Firebase – eine zufällig erzeugte Installationskennung zusammen mit der Kennung der App; keine Termine, Namen oder Planinhalte. Google sieht technisch die IP-Adresse und den Zeitpunkt",
           "wann": "ab Version 1.9.6 erst, wenn Benachrichtigungen eingeschaltet werden (Einwilligung); vorher keine Verbindung zu Google. Bis einschließlich 1.9.5 geschah die Anmeldung einmalig beim ersten Start, auch ohne Einwilligung",
           "freiwillig": true,
-          "beleg": "Messung 01.10.2026 auf Emulator, Erststart ohne Einwilligung - 1.9.5+26 eine Verbindung zu firebaseinstallations.googleapis.com 2 s nach dem Start; 1.9.6+28 keine Verbindung der App (Protokoll-Proxy, Socketliste der App). Ab 1.9.6 im Manifest kein FirebaseInitProvider, firebase_messaging_auto_init_enabled=false; Firebase startet nur in lib/services/fcm_dienst.dart (initialisieren, nur mit Einwilligung) bzw. im Hintergrund-Handler einer Wecknachricht"
+          "beleg": "Messung 01.10.2026 auf Emulator, Erststart ohne Einwilligung – 1.9.5+26 eine Verbindung zu firebaseinstallations.googleapis.com 2 s nach dem Start; 1.9.6+28 keine Verbindung der App (Protokoll-Proxy, Socketliste der App). Ab 1.9.6 im Manifest kein FirebaseInitProvider, firebase_messaging_auto_init_enabled=false; Firebase startet nur in lib/services/fcm_dienst.dart (initialisieren, nur mit Einwilligung) bzw. im Hintergrund-Handler einer Wecknachricht"
         }
       ],
       "fremde_dienste": [
@@ -1697,7 +1709,7 @@
           "name": "Firebase Cloud Messaging (Google) – zuverlässiger Weck-Push (nur Android)",
           "wofuer": "weckt die App aus Doze/geschlossenem Zustand für den Empfang von Änderungen; das Gerät registriert sich mit einer Push-Kennung bei Google. In der Nachricht KEINE Termine/Namen/Planinhalte (nur Wecksignal) – der eigentliche Abgleich bleibt Ende-zu-Ende-verschlüsselt über das Relais",
           "wann": "nur bei eingeschalteten Benachrichtigungen (Android); ab Version 1.9.6 gilt das auch für die Anmeldung bei Firebase (bis 1.9.5 einmalig beim ersten Start, siehe Übertragungen)",
-          "hinweis": "Google verarbeitet Push-Kennung, Installationskennung und Zustelldaten als Auftragsverarbeiter nach Art. 28 DSGVO auf Grundlage der Firebase Data Processing and Security Terms. Die Übermittlung in die USA stützt sich auf das EU-US Data Privacy Framework, Standardvertragsklauseln dienen als Rückfall. Google speichert Firebase-Installationskennungen bis zur Löschung und entfernt sie danach binnen 180 Tagen auch aus Sicherungen. Belegstufe - laut Googles Firebase-Datenschutzseite und Firebase-Bedingungen, übernommen aus dem Dienst-Steckbrief relaisserver.yaml (Stand 30.09.2026); Entscheidung Matthias vom 03.09.2026, bestätigt am 30.09.2026 (keine Rechtsberatung)"
+          "hinweis": "Google verarbeitet Push-Kennung, Installationskennung und Zustelldaten als Auftragsverarbeiter nach Art. 28 DSGVO auf Grundlage der Firebase Data Processing and Security Terms. Die Übermittlung in die USA stützt sich auf das EU-US Data Privacy Framework, Standardvertragsklauseln dienen als Rückfall. Google speichert Firebase-Installationskennungen bis zur Löschung und entfernt sie danach binnen 180 Tagen auch aus Sicherungen. Belegstufe – laut Googles Firebase-Datenschutzseite und Firebase-Bedingungen, übernommen aus dem Dienst-Steckbrief relaisserver.yaml (Stand 30.09.2026); Entscheidung Matthias vom 03.09.2026, bestätigt am 30.09.2026 (keine Rechtsberatung)"
         },
         {
           "name": "Kein Google-Konto, kein Analytics, kein Play Billing, keine Karten, keine Schriften aus dem Netz",
@@ -1811,7 +1823,7 @@
       "name": "PDFuchs Reader",
       "stand": "2026-09-30",
       "geprueft_von": "26_PDFuchs (Slug-Eigentümer seit 18.08.2026; führt Android- und Windows-Teil). Windows-Teil am 19.08.2026 gegen den aktuellen Quellstand gegengeprüft und korrigiert: (a) das Netzverhalten ist nicht mehr netzwerkfrei, sondern hat einen NUTZERINITIIERTEN Support-/Kontaktweg (seit 25.07.2026); (b) es gibt inzwischen eine lokale Einstellungsdatei (settings.json) inkl. „Zuletzt geöffnet“; (c) Installer ist Inno Setup (installer_flutter.iss), nicht mehr NSIS. Frühere Angaben entsprechend berichtigt.",
-      "fassung": "Zweite Fassung vom 19.07.2026 – gegenüber der ersten Einreichung desselben Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt. Zwei Fassungen tragen heute diesen Slug. (A) Android-Fassung 1.3.0 (versionCode 6, Paket eu.fehlerfuchs.pdfuchsreader): seit 30.09.2026 12:47 in Google Play veröffentlicht, voller Rollout (Meldung [FF_13] nach P5). Vorher im Emulator und auf einem Fire-Tablet geprüft. Geprüft am aktuellen Code und Manifest. 1.3.0 ändert am Datenfluss nichts; neu ist nur die feinere Lesestelle (Kapitel, Teil, Absatz) in „Zuletzt geöffnet“ und in den Lesezeichen. Der Datenschutztext in der App ist neu nach den sechs Fragen (A-11.6) gegliedert und von Matthias bestätigt (P10, 30.09.2026). (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, Inno-Setup-Skript (installer_flutter.iss). Kein Laufzeit-Mitschnitt des Netzwerkverkehrs - siehe offene Frage 4. Windows-Teil am 19.08.2026 gegen den aktuellen Stand gegengeprüft und berichtigt (Netzverhalten, Einstellungsdatei, Installer).",
+      "fassung": "Zweite Fassung vom 19.07.2026 – gegenüber der ersten Einreichung desselben Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt. Zwei Fassungen tragen heute diesen Slug. (A) Android-Fassung 1.3.0 (versionCode 6, Paket eu.fehlerfuchs.pdfuchsreader): seit 30.09.2026 12:47 in Google Play veröffentlicht, voller Rollout (Meldung [FF_13] nach P5). Vorher im Emulator und auf einem Fire-Tablet geprüft. Geprüft am aktuellen Code und Manifest. 1.3.0 ändert am Datenfluss nichts; neu ist nur die feinere Lesestelle (Kapitel, Teil, Absatz) in „Zuletzt geöffnet“ und in den Lesezeichen. Der Datenschutztext in der App ist neu nach den sechs Fragen (A-11.6) gegliedert und von Matthias bestätigt (P10, 30.09.2026). (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, Inno-Setup-Skript (installer_flutter.iss). Kein Laufzeit-Mitschnitt des Netzwerkverkehrs – siehe offene Frage 4. Windows-Teil am 19.08.2026 gegen den aktuellen Stand gegengeprüft und berichtigt (Netzverhalten, Einstellungsdatei, Installer).",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -1980,7 +1992,7 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Android: Alle Daten liegen auf dem Gerät. Einträge der Liste „Zuletzt geöffnet“ lassen sich einzeln entfernen oder komplett leeren. Beim Deinstallieren verschwinden App-Einstellungen, Zuletzt-Liste, Handbuch-Kopie, Lesezeichen, Wiederlesepositionen, im App-Ordner erzeugte bearbeitete Kopien und der Zwischenspeicher. Windows: Das Deinstallieren entfernt das Programmverzeichnis, die Desktop- und Startmenü-Verknüpfungen sowie die bei der Installation gesetzten Einträge. Zwei Dateien bleiben dabei im Anwendungsdatenordner des Benutzers zurück und können jederzeit von Hand gelöscht werden: license_state.json (%LOCALAPPDATA%\\PDFuchs; nur ein lokaler Zählerstand, keine personenbezogenen Angaben) und settings.json (%APPDATA%\\PDFuchs; die Nutzereinstellungen inkl. optional selbst eingetragener Stammdaten). Beide werden bei der Deinstallation bewusst nicht mit entfernt. In beiden Fassungen bleiben die eigenen Dokumente des Nutzers unangetastet - Originale werden nie überschrieben.",
+      "loeschung": "Android: Alle Daten liegen auf dem Gerät. Einträge der Liste „Zuletzt geöffnet“ lassen sich einzeln entfernen oder komplett leeren. Beim Deinstallieren verschwinden App-Einstellungen, Zuletzt-Liste, Handbuch-Kopie, Lesezeichen, Wiederlesepositionen, im App-Ordner erzeugte bearbeitete Kopien und der Zwischenspeicher. Windows: Das Deinstallieren entfernt das Programmverzeichnis, die Desktop- und Startmenü-Verknüpfungen sowie die bei der Installation gesetzten Einträge. Zwei Dateien bleiben dabei im Anwendungsdatenordner des Benutzers zurück und können jederzeit von Hand gelöscht werden: license_state.json (%LOCALAPPDATA%\\PDFuchs; nur ein lokaler Zählerstand, keine personenbezogenen Angaben) und settings.json (%APPDATA%\\PDFuchs; die Nutzereinstellungen inkl. optional selbst eingetragener Stammdaten). Beide werden bei der Deinstallation bewusst nicht mit entfernt. In beiden Fassungen bleiben die eigenen Dokumente des Nutzers unangetastet – Originale werden nie überschrieben.",
       "besonderheiten": "Beide Fassungen sind offline voll benutzbar; ohne Zutun des Nutzers entsteht keine Verbindung nach draußen und keine automatische Update-Prüfung. Es gibt kein Konto, keine Anmeldung, keine Werbung, keine Nutzungsmessung und keine In-App-Käufe. In BEIDEN Fassungen entsteht eine Verbindung nur, wenn der Nutzer sie selbst auslöst – vor allem beim Absenden des Support-/Kontaktformulars (an license.fehlerfuchs.eu) sowie beim Öffnen externer Links. Beim Windows-Installer kann der Nutzer optional eine GPU-Komponente wählen, die dann CUDA-Pakete aus dem offiziellen PyTorch-Index nachlädt (Standard: aus). Bearbeitete PDF-Dateien werden immer als neue Kopie gespeichert, die Ursprungsdatei bleibt unverändert. Die Android-Fassung wird über Google Play vertrieben; Google erhält dabei die üblichen Installations- und Kontodaten des Store-Vorgangs, worauf die App selbst keinen Einfluss hat.",
       "vorhandener_text": "Android: 05_App/pdfuchsreader_mobile/lib/features/legal/datenschutz_screen.dart (Datenschutztext in der App nach den sechs Fragen, verweist auf https://fehlerfuchs.eu/datenschutz/). Windows: 09_Releases/Datenschutz_Lokalhinweis_01072026.md",
       "offene_fragen": "1. (erledigt) Windows- und Android-Reader teilen bewusst den Slug „pdfuchsreader“; Eigentümer und gemeinsame Pflege liegen bei [26] PDFuchs. 2. (geklärt, Beleg [11] Lizenzserver via [26-1], 23.08.2026) Der Kontakt-Endpunkt /v1/contact auf license.fehlerfuchs.eu speichert den Nachrichteninhalt NICHT in der Datenbank; die IP dient nur als kurzlebiger Redis-Schlüssel der Missbrauchsbremse (Stunde/Tag), es wird kein User-Agent übernommen, und bei Erfolg protokolliert der Dienst weder Anfrageinhalt noch IP. Offen bleibt allein die Aufbewahrung im E-Mail-Postfach, an das der Supportinhalt weitergeleitet wird – sie richtet sich nach dem Postfach. 3. (erledigt) Das ungenutzte Paket permission_handler wurde mit Version 1.0.1 (07.08.2026) entfernt; es hatte ohnehin keine Datenschutzwirkung. 4. (aus der Windows-Zulieferung) Das Netzverhalten der mitgelieferten Tesseract-Binary selbst wurde nicht per Mitschnitt geprüft; geprüft wurde nur, was PDFuchs aufruft und übergibt. 5. (aus der Windows-Zulieferung) Ob Aktionen, die im Reader ausgelöst werden, den lokalen Zähler in license_state.json mitschreiben, wurde nicht abschließend geprüft: Reader und Suite nutzen denselben Programmkern, ein reader-eigener Schreibzugriff wurde jedoch nicht gefunden.",

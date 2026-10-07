@@ -23,7 +23,7 @@ fassung: >-
   (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht
   veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und
   Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, Inno-Setup-Skript
-  (installer_flutter.iss). Kein Laufzeit-Mitschnitt des Netzwerkverkehrs -
+  (installer_flutter.iss). Kein Laufzeit-Mitschnitt des Netzwerkverkehrs –
   siehe offene Frage 4. Windows-Teil am 19.08.2026 gegen den aktuellen Stand
   gegengeprüft und berichtigt (Netzverhalten, Einstellungsdatei, Installer).
 
@@ -204,7 +204,7 @@ loeschung: >-
   Angaben) und settings.json (%APPDATA%\PDFuchs; die Nutzereinstellungen inkl.
   optional selbst eingetragener Stammdaten). Beide werden bei der Deinstallation
   bewusst nicht mit entfernt.
-  In beiden Fassungen bleiben die eigenen Dokumente des Nutzers unangetastet -
+  In beiden Fassungen bleiben die eigenen Dokumente des Nutzers unangetastet –
   Originale werden nie überschrieben.
 
 besonderheiten: >-

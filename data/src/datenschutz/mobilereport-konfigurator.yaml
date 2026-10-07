@@ -11,7 +11,13 @@ fassung: >-
   HTML-Fassung trägt dieselben Funktionsnamen.
 
 # ---------------------------------------------------------------------------
-# EIGENTÜMER: 10_WEBSEITE.
+# EIGENTÜMER: 00-1_Produktdoku (seit 25.08.2026).
+# Umgetragen von [00] ChefBüro auf Antrag von [00-1]; Entscheidung Matthias,
+# gemeldet von [10] WEBSEITE. Vorher: 10_WEBSEITE — daher stammen `stand` und
+# `geprueft_von` unten noch aus deren Prüfung vom 19.07.2026. Sie bleiben
+# unverändert stehen, bis [00-1] den Inhalt selbst am Quelltext geprüft hat;
+# eine Eigentümerübergabe ist keine Prüfung (P8).
+# Die fachliche Zuordnung darunter gilt weiter:
 # Der Konfigurator ist keine App des MobileReport-Projekts, sondern eine Seite
 # auf fehlerfuchs.eu ohne Serverlogik. Das Enterprise-Whitelabel-Konzept ordnet
 # ihn ausdrücklich dem Website-Projekt zu („statisch, kein Backend"). Das

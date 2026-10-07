@@ -2,7 +2,7 @@ slug: orgafuchs
 name: OrgaFuchs
 stand: "2026-10-03"
 geprueft_von: 32_OrgaFuchs
-# BERICHTIGUNG 03.10.2026 19:13 ([32], Baufreigabe [FF_00] #4509): ntfy war als „Vorbelegung“ beschrieben. Im Code ist
+# BERICHTIGUNG 03.10.2026 19:13 ([32], Baufreigabe [FF_00] #4512): ntfy war als „Vorbelegung“ beschrieben. Im Code ist
 # ab Werk KEIN ntfy-Server eingetragen (settings_page.dart:88 leer); ntfy.relais.fehlerfuchs.eu ist nur ein Vorschlag
 # in der Auswahl unter „Erweitert: Fallback-Dienst“. Übertragung ntfy und fremder Dienst ntfy entsprechend berichtigt.
 # NACHTRAG 01.10.2026 17:36 ([32]): 1.9.7 (29) live seit 01.10. 14:26 (P5 [FF_13]); fassung nachgezogen.
@@ -235,7 +235,7 @@ uebertragungen:
     was: Anmeldung der App-Installation bei Firebase – eine zufällig erzeugte Installationskennung zusammen mit der Kennung der App; keine Termine, Namen oder Planinhalte. Google sieht technisch die IP-Adresse und den Zeitpunkt
     wann: ab Version 1.9.6 erst, wenn Benachrichtigungen eingeschaltet werden (Einwilligung); vorher keine Verbindung zu Google. Bis einschließlich 1.9.5 geschah die Anmeldung einmalig beim ersten Start, auch ohne Einwilligung
     freiwillig: true
-    beleg: Messung 01.10.2026 auf Emulator, Erststart ohne Einwilligung - 1.9.5+26 eine Verbindung zu firebaseinstallations.googleapis.com 2 s nach dem Start; 1.9.6+28 keine Verbindung der App (Protokoll-Proxy, Socketliste der App). Ab 1.9.6 im Manifest kein FirebaseInitProvider, firebase_messaging_auto_init_enabled=false; Firebase startet nur in lib/services/fcm_dienst.dart (initialisieren, nur mit Einwilligung) bzw. im Hintergrund-Handler einer Wecknachricht
+    beleg: Messung 01.10.2026 auf Emulator, Erststart ohne Einwilligung – 1.9.5+26 eine Verbindung zu firebaseinstallations.googleapis.com 2 s nach dem Start; 1.9.6+28 keine Verbindung der App (Protokoll-Proxy, Socketliste der App). Ab 1.9.6 im Manifest kein FirebaseInitProvider, firebase_messaging_auto_init_enabled=false; Firebase startet nur in lib/services/fcm_dienst.dart (initialisieren, nur mit Einwilligung) bzw. im Hintergrund-Handler einer Wecknachricht
 
 fremde_dienste:
   - name: Google ML Kit – Barcode Scanning (mitgeliefertes Modell, über die Bibliothek mobile_scanner)
@@ -250,7 +250,7 @@ fremde_dienste:
   - name: Firebase Cloud Messaging (Google) – zuverlässiger Weck-Push (nur Android)
     wofuer: weckt die App aus Doze/geschlossenem Zustand für den Empfang von Änderungen; das Gerät registriert sich mit einer Push-Kennung bei Google. In der Nachricht KEINE Termine/Namen/Planinhalte (nur Wecksignal) – der eigentliche Abgleich bleibt Ende-zu-Ende-verschlüsselt über das Relais
     wann: nur bei eingeschalteten Benachrichtigungen (Android); ab Version 1.9.6 gilt das auch für die Anmeldung bei Firebase (bis 1.9.5 einmalig beim ersten Start, siehe Übertragungen)
-    hinweis: Google verarbeitet Push-Kennung, Installationskennung und Zustelldaten als Auftragsverarbeiter nach Art. 28 DSGVO auf Grundlage der Firebase Data Processing and Security Terms. Die Übermittlung in die USA stützt sich auf das EU-US Data Privacy Framework, Standardvertragsklauseln dienen als Rückfall. Google speichert Firebase-Installationskennungen bis zur Löschung und entfernt sie danach binnen 180 Tagen auch aus Sicherungen. Belegstufe - laut Googles Firebase-Datenschutzseite und Firebase-Bedingungen, übernommen aus dem Dienst-Steckbrief relaisserver.yaml (Stand 30.09.2026); Entscheidung Matthias vom 03.09.2026, bestätigt am 30.09.2026 (keine Rechtsberatung)
+    hinweis: Google verarbeitet Push-Kennung, Installationskennung und Zustelldaten als Auftragsverarbeiter nach Art. 28 DSGVO auf Grundlage der Firebase Data Processing and Security Terms. Die Übermittlung in die USA stützt sich auf das EU-US Data Privacy Framework, Standardvertragsklauseln dienen als Rückfall. Google speichert Firebase-Installationskennungen bis zur Löschung und entfernt sie danach binnen 180 Tagen auch aus Sicherungen. Belegstufe – laut Googles Firebase-Datenschutzseite und Firebase-Bedingungen, übernommen aus dem Dienst-Steckbrief relaisserver.yaml (Stand 30.09.2026); Entscheidung Matthias vom 03.09.2026, bestätigt am 30.09.2026 (keine Rechtsberatung)
   - name: Kein Google-Konto, kein Analytics, kein Play Billing, keine Karten, keine Schriften aus dem Netz
     wofuer: nicht eingebunden (App ist kostenlos, keine In-App-Käufe). Firebase wird ausschließlich für den Weck-Push genutzt (s. o.), NICHT für Analytics/Werbung/Tracking
     wann: entfällt
