@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-07T04:33:56+02:00",
+  "generiert": "2026-10-07T05:56:57+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -604,7 +604,8 @@
           "width": 1531,
           "height": 360
         },
-        "platzhalter": 4
+        "platzhalter": 4,
+        "platzhalter_satz": "einzelstueck"
       },
       "theme": {
         "modus": "hell",
@@ -1251,7 +1252,72 @@
         "quelle": "29-1_GewerbePro Companion/21_App_Flutter/gewerbepro_companion/lib/ui/ff_tokens.dart"
       },
       "media": {
-        "platzhalter": 4
+        "screenshots": [
+          {
+            "src": "/img/screenshots/gewerbepro-companion/handy-01-start.png",
+            "alt": "Werbebild „Unterwegs erfassen“: Startseite der Companion-App mit dem nächsten Termin und den Bereichen zum Aufklappen",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy",
+            "titel": "Unterwegs erfassen"
+          },
+          {
+            "src": "/img/screenshots/gewerbepro-companion/handy-02-kunden.png",
+            "alt": "Werbebild „Kunden immer dabei“: Kundenliste der Companion-App mit Knöpfen für Anruf, Kontakt speichern und Navigation",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy",
+            "titel": "Kunden immer dabei"
+          },
+          {
+            "src": "/img/screenshots/gewerbepro-companion/handy-03-entwurf_positionen.png",
+            "alt": "Werbebild „Entwürfe mit Positionen“: Auftragsentwurf in der Companion-App mit Kunde, Datum und Positionen samt Beträgen",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy",
+            "titel": "Entwürfe mit Positionen"
+          },
+          {
+            "src": "/img/screenshots/gewerbepro-companion/handy-04-fahrtenbuch.png",
+            "alt": "Werbebild „Fahrten mitschreiben“: Fahrtenbuch der Companion-App mit Fahrten, Kennzeichen und Kilometern und dem Hinweis Erfassungshilfe",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy",
+            "titel": "Fahrten mitschreiben"
+          },
+          {
+            "src": "/img/screenshots/gewerbepro-companion/handy-05-kalender.png",
+            "alt": "Werbebild „Termine im Blick“: Auftragskalender der Companion-App mit Terminen für Aufmaß, Montage und Fristen",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy",
+            "titel": "Termine im Blick"
+          },
+          {
+            "src": "/img/screenshots/gewerbepro-companion/handy-06-quittungen.png",
+            "alt": "Werbebild „Quittungen vor Ort“: Quittungsblock der Companion-App mit barbezahlten Quittungen und PDF-Symbol",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy",
+            "titel": "Quittungen vor Ort"
+          },
+          {
+            "src": "/img/screenshots/gewerbepro-companion/handy-07-katalog.png",
+            "alt": "Werbebild „Katalog dabei“: Katalog in der Companion-App mit Suchfeld und Artikeln samt Preisen, nur zum Nachschlagen",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy",
+            "titel": "Katalog dabei"
+          },
+          {
+            "src": "/img/screenshots/gewerbepro-companion/handy-08-abgleich.png",
+            "alt": "Werbebild „Abgleich per USB“: Abgleich-Seite der Companion-App mit dem Hinweis, das Handy per USB-Kabel an den PC anzuschließen",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy",
+            "titel": "Abgleich per USB"
+          }
+        ]
       },
       "wordmark": [
         {
@@ -2189,7 +2255,64 @@
           "width": 2118,
           "height": 365
         },
-        "platzhalter": 4
+        "screenshots": [
+          {
+            "src": "/img/screenshots/mobilereport-enterprise/handy-01-start.png",
+            "alt": "Werbebild „Alles auf einen Blick“: Startseite von MobileReport Enterprise mit den Knöpfen Neue Meldung und Logbuch sowie Einstellungen, Hinweise und Datenschutz",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy",
+            "titel": "Alles auf einen Blick"
+          },
+          {
+            "src": "/img/screenshots/mobilereport-enterprise/handy-02-neue-meldung.png",
+            "alt": "Werbebild „Defekt erfassen, Foto dazu“: Neue Meldung in MobileReport Enterprise mit Foto als Hauptbild und Auswahl von Bereich und Raum",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy",
+            "titel": "Defekt erfassen, Foto dazu"
+          },
+          {
+            "src": "/img/screenshots/mobilereport-enterprise/handy-03-pdf-vorschau.png",
+            "alt": "Werbebild „PDF entsteht auf dem Gerät“: PDF-Vorschau eines Meldungsberichts in MobileReport Enterprise mit den Knöpfen Drucken und Teilen",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy",
+            "titel": "PDF entsteht auf dem Gerät"
+          },
+          {
+            "src": "/img/screenshots/mobilereport-enterprise/handy-04-logbuch.png",
+            "alt": "Werbebild „Logbuch dieses Geräts“: Logbuch in MobileReport Enterprise mit drei Meldungen, eine davon als versendet markiert",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy",
+            "titel": "Logbuch dieses Geräts"
+          },
+          {
+            "src": "/img/screenshots/mobilereport-enterprise/handy-05-meldung-im-detail.png",
+            "alt": "Werbebild „Jede Meldung im Detail“: Einzelne Meldung in MobileReport Enterprise mit Angaben zu Absender, Ort, Priorität, Beschreibung und Foto",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy",
+            "titel": "Jede Meldung im Detail"
+          },
+          {
+            "src": "/img/screenshots/mobilereport-enterprise/handy-06-orte-import.png",
+            "alt": "Werbebild „Orte und Bereiche“: Einstellungen Orte und Bereiche in MobileReport Enterprise mit Dateiimport für Excel und CSV und einer Excel-Vorlage",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy",
+            "titel": "Orte und Bereiche"
+          },
+          {
+            "src": "/img/screenshots/mobilereport-enterprise/handy-07-einstellungen.png",
+            "alt": "Werbebild „Einstellungen nach Bedarf“: Einstellungen in MobileReport Enterprise mit Absender, Darstellung, Orte, Kategorien, Empfänger, Lizenz und Admin-Einstellungen",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy",
+            "titel": "Einstellungen nach Bedarf"
+          }
+        ]
       },
       "theme": {
         "modus": "hell",

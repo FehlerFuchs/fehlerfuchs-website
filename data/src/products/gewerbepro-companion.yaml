@@ -41,10 +41,59 @@ theme:
   akzent: "#9F1239"
   quelle: 29-1_GewerbePro Companion/21_App_Flutter/gewerbepro_companion/lib/ui/ff_tokens.dart
 
-# Noch keine Bildschirmfotos – die Werkstatt zeigt vier Platzhaltermotive,
-# damit die Galerie nicht leer ist. Sobald es echte Bilder gibt, ersetzen.
+# Bildschirmbilder der Companion-App (Stand 1.0.0).
 media:
-  platzhalter: 4
+  # Echte Bildschirmbilder (Werbebilder im Hausstandard von [FF_01], freigegeben von Matthias am 07.10.2026,
+  # Lieferung [FF_01] 07.10.2026; Prüfsummen gegen _SHA256.txt der Lieferung nachgerechnet).
+  screenshots:
+    - src: /img/screenshots/gewerbepro-companion/handy-01-start.png
+      alt: "Werbebild „Unterwegs erfassen“: Startseite der Companion-App mit dem nächsten Termin und den Bereichen zum Aufklappen"
+      width: 620
+      height: 1242
+      geraet: handy
+      titel: "Unterwegs erfassen"
+    - src: /img/screenshots/gewerbepro-companion/handy-02-kunden.png
+      alt: "Werbebild „Kunden immer dabei“: Kundenliste der Companion-App mit Knöpfen für Anruf, Kontakt speichern und Navigation"
+      width: 620
+      height: 1242
+      geraet: handy
+      titel: "Kunden immer dabei"
+    - src: /img/screenshots/gewerbepro-companion/handy-03-entwurf_positionen.png
+      alt: "Werbebild „Entwürfe mit Positionen“: Auftragsentwurf in der Companion-App mit Kunde, Datum und Positionen samt Beträgen"
+      width: 620
+      height: 1242
+      geraet: handy
+      titel: "Entwürfe mit Positionen"
+    - src: /img/screenshots/gewerbepro-companion/handy-04-fahrtenbuch.png
+      alt: "Werbebild „Fahrten mitschreiben“: Fahrtenbuch der Companion-App mit Fahrten, Kennzeichen und Kilometern und dem Hinweis Erfassungshilfe"
+      width: 620
+      height: 1242
+      geraet: handy
+      titel: "Fahrten mitschreiben"
+    - src: /img/screenshots/gewerbepro-companion/handy-05-kalender.png
+      alt: "Werbebild „Termine im Blick“: Auftragskalender der Companion-App mit Terminen für Aufmaß, Montage und Fristen"
+      width: 620
+      height: 1242
+      geraet: handy
+      titel: "Termine im Blick"
+    - src: /img/screenshots/gewerbepro-companion/handy-06-quittungen.png
+      alt: "Werbebild „Quittungen vor Ort“: Quittungsblock der Companion-App mit barbezahlten Quittungen und PDF-Symbol"
+      width: 620
+      height: 1242
+      geraet: handy
+      titel: "Quittungen vor Ort"
+    - src: /img/screenshots/gewerbepro-companion/handy-07-katalog.png
+      alt: "Werbebild „Katalog dabei“: Katalog in der Companion-App mit Suchfeld und Artikeln samt Preisen, nur zum Nachschlagen"
+      width: 620
+      height: 1242
+      geraet: handy
+      titel: "Katalog dabei"
+    - src: /img/screenshots/gewerbepro-companion/handy-08-abgleich.png
+      alt: "Werbebild „Abgleich per USB“: Abgleich-Seite der Companion-App mit dem Hinweis, das Handy per USB-Kabel an den PC anzuschließen"
+      width: 620
+      height: 1242
+      geraet: handy
+      titel: "Abgleich per USB"
 
 # Kein Bild-Lockup vorhanden – der Titel steht als Text in den Markenfarben.
 wordmark:

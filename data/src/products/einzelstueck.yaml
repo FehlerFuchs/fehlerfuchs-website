@@ -209,10 +209,11 @@ media:
     alt: EinzelStück – von FehlerFuchs
     width: 1531
     height: 360
-  # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
-  # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
-  # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.
+  # EinzelStück ist eine Dienstleistung ohne Programm: keine Bildschirmfotos. Die Seite zeigt vier NEUTRALE
+  # Platzhalter-Motive aus dem eigenen Satz „einzelstueck“ (Entscheidung Matthias „C: neutrale Platzhalter“ #5042,
+  # freigegeben „A“ #5063; Lieferung [FF_01] 07.10.2026) und sagt offen, dass es Platzhalter sind.
   platzhalter: 4
+  platzhalter_satz: einzelstueck
 # Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
 # Was dort nicht steht, steht auch hier nicht – dann greift der Standard.
 # Alle Kontraste rechnet das Prüfskript, sie sind nicht geschätzt.

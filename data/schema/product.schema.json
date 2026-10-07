@@ -719,6 +719,14 @@
           "maximum": 8,
           "description": "Statt Bildschirmfotos Platzhalter aus dem Motivsatz zeigen. Zahl = wie viele. Die Auswahl haengt am Produktnamen und ist deshalb bei jedem Bau dieselbe. Wirkt nur, wenn 'screenshots' fehlt oder leer ist - echte Bilder haben immer Vorrang."
         },
+        "platzhalter_satz": {
+          "type": "string",
+          "enum": [
+            "haupt",
+            "einzelstueck"
+          ],
+          "description": "Aus welchem Motivsatz die Platzhalter kommen. Standard 'haupt'. 'einzelstueck' = vier neutrale Motive der Dienstleistung (Lieferung FF_01 07.10.2026, verzeichnis-einzelstueck.json)."
+        },
         "vorschaubild": {
           "type": "string",
           "pattern": "^/img/",

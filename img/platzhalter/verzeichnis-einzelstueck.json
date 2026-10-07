@@ -1,0 +1,122 @@
+[
+  {
+    "datei": "/img/platzhalter/einzelstueck-handwerk-handy.svg",
+    "motiv": "handwerk",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Maßarbeit",
+    "text": "Eine Anwendung genau für Ihre Aufgabe."
+  },
+  {
+    "datei": "/img/platzhalter/einzelstueck-handwerk-desktop.svg",
+    "motiv": "handwerk",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Maßarbeit",
+    "text": "Eine Anwendung genau für Ihre Aufgabe."
+  },
+  {
+    "datei": "/img/platzhalter/einzelstueck-handwerk-quer.svg",
+    "motiv": "handwerk",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Maßarbeit",
+    "text": "Eine Anwendung genau für Ihre Aufgabe."
+  },
+  {
+    "datei": "/img/platzhalter/einzelstueck-kompass-handy.svg",
+    "motiv": "kompass",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Erst zuhören",
+    "text": "Am Anfang steht Ihr Problem."
+  },
+  {
+    "datei": "/img/platzhalter/einzelstueck-kompass-desktop.svg",
+    "motiv": "kompass",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Erst zuhören",
+    "text": "Am Anfang steht Ihr Problem."
+  },
+  {
+    "datei": "/img/platzhalter/einzelstueck-kompass-quer.svg",
+    "motiv": "kompass",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Erst zuhören",
+    "text": "Am Anfang steht Ihr Problem."
+  },
+  {
+    "datei": "/img/platzhalter/einzelstueck-dokument-handy.svg",
+    "motiv": "dokument",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Ihre Aufgabe",
+    "text": "Eine Anwendung löst genau eine."
+  },
+  {
+    "datei": "/img/platzhalter/einzelstueck-dokument-desktop.svg",
+    "motiv": "dokument",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Ihre Aufgabe",
+    "text": "Eine Anwendung löst genau eine."
+  },
+  {
+    "datei": "/img/platzhalter/einzelstueck-dokument-quer.svg",
+    "motiv": "dokument",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Ihre Aufgabe",
+    "text": "Eine Anwendung löst genau eine."
+  },
+  {
+    "datei": "/img/platzhalter/einzelstueck-schluessel-handy.svg",
+    "motiv": "schluessel",
+    "format": "handy",
+    "geraet": "handy",
+    "breite": 620,
+    "hoehe": 1342,
+    "titel": "Passend gemacht",
+    "text": "Kein Ballast, nur was Sie brauchen."
+  },
+  {
+    "datei": "/img/platzhalter/einzelstueck-schluessel-desktop.svg",
+    "motiv": "schluessel",
+    "format": "desktop",
+    "geraet": "desktop",
+    "breite": 1280,
+    "hoehe": 800,
+    "titel": "Passend gemacht",
+    "text": "Kein Ballast, nur was Sie brauchen."
+  },
+  {
+    "datei": "/img/platzhalter/einzelstueck-schluessel-quer.svg",
+    "motiv": "schluessel",
+    "format": "quer",
+    "geraet": "desktop",
+    "breite": 1200,
+    "hoehe": 750,
+    "titel": "Passend gemacht",
+    "text": "Kein Ballast, nur was Sie brauchen."
+  }
+]

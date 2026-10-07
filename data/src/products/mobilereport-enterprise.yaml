@@ -270,10 +270,51 @@ media:
     alt: MobileReport Enterprise – von FehlerFuchs
     width: 2118
     height: 365
-  # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
-  # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
-  # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.
-  platzhalter: 4
+  # Echte Bildschirmbilder (Werbebilder im Hausstandard von [FF_01], freigegeben von Matthias am 07.10.2026,
+  # Lieferung [FF_01] 07.10.2026; Prüfsummen gegen _SHA256.txt der Lieferung nachgerechnet).
+  screenshots:
+    - src: /img/screenshots/mobilereport-enterprise/handy-01-start.png
+      alt: "Werbebild „Alles auf einen Blick“: Startseite von MobileReport Enterprise mit den Knöpfen Neue Meldung und Logbuch sowie Einstellungen, Hinweise und Datenschutz"
+      width: 620
+      height: 1242
+      geraet: handy
+      titel: "Alles auf einen Blick"
+    - src: /img/screenshots/mobilereport-enterprise/handy-02-neue-meldung.png
+      alt: "Werbebild „Defekt erfassen, Foto dazu“: Neue Meldung in MobileReport Enterprise mit Foto als Hauptbild und Auswahl von Bereich und Raum"
+      width: 620
+      height: 1242
+      geraet: handy
+      titel: "Defekt erfassen, Foto dazu"
+    - src: /img/screenshots/mobilereport-enterprise/handy-03-pdf-vorschau.png
+      alt: "Werbebild „PDF entsteht auf dem Gerät“: PDF-Vorschau eines Meldungsberichts in MobileReport Enterprise mit den Knöpfen Drucken und Teilen"
+      width: 620
+      height: 1242
+      geraet: handy
+      titel: "PDF entsteht auf dem Gerät"
+    - src: /img/screenshots/mobilereport-enterprise/handy-04-logbuch.png
+      alt: "Werbebild „Logbuch dieses Geräts“: Logbuch in MobileReport Enterprise mit drei Meldungen, eine davon als versendet markiert"
+      width: 620
+      height: 1242
+      geraet: handy
+      titel: "Logbuch dieses Geräts"
+    - src: /img/screenshots/mobilereport-enterprise/handy-05-meldung-im-detail.png
+      alt: "Werbebild „Jede Meldung im Detail“: Einzelne Meldung in MobileReport Enterprise mit Angaben zu Absender, Ort, Priorität, Beschreibung und Foto"
+      width: 620
+      height: 1242
+      geraet: handy
+      titel: "Jede Meldung im Detail"
+    - src: /img/screenshots/mobilereport-enterprise/handy-06-orte-import.png
+      alt: "Werbebild „Orte und Bereiche“: Einstellungen Orte und Bereiche in MobileReport Enterprise mit Dateiimport für Excel und CSV und einer Excel-Vorlage"
+      width: 620
+      height: 1242
+      geraet: handy
+      titel: "Orte und Bereiche"
+    - src: /img/screenshots/mobilereport-enterprise/handy-07-einstellungen.png
+      alt: "Werbebild „Einstellungen nach Bedarf“: Einstellungen in MobileReport Enterprise mit Absender, Darstellung, Orte, Kategorien, Empfänger, Lizenz und Admin-Einstellungen"
+      width: 620
+      height: 1242
+      geraet: handy
+      titel: "Einstellungen nach Bedarf"
 # Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
 # Die helle Fassung – die Seite bleibt eine Website, kein Bildschirmfoto.
 # Alle Kontraste sind vom Prüfskript gerechnet, nicht geschätzt.
