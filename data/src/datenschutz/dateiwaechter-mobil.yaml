@@ -6,7 +6,7 @@ geprueft_von: 35-1_DateiWächterMobil
 fassung: "Am gebauten Stand geprüft (11.08.2026). Vollwertiger On-Device-Datei-Manager (kostenlos); PC-Anbindung als Pro-Einmalkauf (Subsystem). Auf zwei Testgeräten verifiziert."
 
 # Zwei Ebenen: (1) KERN = Ordnung auf dem Gerät (Datei-Manager, Fotos sortieren, Duplikate, Speicher-
-# Analyse, Aufräumen, Regeln/Verteilen, Papierkorb) – läuft komplett lokal, nichts verlässt das Gerät.
+# Analyse, Aufräumen, Regeln/Verteilen, Papierkorb) — läuft komplett lokal, nichts verlässt das Gerät.
 # (2) PRO-SUBSYSTEM = verifizierter Datei-Transfer mit dem gekoppelten PC (senden/holen), Einmalkauf.
 # Kein Konto, keine Cloud-Ablage, kein Tracking.
 lokal_only: false              # Kern ist lokal; nur die Pro-PC-Anbindung überträgt (E2E, nutzerinitiiert)
