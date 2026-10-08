@@ -75,6 +75,28 @@ editions:
 # Erste öffentliche, signierte Windows-Fassung. sha256/Bytes lokal am signierten
 # Artefakt UND gegen das GitHub-Asset gegengeprüft (byte-identisch, signtool /pa OK).
 releases:
+  # 1.1.1 (08.10.2026): Meldung [FF_16] Code Signing (14:28, veröffentlicht auf „push“ von
+  # Matthias 14:27:29). Von [FF_10] gegen GitHub geprüft (gh release view haushaltsmanager-v1.1.1:
+  # kein Entwurf, keine Vorabversion, ein Asset 20.663.944 B, sha256 d2f39081…44c2 – stimmen).
+  # notes wortgleich aus RELEASE-INFO.md von [FF_36] und der Release-Seite, nichts erfunden (P8).
+  - version: "1.1.1"
+    date: "2026-10-08"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.1/FehlerFuchs_HaushaltsManager_Setup_1.1.1.exe
+    filename: FehlerFuchs_HaushaltsManager_Setup_1.1.1.exe
+    size:
+      bytes: 20663944
+      label: "19,7 MB"
+      source: GitHub-Release-Asset
+    sha256: "d2f39081c1003dd74c2d6913613885e1bc0e005f2da9dad76cf2318cbef444c2"
+    signed: true
+    notes: |-
+      HaushaltsManager 1.1.1 – Fehlerbehebung Auswertungen
+      - Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt von Hand erfasste Strom-Zählerstände (vorher wurde ohne PowerFox oder Enpal 0 kWh angezeigt). Bereits erfasste Stände erscheinen sofort.
+      - Haushaltsbuch: Nachträglich eingetragene ältere Monate werden in „Alle Jahre“ nicht mehr mehrfach gezählt.
+      - Datenschutzhinweis zum Lizenzserver präzisiert (welche Angaben übertragen werden); Lizenzvereinbarung typografisch an die Webseite angeglichen.
+      - Installer: Texte der Laufzeit-Seite mit korrekten Umlauten.
   # 1.1.0 (06.10.2026): Meldung [FF_16] Code Signing (17:40, veröffentlicht auf „push“ von
   # Matthias 17:39:28). Von [FF_10] gegen GitHub geprüft (gh release view haushaltsmanager-v1.1.0:
   # kein Entwurf, keine Vorabversion, Asset 20.665.632 B, sha256 1434938f…1719 – stimmen).

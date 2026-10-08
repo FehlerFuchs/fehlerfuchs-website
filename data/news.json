@@ -1,8 +1,22 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-07T20:50:30+02:00",
+  "generiert": "2026-10-08T14:29:53+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "haushaltsmanager-1-1-1",
+      "typ": "update",
+      "produkt": "haushaltsmanager",
+      "version": "1.1.1",
+      "titel": "HaushaltsManager 1.1.1: Fehlerbehebung Auswertungen",
+      "text": "Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt von Hand erfasste Strom-Zählerstände; vorher wurde ohne PowerFox oder Enpal 0 kWh angezeigt. Im Haushaltsbuch werden nachträglich eingetragene ältere Monate in „Alle Jahre“ nicht mehr mehrfach gezählt. Der Datenschutzhinweis zum Lizenzserver ist präzisiert, und die Texte im Installer haben korrekte Umlaute.",
+      "datum": "2026-10-08",
+      "datumQuelle": "Release 1.1.1",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.1/FehlerFuchs_HaushaltsManager_Setup_1.1.1.exe",
+        "kauf": "https://www.checkout-ds24.com/product/721203"
+      }
+    },
     {
       "id": "snapfuchs-1-2-2",
       "typ": "update",

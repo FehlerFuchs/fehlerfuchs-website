@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-06",
+  "updatedAt": "2026-10-08",
   "products": [
     {
       "slug": "gewerbepro",
@@ -24,17 +24,17 @@
     {
       "slug": "haushaltsmanager",
       "name": "FehlerFuchs HaushaltsManager",
-      "version": "1.1.0",
-      "date": "2026-10-06",
+      "version": "1.1.1",
+      "date": "2026-10-08",
       "channel": "stable",
       "os": "windows",
-      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.0/FehlerFuchs_HaushaltsManager_Setup_1.1.0.exe",
-      "filename": "FehlerFuchs_HaushaltsManager_Setup_1.1.0.exe",
+      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.1/FehlerFuchs_HaushaltsManager_Setup_1.1.1.exe",
+      "filename": "FehlerFuchs_HaushaltsManager_Setup_1.1.1.exe",
       "sizeLabel": "19,7 MB",
-      "sha256": "1434938f6adf7923b218cd624174dd8ab10e21250c83bee06e59b1c2a4bf1719",
+      "sha256": "d2f39081c1003dd74c2d6913613885e1bc0e005f2da9dad76cf2318cbef444c2",
       "signed": true,
       "page": "https://fehlerfuchs.eu/produkte/haushaltsmanager/",
-      "notes": "HaushaltsManager 1.1.0 – Stabilität, Datenschutz und Rechtstexte\n- Kein Absturz mehr beim Beenden der App.\n- Die kostenlose Testphase läuft volle 30 Tage; eine zurückgestellte Systemuhr verlängert sie nicht mehr.\n- Berechnungen über die Sommer- und Winterzeitumstellung sind korrigiert; einmalige Zahlungen werden nur noch einmal gezählt.\n- Der lesbare JSON-Export enthält jetzt alle Daten; die Sicherung (SQLite) ist klar davon getrennt.\n- Datenschutzhinweise und die Lizenzvereinbarung (EULA) sind jetzt in der App nachlesbar.",
+      "notes": "HaushaltsManager 1.1.1 – Fehlerbehebung Auswertungen\n- Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt von Hand erfasste Strom-Zählerstände (vorher wurde ohne PowerFox oder Enpal 0 kWh angezeigt). Bereits erfasste Stände erscheinen sofort.\n- Haushaltsbuch: Nachträglich eingetragene ältere Monate werden in „Alle Jahre“ nicht mehr mehrfach gezählt.\n- Datenschutzhinweis zum Lizenzserver präzisiert (welche Angaben übertragen werden); Lizenzvereinbarung typografisch an die Webseite angeglichen.\n- Installer: Texte der Laufzeit-Seite mit korrekten Umlauten.",
       "windowsDisplayNames": [
         "FehlerFuchs HaushaltsManager"
       ]
@@ -67,7 +67,7 @@
       "sha256": "a068bfbea160b14641eb5a18e5b518993deec2971839d1a1a9e360c924e5d76b",
       "signed": true,
       "page": "https://fehlerfuchs.eu/produkte/orgafuchs/",
-      "notes": "Signierte Windows-Fassung 1.9.3 (Herausgeber FehlerFuchs), löst 1.9.2 ab. Deutlich stabilerer Familien-Sync: Jede Änderung wird zuerst auf dem Gerät gesichert und erst gelöscht, wenn das Hauptgerät sie bestätigt hat. Dienste und Kategorien erreichen jetzt alle Familiengeräte. „Alle Daten löschen\" entfernt wirklich alles, unverschlüsselte Verbindungen sind abgeschaltet. Unter Windows prüft das Update die Signatur des Installers strenger, OrgaFuchs startet auch ohne installierte Visual-C++-Laufzeit, läuft nur einmal und deinstalliert sich sauber.",
+      "notes": "Signierte Windows-Fassung 1.9.3 (Herausgeber FehlerFuchs), löst 1.9.2 ab. Deutlich stabilerer Familien-Sync: Jede Änderung wird zuerst auf dem Gerät gesichert und erst gelöscht, wenn das Hauptgerät sie bestätigt hat. Dienste und Kategorien erreichen jetzt alle Familiengeräte. „Alle Daten löschen“ entfernt wirklich alles, unverschlüsselte Verbindungen sind abgeschaltet. Unter Windows prüft das Update die Signatur des Installers strenger, OrgaFuchs startet auch ohne installierte Visual-C++-Laufzeit, läuft nur einmal und deinstalliert sich sauber.",
       "windowsDisplayNames": [
         "OrgaFuchs",
         "FehlerFuchs OrgaFuchs"

@@ -498,6 +498,20 @@ meldungen:
       Frei herunterladen und mit Testphase ausprobieren; die Vollversion gibt es als
       Einmalkauf (20 €, 5 Arbeitsplätze) über Digistore24.
 
+  # HaushaltsManager 1.1.1 (Windows-Release 08.10.2026 14:27, signiert, Meldung [FF_16]).
+  # Text aus der Release-Seite, nichts erfunden (P8).
+  - id: haushaltsmanager-1-1-1
+    typ: update
+    produkt: haushaltsmanager
+    version: "1.1.1"
+    titel: "HaushaltsManager 1.1.1: Fehlerbehebung Auswertungen"
+    text: >-
+      Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt
+      von Hand erfasste Strom-Zählerstände; vorher wurde ohne PowerFox oder Enpal 0 kWh
+      angezeigt. Im Haushaltsbuch werden nachträglich eingetragene ältere Monate in „Alle
+      Jahre“ nicht mehr mehrfach gezählt. Der Datenschutzhinweis zum Lizenzserver ist
+      präzisiert, und die Texte im Installer haben korrekte Umlaute.
+
   # HaushaltsManager 1.1.0 (Windows-Release 06.10.2026 17:40, signiert, Meldung [FF_16]).
   # 'version: 1.1.0' bindet die Meldung an den releases-Eintrag. Text aus der Release-Seite,
   # nichts erfunden (P8).

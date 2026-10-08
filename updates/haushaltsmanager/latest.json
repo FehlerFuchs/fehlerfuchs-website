@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.0/FehlerFuchs_HaushaltsManager_Setup_1.1.0.exe",
-  "sha256": "1434938f6adf7923b218cd624174dd8ab10e21250c83bee06e59b1c2a4bf1719",
-  "notes": "HaushaltsManager 1.1.0 – Stabilität, Datenschutz und Rechtstexte\n- Kein Absturz mehr beim Beenden der App.\n- Die kostenlose Testphase läuft volle 30 Tage; eine zurückgestellte Systemuhr verlängert sie nicht mehr.\n- Berechnungen über die Sommer- und Winterzeitumstellung sind korrigiert; einmalige Zahlungen werden nur noch einmal gezählt.\n- Der lesbare JSON-Export enthält jetzt alle Daten; die Sicherung (SQLite) ist klar davon getrennt.\n- Datenschutzhinweise und die Lizenzvereinbarung (EULA) sind jetzt in der App nachlesbar."
+  "version": "1.1.1",
+  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.1/FehlerFuchs_HaushaltsManager_Setup_1.1.1.exe",
+  "sha256": "d2f39081c1003dd74c2d6913613885e1bc0e005f2da9dad76cf2318cbef444c2",
+  "notes": "HaushaltsManager 1.1.1 – Fehlerbehebung Auswertungen\n- Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt von Hand erfasste Strom-Zählerstände (vorher wurde ohne PowerFox oder Enpal 0 kWh angezeigt). Bereits erfasste Stände erscheinen sofort.\n- Haushaltsbuch: Nachträglich eingetragene ältere Monate werden in „Alle Jahre“ nicht mehr mehrfach gezählt.\n- Datenschutzhinweis zum Lizenzserver präzisiert (welche Angaben übertragen werden); Lizenzvereinbarung typografisch an die Webseite angeglichen.\n- Installer: Texte der Laufzeit-Seite mit korrekten Umlauten."
 }
