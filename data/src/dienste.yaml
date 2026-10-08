@@ -206,7 +206,7 @@ dienste:
     hinweis: >-
       Nur auf Android und nur bei eingeschalteten Benachrichtigungen. Der Weckruf
       ist inhaltsblind: Was sich geändert hat, erfährt weder der Weckpfad noch
-      Google – der eigentliche Abgleich läuft Ende-zu-Ende über das Relais. Für Geräte
+      Google – der eigentliche Abgleich läuft Ende-zu-Ende-verschlüsselt über das Relais. Für Geräte
       ohne Google-Dienste und für Windows lässt sich unter „Erweitert: Fallback-Dienst“
       ein ntfy-Server eintragen (Vorschlag in der Auswahl: der von FehlerFuchs) – dann
       ganz ohne Google. Ab Werk ist kein ntfy-Server eingetragen.

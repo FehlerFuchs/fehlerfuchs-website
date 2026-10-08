@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-07T20:50:30+02:00",
+  "generiert": "2026-10-08T21:01:43+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "name": "FehlerFuchs",
   "slogan": "Einfach kleine Helfer.",
@@ -66,7 +66,7 @@
         "anschrift": "22-24 Boulevard Royal, L-2449 Luxemburg",
         "erklaerung": "https://www.paypal.com/de/legalhub/privacy-full"
       },
-      "aufbewahrung": "10 Jahre nach § 147 Abgabenordnung"
+      "aufbewahrung": "8 Jahre nach § 147 Abs. 3 Abgabenordnung"
     }
   },
   "person": {
@@ -86,7 +86,7 @@
     "absaetze": [
       "Hinter FehlerFuchs steht kein riesiges Softwareunternehmen und kein großes Team – nur ich, Matze. Mich hat es schon immer gereizt, Abläufe einfacher zu machen: Dinge, die im Alltag umständlich sind, so lange zu drehen, bis sie rund laufen.",
       "Die Apps entstehen komplett in meiner Freizeit – einfach, weil mir genau dieses Tüfteln Spaß macht. Mein Anspruch dabei: kleine, ehrliche Werkzeuge, die ein konkretes Problem lösen und sonst nichts. Datensparsam, auf dem Gerät, ohne Konto, ohne Werbung – die Daten bleiben dort, wo sie hingehören: bei dir.",
-      "Es wird kostenlose Apps geben – und einzelne Apps mit optionaler Pro-Version, die noch individueller ist oder mehr Funktionen bietet. Wichtig ist mir aber: Das Wesentliche, das man grundlegend braucht, steckt immer schon in der kostenlosen Version. Natürlich soll FehlerFuchs Geld verdienen und meine Arbeit tragen. Aber nicht mit Druck, künstlichen Abhängigkeiten oder dem Ziel, ein Monopol aufzubauen. Fair, schlank und auf Augenhöhe.",
+      "Es gibt kostenlose Apps – und einzelne Apps mit optionaler Pro-Version, die noch individueller ist oder mehr Funktionen bietet. Wichtig ist mir aber: Das Wesentliche, das man grundlegend braucht, steckt immer schon in der kostenlosen Version. Natürlich soll FehlerFuchs Geld verdienen und meine Arbeit tragen. Aber nicht mit Druck, künstlichen Abhängigkeiten oder dem Ziel, ein Monopol aufzubauen. Fair, schlank und auf Augenhöhe.",
       "FehlerFuchs ist der Rahmen, unter dem nach und nach mehrere solcher Helfer entstehen. MobileReport war der Anfang – inzwischen wächst die Familie Stück für Stück (Programme für den PC, weitere Apps in Arbeit). Wenn dir etwas auffällt oder fehlt, freue ich mich über jede Rückmeldung."
     ]
   },

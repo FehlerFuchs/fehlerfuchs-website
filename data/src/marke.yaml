@@ -89,7 +89,7 @@ unterstuetzung:
     # Zahlungseingänge sind Buchungsbelege. Die handels- und steuerrechtliche
     # Aufbewahrungsfrist geht der eigenen Löschabsicht vor – das gehört ehrlich
     # auf die Seite und nicht verschwiegen, weil es unbequem ist.
-    aufbewahrung: 10 Jahre nach § 147 Abgabenordnung
+    aufbewahrung: 8 Jahre nach § 147 Abs. 3 Abgabenordnung
 
 person:
   name: Matthias Schacht
@@ -121,7 +121,7 @@ idee:
       konkretes Problem lösen und sonst nichts. Datensparsam, auf dem Gerät,
       ohne Konto, ohne Werbung – die Daten bleiben dort, wo sie hingehören: bei dir.
     - >-
-      Es wird kostenlose Apps geben – und einzelne Apps mit optionaler Pro-Version, die
+      Es gibt kostenlose Apps – und einzelne Apps mit optionaler Pro-Version, die
       noch individueller ist oder mehr Funktionen bietet. Wichtig ist mir aber: Das
       Wesentliche, das man grundlegend braucht, steckt immer schon in der kostenlosen
       Version. Natürlich soll FehlerFuchs Geld verdienen und meine Arbeit tragen. Aber
