@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-08T21:51:13+02:00",
+  "generiert": "2026-10-08T21:01:43+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -39,20 +39,6 @@
       "wege": {
         "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.1/FehlerFuchs_GewerbePro_Setup_1.1.1.exe",
         "kauf": "https://www.checkout-ds24.com/product/723253"
-      }
-    },
-    {
-      "id": "orgafuchs-1-10-0",
-      "typ": "update",
-      "produkt": "orgafuchs",
-      "version": "1.10.0",
-      "titel": "OrgaFuchs 1.10.0: Jahresübersicht nach Diensten, Windows signiert",
-      "text": "OrgaFuchs 1.10.0 ist für Windows da. Die Jahresübersicht zeigt, wie oft welcher Dienst eingetragen ist. Verbundene Geräte finden nach einer kurzen Störung schneller wieder zueinander. Auch die mitgelieferten Programmbibliotheken und der Deinstaller sind jetzt digital signiert. Es gibt kein Konto.",
-      "datum": "2026-10-08",
-      "datumQuelle": "Release 1.10.0",
-      "wege": {
-        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.10.0/FehlerFuchs_OrgaFuchs_Setup_1.10.0.exe",
-        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
       }
     },
     {
