@@ -1,8 +1,32 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-08T14:29:53+02:00",
+  "generiert": "2026-10-08T19:52:34+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "snapfuchs-1-2-3",
+      "typ": "update",
+      "produkt": "snapfuchs",
+      "datum": "2026-10-08",
+      "titel": "SnapFuchs 1.2.3: deine Scans liegen in einem Ordner auf dem Gerät",
+      "text": "SnapFuchs 1.2.3 ist im Play Store. Deine Scans liegen jetzt in einem Ordner auf dem Gerät (Vorschlag: Dokumente › SnapFuchs), auch in der Dateien-App sichtbar und nach einer Neuinstallation noch da. Nach dem Scannen fragt die App „Behalten?“: Ja speichert, Nein teilt nur. Ältere Scans ziehen mit einem Tipp in den neuen Ordner um, jede Datei geprüft. Ordner sind echte Unterordner, und die PDF-Werkzeuge speichern ebenfalls dort.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.snapfuchs"
+      }
+    },
+    {
+      "id": "gewerbepro-companion-1-0-1",
+      "typ": "update",
+      "produkt": "gewerbepro-companion",
+      "datum": "2026-10-08",
+      "titel": "GewerbePro Companion 1.0.1: Handy und PC einmal sicher koppeln",
+      "text": "GewerbePro Companion 1.0.1 ist im Play Store. Handy und PC werden jetzt einmal sicher gekoppelt: Beide zeigen einen Code zum Vergleich, danach ist jeder Austausch mit einem Schlüssel verschlüsselt, den nur diese beiden Geräte kennen. Dafür braucht es GewerbePro 1.1.1 am PC. Neu: Zahlungsbestätigung für Beträge über 250 € bei Regelbesteuerung. Privatfahrten im Fahrtenbuch-PDF stehen ohne Ziel und Zweck. Dazu kommen bessere Eingabeprüfung, richtige Termin-Reihenfolge, verständlichere Fehlermeldungen und ein Link zum Löschantrag für Lizenzdaten.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.gewerbepro_companion"
+      }
+    },
     {
       "id": "haushaltsmanager-1-1-1",
       "typ": "update",

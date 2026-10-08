@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-08T14:29:53+02:00",
+  "generiert": "2026-10-08T19:52:34+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1443,7 +1443,7 @@
               "values": {
                 "standard": "ja"
               },
-              "note": "Verschlüsselt mit einem Schlüssel aus deinem Lizenzschlüssel, nur lokal, kein Server. Zurück vom PC kommen Katalog, Kunden, Aufgaben und Branding."
+              "note": "Handy und PC werden einmal gekoppelt (beide zeigen einen Code zum Vergleich); danach ist alles mit einem Schlüssel verschlüsselt, den nur diese beiden Geräte kennen. Nur lokal, kein Server. Dafür braucht es GewerbePro 1.1.1 am PC. Zurück vom PC kommen Katalog, Kunden, Aufgaben und Branding."
             },
             {
               "name": "Rechnungen, Angebote, EÜR oder E-Rechnung auf dem Handy",
@@ -3375,12 +3375,12 @@
               }
             },
             {
-              "name": "Standardablage – Exporte zusätzlich in einen selbst gewählten Ordner",
+              "name": "Speicherort wählen – fertige PDFs im Ordner deiner Wahl, nach dem Scan fragt die App „Behalten?“",
               "values": {
                 "free": "ja",
                 "pro": "ja"
               },
-              "note": "Über den Android-Ordnerauswahl-Dialog, ohne zusätzliche Speicher-Berechtigung."
+              "note": "Über die Android-Ordnerauswahl, ohne zusätzliche Speicher-Berechtigung; die Dateien bleiben auch nach einer Deinstallation erhalten."
             }
           ]
         },

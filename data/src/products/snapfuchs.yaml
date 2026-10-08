@@ -172,9 +172,10 @@ features:
       # 1.2.0 (17.08.2026), beide kostenlos.
       - name: Dokument schon beim Scannen benennen (der Name wird zum Dateinamen)
         values: { free: ja, pro: ja }
-      - name: Standardablage – Exporte zusätzlich in einen selbst gewählten Ordner
+      # 1.2.3 (08.10.2026), ersetzt die Standardablage von 1.2.0 (Steckbrief 1.2.3, Wortlaut Matthias #5338).
+      - name: Speicherort wählen – fertige PDFs im Ordner deiner Wahl, nach dem Scan fragt die App „Behalten?“
         values: { free: ja, pro: ja }
-        note: Über den Android-Ordnerauswahl-Dialog, ohne zusätzliche Speicher-Berechtigung.
+        note: Über die Android-Ordnerauswahl, ohne zusätzliche Speicher-Berechtigung; die Dateien bleiben auch nach einer Deinstallation erhalten.
 
   # 1.1.0: Hilfe, Rundgang und Kontakt sind in der App selbst - wer nicht
   # weiterkommt, muss dafuer nicht die Website suchen.

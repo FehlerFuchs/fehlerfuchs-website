@@ -1,8 +1,8 @@
 slug: snapfuchs
 name: SnapFuchs
-stand: "2026-10-06"
+stand: "2026-10-08"
 geprueft_von: 30_SnapFuchs
-fassung: "1.2.1 (versionCode 10)"
+fassung: "1.2.3 (versionCode 12)"
 
 # Beim App-Start fragt die Pro-Freischaltung automatisch den Kaufstatus bei
 # Google Play ab (restorePurchases). Nutzerinhalte (Scans, PDFs, erkannter
@@ -10,17 +10,17 @@ fassung: "1.2.1 (versionCode 10)"
 lokal_only: false
 
 auf_dem_geraet:
-  - was: Exportierte PDFs (auch in selbst angelegten Ordnern)
-    wo: App-eigenes Dokumentenverzeichnis, Unterordner „SnapFuchs“
-    beleg: lib/core/storage/dokument_speicher.dart
-  # 2026-08-17 (Fassung 1.2.0): Optionale Standardablage. Der Nutzer kann einen
-  # eigenen Ordner auf dem Geraet bestimmen; Exporte werden dann ZUSAETZLICH
-  # dorthin geschrieben und sind im Dateimanager sichtbar. Der Ordner wird ueber
-  # den Android-Ordnerauswahl-Dialog (Storage Access Framework) gewaehlt -- KEINE
-  # Speicher-Berechtigung, der Zugriff gilt nur fuer genau diesen Ordner.
-  - was: Kopien der Exporte in einer selbst gewählten Standardablage (optional, nur wenn eingerichtet)
-    wo: vom Nutzer per Android-Ordnerauswahl (SAF) bestimmter Ordner auf dem Gerät, z. B. in „Dateien“; sichtbar im Dateimanager
-    beleg: lib/core/storage/extern_ablage.dart, lib/models/extern_ablage_ziel.dart, android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt
+  # 2026-10-08 (Fassung 1.2.3, F-022, Entscheidung Matthias (a)-(e) je A):
+  # Fertige PDFs liegen nicht mehr im App-Speicher, sondern im vom Nutzer
+  # bestaetigten Geraeteordner (SAF, KEINE Speicher-Berechtigung). Die fruehere
+  # optionale Standardablage (seit 1.2.0, zusaetzliche Kopie) entfaellt.
+  # Wortlaut bestaetigt von Matthias („A: alle 5 Stellen“, 08.10.2026).
+  - was: Fertige PDFs (auch in selbst angelegten Unterordnern)
+    wo: in dem Ordner auf dem Gerät, den du einmal über die Android-Ordnerauswahl (SAF) bestätigst; vorgeschlagen wird „Dokumente › SnapFuchs“; sichtbar in der Dateien-App und nach einer Deinstallation weiterhin vorhanden
+    beleg: lib/core/storage/dokument_speicher.dart (SafAblage), lib/core/storage/geraete_ordner.dart, android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/GeraeteOrdner.kt
+  - was: Unfertiger Scan (Absturzschutz)
+    wo: im App-Speicher, bis du bei „Behalten?“ antwortest oder den Scan verwirfst; danach wird er gelöscht
+    beleg: lib/core/storage/entwurf_speicher.dart, lib/features/scan/scan_controller.dart (abgeschlossen)
   - was: Einstellungen (Wasserzeichen-Stil und -Position, Kaufstatus)
     wo: Geräteeinstellungen der App
     beleg: lib/models/watermark_config.dart, lib/utils/pro_check.dart
@@ -58,13 +58,13 @@ berechtigungen:
   # 2026-07-31 (Audit F-025): WRITE_EXTERNAL_STORAGE ENTFERNT. Das Speichern in
   # App-interne Verzeichnisse braucht keine Berechtigung; die Legacy-
   # Schreibberechtigung war ungenutzt und ist per tools:node="remove" gestrichen.
-  # 2026-08-17 (Fassung 1.2.0): Auch das optionale Schreiben in eine selbst
-  # gewaehlte Standardablage laeuft ueber das Storage Access Framework und
-  # braucht KEINE Speicher-Berechtigung.
-  - name: Ordnerzugriff für die Standardablage (Storage Access Framework)
-    wofuer: Exporte zusätzlich in einen selbst gewählten Ordner schreiben; keine Speicher-Berechtigung nötig, der Zugriff gilt nur für genau den vom Nutzer gewählten Ordner (persistierbare URI-Freigabe) und ist jederzeit widerrufbar
+  # 2026-10-08 (Fassung 1.2.3): Speicherort der fertigen PDFs ueber das Storage
+  # Access Framework; weiterhin KEINE Speicher-Berechtigung (aapt2-Vergleich:
+  # Rechte gleich 1.2.2).
+  - name: Ordnerzugriff (Storage Access Framework)
+    wofuer: fertige PDFs in den von dir gewählten Ordner schreiben und die Liste „Letzte Dokumente“ aus diesem Ordner lesen; keine Speicher-Berechtigung nötig, der Zugriff gilt nur für genau den vom Nutzer gewählten Ordner (persistierbare URI-Freigabe) und ist jederzeit widerrufbar (ohne gewählten Ordner kannst du Scans nur teilen)
     pflicht: false
-    beleg: ACTION_OPEN_DOCUMENT_TREE + takePersistableUriPermission in android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt
+    beleg: ACTION_OPEN_DOCUMENT_TREE + takePersistableUriPermission in android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt; DocumentsContract in GeraeteOrdner.kt
   - name: Netzwerkstatus
     wofuer: wird von der App nicht abgefragt; stammt aus eingebundenen Bausteinen
     pflicht: false
@@ -120,10 +120,12 @@ absturzberichte: false
 daten_an_dritte_verkauft: false
 
 loeschung: >-
-  Alle Inhalte liegen auf dem Gerät. Einzelne Dokumente und Ordner lassen sich
-  in der App löschen; alles Übrige (Einstellungen, Fehlerlog, Cache)
-  verschwindet mit der Deinstallation. Per Feedback gesendete Nachrichten liegen
-  im Support-Postfach und werden auf Anfrage gelöscht.
+  Alle Inhalte liegen auf dem Gerät. Deine fertigen PDFs liegen in dem Ordner,
+  den du gewählt hast; du kannst sie in der App oder in der Dateien-App
+  löschen. Sie bleiben auch nach einer Deinstallation erhalten, bis du sie
+  selbst löschst. Alles Übrige (Einstellungen, Fehlerlog, Cache) verschwindet
+  mit der Deinstallation. Per Feedback gesendete Nachrichten liegen im
+  Support-Postfach und werden auf Anfrage gelöscht.
 
 besonderheiten: >-
   Texterkennung, Tabellenerkennung, das Lesen von QR-Codes und Barcodes sowie
@@ -134,10 +136,17 @@ besonderheiten: >-
   Videos an. In der kostenlosen Fassung tragen die erzeugten PDFs ein
   Wasserzeichen, das nach dem einmaligen Kauf entfällt. Der Kaufstatus wird
   auf dem Gerät gespeichert und zusätzlich bei Google Play abgefragt.
-  Optional lässt sich eine Standardablage einrichten: Exporte werden dann
-  zusätzlich in einen selbst gewählten Ordner auf dem Gerät geschrieben; die
-  Ordnerwahl läuft über den Android-Ordnerauswahl-Dialog (SAF) und braucht
-  keine Speicher-Berechtigung. Der beim Scannen vergebene Dokumentname bleibt
+  Fertige PDFs liegen in einem Ordner auf dem Gerät, den du einmal über die
+  Android-Ordnerauswahl (SAF) bestätigst; das braucht keine
+  Speicher-Berechtigung. Nach dem Scannen fragt die App „Behalten?“: „Ja“
+  speichert das PDF im Ordner, „Nein“ teilt es nur, danach wird nichts
+  aufbewahrt. Ein noch nicht fertiger Scan bleibt als Absturzschutz in der
+  App, bis du die Frage beantwortest oder ihn verwirfst; dann wird er
+  gelöscht. Die Liste „Letzte Dokumente“ zeigt den Inhalt dieses Ordners. PDFs
+  aus früheren Fassungen, die noch im App-Speicher liegen, werden nur mit
+  deiner Zustimmung einmal in den Ordner verschoben; jede Datei wird vor dem
+  Löschen in der App auf Gleichheit geprüft. Dabei verlässt nichts das Gerät.
+  Der beim Scannen vergebene Dokumentname bleibt
   nur im Arbeitsspeicher und bestimmt lediglich den Dateinamen beim Export.
 
 vorhandener_text: >-

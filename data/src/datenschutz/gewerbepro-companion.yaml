@@ -1,11 +1,12 @@
 slug: gewerbepro-companion
 name: GewerbePro Companion
-stand: "2026-09-26"
+stand: "2026-10-08"
 geprueft_von: 29-1_GewerbePro Companion
-fassung: "1.0.0"
+fassung: "1.0.1"
 
 # FREIGEGEBEN von Matthias Schacht am 26.09.2026, 11:23 (Endabnahme Rechtstext-Paket, F1) — übernommen von [FF_00].
 # Ergänzt 26.09.2026, 14:50:41: Absatz „Löschen beim Lizenzserver“ in loeschung (Wortlaut von Matthias freigegeben, Play-Lösch-URL).
+# Fassung 1.0.1 eingetragen 08.10.2026 nach VORLAGE [FF_29-1] 15:14 (Kopplung Sync v3; Matthias „A: App + Steckbrief“, Logbuch #5343). Drei Lücken nach LIEFERUNG [FF_29-1] 15:46 geschlossen.
 # Ersetzt die Fassungen vom 17.08. (lokal) und 20.08. (00-1). Jede Angabe ist im
 # Code oder am Gerät gemessen; die Belege stehen je Eintrag.
 # Geschäfts-/Kundendaten bleiben auf dem Gerät bzw. gehen nur an den eigenen PC.
@@ -53,6 +54,11 @@ auf_dem_geraet:
     wo: im geschützten Schlüsselspeicher von Android (Keystore); ältere Werte aus
       SharedPreferences werden einmalig umgezogen und dort gelöscht
     beleg: lib/services/lizenz_dienst.dart (flutter_secure_storage; lizenz.key, lizenz.token, lizenz.fingerprint)
+  - was: Kopplungsschlüssel für genau einen PC (32 Byte), Kennung der Kopplung, Kennung
+      des PCs, Zeitpunkt, Fingerabdruck der Lizenz
+    wo: im geschützten Schlüsselspeicher von Android (Keystore), nie in der Datenbank,
+      nie in einer Sicherung
+    beleg: lib/services/kopplung_dienst.dart (kopplung.v3)
   - was: App-Einstellungen (Gerätename, Standard-E-Mail-Adresse, zufällige
       Gerätekennung für den Sync, Sync-Zustand, Liste nicht übernommener Dateien)
     wo: in der App auf dem Gerät
@@ -63,29 +69,42 @@ auf_dem_geraet:
 
 im_sync_ordner:
   # Gemeinsamer Speicher des Geräts: Documents/GewerbePro-Sync/ (nicht app-eigen).
-  - was: companion-hello.json – UNVERSCHLÜSSELT. Genau sechs Felder – typ
+  - was: companion-hello.json – UNVERSCHLÜSSELT. Genau sieben Felder – typ
       ("companion_hello"), geraet_id (zufällige UUID), geraetename (vom Nutzer
-      vergeben, sonst leer), app_version, protokoll, erstellt_am. Keine erfassten Daten
+      vergeben, sonst leer), app_version, protokoll (3), kopplung_id (nach der
+      Kopplung, kein Schlüssel), erstellt_am. Keine erfassten Daten
     wo: Documents/GewerbePro-Sync/phone-to-pc/companion-hello.json
     wann: automatisch bei jedem App-Start und nach der Ordnerfreigabe (überschreibt die vorige)
     wer_kann_es_sehen: ein per USB angeschlossener PC (MTP) und Apps, denen der
       Nutzer Zugriff auf seine Dateien gewährt
     wozu: damit GewerbePro das Gerät am Kabel erkennt und seine Anforderung an dieses Gerät richtet
-    beleg: lib/services/sync_eingang.dart (helloSchreiben); am AVD gemessen 26.09.2026
+    beleg: lib/services/sync_eingang.dart (helloSchreiben); am AVD gemessen 26.09.2026;
+      test/sync_v2_test.dart (Feldliste)
   - was: Austauschpaket mit den noch nicht bestätigten Erfassungen – VERSCHLÜSSELT
     wo: Documents/GewerbePro-Sync/phone-to-pc/companion_paket_<id>.json
     wann: automatisch, wenn GewerbePro es über das USB-Kabel anfordert und die App im
       Vordergrund ist; die App löscht es selbst nach der Quittung des PCs bzw. wenn
       sie ein neueres ablegt
     beleg: lib/services/sync_eingang.dart (anforderungBedienen, _eigenesPaketLoeschen)
+  - was: >-
+      kopplung_antwort_<id>.json – UNVERSCHLÜSSELT, nur während der Kopplung:
+      Angebots- und PC-Kennung, Gerätekennung, Gerätename, zufällige Zahl,
+      öffentlicher Schlüsselteil, Prüfwert. Keine erfassten Daten
+    wo: Documents/GewerbePro-Sync/phone-to-pc/kopplung_antwort_<angebot_id>.json
+    wann: nach „Koppeln“ am Handy; die App löscht sie nach Abschluss, Abbruch oder
+      Ablauf (10 Minuten)
+    beleg: lib/services/sync_eingang.dart (kopplungAntworten, _kopplungAufraeumen)
 
 verschluesselung:
   - wofuer: Austauschpaket, Import-Quittung, Rückpaket, Anforderung des PCs und
       das Branding vom PC
-    wie: AES-256-GCM, Schlüssel aus dem Lizenzschlüssel. Umschlag v1 mit HKDF-SHA256;
-      Umschlag v2 mit PBKDF2-SHA256 (600.000 Durchläufe), Kopf mit Pakettyp als
-      Zusatzdaten gebunden. Das Handy schreibt v2, sobald der PC v2 gesendet hat
-    beleg: lib/services/sync_crypto.dart
+    wie: AES-256-GCM, Umschlag v3. Der Schlüssel entsteht bei der Kopplung aus einem
+      Schlüsseltausch (X25519) zwischen Handy und PC und der Lizenz; beide zeigen einen
+      Code zum Vergleich. Je Dateityp eigener Schlüssel (HKDF-SHA256), Kopf als
+      Zusatzdaten gebunden. Unverschlüsselte und alte Umschläge (v1/v2) werden
+      abgewiesen. Passt die Lizenz nicht mehr, verwirft die App die Kopplung
+    beleg: lib/services/kopplung_crypto.dart, lib/services/kopplung_dienst.dart
+      (sync_crypto.dart ist entfernt)
   - wofuer: Sicherung aller App-Daten
     wie: Passwort des Nutzers, Argon2id (19 MiB, 2 Durchläufe) + AES-256-GCM
     beleg: lib/services/sicherung_dienst.dart
@@ -118,7 +137,10 @@ uebertragungen:
       „GewerbePro-Companion-Lizenz“ (User-Agent). KEINE Kunden-, Auftrags- oder Belegdaten
     wann: bei der Aktivierung, bei jedem App-Start (Prüfung) und beim Lösen der Lizenz
     freiwillig: false
-    beleg: lib/services/lizenz_dienst.dart (/v1/activate, /v1/validate, /v1/deactivate); lib/screens/lizenz_screen.dart
+    beleg: >-
+      lib/services/lizenz_dienst.dart (/v1/activate, /v1/validate, /v1/deactivate); lib/screens/lizenz_screen.dart;
+      am AVD gemessen 08.10.2026 (Socket-Tabelle nach App-Kennung): einziger Kontakt
+      beim Start, bei Bedienung keiner
   - wohin: der eigene PC mit GewerbePro, automatisch über das USB-Kabel
     was: das verschlüsselte Austauschpaket (alle noch nicht bestätigten Erfassungen,
       dazu Löschmarken) und die unverschlüsselte companion-hello.json
@@ -164,10 +186,15 @@ vom_pc:
     beleg: lib/data/db.dart (applyRueckpaket)
   - was: Anforderung des PCs (löst das automatische Austauschpaket aus) – nur verschlüsselt
     beleg: lib/services/sync_eingang.dart (anforderungBedienen)
-  - was: Branding (Firmendaten, Logo, Unterschrift) – nur verschlüsselt, Umschlag v2
-      mit Typ companion_branding; unverschlüsselte Dateien werden abgewiesen, ein
-      schon übernommenes Branding bleibt
+  - was: Branding (Firmendaten, Logo, Unterschrift) – nur verschlüsselt, Umschlag v3
+      über die Kopplung, Typ companion_branding; unverschlüsselte Dateien werden
+      abgewiesen, ein schon übernommenes Branding bleibt
     beleg: lib/services/branding_store.dart (entschluesseln, uebernehmen); am AVD mit Datei von [FF_29] gemessen 26.09.2026
+  - was: >-
+      Kopplungsangebot (kopplung_angebot.json, ggf. als Kopie „kopplung_angebot (1).json“,
+      unverschlüsselt: Kennungen, zufällige Zahl, öffentlicher Schlüsselteil, Ablaufzeit)
+      und Kopplungsabschluss (verschlüsselt, v3). Beide löscht die App selbst, auch Kopien
+    beleg: lib/services/sync_eingang.dart (_angebotGesehen, _abschlussGesehen, _kopplungAufraeumen); lib/services/kopplung_dienst.dart (angebotPruefen, abschlussPruefen); am AVD mit Dateien von [FF_29] gemessen 08.10.2026
   - was: nach der Übernahme löscht die App die Datei im Sync-Ordner selbst. Was sich
       nicht prüfen lässt, bleibt liegen und wird in der App als „nicht übernommen“
       mit Grund angezeigt; dabei ändert sich nichts
@@ -217,8 +244,9 @@ loeschung: >-
   Löschen beim Lizenzserver: Beim Lizenzserver liegen nur dein Lizenzschlüssel und die
   zufällige Gerätekennung der App, solange die Lizenz gilt. „Lizenz lösen“ in der App
   entfernt die Gerätebindung auch auf dem Server. Die Löschung aller Lizenzdaten kannst
-  du jederzeit per E-Mail an admin@fehlerfuchs.eu verlangen; die Lizenz ist danach nicht
-  mehr nutzbar.
+  du jederzeit über fehlerfuchs.eu/datenschutz/loeschantrag/ oder per E-Mail an
+  admin@fehlerfuchs.eu verlangen; die Lizenz ist danach nicht mehr nutzbar.
+  „Kopplung lösen“ entfernt den Kopplungsschlüssel vom Handy.
 
 besonderheiten: >-
   Die App ist ein Erfassungs-Begleiter zu GewerbePro. Gerechnet und endgültig
@@ -230,10 +258,14 @@ besonderheiten: >-
   Kabel kann GewerbePro die Erfassungen anfordern; die App legt sie dann ohne
   Handgriff am Handy verschlüsselt in den Sync-Ordner, solange sie im Vordergrund
   ist. Katalog, Kunden, Aufgaben und das Branding vom PC übernimmt sie von dort
-  ebenso automatisch. Alle Pakete sind mit AES-256-GCM verschlüsselt, der Schlüssel
-  kommt aus dem Lizenzschlüssel. Unverschlüsselt ist nur die Datei
-  companion-hello.json, mit der sich das Gerät beim PC meldet (zufällige Kennung,
-  Gerätename, Version, Zeitpunkt). Firmenlogo, Absender, Steuernummer,
+  ebenso automatisch. Handy und PC werden einmal gekoppelt; alle Pakete sind danach
+  mit AES-256-GCM und einem Schlüssel verschlüsselt, den nur diese beiden Geräte
+  kennen. Unverschlüsselt ist die Datei companion-hello.json, mit der sich das Gerät
+  beim PC meldet (zufällige Kennung, Gerätename, App- und Protokollversion, nach der
+  Kopplung deren Kennung, Zeitpunkt). Während der Kopplung liegen außerdem kurz das
+  Angebot des PCs und die Antwort des Handys unverschlüsselt im Sync-Ordner
+  (Kennungen, öffentliche Schlüsselteile, Gerätename, keine erfassten Daten); die App
+  löscht beide, sobald die Kopplung abgeschlossen, abgebrochen oder abgelaufen ist. Firmenlogo, Absender, Steuernummer,
   Bankverbindung und Unterschrift übernimmt die App verschlüsselt aus GewerbePro,
   damit Quittungen vor Ort im gewohnten Aussehen entstehen. Da Kundendaten und
   Unterschriften erfasst werden, verarbeitet der Nutzer personenbezogene Daten

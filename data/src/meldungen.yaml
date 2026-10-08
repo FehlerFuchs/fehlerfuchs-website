@@ -29,6 +29,37 @@
 
 meldungen:
 
+  # SnapFuchs 1.2.3 (versionCode 12). Play-Store-App. Live laut P5-Meldung von [FF_13] (08.10.2026 19:47);
+  # Store-Seite von [FF_10] am 08.10.2026 gelesen, Text = „Neu in 1.2.3“ aus dem Store, nichts erfunden (P8).
+  # KEINE Buildnummer nennen. Kein 'version' (Play-App, kein Release im Modell).
+  - id: snapfuchs-1-2-3
+    typ: update
+    produkt: snapfuchs
+    datum: "2026-10-08"
+    titel: "SnapFuchs 1.2.3: deine Scans liegen in einem Ordner auf dem Gerät"
+    text: >-
+      SnapFuchs 1.2.3 ist im Play Store. Deine Scans liegen jetzt in einem Ordner auf dem Gerät
+      (Vorschlag: Dokumente › SnapFuchs), auch in der Dateien-App sichtbar und nach einer
+      Neuinstallation noch da. Nach dem Scannen fragt die App „Behalten?“: Ja speichert, Nein
+      teilt nur. Ältere Scans ziehen mit einem Tipp in den neuen Ordner um, jede Datei geprüft.
+      Ordner sind echte Unterordner, und die PDF-Werkzeuge speichern ebenfalls dort.
+
+  # GewerbePro Companion 1.0.1 (versionCode 2). Play-Store-App. Live laut P5-Meldung von [FF_13] (08.10.2026
+  # 19:47); Store-Seite von [FF_10] am 08.10.2026 gelesen, Text = „Was ist neu“ aus dem Store, nichts erfunden
+  # (P8). KEINE Buildnummer nennen. Kein 'version' (Play-App, kein Release im Modell).
+  - id: gewerbepro-companion-1-0-1
+    typ: update
+    produkt: gewerbepro-companion
+    datum: "2026-10-08"
+    titel: "GewerbePro Companion 1.0.1: Handy und PC einmal sicher koppeln"
+    text: >-
+      GewerbePro Companion 1.0.1 ist im Play Store. Handy und PC werden jetzt einmal sicher
+      gekoppelt: Beide zeigen einen Code zum Vergleich, danach ist jeder Austausch mit einem
+      Schlüssel verschlüsselt, den nur diese beiden Geräte kennen. Dafür braucht es GewerbePro 1.1.1
+      am PC. Neu: Zahlungsbestätigung für Beträge über 250 € bei Regelbesteuerung. Privatfahrten
+      im Fahrtenbuch-PDF stehen ohne Ziel und Zweck. Dazu kommen bessere Eingabeprüfung, richtige
+      Termin-Reihenfolge, verständlichere Fehlermeldungen und ein Link zum Löschantrag für Lizenzdaten.
+
   # SnapFuchs 1.2.2 (versionCode 11). Play-Store-App. Live seit 06.10.2026 18:01 (Console), gemeldet von
   # [FF_13] (MELDUNG P5 06.10.2026 18:07, Store-Seite dort um 18:07:21 gelesen). Text = „Neu in 1.2.2“ aus dem
   # Store, nichts erfunden (P8). KEINE Buildnummer nennen. Kein 'version' (Play-App, kein Release im Modell).

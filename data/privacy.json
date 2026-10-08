@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-08T13:19:39+02:00",
+  "generiert": "2026-10-08T19:52:34+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -946,9 +946,9 @@
     {
       "slug": "gewerbepro-companion",
       "name": "GewerbePro Companion",
-      "stand": "2026-09-26",
+      "stand": "2026-10-08",
       "geprueft_von": "29-1_GewerbePro Companion",
-      "fassung": "1.0.0",
+      "fassung": "1.0.1",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -1002,6 +1002,11 @@
           "beleg": "lib/services/lizenz_dienst.dart (flutter_secure_storage; lizenz.key, lizenz.token, lizenz.fingerprint)"
         },
         {
+          "was": "Kopplungsschlüssel für genau einen PC (32 Byte), Kennung der Kopplung, Kennung des PCs, Zeitpunkt, Fingerabdruck der Lizenz",
+          "wo": "im geschützten Schlüsselspeicher von Android (Keystore), nie in der Datenbank, nie in einer Sicherung",
+          "beleg": "lib/services/kopplung_dienst.dart (kopplung.v3)"
+        },
+        {
           "was": "App-Einstellungen (Gerätename, Standard-E-Mail-Adresse, zufällige Gerätekennung für den Sync, Sync-Zustand, Liste nicht übernommener Dateien)",
           "wo": "in der App auf dem Gerät",
           "beleg": "lib/data/db.dart (Tabelle app_settings)"
@@ -1014,25 +1019,31 @@
       ],
       "im_sync_ordner": [
         {
-          "was": "companion-hello.json – UNVERSCHLÜSSELT. Genau sechs Felder – typ (\"companion_hello\"), geraet_id (zufällige UUID), geraetename (vom Nutzer vergeben, sonst leer), app_version, protokoll, erstellt_am. Keine erfassten Daten",
+          "was": "companion-hello.json – UNVERSCHLÜSSELT. Genau sieben Felder – typ (\"companion_hello\"), geraet_id (zufällige UUID), geraetename (vom Nutzer vergeben, sonst leer), app_version, protokoll (3), kopplung_id (nach der Kopplung, kein Schlüssel), erstellt_am. Keine erfassten Daten",
           "wo": "Documents/GewerbePro-Sync/phone-to-pc/companion-hello.json",
           "wann": "automatisch bei jedem App-Start und nach der Ordnerfreigabe (überschreibt die vorige)",
           "wer_kann_es_sehen": "ein per USB angeschlossener PC (MTP) und Apps, denen der Nutzer Zugriff auf seine Dateien gewährt",
           "wozu": "damit GewerbePro das Gerät am Kabel erkennt und seine Anforderung an dieses Gerät richtet",
-          "beleg": "lib/services/sync_eingang.dart (helloSchreiben); am AVD gemessen 26.09.2026"
+          "beleg": "lib/services/sync_eingang.dart (helloSchreiben); am AVD gemessen 26.09.2026; test/sync_v2_test.dart (Feldliste)"
         },
         {
           "was": "Austauschpaket mit den noch nicht bestätigten Erfassungen – VERSCHLÜSSELT",
           "wo": "Documents/GewerbePro-Sync/phone-to-pc/companion_paket_<id>.json",
           "wann": "automatisch, wenn GewerbePro es über das USB-Kabel anfordert und die App im Vordergrund ist; die App löscht es selbst nach der Quittung des PCs bzw. wenn sie ein neueres ablegt",
           "beleg": "lib/services/sync_eingang.dart (anforderungBedienen, _eigenesPaketLoeschen)"
+        },
+        {
+          "was": "kopplung_antwort_<id>.json – UNVERSCHLÜSSELT, nur während der Kopplung: Angebots- und PC-Kennung, Gerätekennung, Gerätename, zufällige Zahl, öffentlicher Schlüsselteil, Prüfwert. Keine erfassten Daten",
+          "wo": "Documents/GewerbePro-Sync/phone-to-pc/kopplung_antwort_<angebot_id>.json",
+          "wann": "nach „Koppeln“ am Handy; die App löscht sie nach Abschluss, Abbruch oder Ablauf (10 Minuten)",
+          "beleg": "lib/services/sync_eingang.dart (kopplungAntworten, _kopplungAufraeumen)"
         }
       ],
       "verschluesselung": [
         {
           "wofuer": "Austauschpaket, Import-Quittung, Rückpaket, Anforderung des PCs und das Branding vom PC",
-          "wie": "AES-256-GCM, Schlüssel aus dem Lizenzschlüssel. Umschlag v1 mit HKDF-SHA256; Umschlag v2 mit PBKDF2-SHA256 (600.000 Durchläufe), Kopf mit Pakettyp als Zusatzdaten gebunden. Das Handy schreibt v2, sobald der PC v2 gesendet hat",
-          "beleg": "lib/services/sync_crypto.dart"
+          "wie": "AES-256-GCM, Umschlag v3. Der Schlüssel entsteht bei der Kopplung aus einem Schlüsseltausch (X25519) zwischen Handy und PC und der Lizenz; beide zeigen einen Code zum Vergleich. Je Dateityp eigener Schlüssel (HKDF-SHA256), Kopf als Zusatzdaten gebunden. Unverschlüsselte und alte Umschläge (v1/v2) werden abgewiesen. Passt die Lizenz nicht mehr, verwirft die App die Kopplung",
+          "beleg": "lib/services/kopplung_crypto.dart, lib/services/kopplung_dienst.dart (sync_crypto.dart ist entfernt)"
         },
         {
           "wofuer": "Sicherung aller App-Daten",
@@ -1060,7 +1071,7 @@
           "was": "Lizenzschlüssel, eine zufällige Gerätekennung (UUID, ohne Hardware-Merkmale), App-Name („GewerbePro“), Plattform („Android“) und bei der Aktivierung als Gerätename der feste Text „Companion“ – NICHT der vom Nutzer vergebene Gerätename. Technisch bedingt die IP-Adresse und die Kennung „GewerbePro-Companion-Lizenz“ (User-Agent). KEINE Kunden-, Auftrags- oder Belegdaten",
           "wann": "bei der Aktivierung, bei jedem App-Start (Prüfung) und beim Lösen der Lizenz",
           "freiwillig": false,
-          "beleg": "lib/services/lizenz_dienst.dart (/v1/activate, /v1/validate, /v1/deactivate); lib/screens/lizenz_screen.dart"
+          "beleg": "lib/services/lizenz_dienst.dart (/v1/activate, /v1/validate, /v1/deactivate); lib/screens/lizenz_screen.dart; am AVD gemessen 08.10.2026 (Socket-Tabelle nach App-Kennung): einziger Kontakt beim Start, bei Bedienung keiner"
         },
         {
           "wohin": "der eigene PC mit GewerbePro, automatisch über das USB-Kabel",
@@ -1119,8 +1130,12 @@
           "beleg": "lib/services/sync_eingang.dart (anforderungBedienen)"
         },
         {
-          "was": "Branding (Firmendaten, Logo, Unterschrift) – nur verschlüsselt, Umschlag v2 mit Typ companion_branding; unverschlüsselte Dateien werden abgewiesen, ein schon übernommenes Branding bleibt",
+          "was": "Branding (Firmendaten, Logo, Unterschrift) – nur verschlüsselt, Umschlag v3 über die Kopplung, Typ companion_branding; unverschlüsselte Dateien werden abgewiesen, ein schon übernommenes Branding bleibt",
           "beleg": "lib/services/branding_store.dart (entschluesseln, uebernehmen); am AVD mit Datei von [FF_29] gemessen 26.09.2026"
+        },
+        {
+          "was": "Kopplungsangebot (kopplung_angebot.json, ggf. als Kopie „kopplung_angebot (1).json“, unverschlüsselt: Kennungen, zufällige Zahl, öffentlicher Schlüsselteil, Ablaufzeit) und Kopplungsabschluss (verschlüsselt, v3). Beide löscht die App selbst, auch Kopien",
+          "beleg": "lib/services/sync_eingang.dart (_angebotGesehen, _abschlussGesehen, _kopplungAufraeumen); lib/services/kopplung_dienst.dart (angebotPruefen, abschlussPruefen); am AVD mit Dateien von [FF_29] gemessen 08.10.2026"
         },
         {
           "was": "nach der Übernahme löscht die App die Datei im Sync-Ordner selbst. Was sich nicht prüfen lässt, bleibt liegen und wird in der App als „nicht übernommen“ mit Grund angezeigt; dabei ändert sich nichts",
@@ -1149,8 +1164,8 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Die Daten in der App (Datenbank, PDFs, Branding) liegen im app-eigenen Speicher und gehen weder in eine Cloud-Sicherung noch beim Gerätewechsel mit; beim Deinstallieren löscht Android sie. Die Lizenzdaten im Schlüsselspeicher löscht „Lizenz lösen“. NICHT gelöscht werden beim Deinstallieren: die Dateien im Ordner Documents/GewerbePro-Sync (companion-hello.json, ggf. Pakete), abgelegte Austausch- und Sicherungsdateien, geteilte PDFs und angelegte Kontakte. Einzelne Kunden, Entwürfe, Fahrten, Aufgaben und Termine lassen sich in der App löschen; war ein Satz schon beim PC, geht eine Löschmarke mit dem nächsten Paket an den PC (dort wird er nur markiert, nicht gelöscht). Am PC bestätigte Sätze lassen sich nach Rückfrage aufräumen. Erzeugte PDFs können unter Einstellungen entfernt werden. Die handschriftliche Unterschrift wird nie im Datensatz gespeichert, nur im Quittungs-PDF. Löschen beim Lizenzserver: Beim Lizenzserver liegen nur dein Lizenzschlüssel und die zufällige Gerätekennung der App, solange die Lizenz gilt. „Lizenz lösen“ in der App entfernt die Gerätebindung auch auf dem Server. Die Löschung aller Lizenzdaten kannst du jederzeit per E-Mail an admin@fehlerfuchs.eu verlangen; die Lizenz ist danach nicht mehr nutzbar.",
-      "besonderheiten": "Die App ist ein Erfassungs-Begleiter zu GewerbePro. Gerechnet und endgültig erzeugt wird am PC. Die Erfassung läuft offline; Internet braucht die App nur für die Lizenz – dabei gehen Lizenzschlüssel, eine zufällige Gerätekennung, App-Name, Plattform und der feste Text „Companion“ an den FehlerFuchs-Lizenzserver, keine Kundendaten. Ein Benutzerkonto gibt es nicht. Der Austausch mit dem PC läuft nur lokal: als Datei an einem Ort, den der Nutzer wählt, oder über das USB-Kabel. Am Kabel kann GewerbePro die Erfassungen anfordern; die App legt sie dann ohne Handgriff am Handy verschlüsselt in den Sync-Ordner, solange sie im Vordergrund ist. Katalog, Kunden, Aufgaben und das Branding vom PC übernimmt sie von dort ebenso automatisch. Alle Pakete sind mit AES-256-GCM verschlüsselt, der Schlüssel kommt aus dem Lizenzschlüssel. Unverschlüsselt ist nur die Datei companion-hello.json, mit der sich das Gerät beim PC meldet (zufällige Kennung, Gerätename, Version, Zeitpunkt). Firmenlogo, Absender, Steuernummer, Bankverbindung und Unterschrift übernimmt die App verschlüsselt aus GewerbePro, damit Quittungen vor Ort im gewohnten Aussehen entstehen. Da Kundendaten und Unterschriften erfasst werden, verarbeitet der Nutzer personenbezogene Daten seiner eigenen Kunden in eigener Verantwortung.",
+      "loeschung": "Die Daten in der App (Datenbank, PDFs, Branding) liegen im app-eigenen Speicher und gehen weder in eine Cloud-Sicherung noch beim Gerätewechsel mit; beim Deinstallieren löscht Android sie. Die Lizenzdaten im Schlüsselspeicher löscht „Lizenz lösen“. NICHT gelöscht werden beim Deinstallieren: die Dateien im Ordner Documents/GewerbePro-Sync (companion-hello.json, ggf. Pakete), abgelegte Austausch- und Sicherungsdateien, geteilte PDFs und angelegte Kontakte. Einzelne Kunden, Entwürfe, Fahrten, Aufgaben und Termine lassen sich in der App löschen; war ein Satz schon beim PC, geht eine Löschmarke mit dem nächsten Paket an den PC (dort wird er nur markiert, nicht gelöscht). Am PC bestätigte Sätze lassen sich nach Rückfrage aufräumen. Erzeugte PDFs können unter Einstellungen entfernt werden. Die handschriftliche Unterschrift wird nie im Datensatz gespeichert, nur im Quittungs-PDF. Löschen beim Lizenzserver: Beim Lizenzserver liegen nur dein Lizenzschlüssel und die zufällige Gerätekennung der App, solange die Lizenz gilt. „Lizenz lösen“ in der App entfernt die Gerätebindung auch auf dem Server. Die Löschung aller Lizenzdaten kannst du jederzeit über fehlerfuchs.eu/datenschutz/loeschantrag/ oder per E-Mail an admin@fehlerfuchs.eu verlangen; die Lizenz ist danach nicht mehr nutzbar. „Kopplung lösen“ entfernt den Kopplungsschlüssel vom Handy.",
+      "besonderheiten": "Die App ist ein Erfassungs-Begleiter zu GewerbePro. Gerechnet und endgültig erzeugt wird am PC. Die Erfassung läuft offline; Internet braucht die App nur für die Lizenz – dabei gehen Lizenzschlüssel, eine zufällige Gerätekennung, App-Name, Plattform und der feste Text „Companion“ an den FehlerFuchs-Lizenzserver, keine Kundendaten. Ein Benutzerkonto gibt es nicht. Der Austausch mit dem PC läuft nur lokal: als Datei an einem Ort, den der Nutzer wählt, oder über das USB-Kabel. Am Kabel kann GewerbePro die Erfassungen anfordern; die App legt sie dann ohne Handgriff am Handy verschlüsselt in den Sync-Ordner, solange sie im Vordergrund ist. Katalog, Kunden, Aufgaben und das Branding vom PC übernimmt sie von dort ebenso automatisch. Handy und PC werden einmal gekoppelt; alle Pakete sind danach mit AES-256-GCM und einem Schlüssel verschlüsselt, den nur diese beiden Geräte kennen. Unverschlüsselt ist die Datei companion-hello.json, mit der sich das Gerät beim PC meldet (zufällige Kennung, Gerätename, App- und Protokollversion, nach der Kopplung deren Kennung, Zeitpunkt). Während der Kopplung liegen außerdem kurz das Angebot des PCs und die Antwort des Handys unverschlüsselt im Sync-Ordner (Kennungen, öffentliche Schlüsselteile, Gerätename, keine erfassten Daten); die App löscht beide, sobald die Kopplung abgeschlossen, abgebrochen oder abgelaufen ist. Firmenlogo, Absender, Steuernummer, Bankverbindung und Unterschrift übernimmt die App verschlüsselt aus GewerbePro, damit Quittungen vor Ort im gewohnten Aussehen entstehen. Da Kundendaten und Unterschriften erfasst werden, verarbeitet der Nutzer personenbezogene Daten seiner eigenen Kunden in eigener Verantwortung.",
       "vorhandener_text": "In der App unter „Mehr → Impressum & Rechtliches“: Datenschutz-Kurzfassung nach A-11.6 (offline, Stand 95c3716) mit Link auf https://fehlerfuchs.eu/datenschutz/.",
       "offene_fragen": "1. Die App ist nicht veröffentlicht; das Play-Datenschutzformular ist noch nicht ausgefüllt. Die Vorlage liegt in der Lieferung an [FF_00] vom 26.09.2026. 2. Das Branding kommt nur noch verschlüsselt an (E2). Dafür muss GewerbePro in einer Version mit verschlüsseltem Branding-Export vorliegen ([FF_29], 1.1.0). (Erledigt seit dem 20.08.: das Release-Manifest ist nachgemessen; der USB-Weg in beide Richtungen ist gebaut und mit [FF_29] am AVD und an einem echten Gerät geprüft.)",
       "art": "anwendung"
@@ -2042,20 +2057,20 @@
     {
       "slug": "snapfuchs",
       "name": "SnapFuchs",
-      "stand": "2026-10-06",
+      "stand": "2026-10-08",
       "geprueft_von": "30_SnapFuchs",
-      "fassung": "1.2.1 (versionCode 10)",
+      "fassung": "1.2.3 (versionCode 12)",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
-          "was": "Exportierte PDFs (auch in selbst angelegten Ordnern)",
-          "wo": "App-eigenes Dokumentenverzeichnis, Unterordner „SnapFuchs“",
-          "beleg": "lib/core/storage/dokument_speicher.dart"
+          "was": "Fertige PDFs (auch in selbst angelegten Unterordnern)",
+          "wo": "in dem Ordner auf dem Gerät, den du einmal über die Android-Ordnerauswahl (SAF) bestätigst; vorgeschlagen wird „Dokumente › SnapFuchs“; sichtbar in der Dateien-App und nach einer Deinstallation weiterhin vorhanden",
+          "beleg": "lib/core/storage/dokument_speicher.dart (SafAblage), lib/core/storage/geraete_ordner.dart, android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/GeraeteOrdner.kt"
         },
         {
-          "was": "Kopien der Exporte in einer selbst gewählten Standardablage (optional, nur wenn eingerichtet)",
-          "wo": "vom Nutzer per Android-Ordnerauswahl (SAF) bestimmter Ordner auf dem Gerät, z. B. in „Dateien“; sichtbar im Dateimanager",
-          "beleg": "lib/core/storage/extern_ablage.dart, lib/models/extern_ablage_ziel.dart, android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt"
+          "was": "Unfertiger Scan (Absturzschutz)",
+          "wo": "im App-Speicher, bis du bei „Behalten?“ antwortest oder den Scan verwirfst; danach wird er gelöscht",
+          "beleg": "lib/core/storage/entwurf_speicher.dart, lib/features/scan/scan_controller.dart (abgeschlossen)"
         },
         {
           "was": "Einstellungen (Wasserzeichen-Stil und -Position, Kaufstatus)",
@@ -2102,10 +2117,10 @@
           "beleg": "com.android.vending.BILLING, vom Paket in_app_purchase ergaenzt, im gemergten Release-Manifest enthalten"
         },
         {
-          "name": "Ordnerzugriff für die Standardablage (Storage Access Framework)",
-          "wofuer": "Exporte zusätzlich in einen selbst gewählten Ordner schreiben; keine Speicher-Berechtigung nötig, der Zugriff gilt nur für genau den vom Nutzer gewählten Ordner (persistierbare URI-Freigabe) und ist jederzeit widerrufbar",
+          "name": "Ordnerzugriff (Storage Access Framework)",
+          "wofuer": "fertige PDFs in den von dir gewählten Ordner schreiben und die Liste „Letzte Dokumente“ aus diesem Ordner lesen; keine Speicher-Berechtigung nötig, der Zugriff gilt nur für genau den vom Nutzer gewählten Ordner (persistierbare URI-Freigabe) und ist jederzeit widerrufbar (ohne gewählten Ordner kannst du Scans nur teilen)",
           "pflicht": false,
-          "beleg": "ACTION_OPEN_DOCUMENT_TREE + takePersistableUriPermission in android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt"
+          "beleg": "ACTION_OPEN_DOCUMENT_TREE + takePersistableUriPermission in android/app/src/main/kotlin/eu/fehlerfuchs/snapfuchs/MainActivity.kt; DocumentsContract in GeraeteOrdner.kt"
         },
         {
           "name": "Netzwerkstatus",
@@ -2180,8 +2195,8 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Inhalte liegen auf dem Gerät. Einzelne Dokumente und Ordner lassen sich in der App löschen; alles Übrige (Einstellungen, Fehlerlog, Cache) verschwindet mit der Deinstallation. Per Feedback gesendete Nachrichten liegen im Support-Postfach und werden auf Anfrage gelöscht.",
-      "besonderheiten": "Texterkennung, Tabellenerkennung, das Lesen von QR-Codes und Barcodes sowie alle PDF-Werkzeuge laufen vollständig auf dem Gerät und bauen dafür keine Verbindung nach außen auf. Es gibt kein Konto und keine Registrierung. Bilder aus der Galerie werden über den Android-Fotoauswahl-Dialog ausgewählt; deshalb fordert die App keine Berechtigung für Fotos oder Videos an. In der kostenlosen Fassung tragen die erzeugten PDFs ein Wasserzeichen, das nach dem einmaligen Kauf entfällt. Der Kaufstatus wird auf dem Gerät gespeichert und zusätzlich bei Google Play abgefragt. Optional lässt sich eine Standardablage einrichten: Exporte werden dann zusätzlich in einen selbst gewählten Ordner auf dem Gerät geschrieben; die Ordnerwahl läuft über den Android-Ordnerauswahl-Dialog (SAF) und braucht keine Speicher-Berechtigung. Der beim Scannen vergebene Dokumentname bleibt nur im Arbeitsspeicher und bestimmt lediglich den Dateinamen beim Export.",
+      "loeschung": "Alle Inhalte liegen auf dem Gerät. Deine fertigen PDFs liegen in dem Ordner, den du gewählt hast; du kannst sie in der App oder in der Dateien-App löschen. Sie bleiben auch nach einer Deinstallation erhalten, bis du sie selbst löschst. Alles Übrige (Einstellungen, Fehlerlog, Cache) verschwindet mit der Deinstallation. Per Feedback gesendete Nachrichten liegen im Support-Postfach und werden auf Anfrage gelöscht.",
+      "besonderheiten": "Texterkennung, Tabellenerkennung, das Lesen von QR-Codes und Barcodes sowie alle PDF-Werkzeuge laufen vollständig auf dem Gerät und bauen dafür keine Verbindung nach außen auf. Es gibt kein Konto und keine Registrierung. Bilder aus der Galerie werden über den Android-Fotoauswahl-Dialog ausgewählt; deshalb fordert die App keine Berechtigung für Fotos oder Videos an. In der kostenlosen Fassung tragen die erzeugten PDFs ein Wasserzeichen, das nach dem einmaligen Kauf entfällt. Der Kaufstatus wird auf dem Gerät gespeichert und zusätzlich bei Google Play abgefragt. Fertige PDFs liegen in einem Ordner auf dem Gerät, den du einmal über die Android-Ordnerauswahl (SAF) bestätigst; das braucht keine Speicher-Berechtigung. Nach dem Scannen fragt die App „Behalten?“: „Ja“ speichert das PDF im Ordner, „Nein“ teilt es nur, danach wird nichts aufbewahrt. Ein noch nicht fertiger Scan bleibt als Absturzschutz in der App, bis du die Frage beantwortest oder ihn verwirfst; dann wird er gelöscht. Die Liste „Letzte Dokumente“ zeigt den Inhalt dieses Ordners. PDFs aus früheren Fassungen, die noch im App-Speicher liegen, werden nur mit deiner Zustimmung einmal in den Ordner verschoben; jede Datei wird vor dem Löschen in der App auf Gleichheit geprüft. Dabei verlässt nichts das Gerät. Der beim Scannen vergebene Dokumentname bleibt nur im Arbeitsspeicher und bestimmt lediglich den Dateinamen beim Export.",
       "vorhandener_text": "Seit Fassung 1.2.1 steht die veröffentlichte Datenschutzerklärung von fehlerfuchs.eu (allgemeiner Teil und Abschnitt SnapFuchs) offline in der App unter Menü › Rechtstexte › Datenschutz, wortgleich gebündelt (assets/rechtstexte/datenschutz_snapfuchs.md). Zusätzlich ein kurzer Datenschutz-Abschnitt unter Einstellungen (lib/features/settings/settings_screen.dart); das Impressum verweist auf die Website.",
       "offene_fragen": "1) ACCESS_NETWORK_STATE steht nur wegen eingebundener Bausteine im Manifest; im eigenen Code wird der Netzwerkstatus nirgends abgefragt. Die Berechtigung bleibt vorerst drin, weil die Kaufabwicklung sie voraussetzen dürfte; sie ist nicht sensibel und wird dem Nutzer nicht angezeigt. 2) Ob und wie lange der Kontakt-Server IP-Adressen protokolliert, hängt vom Server ab und ist aus dem App-Code nicht feststellbar.",
       "art": "anwendung"

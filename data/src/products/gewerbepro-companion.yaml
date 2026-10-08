@@ -171,8 +171,10 @@ features:
       - name: Übertragung zum PC per USB-Kabel (automatisch) oder als verschlüsselte Datei
         values: { standard: ja }
         note: >-
-          Verschlüsselt mit einem Schlüssel aus deinem Lizenzschlüssel, nur lokal, kein
-          Server. Zurück vom PC kommen Katalog, Kunden, Aufgaben und Branding.
+          Handy und PC werden einmal gekoppelt (beide zeigen einen Code zum Vergleich); danach ist
+          alles mit einem Schlüssel verschlüsselt, den nur diese beiden Geräte kennen. Nur lokal, kein
+          Server. Dafür braucht es GewerbePro 1.1.1 am PC. Zurück vom PC kommen Katalog, Kunden,
+          Aufgaben und Branding.
       - name: Rechnungen, Angebote, EÜR oder E-Rechnung auf dem Handy
         values: { standard: nein }
         note: Bleibt bewusst in GewerbePro am PC.
