@@ -440,6 +440,20 @@ meldungen:
       Empfänger-Tabelle. Im Admin-Bereich lässt sich die Auswahl sperren. Alles bleibt wie
       gewohnt auf dem Gerät.
 
+  # OrgaFuchs 1.10.0 – Windows-Release 08.10. 21:46 (signiert, [FF_16]). 'version: 1.10.0' bindet die
+  # Meldung an den Windows-releases-Eintrag. Text aus der Release-Seite, nichts erfunden (P8); der
+  # Punkt „Austausch mit JunkyPlan“ ist weggelassen (Anordnung Matthias 08.10. 21:35).
+  - id: orgafuchs-1-10-0
+    typ: update
+    produkt: orgafuchs
+    version: "1.10.0"
+    titel: "OrgaFuchs 1.10.0: Jahresübersicht nach Diensten, Windows signiert"
+    text: >-
+      OrgaFuchs 1.10.0 ist für Windows da. Die Jahresübersicht zeigt, wie oft welcher
+      Dienst eingetragen ist. Verbundene Geräte finden nach einer kurzen Störung schneller
+      wieder zueinander. Auch die mitgelieferten Programmbibliotheken und der Deinstaller
+      sind jetzt digital signiert. Es gibt kein Konto.
+
   # OrgaFuchs 1.9.3 – Windows-Release 25.09. 21:28 (signiert, [FF_16]), Android im
   # Play Store live 25.09. 22:18 (P5 von [FF_13], versionCode 24). 'version: 1.9.3'
   # bindet die Meldung an den Windows-releases-Eintrag. Text aus dem App-Changelog von

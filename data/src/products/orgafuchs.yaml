@@ -112,6 +112,28 @@ editions:
 # (ältere Releases bleiben im Downloads-Repo). sha256/Bytes gegen das GitHub-Asset
 # gegengeprüft (gh: 17.548.488 B, sha256 a068bfbe…d76b).
 releases:
+  # 1.10.0 (08.10.2026): Meldung [FF_16] Code Signing (21:46, veröffentlicht auf „push“ von Matthias
+  # 21:43:30). Von [FF_10] gegen GitHub geprüft (gh release view orgafuchs-v1.10.0: kein Entwurf,
+  # keine Vorabversion, ein Asset 17.202.592 B, sha256 675b17dc…0b859 – stimmen). notes aus dem Text der
+  # Release-Seite, nichts erfunden (P8); der Punkt „Austausch mit JunkyPlan“ ist bewusst weggelassen
+  # (Anordnung Matthias 08.10. 21:35: JunkyPlan nicht auf die Webseite).
+  - version: "1.10.0"
+    date: "2026-10-08"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.10.0/FehlerFuchs_OrgaFuchs_Setup_1.10.0.exe
+    filename: FehlerFuchs_OrgaFuchs_Setup_1.10.0.exe
+    size:
+      bytes: 17202592
+      label: "16,4 MB"
+      source: GitHub-Release-Asset
+    sha256: "675b17dcfd34dc14d184ceb66e497f467fe625b790a6e91d3c1d99e80ad0b859"
+    signed: true
+    notes: >-
+      Signierte Windows-Fassung 1.10.0 (Herausgeber FehlerFuchs). Die Jahresübersicht
+      zeigt, wie oft welcher Dienst eingetragen ist. Verbundene Geräte finden nach einer
+      kurzen Störung schneller wieder zueinander. Auch die mitgelieferten
+      Programmbibliotheken und der Deinstaller sind jetzt digital signiert.
   # 1.9.3: Signier-/Manifest-Fakten aus dem Handoff von [FF_16] Code Signing
   # (25.09.2026 21:29, zweistufig App+Installer signiert, veröffentlicht auf „push"
   # von Matthias 21:28), gegen GitHub geprüft (gh release view orgafuchs-v1.9.3:
