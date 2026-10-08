@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-08T19:52:34+02:00",
+  "generiert": "2026-10-08T20:18:13+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -737,6 +737,22 @@
         }
       ],
       "releases": [
+        {
+          "version": "1.1.1",
+          "date": "2026-10-08",
+          "channel": "stable",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.1/FehlerFuchs_GewerbePro_Setup_1.1.1.exe",
+          "filename": "FehlerFuchs_GewerbePro_Setup_1.1.1.exe",
+          "size": {
+            "bytes": 115525032,
+            "label": "110 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "6c6756e7b2f63ed185a35c6e16deaae8b41475b8822d3c32a769a736e09fbf06",
+          "signed": true,
+          "notes": "GewerbePro 1.1.1 – Handy koppeln\n- Handy koppeln: PC und Companion-App werden einmal gekoppelt. Beide Geräte zeigen denselben sechsstelligen Code, den du bestätigst. Danach kann nur dieses Handy die Daten deines PCs lesen.\n- Zahlungsbestätigung: Bei einer Anzahlung am Handy legt GewerbePro die Aufgabe „Rechnung … schreiben“ an.\nWichtig: Für die Kopplung brauchst du GewerbePro Companion 1.0.1 auf dem Handy. Nach dem Update koppelst du dein Handy einmal neu. Wenn das Koppeln nicht startet: Companion-App am Handy öffnen und „Handy koppeln“ erneut wählen."
+        },
         {
           "version": "1.1.0",
           "date": "2026-09-26",

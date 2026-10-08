@@ -389,6 +389,24 @@ meldungen:
       klarere Benachrichtigungen mit Gerätenamen; wiederkehrende Termine; dazu Datenschutz
       und „Was ist neu“ direkt in der App. Die Pläne liegen auf dem Gerät; der Abgleich läuft Ende-zu-Ende-verschlüsselt über das Relais.
 
+  # GewerbePro 1.1.1 (Windows-Release 08.10.2026 20:15, signiert, Meldung [FF_16]).
+  # 'version: 1.1.1' bindet die Meldung an den releases-Eintrag. Text aus „Neu in GewerbePro 1.1.1“
+  # der Release-Seite, nichts erfunden (P8).
+  - id: gewerbepro-1-1-1
+    typ: update
+    produkt: gewerbepro
+    version: "1.1.1"
+    titel: "GewerbePro 1.1.1: Handy und PC einmal sicher koppeln"
+    text: >-
+      GewerbePro 1.1.1 koppelt PC und Companion-App einmal miteinander: Beide Geräte zeigen
+      denselben sechsstelligen Code, den du bestätigst. Danach kann nur dieses Handy die Daten
+      deines PCs lesen. Bei einer Anzahlung am Handy legt GewerbePro beim Übernehmen automatisch
+      die Aufgabe „Rechnung … schreiben“ an. Inhaber und Telefon gehen an die Companion-App, und
+      bei Regelbesteuerung steht die enthaltene Umsatzsteuer auf der Quittung. Wichtig: Für die
+      Kopplung brauchst du GewerbePro Companion 1.0.1 auf dem Handy. Nach dem Update koppelst du
+      dein Handy einmal neu. Wenn das Koppeln nicht startet: Companion-App am Handy öffnen und
+      „Handy koppeln“ erneut wählen.
+
   # GewerbePro 1.1.0 (Windows-Release 26.09.2026 12:24, signiert, Handoff [FF_16]).
   # 'version: 1.1.0' bindet die Meldung an den releases-Eintrag. Text aus „Neu in 1.1.0"
   # der Release-Seite, nichts erfunden (P8).

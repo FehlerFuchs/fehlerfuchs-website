@@ -83,6 +83,29 @@ editions:
     price: { model: offen }
 
 releases:
+  # 1.1.1 (08.10.2026): Meldung [FF_16] Code Signing (20:15, veröffentlicht auf „push“ von Matthias
+  # 20:14:17), Anstoß [FF_29]. Von [FF_10] gegen GitHub geprüft (gh release view gewerbepro-v1.1.1:
+  # kein Entwurf, keine Vorabversion, ein Asset 115.525.032 B, sha256 6c6756e7…bf06 – stimmen).
+  # notes aus dem Text der Release-Seite („Neu in GewerbePro 1.1.1“, RELEASE-INFO [FF_29]), nichts
+  # erfunden (P8); auf die Prüfgrenze von 600 Zeichen gekürzt (Auswahl einzelner Sätze, kein neuer
+  # Inhalt; Inhaber/Telefon, Quittung und Signatur stehen nur in der Meldung und auf der Release-Seite; die Pflichtsätze zu Companion 1.0.1 und zum erneuten Koppeln stehen vollständig drin).
+  - version: "1.1.1"
+    date: "2026-10-08"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.1/FehlerFuchs_GewerbePro_Setup_1.1.1.exe
+    filename: FehlerFuchs_GewerbePro_Setup_1.1.1.exe
+    size:
+      bytes: 115525032
+      label: "110 MB"
+      source: GitHub-Release-Asset
+    sha256: "6c6756e7b2f63ed185a35c6e16deaae8b41475b8822d3c32a769a736e09fbf06"
+    signed: true
+    notes: |-
+      GewerbePro 1.1.1 – Handy koppeln
+      - Handy koppeln: PC und Companion-App werden einmal gekoppelt. Beide Geräte zeigen denselben sechsstelligen Code, den du bestätigst. Danach kann nur dieses Handy die Daten deines PCs lesen.
+      - Zahlungsbestätigung: Bei einer Anzahlung am Handy legt GewerbePro die Aufgabe „Rechnung … schreiben“ an.
+      Wichtig: Für die Kopplung brauchst du GewerbePro Companion 1.0.1 auf dem Handy. Nach dem Update koppelst du dein Handy einmal neu. Wenn das Koppeln nicht startet: Companion-App am Handy öffnen und „Handy koppeln“ erneut wählen.
   # 1.1.0 (26.09.2026): Handoff [FF_16] Code Signing (12:24, veröffentlicht auf „push“ von
   # Matthias, nur der Installer signiert wie 1.0.0). Von [FF_10] gegen GitHub geprüft
   # (gh release view gewerbepro-v1.1.0: kein Entwurf, Asset 116.055.880 B, sha256

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-08T19:52:34+02:00",
+  "generiert": "2026-10-08T20:18:13+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -682,9 +682,9 @@
     {
       "slug": "gewerbepro",
       "name": "FehlerFuchs GewerbePro",
-      "stand": "2026-09-26",
+      "stand": "2026-10-08",
       "geprueft_von": "29_GewerbePro",
-      "fassung": "1.1.0",
+      "fassung": "1.1.1",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -818,10 +818,10 @@
         },
         {
           "wohin": "das Handy des Nutzers (Companion-App) – per USB-Kabel oder über einen vom Nutzer gewählten Ordner (bei einem Cloud-Ordner dessen Anbieter)",
-          "was": "vom Handy Kunden, Angebotsentwürfe, Fahrten, Aufgaben, Termine, Quittungen samt PDF, Löschhinweise; zum Handy Empfangsbestätigung, Kunden (mit Anschrift, E-Mail, Telefon, Website, USt-IdNr., Leitweg-ID, Notiz), Katalog, Aufgaben und auf Wunsch die Firmendaten für Quittungen (Firma, Anschrift, E-Mail, Steuernummer, Bankverbindung, Kleinunternehmer-Hinweis, optional Logo und Unterschrift) – alles AES-256-GCM-verschlüsselt (Schlüssel aus dem Lizenzschlüssel, PBKDF2 600.000). Unverschlüsselt nur die Selbstauskunft der App (companion-hello.json mit Gerätekennung, Gerätename, App-Version, Protokoll, Zeitpunkt). Kein FehlerFuchs-Server beteiligt.",
-          "wann": "nur wenn der Nutzer den Austausch auslöst (USB „Vom Handy holen“, „Firmendaten ans Handy“, Dateiimport)",
+          "was": "vom Handy Kunden, Angebotsentwürfe, Fahrten, Aufgaben, Termine, Quittungen samt PDF, Löschhinweise; zum Handy Empfangsbestätigung, Kunden (mit Anschrift, E-Mail, Telefon, Website, USt-IdNr., Leitweg-ID, Notiz), Katalog, Aufgaben und auf Wunsch die Firmendaten für Quittungen (Firma, Inhaber, Anschrift, E-Mail, Telefon, Steuernummer, Bankverbindung, Kleinunternehmer-Hinweis, optional Logo und Unterschrift) – alles AES-256-GCM-verschlüsselt mit einem Kopplungsschlüssel, den nur dieser PC und das einmal gekoppelte Handy kennen (Kopplung mit Code-Vergleich auf beiden Geräten, an die Lizenz gebunden; am PC per Windows-DPAPI geschützt). Unverschlüsselt nur Dateien ohne Geschäftsdaten – die Selbstauskünfte companion-hello.json und pc-hello.json (Gerätekennung, Gerätename, App-Version, Protokoll, Kopplungskennung, Zeitpunkt) und während der Kopplung die beiden Kopplungsdateien mit öffentlichen Schlüsselwerten. Ein entkoppeltes Handy kann keine neuen Daten mehr lesen. Kein FehlerFuchs-Server beteiligt.",
+          "wann": "nur wenn der Nutzer den Austausch auslöst („Handy koppeln“, USB „Vom Handy holen“, „Firmendaten ans Handy“, Dateiimport)",
           "freiwillig": true,
-          "beleg": "20_Engine/gewerbepro_core/sync_transport.py, mtp_bridge.ps1, engine_api.py companion_* (auto_*, branding_senden, rueckpaket, import_*)"
+          "beleg": "20_Engine/gewerbepro_core/sync_transport.py, mtp_bridge.ps1, sync_v3.py, engine_api.py companion_* (kopplung_*, auto_*, branding_senden, rueckpaket, import_*)"
         }
       ],
       "fremde_dienste": [
