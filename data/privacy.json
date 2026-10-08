@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-08T20:18:13+02:00",
+  "generiert": "2026-10-08T21:26:42+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1149,7 +1149,7 @@
           "wann": "nur bei ausdrücklicher Nutzeraktion"
         },
         {
-          "name": "Android-Dateiauswahl und Speichern-Dialog (über die Bibliothek \"file_picker\")",
+          "name": "Android-Dateiauswahl und Speichern-Dialog (über die Bibliothek „file_picker“)",
           "wofuer": "Lesen: Branding, Katalog, Rückpaket, Import-Quittung, Sicherungsdatei. Schreiben: Austauschpaket und Sicherung. Die Kopien, die die Dateiauswahl im App-Cache anlegt, löscht die App nach dem Import bzw. beim nächsten Start.",
           "wann": "nur bei ausdrücklicher Nutzeraktion"
         },
@@ -1396,7 +1396,7 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen auf dem Gerät. Einzelne Meldungen und Bilder lassen sich in der App löschen; zusätzlich gibt es eine Aufräum-Funktion für Bilddateien, die zu keiner Meldung mehr gehören. Mit der Deinstallation verschwinden Datenbank, Bilder und Einstellungen. Bereits gesendete Support-Nachrichten auf Anfrage per E-Mail.",
+      "loeschung": "Alle Daten liegen auf dem Gerät. Einzelne Meldungen und Bilder lassen sich in der App löschen; zusätzlich gibt es eine Aufräum-Funktion für Bilddateien, die zu keiner Meldung mehr gehören. Mit der Deinstallation verschwinden Datenbank, Bilder und Einstellungen. Bereits gesendete Support-Nachrichten werden auf Anfrage per E-Mail gelöscht.",
       "besonderheiten": "Meldungen können Fotos enthalten, die der Nutzer selbst aufnimmt. Die App weist ausdrücklich darauf hin, keine Patientendaten oder sonstigen sensiblen Inhalte zu fotografieren oder einzutragen. Sie ist kein Nachweissystem, kein Ticketsystem und keine Medizintechnik-Software. Der Versand ist bewusst manuell: die App bereitet eine E-Mail vor, verschickt aber nichts selbst. Was der Nutzer eingibt – Meldungen, Fotos, PDFs, Empfänger – verlässt das Gerät nur, wenn er es selbst auslöst: beim Absenden des Support-Formulars oder beim Verschicken eines Berichts aus seiner Mail-App. Diagnosedaten werden nur nach ausdrücklicher Zustimmung mitgesendet und sind vorher in der App einsehbar. Die „Pro“-Freischaltung ist ein einmaliger In-App-Kauf (kein Abo). Davon zu trennen ist ein Punkt, der seit dem Einbau des In-App-Kaufs zutrifft: Die Abrechnungsbibliothek von Google bringt eine eigene Telemetrie mit, die beim Start Betriebsdaten an Google sendet, ohne dass der Nutzer etwas tut. Sie stammt nicht von FehlerFuchs, lässt sich nicht einfach herauslösen und betrifft keine Inhalte aus der App – erwähnt gehört sie trotzdem.",
       "vorhandener_text": "lib/features/privacy/privacy_page.dart (In-App); Website fehlerfuchs.eu/datenschutz.html",
       "offene_fragen": "(1) Erledigt, gemessen am 25.09.2026: Die öffentliche Datensicherheits-Angabe im Play Store stand früher auf „Keine Daten erhoben“. Sie nennt inzwischen als erhoben und geteilt: bisherige Käufe, Diagnosedaten, andere In-App-Mitteilungen sowie Name und E-Mail-Adresse; dazu Verschlüsselung bei der Übertragung und Löschung auf Antrag. Nachgesehen auf der öffentlichen Store-Seite ohne Anmeldung. (2) Die Google-Telemetrie ist im gebauten Bundle zweifelsfrei enthalten; nicht gemessen ist, wie oft sie sendet und welche Einzelwerte dabei übertragen werden – das legt Google fest. Eine Messung am Gerät steht aus. Ebenfalls offen: ob sie sich abschalten lässt, ohne die Abrechnung zu beschädigen. (3) Ob \"tracking: false\" und das Website-Merkmal \"kein-tracking\" angesichts dieser Telemetrie so stehenbleiben können, ist eine Bewertungsfrage. FehlerFuchs selbst verfolgt niemanden und wertet nichts aus; die Daten gehen an Google, nicht an uns. Die Entscheidung über die Wortwahl auf der Website liegt nicht bei diesem Projekt. (4) Unbekannt, ob beim Drucken/Teilen Daten an System- oder Cloud-Druckdienste des Geräts gelangen – das hängt vom Gerät ab, nicht von der App. (5) Ob die Kontakt-Bridge serverseitig IP-Adressen protokolliert, hängt vom Server ab, nicht von der App.",
@@ -1853,12 +1853,12 @@
         },
         {
           "was": "Kopie des mitgelieferten Handbuch-PDFs + einmaliges Onboarding-Kennzeichen",
-          "wo": "App-Dokumentenordner der App",
+          "wo": "Dokumentenordner der App",
           "beleg": "05_App/pdfuchsreader_mobile/lib/core/onboarding/handbook_seeder.dart"
         },
         {
           "was": "Vom Nutzer erzeugte bearbeitete PDF-Kopien (<name>_bearbeitet[_N].pdf)",
-          "wo": "App-Dokumentenordner der App; Originale und vorhandene Kopien werden nie überschrieben",
+          "wo": "Dokumentenordner der App; Originale und vorhandene Kopien werden nie überschrieben",
           "beleg": "05_App/pdfuchsreader_mobile/lib/features/editor/seiten_editor_screen.dart"
         },
         {

@@ -204,7 +204,7 @@ fremde_dienste:
   - name: Android-Teilen (über die Bibliothek „printing“, nur sharePdf)
     wofuer: PDF an eine vom Nutzer gewählte App übergeben
     wann: nur bei ausdrücklicher Nutzeraktion
-  - name: Android-Dateiauswahl und Speichern-Dialog (über die Bibliothek "file_picker")
+  - name: Android-Dateiauswahl und Speichern-Dialog (über die Bibliothek „file_picker“)
     wofuer: >-
       Lesen: Branding, Katalog, Rückpaket, Import-Quittung, Sicherungsdatei.
       Schreiben: Austauschpaket und Sicherung. Die Kopien, die die Dateiauswahl im

@@ -44,10 +44,10 @@ auf_dem_geraet:
     wo: im Einstellungsspeicher der App auf dem Gerät
     beleg: 05_App/pdfuchsreader_mobile/lib/features/settings/settings_controller.dart
   - was: Kopie des mitgelieferten Handbuch-PDFs + einmaliges Onboarding-Kennzeichen
-    wo: App-Dokumentenordner der App
+    wo: Dokumentenordner der App
     beleg: 05_App/pdfuchsreader_mobile/lib/core/onboarding/handbook_seeder.dart
   - was: Vom Nutzer erzeugte bearbeitete PDF-Kopien (<name>_bearbeitet[_N].pdf)
-    wo: App-Dokumentenordner der App; Originale und vorhandene Kopien werden nie überschrieben
+    wo: Dokumentenordner der App; Originale und vorhandene Kopien werden nie überschrieben
     beleg: 05_App/pdfuchsreader_mobile/lib/features/editor/seiten_editor_screen.dart
   - was: Per „Öffnen mit“/Teilen hereingereichte PDFs und EPUBs (größenbegrenzte Arbeitskopie)
     wo: Zwischenspeicher (Cache) der App
