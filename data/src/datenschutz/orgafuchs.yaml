@@ -9,6 +9,8 @@ geprueft_von: 32_OrgaFuchs
 # gleich 1.10.1 (aapt2 dump permissions, gemessen 09.10. vor 15:02). Windows 1.11.0 gebaut und signiert, noch
 # nicht veröffentlicht; die Windows-Angaben gelten ab dieser Fassung. Sicherung:
 # 32_OrgaFuchs\99_Logs\Sicherungen\orgafuchs.yaml.vor-1.11.0_2026-10-09
+# NACHTRAG 09.10.2026 15:58 ([32], P10-Bestätigung Matthias über [FF_00] 15:58:24, Wortlaut A): Satz zum Cloud-Ordner
+# unter besonderheiten; offene Frage 6 damit geschlossen und entfernt.
 # NACHTRAG 09.10.2026 00:27 ([32], Auftrag [FF_00] 00:23): Android 1.10.1 (31) live seit 08.10. 23:44 (P5 [FF_13]); Windows ausgeliefert weiter 1.9.3, nächste Windows-Fassung 1.11.0; fassung nachgezogen.
 # NACHTRAG 08.10.2026 22:35 ([32]): Windows 1.10.0 veröffentlicht 21:46 (P5 [FF_16]); Android 1.10.0 eingereicht, in Prüfung (Meldung [FF_13]); fassung nachgezogen.
 # NACHTRAG 08.10.2026 22:43 ([32], AUFTRAG [FF_00] #5590): fremder Produktname aus fassung entfernt; Android 1.10.0 live seit 22:08 (Meldung [FF_13]).
@@ -317,6 +319,9 @@ besonderheiten: >-
   Gerätekalender. Dienste in gleichnamigen Bereichen verschiedener Personen (z. B.
   „Klinik“) werden innerhalb der Familiengruppe gleich gehalten; das läuft über
   den bestehenden Ende-zu-Ende-verschlüsselten Abgleich, nicht über einen neuen Weg.
+  Wählst du am PC als Speicherort einen Ordner, den ein Cloud-Dienst abgleicht,
+  liegen deine Sicherungen, PDF-Pläne und das Logbuch-Archiv unverschlüsselt bei
+  diesem Anbieter; OrgaFuchs selbst überträgt dabei nichts.
 
 vorhandener_text: >-
   Vollständige Offline-Datenschutzerklärung in
@@ -344,7 +349,3 @@ offene_fragen: >-
   Google, bis Google sie nach seinen Regeln löscht; die App löscht sie nicht
   von sich aus. Ab 1.9.6 entsteht ohne Einwilligung keine neue Kennung
   (gemessen 01.10.2026).
-  6) Wählt der Nutzer am PC einen Cloud-Ordner als Speicherort, liegen die
-  Sicherungen (vollständige Familiendaten, unverschlüsselt) beim jeweiligen
-  Cloud-Anbieter. Das entscheidet der Nutzer; die App weist bisher nicht eigens
-  darauf hin.
