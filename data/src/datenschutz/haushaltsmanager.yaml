@@ -119,7 +119,7 @@ loeschung: >-
 besonderheiten: >-
   Kernversprechen: „Alle Daten bleiben auf diesem Gerät.“ HaushaltsManager ist privacy-first
   und offline-first – kein Konto, kein Tracking, keine Werbung, keine Telemetrie, keine
-  automatischen Absturzberichte. Alle drei Außenverbindungen (Open-Meteo, PowerFox-Cloud,
+  automatischen Absturzberichte. Die drei Datenverbindungen (Open-Meteo, PowerFox-Cloud,
   ENPAL/InfluxDB) sind standardmäßig AUS und einzeln zuschalt- bzw. abschaltbar.
   Ein optionaler Hintergrunddienst (Tray-Symbol, standardmäßig aus) hält – nur wenn der Nutzer
   ihn und die jeweilige Verbindung aktiviert – die aktivierten Abrufe (PowerFox/Wetter/ENPAL)

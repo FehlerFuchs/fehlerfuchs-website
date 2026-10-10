@@ -2,6 +2,7 @@ slug: orgafuchs
 name: OrgaFuchs
 stand: "2026-10-09"
 geprueft_von: 32_OrgaFuchs
+# NACHTRAG 10.10.2026 08:32 ([32], AUFTRAG [FF_00] 08:31, Entscheidung Matthias A, Prüfbericht [FF_10] #5804): loeschung – erster Satz auf Android beschränkt (widersprach dem Windows-Satz).
 # NACHTRAG 09.10.2026 15:53 ([32], Auftrag [FF_00] 15:52): Android 1.11.0 (32) live seit 09.10. 15:44 (P5 [FF_13]).
 # Gegen den Code geprüft (Commit 7a947d6): neuer Ablageort (lib/core/ablage.dart), Tagessicherung nur am PC
 # (lib/services/auto_sicherung.dart), eine Vorher-Kopie beim Abgleich (orgafuchs_kern database.dart:2149-2174),
@@ -286,8 +287,8 @@ daten_an_dritte_verkauft: false
 loeschung: >-
   Alle Inhalte liegen auf dem Gerät. Einzelne Einträge, Personen und Dienste
   lassen sich in der App löschen; der Einrichtungsassistent kann im Modus
-  „Komplett neu“ den gesamten Bestand zurücksetzen. Mit der Deinstallation
-  verschwinden Datenbank, Protokolle, PDF-Ablage und Sicherungen im App-Ordner.
+  „Komplett neu“ den gesamten Bestand zurücksetzen. Android: Mit der
+  Deinstallation verschwinden Datenbank, Protokolle, PDF-Ablage und Sicherungen im App-Ordner.
   Windows ab 1.11.0: Die Deinstallation fragt, ob auch die persönlichen Daten
   gelöscht werden sollen (Standard: behalten). Bei „Ja“ werden der
   Programmordner und der Ordner „OrgaFuchs“ unter Dokumente entfernt; hat der

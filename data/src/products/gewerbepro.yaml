@@ -226,7 +226,7 @@ features:
         values: { free: ja, pro: ja, vather: ja }
       - name: "Berichte und Auswertungen (EÜR, Steuerbericht, Offene Posten, Dashboard)"
         values: { free: "Basis", pro: "erweitert", vather: "erweitert" }
-        note: Free erzeugt die Grundberichte; Pro die vollständigen Auswertungen als PDF.
+        note: Gewerbe erzeugt die Grundberichte; Pro die vollständigen Auswertungen als PDF.
       - name: Logbuch und Statistik
         values: { free: ja, pro: ja, vather: ja }
       - name: Fahrtenbuch, Anlagen und AfA
@@ -270,7 +270,7 @@ features:
         values: { free: nein, pro: ja, vather: ja }
       - name: Hinweis „Erstellt mit FehlerFuchs Gewerbe“ auf Belegen
         values: { free: ja, pro: nein, vather: nein }
-        note: In der Free-Edition steht dieser Hinweis auf allen Belegen.
+        note: In der Edition Gewerbe steht dieser Hinweis auf allen Belegen.
 
   - group: Erweiterungen und Zubehör
     items:

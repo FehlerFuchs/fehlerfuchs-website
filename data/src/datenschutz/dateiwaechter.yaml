@@ -1,3 +1,4 @@
+# NACHTRAG 10.10.2026 ([FF_10], Entscheidung Matthias über [FF_00], Webseiten-Sichtung 09.10.): Satz zu personenbezogenen Daten in „loeschung“ auf den bestätigten Wortlaut gebracht (Projekt pausiert).
 # Format überführt am 26.09.2026 von [FF_10] (Webseiten-Sichtung, Befund 1, Entscheidung Matthias A):
 # nur die Form (Felder was/wo, name/wofuer, wohin/was/wann), Inhalt unverändert. Gegenlesen: Projekt.
 slug: dateiwaechter          # entschieden 08.08.2026; in _SLUG-EIGENTUEMER.md eingetragen (11.08.2026)
@@ -77,7 +78,7 @@ absturzberichte: false      # keine automatischen; nur der nutzerinitiierte Supp
 daten_an_dritte_verkauft: false
 
 loeschung: >-
-  Es werden keine personenbezogenen Daten erhoben oder gespeichert. Konfiguration und
+  Der Wächter selbst erhebt keine personenbezogenen Daten; Ausnahme ist das freiwillige Support-Formular. Konfiguration und
   Protokolldateien liegen lokal; der Deinstaller fragt, ob sie mit entfernt werden sollen
   (Vorgabe: behalten). Protokolle werden ohnehin nach 30 Tagen automatisch gelöscht. Die
   verschobenen Dateien sind die eigenen Dateien des Nutzers und bleiben beim Nutzer

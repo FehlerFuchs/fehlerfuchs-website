@@ -1,3 +1,4 @@
+# NACHTRAG 10.10.2026 ([FF_10], Entscheidung Matthias über [FF_00], Webseiten-Sichtung 09.10.): Anführungszeichen bei korrekturen.json und „Frage melden“ typografisch (Projekt pausiert).
 # Format überführt am 26.09.2026 von [FF_10] (Webseiten-Sichtung, Befund 1, Entscheidung Matthias A):
 # nur die Form (Felder was/wo, name/wofuer, wohin/was/wann), Inhalt unverändert. Gegenlesen: Projekt.
 slug: wachfuchs
@@ -31,12 +32,12 @@ uebertragungen:
 - wohin: FehlerFuchs Relaisserver
   was: Katalog/Inhaltspakete abrufen (nur lesen, signiert, kein Personenbezug)
 - wohin: FehlerFuchs Relaisserver
-  was: 'Korrekturkanal: regelmäßiger Abruf einer kleinen signierten Datei ''korrekturen.json'' vom Relaisserver
+  was: 'Korrekturkanal: regelmäßiger Abruf einer kleinen signierten Datei „korrekturen.json“ vom Relaisserver
     (reiner GET, keine Kennung, keine Nutzerdaten, keine Parameter) – sperrt oder ersetzt einzelne fehlerhafte
     Fragen, ohne dass die App neu ausgeliefert werden muss. Die technische Abruftaktung
     ist eine Architektureigenschaft und keine Servicezusage.'
 - wohin: FehlerFuchs Relaisserver (Meldungs-Endpunkt)
-  was: 'Meldung über ''Frage melden'': paketId, frageId, inhaltsVersion, appVersion, Grund, optionaler
+  was: 'Meldung über „Frage melden“: paketId, frageId, inhaltsVersion, appVersion, Grund, optionaler
     Text (max. 500 Zeichen), gewählte Antwort, zufällige Installations-ID – kein Name, keine E-Mail, kein
     Standort, kein Lernstand'
   freiwillig: true

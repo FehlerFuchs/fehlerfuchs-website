@@ -1,3 +1,4 @@
+# NACHTRAG 10.10.2026 ([FF_10], Entscheidung Matthias über [FF_00], Webseiten-Sichtung 09.10.): Backticks bei „.defekt-…“ durch typografische Anführungszeichen ersetzt.
 slug: pdfuchs
 name: PDFuchs
 stand: "2026-09-29"
@@ -87,7 +88,7 @@ loeschung: >-
   entfernt und bleibt auf dem Gerät; sie kann jederzeit von Hand gelöscht
   werden. Das gilt auch für die lokale Einstellungsdatei unter
   %APPDATA%\PDFuchs; erkennt PDFuchs dort unlesbares JSON, wird diese Fassung
-  vor dem nächsten Speichern als Datei mit dem Zusatz `.defekt-...` bewahrt.
+  vor dem nächsten Speichern als Datei mit dem Zusatz „.defekt-…“ bewahrt.
   Ebenso bleibt der Ordner Dokumente\PDFuchs mit den dort abgelegten
   Ergebnissen, Scannerangaben und Scanprofilen nach dem Deinstallieren erhalten
   und kann von Hand gelöscht werden.

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-08T21:26:42+02:00",
+  "generiert": "2026-10-10T08:34:39+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -914,7 +914,7 @@
                 "pro": "erweitert",
                 "vather": "erweitert"
               },
-              "note": "Free erzeugt die Grundberichte; Pro die vollständigen Auswertungen als PDF."
+              "note": "Gewerbe erzeugt die Grundberichte; Pro die vollständigen Auswertungen als PDF."
             },
             {
               "name": "Logbuch und Statistik",
@@ -1050,7 +1050,7 @@
                 "pro": "nein",
                 "vather": "nein"
               },
-              "note": "In der Free-Edition steht dieser Hinweis auf allen Belegen."
+              "note": "In der Edition Gewerbe steht dieser Hinweis auf allen Belegen."
             }
           ]
         },

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-07T20:50:30+02:00",
+  "generiert": "2026-10-10T08:34:39+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "aktionen": [
     {
@@ -20,7 +20,7 @@
         "text": "Hinter FehlerFuchs steht kein Team – es ist ein Mensch, der abends und an Wochenenden entwickelt. Was im Play Store am meisten hilft, kostet dich zwei Minuten: eine Rezension. Sie entscheidet darüber, ob eine App überhaupt jemandem angezeigt wird, und sie ist für einen Einzelentwickler der Unterschied zwischen „gefunden“ und „gibt es eigentlich auch“.",
         "nachsatz": "Ehrlich, bitte. Auch drei Sterne mit einem Satz, was fehlt, helfen mir mehr als fünf ohne Worte – daraus wird das nächste Update."
       },
-      "dauerhaft": "Die Frist gilt nur für den Code. Einmal eingelöst, bleibt Pro dauerhaft freigeschaltet – kein Abo, keine Folgekosten.",
+      "dauerhaft": "Einmal eingelöst, bleibt Pro dauerhaft freigeschaltet – kein Abo, keine Folgekosten.",
       "gueltig_bis": "2027-07-19T23:00:00+02:00",
       "einloesen": [
         "SnapFuchs aus dem Play Store laden",
