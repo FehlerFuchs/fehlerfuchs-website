@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-10T08:34:39+02:00",
+  "generiert": "2026-10-10T08:38:24+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -946,7 +946,7 @@
     {
       "slug": "gewerbepro-companion",
       "name": "GewerbePro Companion",
-      "stand": "2026-10-08",
+      "stand": "2026-10-10",
       "geprueft_von": "29-1_GewerbePro Companion",
       "fassung": "1.0.1",
       "lokal_only": false,
@@ -987,9 +987,9 @@
           "beleg": "lib/services/dokument_dienst.dart (Unterordner „dokumente“, Tabelle documents)"
         },
         {
-          "was": "aus GewerbePro übernommenes Branding – Firmendaten des Nutzers (Firma, Anschrift, E-Mail, Steuernummer, Bank, IBAN, BIC, Kontoinhaber, Name unter der Unterschrift, Kleinunternehmer-Angabe), Firmenlogo, hinterlegte Unterschrift, Fußzeilen, Farben",
+          "was": "aus GewerbePro übernommenes Branding – Firmendaten des Nutzers (Firma, Anschrift, E-Mail, Telefon, Inhaber (Vor- und Nachname), Steuernummer, Bank, IBAN, BIC, Kontoinhaber, Name unter der Unterschrift, Kleinunternehmer-Angabe und deren Hinweistext), Firmenlogo, hinterlegte Unterschrift, Fußzeilen, Farben",
           "wo": "im eigenen Speicherbereich der App",
-          "beleg": "lib/services/branding_store.dart (Ordner „branding“, Einstellung branding_json)"
+          "beleg": "lib/services/branding_store.dart (Ordner „branding“, Einstellung branding_json; Stammdaten werden unverändert übernommen); Feldliste aus GewerbePro 1.1.1 20_Engine/gewerbepro_core/engine_api.py (companion_branding_export, Stand 19d9a09); am AVD gemessen 08.10.2026 (inhaber, telefon angekommen)"
         },
         {
           "was": "Löschmarken – wird ein schon an den PC übergebener Satz am Handy gelöscht, bleibt bis zur Bestätigung des PCs nur Typ, zufällige Satzkennung und Zeitpunkt",

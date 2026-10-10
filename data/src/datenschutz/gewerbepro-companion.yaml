@@ -1,12 +1,13 @@
 slug: gewerbepro-companion
 name: GewerbePro Companion
-stand: "2026-10-08"
+stand: "2026-10-10"
 geprueft_von: 29-1_GewerbePro Companion
 fassung: "1.0.1"
 
 # FREIGEGEBEN von Matthias Schacht am 26.09.2026, 11:23 (Endabnahme Rechtstext-Paket, F1) — übernommen von [FF_00].
 # Ergänzt 26.09.2026, 14:50:41: Absatz „Löschen beim Lizenzserver“ in loeschung (Wortlaut von Matthias freigegeben, Play-Lösch-URL).
 # Fassung 1.0.1 eingetragen 08.10.2026 nach VORLAGE [FF_29-1] 15:14 (Kopplung Sync v3; Matthias „A: App + Steckbrief“, Logbuch #5343). Drei Lücken nach LIEFERUNG [FF_29-1] 15:46 geschlossen.
+# Ergänzt 10.10.2026 von [FF_29-1] (Eigentümer, B9): Branding-Liste in auf_dem_geraet um Telefon und Inhaber angeglichen, gegen den Code von GewerbePro 1.1.1 geprüft (Hinweis 2 aus PRÜFBERICHT [FF_10] #5804, Entscheidung Matthias „A“, AUFTRAG [FF_00] 10.10.2026).
 # Ersetzt die Fassungen vom 17.08. (lokal) und 20.08. (00-1). Jede Angabe ist im
 # Code oder am Gerät gemessen; die Belege stehen je Eintrag.
 # Geschäfts-/Kundendaten bleiben auf dem Gerät bzw. gehen nur an den eigenen PC.
@@ -41,10 +42,11 @@ auf_dem_geraet:
     wo: im eigenen Speicherbereich der App
     beleg: lib/services/dokument_dienst.dart (Unterordner „dokumente“, Tabelle documents)
   - was: aus GewerbePro übernommenes Branding – Firmendaten des Nutzers (Firma,
-      Anschrift, E-Mail, Steuernummer, Bank, IBAN, BIC, Kontoinhaber, Name unter der Unterschrift,
-      Kleinunternehmer-Angabe), Firmenlogo, hinterlegte Unterschrift, Fußzeilen, Farben
+      Anschrift, E-Mail, Telefon, Inhaber (Vor- und Nachname), Steuernummer, Bank, IBAN, BIC,
+      Kontoinhaber, Name unter der Unterschrift, Kleinunternehmer-Angabe und deren Hinweistext),
+      Firmenlogo, hinterlegte Unterschrift, Fußzeilen, Farben
     wo: im eigenen Speicherbereich der App
-    beleg: lib/services/branding_store.dart (Ordner „branding“, Einstellung branding_json)
+    beleg: lib/services/branding_store.dart (Ordner „branding“, Einstellung branding_json; Stammdaten werden unverändert übernommen); Feldliste aus GewerbePro 1.1.1 20_Engine/gewerbepro_core/engine_api.py (companion_branding_export, Stand 19d9a09); am AVD gemessen 08.10.2026 (inhaber, telefon angekommen)
   - was: Löschmarken – wird ein schon an den PC übergebener Satz am Handy gelöscht,
       bleibt bis zur Bestätigung des PCs nur Typ, zufällige Satzkennung und Zeitpunkt
     wo: in der App auf dem Gerät
