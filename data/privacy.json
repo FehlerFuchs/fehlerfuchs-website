@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-10T08:38:24+02:00",
+  "generiert": "2026-10-10T08:42:06+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1706,7 +1706,7 @@
         },
         {
           "wohin": "orgafuchs.relais.fehlerfuchs.eu – Weckdienst (nur Android, von FehlerFuchs betrieben)",
-          "was": "Anmeldung des Geräts für den Weckruf – eine in der App erzeugte Gerätekennung, die Push-Kennung von Google, ein Prüfwert (Hash) der Gruppenkennung und die Kennung des Geräteschlüssels (damit das auslösende Gerät sich nicht selbst weckt); keine Namen, keine Inhalte. Beim Ausschalten der Benachrichtigungen meldet sich das Gerät ab, der Eintrag wird gelöscht",
+          "was": "Anmeldung des Geräts für den Weckruf – eine in der App erzeugte Gerätekennung, die Push-Kennung von Google, ein Prüfwert (SHA-256) der zufällig erzeugten Kennung des Familienplans (kein Kennwort; aus dem Prüfwert lässt sich die Kennung nicht zurückrechnen) und die Kennung des Geräteschlüssels (damit das auslösende Gerät sich nicht selbst weckt); keine Namen, keine Inhalte. Beim Ausschalten der Benachrichtigungen meldet sich das Gerät ab, der Eintrag wird gelöscht",
           "wann": "nur wenn Benachrichtigungen eingeschaltet sind und das Gerät mit anderen verbunden ist; erneut, wenn Google die Push-Kennung wechselt",
           "freiwillig": true,
           "beleg": "lib/services/fcm_dienst.dart:147-203 (Anmelden/Abmelden), Dienst-Steckbrief relaisserver.yaml (FCM-Weck-Registry)"

@@ -185,7 +185,7 @@ dienste:
     stand: "2026-09-30"
     uebermittelt:
       - an Google die Push-Zustelladresse des Geräts (FCM-Token) und ein leeres Wecksignal (ein einziges Feld „wakeup“)
-      - in der Registry auf dem Relaisserver eine pseudonyme Geräte-Kennung, der Gruppen-Hash (sha256 des Sync-Kennworts, nicht rückrechenbar), das FCM-Token, die Plattform, die Kennung des auslösenden Geräts (nur zum Selbst-Ausschluss) und ein Zeitstempel
+      - in der Registry auf dem Relaisserver eine pseudonyme Geräte-Kennung, ein Prüfwert (SHA-256) der zufällig erzeugten Kennung des Familienplans (kein Kennwort; aus dem Prüfwert lässt sich die Kennung nicht zurückrechnen), das FCM-Token, die Plattform, die Kennung des auslösenden Geräts (nur zum Selbst-Ausschluss) und ein Zeitstempel
     aufbewahrung: >-
       Pro Gerät eine Zeile in der Registry, solange das Gerät angemeldet ist; bei
       Abmeldung sofort gelöscht, bei einem von Google als ungültig gemeldeten Token

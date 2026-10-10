@@ -2,6 +2,7 @@ slug: orgafuchs
 name: OrgaFuchs
 stand: "2026-10-09"
 geprueft_von: 32_OrgaFuchs
+# NACHTRAG 10.10.2026 08:41 ([32], Rückfrage [FF_10] 08:37, Matthias „A: klären lassen, dann einheitlich“ #5804): Weckruf-Anmeldung – Prüfwert = SHA-256 der zufälligen Kennung des Familienplans (fcm_dienst.dart:155-160, ofsp_relay_service.dart:1067-1070), gleicher Sinn wie dienste.yaml.
 # NACHTRAG 10.10.2026 08:32 ([32], AUFTRAG [FF_00] 08:31, Entscheidung Matthias A, Prüfbericht [FF_10] #5804): loeschung – erster Satz auf Android beschränkt (widersprach dem Windows-Satz).
 # NACHTRAG 09.10.2026 15:53 ([32], Auftrag [FF_00] 15:52): Android 1.11.0 (32) live seit 09.10. 15:44 (P5 [FF_13]).
 # Gegen den Code geprüft (Commit 7a947d6): neuer Ablageort (lib/core/ablage.dart), Tagessicherung nur am PC
@@ -250,7 +251,7 @@ uebertragungen:
     freiwillig: true
     beleg: lib/services/fcm_dienst.dart, android/app/google-services.json, android/app/src/main/AndroidManifest.xml
   - wohin: orgafuchs.relais.fehlerfuchs.eu – Weckdienst (nur Android, von FehlerFuchs betrieben)
-    was: Anmeldung des Geräts für den Weckruf – eine in der App erzeugte Gerätekennung, die Push-Kennung von Google, ein Prüfwert (Hash) der Gruppenkennung und die Kennung des Geräteschlüssels (damit das auslösende Gerät sich nicht selbst weckt); keine Namen, keine Inhalte. Beim Ausschalten der Benachrichtigungen meldet sich das Gerät ab, der Eintrag wird gelöscht
+    was: Anmeldung des Geräts für den Weckruf – eine in der App erzeugte Gerätekennung, die Push-Kennung von Google, ein Prüfwert (SHA-256) der zufällig erzeugten Kennung des Familienplans (kein Kennwort; aus dem Prüfwert lässt sich die Kennung nicht zurückrechnen) und die Kennung des Geräteschlüssels (damit das auslösende Gerät sich nicht selbst weckt); keine Namen, keine Inhalte. Beim Ausschalten der Benachrichtigungen meldet sich das Gerät ab, der Eintrag wird gelöscht
     wann: nur wenn Benachrichtigungen eingeschaltet sind und das Gerät mit anderen verbunden ist; erneut, wenn Google die Push-Kennung wechselt
     freiwillig: true
     beleg: lib/services/fcm_dienst.dart:147-203 (Anmelden/Abmelden), Dienst-Steckbrief relaisserver.yaml (FCM-Weck-Registry)
