@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-10T08:34:39+02:00",
+  "generiert": "2026-10-11T08:12:54+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -294,6 +294,314 @@
           "height": 365
         }
       }
+    },
+    {
+      "slug": "checkin-vita",
+      "name": "CheckInVita",
+      "fullName": "FehlerFuchs CheckInVita",
+      "seoTitel": "CheckInVita – persönliches Gesundheitstagebuch, lokal und ohne Cloud",
+      "seoBeschreibung": "Gesundheitswerte wie Blutdruck, Gewicht oder Schlaf selbst erfassen und im Verlauf sehen, aufbereitet für den Praxisbesuch – lokal auf dem Gerät, ohne Cloud.",
+      "tags": [
+        "Gesundheitstagebuch",
+        "Symptomtagebuch",
+        "Blutdruck",
+        "Verlauf",
+        "lokal",
+        "ohne Cloud"
+      ],
+      "kind": "produkt",
+      "tagline": "Gesundheits-Tagebuch für eigene Werte, Medikamente und Arzttermine – ohne Konto, ohne Cloud.",
+      "description": "CheckInVita ist ein persönliches Tagebuch für alles rund um die eigene Gesundheit: Gewicht, Blutdruck, Puls, Blutzucker, Schlaf, Schritte, Notizen und Fotos. Es zeigt die Werte als Verlauf, verwaltet Medikamente samt Einnahmeplan und erinnert an Injektionen und Rezeptbestellungen. Für die Praxis erzeugt es eine Werte- Zusammenfassung als PDF und bereitet Mailvorlagen vor – gesendet wird nur, was man selbst abschickt. Kein Nutzerkonto, keine Auswertung durch Dritte, keine Bewertung der Werte. CheckInVita ist kein Medizinprodukt und ersetzt keine ärztliche Beratung, Diagnose oder Therapie.",
+      "audience": [
+        "privat"
+      ],
+      "accent": "#5B8A72",
+      "status": "verfuegbar",
+      "platforms": [
+        {
+          "os": "android",
+          "status": "verfuegbar",
+          "requirements": "Android 7.0 oder neuer (minSdk 24)",
+          "distribution": "play-store",
+          "storeId": "eu.fehlerfuchs.checkinvita",
+          "since": "2026-10-11"
+        },
+        {
+          "os": "windows",
+          "status": "entwicklung",
+          "requirements": "Windows 10/11 (64-bit)",
+          "distribution": "keiner",
+          "hinweis": {
+            "wenn": "entwicklung",
+            "text": "Eine Windows-Fassung ist in Entwicklung. Sie ist noch nicht veröffentlicht, es gibt keinen Installer und keinen Download."
+          }
+        }
+      ],
+      "privacy": [
+        "inhalte-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "offline-faehig"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "CheckInVita",
+          "public": true,
+          "summary": "Voller Funktionsumfang, kostenlos.",
+          "price": {
+            "model": "kostenlos"
+          }
+        }
+      ],
+      "features": [
+        {
+          "group": "Erfassen",
+          "items": [
+            {
+              "name": "Tagebuch-Einträge mit Gewicht, Blutdruck, Puls, Blutzucker, HbA1c, SpO2, Temperatur, Atemfrequenz, Schritten und Schlaf",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Alle Felder sind freiwillig; nur das Datum ist fest."
+            },
+            {
+              "name": "Notizen und Nebenwirkungen je Eintrag",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Fortschrittsfotos in vier Ansichten",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Rauchverhalten dokumentieren",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Automatische Übernahme von Messgeräten oder aus Health Connect",
+              "values": {
+                "standard": "nein"
+              },
+              "note": "Werte werden ausschließlich selbst eingetragen."
+            }
+          ]
+        },
+        {
+          "group": "Verstehen",
+          "items": [
+            {
+              "name": "Verlaufsdiagramme je Kennzahl mit Zeitraum-Auswahl",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Kombinierte Herz-Ansicht aus Systole, Diastole, Mitteldruck und Puls",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Wertebereich jedes Diagramms selbst festlegen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Ohne eigene Angabe skaliert die Achse automatisch."
+            },
+            {
+              "name": "Wochenvergleich und BMI-Berechnung",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Bewertung oder Warnung bei Grenzwerten",
+              "values": {
+                "standard": "nein"
+              },
+              "note": "Bewusst nicht – die App stellt nur dar."
+            }
+          ]
+        },
+        {
+          "group": "Medikamente",
+          "items": [
+            {
+              "name": "Medikamentenliste mit Dosierung und Darreichungsform",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Einnahmeplan nach Tageszeit, Wochentag oder Intervall",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Injektionstherapie mit Protokoll",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Erinnerungen an Injektion und Rezeptbestellung",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Uhrzeit, „Einen Tag vorher“ und Ausschalter sind einstellbar; die Mitteilung nennt keinen Präparatnamen. Bisher nur in der Android-Fassung."
+            },
+            {
+              "name": "Reichweitenrechnung aus Packungsgröße und Verbrauch",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Mit der Praxis kommunizieren",
+          "items": [
+            {
+              "name": "Behandler-Adressbuch und Kostenübernahmen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Vorbereitete Mailvorlagen für Rezeptanfragen und Rückfragen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Öffnet die eigene Mail-App; abgeschickt wird nur, was man selbst sendet."
+            },
+            {
+              "name": "Werte-Zusammenfassung als PDF zum Mitnehmen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Privater Medikamenten-Plan als PDF",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Ausdrücklich als privat gekennzeichnet, kein amtlicher Medikationsplan."
+            }
+          ]
+        },
+        {
+          "group": "Eigene Daten",
+          "items": [
+            {
+              "name": "Export als CSV und Excel-kompatible Tabelle",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Vollständige Sicherung und Wiederherstellung",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "App-Sperre beim Öffnen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Konto oder Registrierung nötig",
+              "values": {
+                "standard": "nein"
+              }
+            },
+            {
+              "name": "Werbung",
+              "values": {
+                "standard": "nein"
+              }
+            }
+          ]
+        }
+      ],
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/checkin-vita.svg",
+          "alt": "CheckInVita – von FehlerFuchs",
+          "width": 1629,
+          "height": 403
+        },
+        "screenshots": [
+          {
+            "src": "/img/screenshots/checkin-vita/handy-01-startseite.png",
+            "alt": "Startseite von CheckInVita mit der Tagesübersicht: heute eingetragen, aktuelle Werte, Fortschritt zum Ziel und Knopf für einen neuen Eintrag",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy"
+          },
+          {
+            "src": "/img/screenshots/checkin-vita/handy-02-trends.png",
+            "alt": "Trends in CheckInVita: Verlaufslinie des Gewichts über mehrere Wochen, darunter eine Tabelle mit den Werten",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy"
+          },
+          {
+            "src": "/img/screenshots/checkin-vita/handy-03-wochenvergleich.png",
+            "alt": "Wochenvergleich in CheckInVita: Tabelle mit dem Durchschnitt der letzten 7 Tage gegen die 7 Tage davor und der Veränderung, ohne Bewertung",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy"
+          },
+          {
+            "src": "/img/screenshots/checkin-vita/handy-04-neuer-eintrag.png",
+            "alt": "Formular Neuer Eintrag in CheckInVita mit Datum, Körperwerten, Blutdruck und weiteren Messwerten",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy"
+          },
+          {
+            "src": "/img/screenshots/checkin-vita/handy-05-arzt.png",
+            "alt": "Seite Arzt und Rezept in CheckInVita mit Behandlern, Rezepten und Kostenübernahme sowie Mailvorlagen für die Praxis",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy"
+          },
+          {
+            "src": "/img/screenshots/checkin-vita/handy-06-erinnerungen.png",
+            "alt": "Einstellungen in CheckInVita mit den Erinnerungen, die du selbst ein- und ausschalten kannst, und den Stammdaten",
+            "width": 620,
+            "height": 1242,
+            "geraet": "handy"
+          }
+        ]
+      },
+      "theme": {
+        "modus": "hell",
+        "hintergrund": "#FFF7ED",
+        "flaeche": "#FFFFFF",
+        "rand": "#EAD9C4",
+        "text": "#2B160B",
+        "textLeise": "#6B5544",
+        "akzent": "#5B8A72",
+        "quelle": "23_CheckInVita/src/lib/core/theme/app_colors.dart"
+      },
+      "links": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.checkinvita",
+        "alt_html": "/apps/checkin-vita.html",
+        "contact": "/kontakt.html?app=CheckInVita&topic=interesse"
+      },
+      "notes": "Der Name wird zusammengeschrieben: CheckInVita. Die Wortmarke setzt „CheckIn“ in Kupferbraun und „Vita“ in Sage. Auf der Produktseite sollte der Hinweis „kein Medizinprodukt“ sichtbar bleiben – er steht auch in der App an mehreren Stellen. Der Dienst-Bezug zum Lizenzserver besteht ausschließlich wegen des Support-/Kontaktformulars, nicht wegen einer Lizenzprüfung. Die App ist kostenlos (Entscheidung Matthias 07.10.2026, Logbuch #5065); eine Lizenzprüfung ist im aktuellen Quellstand nicht implementiert."
     },
     {
       "slug": "einzelstueck",
@@ -4021,85 +4329,6 @@
         "contact": "/kontakt.html?app=BelegWerk&topic=interesse"
       },
       "notes": "Anbindung an Paperless bedeutet, dass Daten an ein selbst betriebenes Archiv gehen. Das Merkmal „keine-cloud“ ist deshalb bewusst nicht gesetzt – es hängt davon ab, wo der Nutzer sein Paperless betreibt."
-    },
-    {
-      "slug": "checkin-vita",
-      "name": "CheckInVita",
-      "fullName": "FehlerFuchs CheckInVita",
-      "seoTitel": "CheckInVita – persönliches Gesundheitstagebuch, lokal und ohne Cloud",
-      "seoBeschreibung": "Gesundheitswerte wie Blutdruck, Gewicht oder Schlaf selbst erfassen und im Verlauf sehen, aufbereitet für den Praxisbesuch – lokal auf dem Gerät, ohne Cloud.",
-      "tags": [
-        "Gesundheitstagebuch",
-        "Symptomtagebuch",
-        "Blutdruck",
-        "Verlauf",
-        "lokal",
-        "ohne Cloud"
-      ],
-      "kind": "produkt",
-      "tagline": "Das persönliche Gesundheits-Tagebuch – Werte erfassen, Verläufe verstehen, auf Wunsch aufbereitet mit der Praxis teilen.",
-      "description": "Gesundheitswerte wie Blutdruck, Gewicht, Schlaf oder Medikamenteneinnahme selbst erfassen und im Verlauf sehen. Auf Wunsch als aufbereitete Übersicht für den Praxisbesuch ausgeben. Tagebuchdaten bleiben lokal; nur das freiwillige Supportformular überträgt die vom Nutzer bewusst ausgewählten Angaben.",
-      "audience": [
-        "privat"
-      ],
-      "accent": "#5B8A72",
-      "status": "entwicklung",
-      "platforms": [
-        {
-          "os": "android",
-          "status": "entwicklung",
-          "distribution": "keiner"
-        },
-        {
-          "os": "windows",
-          "status": "entwicklung",
-          "distribution": "keiner"
-        }
-      ],
-      "privacy": [
-        "inhalte-lokal",
-        "keine-cloud",
-        "kein-konto",
-        "kein-tracking",
-        "werbefrei",
-        "offline-faehig"
-      ],
-      "editions": [
-        {
-          "id": "standard",
-          "name": "CheckInVita",
-          "public": true,
-          "summary": "Funktionsumfang implementiert; Preismodell noch nicht entschieden.",
-          "price": {
-            "model": "offen"
-          }
-        }
-      ],
-      "releases": [],
-      "media": {
-        "lockup": {
-          "src": "/img/lockups/checkin-vita.svg",
-          "alt": "CheckInVita – von FehlerFuchs",
-          "width": 1629,
-          "height": 403
-        },
-        "platzhalter": 4
-      },
-      "theme": {
-        "modus": "hell",
-        "hintergrund": "#FFF7ED",
-        "flaeche": "#FFFFFF",
-        "rand": "#EAD9C4",
-        "text": "#2B160B",
-        "textLeise": "#6B5544",
-        "akzent": "#5B8A72",
-        "quelle": "23_CheckInVita/src/lib/core/theme/app_colors.dart"
-      },
-      "links": {
-        "alt_html": "/apps/checkin-vita.html",
-        "contact": "/kontakt.html?app=CheckInVita&topic=interesse"
-      },
-      "notes": "Gesundheitsdaten sind besonders schützenswert. Android ist implementiert, aber nach dem Umzug noch nicht erneut auf realer Hardware abgenommen. Der Windows-Port ist vorhanden, sein Build ist mit der zentralen Visual-Studio-2026-Toolchain derzeit an der offenen local_auth-Paketentscheidung blockiert. Vor einer Veröffentlichung ist ein eigener, ausführlicher Datenschutzabschnitt nötig – die Merkmalsliste allein reicht hier nicht."
     },
     {
       "slug": "cleandesk",

@@ -1,8 +1,8 @@
 slug: checkin-vita
 name: CheckInVita
-stand: "2026-10-06"
+stand: "2026-10-11"
 geprueft_von: 23_CheckInVita
-fassung: "0.3.0 – Android-Stand 06.10.2026, noch nicht veröffentlicht; Windows wird nicht ausgeliefert"
+fassung: "Ausgeliefert: Android 1.0.0 (versionCode 4) bei Google Play seit 11.10.2026 (05:22), erste öffentliche Fassung. Windows wird nicht ausgeliefert."
 
 # Ohne aktives Zutun des Nutzers verlässt kein Datum das Gerät.
 # Das Support-Formular sendet auf Wunsch an license.fehlerfuchs.eu; deshalb false

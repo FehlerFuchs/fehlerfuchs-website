@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-08T21:01:43+02:00",
+  "generiert": "2026-10-11T08:12:54+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "checkin-vita-play-veroeffentlichung",
+      "typ": "store",
+      "produkt": "checkin-vita",
+      "titel": "CheckInVita ist im Play Store",
+      "text": "CheckInVita 1.0.0 ist die erste Fassung für alle: ein Gesundheits-Tagebuch für Werte, Medikamente, Rezepte, Erinnerungen und Mails an die Praxis. Alle Daten bleiben auf deinem Gerät. Neu: PZN und EAN am Medikament, freie Reichweite und Beginn der Packung beim Rezept. Neu: „Daten austauschen“ – einzelne Bereiche als JSON oder CSV ausgeben und einlesen, mit Vorschau. Kein Medizinprodukt.",
+      "datum": "2026-10-11",
+      "datumQuelle": "platforms[android].since",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.checkinvita"
+      }
+    },
     {
       "id": "snapfuchs-1-2-3",
       "typ": "update",

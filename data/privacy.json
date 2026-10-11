@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-10T08:42:06+02:00",
+  "generiert": "2026-10-11T08:12:54+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -207,9 +207,9 @@
     {
       "slug": "checkin-vita",
       "name": "CheckInVita",
-      "stand": "2026-10-06",
+      "stand": "2026-10-11",
       "geprueft_von": "23_CheckInVita",
-      "fassung": "0.3.0 – Android-Stand 06.10.2026, noch nicht veröffentlicht; Windows wird nicht ausgeliefert",
+      "fassung": "Ausgeliefert: Android 1.0.0 (versionCode 4) bei Google Play seit 11.10.2026 (05:22), erste öffentliche Fassung. Windows wird nicht ausgeliefert.",
       "lokal_only": false,
       "auf_dem_geraet": [
         {

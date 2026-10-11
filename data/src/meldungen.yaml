@@ -106,6 +106,21 @@ meldungen:
       sobald du eine App sperrst, und das Impressum in der App nennt jetzt auch die
       Anschrift.
 
+  # CheckInVita 1.0.0 (versionCode 4). Play-Store-App, erste öffentliche Fassung. Live seit
+  # 11.10.2026 05:22 (Console), belegt durch die P5-Meldung von [FF_13] 08:03. Text nach „Was ist neu“
+  # im Store, nichts erfunden (P8). typ 'store': Datum aus platforms[android].since, Play-Link aus storeId.
+  # Seite sichtbar auf Entscheidung Matthias 11.10.2026 (über [FF_00]).
+  - id: checkin-vita-play-veroeffentlichung
+    typ: store
+    produkt: checkin-vita
+    titel: CheckInVita ist im Play Store
+    text: >-
+      CheckInVita 1.0.0 ist die erste Fassung für alle: ein Gesundheits-Tagebuch für Werte,
+      Medikamente, Rezepte, Erinnerungen und Mails an die Praxis. Alle Daten bleiben auf deinem
+      Gerät. Neu: PZN und EAN am Medikament, freie Reichweite und Beginn der Packung beim Rezept.
+      Neu: „Daten austauschen“ – einzelne Bereiche als JSON oder CSV ausgeben und einlesen, mit
+      Vorschau. Kein Medizinprodukt.
+
   # GewerbePro Companion 1.0.0 (versionCode 1). Play-Store-App, erste Version. Live seit
   # 01.10.2026 05:29 (Console), belegt durch das P5-Ergebnis von [FF_13] 07:39 und die
   # BERICHTIGUNG 07:44. Text nach „Was ist neu“ im Store, nichts erfunden (P8).
