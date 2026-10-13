@@ -1,6 +1,6 @@
 slug: mobilereport
 name: MobileReport
-stand: "2026-09-26"
+stand: "2026-10-13"
 geprueft_von: 20_MobileReport
 fassung: "1.5.0+54 (seit 26.09.2026 in der Play-Produktion, voller Roll-out; am 26.09. um 08:16 auf der öffentlichen Store-Seite als 1.5.0 gemessen; zusammengeführte Consumer-App mit In-App-Kauf). Vorgänger 1.4.0+53 vom 23.09.2026. Geprüft an der einen Codebasis MobileReport_Master\\01_App – der früher genannte Ordner FehlerFuchsMR_Pro ist seit dem 17.09.2026 Archiv."
 
@@ -57,11 +57,12 @@ berechtigungen:
     beleg: lib/services/contact_picker_service.dart – ACTION_PICK-Intent; gebautes Manifest 1.5.0+54 (wie 1.4.0+53) – kein READ_CONTACTS
   - name: Internet
     wofuer: >-
-      Wird nur gebraucht, wenn der Nutzer das Support- und Kontaktformular
-      abschickt oder die Pro-Freischaltung kauft. Zum Erfassen von Meldungen, zum
+      Wird gebraucht für das Support- und Kontaktformular, für Kauf und
+      Wiederherstellung der Pro-Freischaltung und für den Abgleich des Kaufstatus
+      beim App-Start. Zum Erfassen von Meldungen, zum
       Erzeugen der PDF-Berichte und fürs Logbuch wird sie nicht benötigt.
     pflicht: false
-    beleg: nicht im App-Manifest deklariert, wird beim Zusammenführen der Manifeste durch in_app_purchase und http ergänzt (pubspec.yaml)
+    beleg: 'im App-Manifest deklariert (android/app/src/main/AndroidManifest.xml, Zeile 7: android.permission.INTERNET)'
   - name: Netzwerkstatus lesen
     wofuer: >-
       Technische Berechtigung ohne Nachfrage beim Nutzer. Sie kommt nicht von

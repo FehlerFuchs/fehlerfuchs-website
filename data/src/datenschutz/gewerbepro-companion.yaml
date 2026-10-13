@@ -1,6 +1,6 @@
 slug: gewerbepro-companion
 name: GewerbePro Companion
-stand: "2026-10-10"
+stand: "2026-10-13"
 geprueft_von: 29-1_GewerbePro Companion
 fassung: "1.0.1"
 
@@ -8,6 +8,7 @@ fassung: "1.0.1"
 # Ergänzt 26.09.2026, 14:50:41: Absatz „Löschen beim Lizenzserver“ in loeschung (Wortlaut von Matthias freigegeben, Play-Lösch-URL).
 # Fassung 1.0.1 eingetragen 08.10.2026 nach VORLAGE [FF_29-1] 15:14 (Kopplung Sync v3; Matthias „A: App + Steckbrief“, Logbuch #5343). Drei Lücken nach LIEFERUNG [FF_29-1] 15:46 geschlossen.
 # Ergänzt 10.10.2026 von [FF_29-1] (Eigentümer, B9): Branding-Liste in auf_dem_geraet um Telefon und Inhaber angeglichen, gegen den Code von GewerbePro 1.1.1 geprüft (Hinweis 2 aus PRÜFBERICHT [FF_10] #5804, Entscheidung Matthias „A“, AUFTRAG [FF_00] 10.10.2026).
+# Ergänzt 13.10.2026 von [FF_29-1] (Eigentümer, B9): loeschung – Lizenzserver-Angaben um die beim Kauf hinterlegten Angaben (E-Mail-Adresse, Bestellnummer) ergänzt, vorher im Quellstand des Lizenzservers geprüft (11_Lizenzserver/adapter, 5b8525b); Eintrag „keine Cloud-Sicherung …“ mit leerem Ort aus auf_dem_geraet nach besonderheiten verschoben (Webseiten-Sichtung Nr. 2 und 4, Entscheidung Matthias „A“, #5933, AUFTRAG [FF_00] 13.10.2026).
 # Ersetzt die Fassungen vom 17.08. (lokal) und 20.08. (00-1). Jede Angabe ist im
 # Code oder am Gerät gemessen; die Belege stehen je Eintrag.
 # Geschäfts-/Kundendaten bleiben auf dem Gerät bzw. gehen nur an den eigenen PC.
@@ -65,9 +66,6 @@ auf_dem_geraet:
       Gerätekennung für den Sync, Sync-Zustand, Liste nicht übernommener Dateien)
     wo: in der App auf dem Gerät
     beleg: lib/data/db.dart (Tabelle app_settings)
-  - was: keine Cloud-Sicherung und keine Mitnahme beim Gerätewechsel durch Android
-    wo: –
-    beleg: android/app/src/main/AndroidManifest.xml (allowBackup="false", dataExtractionRules)
 
 im_sync_ordner:
   # Gemeinsamer Speicher des Geräts: Documents/GewerbePro-Sync/ (nicht app-eigen).
@@ -243,8 +241,9 @@ loeschung: >-
   Rückfrage aufräumen. Erzeugte PDFs können unter Einstellungen entfernt werden.
   Die handschriftliche Unterschrift wird nie im Datensatz gespeichert, nur im
   Quittungs-PDF.
-  Löschen beim Lizenzserver: Beim Lizenzserver liegen nur dein Lizenzschlüssel und die
-  zufällige Gerätekennung der App, solange die Lizenz gilt. „Lizenz lösen“ in der App
+  Löschen beim Lizenzserver: Beim Lizenzserver liegen dein Lizenzschlüssel, die
+  zufällige Gerätekennung der App und die beim Kauf hinterlegten Angaben
+  (E-Mail-Adresse, Bestellnummer), solange die Lizenz gilt. „Lizenz lösen“ in der App
   entfernt die Gerätebindung auch auf dem Server. Die Löschung aller Lizenzdaten kannst
   du jederzeit über fehlerfuchs.eu/datenschutz/loeschantrag/ oder per E-Mail an
   admin@fehlerfuchs.eu verlangen; die Lizenz ist danach nicht mehr nutzbar.
@@ -255,7 +254,10 @@ besonderheiten: >-
   erzeugt wird am PC. Die Erfassung läuft offline; Internet braucht die App nur für
   die Lizenz – dabei gehen Lizenzschlüssel, eine zufällige Gerätekennung, App-Name,
   Plattform und der feste Text „Companion“ an den FehlerFuchs-Lizenzserver, keine
-  Kundendaten. Ein Benutzerkonto gibt es nicht. Der Austausch mit dem PC läuft nur
+  Kundendaten. Ein Benutzerkonto gibt es nicht. Die Daten der App gehen weder in eine
+  Cloud-Sicherung von Android noch beim Gerätewechsel mit (Beleg:
+  android/app/src/main/AndroidManifest.xml, allowBackup="false", dataExtractionRules;
+  am Release-AAB 1.0.1 geprüft). Der Austausch mit dem PC läuft nur
   lokal: als Datei an einem Ort, den der Nutzer wählt, oder über das USB-Kabel. Am
   Kabel kann GewerbePro die Erfassungen anfordern; die App legt sie dann ohne
   Handgriff am Handy verschlüsselt in den Sync-Ordner, solange sie im Vordergrund
