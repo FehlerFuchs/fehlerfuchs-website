@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-10T08:34:39+02:00",
+  "generiert": "2026-10-13T21:28:52+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "aktionen": [
     {
@@ -13,7 +13,7 @@
       "zeigen_bis": "2027-12-31",
       "bild": "/img/aktion-loop-geschenk.svg",
       "bild_alt": "Ein Fuchs packt ein Geschenk aus; Konfetti fliegt, eine Urkunde erscheint.",
-      "vorspann": "SnapFuchs ist seit dem 20. Juli im Play Store: ein Dokumenten-Scanner für Android, der komplett auf deinem Gerät arbeitet. Zur Veröffentlichung verschenke ich 100 Codes für die Pro-Fassung – an Menschen, die so etwas tatsächlich brauchen und mir sagen, was noch fehlt.",
+      "vorspann": "SnapFuchs ist seit dem 20. Juli im Play Store: ein Dokumenten-Scanner für Android, der komplett auf deinem Gerät arbeitet. Zur Veröffentlichung habe ich 100 Codes für die Pro-Fassung verschenkt – an Menschen, die so etwas tatsächlich brauchen und mir sagen, was noch fehlt.",
       "was_es_gibt": "einen Code für SnapFuchs Pro – dauerhaft, kein Abo",
       "bitte": {
         "titel": "Eine Bitte zum Schluss",

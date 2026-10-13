@@ -167,12 +167,12 @@ loeschung: >-
   hinterlegte Adresse) werden E-Mail-Adresse und alle Geräteaktivierungen der Lizenz
   gelöscht; die Lizenz wird gesperrt und bleibt nur noch mit Schlüssel und Bestellnummer
   bis zum Ende der Regelverjährung (31.12. des dritten Jahres nach dem Jahr der
-  Löschung) gespeichert, danach wird sie automatisch gelöscht. Roh-Aufrufe und
-  Ereignis-Kennungen zu dieser Adresse bzw. den Bestellnummern der Lizenz werden dabei
-  sofort mit gelöscht. Ohne Lizenzschlüssel gibt es den Weg „nur E-Mail“: Der
+  Löschung) gespeichert, danach wird sie automatisch gelöscht. Ereignis-Kennungen und
+  technische Roh-Aufrufe zu den Bestellnummern der Lizenz werden dabei sofort mit
+  gelöscht. Ohne Lizenzschlüssel gibt es den Weg „nur E-Mail“: Der
   Bestätigungslink geht an genau die eingegebene Adresse; nach Bestätigung werden
-  Tester-Eintrag, Wunsch-Einsendungen und Roh-Aufrufe des Zahlungsanbieters zu dieser
-  Adresse gelöscht und bei Aktionen Anzeigename und E-Mail-Adresse entfernt. Eine
+  Tester-Eintrag und Wunsch-Einsendungen zu dieser Adresse gelöscht und bei Aktionen
+  Anzeigename und E-Mail-Adresse entfernt. Eine
   Beta-Tester-Lizenz dieser Adresse wird wie oben gesperrt; gekaufte Lizenzen bleiben auf
   diesem Weg unberührt (dafür gilt der Weg mit Schlüssel oder Bestellnummer). Das Antragsprotokoll
   (Datum, Ergebnis, zufällige Kennung) wird nach 3 Jahren gelöscht. Die

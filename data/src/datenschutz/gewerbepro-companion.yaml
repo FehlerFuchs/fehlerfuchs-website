@@ -9,6 +9,7 @@ fassung: "1.0.1"
 # Fassung 1.0.1 eingetragen 08.10.2026 nach VORLAGE [FF_29-1] 15:14 (Kopplung Sync v3; Matthias „A: App + Steckbrief“, Logbuch #5343). Drei Lücken nach LIEFERUNG [FF_29-1] 15:46 geschlossen.
 # Ergänzt 10.10.2026 von [FF_29-1] (Eigentümer, B9): Branding-Liste in auf_dem_geraet um Telefon und Inhaber angeglichen, gegen den Code von GewerbePro 1.1.1 geprüft (Hinweis 2 aus PRÜFBERICHT [FF_10] #5804, Entscheidung Matthias „A“, AUFTRAG [FF_00] 10.10.2026).
 # Ergänzt 13.10.2026 von [FF_29-1] (Eigentümer, B9): loeschung – Lizenzserver-Angaben um die beim Kauf hinterlegten Angaben (E-Mail-Adresse, Bestellnummer) ergänzt, vorher im Quellstand des Lizenzservers geprüft (11_Lizenzserver/adapter, 5b8525b); Eintrag „keine Cloud-Sicherung …“ mit leerem Ort aus auf_dem_geraet nach besonderheiten verschoben (Webseiten-Sichtung Nr. 2 und 4, Entscheidung Matthias „A“, #5933, AUFTRAG [FF_00] 13.10.2026).
+# Ergänzt 13.10.2026 abends von [FF_29-1] (Eigentümer, B9): loeschung – Löschsatz klargestellt (E-Mail-Adresse und Geräteaktivierungen werden gelöscht, Lizenz gesperrt, Schlüssel und Bestellnummer bis zum Ende der Verjährungsfrist), vorher im Quellstand des Lizenzservers geprüft (11_Lizenzserver/adapter/app/dsgvo.py, 5b8525b); Webseiten-Sichtung Abend Nr. 2, Entscheidung Matthias „A“, AUFTRAG [FF_00] 13.10.2026, 21:23.
 # Ersetzt die Fassungen vom 17.08. (lokal) und 20.08. (00-1). Jede Angabe ist im
 # Code oder am Gerät gemessen; die Belege stehen je Eintrag.
 # Geschäfts-/Kundendaten bleiben auf dem Gerät bzw. gehen nur an den eigenen PC.
@@ -244,9 +245,10 @@ loeschung: >-
   Löschen beim Lizenzserver: Beim Lizenzserver liegen dein Lizenzschlüssel, die
   zufällige Gerätekennung der App und die beim Kauf hinterlegten Angaben
   (E-Mail-Adresse, Bestellnummer), solange die Lizenz gilt. „Lizenz lösen“ in der App
-  entfernt die Gerätebindung auch auf dem Server. Die Löschung aller Lizenzdaten kannst
-  du jederzeit über fehlerfuchs.eu/datenschutz/loeschantrag/ oder per E-Mail an
-  admin@fehlerfuchs.eu verlangen; die Lizenz ist danach nicht mehr nutzbar.
+  entfernt die Gerätebindung auch auf dem Server. Die Löschung von E-Mail-Adresse und
+  Geräteaktivierungen kannst du jederzeit über fehlerfuchs.eu/datenschutz/loeschantrag/
+  oder per E-Mail an admin@fehlerfuchs.eu verlangen; die Lizenz wird dann gesperrt,
+  Schlüssel und Bestellnummer bleiben bis zum Ende der Verjährungsfrist gespeichert.
   „Kopplung lösen“ entfernt den Kopplungsschlüssel vom Handy.
 
 besonderheiten: >-

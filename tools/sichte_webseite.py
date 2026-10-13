@@ -8,10 +8,11 @@ lässt. Das Lesen auf Rechtschreibung und Inhalt macht danach die Routine
 „[FF_10] Webseiten-Sichtung" selbst — dieses Werkzeug liefert ihr den Stoff.
 
 Aufruf (aus dem Ordner website/):
-    py -3 tools/sichte_webseite.py                 # schreibt nach ..\\99_Logs\\Webseiten-Sichtung\\<Datum>\\
+    py -3 tools/sichte_webseite.py                 # schreibt nach ..\\99_Logs\\Webseiten-Sichtung\\<Datum>_<HHMM>\\
     py -3 tools/sichte_webseite.py --basis URL     # andere Adresse (z. B. lokale Vorschau)
 
-Ergebnis im Tagesordner:
+Ergebnis im Laufordner (ein eigener Ordner je Lauf; ein zweiter Lauf am selben Tag
+überschreibt den ersten nicht, Sichtung 13.10. Abend Nr. 6, Entscheidung Matthias „A“):
     texte\\<seite>.txt   sichtbarer Text je Seite (zum Lesen)
     befunde.json         alle maschinellen Befunde
     bericht.md           dieselben Befunde, lesbar, dazu die Seitenliste
@@ -160,7 +161,10 @@ def main():
         basis = sys.argv[sys.argv.index("--basis") + 1].rstrip("/")
     host = urllib.parse.urlparse(basis).netloc
     heute = date.today()
-    ziel = AUSGABE / heute.isoformat()
+    jetzt = datetime.now()
+    ziel = AUSGABE / f"{jetzt:%Y-%m-%d_%H%M}"
+    if ziel.exists():  # zweiter Lauf in derselben Minute: Sekunden anhängen, nie überschreiben
+        ziel = AUSGABE / f"{jetzt:%Y-%m-%d_%H%M%S}"
     (ziel / "texte").mkdir(parents=True, exist_ok=True)
     befunde = []
 
@@ -330,7 +334,7 @@ def main():
     # „2026-09-27_SEO-Bewertung“ haben kein texte\ und ließen sonst alle Seiten als NEU
     # erscheinen (Sichtung 29.09., Befund 6, ENTSCHEIDUNG A #3787).
     vorher = sorted([p for p in AUSGABE.iterdir()
-                     if p.is_dir() and p.name < heute.isoformat() and (p / "texte").is_dir()], reverse=True)
+                     if p.is_dir() and p.name < ziel.name and (p / "texte").is_dir()], reverse=True)
     geaendert = []
     if vorher:
         alt = vorher[0] / "texte"

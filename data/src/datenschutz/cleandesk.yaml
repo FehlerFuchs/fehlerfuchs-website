@@ -3,6 +3,7 @@ name: FehlerFuchs CleanDesk
 stand: "2026-09-25"
 geprueft_von: 24_CleanDesk (Codex-Reparatur)
 fassung: "0.2.0 (csproj) – Entwicklungsstand, noch nicht veröffentlicht"
+# Nachtrag 13.10.2026 ([FF_10], Entscheidung Matthias über [FF_00], Webseiten-Sichtung Abendlauf Nr. 5): Pfeil „->“ zu „→“. Inhalt sonst unverändert, stand unverändert.
 
 # Windows-Desktop-Anwendung (.NET 8 / WPF, net8.0-windows). Im gesamten
 # Quellcode gibt es keinen einzigen Netzwerkaufruf; die csproj enthaelt
@@ -13,7 +14,7 @@ auf_dem_geraet:
   - was: Einstellungen (zu prüfende Ordner, Grenzwerte für groß und alt, max. Hash-Größe)
     wo: '%LOCALAPPDATA%\FehlerFuchs\CleanDesk\settings.json'
     beleg: src/CleanDesk/Services/Settings.cs (DataDir, SettingsPath)
-  - was: eigene Sortier-Regeln (Dateiendung -> Zielordner)
+  - was: eigene Sortier-Regeln (Dateiendung → Zielordner)
     wo: '%LOCALAPPDATA%\FehlerFuchs\CleanDesk\sortierregeln.json'
     beleg: src/CleanDesk/Services/RulesStore.cs
   - was: Berichte über die Funde; enthalten Dateinamen, vollständige Pfade,

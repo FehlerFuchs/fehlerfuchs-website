@@ -83,8 +83,8 @@ uebertragungen:
     beleg: lib/core/kontakt/kontakt_service.dart, lib/features/support/support_page.dart
   - wohin: Google Play (Play Billing)
     was: Kauf- bzw. Wiederherstellungsvorgang der Pro-Freischaltung; keine Meldungsinhalte
-    wann: beim Kauf und bei „Käufe wiederherstellen“
-    freiwillig: true
+    wann: beim App-Start (Abgleich des Kaufstatus), beim Kauf und bei „Käufe wiederherstellen“
+    freiwillig: false
     beleg: lib/consumer/pro_controller.dart (in_app_purchase)
   - wohin: firebaselogging.googleapis.com bzw. firebaselogging-pa.googleapis.com (Google)
     was: >-

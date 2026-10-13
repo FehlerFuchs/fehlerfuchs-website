@@ -3,6 +3,7 @@ name: Up2Date – FehlerFuchs Update-Helfer
 stand: "2026-09-25"
 geprueft_von: 31_Up2Date
 fassung: "1.0.0 (MVP: Tray, App-Erkennung, Versionsabgleich, Autostart, Feedback; noch nicht veröffentlicht)"
+# Nachtrag 13.10.2026 ([FF_10], Entscheidung Matthias über [FF_00], Webseiten-Sichtung Abendlauf Nr. 5): „tippt“ zu „klickt“ (Windows-Programm). Inhalt sonst unverändert, stand unverändert.
 
 # Geprüft wurde der Quellstand in 05_App/up2date (lib/), nicht die Beschreibung.
 
@@ -58,7 +59,7 @@ uebertragungen:
     was: die eingegebene Nachricht sowie – nur wenn angegeben – Name und E-Mail;
       auf ausdrücklichen Wunsch zusätzlich eine technische Diagnose
       (App-Version, Betriebssystem, Spracheinstellung), keine persönlichen Daten
-    wann: nur wenn der Nutzer im Feedback-Fenster aktiv auf „Senden“ tippt
+    wann: nur wenn der Nutzer im Feedback-Fenster aktiv auf „Senden“ klickt
     freiwillig: true
     beleg: lib/support.dart – POST an license.fehlerfuchs.eu/v1/contact (Paket http)
 
