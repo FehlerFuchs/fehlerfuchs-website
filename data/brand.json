@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-08T21:01:43+02:00",
+  "generiert": "2026-10-13T05:12:29+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "name": "FehlerFuchs",
   "slogan": "Einfach kleine Helfer.",
@@ -21,7 +21,7 @@
     },
     {
       "titel": "Fair",
-      "text": "werbefrei; das Grundlegende bleibt immer frei."
+      "text": "werbefrei; bei Apps mit kostenloser Fassung bleibt das Grundlegende frei."
     },
     {
       "titel": "Transparent",
