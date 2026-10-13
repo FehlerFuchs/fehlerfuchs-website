@@ -122,9 +122,9 @@ idee:
       ohne Konto, ohne Werbung – die Daten bleiben dort, wo sie hingehören: bei dir.
     - >-
       Es gibt kostenlose Apps – und einzelne Apps mit optionaler Pro-Version, die
-      noch individueller ist oder mehr Funktionen bietet. Wichtig ist mir aber: Das
-      Wesentliche, das man grundlegend braucht, steckt immer schon in der kostenlosen
-      Version. Natürlich soll FehlerFuchs Geld verdienen und meine Arbeit tragen. Aber
+      noch individueller ist oder mehr Funktionen bietet. Wichtig ist mir aber: Bei Apps
+      mit kostenloser Fassung steckt das Wesentliche, das man grundlegend braucht,
+      immer schon darin. Natürlich soll FehlerFuchs Geld verdienen und meine Arbeit tragen. Aber
       nicht mit Druck, künstlichen Abhängigkeiten oder dem Ziel, ein Monopol aufzubauen.
       Fair, schlank und auf Augenhöhe.
     - >-
@@ -254,7 +254,7 @@ werte_artikel:
         mehr gäbe.'
 - titel: Fair
   anker: wert-fair
-  unterzeile: Das Grundlegende bleibt frei. Wirklich. Für immer.
+  unterzeile: Wo es eine kostenlose Fassung gibt, bleibt das Grundlegende frei. Wirklich. Für immer.
   grund:
   - absatz: 'FehlerFuchs entsteht in meiner Freizeit, ohne [[Investoren|muster]], die Rendite sehen wollen. Genau
       deshalb geht das: Es gibt niemanden, der mich zwingt, aus dir mehr herauszuholen.'
@@ -271,8 +271,8 @@ werte_artikel:
     - absatz: FehlerFuchs macht das nicht mit.
     - liste:
       - '**Keine Werbung.** Nirgends, auch nicht „dezent“.'
-      - '**Das Grundlegende bleibt kostenlos.** Was eine App im Kern können muss, um ihr Problem zu lösen, kostet
-        nichts – und daran ändert sich nachträglich auch nichts. Keine Funktion, die heute frei ist, wird dir morgen
+      - '**Das Grundlegende bleibt kostenlos, wo es eine kostenlose Fassung gibt.** Was eine App im Kern können muss, um ihr Problem zu lösen, kostet
+        dann nichts – und daran ändert sich nachträglich auch nichts. Keine Funktion, die heute frei ist, wird dir morgen
         weggenommen, um sie dir zurückzuverkaufen.'
       - '**Pro ist ein Extra, kein Erpressungsmittel.** Einzelne Helfer haben eine Pro-Fassung für Leute, die mehr
         brauchen. Die kaufst du **einmal**, und sie gehört dir. Kein Abo, das still weiterläuft, keine jährliche
