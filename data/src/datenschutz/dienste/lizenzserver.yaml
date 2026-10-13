@@ -1,8 +1,8 @@
 slug: lizenzserver
 name: FehlerFuchs Lizenzserver
-stand: "2026-10-07"
+stand: "2026-10-13"
 geprueft_von: 11_Lizenzserver
-fassung: "Adapter-Stand 20.07.2026 (kein Versionsschema); Admin-API 1.0; mit Löschlauf, Wunscherfüller und Löschantrag (live seit 01.10.2026; Weg „nur E-Mail“ und Frist für Ereignis-Kennungen seit 03.10.2026; Datensicherung mit Löschjournal seit 06.10.2026)"
+fassung: "Adapter-Stand 20.07.2026 (kein Versionsschema); Admin-API 1.0; mit Löschlauf, Wunscherfüller und Löschantrag (live seit 01.10.2026; Weg „nur E-Mail“ und Frist für Ereignis-Kennungen seit 03.10.2026; Datensicherung mit Löschjournal seit 06.10.2026; Roh-Aufrufe nur technische Angaben seit 13.10.2026)"
 
 # Kein Endnutzer-Programm, sondern ein Server-Dienst. Daten verlassen das Gerät
 # des Nutzers zwangsläufig, sobald eine App den Dienst anspricht.
@@ -20,9 +20,9 @@ auf_dem_geraet:
   - was: Geräte-/Aktivierungsdaten je belegtem Platz (Gerätekennung, Gerätename, Plattform, Zeitpunkte)
     wo: Lizenzdatenbank auf dem Server
     beleg: adapter/app/main.py, Funktion activate; adapter/app/keygen_client.py, activate_machine
-  - was: vollständige Aufrufe des Zahlungsanbieters (enthalten Bestell- und Käuferangaben, u. a. E-Mail)
-    wo: Datenbank auf dem Server; Löschung nach 90 Tagen
-    beleg: Tabelle provider_requests; adapter/app/db.py, record_request und cleanup
+  - was: technische Angaben der Aufrufe des Zahlungsanbieters (Bestellnummer, Produkt, Ereignis, Vorgang, Zahlart, Menge, Währung, Zeitpunkt); keine Namen, Anschrift, Telefonnummer, E-Mail-Adresse, Lizenzschlüssel und keine IP-Adresse
+    wo: Datenbank auf dem Server; Löschung nach 30 Tagen
+    beleg: Tabelle provider_requests; adapter/app/db.py, ROH_FELDER, record_request und cleanup
   - was: Ereignis-Kennungen zum Schutz vor doppelter Verarbeitung (Bestellnummer, Ereignisart, Vorgangsnummer)
     wo: Datenbank auf dem Server; Löschung nach 90 Tagen, beim Löschantrag zur Lizenz sofort
     beleg: Tabelle provider_events; adapter/app/db.py, record_event, cleanup und dsgvo_interne_daten_loeschen
@@ -144,9 +144,10 @@ absturzberichte: false
 daten_an_dritte_verkauft: false
 
 loeschung: >-
-  Ein täglicher Aufräumlauf setzt feste Fristen um. Die Roh-Aufrufe des
-  Zahlungsanbieters werden nach 90 Tagen endgültig gelöscht, ebenso die Ereignis-Kennungen
-  (Bestellnummer, Ereignisart, Vorgangsnummer). Bei Tester-Registrierungen
+  Ein täglicher Aufräumlauf setzt feste Fristen um. Von den Aufrufen des
+  Zahlungsanbieters werden nur technische Angaben ohne Personenbezug gespeichert und nach
+  30 Tagen endgültig gelöscht. Die Ereignis-Kennungen (Bestellnummer, Ereignisart,
+  Vorgangsnummer) werden nach 90 Tagen gelöscht. Bei Tester-Registrierungen
   wird die IP-Adresse bereits nach 7 Tagen entfernt; nach 90 Tagen werden Name,
   Kundenbereich, Freitext und der Bezug zur Lizenz gelöscht und die E-Mail-Adresse durch
   eine gesalzene Einweg-Kennung ersetzt. Das Salz ist ein Zufallsgeheimnis, das
@@ -216,13 +217,11 @@ offene_fragen: >-
   Auftragsverarbeitung mit IONOS besteht (Entscheidung Matthias 26.09.2026, 17:30, Logbuch #3355). Rechtsgrundlage der Lizenzverarbeitung: Art. 6 Abs. 1 lit. b
   bzw. lit. f.
   (2) Verträge und Steuerrecht: Ob mit dem Zahlungsanbieter und dem Postfachanbieter
-  Vereinbarungen zur Auftragsverarbeitung bestehen, ist von hier aus unbekannt. Ebenso
-  ungeprüft ist, ob der Zahlungsanbieter in seinen Aufrufen die IP-Adresse des Käufers
-  mitsendet – bis zur Löschung nach 90 Tagen liegt der Roh-Aufruf vor, die einzelnen
-  Feldinhalte wurden dafür nicht ausgewertet. Ob im Roh-Aufruf etwas steckt, das nur dort
-  existiert und für die Buchführung gebraucht würde, klärt abschließend der Steuerberater;
-  da der Zahlungsanbieter als Merchant of Record selbst verkauft und die Bestellung dort
-  geführt wird, spricht aus technischer Sicht nichts gegen die 90 Tage.
+  Vereinbarungen zur Auftragsverarbeitung bestehen, ist von hier aus unbekannt.
+  Gemessen am 13.10.2026: Der Zahlungsanbieter sendet keine IP-Adresse. Seit dem
+  13.10.2026 speichert der Lizenzserver von seinen Aufrufen nur technische Angaben
+  (30 Tage); Namen, Anschrift, E-Mail und Lizenzschlüssel werden nicht mehr gespeichert,
+  ältere Einträge wurden gekürzt.
   (3) Die Fristen sind aus dem Code belegt (adapter/app/db.py, cleanup). Der tägliche
   Aufräumlauf ist auf dem Server eingeplant und läuft: gemessen am 03.10.2026
   (/etc/cron.d/ff-license-cleanup, täglich 03:30 UTC, das ist 05:30 Uhr deutscher
