@@ -1,6 +1,6 @@
 slug: belegwerk
 name: BelegWerk
-stand: "2026-08-23"
+stand: "2026-10-14"
 geprueft_von: 28_BelegWerk
 fassung: "0.9.0-rc.16 – lokaler, nicht veröffentlichter Release Candidate"
 
@@ -110,8 +110,8 @@ absturzberichte: false
 daten_an_dritte_verkauft: false
 
 loeschung: >-
-  Die Deinstallation entfernt das Programm, nicht aber absichtlich die
-  Benutzerdokumente. Konfiguration, Journal, Aktivitätslog, Zähler, Drucklog,
+  Die Deinstallation entfernt das Programm, die Benutzerdokumente aber bewusst
+  nicht. Konfiguration, Journal, Aktivitätslog, Zähler, Drucklog,
   Stempelvorlagen, Vorschau-Cache und Quarantäne können im lokalen
   BelegWerk-Benutzerordner gelöscht werden. Im Eingang können Belege nach
   deutlicher Rückfrage samt Sidecars und verknüpften Arbeitskopien dauerhaft

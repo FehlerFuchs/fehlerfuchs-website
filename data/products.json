@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-13T05:12:29+02:00",
+  "generiert": "2026-10-15T11:15:24+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1027,7 +1027,7 @@
           ],
           "public": true,
           "emphasis": true,
-          "summary": "Vollversion: E-Rechnung, E-Mail-Versand, PDFuchs, Companion-App, Branding, Exporte, Datenimport, optional OCR. Einführungspreis 89,00 € statt regulär 129,00 € (einmalig, kein Abo), 3 Arbeitsplätze für Desktop und Companion-App zusammen. Kauf über Digistore24, 30 Tage Rückgaberecht.",
+          "summary": "Vollversion: E-Rechnung, E-Mail-Versand, PDFuchs, Companion-App, Branding, Datenimport, optional OCR. Einführungspreis 89,00 € statt regulär 129,00 € (einmalig, kein Abo), 3 Arbeitsplätze für Desktop und Companion-App zusammen. Kauf über Digistore24, 30 Tage Rückgaberecht.",
           "price": {
             "model": "einmalig",
             "amount": 89,

@@ -78,7 +78,7 @@ dienste:
     aufbewahrung: >-
       Lizenz und zugehörige Gerätekennung, solange die Lizenz gilt.
       Kaufabwicklung und Rechnungsdaten liegen beim Zahlungsdienstleister,
-      nicht hier. Wunsch-Einsendungen 90 Tage; Aktionsteilnahme: Name und
+      nicht hier. Wunsch-Einsendungen 90 Tage; Aktionsteilnahme: Anzeigename und
       E-Mail 90 Tage nach Vergabe.
       Zur Sicherheit erstellen wir jeden Tag eine verschlüsselte Sicherung der
       Datenbank unseres Lizenzservers. Wir bewahren sie 14 Tage auf dem Server und
@@ -102,7 +102,7 @@ dienste:
       nur einen Zählerstand ab – ohne Angaben von dir. Kontakt- und
       Supportanfragen werden als E-Mail weitergeleitet und nicht gespeichert.
       Wunsch-Einsendungen werden nach 90 Tagen gelöscht; bei Aktionen werden
-      Name und E-Mail-Adresse 90 Tage nach der Vergabe entfernt.
+      Anzeigename und E-Mail-Adresse 90 Tage nach der Vergabe entfernt.
 
   # Neu gefasst 26.09.2026 (Befund 6 Webseiten-Sichtung, Entscheidung Matthias A): gemessener
   # Stand von [FF_11-2] Relaisserver (ERGEBNIS 16:45, am laufenden Server und im Quellcode).
@@ -159,7 +159,7 @@ dienste:
     hinweis: >-
       Zum zuverlässigen Wecken der App aus dem Ruhezustand kommt auf Android
       zusätzlich ein inhaltsloser Weck-Push über Google Firebase (siehe Eintrag
-      „Weck-Push“). Wer Benachrichtigungen aus lässt, spricht beides nicht an.
+      „Weck-Push“). Wer Benachrichtigungen ausgeschaltet lässt, spricht beides nicht an.
 
   # Seit dem FCM-Livegang 13.08.2026 (Android). Bewusst als eigener Eintrag neben
   # 'push'/'relaisserver' (Entscheidung Matze 17.08.2026, E1): Betreiber der Registry

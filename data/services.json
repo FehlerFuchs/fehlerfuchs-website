@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-13T21:34:02+02:00",
+  "generiert": "2026-10-15T11:15:24+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "dienste": [
     {
@@ -16,7 +16,7 @@
         "Kennung des Geräts, auf dem freigeschaltet wird",
         "Angaben aus Formularen, die du abschickst (Name, E-Mail, Nachricht, Anhänge)"
       ],
-      "aufbewahrung": "Lizenz und zugehörige Gerätekennung, solange die Lizenz gilt. Kaufabwicklung und Rechnungsdaten liegen beim Zahlungsdienstleister, nicht hier. Wunsch-Einsendungen 90 Tage; Aktionsteilnahme: Name und E-Mail 90 Tage nach Vergabe. Zur Sicherheit erstellen wir jeden Tag eine verschlüsselte Sicherung der Datenbank unseres Lizenzservers. Wir bewahren sie 14 Tage auf dem Server und 30 Tage als verschlüsselte Kopie auf unserem eigenen Speicher auf. Löschen wir deine Daten, sind sie spätestens nach 30 Tagen auch aus allen Sicherungen verschwunden. Müssten wir einmal eine Sicherung zurückspielen, löschen wir deine Daten dabei sofort erneut.",
+      "aufbewahrung": "Lizenz und zugehörige Gerätekennung, solange die Lizenz gilt. Kaufabwicklung und Rechnungsdaten liegen beim Zahlungsdienstleister, nicht hier. Wunsch-Einsendungen 90 Tage; Aktionsteilnahme: Anzeigename und E-Mail 90 Tage nach Vergabe. Zur Sicherheit erstellen wir jeden Tag eine verschlüsselte Sicherung der Datenbank unseres Lizenzservers. Wir bewahren sie 14 Tage auf dem Server und 30 Tage als verschlüsselte Kopie auf unserem eigenen Speicher auf. Löschen wir deine Daten, sind sie spätestens nach 30 Tagen auch aus allen Sicherungen verschwunden. Müssten wir einmal eine Sicherung zurückspielen, löschen wir deine Daten dabei sofort erneut.",
       "produkte": [
         "mobilereport",
         "mobilereport-enterprise",
@@ -31,7 +31,7 @@
         "up2date",
         "dateiwaechter"
       ],
-      "hinweis": "Beim Öffnen der Wunscherfüller- und der Aktionsseite fragt die Website nur einen Zählerstand ab – ohne Angaben von dir. Kontakt- und Supportanfragen werden als E-Mail weitergeleitet und nicht gespeichert. Wunsch-Einsendungen werden nach 90 Tagen gelöscht; bei Aktionen werden Name und E-Mail-Adresse 90 Tage nach der Vergabe entfernt."
+      "hinweis": "Beim Öffnen der Wunscherfüller- und der Aktionsseite fragt die Website nur einen Zählerstand ab – ohne Angaben von dir. Kontakt- und Supportanfragen werden als E-Mail weitergeleitet und nicht gespeichert. Wunsch-Einsendungen werden nach 90 Tagen gelöscht; bei Aktionen werden Anzeigename und E-Mail-Adresse 90 Tage nach der Vergabe entfernt."
     },
     {
       "id": "relaisserver",
@@ -70,7 +70,7 @@
       "produkte": [
         "orgafuchs"
       ],
-      "hinweis": "Zum zuverlässigen Wecken der App aus dem Ruhezustand kommt auf Android zusätzlich ein inhaltsloser Weck-Push über Google Firebase (siehe Eintrag „Weck-Push“). Wer Benachrichtigungen aus lässt, spricht beides nicht an."
+      "hinweis": "Zum zuverlässigen Wecken der App aus dem Ruhezustand kommt auf Android zusätzlich ein inhaltsloser Weck-Push über Google Firebase (siehe Eintrag „Weck-Push“). Wer Benachrichtigungen ausgeschaltet lässt, spricht beides nicht an."
     },
     {
       "id": "fcm",
