@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-15T11:15:24+02:00",
+  "generiert": "2026-10-15T21:09:52+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -2541,7 +2541,7 @@
       "faq": [
         {
           "question": "Funktioniert die App auch ohne Internet – auf der Baustelle, im Keller oder in der Halle?",
-          "answer": "Ja, im Kern. Meldungen erfassen, fotografieren und das PDF erzeugen läuft vollständig offline auf dem Gerät. Nur zwei Dinge brauchen eine Verbindung: der Versand (die App übergibt die fertige E-Mail an Ihr E-Mail-Programm, das sie verschickt, sobald Sie wieder online sind) und die einmalige Lizenz-Freischaltung. Danach läuft die App im Feld bis zu 7 Tage offline weiter (Karenz); erst dann ist wieder eine kurze Online-Prüfung nötig."
+          "answer": "Ja, im Kern. Meldungen erfassen, fotografieren und das PDF erzeugen läuft vollständig offline auf dem Gerät. Nur zwei Dinge brauchen eine Verbindung: der Versand (die App übergibt die fertige E-Mail an Ihr E-Mail-Programm, das sie verschickt, sobald Sie wieder online sind) und die Lizenz-Freischaltung samt kurzer Prüfung. Danach läuft die App im Feld bis zu 7 Tage offline weiter (Karenz); erst dann ist wieder eine kurze Online-Prüfung nötig."
         },
         {
           "question": "Können wir die App in unserem eigenen Firmen-Branding bekommen?",
@@ -4466,7 +4466,7 @@
       "fullName": "FehlerFuchs DateiWächter",
       "kind": "produkt",
       "tagline": "Windows-Tray-Tool: überwacht Ordner und verschiebt abgelegte Dateien mit Prüfsumme sicher ans Ziel – plus ein Aufräum-Modul mit Vorschau und Bestätigung. Kostenlos, kein Konto, kein Tracking.",
-      "description": "Leg die Datei ab – um den Rest kümmert sich der Fuchs. DateiWächter beobachtet beliebig viele Ordner und bringt alles, was dort landet, sicher ans Ziel: zweite Platte, Netzlaufwerk, NAS. Sicher heißt wirklich sicher – erst kopieren, dann eine SHA256-Prüfsumme über Quelle und Ziel, und das Original nur löschen, wenn beide identisch sind; ist das Ziel offline, bleibt die Datei liegen. Das Aufräum-Modul räumt benutzer-level auf (Temp, Papierkorb, Caches) – erst Vorschau, dann Löschen nur nach Bestätigung, nie Systempfade. In Entwicklung – noch kein öffentlicher Download.",
+      "description": "Leg die Datei ab – um den Rest kümmert sich der Fuchs. DateiWächter beobachtet beliebig viele Ordner und bringt alles, was dort landet, sicher ans Ziel: zweite Platte, Netzlaufwerk, NAS. Sicher heißt wirklich sicher – erst kopieren, dann eine SHA256-Prüfsumme über Quelle und Ziel, und das Original nur löschen, wenn beide identisch sind; ist das Ziel offline, bleibt die Datei liegen. Das Aufräum-Modul räumt auf Benutzerebene auf (Temp, Papierkorb, Caches) – erst Vorschau, dann Löschen nur nach Bestätigung, nie Systempfade. In Entwicklung – noch kein öffentlicher Download.",
       "audience": [
         "privat",
         "selbststaendige",

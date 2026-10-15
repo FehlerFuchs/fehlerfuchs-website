@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-15T11:15:24+02:00",
+  "generiert": "2026-10-15T21:09:52+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -375,7 +375,7 @@
         },
         {
           "name": "Löschen im Aufräum-Modul",
-          "wofuer": "nur benutzer-level, Whitelist, NUR nach Analyse und ausdrücklicher Bestätigung; nie System-/Nutzerdokumente/Projektdaten"
+          "wofuer": "nur auf Benutzerebene, Whitelist, NUR nach Analyse und ausdrücklicher Bestätigung; nie System-/Nutzerdokumente/Projektdaten"
         },
         {
           "name": "Per-user Autostart-Eintrag (HKCU\\...\\Run, non-admin), damit der Wächter mit Windows startet"
@@ -417,7 +417,7 @@
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
       "loeschung": "Der Wächter selbst erhebt keine personenbezogenen Daten; Ausnahme ist das freiwillige Support-Formular. Konfiguration und Protokolldateien liegen lokal; der Deinstaller fragt, ob sie mit entfernt werden sollen (Vorgabe: behalten). Protokolle werden ohnehin nach 30 Tagen automatisch gelöscht. Die verschobenen Dateien sind die eigenen Dateien des Nutzers und bleiben beim Nutzer (nur lokal bzw. auf das eigene Netzlaufwerk verschoben).",
-      "besonderheiten": "Kernversprechen: „Deine Dateien verlassen deinen Rechner nicht.“ Der Wächter verschiebt VERIFIZIERT (kopieren → SHA-256 von Quelle und Ziel vergleichen → erst dann Quelle löschen); bei Abweichung oder nicht erreichbarem Ziel bleibt die Quelle erhalten. Gelöscht wird bevorzugt in den Papierkorb. Das Aufräum-Modul löscht ausschließlich benutzer-level Kandidaten (Temp/Papierkorb/Caches) nach Analyse und Bestätigung, Whitelist-basiert, niemals Systempfade und niemals Nutzerdokumente. Keine Telemetrie – bewusst entschieden am 08.08.2026. Die pauschale Aussage „keine Cloud, keine Telemetrie“ wird auf der Produktseite bewusst präzisiert, weil die abschaltbare Versionsprüfung eine Verbindung darstellt. Präzisierung zur Handy-Verbindung (seit v0.4): „Deine Dateien verlassen deinen Rechner nicht“ gilt für den Wächter-/Aufräum-Betrieb; die Handy-Verbindung überträgt Dateien nur, wenn der Nutzer sie ausdrücklich koppelt und sendet/empfängt – dann Ende-zu-Ende verschlüsselt über einen inhaltsblinden Vermittlungsdienst oder direkt im lokalen Netz. Empfang und Direktweg sind Opt-in.",
+      "besonderheiten": "Kernversprechen: „Deine Dateien verlassen deinen Rechner nicht.“ Der Wächter verschiebt VERIFIZIERT (kopieren → SHA-256 von Quelle und Ziel vergleichen → erst dann Quelle löschen); bei Abweichung oder nicht erreichbarem Ziel bleibt die Quelle erhalten. Gelöscht wird bevorzugt in den Papierkorb. Das Aufräum-Modul löscht ausschließlich Kandidaten auf Benutzerebene (Temp/Papierkorb/Caches) nach Analyse und Bestätigung, Whitelist-basiert, niemals Systempfade und niemals Nutzerdokumente. Keine Telemetrie – bewusst entschieden am 08.08.2026. Die pauschale Aussage „keine Cloud, keine Telemetrie“ wird auf der Produktseite bewusst präzisiert, weil die abschaltbare Versionsprüfung eine Verbindung darstellt. Präzisierung zur Handy-Verbindung (seit v0.4): „Deine Dateien verlassen deinen Rechner nicht“ gilt für den Wächter-/Aufräum-Betrieb; die Handy-Verbindung überträgt Dateien nur, wenn der Nutzer sie ausdrücklich koppelt und sendet/empfängt – dann Ende-zu-Ende verschlüsselt über einen inhaltsblinden Vermittlungsdienst oder direkt im lokalen Netz. Empfang und Direktweg sind Opt-in.",
       "vorhandener_text": "",
       "offene_fragen": "1) Feinabgleich der genauen Feldliste der Support-Diagnosedatei (Konzept §7) gegen die Implementierung ist erledigt; bei künftigen Änderungen hier nachziehen. 2) Der Handy-seitige Gegenpart (35-1_DateiWächterMobil, Slug „dateiwaechter-mobil“) führt einen eigenen Steckbrief; dort ist zusätzlich Google Play Billing (Pro-Einmalkauf) zu berücksichtigen – betrifft den PC-Steckbrief NICHT (auf dem PC kein Kauf, keine Lizenzprüfung).",
       "art": "anwendung"
@@ -2355,7 +2355,7 @@
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
       "loeschung": "Es gibt kein Nutzerkonto und keine serverseitig gespeicherten Nutzerdaten. Alle lokalen Daten (Lernstand, Pakete, Installations-ID) werden mit der Deinstallation der App entfernt. Freiwillige Meldungen enthalten keinen Personenbezug; serverseitig werden sie ohne volle IP und nur kurz aufbewahrt. Wer seinen Lernstand sichern will, exportiert eine lokale Datei.",
-      "besonderheiten": "Kostenpflichtige Lern-App für die Feuerwehr-Ausbildung. Grundsatz: was nicht erhoben wird, kann nicht verloren gehen – kein Konto, kein Login, kein Analytics, keine Werbe-ID. Lernstand bleibt auf dem Gerät; der Server ist Komfort, keine Voraussetzung (offline-first). Inhaltspakete sind Ed25519-signiert; die App lädt keinen ausführbaren Code nach. Jede Aussage trägt ihre Fundstelle mit Ausgabestand und Abrufdatum sowie einen sichtbaren Prüfvermerk (durch KI geprüft / durch Autor / durch die Community geprüft) – das sind Angaben zum Inhalt, keine Nutzerdaten.",
+      "besonderheiten": "Kostenpflichtige Lern-App für die Feuerwehr-Ausbildung. Grundsatz: was nicht erhoben wird, kann nicht verloren gehen – kein Konto, kein Login, kein Analytics, keine Werbe-ID. Lernstand bleibt auf dem Gerät; der Server ist Komfort, keine Voraussetzung (offline-first). Inhaltspakete sind Ed25519-signiert; die App lädt keinen ausführbaren Code nach. Jede Aussage trägt ihre Fundstelle mit Ausgabestand und Abrufdatum sowie einen sichtbaren Prüfvermerk (durch KI / durch den Autor / durch die Community geprüft) – das sind Angaben zum Inhalt, keine Nutzerdaten.",
       "vorhandener_text": "",
       "offene_fragen": "1) Serverseitige Aufbewahrungsfristen des Meldungs-Endpunkts final festzurren. 2) Vor der ersten bezahlten Version einmal anwaltlich prüfen (Konzept 3/11). 3) Zugriffs-Logs des Korrekturkanals: durch den häufigen Abruf entstehen mehr Logzeilen als beim täglichen Katalogabruf – Kürzung der IP und kurze Aufbewahrung gelten unverändert, die Fristen gehören zu Punkt 1. 4) Community-Prüfvermerk: sobald Nutzer Bestätigungen abgeben können, ist zu klären, ob dabei über die zufällige Installations-ID hinaus etwas erhoben wird – Ziel ist nein. Erledigt am 02.08.2026: Vertriebsmodell dem Grunde nach entschieden (Kauf über Google Play Billing, freier Einstiegsblock) – betrifft nur Play-Kauf-/Widerrufsangaben, nicht die Datenerhebung. Der Zuschnitt der Kaufobjekte wurde am 03.08.2026 auf Blöcke umgestellt.",
       "art": "anwendung"

@@ -9,6 +9,7 @@ fassung: >-
   App gebaut und ausgeliefert (v0.5.4). Angaben am tatsächlichen Code geprüft. Windows-Desktop-Tool,
   überwiegend lokal; seit v0.4 zusätzlich eine optionale, ausdrücklich zu koppelnde Handy-Verbindung
   zum verschlüsselten Dateitransfer (siehe uebertragungen/besonderheiten).
+# Nachtrag 15.10.2026 ([FF_10], Entscheidung Matthias über [FF_00], Webseiten-Sichtung 15.10. Nr. 4): „benutzer-level“ zu „auf Benutzerebene“ (zwei Stellen). Inhalt sonst unverändert, stand unverändert.
 # Nachtrag 13.10.2026 ([FF_10], Entscheidung Matthias über [FF_00], Webseiten-Sichtung Abendlauf Nr. 5): Klammer sprachlich geglättet (Copy/SHA256 Quelle==Ziel). Inhalt sonst unverändert, stand unverändert.
 
 lokal_only: false   # Außenverbindungen: Versionsprüfung, Support (beide abschaltbar/nutzerinitiiert)
@@ -30,7 +31,7 @@ berechtigungen:
 - name: Lesen/Schreiben in den vom Nutzer AUSGEWÄHLTEN Quell- und Zielordnern (lokal und Netzlaufwerk/SMB,
     z. B. NAS)
 - name: Löschen im Aufräum-Modul
-  wofuer: nur benutzer-level, Whitelist, NUR nach Analyse und ausdrücklicher Bestätigung; nie System-/Nutzerdokumente/Projektdaten
+  wofuer: nur auf Benutzerebene, Whitelist, NUR nach Analyse und ausdrücklicher Bestätigung; nie System-/Nutzerdokumente/Projektdaten
 - name: Per-user Autostart-Eintrag (HKCU\...\Run, non-admin), damit der Wächter mit Windows startet
 - name: 'Handy-Verbindung (optional, nur nach Kopplung): ausgehende Verbindung zum Vermittlungsdienst;
     bei aktivem Direktweg zusätzlich ein lokaler TCP-Listener im eigenen Netz (LAN/USB-Tethering), non-admin'
@@ -89,7 +90,7 @@ besonderheiten: >-
   Kernversprechen: „Deine Dateien verlassen deinen Rechner nicht.“ Der Wächter verschiebt
   VERIFIZIERT (kopieren → SHA-256 von Quelle und Ziel vergleichen → erst dann Quelle löschen); bei Abweichung oder
   nicht erreichbarem Ziel bleibt die Quelle erhalten. Gelöscht wird bevorzugt in den
-  Papierkorb. Das Aufräum-Modul löscht ausschließlich benutzer-level Kandidaten
+  Papierkorb. Das Aufräum-Modul löscht ausschließlich Kandidaten auf Benutzerebene
   (Temp/Papierkorb/Caches) nach Analyse und Bestätigung, Whitelist-basiert, niemals
   Systempfade und niemals Nutzerdokumente. Keine Telemetrie – bewusst entschieden am
   08.08.2026. Die pauschale Aussage „keine Cloud, keine Telemetrie“ wird auf der Produktseite

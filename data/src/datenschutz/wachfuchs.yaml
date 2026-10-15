@@ -6,6 +6,7 @@ name: WachFuchs
 stand: "2026-09-25"
 geprueft_von: 34_WachFuchs
 fassung: "Entwicklungsphase – App-Gerüst steht (flutter create 03.08.2026, gemeinsamer Kern fehlerfuchs_kern eingebunden), noch kein Store-Eintrag. Angaben aus Architektur-Konzept (Entwurf 1, Abschnitt 7), ergänzt um die Entscheidungen vom 02.–04.08.2026 (Vertriebsmodell, Korrekturkanal, Prüfvermerke)"
+# Nachtrag 15.10.2026 ([FF_10], Entscheidung Matthias über [FF_00], Webseiten-Sichtung 15.10. Nr. 4): Klammer „durch KI / durch den Autor / durch die Community geprüft“. Inhalt sonst unverändert, stand unverändert.
 
 # App vorhanden, aber ohne Konto und ohne personenbezogene Daten.
 # Internet nur für Inhalts-Abruf und den freiwilligen Melde-Knopf.
@@ -68,7 +69,7 @@ besonderheiten: >-
   Lernstand bleibt auf dem Gerät; der Server ist Komfort, keine Voraussetzung (offline-first).
   Inhaltspakete sind Ed25519-signiert; die App lädt keinen ausführbaren Code nach.
   Jede Aussage trägt ihre Fundstelle mit Ausgabestand und Abrufdatum sowie einen sichtbaren
-  Prüfvermerk (durch KI geprüft / durch Autor / durch die Community geprüft) – das sind
+  Prüfvermerk (durch KI / durch den Autor / durch die Community geprüft) – das sind
   Angaben zum Inhalt, keine Nutzerdaten.
 
 vorhandener_text: ""

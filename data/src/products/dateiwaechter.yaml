@@ -12,7 +12,7 @@ description: >-
   zweite Platte, Netzlaufwerk, NAS. Sicher heißt wirklich sicher – erst
   kopieren, dann eine SHA256-Prüfsumme über Quelle und Ziel, und das Original
   nur löschen, wenn beide identisch sind; ist das Ziel offline, bleibt die Datei
-  liegen. Das Aufräum-Modul räumt benutzer-level auf (Temp, Papierkorb, Caches)
+  liegen. Das Aufräum-Modul räumt auf Benutzerebene auf (Temp, Papierkorb, Caches)
   – erst Vorschau, dann Löschen nur nach Bestätigung, nie Systempfade. In
   Entwicklung – noch kein öffentlicher Download.
 audience: [privat, selbststaendige, unternehmen]
