@@ -213,7 +213,7 @@ meldungen:
       Monat umschalten. Neu ist eine Tagesansicht im Widget: Dienste, Termine und Notizen als
       Liste mit Uhrzeit und wem es gehört. Der Sync verbindet sich nach längeren Ausfällen von
       selbst wieder, und entfernte Geräte erfahren es klar und verbinden sich ohne Datenverlust
-      neu. Die Windows-Fassung 1.9.4 folgt.
+      neu.
 
   # PDFuchs Reader 1.2.1. Play-Store-App: kein Release im Modell. Live seit
   # 25.09.2026 10:09 (Produktion, 100 %), belegt durch die P5-Meldung von [13]
@@ -571,7 +571,7 @@ meldungen:
     titel: "HaushaltsManager 1.1.1: Fehlerbehebung Auswertungen"
     text: >-
       Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt
-      von Hand erfasste Strom-Zählerstände; vorher wurde ohne PowerFox oder Enpal 0 kWh
+      von Hand erfasste Strom-Zählerstände; vorher wurde ohne PowerFox oder ENPAL 0 kWh
       angezeigt. Im Haushaltsbuch werden nachträglich eingetragene ältere Monate in „Alle
       Jahre“ nicht mehr mehrfach gezählt. Der Datenschutzhinweis zum Lizenzserver ist
       präzisiert, und die Texte im Installer haben korrekte Umlaute.

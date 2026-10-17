@@ -93,7 +93,7 @@ releases:
     signed: true
     notes: |-
       HaushaltsManager 1.1.1 – Fehlerbehebung Auswertungen
-      - Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt von Hand erfasste Strom-Zählerstände (vorher wurde ohne PowerFox oder Enpal 0 kWh angezeigt). Bereits erfasste Stände erscheinen sofort.
+      - Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt von Hand erfasste Strom-Zählerstände (vorher wurde ohne PowerFox oder ENPAL 0 kWh angezeigt). Bereits erfasste Stände erscheinen sofort.
       - Haushaltsbuch: Nachträglich eingetragene ältere Monate werden in „Alle Jahre“ nicht mehr mehrfach gezählt.
       - Datenschutzhinweis zum Lizenzserver präzisiert (welche Angaben übertragen werden); Lizenzvereinbarung typografisch an die Webseite angeglichen.
       - Installer: Texte der Laufzeit-Seite mit korrekten Umlauten.

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-11T08:12:54+02:00",
+  "generiert": "2026-10-17T11:26:29+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -59,7 +59,7 @@
       "produkt": "haushaltsmanager",
       "version": "1.1.1",
       "titel": "HaushaltsManager 1.1.1: Fehlerbehebung Auswertungen",
-      "text": "Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt von Hand erfasste Strom-Zählerstände; vorher wurde ohne PowerFox oder Enpal 0 kWh angezeigt. Im Haushaltsbuch werden nachträglich eingetragene ältere Monate in „Alle Jahre“ nicht mehr mehrfach gezählt. Der Datenschutzhinweis zum Lizenzserver ist präzisiert, und die Texte im Installer haben korrekte Umlaute.",
+      "text": "Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt von Hand erfasste Strom-Zählerstände; vorher wurde ohne PowerFox oder ENPAL 0 kWh angezeigt. Im Haushaltsbuch werden nachträglich eingetragene ältere Monate in „Alle Jahre“ nicht mehr mehrfach gezählt. Der Datenschutzhinweis zum Lizenzserver ist präzisiert, und die Texte im Installer haben korrekte Umlaute.",
       "datum": "2026-10-08",
       "datumQuelle": "Release 1.1.1",
       "wege": {
@@ -183,7 +183,7 @@
       "produkt": "orgafuchs",
       "datum": "2026-09-27",
       "titel": "OrgaFuchs 1.9.4: Widgets mit Tagesansicht",
-      "text": "OrgaFuchs 1.9.4 ist für Android im Play Store da. Die Widgets für Monat und Woche zeigen wieder alle Einträge; im Widget lässt sich blättern und zwischen Tag, Woche und Monat umschalten. Neu ist eine Tagesansicht im Widget: Dienste, Termine und Notizen als Liste mit Uhrzeit und wem es gehört. Der Sync verbindet sich nach längeren Ausfällen von selbst wieder, und entfernte Geräte erfahren es klar und verbinden sich ohne Datenverlust neu. Die Windows-Fassung 1.9.4 folgt.",
+      "text": "OrgaFuchs 1.9.4 ist für Android im Play Store da. Die Widgets für Monat und Woche zeigen wieder alle Einträge; im Widget lässt sich blättern und zwischen Tag, Woche und Monat umschalten. Neu ist eine Tagesansicht im Widget: Dienste, Termine und Notizen als Liste mit Uhrzeit und wem es gehört. Der Sync verbindet sich nach längeren Ausfällen von selbst wieder, und entfernte Geräte erfahren es klar und verbinden sich ohne Datenverlust neu.",
       "datumQuelle": "eigene Angabe",
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"

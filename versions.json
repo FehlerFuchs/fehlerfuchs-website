@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-08",
+  "updatedAt": "2026-10-17",
   "products": [
     {
       "slug": "gewerbepro",
@@ -34,7 +34,7 @@
       "sha256": "d2f39081c1003dd74c2d6913613885e1bc0e005f2da9dad76cf2318cbef444c2",
       "signed": true,
       "page": "https://fehlerfuchs.eu/produkte/haushaltsmanager/",
-      "notes": "HaushaltsManager 1.1.1 – Fehlerbehebung Auswertungen\n- Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt von Hand erfasste Strom-Zählerstände (vorher wurde ohne PowerFox oder Enpal 0 kWh angezeigt). Bereits erfasste Stände erscheinen sofort.\n- Haushaltsbuch: Nachträglich eingetragene ältere Monate werden in „Alle Jahre“ nicht mehr mehrfach gezählt.\n- Datenschutzhinweis zum Lizenzserver präzisiert (welche Angaben übertragen werden); Lizenzvereinbarung typografisch an die Webseite angeglichen.\n- Installer: Texte der Laufzeit-Seite mit korrekten Umlauten.",
+      "notes": "HaushaltsManager 1.1.1 – Fehlerbehebung Auswertungen\n- Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt von Hand erfasste Strom-Zählerstände (vorher wurde ohne PowerFox oder ENPAL 0 kWh angezeigt). Bereits erfasste Stände erscheinen sofort.\n- Haushaltsbuch: Nachträglich eingetragene ältere Monate werden in „Alle Jahre“ nicht mehr mehrfach gezählt.\n- Datenschutzhinweis zum Lizenzserver präzisiert (welche Angaben übertragen werden); Lizenzvereinbarung typografisch an die Webseite angeglichen.\n- Installer: Texte der Laufzeit-Seite mit korrekten Umlauten.",
       "windowsDisplayNames": [
         "FehlerFuchs HaushaltsManager"
       ]
