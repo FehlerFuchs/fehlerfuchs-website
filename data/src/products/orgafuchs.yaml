@@ -63,7 +63,7 @@ umwege:
     text: >-
       Die Prüfsoftware hat die Einstellungsseite für den Gruppen-Sync als
       Bezahlschranke oder nicht deklarierten Login gewertet. Beides ist sie
-      nicht: Damals trug man dort eine Relay-Adresse und ein selbst gewähltes
+      nicht: Damals trug man dort eine Relais-Adresse und ein selbst gewähltes
       Gruppen-Passwort ein, um die eigenen Geräte zu verbinden. Kein Konto,
       keine Anmeldung, keine Zahlung. Am Programm wurde nichts geändert – es
       gab nichts zu ändern. Ärgerlich ist nicht die Prüfung, sondern dass eine
@@ -188,7 +188,7 @@ releases:
       Schuljahreskalender zum Ausdrucken (A3/A4, gefüllt oder blanko); besser
       lesbare Wandpläne mit einer Spalte je Einrichtung und einem Blanko-Wandplaner;
       Öffnungs- und Betreuungszeiten als dezentes Band; zuverlässiger und sicherer
-      Sync von Einrichtungen. 1.9.1 selbst ist ein Bugfix: ein kurzer
+      Sync von Einrichtungen. 1.9.1 selbst ist ein Bugfix: Ein kurzer
       Verbindungsabbruch beim Abgleich bricht den Sync nicht mehr ab. Löst 1.7.0 ab.
   # 1.7.0: Signier-/Manifest-Fakten aus dem [16]-Handoff (30.08.), gegen GitHub
   # geprüft (gh: Asset, 17.184.184 B, sha256 81df2727…04c3 – stimmen). Changelog

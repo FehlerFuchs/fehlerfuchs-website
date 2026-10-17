@@ -14,7 +14,7 @@ description: >-
   HaushaltsManager bündelt die Haushaltsverwaltung auf dem eigenen Rechner:
   Zählerstände für Strom, Gas und Wasser, Verträge samt Kündigungsfristen, ein
   vollständiges Haushaltsbuch, Vorhaben und Auswertungen mit Diagrammen. Ein
-  Schwerpunkt sind die Energiedaten: die Solaranlage lässt sich über ENPAL
+  Schwerpunkt sind die Energiedaten: Die Solaranlage lässt sich über ENPAL
   (InfluxDB im Heimnetz) einbinden, der Stromzähler über PowerFox/poweropti –
   beides optional und nur auf Wunsch. Aus den Daten entstehen Schreiben und
   PDF-Berichte, dazu Export und Backup. Alle Daten liegen lokal – kein Konto,

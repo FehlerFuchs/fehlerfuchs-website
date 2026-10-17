@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-17T11:26:29+02:00",
+  "generiert": "2026-10-17T23:40:34+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1428,7 +1428,7 @@
         },
         {
           "question": "Gibt es das auch für Android?",
-          "answer": "Ja, als Companion-App „GewerbePro Companion“. Sie gehört zur Vollversion und wird nicht separat verkauft: Freischaltung mit demselben Lizenzschlüssel, wobei die App einen der drei Arbeitsplätze belegt. Der Datenabgleich mit dem PC läuft automatisch über das USB-Kabel oder als verschlüsselte Datei. Vor Ort nutzbar sind Auftragsentwürfe, Kunden, Katalog, Kalender, Aufgaben und Quittungsblock."
+          "answer": "Ja, als Companion-App „GewerbePro Companion“. Sie gehört zur Vollversion und wird nicht separat verkauft: Freischaltung mit demselben Lizenzschlüssel, wobei die App einen der drei Arbeitsplätze belegt. Der Datenabgleich mit dem PC läuft automatisch über das USB-Kabel oder als verschlüsselte Datei. Vor Ort nutzbar sind Auftragsentwürfe, Kunden, Katalog, Kalender, Aufgaben, Fahrtenbuch und Quittungsblock."
         },
         {
           "question": "Wie bekomme ich GewerbePro Companion auf mein Handy?",
@@ -1833,7 +1833,7 @@
       ],
       "kind": "produkt",
       "tagline": "Lokales Windows-Werkzeug für den ganzen Haushalt: Zählerstände, Verträge mit Kündigungsfristen, Haushaltsbuch, Auswertungen. Alle Daten bleiben auf deinem Gerät – kein Konto, kein Tracking.",
-      "description": "HaushaltsManager bündelt die Haushaltsverwaltung auf dem eigenen Rechner: Zählerstände für Strom, Gas und Wasser, Verträge samt Kündigungsfristen, ein vollständiges Haushaltsbuch, Vorhaben und Auswertungen mit Diagrammen. Ein Schwerpunkt sind die Energiedaten: die Solaranlage lässt sich über ENPAL (InfluxDB im Heimnetz) einbinden, der Stromzähler über PowerFox/poweropti – beides optional und nur auf Wunsch. Aus den Daten entstehen Schreiben und PDF-Berichte, dazu Export und Backup. Alle Daten liegen lokal – kein Konto, kein Tracking, keine Werbung.",
+      "description": "HaushaltsManager bündelt die Haushaltsverwaltung auf dem eigenen Rechner: Zählerstände für Strom, Gas und Wasser, Verträge samt Kündigungsfristen, ein vollständiges Haushaltsbuch, Vorhaben und Auswertungen mit Diagrammen. Ein Schwerpunkt sind die Energiedaten: Die Solaranlage lässt sich über ENPAL (InfluxDB im Heimnetz) einbinden, der Stromzähler über PowerFox/poweropti – beides optional und nur auf Wunsch. Aus den Daten entstehen Schreiben und PDF-Berichte, dazu Export und Backup. Alle Daten liegen lokal – kein Konto, kein Tracking, keine Werbung.",
       "audience": [
         "privat",
         "selbststaendige"
@@ -2723,7 +2723,7 @@
           "von": "pruefung",
           "nach": "pruefung",
           "grund": "Automatisch abgelehnt, kein Mensch beteiligt",
-          "text": "Die Prüfsoftware hat die Einstellungsseite für den Gruppen-Sync als Bezahlschranke oder nicht deklarierten Login gewertet. Beides ist sie nicht: Damals trug man dort eine Relay-Adresse und ein selbst gewähltes Gruppen-Passwort ein, um die eigenen Geräte zu verbinden. Kein Konto, keine Anmeldung, keine Zahlung. Am Programm wurde nichts geändert – es gab nichts zu ändern. Ärgerlich ist nicht die Prüfung, sondern dass eine unsichere Maschine durchentscheidet, statt einen Menschen hinzuzuziehen. Ein Blick hätte gereicht; so kostet es sieben bis vierzehn Tage. (Heute gibt es beides so nicht mehr: Das Relais ist fest eingestellt, und Geräte verbinden sich per QR-Einladung mit Kurzcode.)"
+          "text": "Die Prüfsoftware hat die Einstellungsseite für den Gruppen-Sync als Bezahlschranke oder nicht deklarierten Login gewertet. Beides ist sie nicht: Damals trug man dort eine Relais-Adresse und ein selbst gewähltes Gruppen-Passwort ein, um die eigenen Geräte zu verbinden. Kein Konto, keine Anmeldung, keine Zahlung. Am Programm wurde nichts geändert – es gab nichts zu ändern. Ärgerlich ist nicht die Prüfung, sondern dass eine unsichere Maschine durchentscheidet, statt einen Menschen hinzuzuziehen. Ein Blick hätte gereicht; so kostet es sieben bis vierzehn Tage. (Heute gibt es beides so nicht mehr: Das Relais ist fest eingestellt, und Geräte verbinden sich per QR-Einladung mit Kurzcode.)"
         },
         {
           "datum": "2026-07-24",
@@ -2802,7 +2802,7 @@
           },
           "sha256": "2474fa9c10053c478ebced32533082d7dd2ae234241e931c37f32f5f63dc6fab",
           "signed": true,
-          "notes": "Signierte Windows-Fassung 1.9.1 (Herausgeber FehlerFuchs). Neu seit 1.7.0: ein interaktiver Kalender-Konfigurator mit Live-Vorschau; Jahres- und Schuljahreskalender zum Ausdrucken (A3/A4, gefüllt oder blanko); besser lesbare Wandpläne mit einer Spalte je Einrichtung und einem Blanko-Wandplaner; Öffnungs- und Betreuungszeiten als dezentes Band; zuverlässiger und sicherer Sync von Einrichtungen. 1.9.1 selbst ist ein Bugfix: ein kurzer Verbindungsabbruch beim Abgleich bricht den Sync nicht mehr ab. Löst 1.7.0 ab."
+          "notes": "Signierte Windows-Fassung 1.9.1 (Herausgeber FehlerFuchs). Neu seit 1.7.0: ein interaktiver Kalender-Konfigurator mit Live-Vorschau; Jahres- und Schuljahreskalender zum Ausdrucken (A3/A4, gefüllt oder blanko); besser lesbare Wandpläne mit einer Spalte je Einrichtung und einem Blanko-Wandplaner; Öffnungs- und Betreuungszeiten als dezentes Band; zuverlässiger und sicherer Sync von Einrichtungen. 1.9.1 selbst ist ein Bugfix: Ein kurzer Verbindungsabbruch beim Abgleich bricht den Sync nicht mehr ab. Löst 1.7.0 ab."
         },
         {
           "version": "1.7.0",
@@ -3292,12 +3292,6 @@
               "note": "Weggelassen, damit der Reader schnell und schlank bleibt."
             },
             {
-              "name": "Formularfelder ausfüllen und unterschreiben",
-              "values": {
-                "standard": "geplant"
-              }
-            },
-            {
               "name": "Voller PDF-Funktionsumfang",
               "values": {
                 "standard": "nein"
@@ -3308,6 +3302,17 @@
               "name": "Werbung, Konto oder Tracking",
               "values": {
                 "standard": "nein"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Geplant",
+          "items": [
+            {
+              "name": "Formularfelder ausfüllen und unterschreiben",
+              "values": {
+                "standard": "geplant"
               }
             }
           ]
@@ -3783,7 +3788,7 @@
           "von": "pruefung",
           "nach": "entwicklung",
           "grund": "Ablehnung durch Google Play",
-          "text": "SnapFuchs hatte die Berechtigung, auf alle Bilder des Geräts zuzugreifen. Google verlangt die aber nur dort, wo eine App das ständig braucht – für den seltenen Fall „Bild aus der Galerie holen“ ist der Fotoauswahl-Dialog von Android vorgesehen, der ganz ohne Berechtigung auskommt. Zu Recht, ehrlich gesagt: weniger Zugriff ist genau das, wofür FehlerFuchs steht. Also die drei Medien-Berechtigungen entfernt, auf den Android-Fotopicker umgestellt und neu eingereicht."
+          "text": "SnapFuchs hatte die Berechtigung, auf alle Bilder des Geräts zuzugreifen. Google erlaubt die aber nur dort, wo eine App das ständig braucht – für den seltenen Fall „Bild aus der Galerie holen“ ist der Fotoauswahl-Dialog von Android vorgesehen, der ganz ohne Berechtigung auskommt. Zu Recht, ehrlich gesagt: weniger Zugriff ist genau das, wofür FehlerFuchs steht. Also die drei Medien-Berechtigungen entfernt, auf den Android-Fotopicker umgestellt und neu eingereicht."
         }
       ],
       "media": {
