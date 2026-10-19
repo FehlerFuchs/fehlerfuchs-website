@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-19T23:35:23+02:00",
+  "generiert": "2026-10-20T00:35:52+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "name": "FehlerFuchs",
   "slogan": "Einfach kleine Helfer.",
@@ -67,7 +67,7 @@
         "anschrift": "22-24 Boulevard Royal, L-2449 Luxemburg",
         "erklaerung": "https://www.paypal.com/de/legalhub/privacy-full"
       },
-      "aufbewahrung": "8 Jahre nach § 147 Abs. 3 Abgabenordnung"
+      "aufbewahrung": "nach § 147 Abs. 3 Abgabenordnung 8 Jahre"
     }
   },
   "person": {

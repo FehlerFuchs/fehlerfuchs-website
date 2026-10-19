@@ -10,7 +10,7 @@ tagline: >-
   Belege lokal prüfen, aufbereiten und kontrolliert an Paperless und die
   eigene Dateiablage übergeben.
 description: >-
-  BelegWerk ist eine lokal-first Windows-Anwendung zwischen Scanner,
+  BelegWerk ist eine lokal arbeitende Windows-Anwendung zwischen Scanner,
   Paperless-ngx und der eigenen Dateiablage. Neue PDFs erscheinen in einem
   kompakten Eingangskorb, können visuell geprüft, mit ASN versehen und mit
   Paperless-Metadaten ergänzt werden. Paperless-Übernahme und zusätzliche

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-19T17:03:54+02:00",
+  "generiert": "2026-10-20T00:35:52+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -311,7 +311,7 @@
       ],
       "kind": "produkt",
       "tagline": "Gesundheits-Tagebuch für eigene Werte, Medikamente und Arzttermine – ohne Konto, ohne Cloud.",
-      "description": "CheckInVita ist ein persönliches Tagebuch für alles rund um die eigene Gesundheit: Gewicht, Blutdruck, Puls, Blutzucker, Schlaf, Schritte, Notizen und Fotos. Es zeigt die Werte als Verlauf, verwaltet Medikamente samt Einnahmeplan und erinnert an Injektionen und Rezeptbestellungen. Für die Praxis erzeugt es eine Werte-Zusammenfassung als PDF und bereitet Mailvorlagen vor – gesendet wird nur, was man selbst abschickt. Kein Nutzerkonto, keine Auswertung durch Dritte, keine Bewertung der Werte. CheckInVita ist kein Medizinprodukt und ersetzt keine ärztliche Beratung, Diagnose oder Therapie.",
+      "description": "CheckInVita ist ein persönliches Tagebuch für alles rund um die eigene Gesundheit: Gewicht, Blutdruck, Puls, Blutzucker, Schlaf, Schritte, Notizen und Fotos. Es zeigt die Werte als Verlauf, verwaltet Medikamente samt Einnahmeplan und erinnert an Injektionen und Rezeptbestellungen. Für die Praxis erzeugt es eine Werte-Zusammenfassung als PDF und bereitet Mailvorlagen vor – gesendet wird nur, was du selbst abschickst. Kein Nutzerkonto, keine Auswertung durch Dritte, keine Bewertung der Werte. CheckInVita ist kein Medizinprodukt und ersetzt keine ärztliche Beratung, Diagnose oder Therapie.",
       "audience": [
         "privat"
       ],
@@ -1783,7 +1783,7 @@
               "values": {
                 "standard": "ja"
               },
-              "note": "Handy und PC werden einmal gekoppelt (beide zeigen einen Code zum Vergleich); danach ist alles mit einem Schlüssel verschlüsselt, den nur diese beiden Geräte kennen. Nur lokal, kein Server. Dafür braucht es GewerbePro 1.1.1 am PC. Zurück vom PC kommen Katalog, Kunden, Aufgaben und Branding."
+              "note": "Handy und PC werden einmal gekoppelt (beide zeigen einen Code zum Vergleich); danach ist alles mit einem Schlüssel verschlüsselt, den nur diese beiden Geräte kennen. Nur lokal, kein Server. Dafür braucht es GewerbePro ab 1.1.1 am PC. Zurück vom PC kommen Katalog, Kunden, Aufgaben und Branding."
             },
             {
               "name": "Rechnungen, Angebote, EÜR oder E-Rechnung auf dem Handy",
@@ -3904,7 +3904,7 @@
       ],
       "kind": "produkt",
       "tagline": "Belege lokal prüfen, aufbereiten und kontrolliert an Paperless und die eigene Dateiablage übergeben.",
-      "description": "BelegWerk ist eine lokal-first Windows-Anwendung zwischen Scanner, Paperless-ngx und der eigenen Dateiablage. Neue PDFs erscheinen in einem kompakten Eingangskorb, können visuell geprüft, mit ASN versehen und mit Paperless-Metadaten ergänzt werden. Paperless-Übernahme und zusätzliche Dateiablage sind getrennte, nachvollziehbare Ziele mit eigenem Status und eigener Wiederholung. Etiketten, mehrere frei konfigurierbare PDF-Stempel und der Dokumentdruck sind direkt integriert; Originale bleiben unverändert.",
+      "description": "BelegWerk ist eine lokal arbeitende Windows-Anwendung zwischen Scanner, Paperless-ngx und der eigenen Dateiablage. Neue PDFs erscheinen in einem kompakten Eingangskorb, können visuell geprüft, mit ASN versehen und mit Paperless-Metadaten ergänzt werden. Paperless-Übernahme und zusätzliche Dateiablage sind getrennte, nachvollziehbare Ziele mit eigenem Status und eigener Wiederholung. Etiketten, mehrere frei konfigurierbare PDF-Stempel und der Dokumentdruck sind direkt integriert; Originale bleiben unverändert.",
       "audience": [
         "privat",
         "selbststaendige",
