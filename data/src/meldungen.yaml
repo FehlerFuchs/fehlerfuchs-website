@@ -29,6 +29,23 @@
 
 meldungen:
 
+  # GewerbePro 1.1.2 (Windows-Release 19.10.2026 17:01, signiert, Meldung [FF_16] 17:03).
+  # 'version: 1.1.2' bindet die Meldung an den releases-Eintrag. Text aus „Neu in GewerbePro 1.1.2“
+  # der Release-Seite, nichts erfunden (P8).
+  - id: gewerbepro-1-1-2
+    typ: update
+    produkt: gewerbepro
+    version: "1.1.2"
+    titel: "GewerbePro 1.1.2: Bemerkungen und Auftragsbestätigung"
+    text: >-
+      GewerbePro 1.1.2 bringt eine Bemerkung je Position in Rechnung, Angebot und Auftrag; im PDF
+      steht sie kleiner und kursiv unter der Position, dazu eine allgemeine Bemerkung unter dem
+      Schlusstext. Zeilenumbrüche bleiben im PDF erhalten. Ein Auftrag kann jetzt Positionen haben,
+      daraus entsteht die Auftragsbestätigung als PDF. Im Angebot gibt es die USt je Position, und die
+      Bemerkungen gehen in die E-Rechnung ein. Die mitgelieferten Programmbibliotheken sind jetzt
+      digital signiert. Beim ersten Start ergänzt GewerbePro deine Datenbank um die neuen Felder, deine
+      Daten bleiben erhalten.
+
   # CheckInVita 1.0.1 (versionCode 5). Play-Store-App. Live seit 19.10.2026 12:00 (Console), belegt durch die
   # P5-Meldung von [FF_13] 12:20. Text = „Was ist neu“ aus dem Store (von [FF_13] 12:19 gelesen), nichts
   # erfunden (P8). KEINE Buildnummer nennen. Kein 'version' (Play-App, kein Release im Modell).

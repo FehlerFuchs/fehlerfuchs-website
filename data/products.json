@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-19T10:56:00+02:00",
+  "generiert": "2026-10-19T17:03:54+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1045,6 +1045,22 @@
         }
       ],
       "releases": [
+        {
+          "version": "1.1.2",
+          "date": "2026-10-19",
+          "channel": "stable",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.2/FehlerFuchs_GewerbePro_Setup_1.1.2.exe",
+          "filename": "FehlerFuchs_GewerbePro_Setup_1.1.2.exe",
+          "size": {
+            "bytes": 116218656,
+            "label": "111 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "7bd284d9f62f179ae274d56d4f7efd45e14a691b9c60b4a2e901ecc11c3e2f3d",
+          "signed": true,
+          "notes": "GewerbePro 1.1.2 – Bemerkungen und Aufträge\n- Bemerkung je Position in Rechnung, Angebot und Auftrag; im PDF kleiner und kursiv unter der Position, dazu eine Bemerkung unter dem Schlusstext.\n- Zeilenumbrüche bleiben im PDF erhalten.\n- Auftrag mit Positionen und Auftragsbestätigung als PDF.\n- USt je Position im Angebot; die Bemerkungen gehen in die E-Rechnung ein.\n- Die mitgelieferten Programmbibliotheken sind jetzt digital signiert.\nBeim ersten Start ergänzt GewerbePro deine Datenbank um die neuen Felder. Deine Daten bleiben erhalten."
+        },
         {
           "version": "1.1.1",
           "date": "2026-10-08",
