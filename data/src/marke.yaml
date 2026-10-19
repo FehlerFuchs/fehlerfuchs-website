@@ -67,7 +67,10 @@ anbieter:
 unterstuetzung:
   paypal:
     url: https://www.paypal.com/ncp/payment/ARHM75WKUT5AU
-    qr: /img/paypal-qr.png
+    # QR-Code „Mit PayPal unterstützen“ von [FF_01] (19.10.2026, Matthias): zwei Fassungen,
+    # unverändert aus Logos\PDFuchs\QR\ übernommen (creme-burgund, tinte-orange).
+    qr: /img/paypal-qr-hell.svg
+    qr_dunkel: /img/paypal-qr-dunkel.svg
   bank:
     inhaber: Matthias Schacht (FehlerFuchs)
     iban: DE13 1001 1001 2272 4154 76

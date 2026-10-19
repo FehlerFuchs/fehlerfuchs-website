@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-13T16:38:57+02:00",
+  "generiert": "2026-10-19T23:35:23+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "name": "FehlerFuchs",
   "slogan": "Einfach kleine Helfer.",
@@ -51,7 +51,8 @@
   "unterstuetzung": {
     "paypal": {
       "url": "https://www.paypal.com/ncp/payment/ARHM75WKUT5AU",
-      "qr": "/img/paypal-qr.png"
+      "qr": "/img/paypal-qr-hell.svg",
+      "qr_dunkel": "/img/paypal-qr-dunkel.svg"
     },
     "bank": {
       "inhaber": "Matthias Schacht (FehlerFuchs)",
