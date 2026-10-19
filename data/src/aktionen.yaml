@@ -167,13 +167,13 @@ aktionen:
       - der zugeteilte Code
     rechtsgrundlage: >-
       Art. 6 Abs. 1 lit. b DSGVO – die Zusendung wird selbst angefordert.
-    frist: 90 Tage nach der Anforderung
+    frist: 90 Tage nach der Vergabe
     wo: Lizenzserver (license.fehlerfuchs.eu)
     nicht_gespeichert:
       - keine IP-Adresse in der Datenbank
       - kein Name, keine Anschrift
       - keine Auswertung, wer den Code eingelöst hat
     hinweis: >-
-      Nach 90 Tagen wird die Zuordnung gelöscht. Der Code selbst bleibt als
+      Danach bleibt nur der Code als
       vergeben vermerkt – sonst würde er ein zweites Mal ausgegeben, obwohl ihn
       jemand hat. Ein Personenbezug besteht dann nicht mehr.

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-17T23:40:34+02:00",
+  "generiert": "2026-10-19T07:02:27+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -481,7 +481,7 @@
               "values": {
                 "standard": "ja"
               },
-              "note": "Öffnet die eigene Mail-App; abgeschickt wird nur, was man selbst sendet."
+              "note": "Öffnet die eigene Mail-App; abgeschickt wird nur, was du selbst sendest."
             },
             {
               "name": "Werte-Zusammenfassung als PDF zum Mitnehmen",
@@ -1436,7 +1436,7 @@
         },
         {
           "question": "Welche Systemvoraussetzungen hat GewerbePro?",
-          "answer": "Windows 10 oder 11 (64-bit). Die Installation läuft im Benutzerprofil und braucht keine Administratorrechte. Zusätzliche Software ist nicht nötig: Die erforderliche Visual-C++-Runtime ist im Installer enthalten (auf frischem Windows getestet). Für den Betrieb ist kein Internet nötig. Die Pro-Lizenz muss sich spätestens alle 30 Tage einmal beim Lizenzserver melden. Der Installer ist rund 110 MB groß; deine Daten liegen lokal in deinem Benutzerprofil. Das Programm ist digital signiert (Herausgeber FehlerFuchs); bei einem neuen Download kann Windows SmartScreen anfangs trotzdem warnen, bis sich die Bekanntheit aufgebaut hat."
+          "answer": "Windows 10 oder 11 (64-bit). Die Installation läuft im Benutzerprofil und braucht keine Administratorrechte. Zusätzliche Software ist nicht nötig: Die erforderliche Visual-C++-Runtime ist im Installer enthalten (auf frischem Windows getestet). Für die tägliche Arbeit ist kein Internet nötig; die Pro-Lizenz meldet sich nur spätestens alle 30 Tage einmal kurz beim Lizenzserver. Der Installer ist rund 110 MB groß; deine Daten liegen lokal in deinem Benutzerprofil. Das Programm ist digital signiert (Herausgeber FehlerFuchs); bei einem neuen Download kann Windows SmartScreen anfangs trotzdem warnen, bis sich die Bekanntheit aufgebaut hat."
         }
       ],
       "media": {

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-15T21:09:52+02:00",
+  "generiert": "2026-10-19T07:02:27+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -198,7 +198,7 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Es entsteht nichts, was zu löschen wäre. Schließt man die Seite oder lädt sie neu, sind alle Eingaben und das Logo weg; die Schaltfläche „Zurücksetzen“ leert sie sofort. Die heruntergeladene Branding-Datei liegt danach nur noch beim Nutzer.",
+      "loeschung": "Es entsteht nichts, was zu löschen wäre. Schließt du die Seite oder lädst sie neu, sind alle Eingaben und das Logo weg; die Schaltfläche „Zurücksetzen“ leert sie sofort. Die heruntergeladene Branding-Datei liegt danach nur noch beim Nutzer.",
       "besonderheiten": "Das Logo wird im Browser gelesen, in eine Vorschau gezeichnet und in die Branding-Datei geschrieben. Es wird zu keinem Zeitpunkt übertragen. Auch der Farbvorschlag aus dem Logo und die Größenprüfung (max. 512 KB, max. 1024 Pixel) laufen ausschließlich im Browser. Die erzeugte Branding-Datei enthält die Angaben des Nutzers einschließlich des eingebetteten Logos und sollte von ihm wie eine eigene Datei behandelt werden. Nutzung ohne Anmeldung und kostenlos.",
       "vorhandener_text": "Kein eigener Text nur für dieses Werkzeug; es gilt die allgemeine Datenschutzseite der Website.",
       "offene_fragen": "Die Seite wird von GitHub Pages ausgeliefert. Ob und wie lange GitHub dabei Server-Protokolle mit IP-Adressen führt, ist eine Frage an den Hoster und nicht am Produkt zu klären. Sie betrifft alle Seiten von fehlerfuchs.eu gleichermaßen und gehört in den allgemeinen Teil der Datenschutzseite, nicht in diesen Steckbrief.",

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-13T21:28:52+02:00",
+  "generiert": "2026-10-19T07:02:27+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "aktionen": [
     {
@@ -54,14 +54,14 @@
         "der zugeteilte Code"
       ],
       "rechtsgrundlage": "Art. 6 Abs. 1 lit. b DSGVO – die Zusendung wird selbst angefordert.",
-      "frist": "90 Tage nach der Anforderung",
+      "frist": "90 Tage nach der Vergabe",
       "wo": "Lizenzserver (license.fehlerfuchs.eu)",
       "nicht_gespeichert": [
         "keine IP-Adresse in der Datenbank",
         "kein Name, keine Anschrift",
         "keine Auswertung, wer den Code eingelöst hat"
       ],
-      "hinweis": "Nach 90 Tagen wird die Zuordnung gelöscht. Der Code selbst bleibt als vergeben vermerkt – sonst würde er ein zweites Mal ausgegeben, obwohl ihn jemand hat. Ein Personenbezug besteht dann nicht mehr.",
+      "hinweis": "Danach bleibt nur der Code als vergeben vermerkt – sonst würde er ein zweites Mal ausgegeben, obwohl ihn jemand hat. Ein Personenbezug besteht dann nicht mehr.",
       "antwortpruefung": "35f3cdc94279a921abb468f20b4bf71d56ec8eb585bf9884c65fdbf3f71ae235"
     }
   ]

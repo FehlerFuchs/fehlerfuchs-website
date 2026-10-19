@@ -9,6 +9,7 @@ fassung: >-
   fehlerfuchs.eu ausgeliefert: website/apps/mobilereport-konfigurator.html
   (Commit 0e09025). Die Belege unten nennen die Astro-Fassung; die
   HTML-Fassung trägt dieselben Funktionsnamen.
+# Nachtrag 19.10.2026 ([FF_10], Entscheidung Matthias über [FF_00], Webseiten-Sichtung 18.10. Nr. 5): „Schließt man … lädt“ zu „Schließt du … lädst“. Inhalt sonst unverändert, stand unverändert.
 
 # ---------------------------------------------------------------------------
 # EIGENTÜMER: 00-1_Produktdoku (seit 25.08.2026).
@@ -70,7 +71,7 @@ absturzberichte: false
 daten_an_dritte_verkauft: false
 
 loeschung: >-
-  Es entsteht nichts, was zu löschen wäre. Schließt man die Seite oder lädt
+  Es entsteht nichts, was zu löschen wäre. Schließt du die Seite oder lädst
   sie neu, sind alle Eingaben und das Logo weg; die Schaltfläche
   „Zurücksetzen“ leert sie sofort. Die heruntergeladene Branding-Datei liegt
   danach nur noch beim Nutzer.

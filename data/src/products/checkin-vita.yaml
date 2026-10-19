@@ -110,7 +110,7 @@ features:
         values: { standard: ja }
       - name: Vorbereitete Mailvorlagen für Rezeptanfragen und Rückfragen
         values: { standard: ja }
-        note: Öffnet die eigene Mail-App; abgeschickt wird nur, was man selbst sendet.
+        note: Öffnet die eigene Mail-App; abgeschickt wird nur, was du selbst sendest.
       - name: Werte-Zusammenfassung als PDF zum Mitnehmen
         values: { standard: ja }
       - name: Privater Medikamenten-Plan als PDF

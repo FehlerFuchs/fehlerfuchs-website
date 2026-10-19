@@ -79,7 +79,7 @@ dienste:
       Lizenz und zugehörige Gerätekennung, solange die Lizenz gilt.
       Kaufabwicklung und Rechnungsdaten liegen beim Zahlungsdienstleister,
       nicht hier. Wunsch-Einsendungen 90 Tage; Aktionsteilnahme: Anzeigename und
-      E-Mail 90 Tage nach Vergabe.
+      E-Mail 90 Tage nach der Vergabe.
       Zur Sicherheit erstellen wir jeden Tag eine verschlüsselte Sicherung der
       Datenbank unseres Lizenzservers. Wir bewahren sie 14 Tage auf dem Server und
       30 Tage als verschlüsselte Kopie auf unserem eigenen Speicher auf. Löschen

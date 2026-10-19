@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-15T11:15:24+02:00",
+  "generiert": "2026-10-19T07:02:27+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "dienste": [
     {
@@ -16,7 +16,7 @@
         "Kennung des Geräts, auf dem freigeschaltet wird",
         "Angaben aus Formularen, die du abschickst (Name, E-Mail, Nachricht, Anhänge)"
       ],
-      "aufbewahrung": "Lizenz und zugehörige Gerätekennung, solange die Lizenz gilt. Kaufabwicklung und Rechnungsdaten liegen beim Zahlungsdienstleister, nicht hier. Wunsch-Einsendungen 90 Tage; Aktionsteilnahme: Anzeigename und E-Mail 90 Tage nach Vergabe. Zur Sicherheit erstellen wir jeden Tag eine verschlüsselte Sicherung der Datenbank unseres Lizenzservers. Wir bewahren sie 14 Tage auf dem Server und 30 Tage als verschlüsselte Kopie auf unserem eigenen Speicher auf. Löschen wir deine Daten, sind sie spätestens nach 30 Tagen auch aus allen Sicherungen verschwunden. Müssten wir einmal eine Sicherung zurückspielen, löschen wir deine Daten dabei sofort erneut.",
+      "aufbewahrung": "Lizenz und zugehörige Gerätekennung, solange die Lizenz gilt. Kaufabwicklung und Rechnungsdaten liegen beim Zahlungsdienstleister, nicht hier. Wunsch-Einsendungen 90 Tage; Aktionsteilnahme: Anzeigename und E-Mail 90 Tage nach der Vergabe. Zur Sicherheit erstellen wir jeden Tag eine verschlüsselte Sicherung der Datenbank unseres Lizenzservers. Wir bewahren sie 14 Tage auf dem Server und 30 Tage als verschlüsselte Kopie auf unserem eigenen Speicher auf. Löschen wir deine Daten, sind sie spätestens nach 30 Tagen auch aus allen Sicherungen verschwunden. Müssten wir einmal eine Sicherung zurückspielen, löschen wir deine Daten dabei sofort erneut.",
       "produkte": [
         "mobilereport",
         "mobilereport-enterprise",
