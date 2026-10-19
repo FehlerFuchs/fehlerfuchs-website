@@ -1,6 +1,6 @@
 slug: snapfuchs
 name: SnapFuchs
-stand: "2026-10-08"
+stand: "2026-10-19"
 geprueft_von: 30_SnapFuchs
 fassung: "1.2.3 (versionCode 12)"
 
@@ -74,7 +74,7 @@ berechtigungen:
     pflicht: false
     beleg: RECORD_AUDIO per tools:node="remove" entfernt in android/app/src/main/AndroidManifest.xml; enableAudio false in lib/features/scan/scan_screen.dart
   - name: Zugriff auf Fotos und Videos
-    wofuer: wird nicht angefordert. Bilder wählt man über den Android-Fotoauswahl-Dialog aus, der ohne diese Berechtigung auskommt
+    wofuer: wird nicht angefordert. Bilder wählst du über den Android-Fotoauswahl-Dialog aus, der ohne diese Berechtigung auskommt
     pflicht: false
     beleg: READ_MEDIA_IMAGES und READ_MEDIA_VIDEO per tools:node="remove" entfernt in android/app/src/main/AndroidManifest.xml; useAndroidPhotoPicker in lib/main.dart
 

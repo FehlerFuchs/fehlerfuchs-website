@@ -1,12 +1,12 @@
 slug: appinsight
 name: FehlerFuchs AppInsight
-stand: "2026-10-01"
+stand: "2026-10-19"
 geprueft_von: 22_AppInsight
 fassung: "1.0.1 (versionCode 5), seit 01.10.2026 bei Google Play"
 
 # Die App besitzt keine Berechtigung für Internetzugriff und kann daher von
 # sich aus nichts senden oder abrufen.
-lokal_only: true
+lokal_only: false
 
 auf_dem_geraet:
   - was: Anzeige-Einstellung (Hell, Dunkel oder Systemvorgabe)

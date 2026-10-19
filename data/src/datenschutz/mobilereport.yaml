@@ -1,6 +1,6 @@
 slug: mobilereport
 name: MobileReport
-stand: "2026-10-13"
+stand: "2026-10-19"
 geprueft_von: 20_MobileReport
 fassung: "1.5.0+54 (seit 26.09.2026 in der Play-Produktion, voller Roll-out; am 26.09. um 08:16 auf der öffentlichen Store-Seite als 1.5.0 gemessen; zusammengeführte Consumer-App mit In-App-Kauf). Vorgänger 1.4.0+53 vom 23.09.2026. Geprüft an der einen Codebasis MobileReport_Master\\01_App – der früher genannte Ordner FehlerFuchsMR_Pro ist seit dem 17.09.2026 Archiv."
 
@@ -149,7 +149,7 @@ besonderheiten: >-
   Meldungen können Fotos enthalten, die der Nutzer selbst aufnimmt. Die App weist
   ausdrücklich darauf hin, keine Patientendaten oder sonstigen sensiblen Inhalte zu
   fotografieren oder einzutragen. Sie ist kein Nachweissystem, kein Ticketsystem und keine
-  Medizintechnik-Software. Der Versand ist bewusst manuell: die App bereitet eine E-Mail
+  Medizintechnik-Software. Der Versand ist bewusst manuell: Die App bereitet eine E-Mail
   vor, verschickt aber nichts selbst. Was der Nutzer eingibt – Meldungen, Fotos, PDFs,
   Empfänger – verlässt das Gerät nur, wenn er es selbst auslöst: beim Absenden des
   Support-Formulars oder beim Verschicken eines Berichts aus seiner Mail-App. Diagnosedaten

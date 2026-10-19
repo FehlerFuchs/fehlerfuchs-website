@@ -31,7 +31,7 @@ platforms:
     distribution: play-store
     storeId: eu.fehlerfuchs.appinsight
 
-privacy: [nur-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei]
+privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei]
 
 editions:
   - id: standard

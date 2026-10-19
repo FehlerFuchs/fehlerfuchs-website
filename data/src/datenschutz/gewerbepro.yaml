@@ -1,6 +1,6 @@
 slug: gewerbepro
 name: FehlerFuchs GewerbePro
-stand: "2026-10-08"
+stand: "2026-10-19"
 geprueft_von: 29_GewerbePro
 fassung: "1.1.1"
 
@@ -199,7 +199,7 @@ loeschung: >-
   Einstellungen vom Gerät lösen.
 
 besonderheiten: >-
-  Die Anwendung arbeitet offline-first: alle Geschäftsdaten bleiben in einer
+  Die Anwendung arbeitet offline-first: Alle Geschäftsdaten bleiben in einer
   lokalen Datenbank auf dem Rechner, es gibt keinen Server, der Inhalte
   speichert. Ein Benutzerkonto wird nicht angelegt; die Vollversion wird über
   einen Lizenzschlüssel freigeschaltet, wobei die dabei verwendete Gerätekennung

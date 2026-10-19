@@ -3,7 +3,7 @@
 slug: haushaltsmanager
 slug_vorschlag: false
 name: HaushaltsManager
-stand: "2026-10-07"
+stand: "2026-10-19"
 geprueft_von: 36_HaushaltsManager Markt
 fassung: >-
   Am gebauten und veröffentlichten Produkt 1.1.0 geprüft (Produktfassung ohne private Daten,
@@ -38,7 +38,7 @@ berechtigungen:
   wofuer: startet die App versteckt im Tray
 
   # Ausdrücklich NICHT: Kamera/Mikro/Kontakte; keine Administratorrechte für die App selbst. Der Installer
-  # lädt bei Bedarf die Microsoft Visual C++ Laufzeit nach; nur dafür fragt Windows einmal nach (UAC).
+  # lädt bei Bedarf die Microsoft Visual-C++-Laufzeit nach; nur dafür fragt Windows einmal nach (UAC).
   # Standortkoordinaten nur, wenn der Nutzer die optionale Wetterfunktion einschaltet und einen Standort wählt.
 
 uebertragungen:
@@ -82,7 +82,7 @@ uebertragungen:
   wann: nur wenn der Nutzer „Nach App-Updates suchen“ anklickt
   freiwillig: true
   beleg: Nutzerinitiiert; reiner Lesezugriff auf eine öffentliche Liste, keine Telemetrie
-- wohin: Microsoft (aka.ms, Download der Visual C++ Laufzeit) – nur durch den Installer
+- wohin: Microsoft (aka.ms, Download der Visual-C++-Laufzeit) – nur durch den Installer
   was: 'Einmaliger Download des Microsoft Visual C++ Redistributable, falls es auf dem Rechner fehlt. Der Installer
     prüft vor dem Start die Microsoft-Signatur der Datei. Es werden keine Nutzerdaten gesendet; IP-Adresse und
     Zeitpunkt fallen technisch an.'
@@ -95,7 +95,7 @@ fremde_dienste:
   - "PowerFox Cloud – vom Nutzer beauftragte Verbindung zu seinem EIGENEN PowerFox-Konto (offizielle Kunden-API 2.0, mit den eigenen Zugangsdaten des Nutzers)"
   - "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU) – Lizenzaktivierung/-prüfung/-freigabe; überträgt nur Lizenzschlüssel, anonyme Geräte-Kennung, Produktkennung und Plattform, keine Nutzerdaten"
   - "Digistore24 – Wiederverkäufer beim Kauf der Lizenz (Merchant of Record); die App selbst spricht nicht mit Digistore, sondern nur mit dem Lizenzserver"
-  - "Microsoft – Download der Visual C++ Laufzeit durch den Installer, nur wenn sie fehlt"
+  - "Microsoft – Download der Visual-C++-Laufzeit durch den Installer, nur wenn sie fehlt"
   # ENPAL/InfluxDB ist kein fremder Cloud-Dienst, sondern eine Verbindung zur vom Nutzer eingetragenen Adresse.
   # Komponenten-Update erfolgt rein lokal aus einer vom Nutzer gewählten JSON-Datei – KEINE Netzverbindung.
 

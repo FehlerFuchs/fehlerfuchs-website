@@ -1,6 +1,6 @@
 slug: gewerbepro-companion
 name: GewerbePro Companion
-stand: "2026-10-13"
+stand: "2026-10-19"
 geprueft_von: 29-1_GewerbePro Companion
 fassung: "1.0.1"
 
@@ -10,6 +10,7 @@ fassung: "1.0.1"
 # Ergänzt 10.10.2026 von [FF_29-1] (Eigentümer, B9): Branding-Liste in auf_dem_geraet um Telefon und Inhaber angeglichen, gegen den Code von GewerbePro 1.1.1 geprüft (Hinweis 2 aus PRÜFBERICHT [FF_10] #5804, Entscheidung Matthias „A“, AUFTRAG [FF_00] 10.10.2026).
 # Ergänzt 13.10.2026 von [FF_29-1] (Eigentümer, B9): loeschung – Lizenzserver-Angaben um die beim Kauf hinterlegten Angaben (E-Mail-Adresse, Bestellnummer) ergänzt, vorher im Quellstand des Lizenzservers geprüft (11_Lizenzserver/adapter, 5b8525b); Eintrag „keine Cloud-Sicherung …“ mit leerem Ort aus auf_dem_geraet nach besonderheiten verschoben (Webseiten-Sichtung Nr. 2 und 4, Entscheidung Matthias „A“, #5933, AUFTRAG [FF_00] 13.10.2026).
 # Ergänzt 13.10.2026 abends von [FF_29-1] (Eigentümer, B9): loeschung – Löschsatz klargestellt (E-Mail-Adresse und Geräteaktivierungen werden gelöscht, Lizenz gesperrt, Schlüssel und Bestellnummer bis zum Ende der Verjährungsfrist), vorher im Quellstand des Lizenzservers geprüft (11_Lizenzserver/adapter/app/dsgvo.py, 5b8525b); Webseiten-Sichtung Abend Nr. 2, Entscheidung Matthias „A“, AUFTRAG [FF_00] 13.10.2026, 21:23.
+# Ergänzt 19.10.2026 von [FF_29-1] (Eigentümer, B9): auf_dem_geraet, Löschmarken – Verb berichtigt („bleibt“ → „bleiben“, drei Dinge: Typ, zufällige Satzkennung, Zeitpunkt); am Code geprüft (lib/data/db.dart, Tabelle loeschmarken: typ, companion_uuid, am); Webseiten-Sichtung Hinweis 4, Entscheidung Matthias „A“, AUFTRAG [FF_00] 15.10.2026, Baufreigabe 19.10.2026.
 # Ersetzt die Fassungen vom 17.08. (lokal) und 20.08. (00-1). Jede Angabe ist im
 # Code oder am Gerät gemessen; die Belege stehen je Eintrag.
 # Geschäfts-/Kundendaten bleiben auf dem Gerät bzw. gehen nur an den eigenen PC.
@@ -50,7 +51,7 @@ auf_dem_geraet:
     wo: im eigenen Speicherbereich der App
     beleg: lib/services/branding_store.dart (Ordner „branding“, Einstellung branding_json; Stammdaten werden unverändert übernommen); Feldliste aus GewerbePro 1.1.1 20_Engine/gewerbepro_core/engine_api.py (companion_branding_export, Stand 19d9a09); am AVD gemessen 08.10.2026 (inhaber, telefon angekommen)
   - was: Löschmarken – wird ein schon an den PC übergebener Satz am Handy gelöscht,
-      bleibt bis zur Bestätigung des PCs nur Typ, zufällige Satzkennung und Zeitpunkt
+      bleiben bis zur Bestätigung des PCs nur Typ, zufällige Satzkennung und Zeitpunkt
     wo: in der App auf dem Gerät
     beleg: lib/data/db.dart (Tabelle loeschmarken)
   - was: Lizenzschlüssel, das vom Lizenzserver erhaltene signierte Token und eine
