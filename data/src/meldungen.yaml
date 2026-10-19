@@ -29,6 +29,21 @@
 
 meldungen:
 
+  # CheckInVita 1.0.1 (versionCode 5). Play-Store-App. Live seit 19.10.2026 12:00 (Console), belegt durch die
+  # P5-Meldung von [FF_13] 12:20. Text = „Was ist neu“ aus dem Store (von [FF_13] 12:19 gelesen), nichts
+  # erfunden (P8). KEINE Buildnummer nennen. Kein 'version' (Play-App, kein Release im Modell).
+  - id: checkin-vita-1-0-1
+    typ: update
+    produkt: checkin-vita
+    datum: "2026-10-19"
+    titel: "CheckInVita 1.0.1: kleine Pflegefassung"
+    text: >-
+      CheckInVita 1.0.1 ist im Play Store, eine kleine Pflegefassung. Bei großer Schrift hat die
+      Startseite Kacheln in voller Breite, der Eintrag-Knopf überdeckt weniger. Große Austauschdateien
+      werden im Hintergrund eingelesen (Grenze 32 MB). Beim Wiederherstellen einer Sicherung werden PZN
+      und EAN geprüft. Die Bausteine sind auf den neuesten Patchstand gebracht. Tipp: Sichere deine
+      Daten regelmäßig unter „Zusammenfassung & Export“ → „Backup erstellen“.
+
   # SnapFuchs 1.2.3 (versionCode 12). Play-Store-App. Live laut P5-Meldung von [FF_13] (08.10.2026 19:47);
   # Store-Seite von [FF_10] am 08.10.2026 gelesen, Text = „Neu in 1.2.3“ aus dem Store, nichts erfunden (P8).
   # KEINE Buildnummer nennen. Kein 'version' (Play-App, kein Release im Modell).

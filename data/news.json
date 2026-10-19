@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-17T11:26:29+02:00",
+  "generiert": "2026-10-19T12:21:21+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "checkin-vita-1-0-1",
+      "typ": "update",
+      "produkt": "checkin-vita",
+      "datum": "2026-10-19",
+      "titel": "CheckInVita 1.0.1: kleine Pflegefassung",
+      "text": "CheckInVita 1.0.1 ist im Play Store, eine kleine Pflegefassung. Bei großer Schrift hat die Startseite Kacheln in voller Breite, der Eintrag-Knopf überdeckt weniger. Große Austauschdateien werden im Hintergrund eingelesen (Grenze 32 MB). Beim Wiederherstellen einer Sicherung werden PZN und EAN geprüft. Die Bausteine sind auf den neuesten Patchstand gebracht. Tipp: Sichere deine Daten regelmäßig unter „Zusammenfassung & Export“ → „Backup erstellen“.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.checkinvita"
+      }
+    },
     {
       "id": "checkin-vita-play-veroeffentlichung",
       "typ": "store",
