@@ -65,12 +65,12 @@ meldungen:
     version: "1.1.3"
     titel: "GewerbePro 1.1.3: Handy-Abgleich über USB zuverlässiger"
     text: >-
-      GewerbePro 1.1.3 macht den Handy-Abgleich über USB zuverlässiger: Die beiden Kontaktdateien
-      auf dem Handy werden auch über das Kabel erneuert und auf Ankunft geprüft – gelingt das
-      nicht, bekommst du einen Hinweis. Ein älteres Handypaket aus einer Sicherung wird nicht mehr
-      übernommen und überschreibt keinen neueren Stand; der volle Schutz gilt mit der Companion-
-      App 1.0.2. Bei „Handy suchen“ erscheinen zuerst nur die Namen der USB-Geräte, erst nach
-      deiner Auswahl und „Handy prüfen“ liest GewerbePro dieses eine Gerät.
+      GewerbePro 1.1.3 macht den Abgleich mit dem Handy über USB zuverlässiger: GewerbePro
+      erneuert zwei Dateien auf dem Handy jetzt auch über das Kabel und prüft nach, dass sie
+      wirklich angekommen sind – sonst bekommst du einen Hinweis. Ein älteres Handypaket aus einer
+      Sicherung überschreibt keinen neueren Stand mehr (der volle Schutz gilt mit der
+      Companion-App 1.0.2). Bei „Handy suchen“ siehst du zuerst nur die Namen der USB-Geräte;
+      GewerbePro liest erst das Gerät, das du ausgewählt hast.
 
   # OrgaFuchs 1.11.0 – Windows-Release 20.10.2026 10:01 (signiert, Meldung [FF_16] P5 10:02);
   # Android 1.11.0 im Play Store seit 09.10.2026 15:44 (P5 von [FF_13]). 'version: 1.11.0' bindet die
@@ -102,11 +102,10 @@ meldungen:
     text: >-
       GewerbePro 1.1.2 bringt eine Bemerkung je Position in Rechnung, Angebot und Auftrag; im PDF
       steht sie kleiner und kursiv unter der Position, dazu eine allgemeine Bemerkung unter dem
-      Schlusstext. Zeilenumbrüche bleiben im PDF erhalten. Ein Auftrag kann jetzt Positionen haben,
-      daraus entsteht die Auftragsbestätigung als PDF. Im Angebot gibt es die USt je Position, und die
-      Bemerkungen gehen in die E-Rechnung ein. Die mitgelieferten Programmbibliotheken sind jetzt
-      digital signiert. Beim ersten Start ergänzt GewerbePro deine Datenbank um die neuen Felder, deine
-      Daten bleiben erhalten.
+      Schlusstext. Zeilenumbrüche bleiben im PDF erhalten. Ein Auftrag kann jetzt Positionen
+      haben, daraus entsteht die Auftragsbestätigung als PDF. Im Angebot gibt es die USt je
+      Position, und die Bemerkungen gehen in die E-Rechnung ein. Beim ersten Start ergänzt
+      GewerbePro deine Datenbank um die neuen Felder, deine Daten bleiben erhalten.
 
   # CheckInVita 1.0.1 (versionCode 5). Play-Store-App. Live seit 19.10.2026 12:00 (Console), belegt durch die
   # P5-Meldung von [FF_13] 12:20. Text = „Was ist neu“ aus dem Store (von [FF_13] 12:19 gelesen), nichts
@@ -115,13 +114,13 @@ meldungen:
     typ: update
     produkt: checkin-vita
     datum: "2026-10-19"
-    titel: "CheckInVita 1.0.1: kleine Pflegefassung"
+    titel: "CheckInVita 1.0.1: besser bei großer Schrift, sicherer beim Einlesen"
     text: >-
-      CheckInVita 1.0.1 ist im Play Store, eine kleine Pflegefassung. Bei großer Schrift hat die
-      Startseite Kacheln in voller Breite, der Eintrag-Knopf überdeckt weniger. Große Austauschdateien
-      werden im Hintergrund eingelesen (Grenze 32 MB). Beim Wiederherstellen einer Sicherung werden PZN
-      und EAN geprüft. Die Bausteine sind auf den neuesten Patchstand gebracht. Tipp: Sichere deine
-      Daten regelmäßig unter „Zusammenfassung & Export“ → „Backup erstellen“.
+      CheckInVita 1.0.1 ist im Play Store. Bei großer Schrift zeigt die Startseite die Kacheln in
+      voller Breite, und der Knopf für neue Einträge verdeckt weniger. Große Austauschdateien (bis
+      32 MB) werden im Hintergrund eingelesen, und beim Wiederherstellen einer Sicherung werden
+      PZN und EAN geprüft. Tipp: Sichere deine Daten regelmäßig unter „Zusammenfassung & Export“ →
+      „Backup erstellen“.
 
   # SnapFuchs 1.2.3 (versionCode 12). Play-Store-App. Live laut P5-Meldung von [FF_13] (08.10.2026 19:47);
   # Store-Seite von [FF_10] am 08.10.2026 gelesen, Text = „Neu in 1.2.3“ aus dem Store, nichts erfunden (P8).
@@ -163,10 +162,9 @@ meldungen:
     datum: "2026-10-06"
     titel: "SnapFuchs 1.2.2: randlose Anzeige, kleiner und schneller"
     text: >-
-      SnapFuchs 1.2.2 ist im Play Store. Randlose Anzeige: Hinweise und Knöpfe liegen nicht
-      mehr unter der Navigationsleiste. Die App ist durch optimierten Programmcode kleiner und
-      schneller, und die Bausteine für die Kamera-Berechtigung sind aktualisiert. Behoben: Nach
-      einmaligem „Nicht erlauben“ fragte die App sofort ein zweites Mal nach der Kamera.
+      SnapFuchs 1.2.2 ist im Play Store. Randlose Anzeige: Hinweise und Knöpfe liegen nicht mehr
+      unter der Navigationsleiste. Die App ist kleiner und schneller. Behoben: Nach einmaligem
+      „Nicht erlauben“ fragte die App sofort ein zweites Mal nach der Kamera.
 
   # SnapFuchs 1.2.1 (versionCode 10). Play-Store-App. Live seit 05.10.2026 15:48 (Console), gemeldet von
   # [FF_13] (MELDUNG P5 05.10.2026 18:43, Store-Seite dort um 18:43 gelesen). Text = „Neu in 1.2.1“ aus dem
@@ -412,7 +410,7 @@ meldungen:
     typ: update
     produkt: mobilereport-enterprise
     version: "1.5.0"
-    titel: MobileReport Enterprise 1.5.0
+    titel: "MobileReport Enterprise 1.5.0: passende Empfänger vorgeschlagen"
     text: >-
       MobileReport Enterprise 1.5.0 schlägt beim Melden die zuständigen Empfänger vor – nach
       Gebäude, sonst nach Bereich, jeweils passend zur Kategorie; passt niemand, bleibt es beim
@@ -428,7 +426,7 @@ meldungen:
     typ: update
     produkt: mobilereport-enterprise
     version: "1.4.0"
-    titel: MobileReport Enterprise 1.4.0
+    titel: "MobileReport Enterprise 1.4.0: Orte an einer Stelle, klarere Meldungswege"
     text: >-
       MobileReport Enterprise 1.4.0 legt Orte an einer Stelle an – Bereich, Gebäude, Ebene,
       Raum und Bezeichnung, auch aus Excel oder CSV. Beim Melden wählt man erst den Bereich
@@ -662,13 +660,13 @@ meldungen:
     typ: update
     produkt: haushaltsmanager
     version: "1.1.1"
-    titel: "HaushaltsManager 1.1.1: Fehlerbehebung Auswertungen"
+    titel: "HaushaltsManager 1.1.1: Strom-Zählerstände richtig ausgewertet"
     text: >-
-      Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt
-      von Hand erfasste Strom-Zählerstände; vorher wurde ohne PowerFox oder ENPAL 0 kWh
-      angezeigt. Im Haushaltsbuch werden nachträglich eingetragene ältere Monate in „Alle
-      Jahre“ nicht mehr mehrfach gezählt. Der Datenschutzhinweis zum Lizenzserver ist
-      präzisiert, und die Texte im Installer haben korrekte Umlaute.
+      Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt von Hand
+      erfasste Strom-Zählerstände; vorher wurde ohne PowerFox oder ENPAL 0 kWh angezeigt. Im
+      Haushaltsbuch werden nachträglich eingetragene ältere Monate in „Alle Jahre“ nicht mehr
+      mehrfach gezählt. Der Datenschutzhinweis ist genauer gefasst, und der Installer zeigt
+      Umlaute richtig an.
 
   # HaushaltsManager 1.1.0 (Windows-Release 06.10.2026 17:40, signiert, Meldung [FF_16]).
   # 'version: 1.1.0' bindet die Meldung an den releases-Eintrag. Text aus der Release-Seite,
@@ -679,12 +677,11 @@ meldungen:
     version: "1.1.0"
     titel: "HaushaltsManager 1.1.0: Stabilität, Datenschutz und Rechtstexte"
     text: >-
-      Kein Absturz mehr beim Beenden der App. Die kostenlose Testphase läuft volle
-      30 Tage; eine zurückgestellte Systemuhr verlängert sie nicht mehr. Berechnungen
-      über die Sommer- und Winterzeitumstellung sind korrigiert, einmalige Zahlungen
-      werden nur noch einmal gezählt. Der lesbare JSON-Export enthält jetzt alle Daten,
-      die Sicherung (SQLite) ist klar davon getrennt. Datenschutzhinweise und die
-      Lizenzvereinbarung (EULA) sind jetzt in der App nachlesbar.
+      Kein Absturz mehr beim Beenden der App. Die kostenlose Testphase läuft volle 30 Tage; eine
+      zurückgestellte Systemuhr verlängert sie nicht mehr. Berechnungen über die Sommer- und
+      Winterzeitumstellung sind korrigiert, einmalige Zahlungen werden nur noch einmal gezählt.
+      Der lesbare JSON-Export enthält jetzt alle Daten, die Sicherung ist klar davon getrennt.
+      Datenschutzhinweise und die Lizenzvereinbarung (EULA) sind jetzt in der App nachlesbar.
 
   # Statusmeldung „warum es länger nichts Neues gab" (ChefBüro-Auftrag 2,
   # 01.08.2026). Kein Changelog, keine Versionsnummern; Fakten aus dem

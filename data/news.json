@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T18:58:59+02:00",
+  "generiert": "2026-10-20T19:05:33+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -34,7 +34,7 @@
       "produkt": "gewerbepro",
       "version": "1.1.3",
       "titel": "GewerbePro 1.1.3: Handy-Abgleich über USB zuverlässiger",
-      "text": "GewerbePro 1.1.3 macht den Handy-Abgleich über USB zuverlässiger: Die beiden Kontaktdateien auf dem Handy werden auch über das Kabel erneuert und auf Ankunft geprüft – gelingt das nicht, bekommst du einen Hinweis. Ein älteres Handypaket aus einer Sicherung wird nicht mehr übernommen und überschreibt keinen neueren Stand; der volle Schutz gilt mit der Companion- App 1.0.2. Bei „Handy suchen“ erscheinen zuerst nur die Namen der USB-Geräte, erst nach deiner Auswahl und „Handy prüfen“ liest GewerbePro dieses eine Gerät.",
+      "text": "GewerbePro 1.1.3 macht den Abgleich mit dem Handy über USB zuverlässiger: GewerbePro erneuert zwei Dateien auf dem Handy jetzt auch über das Kabel und prüft nach, dass sie wirklich angekommen sind – sonst bekommst du einen Hinweis. Ein älteres Handypaket aus einer Sicherung überschreibt keinen neueren Stand mehr (der volle Schutz gilt mit der Companion-App 1.0.2). Bei „Handy suchen“ siehst du zuerst nur die Namen der USB-Geräte; GewerbePro liest erst das Gerät, das du ausgewählt hast.",
       "datum": "2026-10-20",
       "datumQuelle": "Release 1.1.3",
       "wege": {
@@ -62,7 +62,7 @@
       "produkt": "gewerbepro",
       "version": "1.1.2",
       "titel": "GewerbePro 1.1.2: Bemerkungen und Auftragsbestätigung",
-      "text": "GewerbePro 1.1.2 bringt eine Bemerkung je Position in Rechnung, Angebot und Auftrag; im PDF steht sie kleiner und kursiv unter der Position, dazu eine allgemeine Bemerkung unter dem Schlusstext. Zeilenumbrüche bleiben im PDF erhalten. Ein Auftrag kann jetzt Positionen haben, daraus entsteht die Auftragsbestätigung als PDF. Im Angebot gibt es die USt je Position, und die Bemerkungen gehen in die E-Rechnung ein. Die mitgelieferten Programmbibliotheken sind jetzt digital signiert. Beim ersten Start ergänzt GewerbePro deine Datenbank um die neuen Felder, deine Daten bleiben erhalten.",
+      "text": "GewerbePro 1.1.2 bringt eine Bemerkung je Position in Rechnung, Angebot und Auftrag; im PDF steht sie kleiner und kursiv unter der Position, dazu eine allgemeine Bemerkung unter dem Schlusstext. Zeilenumbrüche bleiben im PDF erhalten. Ein Auftrag kann jetzt Positionen haben, daraus entsteht die Auftragsbestätigung als PDF. Im Angebot gibt es die USt je Position, und die Bemerkungen gehen in die E-Rechnung ein. Beim ersten Start ergänzt GewerbePro deine Datenbank um die neuen Felder, deine Daten bleiben erhalten.",
       "datum": "2026-10-19",
       "datumQuelle": "Release 1.1.2",
       "wege": {
@@ -75,8 +75,8 @@
       "typ": "update",
       "produkt": "checkin-vita",
       "datum": "2026-10-19",
-      "titel": "CheckInVita 1.0.1: kleine Pflegefassung",
-      "text": "CheckInVita 1.0.1 ist im Play Store, eine kleine Pflegefassung. Bei großer Schrift hat die Startseite Kacheln in voller Breite, der Eintrag-Knopf überdeckt weniger. Große Austauschdateien werden im Hintergrund eingelesen (Grenze 32 MB). Beim Wiederherstellen einer Sicherung werden PZN und EAN geprüft. Die Bausteine sind auf den neuesten Patchstand gebracht. Tipp: Sichere deine Daten regelmäßig unter „Zusammenfassung & Export“ → „Backup erstellen“.",
+      "titel": "CheckInVita 1.0.1: besser bei großer Schrift, sicherer beim Einlesen",
+      "text": "CheckInVita 1.0.1 ist im Play Store. Bei großer Schrift zeigt die Startseite die Kacheln in voller Breite, und der Knopf für neue Einträge verdeckt weniger. Große Austauschdateien (bis 32 MB) werden im Hintergrund eingelesen, und beim Wiederherstellen einer Sicherung werden PZN und EAN geprüft. Tipp: Sichere deine Daten regelmäßig unter „Zusammenfassung & Export“ → „Backup erstellen“.",
       "datumQuelle": "eigene Angabe",
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.checkinvita"
@@ -137,8 +137,8 @@
       "typ": "update",
       "produkt": "haushaltsmanager",
       "version": "1.1.1",
-      "titel": "HaushaltsManager 1.1.1: Fehlerbehebung Auswertungen",
-      "text": "Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt von Hand erfasste Strom-Zählerstände; vorher wurde ohne PowerFox oder ENPAL 0 kWh angezeigt. Im Haushaltsbuch werden nachträglich eingetragene ältere Monate in „Alle Jahre“ nicht mehr mehrfach gezählt. Der Datenschutzhinweis zum Lizenzserver ist präzisiert, und die Texte im Installer haben korrekte Umlaute.",
+      "titel": "HaushaltsManager 1.1.1: Strom-Zählerstände richtig ausgewertet",
+      "text": "Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt von Hand erfasste Strom-Zählerstände; vorher wurde ohne PowerFox oder ENPAL 0 kWh angezeigt. Im Haushaltsbuch werden nachträglich eingetragene ältere Monate in „Alle Jahre“ nicht mehr mehrfach gezählt. Der Datenschutzhinweis ist genauer gefasst, und der Installer zeigt Umlaute richtig an.",
       "datum": "2026-10-08",
       "datumQuelle": "Release 1.1.1",
       "wege": {
@@ -152,7 +152,7 @@
       "produkt": "snapfuchs",
       "datum": "2026-10-06",
       "titel": "SnapFuchs 1.2.2: randlose Anzeige, kleiner und schneller",
-      "text": "SnapFuchs 1.2.2 ist im Play Store. Randlose Anzeige: Hinweise und Knöpfe liegen nicht mehr unter der Navigationsleiste. Die App ist durch optimierten Programmcode kleiner und schneller, und die Bausteine für die Kamera-Berechtigung sind aktualisiert. Behoben: Nach einmaligem „Nicht erlauben“ fragte die App sofort ein zweites Mal nach der Kamera.",
+      "text": "SnapFuchs 1.2.2 ist im Play Store. Randlose Anzeige: Hinweise und Knöpfe liegen nicht mehr unter der Navigationsleiste. Die App ist kleiner und schneller. Behoben: Nach einmaligem „Nicht erlauben“ fragte die App sofort ein zweites Mal nach der Kamera.",
       "datumQuelle": "eigene Angabe",
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.snapfuchs"
@@ -164,7 +164,7 @@
       "produkt": "haushaltsmanager",
       "version": "1.1.0",
       "titel": "HaushaltsManager 1.1.0: Stabilität, Datenschutz und Rechtstexte",
-      "text": "Kein Absturz mehr beim Beenden der App. Die kostenlose Testphase läuft volle 30 Tage; eine zurückgestellte Systemuhr verlängert sie nicht mehr. Berechnungen über die Sommer- und Winterzeitumstellung sind korrigiert, einmalige Zahlungen werden nur noch einmal gezählt. Der lesbare JSON-Export enthält jetzt alle Daten, die Sicherung (SQLite) ist klar davon getrennt. Datenschutzhinweise und die Lizenzvereinbarung (EULA) sind jetzt in der App nachlesbar.",
+      "text": "Kein Absturz mehr beim Beenden der App. Die kostenlose Testphase läuft volle 30 Tage; eine zurückgestellte Systemuhr verlängert sie nicht mehr. Berechnungen über die Sommer- und Winterzeitumstellung sind korrigiert, einmalige Zahlungen werden nur noch einmal gezählt. Der lesbare JSON-Export enthält jetzt alle Daten, die Sicherung ist klar davon getrennt. Datenschutzhinweise und die Lizenzvereinbarung (EULA) sind jetzt in der App nachlesbar.",
       "datum": "2026-10-06",
       "datumQuelle": "Release 1.1.0",
       "wege": {
@@ -273,7 +273,7 @@
       "typ": "update",
       "produkt": "mobilereport-enterprise",
       "version": "1.5.0",
-      "titel": "MobileReport Enterprise 1.5.0",
+      "titel": "MobileReport Enterprise 1.5.0: passende Empfänger vorgeschlagen",
       "text": "MobileReport Enterprise 1.5.0 schlägt beim Melden die zuständigen Empfänger vor – nach Gebäude, sonst nach Bereich, jeweils passend zur Kategorie; passt niemand, bleibt es beim Standard-Empfänger. Wofür ein Empfänger zuständig ist, legt man bei ihm fest oder liest es über die neuen Spalten „Kategorie“ und „Gebäude“ der Empfänger-Tabelle ein. Im Admin-Bereich lässt sich die Auswahl sperren. Bei der Sicherung steht der Hinweis zu einem falschen oder fehlenden Passwort jetzt oben im Dialog.",
       "datum": "2026-09-26",
       "datumQuelle": "Release 1.5.0",
@@ -358,7 +358,7 @@
       "typ": "update",
       "produkt": "mobilereport-enterprise",
       "version": "1.4.0",
-      "titel": "MobileReport Enterprise 1.4.0",
+      "titel": "MobileReport Enterprise 1.4.0: Orte an einer Stelle, klarere Meldungswege",
       "text": "MobileReport Enterprise 1.4.0 legt Orte an einer Stelle an – Bereich, Gebäude, Ebene, Raum und Bezeichnung, auch aus Excel oder CSV. Beim Melden wählt man erst den Bereich und sieht dann nur dessen Räume. Der Absender lässt sich als Kontakt aus dem Adressbuch übernehmen, seine E-Mail kommt beim Versand ins Kopie-Feld, und der Admin-Bereich ist in übersichtliche Klappkarten gegliedert. Neu: Die lokale Datensicherung wird mit einem Passwort verschlüsselt (AES-GCM-256); die Wiederherstellung verlangt zusätzlich das Master-Passwort. Beide Bezugswege – Direkt-Download und Managed Google Play – laufen weiter parallel.",
       "datum": "2026-09-23",
       "datumQuelle": "Release 1.4.0",
