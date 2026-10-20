@@ -1,8 +1,8 @@
 slug: belegwerk
 name: BelegWerk
-stand: "2026-10-14"
+stand: "2026-10-20"
 geprueft_von: 28_BelegWerk
-fassung: "0.9.0-rc.16 – lokaler, nicht veröffentlichter Release Candidate"
+fassung: "0.9.0-rc.20 – lokaler, nicht veröffentlichter Release Candidate"
 
 # Die Belegverarbeitung läuft lokal. Alle inhaltlichen Übertragungen (Paperless,
 # Support) sind nutzerinitiiert. Ausnahme ist ein automatischer, inhaltsloser
@@ -80,7 +80,7 @@ uebertragungen:
     wann: beim Laden der Aufbereitung bzw. nach Klick auf die Paperless-Übergabe
     freiwillig: true
     beleg: 05_Engine/belegwerk_core/belegwerk_core/paperless/api.py
-  - wohin: FehlerFuchs Support-Bridge auf einem EU-Server
+  - wohin: license.fehlerfuchs.eu (FehlerFuchs-Kontakt-Bridge, Server in Deutschland)
     was: freiwillige Nachricht, Name, Rückfrage-E-Mail, Betreff, Fehlercode, App-Version, Betriebssystem und bewusst ausgewählte Anhänge
     wann: ausschließlich nach Klick auf „Senden“ im Dialog „Hilfe & Feedback“
     freiwillig: true
@@ -99,7 +99,7 @@ fremde_dienste:
   - name: PDFuchs oder PDF24
     wofuer: optionale lokale PDF-Korrektur, Seitentrennung oder Neuordnung
     wann: nur nach ausdrücklicher Auswahl im PDF-Werkzeugmenü
-  - name: FehlerFuchs Support-Bridge
+  - name: license.fehlerfuchs.eu (FehlerFuchs-Kontakt-Bridge)
     wofuer: freiwillige Support- oder Kontaktanfrage
     wann: nur nach ausdrücklichem Absenden
 
@@ -146,6 +146,6 @@ vorhandener_text: ""
 
 offene_fragen: >-
   Vor einer öffentlichen Finalfreigabe sind die tatsächlichen Lösch- und
-  Aufbewahrungsfristen der zentralen Support-Bridge nochmals mit dem
+  Aufbewahrungsfristen des zentralen Kontakt-Dienstes license.fehlerfuchs.eu nochmals mit dem
   Serverbetrieb abzugleichen. Protokollierung und Aufbewahrung einer vom Nutzer
   selbst betriebenen Paperless-Instanz liegen außerhalb von BelegWerk.

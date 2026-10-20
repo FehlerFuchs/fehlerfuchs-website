@@ -1,14 +1,14 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T10:03:25+02:00",
+  "generiert": "2026-10-20T10:51:47+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
       "slug": "belegwerk",
       "name": "BelegWerk",
-      "stand": "2026-10-14",
+      "stand": "2026-10-20",
       "geprueft_von": "28_BelegWerk",
-      "fassung": "0.9.0-rc.16 – lokaler, nicht veröffentlichter Release Candidate",
+      "fassung": "0.9.0-rc.20 – lokaler, nicht veröffentlichter Release Candidate",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -117,7 +117,7 @@
           "beleg": "05_Engine/belegwerk_core/belegwerk_core/paperless/api.py"
         },
         {
-          "wohin": "FehlerFuchs Support-Bridge auf einem EU-Server",
+          "wohin": "license.fehlerfuchs.eu (FehlerFuchs-Kontakt-Bridge, Server in Deutschland)",
           "was": "freiwillige Nachricht, Name, Rückfrage-E-Mail, Betreff, Fehlercode, App-Version, Betriebssystem und bewusst ausgewählte Anhänge",
           "wann": "ausschließlich nach Klick auf „Senden“ im Dialog „Hilfe & Feedback“",
           "freiwillig": true,
@@ -146,7 +146,7 @@
           "wann": "nur nach ausdrücklicher Auswahl im PDF-Werkzeugmenü"
         },
         {
-          "name": "FehlerFuchs Support-Bridge",
+          "name": "license.fehlerfuchs.eu (FehlerFuchs-Kontakt-Bridge)",
           "wofuer": "freiwillige Support- oder Kontaktanfrage",
           "wann": "nur nach ausdrücklichem Absenden"
         }
@@ -159,7 +159,7 @@
       "loeschung": "Die Deinstallation entfernt das Programm, die Benutzerdokumente aber bewusst nicht. Konfiguration, Journal, Aktivitätslog, Zähler, Drucklog, Stempelvorlagen, Vorschau-Cache und Quarantäne können im lokalen BelegWerk-Benutzerordner gelöscht werden. Im Eingang können Belege nach deutlicher Rückfrage samt Sidecars und verknüpften Arbeitskopien dauerhaft gelöscht werden; bereits übergebene Zielkopien und der Journalnachweis bleiben erhalten. Paperless-Tokens werden getrennt in der Windows-Anmeldeinformationsverwaltung entfernt. Arbeitskopien, Consume-Übergaben und Dateiablagen löscht der Nutzer in den von ihm gewählten Zielordnern. Daten in Paperless werden in der jeweiligen Instanz gelöscht.",
       "besonderheiten": "Originale werden nicht überschrieben. Consume- und Dateiablage verwenden kollisionsfreie Namen; die zusätzliche Dateiablage prüft Quelle und Ziel per SHA-256. PDF-Stempel und externe PDF-Werkzeuge arbeiten ausschließlich mit neuen Arbeitskopien im lokalen BelegWerk-Datenordner. Paperless und Dateiablage haben getrennte Status- und Wiederholaktionen. Sidecars sind auf 64 KiB und eine Positivliste unkritischer Metadaten begrenzt; unbekannte geheime Felder werden ignoriert. Tokens erscheinen weder in UI-Ausgaben noch in Diagnoseberichten. Der Aktivitätsverlauf speichert keine Dateinamen, Pfade, E-Mail-Adressen, Dokumentinhalte oder externen Aufgabenkennungen. Technische Korrelationskennungen werden mit einem zufälligen lokalen Schlüssel gebildet; ältere ungeschützte Kurzkennungen werden entfernt. Bestehende Einträge werden über eine versionierte Einmalmigration in eine sichere Ereignisform überführt; jeder Eintrag erhält eine verständliche Erklärung und einen nächsten Schritt. Der direkte Paperless-Status arbeitet lesend. Lokale Docker-Protokolle werden vor der Anzeige auf Zugangsdaten geprüft und maskiert. Der Support-Dialog nennt die Übertragung vor dem Absenden und begrenzt Anhänge auf fünf Dateien und zusammen 10 MB.",
       "vorhandener_text": "",
-      "offene_fragen": "Vor einer öffentlichen Finalfreigabe sind die tatsächlichen Lösch- und Aufbewahrungsfristen der zentralen Support-Bridge nochmals mit dem Serverbetrieb abzugleichen. Protokollierung und Aufbewahrung einer vom Nutzer selbst betriebenen Paperless-Instanz liegen außerhalb von BelegWerk.",
+      "offene_fragen": "Vor einer öffentlichen Finalfreigabe sind die tatsächlichen Lösch- und Aufbewahrungsfristen des zentralen Kontakt-Dienstes license.fehlerfuchs.eu nochmals mit dem Serverbetrieb abzugleichen. Protokollierung und Aufbewahrung einer vom Nutzer selbst betriebenen Paperless-Instanz liegen außerhalb von BelegWerk.",
       "art": "anwendung"
     },
     {
