@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T14:10:29+02:00",
+  "generiert": "2026-10-20T17:31:35+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -3438,7 +3438,7 @@
           },
           {
             "src": "/img/screenshots/pdfuchsreader/handy-08-datenschutz.png",
-            "alt": "Werbebild „Alles bleibt auf dem Gerät“ mit der Datenschutzseite in der App: Abschnitte zu Dateien, Support und Systemfunktionen",
+            "alt": "Werbebild „Alles bleibt auf dem Gerät“ mit der Datenschutzseite in der App: Wer ist verantwortlich, was wird verarbeitet, wo liegen die Daten",
             "width": 1080,
             "height": 1920,
             "geraet": "handy",
