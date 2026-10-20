@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T10:51:47+02:00",
+  "generiert": "2026-10-20T18:18:59+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1475,30 +1475,70 @@
     {
       "slug": "pdfuchs",
       "name": "PDFuchs",
-      "stand": "2026-09-29",
+      "stand": "2026-10-20",
       "geprueft_von": "26_PDFuchs",
-      "fassung": "v0.1.1_dev (Vorabfassung, noch nicht veröffentlicht)",
+      "fassung": "1.0.0 (veröffentlicht am 20.10.2026)",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
-          "was": "Vom Nutzer gesetzter Alias, Ablageordner, zuletzt geöffnete Dokumentpfade und optionale Stammdaten (Name, Anschrift, E-Mail, Telefon, IBAN, BIC)",
+          "was": "Vom Nutzer gesetzter Alias, Ablageordner und zuletzt geöffnete Dokumentpfade",
           "wo": "Lokale Einstellungsdatei %APPDATA%\\PDFuchs\\settings.json",
           "beleg": "11_App_Flutter/pdfuchs_desktop/lib/settings/app_settings.dart"
         },
         {
-          "was": "Vom Nutzer geöffnete und erzeugte PDFs sowie Zwischenergebnisse (Vorschauen, korrigierte Scans, ausfüllbare Formulare, Ergebnisse der Texterkennung)",
+          "was": "Optionale Stammdaten (Name, Anschrift, E-Mail, Telefon, IBAN, BIC)",
+          "wo": "%LOCALAPPDATA%\\PDFuchs\\stammdaten.dat, verschlüsselt mit dem Windows-Datenschutz (DPAPI) des Benutzerkontos; bis 0.2.0 im Klartext in settings.json, beim ersten Start von 1.0.0 übernommen und dort entfernt",
+          "beleg": "11_App_Flutter/pdfuchs_desktop/lib/settings/stammdaten_tresor.dart, app_settings.dart (_stammdatenLaden); AUDIT#05 F-029, Entscheidung Matthias 16.10.2026 „B: Jetzt vor dem RC“"
+        },
+        {
+          "was": "Ansichtswahl (Seitenmodus, Zoom, Seitenfarbe, Miniaturen, Darstellung hell, dunkel, Sepia oder wie Windows, im Lesemodus und E-Book Schriftgröße, Farbe und Buchmodus), die zuletzt benutzten Werkzeuge, Standardgröße für Sticker, Wasserzeichen-Vorlagen und selbst angelegte Routinen (Arbeitsabläufe; Wortlaut Matthias 15.10.2026, 21:51 und 16.10.2026, 03:07)",
+          "wo": "Lokale Einstellungsdatei %APPDATA%\\PDFuchs\\settings.json",
+          "beleg": "11_App_Flutter/pdfuchs_desktop/lib/settings/app_settings.dart (Feld ansicht), lib/reader/reader_menue.dart, lib/reader/sticker_auswahl.dart, lib/reader/wasserzeichen_dialog.dart, lib/ui/darstellung.dart (oberflaeche), lib/reader/ebook/kapitel_leser.dart (lesen), lib/reader/werkzeugmenue.dart (werkzeuge)"
+        },
+        {
+          "was": "Lesestellen und eigene Lesezeichen (je Dokument Dateipfad, zuletzt gelesene Seite, Seitenzahl, Lesezeichen mit Titel, Zeitpunkt; höchstens 300 Dokumente) und ein Prüfwert aus Größe, Anfang und Ende der Datei, damit Lesestelle und Lesezeichen ein Verschieben oder Umbenennen überstehen; aus dem Prüfwert lässt sich der Inhalt der Datei nicht zurückgewinnen (Wortlaut Matthias 16.10.2026, 03:07)",
+          "wo": "Lokale Einstellungsdatei %APPDATA%\\PDFuchs\\settings.json",
+          "beleg": "11_App_Flutter/pdfuchs_desktop/lib/reader/lesestand.dart (lesestand, maxEintraege = 300, FNV-1a 64 über Größe und je 64 KB Anfang/Ende), lib/reader/ebook/marken_store.dart (lesezeichen_text)"
+        },
+        {
+          "was": "Eigene Stempel und Sticker, die der Nutzer hinzufügt (Bilddateien und Textstempel)",
+          "wo": "Ordner %APPDATA%\\PDFuchs\\stempel und %APPDATA%\\PDFuchs\\sticker",
+          "beleg": "11_App_Flutter/pdfuchs_desktop/lib/reader/sticker_auswahl.dart (eigeneAblage)"
+        },
+        {
+          "was": "Kommentare, Markierungen, Stempel, Sticker, Wasserzeichen und Formularwerte, die der Nutzer in ein Dokument setzt; gespeichert in der neuen PDF-Datei, die PDFuchs dafür erzeugt",
+          "wo": "in der neu erzeugten PDF-Datei (Ordner Dokumente\\PDFuchs des Benutzers)",
+          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/anmerkungen.py, wasserzeichen.py, formulare.py"
+        },
+        {
+          "was": "Vom Nutzer erzeugte Ergebnisse (bearbeitete PDFs, korrigierte Scans, ausfüllbare Formulare, Ergebnisse der Texterkennung); jedes Ergebnis als neue Datei, nichts wird überschrieben",
           "wo": "Ordner Dokumente\\PDFuchs des Benutzers",
           "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/config.py:85-99"
         },
         {
-          "was": "Angaben zur Testphase und zur Zahl der erstellten Formulare (Startdatum, Zähler)",
-          "wo": "Datei license_state.json im Anwendungsdatenordner des Benutzers (%LOCALAPPDATA%\\PDFuchs)",
-          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/feature_flags.py:61-62"
+          "was": "Unterschrift als Stempel (Bilddatei mit durchsichtigem Hintergrund), nur wenn der Nutzer sie einrichtet; dazu die Wahl des Mailprogramms in den Einstellungen",
+          "wo": "Datei %APPDATA%\\PDFuchs\\signatur\\signatur.png; Wahl des Mailprogramms in %APPDATA%\\PDFuchs\\settings.json",
+          "beleg": "11_App_Flutter/pdfuchs_desktop/lib/reader/signatur_stempel.dart (signaturDatei), lib/reader/mail_dialog.dart; Entscheidung Matthias 19.10.2026 (#6870)"
+        },
+        {
+          "was": "Eigene Mail-Textbausteine (Name, Betreff, Text), nur wenn der Nutzer im Mailfenster „Als Baustein speichern“ wählt; die Standardtexte sind Teil des Programms",
+          "wo": "Lokale Einstellungsdatei %APPDATA%\\PDFuchs\\settings.json (Fach mailtexte)",
+          "beleg": "11_App_Flutter/pdfuchs_desktop/lib/reader/mail_bausteine.dart, lib/reader/mail_dialog.dart; Entscheidung Matthias 20.10.2026 („A: Freigeben“, Ergänzung Datenschutzhinweis)"
+        },
+        {
+          "was": "Systemberichte (Programmversion, Windows-Version, Werkzeugpfade ohne Benutzernamen, Druckernamen, Stimmen, Mailprogramme; ohne Dokumente), nur wenn der Nutzer „Systembericht erstellen“ wählt",
+          "wo": "Ordner %APPDATA%\\PDFuchs\\berichte",
+          "beleg": "11_App_Flutter/pdfuchs_desktop/lib/app/programm_werkzeuge.dart (systemberichtText, berichtPfad)"
+        },
+        {
+          "was": "Zwischendateien bei der Bearbeitung (PDF-Umwandlung von Word-, Excel- oder Textdateien, Seitenbilder für die Vorschau, interne Zwischenstände der Formularerkennung; wiederverwendet, solange sich die Datei nicht ändert; Einträge älter als sieben Tage löscht PDFuchs selbst)",
+          "wo": "Zwischenspeicher %LOCALAPPDATA%\\PDFuchs\\Umwandlung",
+          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/zwischenspeicher.py (ZWISCHENSPEICHER_TAGE = 7), docx_to_pdf.py, engine_api.py (render_preview), pdf_tools.py, pipeline.py; Entscheidungen Matthias 09.10.2026 E1/E2 (#5694) und 14.10.2026 \"A\" (#6212)"
         },
         {
           "was": "Angaben zu erkannten Scannern (Gerätename, Hersteller, Gerätekennung, Fähigkeiten) und selbst angelegte Scanprofile",
-          "wo": "zwei Dateien im Ordner Dokumente\\PDFuchs des Benutzers",
-          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/scanner.py:37 und :43"
+          "wo": "zwei Dateien im Ordner %APPDATA%\\PDFuchs\\scanner (bis 0.2.0 in Dokumente\\PDFuchs; beim ersten Zugriff übernommen)",
+          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/scanner.py (_scanner_datei), config.py (nutzer_daten_ordner); AUDIT#05 F-013, Entscheidung Matthias 16.10.2026 „Jetzt zur 1.0.0“"
         },
         {
           "was": "Speicherorte der mitgelieferten Zusatzwerkzeuge",
@@ -1522,10 +1562,28 @@
       ],
       "uebertragungen": [
         {
+          "was": "Werkzeug „Webseite in PDF“ – der auf dem Rechner vorhandene Microsoft Edge lädt die vom Nutzer eingegebene Adresse und druckt sie in eine PDF; PDFuchs sendet nichts an FehlerFuchs",
+          "wohin": "die vom Nutzer eingegebene Webadresse (http/https), durch Microsoft Edge",
+          "wann": "ausschließlich, wenn der Nutzer das Werkzeug mit einer Adresse startet",
+          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/werkzeuge_mehr.py (webseite_in_pdf)"
+        },
+        {
+          "was": "Zeitstempelanfrage beim Signieren – nur ein Prüfwert (Hash) der Signatur, kein Dokument",
+          "wohin": "die vom Nutzer eingetragene Zeitstempelstelle (http/https)",
+          "wann": "ausschließlich, wenn der Nutzer beim Werkzeug „Mit Zertifikat signieren“ eine Zeitstempelstelle einträgt",
+          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/werkzeuge_signatur.py (signieren_zertifikat)"
+        },
+        {
           "was": "Nutzerinitiierte Support-/Kontaktnachricht – Nachricht, freiwillig Name und E-Mail, dazu App-Version, Ausgabe und Windows-Version. Keine Dateianhänge, kein Gerätename",
           "wohin": "license.fehlerfuchs.eu (FehlerFuchs-Kontakt-Bridge, EU/IONOS), per HTTPS",
           "wann": "ausschließlich beim ausdrücklichen Absenden des Support-Formulars, sonst besteht keine Verbindung. Bei einer Netzstörung öffnet PDFuchs das lokale E-Mail-Programm mit der vorbereiteten Nachricht; gesendet wird erst dort durch den Nutzer",
-          "beleg": "11_App_Flutter/pdfuchs_desktop/lib/support/kontakt_service.dart:20-58 und lib/support/support_screen.dart:60-110"
+          "beleg": "11_App_Flutter/pdfuchs_desktop/lib/support/kontakt_service.dart:20-58 und lib/support/kontakt_dialog.dart (Kontakt als Fenster, ersetzt support_screen.dart)"
+        },
+        {
+          "was": "PDF per E-Mail – die gewählte Datei wird an das eigene E-Mail-Programm des Nutzers übergeben, das einen Entwurf mit der Datei als Anhang öffnet. PDFuchs selbst sendet nichts",
+          "wohin": "lokales E-Mail-Programm des Nutzers; gesendet wird erst dort, über den E-Mail-Anbieter des Nutzers",
+          "wann": "ausschließlich, wenn der Nutzer „Per E-Mail“ wählt und im E-Mail-Programm selbst auf Senden klickt",
+          "beleg": "05_Engine/pdfuchs_core/pdfuchs_core/mail.py (Simple MAPI, sonst Ordner und Zwischenablage), 11_App_Flutter/pdfuchs_desktop/lib/reader/mail_dialog.dart"
         }
       ],
       "fremde_dienste": [
@@ -1556,10 +1614,10 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen auf dem Gerät. Selbst erzeugte oder bearbeitete PDFs liegen dort, wo der Nutzer sie gespeichert hat, und lassen sich wie jede andere Datei löschen. Beim Deinstallieren wird das Programm entfernt; eigene Dokumente bleiben erhalten. Die kleine Datei mit den Angaben zur Testphase im Anwendungsdatenordner des Benutzers wird beim Deinstallieren nicht mit entfernt und bleibt auf dem Gerät; sie kann jederzeit von Hand gelöscht werden. Das gilt auch für die lokale Einstellungsdatei unter %APPDATA%\\PDFuchs; erkennt PDFuchs dort unlesbares JSON, wird diese Fassung vor dem nächsten Speichern als Datei mit dem Zusatz „.defekt-…“ bewahrt. Ebenso bleibt der Ordner Dokumente\\PDFuchs mit den dort abgelegten Ergebnissen, Scannerangaben und Scanprofilen nach dem Deinstallieren erhalten und kann von Hand gelöscht werden.",
-      "besonderheiten": "PDFuchs verarbeitet Dokumente vollständig auf dem eigenen Rechner. Die Anwendung stellt von sich aus keine Verbindung ins Internet her. Eine Übertragung erfolgt nur, wenn der Nutzer das Support-/Kontaktformular ausdrücklich absendet; dann gehen die Nachricht, die dort eingegebenen freiwilligen Angaben sowie App-Version und Windows-Version per HTTPS an die FehlerFuchs-Kontakt-Bridge (license.fehlerfuchs.eu, EU/IONOS). Ein Konto oder eine Anmeldung gibt es nicht. Die Angaben zur Testphase und zur Zahl erstellter Formulare bleiben ausschließlich auf dem Gerät. Wird ein Scanner benutzt, werden Angaben zum angeschlossenen Gerät lokal gespeichert, damit die Scanprofile dazu passen. Der beschriebene Stand ist eine Vorabfassung, die noch nicht veröffentlicht wurde.",
+      "loeschung": "Alle Daten liegen auf dem Gerät. Selbst erzeugte oder bearbeitete PDFs liegen dort, wo der Nutzer sie gespeichert hat, und lassen sich wie jede andere Datei löschen. Beim Deinstallieren wird das Programm entfernt; eigene Dokumente bleiben erhalten. Eine von früheren Fassungen angelegte Datei license_state.json im Anwendungsdatenordner des Benutzers (Testphase) wird von PDFuchs 1.0.0 nicht mehr geschrieben oder gelesen; sie bleibt beim Deinstallieren liegen und kann jederzeit von Hand gelöscht werden. Das gilt auch für die lokale Einstellungsdatei unter %APPDATA%\\PDFuchs; erkennt PDFuchs dort unlesbares JSON, wird diese Fassung vor dem nächsten Speichern als Datei mit dem Zusatz „.defekt-…“ bewahrt (höchstens drei). Ebenso bleiben die verschlüsselte Stammdaten-Datei %LOCALAPPDATA%\\PDFuchs\\stammdaten.dat (unlesbar: ebenso als „.defekt-…“, höchstens drei), der Ordner %APPDATA%\\PDFuchs\\scanner mit Scannerangaben und Scanprofilen sowie der Ordner Dokumente\\PDFuchs mit den Ergebnissen nach dem Deinstallieren erhalten und können von Hand gelöscht werden (Wortlaut Datenschutzhinweis: Matthias 16.10.2026, Antwort vor 17:02:51 „A“). Der Zwischenspeicher unter %LOCALAPPDATA%\\PDFuchs\\Umwandlung bleibt beim Deinstallieren ebenfalls erhalten; Einträge, die älter als sieben Tage sind, löscht PDFuchs selbst, der Rest lässt sich jederzeit von Hand löschen. Ebenso bleiben die Ordner %APPDATA%\\PDFuchs\\stempel und %APPDATA%\\PDFuchs\\sticker mit den eigenen Stempeln und Stickern erhalten.",
+      "besonderheiten": "PDFuchs verarbeitet Dokumente vollständig auf dem eigenen Rechner. Die Anwendung stellt von sich aus keine Verbindung ins Internet her. Eine Übertragung erfolgt nur, wenn der Nutzer das Support-/Kontaktformular ausdrücklich absendet; dann gehen die Nachricht, die dort eingegebenen freiwilligen Angaben sowie App-Version und Windows-Version per HTTPS an die FehlerFuchs-Kontakt-Bridge (license.fehlerfuchs.eu, EU/IONOS). Ein Konto oder eine Anmeldung gibt es nicht. PDFuchs ist kostenlos und zählt nichts. Die Links „Unterstützen“ und „Per PayPal unterstützen“ sowie die Quell-Links der Open-Source-Seite öffnen erst auf Klick den Browser; PDFuchs sendet dabei nichts. Wird ein Scanner benutzt, werden Angaben zum angeschlossenen Gerät lokal gespeichert, damit die Scanprofile dazu passen. Der beschriebene Stand ist die veröffentlichte Fassung 1.0.0. Für die Anzeige „Offline-Status“ prüft PDFuchs nur auf dem Rechner mit dem Windows-Befehl netstat, ob PDFuchs selbst Verbindungen offen hat; dabei wird nichts übertragen.",
       "vorhandener_text": "09_Releases/Datenschutz_Lokalhinweis_01072026.md",
-      "offene_fragen": "1. Ob die mitgelieferten Zusatzwerkzeuge LibreOffice und Tesseract bei ihrer Ausführung von sich aus Netzverbindungen aufbauen (etwa eine Updateprüfung von LibreOffice): PDFuchs löst nichts dergleichen aus; das Verhalten der Werkzeuge selbst wurde nicht per Mitschnitt geprüft. 2. Ob die beim Einrichten gesetzte Windows-Dateizuordnung über die Systemeinträge hinaus etwas nach außen meldet: dafür wurde kein Hinweis gefunden, es wurde aber nicht abschließend geprüft.",
+      "offene_fragen": "1. Ob die mitgelieferten Zusatzwerkzeuge LibreOffice und Tesseract bei ihrer Ausführung von sich aus Netzverbindungen aufbauen (etwa eine Updateprüfung von LibreOffice): PDFuchs löst nichts dergleichen aus. Seit 0.2.0 startet PDFuchs LibreOffice mit einem eigenen Profil, in dem Updateprüfung, Nutzungsdaten und Absturzberichte abgeschaltet sind (#6335). Ein Netzmitschnitt ist für die VM-Testrunde 0.2.0 vorgesehen. 2. Ob die beim Einrichten gesetzte Windows-Dateizuordnung über die Systemeinträge hinaus etwas nach außen meldet: dafür wurde kein Hinweis gefunden, es wurde aber nicht abschließend geprüft.",
       "art": "anwendung"
     },
     {

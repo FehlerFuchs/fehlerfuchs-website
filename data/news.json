@@ -1,8 +1,21 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T14:10:29+02:00",
+  "generiert": "2026-10-20T18:18:59+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "pdfuchs-1-0-0",
+      "typ": "update",
+      "produkt": "pdfuchs",
+      "version": "1.0.0",
+      "titel": "PDFuchs 1.0.0: das PDF-Programm ist da – komplett kostenlos",
+      "text": "PDFuchs 1.0.0 ist da – komplett kostenlos, ohne Testphase, ohne Konto und ohne Lizenzserver. Neu sind eine Oberfläche mit Menüleiste, Reitern und der Seitenleiste „Alle Werkzeuge“ sowie Werkzeuge zum Ändern von Text und Bildern, zum endgültigen Schwärzen, Vergleichen von Dokumenten, Rechtschreibprüfen, Vorlesen und Schützen mit Passwort (AES-256). Dazu kommen ein eigener Druckdialog mit Vorschau, die Signatur als Stempel und Mail-Textbausteine. Der Installer ist schlanker, der Start schneller, die Stammdaten sind verschlüsselt.",
+      "datum": "2026-10-20",
+      "datumQuelle": "Release 1.0.0",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/pdfuchs-v1.0.0/FehlerFuchs_PDFuchs_Setup_1.0.0.exe"
+      }
+    },
     {
       "id": "gewerbepro-companion-1-0-2",
       "typ": "update",

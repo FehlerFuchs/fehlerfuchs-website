@@ -29,6 +29,22 @@
 
 meldungen:
 
+  # PDFuchs 1.0.0 (Windows-Release 20.10.2026 17:39, signiert, Meldung [FF_16] P5 17:44). 'version: 1.0.0'
+  # bindet die Meldung an den releases-Eintrag. Text aus „Was ist neu“ der Release-Seite (freigegeben von
+  # Matthias 20.10.2026), nichts erfunden (P8). Erste veröffentlichte Fassung.
+  - id: pdfuchs-1-0-0
+    typ: update
+    produkt: pdfuchs
+    version: "1.0.0"
+    titel: "PDFuchs 1.0.0: das PDF-Programm ist da – komplett kostenlos"
+    text: >-
+      PDFuchs 1.0.0 ist da – komplett kostenlos, ohne Testphase, ohne Konto und ohne Lizenzserver.
+      Neu sind eine Oberfläche mit Menüleiste, Reitern und der Seitenleiste „Alle Werkzeuge“ sowie
+      Werkzeuge zum Ändern von Text und Bildern, zum endgültigen Schwärzen, Vergleichen von
+      Dokumenten, Rechtschreibprüfen, Vorlesen und Schützen mit Passwort (AES-256). Dazu kommen
+      ein eigener Druckdialog mit Vorschau, die Signatur als Stempel und Mail-Textbausteine. Der
+      Installer ist schlanker, der Start schneller, die Stammdaten sind verschlüsselt.
+
   # GewerbePro Companion 1.0.2 (versionCode 3). Play-Store-App. Live seit 20.10.2026 13:25 (Console), gemeldet
   # von [FF_13] (MELDUNG P5 20.10.2026 14:09, Store-Seite dort um 14:08:42 gelesen). Text = „Was ist neu“ aus
   # dem Store, nichts erfunden (P8). KEINE Buildnummer nennen. Kein 'version' (Play-App, kein Release im Modell).

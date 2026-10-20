@@ -1,44 +1,156 @@
 slug: pdfuchs
 name: PDFuchs
 fullName: FehlerFuchs PDFuchs
-# SEO (2026-08-09): vorbereitet – wirkt erst bei Sichtbarschaltung (Status).
-seoTitel: "PDFuchs – PDF-Programm für Windows, ohne Abo und ohne Cloud"
-seoBeschreibung: "PDF-Werkzeugkasten für Windows: zusammenfügen, teilen, Text erkennen und aus Word ausfüllbare PDF-Formulare erzeugen – lokal, ohne Cloud, ohne Abo."
-tags: ["PDF", "PDF-Formulare", "Word zu PDF", "zusammenfügen", "Windows", "ohne Abo", "ohne Cloud"]
+# ENTWURF für PDFuchs 1.0.0 (Stand 20.10.2026, [FF_10]). NICHT einspielen vor der Release-Meldung von [FF_16]
+# und der Entscheidung Matthias (Kern 6.17: neue Produktseite, Preisaussage). Quelle der Texte: freigegebene
+# Release Notes 1.0.0 und ANTWORT [FF_26] vom 20.10.2026, nichts darüber hinaus. Beim Einspielen
+# 2026-10-20 ersetzen. Bildschirmfotos: Bildbedarf über [FF_00] an [FF_01], bis dahin Platzhalter.
+seoTitel: "PDFuchs – kostenloses PDF-Programm für Windows, ohne Cloud"
+seoBeschreibung: "Kostenloses PDF-Programm für Windows mit mehr als 60 Werkzeugen: lesen, kommentieren, Formulare ausfüllen, schwärzen, schützen – lokal, ohne Konto, ohne Abo."
+tags: ["PDF", "PDF-Formulare", "Word zu PDF", "zusammenfügen", "schwärzen", "Windows", "kostenlos", "ohne Abo", "ohne Cloud"]
 kind: produkt
-tagline: Die lokale, verständliche PDF-Vollsuite – Kernstück sind komfortabel ausfüllbare PDF-Formulare aus Word-Dateien.
+tagline: Das kostenlose PDF-Programm für Windows – mehr als 60 Werkzeuge, lokal, ohne Konto und ohne Abo.
 description: >-
-  PDF-Werkzeugkasten für den Alltag: zusammenfügen, teilen, drehen, komprimieren,
-  Text erkennen – und als Kernstück aus Word-Dateien komfortabel ausfüllbare
-  PDF-Formulare erzeugen. Die Dokumentfunktionen bleiben lokal; nur ein
-  ausdrücklich abgesendetes Kontaktformular überträgt freiwillige Angaben.
+  PDFuchs ist ein PDF-Programm für Windows: lesen, kommentieren, Formulare ausfüllen, Seiten
+  ordnen, schwärzen, schützen und umwandeln – mit mehr als 60 Werkzeugen. Es arbeitet auf
+  deinem Rechner und baut von sich aus keine Verbindung ins Internet auf. PDFuchs 1.0.0 ist
+  komplett kostenlos, ohne Konto und ohne Abo. Wer mag, tut dem Fuchs freiwillig was Gutes.
 audience: [privat, selbststaendige, unternehmen]
 accent: "#9F1239"
-status: entwicklung
+status: verfuegbar
 
 platforms:
   - os: windows
-    status: entwicklung
-    distribution: keiner
+    status: verfuegbar
+    requirements: Windows 10 / 11 (64-bit)
+    distribution: github-release
+    since: "2026-10-20"
 
 privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
-# Registry-DisplayNames der Windows-Installer für die Zuordnung im Update-Helfer
-# Up2Date. PDFuchs trägt sich unter zwei Namen ein (schlicht und mit
-# Versionsnummer), zusätzlich in verschiedenen Registry-Zweigen. Aus dem echten
-# Scan (Handoff Up2Date, 26.07.2026). Greift im Feed erst mit einem Release.
+# Registry-Anzeigename des Installers, am installierten Programm gemessen ([FF_26] 20.10.2026).
 windowsDisplayNames:
-  - PDFuchs
-  - PDFuchs Version 0.1.0
+  - PDFuchs 1.0.0
 
 editions:
-  - id: prerelease
-    name: PDFuchs Vorabfassung
-    public: false
-    summary: Voller Entwicklungsstand ohne öffentliche Freigabe; Preis und Vertriebsweg sind noch offen.
-    price: { model: offen }
+  - id: standard
+    name: PDFuchs
+    public: true
+    summary: Voller Funktionsumfang, komplett kostenlos – ohne Testphase, ohne Konto, ohne Lizenzserver.
+    price: { model: kostenlos }
 
-releases: []
+releases:
+  - version: "1.0.0"
+    date: "2026-10-20"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/pdfuchs-v1.0.0/FehlerFuchs_PDFuchs_Setup_1.0.0.exe
+    filename: FehlerFuchs_PDFuchs_Setup_1.0.0.exe
+    size:
+      bytes: 520250736
+      label: "496 MB"
+      source: GitHub-Release-Asset
+    sha256: "ce63e500db8dc1e4ad797de46d31270236bf07625ce67d3ad879310ff9a3949f"
+    signed: true
+    notes: |-
+      PDFuchs 1.0.0 – komplett kostenlos, ohne Testphase, ohne Konto und ohne Lizenzserver.
+      - Neue Oberfläche mit Menüleiste, Reitern und der Seitenleiste „Alle Werkzeuge“.
+      - Neue Werkzeuge: Text und Bilder ändern, endgültig schwärzen, Dokumente vergleichen, Rechtschreibung prüfen, Vorlesen, Passwortschutz (AES-256).
+      - Eigener Druckdialog mit Vorschau, Signatur als Stempel, Mail-Textbausteine.
+      - Kommentare bleiben beim Einbrennen als Notizen erhalten.
+      - Schlankerer Installer, schnellerer Start, Stammdaten verschlüsselt.
+
+# Funktionsübersicht, nach ANTWORT [FF_26] (Teil A). Zahl: „mehr als 60“ (Register zählt 61).
+features:
+  - group: Seiten bearbeiten
+    items:
+      - name: Seiten teilen und zusammenführen
+        values: { standard: ja }
+      - name: Seitenzahlen, Kopf- und Fußzeile, Hintergrund und Briefpapier
+        values: { standard: ja }
+      - name: Bates-Nummerierung
+        values: { standard: ja }
+      - name: Mehrere Seiten pro Blatt, Poster und Broschüre
+        values: { standard: ja }
+      - name: Ränder entfernen
+        values: { standard: ja }
+
+  - group: Umwandeln
+    items:
+      - name: Bilder in PDF und PDF in Bilder
+        values: { standard: ja }
+      - name: PDF in Text, HTML, Markdown, RTF und EPUB
+        values: { standard: ja }
+      - name: Komprimieren, in Graustufen, rastern, reparieren und verflachen
+        values: { standard: ja }
+      - name: QR-Code und Webseite in PDF
+        values: { standard: ja }
+
+  - group: Prüfen
+    items:
+      - name: Signaturen prüfen und PDF-Bericht
+        values: { standard: ja }
+      - name: In mehreren PDFs suchen
+        values: { standard: ja }
+      - name: Anhänge und Eigenschaften
+        values: { standard: ja }
+
+  - group: Schützen
+    items:
+      - name: Dokument mit Passwort schützen (AES-256) und Schutz entfernen
+        values: { standard: ja }
+      - name: Dokument bereinigen und Metadaten entfernen
+        values: { standard: ja }
+      - name: Mit Zertifikat signieren, Digitale ID, Passwort erzeugen
+        values: { standard: ja }
+
+  - group: Formulare und Kommentare
+    items:
+      - name: Formulardaten exportieren und importieren
+        values: { standard: ja }
+      - name: Kommentare exportieren und importieren (XFDF)
+        values: { standard: ja }
+
+  - group: Lesen und Kommentieren
+    items:
+      - name: Seitenübergreifendes Scrollen; Zoom bleibt in der Fenstermitte
+        values: { standard: ja }
+        note: Ein Klick auf die Zoom-Zahl stellt 100 % ein.
+      - name: Reiter, neues Fenster, Ansicht teilen, Fenster ordnen
+        values: { standard: ja }
+      - name: Markieren, Durchstreichen, Korrekturzeichen und Textfelder
+        values: { standard: ja }
+      - name: Kommentarblatt; Einbrennen behält die Kommentartexte als Notizen
+        values: { standard: ja }
+
+  - group: Bearbeiten
+    items:
+      - name: Text und Bilder ändern, Bildausschnitt kopieren
+        values: { standard: ja }
+      - name: Inhalte schwärzen – endgültig, mit Nachweis
+        values: { standard: ja }
+      - name: Dokumente vergleichen, Rechtschreibung prüfen, Vorlesen
+        values: { standard: ja }
+      - name: Signatur als Stempel – einmal einrichten, mit einem Klick setzen
+        values: { standard: ja }
+
+  - group: Drucken und E-Mail
+    items:
+      - name: Eigener Druckdialog mit Vorschau
+        values: { standard: ja }
+        note: Mehrere Seiten pro Blatt, Poster, Broschüre, anderes Papierformat.
+      - name: Mailprogramm wählen; sechs Standardtexte und eigene Textbausteine
+        values: { standard: ja }
+
+  - group: Datenschutz und Preis
+    items:
+      - name: Stammdaten verschlüsselt (Windows-Datenschutz)
+        values: { standard: ja }
+      - name: Open-Source-Quellen als Tabelle, Kontakt zum Entwickler als Fenster
+        values: { standard: ja }
+      - name: Komplett kostenlos – ohne Testphase, ohne Konto, ohne Lizenzserver
+        values: { standard: ja }
+        note: Freiwillig unterstützen kannst du auf der Startseite und unter Hilfe › Unterstützen.
 
 # Bild-Wortmarke. Ist sie gesetzt, ist SIE der sichtbare Titel und die
 # Überschrift steht nur für Screenreader da – sonst stünde der Name doppelt.
@@ -48,10 +160,33 @@ media:
     alt: PDFuchs – von FehlerFuchs
     width: 1260
     height: 368
-  # Noch keine Bildschirmfotos. Statt einer leeren Stelle setzt die Seite
-  # Platzhalter aus dem Motivsatz ein und sagt offen, dass es welche sind.
-  # Sobald echte Bilder da sind, ersetzt "screenshots:" diese Zeile.
-  platzhalter: 4
+  # Aufnahmen der signierten Fassung 1.0.0+20 (Rohbilder [FF_26], aufbereitet von [FF_01], Herkunft belegt,
+  # Freigabe Matthias 20.10.2026 18:17). Titel und Alt-Texte von [FF_26], nur was zu sehen ist.
+  screenshots:
+    - src: /img/screenshots/pdfuchs/desktop-01-startseite.png
+      alt: "Bildschirmabzug der PDFuchs-Startseite mit Logo, Slogan, der Schaltfläche „Dokument öffnen“, der Liste „Zuletzt geöffnet“ mit einem Muster-PDF und der Karte „Dem Fuchs was Gutes tun“"
+      width: 1200
+      height: 638
+      geraet: desktop
+      titel: "Die Startseite"
+    - src: /img/screenshots/pdfuchs/desktop-02-werkzeuge.png
+      alt: "Bildschirmabzug der Seite „Alle Werkzeuge“ mit Suchfeld und Werkzeugkarten in den Gruppen „Lesen und Finden“ und „Kommentieren und Unterschreiben“"
+      width: 1200
+      height: 638
+      geraet: desktop
+      titel: "Alle Werkzeuge auf einen Blick"
+    - src: /img/screenshots/pdfuchs/desktop-03-schwaerzen.png
+      alt: "Bildschirmabzug von „Inhalte schwärzen“: In einem Muster-Vertrag sind eine Kundennummer und eine Telefonnummer markiert, darüber die Schaltflächen „Text oder Muster suchen“ und „Schwärzen (2)“"
+      width: 1200
+      height: 638
+      geraet: desktop
+      titel: "Inhalte endgültig schwärzen"
+    - src: /img/screenshots/pdfuchs/desktop-04-signatur.png
+      alt: "Bildschirmabzug des Signatur-Stempels: Auf der letzten Seite eines Muster-Vertrags steht eine Unterschrift über der Unterschriftslinie, rechts die Kommentarliste mit dem Eintrag „Stempel“"
+      width: 1200
+      height: 638
+      geraet: desktop
+      titel: "Mit dem Signatur-Stempel unterschreiben"
 # Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
 # Was dort nicht steht, steht auch hier nicht – dann greift der Standard.
 # Alle Kontraste rechnet das Prüfskript, sie sind nicht geschätzt.
@@ -83,8 +218,7 @@ links:
   contact: /kontakt.html?app=PDFuchs&topic=interesse
 
 notes: >-
-  Teile des PDFuchs-Funktionsumfangs sind bereits in GewerbePro enthalten
-  (QR-Code-Generator, Scannen, Ausgabeordner). Die eigenständige Suite wird daraus
-  weiterentwickelt. Die FehlerFuchs-Kontakt-Bridge wird nur beim ausdrücklichen
-  Absenden des Support-/Kontaktformulars gebraucht; alle Dokumentfunktionen sind
-  ohne diesen Dienst nutzbar.
+  Teile des PDFuchs-Funktionsumfangs sind auch in GewerbePro enthalten (QR-Code-Generator,
+  Scannen, Ausgabeordner). PDFuchs 1.0.0 hat keine Updateprüfung und baut von sich aus keine
+  Verbindung auf; das Kontaktfenster in der App öffnet das Mailprogramm. Quelle: ANTWORT [FF_26]
+  vom 20.10.2026. Bildschirmfotos: noch Platzhalter, bis freigegebene Bilder vorliegen.

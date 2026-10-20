@@ -11,7 +11,8 @@ description: >-
   PDF- und E-Book-Reader für Android, der ohne Konto und ohne Werbung auskommt: PDFs lesen,
   durchsuchen, teilen, drucken und Seiten bearbeiten – und EPUB-E-Books mit anpassbarem
   Textfluss, Schriftgröße, Lesethema und Lesezeichen. Alles passiert lokal auf dem Gerät.
-  Der mobile Zwilling der PDFuchs-Familie.
+  Der mobile Zwilling der PDFuchs-Familie. Unter Windows gibt es kein eigenes Reader-Programm:
+  PDFuchs öffnet PDFs direkt in der Leseansicht.
 audience: [privat, selbststaendige, unternehmen]
 accent: "#9F1239"
 status: verfuegbar
@@ -22,17 +23,9 @@ platforms:
     distribution: play-store
     storeId: eu.fehlerfuchs.pdfuchsreader
     since: "2026-07-17"
-  # Windows-Teil, zugeliefert von 26_PDFuchs (Hinweis vom 19.07.2026,
-  # eingearbeitet 24.07.2026). Der Sonderfall aus _SLUG-EIGENTUEMER.md: EIN
-  # Slug, der Stand je Plattform getrennt. Unter Windows wird der Reader nicht
-  # einzeln verteilt, sondern als PDFuchsReader.exe mit dem PDFuchs-Paket
-  # installiert – deshalb 'distribution: keiner' und kein eigener Downloadweg.
-  # Eine Vorabfassung (v0.1.0_dev) ist gebaut, installiert und geprüft, aber
-  # nicht veröffentlicht.
-  - os: windows
-    status: entwicklung
-    distribution: keiner
-    requirements: Windows 10/11 (64-bit)
+  # Windows: Seit PDFuchs 1.0.0 (20.10.2026) gibt es kein eigenes Reader-Programm mehr. PDFuchs öffnet PDFs
+  # direkt in der Leseansicht (Release Notes 1.0.0, „Nur noch ein Programm“; Auskunft [FF_26] 20.10.2026).
+  # Die frühere Windows-Zeile (Vorabfassung, ‚keiner‘) ist deshalb entfallen.
 
 privacy: [inhalte-lokal, keine-cloud, kein-konto, kein-tracking, werbefrei, offline-faehig]
 

@@ -72,6 +72,24 @@
         "OrgaFuchs",
         "FehlerFuchs OrgaFuchs"
       ]
+    },
+    {
+      "slug": "pdfuchs",
+      "name": "FehlerFuchs PDFuchs",
+      "version": "1.0.0",
+      "date": "2026-10-20",
+      "channel": "stable",
+      "os": "windows",
+      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/pdfuchs-v1.0.0/FehlerFuchs_PDFuchs_Setup_1.0.0.exe",
+      "filename": "FehlerFuchs_PDFuchs_Setup_1.0.0.exe",
+      "sizeLabel": "496 MB",
+      "sha256": "ce63e500db8dc1e4ad797de46d31270236bf07625ce67d3ad879310ff9a3949f",
+      "signed": true,
+      "page": "https://fehlerfuchs.eu/produkte/pdfuchs/",
+      "notes": "PDFuchs 1.0.0 – komplett kostenlos, ohne Testphase, ohne Konto und ohne Lizenzserver.\n- Neue Oberfläche mit Menüleiste, Reitern und der Seitenleiste „Alle Werkzeuge“.\n- Neue Werkzeuge: Text und Bilder ändern, endgültig schwärzen, Dokumente vergleichen, Rechtschreibung prüfen, Vorlesen, Passwortschutz (AES-256).\n- Eigener Druckdialog mit Vorschau, Signatur als Stempel, Mail-Textbausteine.\n- Kommentare bleiben beim Einbrennen als Notizen erhalten.\n- Schlankerer Installer, schnellerer Start, Stammdaten verschlüsselt.",
+      "windowsDisplayNames": [
+        "PDFuchs 1.0.0"
+      ]
     }
   ]
 }

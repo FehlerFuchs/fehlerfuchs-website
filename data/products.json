@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T17:31:35+02:00",
+  "generiert": "2026-10-20T18:18:59+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -3149,6 +3149,370 @@
       "notes": "Offen: Play-Store-Freigabe für Android. Ebenfalls offen ist der von der App erwartete Endpunkt data/schulferien/DE-XX.json auf fehlerfuchs.eu – bis dahin greift der eingebaute Datenbestand."
     },
     {
+      "slug": "pdfuchs",
+      "name": "PDFuchs",
+      "fullName": "FehlerFuchs PDFuchs",
+      "seoTitel": "PDFuchs – kostenloses PDF-Programm für Windows, ohne Cloud",
+      "seoBeschreibung": "Kostenloses PDF-Programm für Windows mit mehr als 60 Werkzeugen: lesen, kommentieren, Formulare ausfüllen, schwärzen, schützen – lokal, ohne Konto, ohne Abo.",
+      "tags": [
+        "PDF",
+        "PDF-Formulare",
+        "Word zu PDF",
+        "zusammenfügen",
+        "schwärzen",
+        "Windows",
+        "kostenlos",
+        "ohne Abo",
+        "ohne Cloud"
+      ],
+      "kind": "produkt",
+      "tagline": "Das kostenlose PDF-Programm für Windows – mehr als 60 Werkzeuge, lokal, ohne Konto und ohne Abo.",
+      "description": "PDFuchs ist ein PDF-Programm für Windows: lesen, kommentieren, Formulare ausfüllen, Seiten ordnen, schwärzen, schützen und umwandeln – mit mehr als 60 Werkzeugen. Es arbeitet auf deinem Rechner und baut von sich aus keine Verbindung ins Internet auf. PDFuchs 1.0.0 ist komplett kostenlos, ohne Konto und ohne Abo. Wer mag, tut dem Fuchs freiwillig was Gutes.",
+      "audience": [
+        "privat",
+        "selbststaendige",
+        "unternehmen"
+      ],
+      "accent": "#9F1239",
+      "status": "verfuegbar",
+      "platforms": [
+        {
+          "os": "windows",
+          "status": "verfuegbar",
+          "requirements": "Windows 10 / 11 (64-bit)",
+          "distribution": "github-release",
+          "since": "2026-10-20"
+        }
+      ],
+      "privacy": [
+        "inhalte-lokal",
+        "keine-cloud",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "offline-faehig"
+      ],
+      "windowsDisplayNames": [
+        "PDFuchs 1.0.0"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "PDFuchs",
+          "public": true,
+          "summary": "Voller Funktionsumfang, komplett kostenlos – ohne Testphase, ohne Konto, ohne Lizenzserver.",
+          "price": {
+            "model": "kostenlos"
+          }
+        }
+      ],
+      "releases": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-20",
+          "channel": "stable",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/pdfuchs-v1.0.0/FehlerFuchs_PDFuchs_Setup_1.0.0.exe",
+          "filename": "FehlerFuchs_PDFuchs_Setup_1.0.0.exe",
+          "size": {
+            "bytes": 520250736,
+            "label": "496 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "ce63e500db8dc1e4ad797de46d31270236bf07625ce67d3ad879310ff9a3949f",
+          "signed": true,
+          "notes": "PDFuchs 1.0.0 – komplett kostenlos, ohne Testphase, ohne Konto und ohne Lizenzserver.\n- Neue Oberfläche mit Menüleiste, Reitern und der Seitenleiste „Alle Werkzeuge“.\n- Neue Werkzeuge: Text und Bilder ändern, endgültig schwärzen, Dokumente vergleichen, Rechtschreibung prüfen, Vorlesen, Passwortschutz (AES-256).\n- Eigener Druckdialog mit Vorschau, Signatur als Stempel, Mail-Textbausteine.\n- Kommentare bleiben beim Einbrennen als Notizen erhalten.\n- Schlankerer Installer, schnellerer Start, Stammdaten verschlüsselt."
+        }
+      ],
+      "features": [
+        {
+          "group": "Seiten bearbeiten",
+          "items": [
+            {
+              "name": "Seiten teilen und zusammenführen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Seitenzahlen, Kopf- und Fußzeile, Hintergrund und Briefpapier",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Bates-Nummerierung",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Mehrere Seiten pro Blatt, Poster und Broschüre",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Ränder entfernen",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Umwandeln",
+          "items": [
+            {
+              "name": "Bilder in PDF und PDF in Bilder",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "PDF in Text, HTML, Markdown, RTF und EPUB",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Komprimieren, in Graustufen, rastern, reparieren und verflachen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "QR-Code und Webseite in PDF",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Prüfen",
+          "items": [
+            {
+              "name": "Signaturen prüfen und PDF-Bericht",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "In mehreren PDFs suchen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Anhänge und Eigenschaften",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Schützen",
+          "items": [
+            {
+              "name": "Dokument mit Passwort schützen (AES-256) und Schutz entfernen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Dokument bereinigen und Metadaten entfernen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Mit Zertifikat signieren, Digitale ID, Passwort erzeugen",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Formulare und Kommentare",
+          "items": [
+            {
+              "name": "Formulardaten exportieren und importieren",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Kommentare exportieren und importieren (XFDF)",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Lesen und Kommentieren",
+          "items": [
+            {
+              "name": "Seitenübergreifendes Scrollen; Zoom bleibt in der Fenstermitte",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Ein Klick auf die Zoom-Zahl stellt 100 % ein."
+            },
+            {
+              "name": "Reiter, neues Fenster, Ansicht teilen, Fenster ordnen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Markieren, Durchstreichen, Korrekturzeichen und Textfelder",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Kommentarblatt; Einbrennen behält die Kommentartexte als Notizen",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Bearbeiten",
+          "items": [
+            {
+              "name": "Text und Bilder ändern, Bildausschnitt kopieren",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Inhalte schwärzen – endgültig, mit Nachweis",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Dokumente vergleichen, Rechtschreibung prüfen, Vorlesen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Signatur als Stempel – einmal einrichten, mit einem Klick setzen",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Drucken und E-Mail",
+          "items": [
+            {
+              "name": "Eigener Druckdialog mit Vorschau",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Mehrere Seiten pro Blatt, Poster, Broschüre, anderes Papierformat."
+            },
+            {
+              "name": "Mailprogramm wählen; sechs Standardtexte und eigene Textbausteine",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Datenschutz und Preis",
+          "items": [
+            {
+              "name": "Stammdaten verschlüsselt (Windows-Datenschutz)",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Open-Source-Quellen als Tabelle, Kontakt zum Entwickler als Fenster",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Komplett kostenlos – ohne Testphase, ohne Konto, ohne Lizenzserver",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Freiwillig unterstützen kannst du auf der Startseite und unter Hilfe › Unterstützen."
+            }
+          ]
+        }
+      ],
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/pdfuchs.svg",
+          "alt": "PDFuchs – von FehlerFuchs",
+          "width": 1260,
+          "height": 368
+        },
+        "screenshots": [
+          {
+            "src": "/img/screenshots/pdfuchs/desktop-01-startseite.png",
+            "alt": "Bildschirmabzug der PDFuchs-Startseite mit Logo, Slogan, der Schaltfläche „Dokument öffnen“, der Liste „Zuletzt geöffnet“ mit einem Muster-PDF und der Karte „Dem Fuchs was Gutes tun“",
+            "width": 1200,
+            "height": 638,
+            "geraet": "desktop",
+            "titel": "Die Startseite"
+          },
+          {
+            "src": "/img/screenshots/pdfuchs/desktop-02-werkzeuge.png",
+            "alt": "Bildschirmabzug der Seite „Alle Werkzeuge“ mit Suchfeld und Werkzeugkarten in den Gruppen „Lesen und Finden“ und „Kommentieren und Unterschreiben“",
+            "width": 1200,
+            "height": 638,
+            "geraet": "desktop",
+            "titel": "Alle Werkzeuge auf einen Blick"
+          },
+          {
+            "src": "/img/screenshots/pdfuchs/desktop-03-schwaerzen.png",
+            "alt": "Bildschirmabzug von „Inhalte schwärzen“: In einem Muster-Vertrag sind eine Kundennummer und eine Telefonnummer markiert, darüber die Schaltflächen „Text oder Muster suchen“ und „Schwärzen (2)“",
+            "width": 1200,
+            "height": 638,
+            "geraet": "desktop",
+            "titel": "Inhalte endgültig schwärzen"
+          },
+          {
+            "src": "/img/screenshots/pdfuchs/desktop-04-signatur.png",
+            "alt": "Bildschirmabzug des Signatur-Stempels: Auf der letzten Seite eines Muster-Vertrags steht eine Unterschrift über der Unterschriftslinie, rechts die Kommentarliste mit dem Eintrag „Stempel“",
+            "width": 1200,
+            "height": 638,
+            "geraet": "desktop",
+            "titel": "Mit dem Signatur-Stempel unterschreiben"
+          }
+        ]
+      },
+      "theme": {
+        "modus": "hell",
+        "hintergrund": "#FBF7F2",
+        "flaeche": "#FFFBF7",
+        "rand": "#EAD7DC",
+        "text": "#2B160B",
+        "textLeise": "#6F4F44",
+        "akzent": "#9F1239",
+        "quelle": "26_PDFuchs/11_App_Flutter/pdfuchs_desktop/lib/ui/ff_tokens.dart"
+      },
+      "links": {
+        "alt_html": "/apps/pdfuchs.html",
+        "contact": "/kontakt.html?app=PDFuchs&topic=interesse"
+      },
+      "notes": "Teile des PDFuchs-Funktionsumfangs sind auch in GewerbePro enthalten (QR-Code-Generator, Scannen, Ausgabeordner). PDFuchs 1.0.0 hat keine Updateprüfung und baut von sich aus keine Verbindung auf; das Kontaktfenster in der App öffnet das Mailprogramm. Quelle: ANTWORT [FF_26] vom 20.10.2026. Bildschirmfotos: noch Platzhalter, bis freigegebene Bilder vorliegen."
+    },
+    {
       "slug": "pdfuchsreader",
       "name": "PDFuchs Reader",
       "fullName": "FehlerFuchs PDFuchs Reader",
@@ -3166,7 +3530,7 @@
       ],
       "kind": "produkt",
       "tagline": "Der kostenlose, werbefreie PDF- & E-Book-Reader für Android – PDFs und EPUBs lesen, mit Lesezeichen, Suche und Seitenbearbeitung.",
-      "description": "PDF- und E-Book-Reader für Android, der ohne Konto und ohne Werbung auskommt: PDFs lesen, durchsuchen, teilen, drucken und Seiten bearbeiten – und EPUB-E-Books mit anpassbarem Textfluss, Schriftgröße, Lesethema und Lesezeichen. Alles passiert lokal auf dem Gerät. Der mobile Zwilling der PDFuchs-Familie.",
+      "description": "PDF- und E-Book-Reader für Android, der ohne Konto und ohne Werbung auskommt: PDFs lesen, durchsuchen, teilen, drucken und Seiten bearbeiten – und EPUB-E-Books mit anpassbarem Textfluss, Schriftgröße, Lesethema und Lesezeichen. Alles passiert lokal auf dem Gerät. Der mobile Zwilling der PDFuchs-Familie. Unter Windows gibt es kein eigenes Reader-Programm: PDFuchs öffnet PDFs direkt in der Leseansicht.",
       "audience": [
         "privat",
         "selbststaendige",
@@ -3181,12 +3545,6 @@
           "distribution": "play-store",
           "storeId": "eu.fehlerfuchs.pdfuchsreader",
           "since": "2026-07-17"
-        },
-        {
-          "os": "windows",
-          "status": "entwicklung",
-          "distribution": "keiner",
-          "requirements": "Windows 10/11 (64-bit)"
         }
       ],
       "privacy": [
@@ -4382,87 +4740,6 @@
         "contact": "/kontakt.html?app=BelegWerk&topic=interesse"
       },
       "notes": "Anbindung an Paperless bedeutet, dass Daten an ein selbst betriebenes Archiv gehen. Das Merkmal „keine-cloud“ ist deshalb bewusst nicht gesetzt – es hängt davon ab, wo der Nutzer sein Paperless betreibt."
-    },
-    {
-      "slug": "pdfuchs",
-      "name": "PDFuchs",
-      "fullName": "FehlerFuchs PDFuchs",
-      "seoTitel": "PDFuchs – PDF-Programm für Windows, ohne Abo und ohne Cloud",
-      "seoBeschreibung": "PDF-Werkzeugkasten für Windows: zusammenfügen, teilen, Text erkennen und aus Word ausfüllbare PDF-Formulare erzeugen – lokal, ohne Cloud, ohne Abo.",
-      "tags": [
-        "PDF",
-        "PDF-Formulare",
-        "Word zu PDF",
-        "zusammenfügen",
-        "Windows",
-        "ohne Abo",
-        "ohne Cloud"
-      ],
-      "kind": "produkt",
-      "tagline": "Die lokale, verständliche PDF-Vollsuite – Kernstück sind komfortabel ausfüllbare PDF-Formulare aus Word-Dateien.",
-      "description": "PDF-Werkzeugkasten für den Alltag: zusammenfügen, teilen, drehen, komprimieren, Text erkennen – und als Kernstück aus Word-Dateien komfortabel ausfüllbare PDF-Formulare erzeugen. Die Dokumentfunktionen bleiben lokal; nur ein ausdrücklich abgesendetes Kontaktformular überträgt freiwillige Angaben.",
-      "audience": [
-        "privat",
-        "selbststaendige",
-        "unternehmen"
-      ],
-      "accent": "#9F1239",
-      "status": "entwicklung",
-      "platforms": [
-        {
-          "os": "windows",
-          "status": "entwicklung",
-          "distribution": "keiner"
-        }
-      ],
-      "privacy": [
-        "inhalte-lokal",
-        "keine-cloud",
-        "kein-konto",
-        "kein-tracking",
-        "werbefrei",
-        "offline-faehig"
-      ],
-      "windowsDisplayNames": [
-        "PDFuchs",
-        "PDFuchs Version 0.1.0"
-      ],
-      "editions": [
-        {
-          "id": "prerelease",
-          "name": "PDFuchs Vorabfassung",
-          "public": false,
-          "summary": "Voller Entwicklungsstand ohne öffentliche Freigabe; Preis und Vertriebsweg sind noch offen.",
-          "price": {
-            "model": "offen"
-          }
-        }
-      ],
-      "releases": [],
-      "media": {
-        "lockup": {
-          "src": "/img/lockups/pdfuchs.svg",
-          "alt": "PDFuchs – von FehlerFuchs",
-          "width": 1260,
-          "height": 368
-        },
-        "platzhalter": 4
-      },
-      "theme": {
-        "modus": "hell",
-        "hintergrund": "#FBF7F2",
-        "flaeche": "#FFFBF7",
-        "rand": "#EAD7DC",
-        "text": "#2B160B",
-        "textLeise": "#6F4F44",
-        "akzent": "#9F1239",
-        "quelle": "26_PDFuchs/11_App_Flutter/pdfuchs_desktop/lib/ui/ff_tokens.dart"
-      },
-      "links": {
-        "alt_html": "/apps/pdfuchs.html",
-        "contact": "/kontakt.html?app=PDFuchs&topic=interesse"
-      },
-      "notes": "Teile des PDFuchs-Funktionsumfangs sind bereits in GewerbePro enthalten (QR-Code-Generator, Scannen, Ausgabeordner). Die eigenständige Suite wird daraus weiterentwickelt. Die FehlerFuchs-Kontakt-Bridge wird nur beim ausdrücklichen Absenden des Support-/Kontaktformulars gebraucht; alle Dokumentfunktionen sind ohne diesen Dienst nutzbar."
     }
   ]
 }
