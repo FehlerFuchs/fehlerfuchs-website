@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T12:32:45+02:00",
+  "generiert": "2026-10-20T14:10:29+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1799,7 +1799,7 @@
               "values": {
                 "standard": "ja"
               },
-              "note": "Handy und PC werden einmal gekoppelt (beide zeigen einen Code zum Vergleich); danach ist alles mit einem Schlüssel verschlüsselt, den nur diese beiden Geräte kennen. Nur lokal, kein Server. Dafür braucht es GewerbePro ab 1.1.1 am PC. Zurück vom PC kommen Katalog, Kunden, Aufgaben und Branding."
+              "note": "Handy und PC werden einmal gekoppelt (beide zeigen einen Code zum Vergleich); danach ist alles mit einem Schlüssel verschlüsselt, den nur diese beiden Geräte kennen. Nur lokal, kein Server. Dafür braucht es GewerbePro ab 1.1.3 am PC. Zurück vom PC kommen Katalog, Kunden, Aufgaben und Branding."
             },
             {
               "name": "Rechnungen, Angebote, EÜR oder E-Rechnung auf dem Handy",
