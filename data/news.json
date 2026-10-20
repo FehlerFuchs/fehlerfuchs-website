@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T20:51:46+02:00",
+  "generiert": "2026-10-20T23:05:55+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "pdfuchsreader-1-3-1",
+      "typ": "update",
+      "produkt": "pdfuchsreader",
+      "datum": "2026-10-20",
+      "titel": "PDFuchs Reader 1.3.1: Seiten bearbeiten und Speichern",
+      "text": "PDFuchs Reader 1.3.1 ist im Play Store. Beim Bearbeiten von Seiten fehlen gelöschte Seiten jetzt zuverlässig in der gespeicherten Kopie, und neu geordnete Seiten bleiben dort in der gewählten Reihenfolge. Beim Speichern einer Kopie kommt kein Fehler mehr. In E-Books steht der Titel nicht mehr doppelt am Kapitelanfang.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.pdfuchsreader"
+      }
+    },
     {
       "id": "orgafuchs-1-11-1",
       "typ": "update",
