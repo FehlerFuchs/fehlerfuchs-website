@@ -184,8 +184,6 @@ def typografie_funde(daten):
 OHNE_PRODUKTSEITE = {
     "schichtfuchs": "Auftragsarbeit fuer einen Kunden, bekommt bewusst keine "
                     "Produktseite (Entscheidung Matze 19.07.2026).",
-    "dateiwaechter-mobil": "Bekommt bewusst keine eigene Produktseite - wird spaeter "
-                           "auf der DateiWaechter-Seite integriert (Entscheidung Matze 11.08.2026).",
     # einsatzfuchs, up2date und gewerbepro-companion haben seit dem 24./25.07.2026 eigene
     # Produktdateien und stehen deshalb NICHT mehr hier - sie sind ueber
     # slugs_der_website() bekannt.
@@ -195,6 +193,13 @@ OHNE_PRODUKTSEITE = {
 # Steckbriefe, die die Website bewusst NICHT führt. Die Quelle in 00-1 bleibt, die Website spiegelt sie nicht.
 # Wer einen Eintrag hinzufügt, nennt Datum und Grund.
 AUSGENOMMEN = {
+    "cleandesk": "Friedhof seit 19.10.2026; Karte und Steckbrief von der Webseite genommen am 20.10.2026 (Entscheidung Matthias).",
+    "fuchsbau": "Friedhof seit 19.10.2026; Karte und Steckbrief von der Webseite genommen am 20.10.2026 (Entscheidung Matthias).",
+    "up2date": "Friedhof seit 19.10.2026; Karte und Steckbrief von der Webseite genommen am 20.10.2026 (Entscheidung Matthias).",
+    "einsatzfuchs": "Friedhof seit 19.10.2026; Karte und Steckbrief von der Webseite genommen am 20.10.2026 (Entscheidung Matthias).",
+    "wachfuchs": "Friedhof seit 19.10.2026; Karte und Steckbrief von der Webseite genommen am 20.10.2026 (Entscheidung Matthias).",
+    "dateiwaechter": "Friedhof seit 19.10.2026; Karte und Steckbrief von der Webseite genommen am 20.10.2026 (Entscheidung Matthias).",
+    "dateiwaechter-mobil": "Friedhof seit 19.10.2026; Karte und Steckbrief von der Webseite genommen am 20.10.2026 (Entscheidung Matthias).",
     "coppicemail": "Produktseite und Steckbrief entfernt am 06.10.2026 (Entscheidung Matthias): dauerhaft geschlossen "
                    "seit 31.08.2026, nie veröffentlicht, also nie Nutzer.",
 }

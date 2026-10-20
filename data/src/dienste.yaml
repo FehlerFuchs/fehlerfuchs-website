@@ -89,8 +89,7 @@ dienste:
     # Lizenz-Apps plus alle Apps, deren Kontakt-/Supportformular über den Dienst läuft –
     # Aufrufer gemessen von [FF_11] am 26.09.2026 per git grep (Beleg im Steckbrief lizenzserver).
     produkte: [mobilereport, mobilereport-enterprise, gewerbepro, gewerbepro-companion,
-               snapfuchs, orgafuchs, pdfuchs, pdfuchsreader, belegwerk, checkin-vita,
-               up2date, dateiwaechter]
+               snapfuchs, orgafuchs, pdfuchs, pdfuchsreader, belegwerk, checkin-vita]
     # Korrigiert am 19.07.2026: Hier stand "der Dienst ist im Aufbau, bis er in
     # Betrieb geht baut keine veröffentlichte Anwendung eine Verbindung dorthin
     # auf". Beides war falsch – der Dienst läuft, und die veröffentlichte
@@ -112,9 +111,8 @@ dienste:
     adresse: relais.fehlerfuchs.eu
     zweck: >-
       Reicht Ende-zu-Ende-verschlüsselte Nachrichten zwischen den Geräten einer Gruppe
-      weiter: Jeder Gruppen-Abgleich von OrgaFuchs läuft über ihn, ebenso die
-      Dateiübertragung von DateiWächter Mobil zwischen gekoppelten Geräten. Den Inhalt
-      sieht er nur verschlüsselt und legt ihn nicht ab.
+      weiter: Jeder Gruppen-Abgleich von OrgaFuchs läuft über ihn.
+      Den Inhalt sieht er nur verschlüsselt und legt ihn nicht ab.
     betreiber: eigen
     standort: Deutschland
     stand: "2026-09-26"

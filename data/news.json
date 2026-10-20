@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-19T17:03:54+02:00",
+  "generiert": "2026-10-20T10:03:25+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -517,15 +517,6 @@
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.gewerbepro_companion"
       }
-    },
-    {
-      "id": "up2date-in-arbeit",
-      "typ": "hinweis",
-      "produkt": "up2date",
-      "datum": "2026-07-24",
-      "titel": "Up2Date – ein Update-Helfer für FehlerFuchs-Programme entsteht",
-      "text": "In Arbeit: ein kleines Windows-Programm im Infobereich, das installierte FehlerFuchs-Programme erkennt, ihren Stand mit fehlerfuchs.eu abgleicht und auf neue Fassungen hinweist. Heute steht erst das Grundgerüst. Es ist kein allgemeiner Updater, sondern nur für FehlerFuchs-Programme gedacht.",
-      "datumQuelle": "eigene Angabe"
     },
     {
       "id": "snapfuchs-1-1-0",

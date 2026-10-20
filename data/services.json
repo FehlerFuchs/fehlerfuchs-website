@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-19T07:02:27+02:00",
+  "generiert": "2026-10-20T10:03:25+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "dienste": [
     {
@@ -27,9 +27,7 @@
         "pdfuchs",
         "pdfuchsreader",
         "belegwerk",
-        "checkin-vita",
-        "up2date",
-        "dateiwaechter"
+        "checkin-vita"
       ],
       "hinweis": "Beim Öffnen der Wunscherfüller- und der Aktionsseite fragt die Website nur einen Zählerstand ab – ohne Angaben von dir. Kontakt- und Supportanfragen werden als E-Mail weitergeleitet und nicht gespeichert. Wunsch-Einsendungen werden nach 90 Tagen gelöscht; bei Aktionen werden Anzeigename und E-Mail-Adresse 90 Tage nach der Vergabe entfernt."
     },
@@ -37,7 +35,7 @@
       "id": "relaisserver",
       "name": "Relaisserver",
       "adresse": "relais.fehlerfuchs.eu",
-      "zweck": "Reicht Ende-zu-Ende-verschlüsselte Nachrichten zwischen den Geräten einer Gruppe weiter: Jeder Gruppen-Abgleich von OrgaFuchs läuft über ihn, ebenso die Dateiübertragung von DateiWächter Mobil zwischen gekoppelten Geräten. Den Inhalt sieht er nur verschlüsselt und legt ihn nicht ab.",
+      "zweck": "Reicht Ende-zu-Ende-verschlüsselte Nachrichten zwischen den Geräten einer Gruppe weiter: Jeder Gruppen-Abgleich von OrgaFuchs läuft über ihn. Den Inhalt sieht er nur verschlüsselt und legt ihn nicht ab.",
       "betreiber": "eigen",
       "standort": "Deutschland",
       "stand": "2026-09-26",
