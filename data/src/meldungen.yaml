@@ -29,6 +29,33 @@
 
 meldungen:
 
+  # OrgaFuchs 1.11.1 (versionCode 33). Nur Android: im Play Store live seit 20.10.2026 19:26 (P5 von [FF_13]
+  # 19:5x). Text nach „Was ist neu“ im Store, nichts erfunden (P8), für Besucher geschrieben. KEINE
+  # Buildnummer. Kein 'version' (Windows-Stand ist 1.11.0).
+  - id: orgafuchs-1-11-1
+    typ: update
+    produkt: orgafuchs
+    datum: "2026-10-20"
+    titel: "OrgaFuchs 1.11.1: PDF-Ausdruck und Datumssprung"
+    text: >-
+      OrgaFuchs 1.11.1 ist im Play Store. Der Abgleich mit den anderen Geräten ist schneller und
+      zuverlässiger. Im PDF-Ausdruck stehen jetzt alle Dienste, auch breite Kürzel wie „FBWB“,
+      Namen wie „Łukasz“, typografische Anführungszeichen und das €-Zeichen erscheinen richtig,
+      und es gibt ein Standardprofil für den Ausdruck: „Drucken“ nimmt deine Einstellungen,
+      „Ändern“ passt sie an. Tippst du oben auf das Datum, springst du direkt zu Jahr, Monat und
+      Tag.
+
+  # AppInsight 1.0.2 (versionCode 6). Play-Store-App: live seit 20.10.2026 19:20 (P5 von [FF_13]). Text nach
+  # „Was ist neu“ im Store, nichts erfunden (P8), für Besucher geschrieben. KEINE Buildnummer. Kein 'version'.
+  - id: appinsight-1-0-2
+    typ: update
+    produkt: appinsight
+    datum: "2026-10-20"
+    titel: "AppInsight 1.0.2: Lizenzen unter „Info“"
+    text: >-
+      AppInsight 1.0.2 ist im Play Store. Unter „Info“ zeigt der neue Punkt „Lizenzen“, welche
+      Bausteine AppInsight nutzt und unter welchen Lizenzen – vollständig und ohne Internet.
+
   # PDFuchs 1.0.0 (Windows-Release 20.10.2026 17:39, signiert, Meldung [FF_16] P5 17:44). 'version: 1.0.0'
   # bindet die Meldung an den releases-Eintrag. Text aus „Was ist neu“ der Release-Seite (freigegeben von
   # Matthias 20.10.2026), nichts erfunden (P8). Erste veröffentlichte Fassung: als Ankündigung geschrieben (was ist PDFuchs, was habe ich davon), nicht als Liste von Neuerungen (Hinweis Matthias 20.10.2026 18:58).

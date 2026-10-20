@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T18:58:59+02:00",
+  "generiert": "2026-10-20T19:54:12+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -153,6 +153,13 @@
                 "standard": "ja"
               },
               "note": "AppInsight hat keine Internet-Berechtigung, kein Konto und keinen Server – es kann nichts senden und nichts abrufen."
+            },
+            {
+              "name": "Lizenzen der verwendeten Bausteine",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Unter „Info“ zeigt die App die Lizenzen der Bausteine, die AppInsight nutzt – vollständig und ohne Internet."
             }
           ]
         }
