@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T18:53:00+02:00",
+  "generiert": "2026-10-20T18:58:59+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -3200,7 +3200,7 @@
           "id": "standard",
           "name": "PDFuchs",
           "public": true,
-          "summary": "Voller Funktionsumfang, komplett kostenlos – ohne Testphase, ohne Konto, ohne Lizenzserver.",
+          "summary": "Voller Funktionsumfang, komplett kostenlos – ohne Konto, ohne Abo.",
           "price": {
             "model": "kostenlos"
           }
@@ -3221,7 +3221,7 @@
           },
           "sha256": "ce63e500db8dc1e4ad797de46d31270236bf07625ce67d3ad879310ff9a3949f",
           "signed": true,
-          "notes": "PDFuchs 1.0.0 – komplett kostenlos, ohne Testphase, ohne Konto und ohne Lizenzserver.\n- Neue Oberfläche mit Menüleiste, Reitern und der Seitenleiste „Alle Werkzeuge“.\n- Neue Werkzeuge: Text und Bilder ändern, endgültig schwärzen, Dokumente vergleichen, Rechtschreibung prüfen, Vorlesen, Passwortschutz (AES-256).\n- Eigener Druckdialog mit Vorschau, Signatur als Stempel, Mail-Textbausteine.\n- Kommentare bleiben beim Einbrennen als Notizen erhalten.\n- Schlankerer Installer, schnellerer Start, Stammdaten verschlüsselt."
+          "notes": "PDFuchs 1.0.0 – die erste Fassung. Komplett kostenlos, ohne Konto und ohne Abo.\n- Mehr als 60 Werkzeuge: Seiten ordnen, Text und Bilder ändern, Formulare, endgültig Schwärzen, Passwortschutz, Umwandeln.\n- Kommentieren, Signatur als Stempel, eigener Druckdialog mit Vorschau, E-Mail mit Textbausteinen.\n- Arbeitet auf deinem Rechner und baut von sich aus keine Verbindung ins Internet auf."
         }
       ],
       "features": [
@@ -3445,7 +3445,7 @@
               }
             },
             {
-              "name": "Komplett kostenlos – ohne Testphase, ohne Konto, ohne Lizenzserver",
+              "name": "Komplett kostenlos – ohne Konto, ohne Abo",
               "values": {
                 "standard": "ja"
               },

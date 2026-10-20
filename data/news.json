@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T18:18:59+02:00",
+  "generiert": "2026-10-20T18:58:59+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -8,8 +8,8 @@
       "typ": "update",
       "produkt": "pdfuchs",
       "version": "1.0.0",
-      "titel": "PDFuchs 1.0.0: das PDF-Programm ist da – komplett kostenlos",
-      "text": "PDFuchs 1.0.0 ist da – komplett kostenlos, ohne Testphase, ohne Konto und ohne Lizenzserver. Neu sind eine Oberfläche mit Menüleiste, Reitern und der Seitenleiste „Alle Werkzeuge“ sowie Werkzeuge zum Ändern von Text und Bildern, zum endgültigen Schwärzen, Vergleichen von Dokumenten, Rechtschreibprüfen, Vorlesen und Schützen mit Passwort (AES-256). Dazu kommen ein eigener Druckdialog mit Vorschau, die Signatur als Stempel und Mail-Textbausteine. Der Installer ist schlanker, der Start schneller, die Stammdaten sind verschlüsselt.",
+      "titel": "PDFuchs ist da: das kostenlose PDF-Programm für Windows",
+      "text": "PDFuchs ist ab sofort für Windows erhältlich – komplett kostenlos, ohne Konto und ohne Abo. Mit mehr als 60 Werkzeugen liest, kommentierst und bearbeitest du PDFs: Seiten ordnen und zusammenführen, Text und Bilder ändern, Formulare ausfüllen, Inhalte endgültig schwärzen, mit Passwort schützen, mit einem Klick unterschreiben und in andere Formate umwandeln. Alles läuft auf deinem Rechner, deine Dokumente bleiben bei dir. Wer mag, unterstützt FehlerFuchs freiwillig.",
       "datum": "2026-10-20",
       "datumQuelle": "Release 1.0.0",
       "wege": {

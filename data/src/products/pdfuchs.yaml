@@ -36,7 +36,7 @@ editions:
   - id: standard
     name: PDFuchs
     public: true
-    summary: Voller Funktionsumfang, komplett kostenlos – ohne Testphase, ohne Konto, ohne Lizenzserver.
+    summary: Voller Funktionsumfang, komplett kostenlos – ohne Konto, ohne Abo.
     price: { model: kostenlos }
 
 releases:
@@ -53,12 +53,10 @@ releases:
     sha256: "ce63e500db8dc1e4ad797de46d31270236bf07625ce67d3ad879310ff9a3949f"
     signed: true
     notes: |-
-      PDFuchs 1.0.0 – komplett kostenlos, ohne Testphase, ohne Konto und ohne Lizenzserver.
-      - Neue Oberfläche mit Menüleiste, Reitern und der Seitenleiste „Alle Werkzeuge“.
-      - Neue Werkzeuge: Text und Bilder ändern, endgültig schwärzen, Dokumente vergleichen, Rechtschreibung prüfen, Vorlesen, Passwortschutz (AES-256).
-      - Eigener Druckdialog mit Vorschau, Signatur als Stempel, Mail-Textbausteine.
-      - Kommentare bleiben beim Einbrennen als Notizen erhalten.
-      - Schlankerer Installer, schnellerer Start, Stammdaten verschlüsselt.
+      PDFuchs 1.0.0 – die erste Fassung. Komplett kostenlos, ohne Konto und ohne Abo.
+      - Mehr als 60 Werkzeuge: Seiten ordnen, Text und Bilder ändern, Formulare, endgültig Schwärzen, Passwortschutz, Umwandeln.
+      - Kommentieren, Signatur als Stempel, eigener Druckdialog mit Vorschau, E-Mail mit Textbausteinen.
+      - Arbeitet auf deinem Rechner und baut von sich aus keine Verbindung ins Internet auf.
 
 # Funktionsübersicht, nach ANTWORT [FF_26] (Teil A). Zahl: „mehr als 60“ (Register zählt 61).
 features:
@@ -148,7 +146,7 @@ features:
         values: { standard: ja }
       - name: Open-Source-Quellen als Tabelle, Kontakt zum Entwickler als Fenster
         values: { standard: ja }
-      - name: Komplett kostenlos – ohne Testphase, ohne Konto, ohne Lizenzserver
+      - name: Komplett kostenlos – ohne Konto, ohne Abo
         values: { standard: ja }
         note: Freiwillig unterstützen kannst du auf der Startseite und unter Hilfe › Unterstützen.
 
