@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T18:18:59+02:00",
+  "generiert": "2026-10-20T18:53:00+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -3179,7 +3179,7 @@
         {
           "os": "windows",
           "status": "verfuegbar",
-          "requirements": "Windows 10 / 11 (64-bit)",
+          "requirements": "Windows, 64-bit",
           "distribution": "github-release",
           "since": "2026-10-20"
         }

@@ -22,7 +22,7 @@ status: verfuegbar
 platforms:
   - os: windows
     status: verfuegbar
-    requirements: Windows 10 / 11 (64-bit)
+    requirements: Windows, 64-bit
     distribution: github-release
     since: "2026-10-20"
 
