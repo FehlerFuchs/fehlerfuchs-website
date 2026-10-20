@@ -83,6 +83,29 @@ editions:
     price: { model: offen }
 
 releases:
+  # 1.1.3 (20.10.2026): Meldung [FF_16] Code Signing P5 (12:31, veröffentlicht auf „push gewerbepro“
+  # von Matthias 12:28, Release 12:30, zweistufig signiert, Build 10). Von [FF_10] gegen GitHub geprüft
+  # (gh release view gewerbepro-v1.1.3: kein Entwurf, keine Vorabversion, ein Asset 116.207.824 B,
+  # sha256 9b28c821…92a5 – stimmen). notes aus „Was ist neu“ der Release-Seite ([FF_16]), nichts
+  # erfunden (P8); drei Punkte, leicht gekürzt. Companion-Mindestfassung unverändert 1.0.1
+  # (voller Schutz mit Companion 1.0.2). Fremdrechner-Test: Ausnahme Matthias 20.10. (Kabeltest).
+  - version: "1.1.3"
+    date: "2026-10-20"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.3/FehlerFuchs_GewerbePro_Setup_1.1.3.exe
+    filename: FehlerFuchs_GewerbePro_Setup_1.1.3.exe
+    size:
+      bytes: 116207824
+      label: "111 MB"
+      source: GitHub-Release-Asset
+    sha256: "9b28c821d66dbac538c035690f3318407af22d67edb9bbd8bc2bc16969a692a5"
+    signed: true
+    notes: |-
+      GewerbePro 1.1.3 – Handy-Abgleich zuverlässiger
+      - Die beiden Kontaktdateien auf dem Handy werden auch über das USB-Kabel zuverlässig erneuert und auf Ankunft geprüft; sonst erscheint ein Hinweis.
+      - Ein älteres Handypaket aus einer Sicherung wird nicht mehr übernommen und überschreibt keinen neueren Stand (voller Schutz mit Companion-App 1.0.2).
+      - Bei „Handy suchen“ erscheinen zuerst nur die Namen der USB-Geräte; erst nach Auswahl und „Handy prüfen“ liest GewerbePro dieses eine Gerät.
   # 1.1.2 (19.10.2026): Meldung [FF_16] Code Signing (17:03, veröffentlicht auf „push gewerbepro“ von
   # Matthias 16:58, Release 17:01). Von [FF_10] gegen GitHub geprüft (gh release view gewerbepro-v1.1.2:
   # kein Entwurf, keine Vorabversion, ein Asset 116.218.656 B, sha256 7bd284d9…2f3d – stimmen).

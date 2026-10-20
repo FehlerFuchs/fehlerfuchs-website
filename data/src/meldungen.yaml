@@ -29,6 +29,22 @@
 
 meldungen:
 
+  # GewerbePro 1.1.3 (Windows-Release 20.10.2026 12:30, signiert, Meldung [FF_16] P5 12:31).
+  # 'version: 1.1.3' bindet die Meldung an den releases-Eintrag. Text aus „Was ist neu“ der
+  # Release-Seite, nichts erfunden (P8).
+  - id: gewerbepro-1-1-3
+    typ: update
+    produkt: gewerbepro
+    version: "1.1.3"
+    titel: "GewerbePro 1.1.3: Handy-Abgleich über USB zuverlässiger"
+    text: >-
+      GewerbePro 1.1.3 macht den Handy-Abgleich über USB zuverlässiger: Die beiden Kontaktdateien
+      auf dem Handy werden auch über das Kabel erneuert und auf Ankunft geprüft – gelingt das
+      nicht, bekommst du einen Hinweis. Ein älteres Handypaket aus einer Sicherung wird nicht mehr
+      übernommen und überschreibt keinen neueren Stand; der volle Schutz gilt mit der Companion-
+      App 1.0.2. Bei „Handy suchen“ erscheinen zuerst nur die Namen der USB-Geräte, erst nach
+      deiner Auswahl und „Handy prüfen“ liest GewerbePro dieses eine Gerät.
+
   # OrgaFuchs 1.11.0 – Windows-Release 20.10.2026 10:01 (signiert, Meldung [FF_16] P5 10:02);
   # Android 1.11.0 im Play Store seit 09.10.2026 15:44 (P5 von [FF_13]). 'version: 1.11.0' bindet die
   # Meldung an den releases-Eintrag. Text aus „Was ist neu“ der Windows-Release-Seite, nichts

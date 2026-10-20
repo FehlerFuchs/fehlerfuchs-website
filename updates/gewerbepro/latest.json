@@ -1,6 +1,6 @@
 {
-  "version": "1.1.2",
-  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.2/FehlerFuchs_GewerbePro_Setup_1.1.2.exe",
-  "sha256": "7bd284d9f62f179ae274d56d4f7efd45e14a691b9c60b4a2e901ecc11c3e2f3d",
-  "notes": "GewerbePro 1.1.2 – Bemerkungen und Aufträge\n- Bemerkung je Position in Rechnung, Angebot und Auftrag; im PDF kleiner und kursiv unter der Position, dazu eine Bemerkung unter dem Schlusstext.\n- Zeilenumbrüche bleiben im PDF erhalten.\n- Auftrag mit Positionen und Auftragsbestätigung als PDF.\n- USt je Position im Angebot; die Bemerkungen gehen in die E-Rechnung ein.\n- Die mitgelieferten Programmbibliotheken sind jetzt digital signiert.\nBeim ersten Start ergänzt GewerbePro deine Datenbank um die neuen Felder. Deine Daten bleiben erhalten."
+  "version": "1.1.3",
+  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.3/FehlerFuchs_GewerbePro_Setup_1.1.3.exe",
+  "sha256": "9b28c821d66dbac538c035690f3318407af22d67edb9bbd8bc2bc16969a692a5",
+  "notes": "GewerbePro 1.1.3 – Handy-Abgleich zuverlässiger\n- Die beiden Kontaktdateien auf dem Handy werden auch über das USB-Kabel zuverlässig erneuert und auf Ankunft geprüft; sonst erscheint ein Hinweis.\n- Ein älteres Handypaket aus einer Sicherung wird nicht mehr übernommen und überschreibt keinen neueren Stand (voller Schutz mit Companion-App 1.0.2).\n- Bei „Handy suchen“ erscheinen zuerst nur die Namen der USB-Geräte; erst nach Auswahl und „Handy prüfen“ liest GewerbePro dieses eine Gerät."
 }

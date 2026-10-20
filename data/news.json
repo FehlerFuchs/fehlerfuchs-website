@@ -1,8 +1,22 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T10:09:11+02:00",
+  "generiert": "2026-10-20T12:32:45+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "gewerbepro-1-1-3",
+      "typ": "update",
+      "produkt": "gewerbepro",
+      "version": "1.1.3",
+      "titel": "GewerbePro 1.1.3: Handy-Abgleich über USB zuverlässiger",
+      "text": "GewerbePro 1.1.3 macht den Handy-Abgleich über USB zuverlässiger: Die beiden Kontaktdateien auf dem Handy werden auch über das Kabel erneuert und auf Ankunft geprüft – gelingt das nicht, bekommst du einen Hinweis. Ein älteres Handypaket aus einer Sicherung wird nicht mehr übernommen und überschreibt keinen neueren Stand; der volle Schutz gilt mit der Companion- App 1.0.2. Bei „Handy suchen“ erscheinen zuerst nur die Namen der USB-Geräte, erst nach deiner Auswahl und „Handy prüfen“ liest GewerbePro dieses eine Gerät.",
+      "datum": "2026-10-20",
+      "datumQuelle": "Release 1.1.3",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.3/FehlerFuchs_GewerbePro_Setup_1.1.3.exe",
+        "kauf": "https://www.checkout-ds24.com/product/723253"
+      }
+    },
     {
       "id": "orgafuchs-1-11-0",
       "typ": "update",
