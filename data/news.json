@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T19:54:12+02:00",
+  "generiert": "2026-10-20T20:51:46+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -9,7 +9,7 @@
       "produkt": "orgafuchs",
       "datum": "2026-10-20",
       "titel": "OrgaFuchs 1.11.1: PDF-Ausdruck und Datumssprung",
-      "text": "OrgaFuchs 1.11.1 ist im Play Store. Der Abgleich mit den anderen Geräten ist schneller und zuverlässiger. Im PDF-Ausdruck stehen jetzt alle Dienste, auch breite Kürzel wie „FBWB“, Namen wie „Łukasz“, typografische Anführungszeichen und das €-Zeichen erscheinen richtig, und es gibt ein Standardprofil für den Ausdruck: „Drucken“ nimmt deine Einstellungen, „Ändern“ passt sie an. Tippst du oben auf das Datum, springst du direkt zu Jahr, Monat und Tag.",
+      "text": "OrgaFuchs 1.11.1 ist im Play Store. Der Abgleich mit den anderen Geräten ist schneller und zuverlässiger. Im PDF-Ausdruck stehen jetzt alle Dienste, auch mit breiten Kürzeln wie „FBWB“. Namen wie „Łukasz“, typografische Anführungszeichen und das €-Zeichen erscheinen richtig. Außerdem gibt es ein Standardprofil für den Ausdruck: „Drucken“ nimmt deine Einstellungen, „Ändern“ passt sie an. Tippst du oben auf das Datum, springst du direkt zu Jahr, Monat und Tag.",
       "datumQuelle": "eigene Angabe",
       "wege": {
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
@@ -58,7 +58,7 @@
       "produkt": "gewerbepro",
       "version": "1.1.3",
       "titel": "GewerbePro 1.1.3: Handy-Abgleich über USB zuverlässiger",
-      "text": "GewerbePro 1.1.3 macht den Abgleich mit dem Handy über USB zuverlässiger: GewerbePro erneuert zwei Dateien auf dem Handy jetzt auch über das Kabel und prüft nach, dass sie wirklich angekommen sind – sonst bekommst du einen Hinweis. Ein älteres Handypaket aus einer Sicherung überschreibt keinen neueren Stand mehr (der volle Schutz gilt mit der Companion-App 1.0.2). Bei „Handy suchen“ siehst du zuerst nur die Namen der USB-Geräte; GewerbePro liest erst das Gerät, das du ausgewählt hast.",
+      "text": "GewerbePro 1.1.3 macht den Abgleich mit dem Handy über USB zuverlässiger: GewerbePro erneuert zwei Dateien auf dem Handy jetzt auch über das Kabel und prüft nach, ob sie wirklich angekommen sind – sonst bekommst du einen Hinweis. Ein älteres Handypaket aus einer Sicherung überschreibt keinen neueren Stand mehr (der volle Schutz gilt mit der Companion-App 1.0.2). Bei „Handy suchen“ siehst du zuerst nur die Namen der USB-Geräte; GewerbePro liest erst das Gerät, das du ausgewählt hast.",
       "datum": "2026-10-20",
       "datumQuelle": "Release 1.1.3",
       "wege": {

@@ -1,4 +1,7 @@
 # NACHTRAG 10.10.2026 ([FF_10], Entscheidung Matthias über [FF_00], Webseiten-Sichtung 09.10.): Backticks bei „.defekt-…“ durch typografische Anführungszeichen ersetzt.
+# NACHTRAG 20.10.2026 ([FF_10], Entscheidung [FF_00] zur Webseiten-Sichtung 20.10., Nr. 1 A): drei interne Freigabevermerke
+# in Klammern (Wortlaut Matthias …) aus den Texten gestrichen; der Wortlaut selbst ist unverändert. Bei der nächsten Fassung
+# von [FF_26] in der Quelle in 00-1 ebenfalls entfernen, sonst kommen sie beim Spiegeln zurück.
 slug: pdfuchs
 name: PDFuchs
 stand: "2026-10-20"
@@ -22,10 +25,10 @@ auf_dem_geraet:
   - was: Optionale Stammdaten (Name, Anschrift, E-Mail, Telefon, IBAN, BIC)
     wo: "%LOCALAPPDATA%\\PDFuchs\\stammdaten.dat, verschlüsselt mit dem Windows-Datenschutz (DPAPI) des Benutzerkontos; bis 0.2.0 im Klartext in settings.json, beim ersten Start von 1.0.0 übernommen und dort entfernt"
     beleg: "11_App_Flutter/pdfuchs_desktop/lib/settings/stammdaten_tresor.dart, app_settings.dart (_stammdatenLaden); AUDIT#05 F-029, Entscheidung Matthias 16.10.2026 „B: Jetzt vor dem RC“"
-  - was: Ansichtswahl (Seitenmodus, Zoom, Seitenfarbe, Miniaturen, Darstellung hell, dunkel, Sepia oder wie Windows, im Lesemodus und E-Book Schriftgröße, Farbe und Buchmodus), die zuletzt benutzten Werkzeuge, Standardgröße für Sticker, Wasserzeichen-Vorlagen und selbst angelegte Routinen (Arbeitsabläufe; Wortlaut Matthias 15.10.2026, 21:51 und 16.10.2026, 03:07)
+  - was: Ansichtswahl (Seitenmodus, Zoom, Seitenfarbe, Miniaturen, Darstellung hell, dunkel, Sepia oder wie Windows, im Lesemodus und E-Book Schriftgröße, Farbe und Buchmodus), die zuletzt benutzten Werkzeuge, Standardgröße für Sticker, Wasserzeichen-Vorlagen und selbst angelegte Routinen (Arbeitsabläufe)
     wo: "Lokale Einstellungsdatei %APPDATA%\\PDFuchs\\settings.json"
     beleg: 11_App_Flutter/pdfuchs_desktop/lib/settings/app_settings.dart (Feld ansicht), lib/reader/reader_menue.dart, lib/reader/sticker_auswahl.dart, lib/reader/wasserzeichen_dialog.dart, lib/ui/darstellung.dart (oberflaeche), lib/reader/ebook/kapitel_leser.dart (lesen), lib/reader/werkzeugmenue.dart (werkzeuge)
-  - was: Lesestellen und eigene Lesezeichen (je Dokument Dateipfad, zuletzt gelesene Seite, Seitenzahl, Lesezeichen mit Titel, Zeitpunkt; höchstens 300 Dokumente) und ein Prüfwert aus Größe, Anfang und Ende der Datei, damit Lesestelle und Lesezeichen ein Verschieben oder Umbenennen überstehen; aus dem Prüfwert lässt sich der Inhalt der Datei nicht zurückgewinnen (Wortlaut Matthias 16.10.2026, 03:07)
+  - was: Lesestellen und eigene Lesezeichen (je Dokument Dateipfad, zuletzt gelesene Seite, Seitenzahl, Lesezeichen mit Titel, Zeitpunkt; höchstens 300 Dokumente) und ein Prüfwert aus Größe, Anfang und Ende der Datei, damit Lesestelle und Lesezeichen ein Verschieben oder Umbenennen überstehen; aus dem Prüfwert lässt sich der Inhalt der Datei nicht zurückgewinnen
     wo: "Lokale Einstellungsdatei %APPDATA%\\PDFuchs\\settings.json"
     beleg: 11_App_Flutter/pdfuchs_desktop/lib/reader/lesestand.dart (lesestand, maxEintraege = 300, FNV-1a 64 über Größe und je 64 KB Anfang/Ende), lib/reader/ebook/marken_store.dart (lesezeichen_text)
   - was: Eigene Stempel und Sticker, die der Nutzer hinzufügt (Bilddateien und Textstempel)
@@ -137,8 +140,7 @@ loeschung: >-
   %LOCALAPPDATA%\PDFuchs\stammdaten.dat (unlesbar: ebenso als „.defekt-…“,
   höchstens drei), der Ordner %APPDATA%\PDFuchs\scanner mit Scannerangaben
   und Scanprofilen sowie der Ordner Dokumente\PDFuchs mit den Ergebnissen nach
-  dem Deinstallieren erhalten und können von Hand gelöscht werden
-  (Wortlaut Datenschutzhinweis: Matthias 16.10.2026, Antwort vor 17:02:51 „A“). Der Zwischenspeicher unter
+  dem Deinstallieren erhalten und können von Hand gelöscht werden. Der Zwischenspeicher unter
   %LOCALAPPDATA%\PDFuchs\Umwandlung bleibt beim
   Deinstallieren ebenfalls erhalten; Einträge, die älter als sieben Tage sind,
   löscht PDFuchs selbst, der Rest lässt sich jederzeit von Hand löschen.

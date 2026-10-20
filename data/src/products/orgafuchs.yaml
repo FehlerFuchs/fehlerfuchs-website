@@ -135,7 +135,7 @@ releases:
       OrgaFuchs 1.11.0 – neue Startseite und Schnelleintrag
       - Neue Startseite: Heute und Morgen auf einen Blick, dazu Kacheln zu allen Bereichen.
       - Monatsansicht: Jede Person hat in jeder Tageskachel ihre feste Zeile.
-      - Neu: Raster · Schnelleintrag mit Planungsmodus; erst „Senden“ überträgt.
+      - Neu: Schnelleintrag im Raster mit Planungsmodus; erst „Senden“ überträgt.
       - Datum oben anklicken: direkt zu Jahr, Monat und Tag springen.
       - Jeden Tag eine Sicherung (die letzten 14 bleiben), alles im Ordner „OrgaFuchs“.
       - PDF: alle Dienste im Ausdruck, Einrichtungen als Farbpunkt, Sonderzeichen richtig.

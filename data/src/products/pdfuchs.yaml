@@ -1,10 +1,8 @@
 slug: pdfuchs
 name: PDFuchs
 fullName: FehlerFuchs PDFuchs
-# ENTWURF für PDFuchs 1.0.0 (Stand 20.10.2026, [FF_10]). NICHT einspielen vor der Release-Meldung von [FF_16]
-# und der Entscheidung Matthias (Kern 6.17: neue Produktseite, Preisaussage). Quelle der Texte: freigegebene
-# Release Notes 1.0.0 und ANTWORT [FF_26] vom 20.10.2026, nichts darüber hinaus. Beim Einspielen
-# 2026-10-20 ersetzen. Bildschirmfotos: Bildbedarf über [FF_00] an [FF_01], bis dahin Platzhalter.
+# PDFuchs 1.0.0 (veröffentlicht 20.10.2026 17:39, P5 [FF_16]). Texte nach den freigegebenen Release Notes und der ANTWORT
+# [FF_26] vom 20.10.2026, nichts darüber hinaus. Bilder: Rohaufnahmen [FF_26], aufbereitet von [FF_01], freigegeben 20.10. 18:17.
 seoTitel: "PDFuchs – kostenloses PDF-Programm für Windows, ohne Cloud"
 seoBeschreibung: "Kostenloses PDF-Programm für Windows mit mehr als 60 Werkzeugen: lesen, kommentieren, Formulare ausfüllen, schwärzen, schützen – lokal, ohne Konto, ohne Abo."
 tags: ["PDF", "PDF-Formulare", "Word zu PDF", "zusammenfügen", "schwärzen", "Windows", "kostenlos", "ohne Abo", "ohne Cloud"]
@@ -54,7 +52,7 @@ releases:
     signed: true
     notes: |-
       PDFuchs 1.0.0 – die erste Fassung. Komplett kostenlos, ohne Konto und ohne Abo.
-      - Mehr als 60 Werkzeuge: Seiten ordnen, Text und Bilder ändern, Formulare, endgültig Schwärzen, Passwortschutz, Umwandeln.
+      - Mehr als 60 Werkzeuge: Seiten ordnen, Text und Bilder ändern, Formulare, endgültiges Schwärzen, Passwortschutz, Umwandeln.
       - Kommentieren, Signatur als Stempel, eigener Druckdialog mit Vorschau, E-Mail mit Textbausteinen.
       - Arbeitet auf deinem Rechner und baut von sich aus keine Verbindung ins Internet auf.
 
@@ -148,7 +146,7 @@ features:
         values: { standard: ja }
       - name: Komplett kostenlos – ohne Konto, ohne Abo
         values: { standard: ja }
-        note: Freiwillig unterstützen kannst du auf der Startseite und unter Hilfe › Unterstützen.
+        note: Freiwillig unterstützen kannst du auf der Startseite von PDFuchs und unter Hilfe › Unterstützen.
 
 # Bild-Wortmarke. Ist sie gesetzt, ist SIE der sichtbare Titel und die
 # Überschrift steht nur für Screenreader da – sonst stünde der Name doppelt.
@@ -219,4 +217,4 @@ notes: >-
   Teile des PDFuchs-Funktionsumfangs sind auch in GewerbePro enthalten (QR-Code-Generator,
   Scannen, Ausgabeordner). PDFuchs 1.0.0 hat keine Updateprüfung und baut von sich aus keine
   Verbindung auf; das Kontaktfenster in der App öffnet das Mailprogramm. Quelle: ANTWORT [FF_26]
-  vom 20.10.2026. Bildschirmfotos: noch Platzhalter, bis freigegebene Bilder vorliegen.
+  vom 20.10.2026.

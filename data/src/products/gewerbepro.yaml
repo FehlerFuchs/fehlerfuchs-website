@@ -301,8 +301,9 @@ features:
         values: { free: nein, pro: geplant, vather: geplant }
       - name: Paperless-ngx-Archiv-Anbindung
         values: { free: nein, pro: nein, vather: geplant }
-      - name: Eigenständige PDFuchs-Vollsuite
-        values: { free: nein, pro: "später · eigene Lizenz", vather: ja }
+      - name: PDFuchs für Windows
+        values: { free: "kostenlos, separat", pro: "kostenlos, separat", vather: "kostenlos, separat" }
+        note: PDFuchs ist ein eigenes, kostenloses Programm für Windows – mehr dazu auf der Seite PDFuchs.
 
   - group: E-Mail
     items:

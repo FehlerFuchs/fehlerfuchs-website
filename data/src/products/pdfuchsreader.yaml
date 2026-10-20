@@ -98,7 +98,7 @@ features:
         note: Weggelassen, damit der Reader schnell und schlank bleibt.
       - name: Voller PDF-Funktionsumfang
         values: { standard: nein }
-        note: Bleibt der PDFuchs-Suite für Windows vorbehalten.
+        note: Bleibt PDFuchs für Windows vorbehalten.
       - name: Werbung, Konto oder Tracking
         values: { standard: nein }
 

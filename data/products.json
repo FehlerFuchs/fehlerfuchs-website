@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T19:54:12+02:00",
+  "generiert": "2026-10-20T20:51:46+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -306,7 +306,7 @@
       "slug": "checkin-vita",
       "name": "CheckInVita",
       "fullName": "FehlerFuchs CheckInVita",
-      "seoTitel": "CheckInVita – persönliches Gesundheitstagebuch, lokal und ohne Cloud",
+      "seoTitel": "CheckInVita – Gesundheitstagebuch, lokal und ohne Cloud",
       "seoBeschreibung": "Gesundheitswerte wie Blutdruck, Gewicht oder Schlaf selbst erfassen und im Verlauf sehen, aufbereitet für den Praxisbesuch – lokal auf dem Gerät, ohne Cloud.",
       "tags": [
         "Gesundheitstagebuch",
@@ -1347,12 +1347,13 @@
               }
             },
             {
-              "name": "Eigenständige PDFuchs-Vollsuite",
+              "name": "PDFuchs für Windows",
               "values": {
-                "free": "nein",
-                "pro": "später · eigene Lizenz",
-                "vather": "ja"
-              }
+                "free": "kostenlos, separat",
+                "pro": "kostenlos, separat",
+                "vather": "kostenlos, separat"
+              },
+              "note": "PDFuchs ist ein eigenes, kostenloses Programm für Windows – mehr dazu auf der Seite PDFuchs."
             }
           ]
         },
@@ -2809,7 +2810,7 @@
           },
           "sha256": "86e0f384bb24d149ea344c0e99b308890987200b8fe40972badbc35270df984d",
           "signed": true,
-          "notes": "OrgaFuchs 1.11.0 – neue Startseite und Schnelleintrag\n- Neue Startseite: Heute und Morgen auf einen Blick, dazu Kacheln zu allen Bereichen.\n- Monatsansicht: Jede Person hat in jeder Tageskachel ihre feste Zeile.\n- Neu: Raster · Schnelleintrag mit Planungsmodus; erst „Senden“ überträgt.\n- Datum oben anklicken: direkt zu Jahr, Monat und Tag springen.\n- Jeden Tag eine Sicherung (die letzten 14 bleiben), alles im Ordner „OrgaFuchs“.\n- PDF: alle Dienste im Ausdruck, Einrichtungen als Farbpunkt, Sonderzeichen richtig.\n- Regionale Feiertage einschaltbar; Updates und Deinstallation zuverlässiger."
+          "notes": "OrgaFuchs 1.11.0 – neue Startseite und Schnelleintrag\n- Neue Startseite: Heute und Morgen auf einen Blick, dazu Kacheln zu allen Bereichen.\n- Monatsansicht: Jede Person hat in jeder Tageskachel ihre feste Zeile.\n- Neu: Schnelleintrag im Raster mit Planungsmodus; erst „Senden“ überträgt.\n- Datum oben anklicken: direkt zu Jahr, Monat und Tag springen.\n- Jeden Tag eine Sicherung (die letzten 14 bleiben), alles im Ordner „OrgaFuchs“.\n- PDF: alle Dienste im Ausdruck, Einrichtungen als Farbpunkt, Sonderzeichen richtig.\n- Regionale Feiertage einschaltbar; Updates und Deinstallation zuverlässiger."
         },
         {
           "version": "1.9.3",
@@ -3228,7 +3229,7 @@
           },
           "sha256": "ce63e500db8dc1e4ad797de46d31270236bf07625ce67d3ad879310ff9a3949f",
           "signed": true,
-          "notes": "PDFuchs 1.0.0 – die erste Fassung. Komplett kostenlos, ohne Konto und ohne Abo.\n- Mehr als 60 Werkzeuge: Seiten ordnen, Text und Bilder ändern, Formulare, endgültig Schwärzen, Passwortschutz, Umwandeln.\n- Kommentieren, Signatur als Stempel, eigener Druckdialog mit Vorschau, E-Mail mit Textbausteinen.\n- Arbeitet auf deinem Rechner und baut von sich aus keine Verbindung ins Internet auf."
+          "notes": "PDFuchs 1.0.0 – die erste Fassung. Komplett kostenlos, ohne Konto und ohne Abo.\n- Mehr als 60 Werkzeuge: Seiten ordnen, Text und Bilder ändern, Formulare, endgültiges Schwärzen, Passwortschutz, Umwandeln.\n- Kommentieren, Signatur als Stempel, eigener Druckdialog mit Vorschau, E-Mail mit Textbausteinen.\n- Arbeitet auf deinem Rechner und baut von sich aus keine Verbindung ins Internet auf."
         }
       ],
       "features": [
@@ -3456,7 +3457,7 @@
               "values": {
                 "standard": "ja"
               },
-              "note": "Freiwillig unterstützen kannst du auf der Startseite und unter Hilfe › Unterstützen."
+              "note": "Freiwillig unterstützen kannst du auf der Startseite von PDFuchs und unter Hilfe › Unterstützen."
             }
           ]
         }
@@ -3517,7 +3518,7 @@
         "alt_html": "/apps/pdfuchs.html",
         "contact": "/kontakt.html?app=PDFuchs&topic=interesse"
       },
-      "notes": "Teile des PDFuchs-Funktionsumfangs sind auch in GewerbePro enthalten (QR-Code-Generator, Scannen, Ausgabeordner). PDFuchs 1.0.0 hat keine Updateprüfung und baut von sich aus keine Verbindung auf; das Kontaktfenster in der App öffnet das Mailprogramm. Quelle: ANTWORT [FF_26] vom 20.10.2026. Bildschirmfotos: noch Platzhalter, bis freigegebene Bilder vorliegen."
+      "notes": "Teile des PDFuchs-Funktionsumfangs sind auch in GewerbePro enthalten (QR-Code-Generator, Scannen, Ausgabeordner). PDFuchs 1.0.0 hat keine Updateprüfung und baut von sich aus keine Verbindung auf; das Kontaktfenster in der App öffnet das Mailprogramm. Quelle: ANTWORT [FF_26] vom 20.10.2026."
     },
     {
       "slug": "pdfuchsreader",
@@ -3709,7 +3710,7 @@
               "values": {
                 "standard": "nein"
               },
-              "note": "Bleibt der PDFuchs-Suite für Windows vorbehalten."
+              "note": "Bleibt PDFuchs für Windows vorbehalten."
             },
             {
               "name": "Werbung, Konto oder Tracking",
