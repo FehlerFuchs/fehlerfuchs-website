@@ -1,8 +1,22 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T10:03:25+02:00",
+  "generiert": "2026-10-20T10:09:11+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "orgafuchs-1-11-0",
+      "typ": "update",
+      "produkt": "orgafuchs",
+      "version": "1.11.0",
+      "titel": "OrgaFuchs 1.11.0: neue Startseite und Schnelleintrag",
+      "text": "OrgaFuchs 1.11.0 ist jetzt für Windows da; für Android gibt es 1.11.0 schon seit dem 9. Oktober im Play Store. Neu in der Windows-Fassung: eine Startseite mit Heute und Morgen auf einen Blick und Kacheln zu allen Bereichen, in der Monatsansicht hat jede Person in jeder Tageskachel ihre feste Zeile, und der Schnelleintrag im Raster hat einen Planungsmodus – erst „Senden“ überträgt. Das Datum oben springt direkt zu Jahr, Monat und Tag. Jeden Tag entsteht eine Sicherung, im PDF stehen alle Dienste, und regionale Feiertage lassen sich einschalten.",
+      "datum": "2026-10-20",
+      "datumQuelle": "Release 1.11.0",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.11.0/FehlerFuchs_OrgaFuchs_Setup_1.11.0.exe",
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
+      }
+    },
     {
       "id": "gewerbepro-1-1-2",
       "typ": "update",

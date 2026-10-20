@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-19",
+  "updatedAt": "2026-10-20",
   "products": [
     {
       "slug": "gewerbepro",
@@ -57,17 +57,17 @@
     {
       "slug": "orgafuchs",
       "name": "FehlerFuchs OrgaFuchs",
-      "version": "1.9.3",
-      "date": "2026-09-25",
+      "version": "1.11.0",
+      "date": "2026-10-20",
       "channel": "stable",
       "os": "windows",
-      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.9.3/FehlerFuchs_OrgaFuchs_Setup_1.9.3.exe",
-      "filename": "FehlerFuchs_OrgaFuchs_Setup_1.9.3.exe",
-      "sizeLabel": "16,7 MB",
-      "sha256": "a068bfbea160b14641eb5a18e5b518993deec2971839d1a1a9e360c924e5d76b",
+      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.11.0/FehlerFuchs_OrgaFuchs_Setup_1.11.0.exe",
+      "filename": "FehlerFuchs_OrgaFuchs_Setup_1.11.0.exe",
+      "sizeLabel": "17,2 MB",
+      "sha256": "86e0f384bb24d149ea344c0e99b308890987200b8fe40972badbc35270df984d",
       "signed": true,
       "page": "https://fehlerfuchs.eu/produkte/orgafuchs/",
-      "notes": "Signierte Windows-Fassung 1.9.3 (Herausgeber FehlerFuchs), löst 1.9.2 ab. Deutlich stabilerer Familien-Sync: Jede Änderung wird zuerst auf dem Gerät gesichert und erst gelöscht, wenn das Hauptgerät sie bestätigt hat. Dienste und Kategorien erreichen jetzt alle Familiengeräte. „Alle Daten löschen“ entfernt wirklich alles, unverschlüsselte Verbindungen sind abgeschaltet. Unter Windows prüft das Update die Signatur des Installers strenger, OrgaFuchs startet auch ohne installierte Visual-C++-Laufzeit, läuft nur einmal und deinstalliert sich sauber.",
+      "notes": "OrgaFuchs 1.11.0 – neue Startseite und Schnelleintrag\n- Neue Startseite: Heute und Morgen auf einen Blick, dazu Kacheln zu allen Bereichen.\n- Monatsansicht: Jede Person hat in jeder Tageskachel ihre feste Zeile.\n- Neu: Raster · Schnelleintrag mit Planungsmodus; erst „Senden“ überträgt.\n- Datum oben anklicken: direkt zu Jahr, Monat und Tag springen.\n- Jeden Tag eine Sicherung (die letzten 14 bleiben), alles im Ordner „OrgaFuchs“.\n- PDF: alle Dienste im Ausdruck, Einrichtungen als Farbpunkt, Sonderzeichen richtig.\n- Regionale Feiertage einschaltbar; Updates und Deinstallation zuverlässiger.",
       "windowsDisplayNames": [
         "OrgaFuchs",
         "FehlerFuchs OrgaFuchs"

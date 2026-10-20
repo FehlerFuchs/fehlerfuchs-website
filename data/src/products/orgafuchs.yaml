@@ -112,6 +112,34 @@ editions:
 # (ältere Releases bleiben im Downloads-Repo). sha256/Bytes gegen das GitHub-Asset
 # gegengeprüft (gh: 17.548.488 B, sha256 a068bfbe…d76b).
 releases:
+  # 1.11.0 (20.10.2026): Meldung [FF_16] Code Signing P5 (10:02, veröffentlicht auf „push orgafuchs“
+  # von Matthias 10:00, Release 10:01, zweistufig signiert). Von [FF_10] gegen GitHub geprüft
+  # (gh release view orgafuchs-v1.11.0: kein Entwurf, keine Vorabversion, ein Asset 17.999.152 B,
+  # sha256 86e0f384…984d – stimmen). notes aus „Was ist neu“ der Release-Seite ([FF_16]), nichts
+  # erfunden (P8); auf die Prüfgrenze von 600 Zeichen gekürzt (Auswahl und Zusammenfassung
+  # einzelner Punkte, kein neuer Inhalt). Windows 1.11.0 Build 34 wurde nie veröffentlicht
+  # (Entscheidung Matthias 13.10.); dies ist der neue Bau (Build 42).
+  - version: "1.11.0"
+    date: "2026-10-20"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.11.0/FehlerFuchs_OrgaFuchs_Setup_1.11.0.exe
+    filename: FehlerFuchs_OrgaFuchs_Setup_1.11.0.exe
+    size:
+      bytes: 17999152
+      label: "17,2 MB"
+      source: GitHub-Release-Asset
+    sha256: "86e0f384bb24d149ea344c0e99b308890987200b8fe40972badbc35270df984d"
+    signed: true
+    notes: |-
+      OrgaFuchs 1.11.0 – neue Startseite und Schnelleintrag
+      - Neue Startseite: Heute und Morgen auf einen Blick, dazu Kacheln zu allen Bereichen.
+      - Monatsansicht: Jede Person hat in jeder Tageskachel ihre feste Zeile.
+      - Neu: Raster · Schnelleintrag mit Planungsmodus; erst „Senden“ überträgt.
+      - Datum oben anklicken: direkt zu Jahr, Monat und Tag springen.
+      - Jeden Tag eine Sicherung (die letzten 14 bleiben), alles im Ordner „OrgaFuchs“.
+      - PDF: alle Dienste im Ausdruck, Einrichtungen als Farbpunkt, Sonderzeichen richtig.
+      - Regionale Feiertage einschaltbar; Updates und Deinstallation zuverlässiger.
   # 1.9.3: Signier-/Manifest-Fakten aus dem Handoff von [FF_16] Code Signing
   # (25.09.2026 21:29, zweistufig App+Installer signiert, veröffentlicht auf „push"
   # von Matthias 21:28), gegen GitHub geprüft (gh release view orgafuchs-v1.9.3:
