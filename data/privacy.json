@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T20:51:46+02:00",
+  "generiert": "2026-10-22T08:37:44+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1628,9 +1628,9 @@
     {
       "slug": "pdfuchsreader",
       "name": "PDFuchs Reader",
-      "stand": "2026-09-30",
+      "stand": "2026-10-22",
       "geprueft_von": "26_PDFuchs (Slug-Eigentümer seit 18.08.2026; führt Android- und Windows-Teil). Windows-Teil am 19.08.2026 gegen den aktuellen Quellstand gegengeprüft und korrigiert: (a) das Netzverhalten ist nicht mehr netzwerkfrei, sondern hat einen NUTZERINITIIERTEN Support-/Kontaktweg (seit 25.07.2026); (b) es gibt inzwischen eine lokale Einstellungsdatei (settings.json) inkl. „Zuletzt geöffnet“; (c) Installer ist Inno Setup (installer_flutter.iss), nicht mehr NSIS. Frühere Angaben entsprechend berichtigt.",
-      "fassung": "Zweite Fassung vom 19.07.2026 – gegenüber der ersten Einreichung desselben Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt. Zwei Fassungen tragen heute diesen Slug. (A) Android-Fassung 1.3.0 (versionCode 6, Paket eu.fehlerfuchs.pdfuchsreader): seit 30.09.2026 12:47 in Google Play veröffentlicht, voller Rollout (Meldung [FF_13] nach P5). Vorher im Emulator und auf einem Fire-Tablet geprüft. Geprüft am aktuellen Code und Manifest. 1.3.0 ändert am Datenfluss nichts; neu ist nur die feinere Lesestelle (Kapitel, Teil, Absatz) in „Zuletzt geöffnet“ und in den Lesezeichen. Der Datenschutztext in der App ist neu nach den sechs Fragen (A-11.6) gegliedert und von Matthias bestätigt (P10, 30.09.2026). (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, Inno-Setup-Skript (installer_flutter.iss). Kein Laufzeit-Mitschnitt des Netzwerkverkehrs – siehe offene Frage 4. Windows-Teil am 19.08.2026 gegen den aktuellen Stand gegengeprüft und berichtigt (Netzverhalten, Einstellungsdatei, Installer).",
+      "fassung": "Zweite Fassung vom 19.07.2026 – gegenüber der ersten Einreichung desselben Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt. Zwei Fassungen tragen heute diesen Slug. (A) Android-Fassung 1.3.1 (versionCode 7, Paket eu.fehlerfuchs.pdfuchsreader): seit 20.10.2026 21:31 in Google Play veröffentlicht, voller Rollout (Meldung [FF_13] nach P5). Vorher im Emulator, auf einem Fire HD 10 und einem Galaxy S8+ geprüft. Geprüft am aktuellen Code und Manifest. 1.3.1 ändert am Datenfluss und an den Berechtigungen nichts: Das Manifest ist gegenüber 1.3.0 unverändert (nur INTERNET). Neu sind zwei Fehlerbehebungen (E-Book-Kapiteltext ohne den Titel aus dem HTML-Kopf; „Seiten bearbeiten“ setzt die Kopie aus den gewählten Seiten zusammen, gelöschte Seiten fehlen jetzt zuverlässig) und die aktualisierte PDF-Bibliothek pdfrx 2.6.5 mit PDFium (lokal, ohne Netz). Der Datenschutztext in der App ist unverändert (nach den sechs Fragen, A-11.6, von Matthias bestätigt, P10, 30.09.2026; Stand September 2026). (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, Inno-Setup-Skript (installer_flutter.iss). Kein Laufzeit-Mitschnitt des Netzwerkverkehrs – siehe offene Frage 4. Windows-Teil am 19.08.2026 gegen den aktuellen Stand gegengeprüft und berichtigt (Netzverhalten, Einstellungsdatei, Installer).",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -1651,7 +1651,7 @@
         {
           "was": "Vom Nutzer erzeugte bearbeitete PDF-Kopien (<name>_bearbeitet[_N].pdf)",
           "wo": "Dokumentenordner der App; Originale und vorhandene Kopien werden nie überschrieben",
-          "beleg": "05_App/pdfuchsreader_mobile/lib/features/editor/seiten_editor_screen.dart"
+          "beleg": "05_App/pdfuchsreader_mobile/lib/features/editor/seiten_editor_screen.dart; lib/features/editor/seiten_zusammenstellen.dart"
         },
         {
           "was": "Per „Öffnen mit“/Teilen hereingereichte PDFs und EPUBs (größenbegrenzte Arbeitskopie)",
@@ -1706,7 +1706,7 @@
           "name": "(Android – keine weiteren)",
           "wofuer": "Die App fordert keine weiteren Berechtigungen an – insbesondere keinen Zugriff auf Speicher, Kamera, Standort, Kontakte oder Mikrofon.",
           "pflicht": false,
-          "beleg": "Release-Manifest von 1.0.0 vollständig ausgelesen; aktuelles Manifest und Abhängigkeiten statisch geprüft. Sie enthalten weiterhin keine fachliche Berechtigung außer INTERNET. Das ungenutzte Paket permission_handler ist seit 07.08.2026 entfernt."
+          "beleg": "Release-Manifest von 1.0.0 vollständig ausgelesen; aktuelles Manifest und Abhängigkeiten statisch geprüft. Für 1.3.1 gegen 1.3.0 verglichen (22.10.2026): Manifest unverändert; [FF_13] bestätigte im AAB 1.3.1 (7) dieselben zwei Einträge (INTERNET und die AndroidX-Schutzberechtigung). Sie enthalten weiterhin keine fachliche Berechtigung außer INTERNET. Das ungenutzte Paket permission_handler ist seit 07.08.2026 entfernt."
         },
         {
           "name": "(Windows) Zugriff auf lokale Dateien",
