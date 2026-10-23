@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-23T13:23:33+02:00",
+  "generiert": "2026-10-23T13:28:32+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1669,14 +1669,9 @@
           "beleg": "(Windows) 05_Engine/pdfuchs_core/pdfuchs_core/config.py:61"
         },
         {
-          "was": "Ergebnisdateien der Verarbeitung (z. B. Texterkennung, Miniaturen, korrigierte Seiten)",
-          "wo": "in einem Ausgabeordner im Programmverzeichnis – nicht in den eigenen Dateien des Nutzers",
-          "beleg": "(Windows) 05_Engine/pdfuchs_core/pdfuchs_core/config.py:61"
-        },
-        {
-          "was": "Datei license_state.json mit einem lokalen Zählerstand zur Programmnutzung; keine personenbezogenen Angaben",
-          "wo": "im lokalen Anwendungsdatenordner des Benutzers unter %LOCALAPPDATA%\\PDFuchs (möglich auch unter %ProgramData%\\PDFuchs). Diese Datei bleibt nach dem Deinstallieren auf dem Rechner liegen und kann von Hand gelöscht werden.",
-          "beleg": "(Windows) 05_Engine/pdfuchs_core/pdfuchs_core/feature_flags.py; 92_Tools/installer_flutter.iss ([UninstallDelete] entfernt {app}; license_state.json in %LOCALAPPDATA%\\PDFuchs bleibt bewusst erhalten)"
+          "was": "Vom Nutzer erzeugte Ergebnisse (bearbeitete PDFs, korrigierte Scans, ausfüllbare Formulare, Ergebnisse der Texterkennung); jedes Ergebnis als neue Datei, nichts wird überschrieben",
+          "wo": "Ordner Dokumente\\PDFuchs des Benutzers",
+          "beleg": "(Windows) 05_Engine/pdfuchs_core/pdfuchs_core/config.py:85-99"
         },
         {
           "was": "Temporäre Dateien während Anzeige und Verarbeitung",
