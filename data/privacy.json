@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-23T13:28:32+02:00",
+  "generiert": "2026-10-23T16:38:43+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -2197,9 +2197,9 @@
     {
       "slug": "relaisserver",
       "name": "FehlerFuchs Relaisserver (Dienst – Relais und Push)",
-      "stand": "2026-10-03",
+      "stand": "2026-10-23",
       "geprueft_von": "Relaisserver",
-      "fassung": "Stand 03.10.2026 – relay-orgafuchs-ofsp1 (dazu relay-orgafuchs als Rückfall), relay-fcm 0.4, relay-dateiwaechter, ntfy v2.28.0, relay-admin, relay-sicht-signer, Caddy 2",
+      "fassung": "Stand 23.10.2026 – relay-orgafuchs-ofsp1, relay-fcm 0.4, ntfy v2.28.0, relay-admin, relay-sicht-signer, Caddy 2. Das Rückfall-Relay relay-orgafuchs ist am 23.10.2026 abgebaut; relay-dateiwaechter (Relais der beendeten Anwendung DateiWächter) ist am 23.10.2026 stillgelegt (Container gestoppt, nicht gelöscht, nicht mehr über den Reverse-Proxy erreichbar)",
       "lokal_only": false,
       "serverseitig": [
         {
@@ -2210,11 +2210,11 @@
         {
           "was": "Epochen-Fence des Gruppen-Sync (pseudonym) – je Gruppenlinie ein Eintrag mit opaker Linien-Kennung, Epochennummer, zwei öffentlichen Schlüsseln (aktueller Host, Wiederherstellung), Prüfwert der letzten Übergabe und Zeitpunkt der letzten Nutzung. Keine Inhalte, keine Namen",
           "wo": "kleine Datei im Volume des Relays (einzige beschreibbare Stelle), dazu Sicherungskopien auf dem Server – stündlich (die letzten 14) und monatlich",
-          "beleg": "32_OrgaFuchs/06_Relay/fence.dart (Zeile 14 „Kein TTL/GC - einmal initialisierter Zustand wird nie geloescht“); 05_Server/_vorbereitung_folgeauftraege/ofsp1_fence_v05_build/fence_backup.sh (byte-gleich mit /opt/relais/scripts/fence_backup.sh; Zeilen 21 und 50 Stundenkopien, 44-49 Monatskopien)"
+          "beleg": "32_OrgaFuchs/06_Relay/fence.dart (Zeile 14 „Kein TTL/GC – einmal initialisierter Zustand wird nie geloescht“); 05_Server/scripts/fence_backup.sh (byte-gleich mit /opt/relais/scripts/fence_backup.sh; Zeilen 21 und 50 Stundenkopien, 44-49 Monatskopien)"
         },
         {
           "was": "FCM-Weck-Registry (pseudonym) – je registriertem Gerät eine Zeile",
-          "wo": "kleine SQLite-Datei im Volume des Sidecars relay-fcm auf dem eigenen Server bei IONOS, Rechenzentrum Deutschland (Berlin; laut IONOS-Angaben bei der Einrichtung am 13.07.2026); Felder – vom Client vergebene Gerätekennung, FCM-Gerätetoken (Google-Zustelladresse), Gruppen-Hash (sha256 des Gruppen-Sync-Tokens), Plattform, actorKey (nur Selbst-Ausschluss), Zeitstempel der letzten Anmeldung. Keine Namen, keine Konten, keine Anmeldung mit Identität",
+          "wo": "kleine SQLite-Datei im Volume des Sidecars relay-fcm auf dem eigenen Server bei IONOS, Rechenzentrum Deutschland (Berlin; laut IONOS-Angaben bei der Einrichtung am 13.07.2026); Felder – vom Client vergebene Gerätekennung, FCM-Gerätetoken (Google-Zustelladresse), Prüfwert (SHA-256) der zufällig erzeugten Kennung des Familienplans (kein Kennwort; aus dem Prüfwert lässt sich die Kennung nicht zurückrechnen), Plattform, actorKey (nur Selbst-Ausschluss), Zeitstempel der letzten Anmeldung. Keine Namen, keine Konten, keine Anmeldung mit Identität",
           "beleg": "05_Server/apps/relay-fcm/app.py (Tabelle tokens; Zeilen 17 und 100-114 Löschung nach 90 Tagen ohne Erneuerung, einmal täglich)"
         },
         {
@@ -2224,8 +2224,8 @@
         },
         {
           "was": "Zugriffsprotokolle des Reverse-Proxy (Client-IP, Zeitpunkt, User-Agent, aufgerufener Pfad ohne Query-Parameter – der Teil ab dem Fragezeichen wird vor dem Schreiben entfernt)",
-          "wo": "rotierende Container-Logs (je Dienst max. 3 x 10 MB), überschrieben nach Größe, nicht nach Tagen; keine Archivierung, nicht im Backup. Für den DateiWächter-Relay und den Signierdienst wird kein Zugriffsprotokoll geschrieben",
-          "beleg": "05_Server/proxy/Caddyfile (log-Direktive je Site mit format filter, request>uri ohne Query-Teil, live seit 31.08.2026; Zeilen 207-229 ohne log); 05_Server/compose/docker-compose.yml (logging max-size/max-file)"
+          "wo": "rotierende Container-Logs (je Dienst max. 3 x 10 MB), überschrieben nach Größe, nicht nach Tagen; keine Archivierung, nicht im Backup. Für den Signierdienst wird kein Zugriffsprotokoll geschrieben (das Relay der beendeten Anwendung DateiWächter ist seit 23.10.2026 stillgelegt und nicht mehr erreichbar)",
+          "beleg": "05_Server/proxy/Caddyfile (log-Direktive je Site mit format filter, request>uri ohne Query-Teil, live seit 31.08.2026; Zeilen 202-212 ohne log); 05_Server/compose/docker-compose.yml (logging max-size/max-file)"
         },
         {
           "was": "aggregierte Zähler (Anzahl Push-Meldungen, aktive Themen, Dienst-Health)",
@@ -2297,7 +2297,7 @@
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
       "loeschung": "Der Dienst hält keine Nutzdaten dauerhaft vor. Weitergereichte Nachrichten bestehen nur während der Übertragung. Der Epochen-Fence des Gruppen-Sync ist bewusst unbefristet: Sein Eintrag je Gruppenlinie wird nie gelöscht, weil er verhindert, dass eine fremde Stelle eine Gruppe übernimmt; er enthält nur Kennung, Zahlen, öffentliche Schlüssel und einen Zeitpunkt und lässt sich nicht einzeln löschen. Die Monatskopien seiner Sicherung werden ebenfalls nicht rotiert. Push-Meldungen verfallen nach spätestens zwölf Stunden, Zugriffsprotokolle werden nach Größe durch Rotation überschrieben. Die FCM-Weck-Registry hält je Gerät einen pseudonymen Eintrag: Meldet sich das Gerät in der App ab, wird er sofort gelöscht; meldet Google den Token als ungültig, wird er automatisch entfernt; wurde er 90 Tage nicht erneuert (die App erneuert ihn bei jedem Start), wird er automatisch gelöscht. Es gibt keine identitätsbehafteten Konten und damit keinen personenbezogenen Datenbestand, der auf Antrag einer Person zugeordnet und gelöscht werden könnte.",
-      "besonderheiten": "Das Relais ist bewusst inhaltsblind: Die Nutzdaten werden bereits auf dem Gerät Ende-zu-Ende verschlüsselt, der Server sieht nur Chiffrat und reicht es anhand einer Zielkennung weiter. Es gibt keine identitätsbehafteten Konten und keine Mitgliederliste. Dauerhaft gespeichert werden nur zwei kleine, pseudonyme Bestände: die FCM-Token-Registry für die Weckfunktion (Gerätekennung, FCM-Token, Gruppen-Hash; höchstens 90 Tage ohne Erneuerung) und der Epochen-Fence des Gruppen-Sync (Kennung, Epoche, öffentliche Schlüssel, Zeitpunkt). Auch die FCM-Weckung selbst ist content-blind: an Google geht nur der Anstoß zu synchronisieren, kein Inhalt. Push (ntfy) läuft über eine selbst betriebene Instanz. Der Verwaltungszugang für die interne Serverübersicht liefert ausschließlich aggregierte Zahlen ohne Personenbezug. Die Zugriffsprotokolle enthalten seit dem 31.08.2026 keine Query-Parameter mehr.",
+      "besonderheiten": "Das Relais ist bewusst inhaltsblind: Die Nutzdaten werden bereits auf dem Gerät Ende-zu-Ende verschlüsselt, der Server sieht nur Chiffrat und reicht es anhand einer Zielkennung weiter. Es gibt keine identitätsbehafteten Konten und keine Mitgliederliste. Dauerhaft gespeichert werden nur zwei kleine, pseudonyme Bestände: die FCM-Token-Registry für die Weckfunktion (Gerätekennung, FCM-Token, Prüfwert der Gruppenkennung; höchstens 90 Tage ohne Erneuerung) und der Epochen-Fence des Gruppen-Sync (Kennung, Epoche, öffentliche Schlüssel, Zeitpunkt). Auch die FCM-Weckung selbst ist content-blind: an Google geht nur der Anstoß zu synchronisieren, kein Inhalt. Push (ntfy) läuft über eine selbst betriebene Instanz. Der Verwaltungszugang für die interne Serverübersicht liefert ausschließlich aggregierte Zahlen ohne Personenbezug. Die Zugriffsprotokolle enthalten seit dem 31.08.2026 keine Query-Parameter mehr.",
       "vorhandener_text": "01_Konzept/Sicherheitskonzept.md",
       "offene_fragen": "(1) Die Zugriffsprotokolle des Reverse-Proxy rotieren nach Größe und werden nicht archiviert – eine feste Aufbewahrungsfrist in Tagen ist damit nicht definiert. Die Query-Parameter (bei Sync-Verbindungen Gruppen- und Gerätekennung) werden seit dem 31.08.2026 nicht mehr protokolliert. (2) Unbekannt, ob und wie lange der Hoster auf Netzwerkebene eigene Protokolle führt – das liegt außerhalb der eigenen Konfiguration. (3) FCM/Google: Die Rolle ist entschieden (Matthias, 03.09.2026) – Google ist Auftragsverarbeiter nach Art. 28 DSGVO, die Übermittlung in die USA stützt sich auf das EU-US Data Privacy Framework und die Standardvertragsklauseln. Offen ist nur noch eine optionale anwaltliche Bestätigung.",
       "art": "dienst"
