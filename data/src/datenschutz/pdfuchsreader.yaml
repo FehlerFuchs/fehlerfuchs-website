@@ -1,6 +1,6 @@
 slug: pdfuchsreader
 name: PDFuchs Reader
-stand: "2026-10-22"
+stand: "2026-10-23"
 geprueft_von: >-
   26_PDFuchs (Slug-Eigentümer seit 18.08.2026; führt Android- und
   Windows-Teil). Windows-Teil am 19.08.2026 gegen den aktuellen Quellstand
@@ -75,15 +75,12 @@ auf_dem_geraet:
   - was: Temporäre Dateien während Anzeige und Verarbeitung
     wo: im Temp-Ordner von Windows; sie werden nach Gebrauch automatisch wieder entfernt
     beleg: (Windows) 05_Engine/pdfuchs_core/pdfuchs_core/render.py:29 (TemporaryDirectory)
-  - was: >-
-      (Windows) Nutzereinstellungen und Liste „Zuletzt
-      geöffnet“: persönlicher Anzeigename (Alias), gewählter Ablageordner,
-      zuletzt geöffnete Dokumente und – nur wenn der Nutzer sie im
-      PDFuchs-Windows-Paket selbst einträgt – optionale lokale Stammdaten
-      (z. B. Name, Adresse, IBAN für das Ausfüllen von Formularen). Rein lokal,
-      keine Übertragung.
-    wo: Datei settings.json im Anwendungsdatenordner des Benutzers (%APPDATA%\PDFuchs)
+  - was: Vom Nutzer gesetzter Alias, Ablageordner und zuletzt geöffnete Dokumentpfade
+    wo: "Lokale Einstellungsdatei %APPDATA%\\PDFuchs\\settings.json"
     beleg: (Windows) 11_App_Flutter/pdfuchs_desktop/lib/settings/app_settings.dart
+  - was: Optionale Stammdaten (Name, Anschrift, E-Mail, Telefon, IBAN, BIC)
+    wo: "%LOCALAPPDATA%\\PDFuchs\\stammdaten.dat, verschlüsselt mit dem Windows-Datenschutz (DPAPI) des Benutzerkontos; bis 0.2.0 im Klartext in settings.json, beim ersten Start von 1.0.0 übernommen und dort entfernt"
+    beleg: "(Windows) 11_App_Flutter/pdfuchs_desktop/lib/settings/stammdaten_tresor.dart, app_settings.dart (_stammdatenLaden); AUDIT#05 F-029, Entscheidung Matthias 16.10.2026 „B: Jetzt vor dem RC“"
 
 berechtigungen:
   - name: INTERNET (Android)
@@ -204,12 +201,26 @@ loeschung: >-
   und der Zwischenspeicher.
   Windows: Das Deinstallieren entfernt das Programmverzeichnis, die Desktop- und
   Startmenü-Verknüpfungen sowie die bei der Installation gesetzten Einträge.
-  Zwei Dateien bleiben dabei im Anwendungsdatenordner des Benutzers zurück und
-  können jederzeit von Hand gelöscht werden: license_state.json
-  (%LOCALAPPDATA%\PDFuchs; nur ein lokaler Zählerstand, keine personenbezogenen
-  Angaben) und settings.json (%APPDATA%\PDFuchs; die Nutzereinstellungen inkl.
-  optional selbst eingetragener Stammdaten). Beide werden bei der Deinstallation
-  bewusst nicht mit entfernt.
+  Alle Daten liegen auf dem Gerät. Selbst erzeugte oder bearbeitete PDFs liegen
+  dort, wo der Nutzer sie gespeichert hat, und lassen sich wie jede andere Datei
+  löschen. Beim Deinstallieren wird das Programm entfernt; eigene Dokumente
+  bleiben erhalten. Eine von früheren Fassungen angelegte Datei license_state.json
+  im Anwendungsdatenordner des Benutzers (Testphase) wird von PDFuchs 1.0.0 nicht
+  mehr geschrieben oder gelesen; sie bleibt beim Deinstallieren liegen und kann
+  jederzeit von Hand gelöscht werden. Das gilt auch für die lokale Einstellungsdatei unter
+  %APPDATA%\PDFuchs; erkennt PDFuchs dort unlesbares JSON, wird diese Fassung
+  vor dem nächsten Speichern als Datei mit dem Zusatz „.defekt-…“ bewahrt
+  (höchstens drei). Ebenso bleiben die verschlüsselte Stammdaten-Datei
+  %LOCALAPPDATA%\PDFuchs\stammdaten.dat (unlesbar: ebenso als „.defekt-…“,
+  höchstens drei), der Ordner %APPDATA%\PDFuchs\scanner mit Scannerangaben
+  und Scanprofilen sowie der Ordner Dokumente\PDFuchs mit den Ergebnissen nach
+  dem Deinstallieren erhalten und können von Hand gelöscht werden
+  (Wortlaut Datenschutzhinweis: Matthias 16.10.2026, Antwort vor 17:02:51 „A“). Der Zwischenspeicher unter
+  %LOCALAPPDATA%\PDFuchs\Umwandlung bleibt beim
+  Deinstallieren ebenfalls erhalten; Einträge, die älter als sieben Tage sind,
+  löscht PDFuchs selbst, der Rest lässt sich jederzeit von Hand löschen.
+  Ebenso bleiben die Ordner %APPDATA%\PDFuchs\stempel und
+  %APPDATA%\PDFuchs\sticker mit den eigenen Stempeln und Stickern erhalten.
   In beiden Fassungen bleiben die eigenen Dokumente des Nutzers unangetastet –
   Originale werden nie überschrieben.
 
