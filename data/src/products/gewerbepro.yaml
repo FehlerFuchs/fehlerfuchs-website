@@ -224,7 +224,7 @@ releases:
     signed: true
     # Wortlaut identisch zu updates/gewerbepro/latest.json – die App zeigt diesen
     # Text wörtlich im Update-Hinweis an. Änderungen hier ändern den Text in der App.
-    notes: "GewerbePro 0.3.2 (Beta): Erste digital signierte Fassung (Herausgeber FehlerFuchs) – bei Installation erscheint der verifizierte Herausgebername. Dazu Korrekturen aus dem internen Prüfbericht gegenüber 0.3.1."
+    notes: "GewerbePro 0.3.2 (Beta): Erste digital signierte Fassung (Herausgeber FehlerFuchs) – bei Installation erscheint der verifizierte Herausgebername. Dazu einige Korrekturen gegenüber 0.3.1."
   - version: "0.3.1"
     date: "2026-07-16"
     channel: beta
