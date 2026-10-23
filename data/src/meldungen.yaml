@@ -846,8 +846,8 @@ meldungen:
     titel: "GewerbePro 0.3.2 – erste signierte Beta"
     text: >-
       Die offene Beta ist erstmals digital signiert (Herausgeber FehlerFuchs): Bei
-      der Installation erscheint der verifizierte Herausgebername. Dazu Korrekturen
-      aus dem internen Prüfbericht gegenüber 0.3.1.
+      der Installation erscheint der verifizierte Herausgebername. Dazu einige
+      Korrekturen gegenüber 0.3.1.
 
   - id: gewerbepro-0-3-3
     typ: update

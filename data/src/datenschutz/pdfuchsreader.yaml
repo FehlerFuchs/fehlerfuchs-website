@@ -1,3 +1,6 @@
+# NACHTRAG 23.10.2026 (Abend; [FF_10], Entscheidung Matthias über [FF_00] zur Webseiten-Sichtung 23.10., Befund 2): interne Vermerke bzw.
+# Entwicklerwörter für Besucher umgeschrieben; die Aussage ist unverändert. Die Änderung geht als LIEFERUNG an [FF_00] (Master in 00-1);
+# bis dahin bei [FF_26-1] angleichen, sonst kommt die alte Stelle beim Spiegeln zurück.
 slug: pdfuchsreader
 name: PDFuchs Reader
 stand: "2026-10-23"
@@ -208,8 +211,7 @@ loeschung: >-
   %LOCALAPPDATA%\PDFuchs\stammdaten.dat (unlesbar: ebenso als „.defekt-…“,
   höchstens drei), der Ordner %APPDATA%\PDFuchs\scanner mit Scannerangaben
   und Scanprofilen sowie der Ordner Dokumente\PDFuchs mit den Ergebnissen nach
-  dem Deinstallieren erhalten und können von Hand gelöscht werden
-  (Wortlaut Datenschutzhinweis: Matthias 16.10.2026, Antwort vor 17:02:51 „A“). Der Zwischenspeicher unter
+  dem Deinstallieren erhalten und können von Hand gelöscht werden. Der Zwischenspeicher unter
   %LOCALAPPDATA%\PDFuchs\Umwandlung bleibt beim
   Deinstallieren ebenfalls erhalten; Einträge, die älter als sieben Tage sind,
   löscht PDFuchs selbst, der Rest lässt sich jederzeit von Hand löschen.

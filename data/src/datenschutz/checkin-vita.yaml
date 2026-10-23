@@ -1,3 +1,6 @@
+# NACHTRAG 23.10.2026 (Abend; [FF_10], Entscheidung Matthias über [FF_00] zur Webseiten-Sichtung 23.10., Befund 4): interne Vermerke bzw.
+# Entwicklerwörter für Besucher umgeschrieben; die Aussage ist unverändert. Die Änderung geht als LIEFERUNG an [FF_00] (Master in 00-1);
+# bis dahin bei [FF_23] angleichen, sonst kommt die alte Stelle beim Spiegeln zurück.
 # NACHTRAG 23.10.2026 ([FF_10], Entscheidung Matthias über [FF_00] zur Webseiten-Sichtung 21./22.10., Nr. 3 (21.10.)): interne Prüfvermerke und holprige Sätze
 # für Besucher umgeschrieben bzw. gestrichen; die Aussage ist unverändert. In der Quelle in 00-1 bei der nächsten Fassung von [FF_23]
 # angleichen, sonst kommen die alten Stellen beim Spiegeln zurück.
@@ -131,7 +134,7 @@ besonderheiten: >-
   für exakte Weckzeiten angefordert; Erinnerungen können daher um einige
   Minuten abweichen. Stand 02.10.2026: Die App ist von der automatischen
   Android-Sicherung (Cloud) und von der automatischen Übertragung auf ein
-  neues Gerät ausgenommen (allowBackup=false, Ausschlussregeln). Wer das Gerät wechselt,
+  neues Gerät ausgenommen. Wer das Gerät wechselt,
   nutzt das ZIP-Backup; einen Abgleich zwischen zwei Geräten gibt es nicht
   (seit 02.10.2026 aus der App entfernt). Das ZIP-Backup enthält Einträge,
   Einstellungen, Fotos und PDFs und ist unverschlüsselt. Die App-Sperre
@@ -154,7 +157,7 @@ besonderheiten: >-
   an bis zum Ausschalten, Hinweis auf der Startseite) macht den eigenen
   Austauschordner der App für ADB nutzbar; die Dateien sind unverschlüsselt,
   andere Apps haben ab Android 11 keinen Zugriff, ausgeschaltet wird der Ordner
-  geleert. Die App ist nicht debuggable und öffnet keine Schnittstelle für andere
+  geleert. Die App lässt sich nicht von außen untersuchen und öffnet keine Schnittstelle für andere
   Apps. PZN und EAN stehen nur in der lokalen Datenbank und – nur bei gesetztem
   Haken, anfangs aus – im Text der Rezeptmail und der Rezept-Erinnerung.
 

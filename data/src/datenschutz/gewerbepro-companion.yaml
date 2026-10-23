@@ -1,3 +1,6 @@
+# NACHTRAG 23.10.2026 (Abend; [FF_10], Entscheidung Matthias über [FF_00] zur Webseiten-Sichtung 23.10., Befund 4): interne Vermerke bzw.
+# Entwicklerwörter für Besucher umgeschrieben; die Aussage ist unverändert. Die Änderung geht als LIEFERUNG an [FF_00] (Master in 00-1);
+# bis dahin bei [FF_29-1] angleichen, sonst kommt die alte Stelle beim Spiegeln zurück.
 # NACHTRAG 23.10.2026 ([FF_10], Entscheidung Matthias über [FF_00] zur Webseiten-Sichtung 21./22.10., Nr. 1 (22.10.) und 3 (21.10.)): interne Prüfvermerke und holprige Sätze
 # für Besucher umgeschrieben bzw. gestrichen; die Aussage ist unverändert. In der Quelle in 00-1 bei der nächsten Fassung von [FF_29-1]
 # angleichen, sonst kommen die alten Stellen beim Spiegeln zurück.
@@ -127,8 +130,8 @@ berechtigungen:
       Sonst keine Android-Berechtigung (kein Standort, keine Kontakte, keine Kamera,
       kein Speicher-Sonderrecht). Weitere Berechtigungen fordert die App nicht an; eine rein technische
       Berechtigung legt Android selbst an.
-      Sichtbarkeitsabfragen (<queries>) für Teilen, Dateiauswahl, Kontakte (INSERT),
-      E-Mail und Links (SENDTO/VIEW) sind keine Berechtigungen.
+      Sichtbarkeitsabfragen für Teilen, Dateiauswahl, Kontakte, E-Mail und Links
+      sind keine Berechtigungen.
     pflicht: false
     beleg: zusammengeführtes Manifest des lokalen Release-Baus vom 26.09.2026
 
@@ -205,7 +208,7 @@ vom_pc:
     beleg: lib/services/sync_eingang.dart (verarbeiten, Quarantäne)
 
 fremde_dienste:
-  - name: Android-Teilen (über die Bibliothek „printing“, nur sharePdf)
+  - name: Android-Teilen
     wofuer: PDF an eine vom Nutzer gewählte App übergeben
     wann: nur bei ausdrücklicher Nutzeraktion
   - name: Android-Dateiauswahl und Speichern-Dialog (über die Bibliothek „file_picker“)
@@ -214,7 +217,7 @@ fremde_dienste:
       Schreiben: Austauschpaket und Sicherung. Die Kopien, die die Dateiauswahl im
       App-Cache anlegt, löscht die App nach dem Import bzw. beim nächsten Start.
     wann: nur bei ausdrücklicher Nutzeraktion
-  - name: Android-Ordnerfreigabe (Storage Access Framework, OPEN_DOCUMENT_TREE)
+  - name: Android-Ordnerfreigabe
     wofuer: >-
       Für den USB-Rückweg: Der Nutzer gibt EINMALIG einen Ordner frei. Die Freigabe
       gilt für den Ordner, den er wählt – meist ist das „Documents“,

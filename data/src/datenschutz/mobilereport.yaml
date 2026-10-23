@@ -1,3 +1,6 @@
+# NACHTRAG 23.10.2026 (Abend; [FF_10], Entscheidung Matthias über [FF_00] zur Webseiten-Sichtung 23.10., Befund 4): interne Vermerke bzw.
+# Entwicklerwörter für Besucher umgeschrieben; die Aussage ist unverändert. Die Änderung geht als LIEFERUNG an [FF_00] (Master in 00-1);
+# bis dahin bei [FF_20] angleichen, sonst kommt die alte Stelle beim Spiegeln zurück.
 slug: mobilereport
 name: MobileReport
 stand: "2026-10-19"
@@ -76,7 +79,7 @@ berechtigungen:
     beleg: com.android.vending.BILLING, ergänzt durch in_app_purchase (pubspec.yaml)
 
 uebertragungen:
-  - wohin: license.fehlerfuchs.eu (Endpunkt /v1/contact)
+  - wohin: license.fehlerfuchs.eu
     was: Anliegen (Support/Kontakt), Nachricht, optional Name/E-Mail, optional Screenshots; nur mit ausdrücklicher Zustimmung Diagnosedaten (Android-Version, Gerätemodell, App-Version/Build, App-eigener Fehlerlog)
     wann: nur wenn der Nutzer das Support-/Kontaktformular absendet
     freiwillig: true

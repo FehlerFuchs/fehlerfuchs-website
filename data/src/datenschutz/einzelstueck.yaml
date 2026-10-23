@@ -1,3 +1,6 @@
+# NACHTRAG 23.10.2026 (Abend; [FF_10], Entscheidung Matthias über [FF_00] zur Webseiten-Sichtung 23.10., Befund 4): interne Vermerke bzw.
+# Entwicklerwörter für Besucher umgeschrieben; die Aussage ist unverändert. Die Änderung geht als LIEFERUNG an [FF_00] (Master in 00-1);
+# bis dahin bei [FF_37] angleichen, sonst kommt die alte Stelle beim Spiegeln zurück.
 slug: einzelstueck
 name: EinzelStück
 stand: "2026-07-19"
@@ -35,8 +38,7 @@ loeschung: >-
 besonderheiten: >-
   EinzelStück ist eine Dienstleistung (individuell beauftragte Softwarelösungen für
   Betriebe), kein Produkt zum Herunterladen. Es existiert derzeit weder eine Anwendung
-  noch ein laufender Auftrag; der Projektordner enthält ausschließlich Text- und
-  Grafikdateien (Konzept, Vorlagen, Prozess). Datenschutzrelevant wird erst die einzelne
+  noch ein laufender Auftrag. Datenschutzrelevant wird erst die einzelne
   Anfertigung: Jede ausgelieferte Lösung ist ein eigenständiges Produkt beim Kunden und
   braucht dann eine eigene Betrachtung. Vom Kunden gelieferte Beispieldaten werden
   bewusst sparsam angenommen, nicht weitergegeben und nach Projektende gelöscht.
