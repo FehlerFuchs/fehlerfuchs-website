@@ -303,7 +303,7 @@ features:
       - name: Abgleich zwischen mehreren Geräten – Beitritt per QR-Einladung
         values: { standard: ja }
         note: Ende-zu-Ende-verschlüsselt über das Relais von FehlerFuchs; der Server kann die Inhalte nicht lesen.
-      - name: Nachrichten an alle – mit Postfach, Ende-zu-Ende verschlüsselt
+      - name: Nachrichten an alle – mit Postfach, Ende-zu-Ende-verschlüsselt
         values: { standard: ja }
         note: Kurze Text-Nachrichten an die Gruppe; sie landen bei allen im Postfach und als Benachrichtigung. Der Versand läuft Ende-zu-Ende-verschlüsselt über das Relais von FehlerFuchs. Ungelesenes bleibt markiert.
       - name: Geräteliste zeigt „zuletzt aktiv“

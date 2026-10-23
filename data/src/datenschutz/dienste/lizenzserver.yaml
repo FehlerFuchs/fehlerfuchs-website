@@ -1,3 +1,6 @@
+# NACHTRAG 23.10.2026 ([FF_10], Entscheidung Matthias über [FF_00] zur Webseiten-Sichtung 21./22.10., Nr. 1 (22.10.) und 3 (21.10.)): interne Prüfvermerke und holprige Sätze
+# für Besucher umgeschrieben bzw. gestrichen; die Aussage ist unverändert. In der Quelle in 00-1 bei der nächsten Fassung von [FF_11]
+# angleichen, sonst kommen die alten Stellen beim Spiegeln zurück.
 slug: lizenzserver
 name: FehlerFuchs Lizenzserver
 stand: "2026-10-13"
@@ -160,7 +163,7 @@ loeschung: >-
   Zählschlüssel mit IP-Adressen im Zwischenspeicher löschen sich selbst nach längstens
   24 Stunden. Die Betriebsprotokolle des Servers sind auf höchstens drei Dateien à 10 MB
   je Dienst begrenzt und werden danach überschrieben; sie enthalten keine
-  Besucher-IP-Adressen (geprüft am laufenden System). Lizenzdaten und Geräte-/Aktivierungseinträge bleiben
+  Besucher-IP-Adressen. Lizenzdaten und Geräte-/Aktivierungseinträge bleiben
   bestehen, solange die Lizenz gilt – sonst würde das Produkt nicht mehr funktionieren;
   sie lassen sich jederzeit gezielt endgültig löschen, einzelne Plätze auch freigeben.
   Auf Antrag (Löschformular der Website, bestätigt über einen Link an die beim Kauf
@@ -176,9 +179,7 @@ loeschung: >-
   Beta-Tester-Lizenz dieser Adresse wird wie oben gesperrt; gekaufte Lizenzen bleiben auf
   diesem Weg unberührt (dafür gilt der Weg mit Schlüssel oder Bestellnummer). Das Antragsprotokoll
   (Datum, Ergebnis, zufällige Kennung) wird nach 3 Jahren gelöscht. Die
-  Lizenzsoftware führt keine eigenen Protokolle mit E-Mail-Adressen (gemessen am
-  01.10.2026: Anfrage- und Ereignisprotokoll leer, keine Adressen in den
-  Betriebsprotokollen der Dienste). Täglich wird eine verschlüsselte Sicherung der
+  Lizenzsoftware führt keine eigenen Protokolle mit E-Mail-Adressen. Täglich wird eine verschlüsselte Sicherung der
   Datenbanken erstellt, 14 Tage auf dem Server und als verschlüsselte Kopie 30 Tage auf
   dem eigenen NAS aufbewahrt. Gelöschte Daten verschwinden damit spätestens nach 30 Tagen
   auch aus allen Sicherungen. Muss eine Sicherung zurückgespielt werden, werden alle

@@ -1,3 +1,6 @@
+# NACHTRAG 23.10.2026 ([FF_10], Entscheidung Matthias über [FF_00] zur Webseiten-Sichtung 21./22.10., Nr. 1 (22.10.) und 3 (21.10.)): interne Prüfvermerke und holprige Sätze
+# für Besucher umgeschrieben bzw. gestrichen; die Aussage ist unverändert. In der Quelle in 00-1 bei der nächsten Fassung von [FF_29-1]
+# angleichen, sonst kommen die alten Stellen beim Spiegeln zurück.
 slug: gewerbepro-companion
 name: GewerbePro Companion
 stand: "2026-10-19"
@@ -122,9 +125,8 @@ berechtigungen:
   - name: keine weiteren
     wofuer: >-
       Sonst keine Android-Berechtigung (kein Standort, keine Kontakte, keine Kamera,
-      kein Speicher-Sonderrecht). Im fertig zusammengeführten Release-Manifest steht
-      außer INTERNET nur die interne Schutzberechtigung
-      DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION (AndroidX, keine Nutzerberechtigung).
+      kein Speicher-Sonderrecht). Weitere Berechtigungen fordert die App nicht an; eine rein technische
+      Berechtigung legt Android selbst an.
       Sichtbarkeitsabfragen (<queries>) für Teilen, Dateiauswahl, Kontakte (INSERT),
       E-Mail und Links (SENDTO/VIEW) sind keine Berechtigungen.
     pflicht: false
@@ -135,8 +137,8 @@ uebertragungen:
     was: Lizenzschlüssel, eine zufällige Gerätekennung (UUID, ohne Hardware-Merkmale),
       App-Name („GewerbePro“), Plattform („Android“) und bei der Aktivierung als
       Gerätename der feste Text „Companion“ – NICHT der vom Nutzer vergebene
-      Gerätename. Technisch bedingt die IP-Adresse und die Kennung
-      „GewerbePro-Companion-Lizenz“ (User-Agent). KEINE Kunden-, Auftrags- oder Belegdaten
+      Gerätename. Technisch bedingt fallen die IP-Adresse und die Kennung
+      „GewerbePro-Companion-Lizenz“ (User-Agent) an. KEINE Kunden-, Auftrags- oder Belegdaten
     wann: bei der Aktivierung, bei jedem App-Start (Prüfung) und beim Lösen der Lizenz
     freiwillig: false
     beleg: >-
@@ -197,7 +199,7 @@ vom_pc:
       unverschlüsselt: Kennungen, zufällige Zahl, öffentlicher Schlüsselteil, Ablaufzeit)
       und Kopplungsabschluss (verschlüsselt, v3). Beide löscht die App selbst, auch Kopien
     beleg: lib/services/sync_eingang.dart (_angebotGesehen, _abschlussGesehen, _kopplungAufraeumen); lib/services/kopplung_dienst.dart (angebotPruefen, abschlussPruefen); am AVD mit Dateien von [FF_29] gemessen 08.10.2026
-  - was: nach der Übernahme löscht die App die Datei im Sync-Ordner selbst. Was sich
+  - was: Nach der Übernahme löscht die App die Datei im Sync-Ordner selbst. Was sich
       nicht prüfen lässt, bleibt liegen und wird in der App als „nicht übernommen“
       mit Grund angezeigt; dabei ändert sich nichts
     beleg: lib/services/sync_eingang.dart (verarbeiten, Quarantäne)
@@ -215,7 +217,7 @@ fremde_dienste:
   - name: Android-Ordnerfreigabe (Storage Access Framework, OPEN_DOCUMENT_TREE)
     wofuer: >-
       Für den USB-Rückweg: Der Nutzer gibt EINMALIG einen Ordner frei. Die Freigabe
-      gilt für den Ordner, den er wählt – auf zwei Testgeräten war das „Documents“,
+      gilt für den Ordner, den er wählt – meist ist das „Documents“,
       eine Ebene über „GewerbePro-Sync“. Die App liest und löscht darin nur in
       GewerbePro-Sync/pc-to-phone; in GewerbePro-Sync/phone-to-pc entfernt sie nur ältere
       Kopien ihrer eigenen Dateien (Gerätemeldung und Ordner-Markierer), auch die einer
@@ -258,9 +260,7 @@ besonderheiten: >-
   die Lizenz – dabei gehen Lizenzschlüssel, eine zufällige Gerätekennung, App-Name,
   Plattform und der feste Text „Companion“ an den FehlerFuchs-Lizenzserver, keine
   Kundendaten. Ein Benutzerkonto gibt es nicht. Die Daten der App gehen weder in eine
-  Cloud-Sicherung von Android noch beim Gerätewechsel mit (Beleg:
-  android/app/src/main/AndroidManifest.xml, allowBackup="false", dataExtractionRules;
-  am Release-AAB 1.0.1 geprüft). Der Austausch mit dem PC läuft nur
+  Cloud-Sicherung von Android noch beim Gerätewechsel mit. Der Austausch mit dem PC läuft nur
   lokal: als Datei an einem Ort, den der Nutzer wählt, oder über das USB-Kabel. Am
   Kabel kann GewerbePro die Erfassungen anfordern; die App legt sie dann ohne
   Handgriff am Handy verschlüsselt in den Sync-Ordner, solange sie im Vordergrund

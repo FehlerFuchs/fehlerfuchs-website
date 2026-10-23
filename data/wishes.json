@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-07T20:50:30+02:00",
+  "generiert": "2026-10-23T13:14:31+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "wuensche": [
     {
@@ -57,7 +57,7 @@
       "ergebnis": "mobilereport-enterprise",
       "kommentar": {
         "datum": "2026-07-09",
-        "text": "Ist drin, seit Version 1.0.1. Danke – das war eine dieser Kleinigkeiten, die im eigenen Gebrauch nie auffallen und im echten sofort."
+        "text": "Ist drin seit Version 1.0.1. Danke – das war eine dieser Kleinigkeiten, die im eigenen Gebrauch nie auffallen und im echten sofort."
       }
     }
   ],

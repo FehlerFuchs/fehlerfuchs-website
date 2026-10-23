@@ -52,7 +52,7 @@ meldungen:
     typ: update
     produkt: pdfuchsreader
     datum: "2026-10-20"
-    titel: "PDFuchs Reader 1.3.1: Seiten bearbeiten und Speichern"
+    titel: "PDFuchs Reader 1.3.1: Seiten bearbeiten und speichern"
     text: >-
       PDFuchs Reader 1.3.1 ist im Play Store. Beim Bearbeiten von Seiten fehlen gelöschte Seiten
       jetzt zuverlässig in der gespeicherten Kopie, und neu geordnete Seiten bleiben dort in der
@@ -90,7 +90,7 @@ meldungen:
   # bindet die Meldung an den releases-Eintrag. Text aus „Was ist neu“ der Release-Seite (freigegeben von
   # Matthias 20.10.2026), nichts erfunden (P8). Erste veröffentlichte Fassung: als Ankündigung geschrieben (was ist PDFuchs, was habe ich davon), nicht als Liste von Neuerungen (Hinweis Matthias 20.10.2026 18:58).
   - id: pdfuchs-1-0-0
-    typ: update
+    typ: veroeffentlichung
     produkt: pdfuchs
     version: "1.0.0"
     titel: "PDFuchs ist da: das kostenlose PDF-Programm für Windows"
@@ -508,7 +508,7 @@ meldungen:
       Google Play zu beziehen – zusätzlich zum Direkt-Download.
 
   - id: snapfuchs-1-2-0
-    typ: veroeffentlichung
+    typ: update
     produkt: snapfuchs
     datum: "2026-08-17"
     titel: "SnapFuchs 1.2.0: Name vergeben, Ablage selbst bestimmt"
@@ -913,7 +913,7 @@ meldungen:
     titel: MobileReport Enterprise 1.0.1
     text: >-
       Meldungen bekommen einen Betreff, Fotos lassen sich per Ziehen sortieren – das
-      erste Bild ist das Hauptbild. Der Name ist Pflichtfeld und kann als Standard
+      erste Bild ist das Hauptbild. Der Name ist ein Pflichtfeld und kann als Standard
       gespeichert werden, die höchste Bildanzahl ist einstellbar und das Profil kennt
       jetzt Position beziehungsweise Funktion. Die Einstellungen wurden neu geordnet.
 

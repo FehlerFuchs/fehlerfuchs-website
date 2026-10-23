@@ -1,3 +1,6 @@
+# NACHTRAG 23.10.2026 ([FF_10], Entscheidung Matthias über [FF_00] zur Webseiten-Sichtung 21./22.10., Nr. 1 (22.10.)): interne Prüfvermerke und holprige Sätze
+# für Besucher umgeschrieben bzw. gestrichen; die Aussage ist unverändert. In der Quelle in 00-1 bei der nächsten Fassung von [FF_36]
+# angleichen, sonst kommen die alten Stellen beim Spiegeln zurück.
 # Geprüft gegen HaushaltsManager 1.1.0 (Quellstand 69ccd0d, veröffentlicht 06.10.2026) von [FF_36] am 07.10.2026.
 # Jede Angabe am Code bzw. im VM-Lauf 06.10.2026 nachgesehen. Format wie Fassung [FF_10] 26.09.2026.
 slug: haushaltsmanager
@@ -32,7 +35,7 @@ auf_dem_geraet:
 berechtigungen:
 - name: Lesen/Schreiben der eigenen SQLite-Datenbank und der vom Nutzer gewählten Export-/PDF-/Backup-Ordner
     (lokal)
-- name: Optionaler per-user Autostart-Eintrag (HKCU\...\Run, ohne Administratorrechte), nur wenn der Nutzer
+- name: Optionaler Autostart-Eintrag nur für dein Benutzerkonto (ohne Administratorrechte), nur wenn der Nutzer
     ihn bei der Installation („Im Hintergrund mit Windows starten“, standardmäßig aus) oder in der App
     (Hintergrunddienst) einschaltet
   wofuer: startet die App versteckt im Tray

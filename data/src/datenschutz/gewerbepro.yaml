@@ -1,3 +1,6 @@
+# NACHTRAG 23.10.2026 ([FF_10], Entscheidung Matthias über [FF_00] zur Webseiten-Sichtung 21./22.10., Nr. 3 (21.10.)): interne Prüfvermerke und holprige Sätze
+# für Besucher umgeschrieben bzw. gestrichen; die Aussage ist unverändert. In der Quelle in 00-1 bei der nächsten Fassung von [FF_29]
+# angleichen, sonst kommen die alten Stellen beim Spiegeln zurück.
 slug: gewerbepro
 name: FehlerFuchs GewerbePro
 stand: "2026-10-19"
@@ -14,8 +17,8 @@ auf_dem_geraet:
       Gutschriften, Mahnungen, Projekte, Einnahmen/Ausgaben, Anlagen/AfA,
       Fahrtenbuch, Termine, Aufgaben, Logbuch, Katalog)
     wo: lokale Datenbank (SQLite) im Datenordner %APPDATA%\FehlerFuchs\GewerbePro\Daten
-      (bis 1.0.0 im Programmordner; beim ersten Start von 1.1.0 einmalig per
-      Prüfsumme geprüft umgezogen, die alte Kopie wird beim nächsten Start
+      (bis 1.0.0 im Programmordner; beim ersten Start von 1.1.0 einmal umgezogen
+      und per Prüfsumme kontrolliert, die alte Kopie wird beim nächsten Start
       gelöscht, wenn sie der geprüften Übertragung entspricht)
     beleg: 20_Engine/gewerbepro_core/db.py (_SCHEMA); config.py DB_FILE; datenort.py
   - was: Stammdaten des Betriebs (Firma, Inhaber, Steuernummer, Bankverbindung,

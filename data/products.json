@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T20:51:46+02:00",
+  "generiert": "2026-10-23T13:14:31+02:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -2989,7 +2989,7 @@
               "note": "Ende-zu-Ende-verschlüsselt über das Relais von FehlerFuchs; der Server kann die Inhalte nicht lesen."
             },
             {
-              "name": "Nachrichten an alle – mit Postfach, Ende-zu-Ende verschlüsselt",
+              "name": "Nachrichten an alle – mit Postfach, Ende-zu-Ende-verschlüsselt",
               "values": {
                 "standard": "ja"
               },
