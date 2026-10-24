@@ -35,6 +35,113 @@
 
 aktionen:
 
+  - id: mobilereport-promo
+    titel: 50× MobileReport Pro
+    produkt: mobilereport
+
+    # --- Ablauf -----------------------------------------------------------
+    # Aufgebaut wie snapfuchs-promo (Auftrag Matthias 24.10.2026: Konzept komplett übernehmen,
+    # eigener Text). NICHT veröffentlichen, bevor der Lizenzserver /v1/aktion/mobilereport
+    # kennt und die Codes eingespielt sind (Antrag an [FF_11], Codes nur dort, nie hier).
+    laeuft: true
+    start: "2026-10-24"
+    # Promo-Ende nach Matthias (24.10.2026 01:14): 31.12.2026, 23 Uhr. Vorbei ist es auch früher, wenn der letzte Code weg ist.
+    ende: "2026-12-31"
+    # 90 Tage nach dem letzten möglichen Einlösen (31.12.2026), plus Puffer.
+    zeigen_bis: "2027-04-30"
+
+    # --- Die Seite --------------------------------------------------------
+    # Derselbe Loop wie bei der SnapFuchs-Promo (sagt bewusst nichts Konkretes).
+    bild: /img/aktion-loop-geschenk.svg
+    bild_alt: >-
+      Ein Fuchs packt ein Geschenk aus; Konfetti fliegt, eine Urkunde erscheint.
+    vorspann: >-
+      MobileReport ist seit dem 9. Juli im Play Store: das kleine Melde-Logbuch für
+      Geräte und Anlagen. Meldung, Fotos, Ort und Zeit erfassen, daraus ein sauberes PDF
+      machen und per Mail verschicken – alles auf deinem Gerät. Ich verschenke 50 Codes
+      für die Pro-Fassung, an Menschen, die damit wirklich arbeiten und mir sagen, was
+      noch fehlt.
+    was_es_gibt: einen Code für MobileReport Pro – dauerhaft, kein Abo
+
+    bitte:
+      titel: Eine Bitte zum Schluss
+      text: >-
+        Hinter FehlerFuchs steht kein Team – es ist ein Mensch, der abends und an
+        Wochenenden entwickelt. Wenn dir MobileReport im Alltag etwas abnimmt, hilft
+        mir eine Rezension im Play Store am meisten. Sie kostet dich zwei Minuten und
+        entscheidet mit darüber, ob die App anderen überhaupt angezeigt wird. Ganz
+        unverbindlich – den Code bekommst du auch ohne.
+      nachsatz: >-
+        Ehrlich, bitte. Auch drei Sterne mit einem Satz, was fehlt, helfen mir mehr als
+        fünf ohne Worte – daraus wird das nächste Update.
+
+    dauerhaft: >-
+      Einmal eingelöst, bleibt Pro dauerhaft
+      freigeschaltet – kein Abo, keine Folgekosten.
+
+    # Promo-Ende 31.12.2026, 23 Uhr (Matthias). Der Server liefert sein eigenes Datum mit; seines gilt. Ablaufdatum der Play-Codes ([FF_13]) muss mindestens so spät sein.
+    gueltig_bis: "2026-12-31T23:00:00+01:00"
+
+    einloesen:
+      - MobileReport aus dem Play Store laden
+      - Im Play Store auf dein Profilbild tippen
+      - „Zahlungen und Abos“ und dann „Code einlösen“ wählen
+      - Den Code aus der Mail einfügen – fertig
+    einloesen_hinweis: >-
+      Danach ist Pro dauerhaft freigeschaltet, ohne Ablaufdatum, auf jedem Gerät mit
+      demselben Google-Konto. Pro kostet sonst einmalig 5 Euro.
+    meldung:
+      titel: Geschenkt – 50 Codes für MobileReport Pro
+      text: >-
+        Zum Start einer kleinen Aktion verschenke ich 50 Codes für MobileReport Pro. Eine
+        Frage beantworten, Alias und E-Mail angeben, Code bekommen – mehr ist es nicht.
+        Wer einlöst, behält Pro dauerhaft: kein Abo, keine Folgekosten. Solange der
+        Vorrat reicht.
+
+    danach: >-
+      Alle Codes sind verteilt – danke fürs Mitmachen. Wer einen bekommen hat, behält Pro
+      dauerhaft. MobileReport gibt es weiterhin kostenlos im Play Store; Pro ist dort ein
+      einmaliger Kauf, kein Abo.
+
+    knopftext: Zur MobileReport Promo
+
+    # --- Die Prüffrage ----------------------------------------------------
+    vorfrage: "Bevor du darfst, ein winziger Test:"
+    loesungshinweis: Die Lösung steht auf der Startseite.
+    frage: Wie lautet der Leitspruch von FehlerFuchs?
+    antworten:
+      - text: Einfach kleine Helfer.
+        richtig: true
+      - text: Software, die mitdenkt.
+      - text: Digital. Einfach. Besser.
+      - text: Deine Daten, deine Cloud.
+    fehltext: Nicht ganz. Schau nochmal auf die Startseite.
+
+    # --- Der Endpunkt -----------------------------------------------------
+    endpunkt: https://license.fehlerfuchs.eu/v1/aktion/mobilereport
+
+    # --- Datenschutz ------------------------------------------------------
+    zweck: >-
+      Zusendung eines Promo-Codes für MobileReport Pro und die Prüfung, dass dieselbe
+      Adresse nur einen Code bekommt.
+    daten:
+      - Alias (frei gewählt, kein echter Name nötig)
+      - E-Mail-Adresse
+      - Zeitpunkt der Anforderung
+      - der zugeteilte Code
+    rechtsgrundlage: >-
+      Art. 6 Abs. 1 lit. b DSGVO – die Zusendung wird selbst angefordert.
+    frist: 90 Tage nach der Vergabe
+    wo: Lizenzserver (license.fehlerfuchs.eu)
+    nicht_gespeichert:
+      - keine IP-Adresse in der Datenbank
+      - kein Name, keine Anschrift
+      - keine Auswertung, wer den Code eingelöst hat
+    hinweis: >-
+      Danach bleibt nur der Code als
+      vergeben vermerkt – sonst würde er ein zweites Mal ausgegeben, obwohl ihn
+      jemand hat. Ein Personenbezug besteht dann nicht mehr.
+
   - id: snapfuchs-promo
     titel: 100× SnapFuchs Pro
     produkt: snapfuchs
