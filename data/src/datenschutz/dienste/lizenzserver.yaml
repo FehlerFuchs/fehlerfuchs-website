@@ -1,6 +1,6 @@
 slug: lizenzserver
 name: FehlerFuchs Lizenzserver
-stand: "2026-10-13"
+stand: "2026-10-24"
 geprueft_von: 11_Lizenzserver
 fassung: "Adapter-Stand 20.07.2026 (kein Versionsschema); Admin-API 1.0; mit Löschlauf, Wunscherfüller und Löschantrag (live seit 01.10.2026; Weg „nur E-Mail“ und Frist für Ereignis-Kennungen seit 03.10.2026; Datensicherung mit Löschjournal seit 06.10.2026; Roh-Aufrufe nur technische Angaben seit 13.10.2026)"
 
@@ -38,9 +38,9 @@ auf_dem_geraet:
   - was: Einsendungen aus dem Wunscherfüller (Titel, Wunschtext, Thema, ggf. betroffenes Produkt, Anzeigename; nur bei gewünschter Antwort zusätzlich Name und E-Mail-Adresse)
     wo: Datenbank auf dem Server; Löschung nach 90 Tagen. Es wird keine IP-Adresse gespeichert
     beleg: Tabelle wuensche; adapter/app/db.py, record_wunsch und cleanup; adapter/app/main.py, wunsch_einreichen
-  - was: Teilnahme an der SnapFuchs-Aktion (selbst gewählter Anzeigename, E-Mail-Adresse, Zeitpunkt, der zugeteilte Gutscheincode)
+  - was: Teilnahme an den Aktionen (SnapFuchs; MobileReport Pro) (selbst gewählter Anzeigename, E-Mail-Adresse, Zeitpunkt, der zugeteilte Gutscheincode)
     wo: Datenbank auf dem Server; nach 90 Tagen werden Anzeigename und E-Mail gelöscht – der Code bleibt nur noch als „vergeben“ vermerkt, ohne Bezug zu einer Person. Es wird keine IP-Adresse gespeichert
-    beleg: Tabelle aktion_codes; adapter/app/db.py, aktion_code_vergeben und cleanup; adapter/app/main.py, aktion_code_anfordern
+    beleg: Tabelle aktion_codes; adapter/app/db.py, aktion_code_vergeben und cleanup; adapter/app/main.py, _aktion_code_anfordern (je Aktion ein eigener Codepool)
   - was: IP-Adressen als kurzlebige Zählwerte gegen Missbrauch (Kontaktformular, Wunscherfüller, Aktion, Tester-Registrierung, Löschantrag)
     wo: Zwischenspeicher auf dem Server, automatische Löschung nach 1 Stunde bzw. 24 Stunden
     beleg: Redis; adapter/app/mailer.py, rate_ok und tester_rate_ok; adapter/app/dsgvo.py, _rate_ok
@@ -90,10 +90,10 @@ uebertragungen:
     freiwillig: true
     beleg: adapter/app/main.py, Endpunkt /v1/wuensche
   - wohin: license.fehlerfuchs.eu (eingehend, von der Website)
-    was: Teilnahme an der SnapFuchs-Aktion (Anzeigename, E-Mail-Adresse, angeklickte Antwort). Der Gutscheincode selbst wird ausschließlich per E-Mail zugestellt und nie an den Browser zurückgegeben
+    was: Teilnahme an einer Aktion, derzeit SnapFuchs und MobileReport Pro (Anzeigename, E-Mail-Adresse, angeklickte Antwort). Der Gutscheincode selbst wird ausschließlich per E-Mail zugestellt und nie an den Browser zurückgegeben
     wann: wenn das Aktionsformular abgeschickt wird
     freiwillig: true
-    beleg: adapter/app/main.py, Endpunkt /v1/aktion/snapfuchs
+    beleg: adapter/app/main.py, Endpunkte /v1/aktion/snapfuchs und /v1/aktion/mobilereport
   - wohin: license.fehlerfuchs.eu (eingehend, von der Website)
     was: Löschantrag – E-Mail-Adresse und Lizenzschlüssel (der Schlüssel dient nur dem Zuordnen und wird nie gespeichert, protokolliert oder gemailt); ohne Schlüssel ersatzweise E-Mail-Adresse und Bestellnummer; beim Weg „nur E-Mail“ allein die E-Mail-Adresse
     wann: wenn das Löschformular abgeschickt wird; die Bestätigung erfolgt über einen Link an die beim Kauf hinterlegte Adresse, beim Weg „nur E-Mail“ an genau die eingegebene Adresse
@@ -108,7 +108,7 @@ uebertragungen:
     was: ausschließlich der Stand der Aktion (angekündigte und noch freie Codes, ggf. Enddatum) – keine Angaben zu Personen
     wann: beim Aufruf der Aktionsseite
     freiwillig: false
-    beleg: adapter/app/main.py, Endpunkt /v1/aktion/snapfuchs/stand; 10_WEBSEITE astro/src/pages/aktion/[id].astro (standHolen)
+    beleg: adapter/app/main.py, Endpunkte /v1/aktion/snapfuchs/stand und /v1/aktion/mobilereport/stand; 10_WEBSEITE astro/src/pages/aktion/[id].astro (standHolen)
   - wohin: E-Mail-Versand über den Postfachanbieter (SMTP)
     was: Inhalt und Empfänger der versendeten Nachrichten (Lizenz-/Willkommensmails, Kontakt-/Supportanfragen inkl. Anhänge, Wunsch-Einsendungen, interne Statusberichte, Bestätigungslink und Löschbestätigung an die hinterlegte bzw. beim Weg „nur E-Mail“ an die eingegebene Adresse, Meldungen zum Löschantrag an den Betreiber ohne E-Mail-Adresse)
     wann: bei jedem Mailversand des Dienstes

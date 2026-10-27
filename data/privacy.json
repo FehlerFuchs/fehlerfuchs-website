@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-24T01:17:36+02:00",
+  "generiert": "2026-10-27T17:07:23+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1480,7 +1480,7 @@
     {
       "slug": "pdfuchs",
       "name": "PDFuchs",
-      "stand": "2026-10-20",
+      "stand": "2026-10-27",
       "geprueft_von": "26_PDFuchs",
       "fassung": "1.0.0 (veröffentlicht am 20.10.2026)",
       "lokal_only": false,
@@ -1496,7 +1496,7 @@
           "beleg": "11_App_Flutter/pdfuchs_desktop/lib/settings/stammdaten_tresor.dart, app_settings.dart (_stammdatenLaden); AUDIT#05 F-029, Entscheidung Matthias 16.10.2026 „B: Jetzt vor dem RC“"
         },
         {
-          "was": "Ansichtswahl (Seitenmodus, Zoom, Seitenfarbe, Miniaturen, Darstellung hell, dunkel, Sepia oder wie Windows, im Lesemodus und E-Book Schriftgröße, Farbe und Buchmodus), die zuletzt benutzten Werkzeuge, Standardgröße für Sticker, Wasserzeichen-Vorlagen und selbst angelegte Routinen (Arbeitsabläufe)",
+          "was": "Ansichtswahl (Seitenmodus, Zoom, Seitenfarbe, Miniaturen, Darstellung hell, dunkel, Sepia oder wie Windows, im Lese- und E-Book-Modus Schriftgröße, Farbe und Buchmodus), die zuletzt benutzten Werkzeuge, Standardgröße für Sticker, Wasserzeichen-Vorlagen und selbst angelegte Routinen (Arbeitsabläufe)",
           "wo": "Lokale Einstellungsdatei %APPDATA%\\PDFuchs\\settings.json",
           "beleg": "11_App_Flutter/pdfuchs_desktop/lib/settings/app_settings.dart (Feld ansicht), lib/reader/reader_menue.dart, lib/reader/sticker_auswahl.dart, lib/reader/wasserzeichen_dialog.dart, lib/ui/darstellung.dart (oberflaeche), lib/reader/ebook/kapitel_leser.dart (lesen), lib/reader/werkzeugmenue.dart (werkzeuge)"
         },
@@ -1620,7 +1620,7 @@
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
       "loeschung": "Alle Daten liegen auf dem Gerät. Selbst erzeugte oder bearbeitete PDFs liegen dort, wo der Nutzer sie gespeichert hat, und lassen sich wie jede andere Datei löschen. Beim Deinstallieren wird das Programm entfernt; eigene Dokumente bleiben erhalten. Eine von früheren Fassungen angelegte Datei license_state.json im Anwendungsdatenordner des Benutzers (Testphase) wird von PDFuchs 1.0.0 nicht mehr geschrieben oder gelesen; sie bleibt beim Deinstallieren liegen und kann jederzeit von Hand gelöscht werden. Das gilt auch für die lokale Einstellungsdatei unter %APPDATA%\\PDFuchs; erkennt PDFuchs dort unlesbares JSON, wird diese Fassung vor dem nächsten Speichern als Datei mit dem Zusatz „.defekt-…“ bewahrt (höchstens drei). Ebenso bleiben die verschlüsselte Stammdaten-Datei %LOCALAPPDATA%\\PDFuchs\\stammdaten.dat (unlesbar: ebenso als „.defekt-…“, höchstens drei), der Ordner %APPDATA%\\PDFuchs\\scanner mit Scannerangaben und Scanprofilen sowie der Ordner Dokumente\\PDFuchs mit den Ergebnissen nach dem Deinstallieren erhalten und können von Hand gelöscht werden. Der Zwischenspeicher unter %LOCALAPPDATA%\\PDFuchs\\Umwandlung bleibt beim Deinstallieren ebenfalls erhalten; Einträge, die älter als sieben Tage sind, löscht PDFuchs selbst, der Rest lässt sich jederzeit von Hand löschen. Ebenso bleiben die Ordner %APPDATA%\\PDFuchs\\stempel und %APPDATA%\\PDFuchs\\sticker mit den eigenen Stempeln und Stickern erhalten.",
-      "besonderheiten": "PDFuchs verarbeitet Dokumente vollständig auf dem eigenen Rechner. Die Anwendung stellt von sich aus keine Verbindung ins Internet her. Eine Übertragung erfolgt nur, wenn der Nutzer das Support-/Kontaktformular ausdrücklich absendet; dann gehen die Nachricht, die dort eingegebenen freiwilligen Angaben sowie App-Version und Windows-Version per HTTPS an die FehlerFuchs-Kontakt-Bridge (license.fehlerfuchs.eu, EU/IONOS). Ein Konto oder eine Anmeldung gibt es nicht. PDFuchs ist kostenlos und zählt nichts. Die Links „Unterstützen“ und „Per PayPal unterstützen“ sowie die Quell-Links der Open-Source-Seite öffnen erst auf Klick den Browser; PDFuchs sendet dabei nichts. Wird ein Scanner benutzt, werden Angaben zum angeschlossenen Gerät lokal gespeichert, damit die Scanprofile dazu passen. Der beschriebene Stand ist die veröffentlichte Fassung 1.0.0. Für die Anzeige „Offline-Status“ prüft PDFuchs nur auf dem Rechner mit dem Windows-Befehl netstat, ob PDFuchs selbst Verbindungen offen hat; dabei wird nichts übertragen.",
+      "besonderheiten": "PDFuchs verarbeitet Dokumente vollständig auf dem eigenen Rechner. Die Anwendung stellt von sich aus keine Verbindung ins Internet her. Eine Verbindung entsteht nur, wenn der Nutzer sie selbst auslöst: beim ausdrücklichen Absenden des Support-/Kontaktformulars (dann gehen die Nachricht, die dort eingegebenen freiwilligen Angaben sowie App-Version und Windows-Version per HTTPS an die FehlerFuchs-Kontakt-Bridge, license.fehlerfuchs.eu, EU/IONOS), beim Werkzeug „Webseite in PDF“ (Microsoft Edge lädt die eingegebene Adresse) und beim Signieren mit einer eingetragenen Zeitstempelstelle (nur ein Prüfwert, kein Dokument). Was dabei wohin geht, steht oben unter „Übertragungen“. Ein Konto oder eine Anmeldung gibt es nicht. PDFuchs ist kostenlos und zählt nichts. Die Links „Unterstützen“ und „Per PayPal unterstützen“ sowie die Quell-Links der Open-Source-Seite öffnen erst auf Klick den Browser; PDFuchs sendet dabei nichts. Wird ein Scanner benutzt, werden Angaben zum angeschlossenen Gerät lokal gespeichert, damit die Scanprofile dazu passen. Der beschriebene Stand ist die veröffentlichte Fassung 1.0.0. Für die Anzeige „Offline-Status“ prüft PDFuchs nur auf dem Rechner mit dem Windows-Befehl netstat, ob PDFuchs selbst Verbindungen offen hat; dabei wird nichts übertragen.",
       "vorhandener_text": "09_Releases/Datenschutz_Lokalhinweis_01072026.md",
       "offene_fragen": "1. Ob die mitgelieferten Zusatzwerkzeuge LibreOffice und Tesseract bei ihrer Ausführung von sich aus Netzverbindungen aufbauen (etwa eine Updateprüfung von LibreOffice): PDFuchs löst nichts dergleichen aus. Seit 0.2.0 startet PDFuchs LibreOffice mit einem eigenen Profil, in dem Updateprüfung, Nutzungsdaten und Absturzberichte abgeschaltet sind (#6335). Ein Netzmitschnitt ist für die VM-Testrunde 0.2.0 vorgesehen. 2. Ob die beim Einrichten gesetzte Windows-Dateizuordnung über die Systemeinträge hinaus etwas nach außen meldet: dafür wurde kein Hinweis gefunden, es wurde aber nicht abschließend geprüft.",
       "art": "anwendung"
@@ -1996,7 +1996,7 @@
     {
       "slug": "lizenzserver",
       "name": "FehlerFuchs Lizenzserver",
-      "stand": "2026-10-13",
+      "stand": "2026-10-24",
       "geprueft_von": "11_Lizenzserver",
       "fassung": "Adapter-Stand 20.07.2026 (kein Versionsschema); Admin-API 1.0; mit Löschlauf, Wunscherfüller und Löschantrag (live seit 01.10.2026; Weg „nur E-Mail“ und Frist für Ereignis-Kennungen seit 03.10.2026; Datensicherung mit Löschjournal seit 06.10.2026; Roh-Aufrufe nur technische Angaben seit 13.10.2026)",
       "lokal_only": false,
@@ -2047,9 +2047,9 @@
           "beleg": "Tabelle wuensche; adapter/app/db.py, record_wunsch und cleanup; adapter/app/main.py, wunsch_einreichen"
         },
         {
-          "was": "Teilnahme an der SnapFuchs-Aktion (selbst gewählter Anzeigename, E-Mail-Adresse, Zeitpunkt, der zugeteilte Gutscheincode)",
+          "was": "Teilnahme an den Aktionen (SnapFuchs; MobileReport Pro) (selbst gewählter Anzeigename, E-Mail-Adresse, Zeitpunkt, der zugeteilte Gutscheincode)",
           "wo": "Datenbank auf dem Server; nach 90 Tagen werden Anzeigename und E-Mail gelöscht – der Code bleibt nur noch als „vergeben“ vermerkt, ohne Bezug zu einer Person. Es wird keine IP-Adresse gespeichert",
-          "beleg": "Tabelle aktion_codes; adapter/app/db.py, aktion_code_vergeben und cleanup; adapter/app/main.py, aktion_code_anfordern"
+          "beleg": "Tabelle aktion_codes; adapter/app/db.py, aktion_code_vergeben und cleanup; adapter/app/main.py, _aktion_code_anfordern (je Aktion ein eigener Codepool)"
         },
         {
           "was": "IP-Adressen als kurzlebige Zählwerte gegen Missbrauch (Kontaktformular, Wunscherfüller, Aktion, Tester-Registrierung, Löschantrag)",
@@ -2120,10 +2120,10 @@
         },
         {
           "wohin": "license.fehlerfuchs.eu (eingehend, von der Website)",
-          "was": "Teilnahme an der SnapFuchs-Aktion (Anzeigename, E-Mail-Adresse, angeklickte Antwort). Der Gutscheincode selbst wird ausschließlich per E-Mail zugestellt und nie an den Browser zurückgegeben",
+          "was": "Teilnahme an einer Aktion, derzeit SnapFuchs und MobileReport Pro (Anzeigename, E-Mail-Adresse, angeklickte Antwort). Der Gutscheincode selbst wird ausschließlich per E-Mail zugestellt und nie an den Browser zurückgegeben",
           "wann": "wenn das Aktionsformular abgeschickt wird",
           "freiwillig": true,
-          "beleg": "adapter/app/main.py, Endpunkt /v1/aktion/snapfuchs"
+          "beleg": "adapter/app/main.py, Endpunkte /v1/aktion/snapfuchs und /v1/aktion/mobilereport"
         },
         {
           "wohin": "license.fehlerfuchs.eu (eingehend, von der Website)",
@@ -2144,7 +2144,7 @@
           "was": "ausschließlich der Stand der Aktion (angekündigte und noch freie Codes, ggf. Enddatum) – keine Angaben zu Personen",
           "wann": "beim Aufruf der Aktionsseite",
           "freiwillig": false,
-          "beleg": "adapter/app/main.py, Endpunkt /v1/aktion/snapfuchs/stand; 10_WEBSEITE astro/src/pages/aktion/[id].astro (standHolen)"
+          "beleg": "adapter/app/main.py, Endpunkte /v1/aktion/snapfuchs/stand und /v1/aktion/mobilereport/stand; 10_WEBSEITE astro/src/pages/aktion/[id].astro (standHolen)"
         },
         {
           "wohin": "E-Mail-Versand über den Postfachanbieter (SMTP)",
