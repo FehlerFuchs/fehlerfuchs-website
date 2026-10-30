@@ -29,6 +29,23 @@
 
 meldungen:
 
+  # MobileReport 1.5.1. Play-Store-App: kein Release im Modell (versionsagnostisch), Datum =
+  # Livegang im Play Store (30.10.2026, 21:10 laut Console, P5 von [FF_13]). Wort Matthias
+  # 30.10.2026 (Wahl B der Vorlage Logbuch #8603: nur Consumer, Enterprise bleibt ohne Meldung).
+  # Text aus dem „Was ist neu“ von [FF_13], für Besucher ausgewählt, nichts erfunden (P8).
+  # KEINE Buildnummer nennen (55) - sichtbar ist 1.5.1.
+  - id: mobilereport-1-5-1
+    typ: update
+    produkt: mobilereport
+    datum: "2026-10-30"
+    titel: "MobileReport 1.5.1: runder in der Bedienung"
+    text: >-
+      MobileReport 1.5.1 macht die Bedienung runder und behebt Fehler. Ein gelöschter
+      Empfänger bleibt gelöscht. Fehlt ein Pflichtfeld, speichert die App die Meldung nicht und
+      sagt dir, welches. Sehr lange Beschreibungen passen jetzt ins PDF und laufen auf
+      Folgeseiten weiter. Bei großer Schrift bleiben Zähler und Tasten lesbar, und
+      Schaltflächen haben Beschriftungen für den Bildschirmleser.
+
   # PDFuchs Reader 1.3.2 (versionCode 8). Play-Store-App: kein Release im Modell. Live seit
   # 22.10.2026 09:09 (Produktion), belegt durch die P5-Meldung von [FF_13] vom 22.10.2026 13:23.
   # Text nach „Was ist neu" im Store, nichts erfunden (P8), für Besucher geschrieben.
