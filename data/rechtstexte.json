@@ -1,8 +1,200 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-28T13:02:41+01:00",
+  "generiert": "2026-10-30T19:41:03+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "rechtstexte": [
+    {
+      "slug": "mobilereport",
+      "produktname": "MobileReport",
+      "stand": "30.10.2026",
+      "vollstaendig": true,
+      "ausstehend": [],
+      "app_volltext": {
+        "quelle": "D:\\Claude-Projekte\\FehlerFuchs\\20_MobileReport\\MobileReport_Master\\01_App\\lib\\features\\legal\\eula_page.dart",
+        "sha256": "9f0be208648644dd37a5b0da9a3c6162df885b7a86c5cb5c873ab6df93fc8f4e",
+        "kopf": [
+          "Vertragspartner/Anbieter: Matthias Schacht, handelnd unter der Geschäftsbezeichnung FehlerFuchs, Susanne-Bohl-Straße 8, 07747 Jena · E-Mail: admin@fehlerfuchs.eu · USt-IdNr.: DE463451160.",
+          "Diese Endnutzer-Lizenzvereinbarung regelt die Nutzung der Software MobileReport."
+        ],
+        "kern": [
+          {
+            "titel": "1. Vertragsgegenstand und Editionen",
+            "absaetze": [
+              "1.1 MobileReport ist eine offline-first arbeitende Android-Anwendung zur mobilen Mängel- und Meldungserfassung (Foto und Ort → fertiger PDF-Bericht).",
+              "1.2 Die Software wird in den Editionen Free (kostenlos) und Pro (einmaliger In-App-Kauf über Google Play) bereitgestellt. Der jeweilige Funktionsumfang ergibt sich aus der Produktbeschreibung. Kostenpflichtige Pro-Funktionen werden nach dem Kauf über Google Play freigeschaltet.",
+              "1.3 Die Bezeichnung Software umfasst die zum Zeitpunkt der Bereitstellung ausgelieferte Fassung. Aktualisierungen richten sich nach Abschnitt 6; ein Anspruch auf künftige neue Hauptversionen oder zusätzliche Funktionen ergibt sich hieraus nicht."
+            ]
+          },
+          {
+            "titel": "2. Zielgruppe",
+            "absaetze": [
+              "Das Angebot richtet sich an Verbraucher (§ 13 BGB) und Unternehmer (§ 14 BGB)."
+            ]
+          },
+          {
+            "titel": "3. Lizenzeinräumung und Lizenzumfang",
+            "absaetze": [
+              "3.1 Der Anbieter räumt dem Nutzer ein einfaches, nicht ausschließliches Recht ein, die Software gemäß dieser Vereinbarung zu installieren und zu nutzen.",
+              "3.2 Der konkrete Lizenzumfang ergibt sich aus der Produktbeschreibung und der Bestellbestätigung. Bei der dauerhaft erworbenen Pro-Freischaltung besteht das Nutzungsrecht grundsätzlich zeitlich unbefristet.",
+              "3.3 Ein Gerätewechsel ist zulässig, sofern die Software auf dem bisherigen Gerät nicht weiter genutzt wird. Die Pro-Freischaltung ist an das Google-Konto des Nutzers gebunden und gilt auf dessen Geräten mit demselben Google-Konto.",
+              "3.4 Die Pro-Freischaltung wird über Google Play verwaltet; ein gesonderter Lizenzschlüssel wird nicht ausgegeben."
+            ]
+          },
+          {
+            "titel": "4. Übertragung der Lizenz",
+            "absaetze": [
+              "Die Pro-Freischaltung ist an das Google-Konto des Käufers gebunden und wird über Google Play verwaltet. Eine gesonderte Übertragung des Nutzungsrechts auf andere Personen ist nicht vorgesehen; insoweit gelten die Bedingungen von Google Play."
+            ]
+          },
+          {
+            "titel": "5. Nutzungsbeschränkungen",
+            "absaetze": [
+              "Untersagt sind insbesondere: Zurückentwickeln, Dekompilieren und Disassemblieren über den gesetzlich zulässigen Rahmen hinaus; Umgehen technischer Schutzmaßnahmen; Entfernen von Herstellerangaben."
+            ]
+          },
+          {
+            "titel": "6. Aktualisierungen",
+            "absaetze": [
+              "Soweit vertraglich vereinbart oder gesetzlich vorgeschrieben, stellt der Anbieter Aktualisierungen einschließlich erforderlicher Sicherheitsaktualisierungen für den maßgeblichen Zeitraum bereit und informiert den Nutzer über deren Verfügbarkeit. Ein Anspruch auf neue Hauptversionen, Funktionserweiterungen oder Upgrades besteht nur, wenn dies ausdrücklich vereinbart wurde. Zu den mit einer Aktualisierung verbundenen Datenverarbeitungen siehe die Datenschutzhinweise."
+            ]
+          },
+          {
+            "titel": "6a. Aktualisierungen gegenüber Verbrauchern",
+            "absaetze": [
+              "Bei entgeltlich erworbenen digitalen Produkten stellt der Anbieter Verbrauchern nach §§ 327f BGB für den Zeitraum, den der Verbraucher aufgrund der Art und des Zwecks des Produkts erwarten kann, Aktualisierungen einschließlich Sicherheitsaktualisierungen bereit und informiert über deren Verfügbarkeit."
+            ]
+          },
+          {
+            "titel": "7. Daten, Sicherung und Verantwortung des Nutzers",
+            "absaetze": [
+              "7.1 Die Software speichert die Daten des Nutzers lokal auf dessen Gerät. Der Nutzer ist für die Sicherung seiner Daten selbst verantwortlich; empfohlen werden regelmäßige, verschlüsselte Sicherungen auf einem physisch oder logisch getrennten Speichermedium.",
+              "7.2 Der Nutzer ist für die Rechtmäßigkeit der von ihm erfassten und verarbeiteten Inhalte selbst verantwortlich, insbesondere für die Einhaltung des Datenschutzes gegenüber abgebildeten Personen und betroffenen Dritten und für die Einholung erforderlicher Einwilligungen (Fotos, Namen, Empfängeradressen). Diese Verantwortung schränkt die zugesagte Funktionalität nicht ein."
+            ]
+          },
+          {
+            "titel": "8. Gewährleistung",
+            "absaetze": [
+              "8.1 Kostenfreie Editionen: Für unentgeltlich bereitgestellte Software gelten die gesetzlichen Vorschriften. Soweit gesetzlich zulässig, haftet der Anbieter für Mängel nur bei Vorsatz, grober Fahrlässigkeit und arglistigem Verschweigen eines Mangels.",
+              "8.2 Entgeltliche Editionen: Es gelten die gesetzlichen Mängelrechte. Eine darüber hinausgehende Garantie wird nur übernommen, wenn sie ausdrücklich als Garantie bezeichnet wurde. Für besondere, vom Nutzer beabsichtigte Einsatzzwecke, die weder vertraglich vereinbart wurden noch bei Software dieser Art üblicherweise vorausgesetzt werden können, übernimmt der Anbieter keine Gewähr. Nach dem Stand der Technik kann nicht jeder Softwarefehler ausgeschlossen werden; zwingende gesetzliche Mängelrechte bleiben unberührt."
+            ]
+          },
+          {
+            "titel": "9. Haftung",
+            "absaetze": [
+              "9.1 Der Anbieter haftet unbeschränkt bei Vorsatz und grober Fahrlässigkeit, für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit, bei arglistig verschwiegenem Mangel oder übernommener Garantie, nach dem Produkthaftungsgesetz sowie in allen anderen Fällen zwingender gesetzlicher Haftung.",
+              "9.2 Bei leicht fahrlässiger Verletzung einer wesentlichen Vertragspflicht haftet der Anbieter nur für den vertragstypischen, bei Vertragsschluss vorhersehbaren Schaden. Eine wesentliche Vertragspflicht ist eine Pflicht, deren Erfüllung die ordnungsgemäße Durchführung des Vertrags überhaupt erst ermöglicht und auf deren Einhaltung der Nutzer regelmäßig vertrauen darf. Im Übrigen ist die Haftung für leichte Fahrlässigkeit ausgeschlossen.",
+              "9.3 Bei leicht fahrlässig verursachtem Datenverlust ist die Haftung auf den typischen Wiederherstellungsaufwand begrenzt, der bei ordnungsgemäßer und regelmäßiger Datensicherung entstanden wäre; Ziffer 9.1 bleibt unberührt.",
+              "9.4 Die Haftungsbeschränkungen gelten entsprechend zugunsten der gesetzlichen Vertreter und Erfüllungsgehilfen des Anbieters."
+            ]
+          },
+          {
+            "titel": "10. Geistiges Eigentum",
+            "absaetze": [
+              "Der Nutzer erhält nach Maßgabe dieser Vereinbarung ein Nutzungsrecht. Urheber- und sonstige Schutzrechte an der Software verbleiben beim Anbieter bzw. beim jeweiligen Rechteinhaber."
+            ]
+          },
+          {
+            "titel": "11. Drittanbieter-Komponenten",
+            "absaetze": [
+              "Die Software enthält Komponenten Dritter, die eigenen Lizenzbedingungen unterliegen. Diese sind in der Anwendung unter „Impressum → Lizenzen Dritter“ einsehbar und gehen dieser Vereinbarung für die jeweilige Komponente vor."
+            ]
+          },
+          {
+            "titel": "12. Laufzeit und Beendigung",
+            "absaetze": [
+              "12.1 Ein entgeltlich erworbenes, zeitlich unbefristetes Nutzungsrecht kann nicht ordentlich gekündigt werden. Das Recht beider Parteien zur außerordentlichen Kündigung aus wichtigem Grund bleibt unberührt.",
+              "12.2 Soweit der wichtige Grund in einer behebbaren Vertragsverletzung besteht, ist die Kündigung grundsätzlich erst nach erfolgloser Abmahnung oder Ablauf einer angemessenen Abhilfefrist zulässig. Eine Fristsetzung ist nicht erforderlich, wenn sie gesetzlich entbehrlich ist.",
+              "12.3 Nach Beendigung ist die Nutzung einzustellen und die Software zu deinstallieren; erstellte eigene Daten verbleiben beim Nutzer. Dem Nutzer ist zuvor ein angemessener Zeitraum zum Export seiner Daten einzuräumen."
+            ]
+          },
+          {
+            "titel": "13. Schlussbestimmungen",
+            "absaetze": [
+              "13.1 Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts. Gegenüber Verbrauchern gilt diese Rechtswahl nur insoweit, als ihnen dadurch nicht der Schutz zwingender Bestimmungen des Staates ihres gewöhnlichen Aufenthalts entzogen wird.",
+              "13.2 Ausschließlicher Gerichtsstand ist Jena, wenn der Nutzer Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen ist oder keinen allgemeinen Gerichtsstand in Deutschland hat. Im Übrigen gelten die gesetzlichen Gerichtsstände.",
+              "13.3 Rangfolge: Individuelle Vereinbarungen gehen dieser Vereinbarung vor. Die Bestellbestätigung ist hinsichtlich Edition und Lizenzdauer maßgeblich. Die Produktbeschreibung bestimmt die vertraglich vereinbarte Funktionalität. Im Übrigen gilt diese Vereinbarung.",
+              "13.4 Sollten einzelne Bestimmungen unwirksam sein, bleibt die Wirksamkeit der übrigen unberührt."
+            ]
+          },
+          {
+            "titel": "14. Widerruf",
+            "absaetze": [
+              "Der Kaufvertrag über die Software (Pro-Freischaltung) kommt mit dem jeweiligen Verkäufer zustande, über den Sie die Software erworben haben – bei der Pro-Freischaltung ist dies Google. Für den Widerruf gelten dessen Bedingungen und dessen Widerrufsbelehrung; sie werden Ihnen im Bestellvorgang zur Verfügung gestellt. Diese Vereinbarung regelt ausschließlich die Nutzung der Software."
+            ]
+          },
+          {
+            "titel": "15. Verbraucherstreitbeilegung",
+            "absaetze": [
+              "Der Anbieter ist zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle nicht bereit und nicht verpflichtet."
+            ]
+          }
+        ],
+        "zusatz": {
+          "anker": "mobilereport-enterprise",
+          "titel": "Zusatzartikel für MobileReport Enterprise",
+          "einleitung": "Für MobileReport Enterprise gelten anstelle der gleich nummerierten Bestimmungen oben die folgenden Fassungen; im Übrigen gilt der Text oben.",
+          "abschnitte": [
+            {
+              "titel": "1. Vertragsgegenstand und Editionen",
+              "absaetze": [
+                "1.1 MobileReport ist eine offline-first arbeitende Android-Anwendung zur mobilen Mängel- und Meldungserfassung (Foto und Ort → fertiger PDF-Bericht).",
+                "1.2 MobileReport Enterprise ist die entgeltliche Unternehmensausgabe. Sie wird als Lizenzpaket für eine vereinbarte Anzahl von Arbeitsplätzen bereitgestellt und über Digistore24 vertrieben. Der jeweilige Funktionsumfang und die Anzahl der Arbeitsplätze ergeben sich aus der Produktbeschreibung und der Bestellbestätigung.",
+                "1.3 Auf Wunsch kann die Anwendung mit eigener Marke ausgeliefert werden (White-Label). Umfang und Inhalt einer solchen Anpassung ergeben sich aus der gesonderten Vereinbarung.",
+                "1.4 Die Bezeichnung Software umfasst die zum Zeitpunkt der Bereitstellung ausgelieferte Fassung. Aktualisierungen richten sich nach Abschnitt 6; ein Anspruch auf künftige neue Hauptversionen oder zusätzliche Funktionen ergibt sich hieraus nicht."
+              ]
+            },
+            {
+              "titel": "3. Lizenzeinräumung und Lizenzumfang",
+              "absaetze": [
+                "3.1 Der Anbieter räumt dem Nutzer ein einfaches, nicht ausschließliches Recht ein, die Software gemäß dieser Vereinbarung zu installieren und zu nutzen.",
+                "3.2 Der konkrete Lizenzumfang – insbesondere die Anzahl der Arbeitsplätze und die Lizenzdauer – ergibt sich aus der Produktbeschreibung und der Bestellbestätigung. Bei einer dauerhaft erworbenen Lizenz besteht das Nutzungsrecht grundsätzlich zeitlich unbefristet.",
+                "3.3 Die Lizenz wird über einen Lizenzschlüssel aktiviert. Bei der Aktivierung werden der Lizenzschlüssel und eine Gerätekennung an den Lizenzserver des Anbieters übermittelt; Meldungen oder sonstige Nutzerdaten werden dabei nicht übertragen. Einzelheiten stehen in den Datenschutzhinweisen.",
+                "3.4 Nach der Aktivierung ist die Nutzung auch ohne Netzverbindung möglich. Die Software prüft die Lizenz in Abständen erneut; bleibt eine Prüfung über den in der Anwendung angezeigten Karenzzeitraum hinaus aus, kann die Nutzung eingeschränkt werden.",
+                "3.5 Ein Gerätewechsel innerhalb des lizenzierten Umfangs ist zulässig, sofern die Software auf dem bisherigen Gerät nicht weiter genutzt wird. Die Lizenz kann in der Anwendung von einem Gerät entfernt werden.",
+                "3.6 Zur Nutzung berechtigt sind Beschäftigte des lizenzierten Unternehmens, die Meldungen erfassen, sowie im Auftrag und unter Verantwortung des Unternehmens tätige Dienstleister (z. B. Facility-, Hausmeister- oder Gebäudedienste), jeweils im Rahmen der lizenzierten Nutzer- und Geräteanzahl (Seats). Keine Nutzung über die lizenzierte Seat-Zahl hinaus."
+              ]
+            },
+            {
+              "titel": "4. Übertragung der Lizenz",
+              "absaetze": [
+                "Enterprise-Lizenzen werden unbegrenzt (dauerhaft) oder mit Ablaufdatum (Laufzeitlizenz) bereitgestellt. Dauerhafte Lizenz: Weitergabe nur, soweit gesetzlich zulässig; Voraussetzung ist, dass die bisherige Nutzung vollständig eingestellt, alle Kopien und Sicherungen gelöscht und Lizenzschlüssel beziehungsweise Token übergeben werden. Eine Aufteilung der Seats einer Lizenz auf mehrere Erwerber ist nicht zulässig. Laufzeitlizenz: an Vertrag und Laufzeit gebunden, nicht übertragbar."
+              ]
+            },
+            {
+              "titel": "5. Nutzungsbeschränkungen",
+              "absaetze": [
+                "Untersagt sind insbesondere: Zurückentwickeln, Dekompilieren und Disassemblieren über den gesetzlich zulässigen Rahmen hinaus; Umgehen technischer Schutzmaßnahmen, insbesondere der Lizenzprüfung; Entfernen von Herstellerangaben; Weitergabe von Lizenzschlüsseln; Nutzung über die lizenzierte Anzahl von Arbeitsplätzen hinaus."
+              ]
+            },
+            {
+              "titel": "7. Daten, Sicherung und Verantwortung des Nutzers",
+              "absaetze": [
+                "7.1 Die Software speichert die Daten des Nutzers lokal auf dessen Gerät. Der Nutzer ist für die Sicherung seiner Daten selbst verantwortlich; empfohlen werden regelmäßige, verschlüsselte Sicherungen auf einem physisch oder logisch getrennten Speichermedium. Die Anwendung stellt hierfür eine Datensicherung bereit.",
+                "7.2 Der Nutzer ist die datenschutzrechtlich verantwortliche Stelle für die von ihm erfassten personenbezogenen Daten – Empfängeradressen, Namen sowie Fotos von Personen oder fremdem Eigentum – und für die Einholung erforderlicher Einwilligungen. Ebenso ist er verantwortlich für die inhaltliche Richtigkeit und Vollständigkeit der erstellten Meldungen und PDF-Berichte sowie für die Sicherung seiner ausschließlich lokal auf dem Gerät gespeicherten Daten; die Anwendung führt kein Cloud-Backup durch. Diese Verantwortung schränkt die zugesagte Funktionalität nicht ein."
+              ]
+            },
+            {
+              "titel": "10. Geistiges Eigentum",
+              "absaetze": [
+                "Der Nutzer erhält nach Maßgabe dieser Vereinbarung ein Nutzungsrecht. Urheber- und sonstige Schutzrechte an der Software verbleiben beim Anbieter bzw. beim jeweiligen Rechteinhaber. Dies gilt auch für eine mit eigener Marke ausgelieferte Fassung; Rechte an den vom Nutzer beigestellten Markenzeichen bleiben davon unberührt."
+              ]
+            },
+            {
+              "titel": "13. Schlussbestimmungen",
+              "absaetze": [
+                "13.3 Rangfolge: Individuelle Vereinbarungen gehen dieser Vereinbarung vor. Die Bestellbestätigung ist hinsichtlich Edition, Arbeitsplatzanzahl und Lizenzdauer maßgeblich. Die Produktbeschreibung bestimmt die vertraglich vereinbarte Funktionalität. Im Übrigen gilt diese Vereinbarung."
+              ]
+            },
+            {
+              "titel": "14. Widerruf",
+              "absaetze": [
+                "Der Kaufvertrag über die Software kommt mit dem jeweiligen Verkäufer zustande, über den Sie die Software erworben haben – beim Vertrieb über Digistore24 ist dies die Digistore24 GmbH als Reseller und Merchant of Record. Für den Widerruf gelten dessen Bedingungen und dessen Widerrufsbelehrung; sie werden Ihnen im Bestellvorgang zur Verfügung gestellt. Diese Vereinbarung regelt ausschließlich die Nutzung der Software."
+              ]
+            }
+          ]
+        }
+      }
+    },
     {
       "slug": "gewerbepro",
       "produktname": "GewerbePro",
@@ -52,6 +244,7 @@
     },
     {
       "slug": "mobilereport-enterprise",
+      "verweis": "mobilereport",
       "produktname": "MobileReport Enterprise",
       "variante": "verbraucher",
       "merchant_of_record": true,
