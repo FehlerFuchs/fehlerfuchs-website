@@ -1,7 +1,7 @@
 {
   "app": "MobileReport Enterprise",
-  "version": "1.5.0",
-  "apkUrl": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.5.0/FehlerFuchs_MobileReport_Enterprise_v1.5.0_54.apk",
-  "notes": "1.5.0: Beim Melden schlägt die App die zuständigen Empfänger vor – nach Gebäude, sonst nach Bereich, jeweils passend zur Kategorie. Zuständigkeiten beim Empfänger festlegen, auch über die Spalten „Kategorie“ und „Gebäude“ der Empfänger-Tabelle. Neu im Admin-Bereich: „Empfänger sperren“. Der Hinweis zu einem falschen Passwort bei der Sicherung steht jetzt oben im Dialog.",
-  "updatedAt": "2026-09-26"
+  "version": "1.5.1",
+  "apkUrl": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.5.1/FehlerFuchs_MobileReport_Enterprise_v1.5.1_55.apk",
+  "notes": "1.5.1: Bedienung verbessert, Fehler behoben. Die Lizenz meldet das Gerät bei Bedarf selbst neu an. Ein gelöschter Empfänger bleibt gelöscht. Fehlt ein Pflichtfeld, speichert die App die Meldung nicht und nennt das Feld. Sehr lange Beschreibungen laufen im PDF auf Folgeseiten weiter. Bei großer Schrift bleiben Zähler und Tasten lesbar, Schaltflächen ohne Text haben eine Beschriftung für den Bildschirmleser. Beim Löschen bleibt die App in ihrem eigenen Speicherbereich. Nutzungsbedingungen (EULA): Stand 30.10.2026.",
+  "updatedAt": "2026-10-30"
 }

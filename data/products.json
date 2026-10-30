@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-23T21:55:02+02:00",
+  "generiert": "2026-10-30T20:58:31+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -2497,6 +2497,23 @@
         }
       ],
       "releases": [
+        {
+          "version": "1.5.1",
+          "date": "2026-10-30",
+          "channel": "stable",
+          "os": "android",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.5.1/FehlerFuchs_MobileReport_Enterprise_v1.5.1_55.apk",
+          "filename": "FehlerFuchs_MobileReport_Enterprise_v1.5.1_55.apk",
+          "size": {
+            "bytes": 66310248,
+            "label": "63,2 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "cf077e3e7759b350e2766c0a022a5d92fcfb719e47fd592237cdb4419a933000",
+          "signed": false,
+          "ohne_meldung": "Nur die Update-Dateien auf Wort Matthias 30.10.2026 (Logbuch #8572); eine Aktuelles-Meldung ist öffentlicher Text und nur auf eigenen Auftrag, Entwurf bei Bedarf.",
+          "notes": "1.5.1: Bedienung verbessert, Fehler behoben. Die Lizenz meldet das Gerät bei Bedarf selbst neu an. Ein gelöschter Empfänger bleibt gelöscht. Fehlt ein Pflichtfeld, speichert die App die Meldung nicht und nennt das Feld. Sehr lange Beschreibungen laufen im PDF auf Folgeseiten weiter. Bei großer Schrift bleiben Zähler und Tasten lesbar, Schaltflächen ohne Text haben eine Beschriftung für den Bildschirmleser. Beim Löschen bleibt die App in ihrem eigenen Speicherbereich. Nutzungsbedingungen (EULA): Stand 30.10.2026."
+        },
         {
           "version": "1.5.0",
           "date": "2026-09-26",

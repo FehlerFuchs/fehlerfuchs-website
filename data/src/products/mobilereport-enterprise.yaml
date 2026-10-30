@@ -97,6 +97,29 @@ editions:
 # ACHTUNG: Aus diesen Angaben entstehen die Manifeste, die ausgelieferte
 # Apps lesen. Der Text unter notes erscheint WÖRTLICH im Update-Hinweis.
 releases:
+  # 1.5.1 (55) (30.10.2026): GitHub-Release von [FF_20] (veröffentlicht 20:50:01, P5-Meldung 20:52, Logbuch #8571),
+  # Managed Play live 20:37 (P5 [FF_15]). Von [FF_10] nachgemessen 20:53: öffentliche URL HTTP 200,
+  # Content-Length 66.310.248; sha256 laut [FF_20] am öffentlichen Download gemessen. Update-Dateien auf
+  # ausdrückliche Nennung (Wort Matthias 30.10.2026 über [FF_00], Vorlage Logbuch #8572, Anordnung 17.10.).
+  # notes für Nutzer, knapp (Wortlaut der Vorlage); Langfassung steht im GitHub-Release.
+  - version: "1.5.1"
+    date: "2026-10-30"
+    channel: stable
+    os: android
+    url: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.5.1/FehlerFuchs_MobileReport_Enterprise_v1.5.1_55.apk"
+    filename: FehlerFuchs_MobileReport_Enterprise_v1.5.1_55.apk
+    size: { bytes: 66310248, label: "63,2 MB", source: GitHub-Release-Asset }
+    sha256: cf077e3e7759b350e2766c0a022a5d92fcfb719e47fd592237cdb4419a933000
+    signed: false
+    ohne_meldung: "Nur die Update-Dateien auf Wort Matthias 30.10.2026 (Logbuch #8572); eine Aktuelles-Meldung ist öffentlicher Text und nur auf eigenen Auftrag, Entwurf bei Bedarf."
+    notes: >-
+      1.5.1: Bedienung verbessert, Fehler behoben. Die Lizenz meldet das Gerät bei Bedarf
+      selbst neu an. Ein gelöschter Empfänger bleibt gelöscht. Fehlt ein Pflichtfeld,
+      speichert die App die Meldung nicht und nennt das Feld. Sehr lange Beschreibungen
+      laufen im PDF auf Folgeseiten weiter. Bei großer Schrift bleiben Zähler und Tasten
+      lesbar, Schaltflächen ohne Text haben eine Beschriftung für den Bildschirmleser.
+      Beim Löschen bleibt die App in ihrem eigenen Speicherbereich. Nutzungsbedingungen
+      (EULA): Stand 30.10.2026.
   # 1.5.0 (26.09.2026): GitHub-Release von [FF_20] auf Matthias' „release ja“ (07:56),
   # veröffentlicht 07:57 (P5-Meldung [FF_20]; Managed Play privat live, P5 [FF_15]).
   # Von [FF_10] gegengeprüft: gh release view mobilereport-enterprise-v1.5.0 = kein Entwurf,
