@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-30T20:58:31+01:00",
+  "generiert": "2026-10-31T08:17:17+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -3066,80 +3066,8 @@
           "width": 1656,
           "height": 460
         },
-        "screenshots": [
-          {
-            "src": "/img/screenshots/orgafuchs/handy-01-start.png",
-            "alt": "Werbebild „Dein Familien-Alltag an einem Ort“ mit dem Startbildschirm: Sync-Stand, die Dienste des Tages, Termine und Notizen sowie die zuletzt erzeugten PDFs",
-            "width": 620,
-            "height": 1342,
-            "geraet": "handy",
-            "titel": "Alles an einem Ort"
-          },
-          {
-            "src": "/img/screenshots/orgafuchs/handy-02-monat.png",
-            "alt": "Werbebild „Der ganze Monat auf einen Blick“ mit dem Monatskalender Juli 2026 – je Tag mehrere Personen mit farbigen Dienstkürzeln",
-            "width": 620,
-            "height": 1342,
-            "geraet": "handy",
-            "titel": "Der ganze Monat auf einen Blick"
-          },
-          {
-            "src": "/img/screenshots/orgafuchs/handy-03-woche.png",
-            "alt": "Werbebild „Wer wann arbeitet, klar im Blick“ mit der Wochenansicht: je Tag die Personen mit Dienst, Kürzel und Uhrzeit, dazu der Ferienhinweis",
-            "width": 620,
-            "height": 1342,
-            "geraet": "handy",
-            "titel": "Wochenansicht"
-          },
-          {
-            "src": "/img/screenshots/orgafuchs/handy-04-einstellungen.png",
-            "alt": "Werbebild „Feiertage und Schulferien je Bundesland“ mit den Einstellungen: Design hell, dunkel oder System, Startansicht, Wochenbeginn, PDF-Stil und Bundesland",
-            "width": 620,
-            "height": 1342,
-            "geraet": "handy",
-            "titel": "Feiertage und Ferien"
-          },
-          {
-            "src": "/img/screenshots/orgafuchs/handy-05-dunkelmodus.png",
-            "alt": "Werbebild „Auch elegant im Dunkelmodus“ mit demselben Monatskalender auf dunklem Grund",
-            "width": 620,
-            "height": 1342,
-            "geraet": "handy",
-            "titel": "Auch im Dunkelmodus"
-          },
-          {
-            "src": "/img/screenshots/orgafuchs/handy-06-sync.png",
-            "alt": "Werbebild „Geräte sicher verbinden – Ende-zu-Ende verschlüsselt, ein Code genügt“ mit der Seite „Geräte verbinden“: Hinweis „Sicher verbunden“ und Knopf „Gerät verbinden“.",
-            "width": 620,
-            "height": 1242,
-            "geraet": "handy",
-            "titel": "Geräte sicher verbinden"
-          },
-          {
-            "src": "/img/screenshots/orgafuchs/handy-07-einrichtung.png",
-            "alt": "Werbebild „In wenigen Minuten eingerichtet“ mit der Einrichtungshilfe und ihren vier abgehakten Schritten",
-            "width": 620,
-            "height": 1342,
-            "geraet": "handy",
-            "titel": "Schritt für Schritt startklar"
-          },
-          {
-            "src": "/img/screenshots/orgafuchs/handy-08-windows.png",
-            "alt": "Werbebild „Auch für Windows-PC, gleiche Daten, gleicher Sync“ mit der Info-Seite der App: Version, Hinweis auf die Windows-Fassung, Unterstützen, Kontakt und Transparenz",
-            "width": 620,
-            "height": 1342,
-            "geraet": "handy",
-            "titel": "Auch für Windows"
-          },
-          {
-            "src": "/img/screenshots/orgafuchs/tablet10-monat.png",
-            "alt": "Dasselbe Werbebild im Querformat: links die Zeile „Der ganze Monat auf einen Blick“, rechts der Monatskalender",
-            "width": 1200,
-            "height": 750,
-            "geraet": "desktop",
-            "titel": "Im Querformat"
-          }
-        ]
+        "screenshots": [],
+        "platzhalter": 4
       },
       "theme": {
         "modus": "hell",
