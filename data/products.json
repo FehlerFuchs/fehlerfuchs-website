@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-31T13:25:00+01:00",
+  "generiert": "2026-10-31T13:30:16+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1052,6 +1052,23 @@
         }
       ],
       "releases": [
+        {
+          "version": "1.1.4",
+          "date": "2026-10-31",
+          "channel": "stable",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.4/FehlerFuchs_GewerbePro_Setup_1.1.4.exe",
+          "filename": "FehlerFuchs_GewerbePro_Setup_1.1.4.exe",
+          "size": {
+            "bytes": 116212296,
+            "label": "110,8 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "c008987843c07a94c826c4ecb2287f5c7320291cd13f186e7919095fedcfe706",
+          "signed": true,
+          "ohne_meldung": "Keine Aktuelles-Meldung (Wort FF_00 31.10.2026, Logbuch #8713); Release-Text steht auf der GitHub-Release-Seite.",
+          "notes": "GewerbePro 1.1.4 – Lizenz und Datenbank\n- Lizenz: Meldet der Lizenzserver, dass dein Gerät der Lizenz nicht mehr zugeordnet ist, meldet GewerbePro es einmal selbstständig neu an, statt eine Sperre zu zeigen.\n- Datenbank robuster: GewerbePro wartet bei einer gerade gesperrten Datenbank kurz, statt sofort mit einem Fehler abzubrechen; Sicherungen enthalten den neuesten Stand.\n- Löschen mit Aufbewahrungsschutz (Vorbereitung): Rechnungen, die du noch aufbewahren musst, bleiben beim vollständigen Löschen erhalten; die Oberfläche folgt später."
+        },
         {
           "version": "1.1.3",
           "date": "2026-10-20",

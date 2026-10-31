@@ -83,6 +83,30 @@ editions:
     price: { model: offen }
 
 releases:
+  # 1.1.4 (31.10.2026, Build 11): Meldung [FF_16] Code Signing P5 (13:28, veröffentlicht auf „push gewerbepro“ von
+  # Matthias 13:22, Release 13:27:25, zweistufig signiert). Von [FF_10] gegen GitHub nachgemessen 13:33: öffentliche URL
+  # HTTP 200, Content-Length 116.212.296; sha256 und Signatur laut [FF_16] am öffentlichen Download gemessen. Wort FF_00
+  # (ENTSCHEIDUNG A, Logbuch #8713; Update-Dateien ausdrücklich genannt). notes aus dem Release-Text von [FF_29]/[FF_16],
+  # Auswahl und Kürzung auf die Prüfgrenze von 600 Zeichen (kein neuer Inhalt, nichts erfunden, P8). Companion-Mindestfassung
+  # unverändert 1.0.1. Keine Aktuelles-Meldung (ohne_meldung); Datenschutz-Kurzfassung bewusst unverändert (Vorlage FF_29 bei Matthias).
+  - version: "1.1.4"
+    date: "2026-10-31"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.4/FehlerFuchs_GewerbePro_Setup_1.1.4.exe
+    filename: FehlerFuchs_GewerbePro_Setup_1.1.4.exe
+    size:
+      bytes: 116212296
+      label: "110,8 MB"
+      source: GitHub-Release-Asset
+    sha256: "c008987843c07a94c826c4ecb2287f5c7320291cd13f186e7919095fedcfe706"
+    signed: true
+    ohne_meldung: "Keine Aktuelles-Meldung (Wort FF_00 31.10.2026, Logbuch #8713); Release-Text steht auf der GitHub-Release-Seite."
+    notes: |-
+      GewerbePro 1.1.4 – Lizenz und Datenbank
+      - Lizenz: Meldet der Lizenzserver, dass dein Gerät der Lizenz nicht mehr zugeordnet ist, meldet GewerbePro es einmal selbstständig neu an, statt eine Sperre zu zeigen.
+      - Datenbank robuster: GewerbePro wartet bei einer gerade gesperrten Datenbank kurz, statt sofort mit einem Fehler abzubrechen; Sicherungen enthalten den neuesten Stand.
+      - Löschen mit Aufbewahrungsschutz (Vorbereitung): Rechnungen, die du noch aufbewahren musst, bleiben beim vollständigen Löschen erhalten; die Oberfläche folgt später.
   # 1.1.3 (20.10.2026): Meldung [FF_16] Code Signing P5 (12:31, veröffentlicht auf „push gewerbepro“
   # von Matthias 12:28, Release 12:30, zweistufig signiert, Build 10). Von [FF_10] gegen GitHub geprüft
   # (gh release view gewerbepro-v1.1.3: kein Entwurf, keine Vorabversion, ein Asset 116.207.824 B,
