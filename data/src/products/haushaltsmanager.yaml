@@ -31,22 +31,36 @@ accent: "#6F9E1B"   # Marken-Limette (HaushaltsManager-Markensatz 28.07.2026)
 # 1.0.0 ist eingetragen -> die Seite zeigt „Herunterladen“ UND „Kaufen“. Signierung
 # (12.08.) und Digistore-Testkauf sind durch; Matthias hat das Produkt 721203 am
 # 13.08. auf „Aktiv = Ja“ gestellt -> der Kaufweg ist regulär scharf.
-status: verfuegbar
+#
+# 31.10.2026 (Wort Matthias 09:24:07 über [FF_00], Logbuch #8670, Auftrag HaushaltsManager-1-1-1-nicht-verfuegbar):
+# Die Fassung 1.1.1 wird bis zum Erscheinen von 1.1.2 NICHT mehr angeboten (kein Download, kein Kauf auf der Seite).
+# Umsetzung über die vorhandene Stufe 'entwicklung' (cta: interesse, Muster BelegWerk) mit statusGrund; nichts gelöscht:
+# Release-Eintrag, GitHub-Release und Datei bleiben. Zum Zurückstellen bei 1.1.2: status und platforms[].status
+# wieder 'verfuegbar', statusGrund entfernen, hinweis (verfuegbar) unten wieder einsetzen, neuen Release eintragen.
+status: entwicklung
+# Die Produktseite bleibt erreichbar (Seite bleibt, nichts gelöscht); ohne dieses Feld würde sie bei nicht 'verfuegbar' nicht gebaut.
+# Bei 1.1.2 mit status verfuegbar wieder entfernen (Muster BelegWerk).
+vorabSichtbar: true
+statusGrund:
+  wenn: entwicklung
+  text: >-
+    Derzeit nicht verfügbar. Eine neue Fassung ist in Vorbereitung.
 
 platforms:
   - os: windows
-    status: verfuegbar
+    status: entwicklung
     # Veröffentlicht mit 1.0.0 am 12.08.2026 (Release-Eintrag unten); nachgetragen
     # nach Sichtung 29.09., Befund 4 (ENTSCHEIDUNG A, #3787).
     since: "2026-08-12"
     requirements: Windows 10/11 (64-bit)
     distribution: github-release
+    # Bis 1.1.2 gilt der Hinweis zur Stufe 'entwicklung'. Der bisherige Hinweis zur Stufe 'verfuegbar' lautete:
+    #   „Das Programm frei herunterladen und mit enthaltener Testphase ausprobieren; den Lizenzschlüssel
+    #    (Einmalkauf 20 €, 5 Arbeitsplätze, kein Abo) jederzeit über Digistore24 kaufen und in der App eingeben.“
     hinweis:
-      wenn: verfuegbar
+      wenn: entwicklung
       text: >-
-        Das Programm frei herunterladen und mit enthaltener Testphase ausprobieren;
-        den Lizenzschlüssel (Einmalkauf 20 €, 5 Arbeitsplätze, kein Abo) jederzeit
-        über Digistore24 kaufen und in der App eingeben.
+        Derzeit nicht verfügbar. Eine neue Fassung ist in Vorbereitung.
 
 privacy: [inhalte-lokal, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
