@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-31T13:34:45+01:00",
+  "generiert": "2026-10-31T13:43:05+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -3100,8 +3100,64 @@
           "width": 1656,
           "height": 460
         },
-        "screenshots": [],
-        "platzhalter": 4
+        "screenshots": [
+          {
+            "src": "/img/screenshots/orgafuchs/handy-01-start.png",
+            "alt": "Werbebild „Dein Familien-Alltag an einem Ort“ mit dem Startbildschirm: die Dienste von heute und morgen, Termine und Notizen sowie die Schnellzugriffe",
+            "width": 620,
+            "height": 1240,
+            "geraet": "handy",
+            "titel": "Alles an einem Ort"
+          },
+          {
+            "src": "/img/screenshots/orgafuchs/handy-02-monat.png",
+            "alt": "Werbebild „Der ganze Monat auf einen Blick“ mit dem Monatskalender Oktober 2026 – je Tag mehrere Personen mit farbigen Dienstkürzeln",
+            "width": 620,
+            "height": 1240,
+            "geraet": "handy",
+            "titel": "Der ganze Monat auf einen Blick"
+          },
+          {
+            "src": "/img/screenshots/orgafuchs/handy-03-woche.png",
+            "alt": "Werbebild „Wer wann arbeitet, klar im Blick“ mit der Wochenansicht: je Tag die Personen mit Dienst, Kürzel und Uhrzeit sowie die Zeiten von Hort und Kita",
+            "width": 620,
+            "height": 1240,
+            "geraet": "handy",
+            "titel": "Wochenansicht"
+          },
+          {
+            "src": "/img/screenshots/orgafuchs/handy-05-dunkelmodus.png",
+            "alt": "Werbebild „Auch elegant im Dunkelmodus“ mit demselben Monatskalender auf dunklem Grund",
+            "width": 620,
+            "height": 1240,
+            "geraet": "handy",
+            "titel": "Auch im Dunkelmodus"
+          },
+          {
+            "src": "/img/screenshots/orgafuchs/handy-06-sync.png",
+            "alt": "Werbebild „Geräte sicher verbinden“ mit den Einstellungen: Geräte-Kalender, Geräte und gemeinsamer Plan, Familienplan aktualisieren",
+            "width": 620,
+            "height": 1240,
+            "geraet": "handy",
+            "titel": "Geräte sicher verbinden"
+          },
+          {
+            "src": "/img/screenshots/orgafuchs/handy-07-einrichtung.png",
+            "alt": "Werbebild „Schule, Hort und Kita“ mit der Liste der Einrichtungen und ihren Öffnungszeiten",
+            "width": 620,
+            "height": 1240,
+            "geraet": "handy",
+            "titel": "Schule, Hort und Kita"
+          },
+          {
+            "src": "/img/screenshots/orgafuchs/tablet10-monat.png",
+            "alt": "Werbebild „Auch am Tablet“: der Monatskalender auf großem Bildschirm",
+            "width": 1200,
+            "height": 750,
+            "geraet": "desktop",
+            "titel": "Auch am Tablet"
+          }
+        ]
       },
       "theme": {
         "modus": "hell",

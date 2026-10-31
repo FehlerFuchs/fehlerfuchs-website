@@ -335,13 +335,55 @@ media:
     width: 1656
     height: 460
 
-  # 31.10.2026: Die neun Werbebilder (Store-Satz) sind aus der Auslieferung genommen (Entscheidung Matthias über [FF_00],
-  # C dann B, Logbuch #8662/#8664): Sie zeigten Aufnahmen mit echten Haushaltsdaten und das alte Symbol. Die Seite zeigt
-  # vorübergehend die Platzhalter. Bestand: 90_Archiv\Webbilder-OrgaFuchs-alt_2026-10-31 (Kopie) und die Git-Geschichte.
-  # Neue Werbebilder im Hausstandard gestaltet [FF_01] aus den Aufnahmen von [FF_32]
-  # (32_OrgaFuchs\04_Marke\Rohaufnahmen_2026-10-31); erst nach Sicht von Matthias wieder einsetzen.
-  screenshots: []
-  platzhalter: 4   # wie bei HaushaltsManager und BelegWerk: vier Platzhalter-Motive, bis die neuen Werbebilder da sind
+  # 31.10.2026: Die neun alten Werbebilder (Store-Satz) wurden aus der Auslieferung genommen: Sie zeigten Aufnahmen mit echten
+  # Haushaltsdaten und das alte Symbol (Entscheidung Matthias über [FF_00], Logbuch #8662/#8664; Kopie im Bestand
+  # 90_Archiv\Webbilder-OrgaFuchs-alt_2026-10-31). Ersetzt durch sieben neue Werbebilder von [FF_01] (Bestand
+  # 01_Marke und Identität\…\Logos\OrgaFuchs\Web\1.11.1\) aus den Aufnahmen von [FF_32] (eigene Aufnahme 31.10.2026, erfundene Daten
+  # „Familie Waldmann“). Freigabe Matthias (Klick-Dialog) 31.10.2026 13:35, Wort zum Ausliefern [FF_00] 13:36, Logbuch #8667.
+  # Handybilder 620 × 1240, Tablet 1200 × 750. Die alten Bilder „Einstellungen“ und „Windows“ entfallen (keine Neuaufnahme).
+  screenshots:
+    - src: /img/screenshots/orgafuchs/handy-01-start.png
+      alt: "Werbebild „Dein Familien-Alltag an einem Ort“ mit dem Startbildschirm: die Dienste von heute und morgen, Termine und Notizen sowie die Schnellzugriffe"
+      width: 620
+      height: 1240
+      geraet: handy
+      titel: "Alles an einem Ort"
+    - src: /img/screenshots/orgafuchs/handy-02-monat.png
+      alt: "Werbebild „Der ganze Monat auf einen Blick“ mit dem Monatskalender Oktober 2026 – je Tag mehrere Personen mit farbigen Dienstkürzeln"
+      width: 620
+      height: 1240
+      geraet: handy
+      titel: "Der ganze Monat auf einen Blick"
+    - src: /img/screenshots/orgafuchs/handy-03-woche.png
+      alt: "Werbebild „Wer wann arbeitet, klar im Blick“ mit der Wochenansicht: je Tag die Personen mit Dienst, Kürzel und Uhrzeit sowie die Zeiten von Hort und Kita"
+      width: 620
+      height: 1240
+      geraet: handy
+      titel: "Wochenansicht"
+    - src: /img/screenshots/orgafuchs/handy-05-dunkelmodus.png
+      alt: "Werbebild „Auch elegant im Dunkelmodus“ mit demselben Monatskalender auf dunklem Grund"
+      width: 620
+      height: 1240
+      geraet: handy
+      titel: "Auch im Dunkelmodus"
+    - src: /img/screenshots/orgafuchs/handy-06-sync.png
+      alt: "Werbebild „Geräte sicher verbinden“ mit den Einstellungen: Geräte-Kalender, Geräte und gemeinsamer Plan, Familienplan aktualisieren"
+      width: 620
+      height: 1240
+      geraet: handy
+      titel: "Geräte sicher verbinden"
+    - src: /img/screenshots/orgafuchs/handy-07-einrichtung.png
+      alt: "Werbebild „Schule, Hort und Kita“ mit der Liste der Einrichtungen und ihren Öffnungszeiten"
+      width: 620
+      height: 1240
+      geraet: handy
+      titel: "Schule, Hort und Kita"
+    - src: /img/screenshots/orgafuchs/tablet10-monat.png
+      alt: "Werbebild „Auch am Tablet“: der Monatskalender auf großem Bildschirm"
+      width: 1200
+      height: 750
+      geraet: desktop
+      titel: "Auch am Tablet"
 
 
 # Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
