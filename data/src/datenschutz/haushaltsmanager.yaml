@@ -1,23 +1,25 @@
-# Geprüft gegen HaushaltsManager 1.1.0 (Quellstand 69ccd0d, veröffentlicht 06.10.2026) von [FF_36] am 07.10.2026.
-# Jede Angabe am Code bzw. im VM-Lauf 06.10.2026 nachgesehen. Format wie Fassung [FF_10] 26.09.2026.
+# Geprüft gegen HaushaltsManager 1.1.2 (Quellstand 468acd9, veröffentlicht 31.10.2026 13:22) von [FF_36] am 31.10.2026.
+# Ausgangspunkt: Master bei [FF_00-1] vom 23.10.2026 (Wortlaut Lizenzserver-Satz bestätigt); nur Änderungen für 1.1.2 und die Speicherangaben berichtigt (am Code nachgesehen).
 slug: haushaltsmanager
 slug_vorschlag: false
 name: HaushaltsManager
-stand: "2026-10-19"
+stand: "2026-10-31"
 geprueft_von: 36_HaushaltsManager Markt
 fassung: >-
-  Am gebauten und veröffentlichten Produkt 1.1.0 geprüft (Produktfassung ohne private Daten,
-  sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Installer, Programmdatei
-  und Deinstaller sind mit der FehlerFuchs-Signatur versehen (zweistufig signiert). Neu ggü. 1.0.0:
-  vollständiger lesbarer JSON-Export, Lizenzvereinbarung und erweiterte Datenschutzhinweise in der
-  App, Deinstaller fragt nach dem Entfernen der lokalen Daten.
+  Am gebauten und veröffentlichten Produkt 1.1.2 geprüft (Produktfassung ohne private Daten,
+  sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Installer, Programmdatei,
+  Deinstaller und alle mitgelieferten Programmbibliotheken sind mit der FehlerFuchs-Signatur versehen
+  (zweistufig signiert). Neu ggü. 1.1.1: eigener Datenordner (%APPDATA%\FehlerFuchs\HaushaltsManager\)
+  mit eigenem verschlüsselten Speicher, Knopf „Alle Lizenzen anzeigen“ in der App, Tray-Symbol mit
+  Menü und Schließen-Kreuz arbeiten wieder wie vorgesehen, nur eine Programminstanz je Benutzer,
+  automatische Neuanmeldung des Geräts beim Online-Prüfen der Lizenz (keine zusätzlichen Angaben).
 
 lokal_only: false   # optionale, standardmäßig ausgeschaltete Datenverbindungen + eine minimale Lizenzprüfung, siehe uebertragungen
 
 auf_dem_geraet:
 - was: Vollständige Haushaltsdaten in einer lokalen SQLite-Datenbank – Zählerstände (Strom/Gas/Wasser),
     Verträge inkl. Kündigungsfristen, Haushaltsbuch, Vorhaben/Projekte, Solar & Speicher, Anwendungsprotokoll
-  wo: lokal, %APPDATA%\eu.fehlerfuchs.privat\HaushaltsManager\HaushaltsManager\ (oder ein vom Nutzer gewählter
+  wo: lokal, %APPDATA%\FehlerFuchs\HaushaltsManager\HaushaltsManager\ (oder ein vom Nutzer gewählter
     Speicherort)
 - was: Erzeugte PDF-Dokumente (Vertrags-/Kündigungsschreiben, Monats-/Jahresberichte) und lesbare
     JSON-Exporte aller Fachdaten
@@ -52,7 +54,7 @@ uebertragungen:
   beleg: Standardmäßig aus (weather_auto_sync = 0), opt-in; einzeln abschaltbar
 - wohin: PowerFox Cloud-API (backend.powerfox.energy, offizielle Kunden-API 2.0, HTTPS, HTTP Basic Auth)
   was: 'Abruf eigener Zähler-/Verbrauchsdaten aus dem PowerFox-Konto des Nutzers: Nutzt die EIGENEN Zugangsdaten
-    des Nutzers (E-Mail + Passwort seines PowerFox-Kontos). Das Passwort liegt ausschließlich im Windows-Anmeldespeicher.
+    des Nutzers (E-Mail + Passwort seines PowerFox-Kontos). Das Passwort liegt ausschließlich verschlüsselt im Datenordner (Schutz durch Windows).
     Abgerufen werden die Verbrauchsdaten des eigenen Kontos.'
   wann: nur bei aktivierter PowerFox-Anbindung, beim Abruf/Sync durch den Nutzer oder im eingestellten Intervall
   freiwillig: true
@@ -60,7 +62,7 @@ uebertragungen:
     eigenen Konto
 - wohin: ENPAL / InfluxDB unter der vom Nutzer eingetragenen Adresse (gewöhnlich im eigenen Heimnetz, IP + Token)
   was: 'Abruf von Solar-/Speicherdaten aus der ENPAL-/InfluxDB-Instanz: Verbindung nur zu der vom Nutzer eingetragenen
-    Adresse, gewöhnlich im eigenen Netz. Der Token liegt ausschließlich im Windows-Anmeldespeicher; übertragen wird er
+    Adresse, gewöhnlich im eigenen Netz. Der Token liegt ausschließlich verschlüsselt im Datenordner (Schutz durch Windows); übertragen wird er
     verschlüsselt nur, wenn die Adresse mit https:// beginnt, sonst unverschlüsselt im Heimnetz (die App weist bei
     der Eingabe darauf hin).'
   wann: nur bei aktivierter Anbindung, beim Abruf/Sync durch den Nutzer oder im eingestellten Intervall
@@ -107,12 +109,14 @@ daten_an_dritte_verkauft: false
 
 loeschung: >-
   Alle Daten liegen ausschließlich lokal in der SQLite-Datenbank unter
-  %APPDATA%\eu.fehlerfuchs.privat\HaushaltsManager\HaushaltsManager\ (sofern du in der App keinen anderen Speicherort
+  %APPDATA%\FehlerFuchs\HaushaltsManager\HaushaltsManager\ (sofern du in der App keinen anderen Speicherort
   gewählt hast). Es werden keine Haushaltsdaten an FehlerFuchs oder Dritte übertragen. Einträge (auch die optionalen
   Beispieldaten) lassen sich in der App einzeln löschen; die Datenbank sowie erzeugte PDFs, Exporte und Sicherungen
   kann der Nutzer jederzeit selbst löschen. Der Deinstaller entfernt das Programm und fragt, ob auch der Datenordner
   (und eine vom Nutzer verlegte Datenbank) entfernt werden soll – Standard ist „behalten“. Zugangsdaten (PowerFox,
-  ENPAL) und Lizenzangaben stehen nur im Windows-Anmeldespeicher und werden dort vom Nutzer entfernt. Die Löschung
+  ENPAL) und Lizenzangaben stehen verschlüsselt in einer Datei im Datenordner (`flutter_secure_storage.dat`); den
+  Schutz übernimmt Windows für dein Benutzerkonto. Sie werden entfernt, wenn du den Datenordner löschst oder der
+  Deinstaller ihn entfernt. Die Löschung
   der beim Lizenzserver gespeicherten Lizenzdaten (E-Mail-Adresse und Geräteaktivierungen) kann unter
   https://fehlerfuchs.eu/datenschutz/loeschantrag/ beantragt werden.
 
@@ -128,7 +132,7 @@ besonderheiten: >-
   Das Komponenten-Update läuft ausschließlich über eine lokal vom Nutzer ausgewählte
   JSON-Datei ohne jede Netzverbindung; es ändert nur ausdrücklich erlaubte Einstellungen in geprüften
   Wertebereichen, Zugangsdaten in solchen Paketen sind verboten. Zugangsdaten (PowerFox-Passwort,
-  ENPAL-Token, Lizenzschlüssel und Offline-Token) liegen ausschließlich im Windows-Anmeldespeicher;
+  ENPAL-Token, Lizenzschlüssel und Offline-Token) liegen ausschließlich verschlüsselt im Datenordner (Schutz durch Windows);
   der Lizenzschlüssel wird nicht protokolliert.
   Kaufabsicherung: Nach einer kostenlosen Testphase von 30 Tagen wird die App mit einem Lizenzschlüssel
   aktiviert. Dabei verlassen nur Schlüssel, eine anonyme, zufällige Geräte-Kennung, Produktkennung und
