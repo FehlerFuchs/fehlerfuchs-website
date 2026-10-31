@@ -32,35 +32,24 @@ accent: "#6F9E1B"   # Marken-Limette (HaushaltsManager-Markensatz 28.07.2026)
 # (12.08.) und Digistore-Testkauf sind durch; Matthias hat das Produkt 721203 am
 # 13.08. auf „Aktiv = Ja“ gestellt -> der Kaufweg ist regulär scharf.
 #
-# 31.10.2026 (Wort Matthias 09:24:07 über [FF_00], Logbuch #8670, Auftrag HaushaltsManager-1-1-1-nicht-verfuegbar):
-# Die Fassung 1.1.1 wird bis zum Erscheinen von 1.1.2 NICHT mehr angeboten (kein Download, kein Kauf auf der Seite).
-# Umsetzung über die vorhandene Stufe 'entwicklung' (cta: interesse, Muster BelegWerk) mit statusGrund; nichts gelöscht:
-# Release-Eintrag, GitHub-Release und Datei bleiben. Zum Zurückstellen bei 1.1.2: status und platforms[].status
-# wieder 'verfuegbar', statusGrund entfernen, hinweis (verfuegbar) unten wieder einsetzen, neuen Release eintragen.
-status: entwicklung
-# Die Produktseite bleibt erreichbar (Seite bleibt, nichts gelöscht); ohne dieses Feld würde sie bei nicht 'verfuegbar' nicht gebaut.
-# Bei 1.1.2 mit status verfuegbar wieder entfernen (Muster BelegWerk).
-vorabSichtbar: true
-statusGrund:
-  wenn: entwicklung
-  text: >-
-    Derzeit nicht verfügbar. Eine neue Fassung ist in Vorbereitung.
+# 31.10.2026 ab 09:33: HaushaltsManager 1.1.1 war auf der Webseite „nicht verfügbar“ (Wort Matthias 09:24:07, Logbuch #8670, #8673);
+# mit 1.1.2 (Meldung FF_16 13:23, Logbuch #8701; Wort FF_00 im HINWEIS 11:05) steht das Produkt wieder auf 'verfuegbar'.
+status: verfuegbar
 
 platforms:
   - os: windows
-    status: entwicklung
+    status: verfuegbar
     # Veröffentlicht mit 1.0.0 am 12.08.2026 (Release-Eintrag unten); nachgetragen
     # nach Sichtung 29.09., Befund 4 (ENTSCHEIDUNG A, #3787).
     since: "2026-08-12"
     requirements: Windows 10/11 (64-bit)
     distribution: github-release
-    # Bis 1.1.2 gilt der Hinweis zur Stufe 'entwicklung'. Der bisherige Hinweis zur Stufe 'verfuegbar' lautete:
-    #   „Das Programm frei herunterladen und mit enthaltener Testphase ausprobieren; den Lizenzschlüssel
-    #    (Einmalkauf 20 €, 5 Arbeitsplätze, kein Abo) jederzeit über Digistore24 kaufen und in der App eingeben.“
     hinweis:
-      wenn: entwicklung
+      wenn: verfuegbar
       text: >-
-        Derzeit nicht verfügbar. Eine neue Fassung ist in Vorbereitung.
+        Das Programm frei herunterladen und mit enthaltener Testphase ausprobieren;
+        den Lizenzschlüssel (Einmalkauf 20 €, 5 Arbeitsplätze, kein Abo) jederzeit
+        über Digistore24 kaufen und in der App eingeben.
 
 privacy: [inhalte-lokal, kein-konto, kein-tracking, werbefrei, offline-faehig]
 
@@ -89,6 +78,31 @@ editions:
 # Erste öffentliche, signierte Windows-Fassung. sha256/Bytes lokal am signierten
 # Artefakt UND gegen das GitHub-Asset gegengeprüft (byte-identisch, signtool /pa OK).
 releases:
+  # 1.1.2 (31.10.2026, App 1.1.2+41): Meldung [FF_16] Code Signing (13:23, veröffentlicht auf „push haushaltsmanager“ von
+  # Matthias 13:21). Von [FF_10] gegen GitHub nachgemessen 13:24: öffentliche URL HTTP 200, Content-Length 20.733.544;
+  # sha256 und Signatur laut [FF_16] am öffentlichen Download gemessen (signtool /pa Valid). notes aus dem von Matthias
+  # freigegebenen Release-Text (Logbuch #8695), Auswahl und Kürzung auf die Prüfgrenze von 600 Zeichen (kein neuer
+  # Inhalt, nichts erfunden, P8); vollständig auf der GitHub-Release-Seite.
+  - version: "1.1.2"
+    date: "2026-10-31"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.2/FehlerFuchs_HaushaltsManager_Setup_1.1.2.exe
+    filename: FehlerFuchs_HaushaltsManager_Setup_1.1.2.exe
+    size:
+      bytes: 20733544
+      label: "19,8 MB"
+      source: GitHub-Release-Asset
+    sha256: "533b2ad32465f8bef8d18032338a58eb7b410cbe3375acb9cc447888f4a8e0aa"
+    signed: true
+    ohne_meldung: "Aktuelles-Meldung nur auf eigenen Auftrag (öffentlicher Text); Release-Text steht auf der GitHub-Release-Seite."
+    notes: |-
+      HaushaltsManager 1.1.2 – Hintergrunddienst, Lizenz, Lizenzhinweise
+      - Behoben: Das Symbol im Infobereich der Taskleiste (Tray) mit dem Menü „Öffnen“ und „Beenden“ und das Schließen-Kreuz arbeiten wieder wie vorgesehen.
+      - Das Programm startet nur noch einmal je Windows-Benutzer.
+      - Neu: Die Lizenz meldet das Gerät beim Online-Prüfen bei Bedarf selbst neu an.
+      - Neu: „Alle Lizenzen anzeigen“ zeigt offline die Lizenzen der Fremdbausteine.
+      - Die App speichert ihre Daten jetzt in einem eigenen Ordner; Daten einer früheren Installation werden nicht übernommen.
   # 1.1.1 (08.10.2026): Meldung [FF_16] Code Signing (14:28, veröffentlicht auf „push“ von
   # Matthias 14:27:29). Von [FF_10] gegen GitHub geprüft (gh release view haushaltsmanager-v1.1.1:
   # kein Entwurf, keine Vorabversion, ein Asset 20.663.944 B, sha256 d2f39081…44c2 – stimmen).

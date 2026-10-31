@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-31T09:28:37+01:00",
+  "generiert": "2026-10-31T13:25:00+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1849,6 +1849,269 @@
         "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.gewerbepro_companion"
       },
       "notes": "Die App ruft die GewerbePro-Engine nicht auf und enthält keine Fachlogik; sie ist bewusst ein Erfassungs-Begleiter. Der Datenaustausch mit dem PC läuft über ein JSON-Paket, das GewerbePro mit dem Kommando companion.import einliest. Kostenlos über Google Play, nutzbar nur mit GewerbePro-Lizenzschlüssel (C1, 26.09.2026); Bildmaterial für die Produktseite gibt es noch nicht."
+    },
+    {
+      "slug": "haushaltsmanager",
+      "name": "HaushaltsManager",
+      "fullName": "FehlerFuchs HaushaltsManager",
+      "seoTitel": "HaushaltsManager – Haushaltsbuch & Zählerstände (Windows)",
+      "seoBeschreibung": "Windows-Programm für den Haushalt: Zählerstände, Verträge, Haushaltsbuch, Solar & Energie (ENPAL, PowerFox), Auswertungen, PDF – ohne Konto, ohne Tracking.",
+      "tags": [
+        "Haushaltsbuch",
+        "Zählerstände",
+        "Verträge",
+        "Kündigungsfristen",
+        "Energieverbrauch",
+        "Solar",
+        "Photovoltaik",
+        "ENPAL",
+        "PowerFox",
+        "poweropti",
+        "Windows",
+        "offline",
+        "ohne Konto"
+      ],
+      "kind": "produkt",
+      "tagline": "Lokales Windows-Werkzeug für den ganzen Haushalt: Zählerstände, Verträge mit Kündigungsfristen, Haushaltsbuch, Auswertungen. Alle Daten bleiben auf deinem Gerät – kein Konto, kein Tracking.",
+      "description": "HaushaltsManager bündelt die Haushaltsverwaltung auf dem eigenen Rechner: Zählerstände für Strom, Gas und Wasser, Verträge samt Kündigungsfristen, ein vollständiges Haushaltsbuch, Vorhaben und Auswertungen mit Diagrammen. Ein Schwerpunkt sind die Energiedaten: Die Solaranlage lässt sich über ENPAL (InfluxDB im Heimnetz) einbinden, der Stromzähler über PowerFox/poweropti – beides optional und nur auf Wunsch. Aus den Daten entstehen Schreiben und PDF-Berichte, dazu Export und Backup. Alle Daten liegen lokal – kein Konto, kein Tracking, keine Werbung.",
+      "audience": [
+        "privat",
+        "selbststaendige"
+      ],
+      "accent": "#6F9E1B",
+      "status": "verfuegbar",
+      "platforms": [
+        {
+          "os": "windows",
+          "status": "verfuegbar",
+          "since": "2026-08-12",
+          "requirements": "Windows 10/11 (64-bit)",
+          "distribution": "github-release",
+          "hinweis": {
+            "wenn": "verfuegbar",
+            "text": "Das Programm frei herunterladen und mit enthaltener Testphase ausprobieren; den Lizenzschlüssel (Einmalkauf 20 €, 5 Arbeitsplätze, kein Abo) jederzeit über Digistore24 kaufen und in der App eingeben."
+          }
+        }
+      ],
+      "privacy": [
+        "inhalte-lokal",
+        "kein-konto",
+        "kein-tracking",
+        "werbefrei",
+        "offline-faehig"
+      ],
+      "windowsDisplayNames": [
+        "FehlerFuchs HaushaltsManager"
+      ],
+      "editions": [
+        {
+          "id": "standard",
+          "name": "FehlerFuchs HaushaltsManager",
+          "public": true,
+          "summary": "Voller Funktionsumfang in einer Edition: Zählerstände, Verträge, Haushaltsbuch, Vorhaben/Projekte, Auswertungen, Solar & Speicher, PDF-Kommunikation und -Berichte, Export und Sicherung.",
+          "price": {
+            "model": "einmalig",
+            "amount": 20,
+            "currency": "EUR",
+            "vatIncluded": true
+          }
+        }
+      ],
+      "releases": [
+        {
+          "version": "1.1.2",
+          "date": "2026-10-31",
+          "channel": "stable",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.2/FehlerFuchs_HaushaltsManager_Setup_1.1.2.exe",
+          "filename": "FehlerFuchs_HaushaltsManager_Setup_1.1.2.exe",
+          "size": {
+            "bytes": 20733544,
+            "label": "19,8 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "533b2ad32465f8bef8d18032338a58eb7b410cbe3375acb9cc447888f4a8e0aa",
+          "signed": true,
+          "ohne_meldung": "Aktuelles-Meldung nur auf eigenen Auftrag (öffentlicher Text); Release-Text steht auf der GitHub-Release-Seite.",
+          "notes": "HaushaltsManager 1.1.2 – Hintergrunddienst, Lizenz, Lizenzhinweise\n- Behoben: Das Symbol im Infobereich der Taskleiste (Tray) mit dem Menü „Öffnen“ und „Beenden“ und das Schließen-Kreuz arbeiten wieder wie vorgesehen.\n- Das Programm startet nur noch einmal je Windows-Benutzer.\n- Neu: Die Lizenz meldet das Gerät beim Online-Prüfen bei Bedarf selbst neu an.\n- Neu: „Alle Lizenzen anzeigen“ zeigt offline die Lizenzen der Fremdbausteine.\n- Die App speichert ihre Daten jetzt in einem eigenen Ordner; Daten einer früheren Installation werden nicht übernommen."
+        },
+        {
+          "version": "1.1.1",
+          "date": "2026-10-08",
+          "channel": "stable",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.1/FehlerFuchs_HaushaltsManager_Setup_1.1.1.exe",
+          "filename": "FehlerFuchs_HaushaltsManager_Setup_1.1.1.exe",
+          "size": {
+            "bytes": 20663944,
+            "label": "19,7 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "d2f39081c1003dd74c2d6913613885e1bc0e005f2da9dad76cf2318cbef444c2",
+          "signed": true,
+          "notes": "HaushaltsManager 1.1.1 – Fehlerbehebung Auswertungen\n- Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt von Hand erfasste Strom-Zählerstände (vorher wurde ohne PowerFox oder ENPAL 0 kWh angezeigt). Bereits erfasste Stände erscheinen sofort.\n- Haushaltsbuch: Nachträglich eingetragene ältere Monate werden in „Alle Jahre“ nicht mehr mehrfach gezählt.\n- Datenschutzhinweis zum Lizenzserver präzisiert (welche Angaben übertragen werden); Lizenzvereinbarung typografisch an die Webseite angeglichen.\n- Installer: Texte der Laufzeit-Seite mit korrekten Umlauten."
+        },
+        {
+          "version": "1.1.0",
+          "date": "2026-10-06",
+          "channel": "stable",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.0/FehlerFuchs_HaushaltsManager_Setup_1.1.0.exe",
+          "filename": "FehlerFuchs_HaushaltsManager_Setup_1.1.0.exe",
+          "size": {
+            "bytes": 20665632,
+            "label": "19,7 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "1434938f6adf7923b218cd624174dd8ab10e21250c83bee06e59b1c2a4bf1719",
+          "signed": true,
+          "notes": "HaushaltsManager 1.1.0 – Stabilität, Datenschutz und Rechtstexte\n- Kein Absturz mehr beim Beenden der App.\n- Die kostenlose Testphase läuft volle 30 Tage; eine zurückgestellte Systemuhr verlängert sie nicht mehr.\n- Berechnungen über die Sommer- und Winterzeitumstellung sind korrigiert; einmalige Zahlungen werden nur noch einmal gezählt.\n- Der lesbare JSON-Export enthält jetzt alle Daten; die Sicherung (SQLite) ist klar davon getrennt.\n- Datenschutzhinweise und die Lizenzvereinbarung (EULA) sind jetzt in der App nachlesbar."
+        },
+        {
+          "version": "1.0.0",
+          "date": "2026-08-12",
+          "channel": "stable",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.0.0/FehlerFuchs_HaushaltsManager_Setup_1.0.0.exe",
+          "filename": "FehlerFuchs_HaushaltsManager_Setup_1.0.0.exe",
+          "size": {
+            "bytes": 21072744,
+            "label": "20,1 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "a9a420a77fd7990275872f7a225dde77fef55e91eb628f00a3ca3e9829d4589b",
+          "signed": true,
+          "notes": "Erste öffentliche, signierte Windows-Fassung (Herausgeber FehlerFuchs). Kaufprodukt über Digistore24 (Einmalkauf 20 €, 5 Arbeitsplätze, kein Abo): Download frei mit enthaltener Testphase, Vollnutzung per Lizenzschlüssel. EULA im Setup."
+        }
+      ],
+      "features": [
+        {
+          "group": "Erfassen und verwalten",
+          "items": [
+            {
+              "name": "Zählerstände für Strom, Gas und Wasser erfassen und Verbrauch nachverfolgen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Verträge verwalten inkl. Kündigungsfristen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Vollständiges Haushaltsbuch (Einnahmen und Ausgaben)",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Vorhaben und Projekte planen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Optionale anonyme Beispieldaten zum Ausprobieren",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Auswerten",
+          "items": [
+            {
+              "name": "Auswertungen mit Linien- und Balkendiagrammen und Von-bis-Filter",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Solar und Speicher einbeziehen (Solarertrag und Speicherdaten)",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Ausgeben",
+          "items": [
+            {
+              "name": "Vertrags- und Kündigungsschreiben als PDF erzeugen",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "Monats- und Jahresberichte als PDF",
+              "values": {
+                "standard": "ja"
+              }
+            },
+            {
+              "name": "JSON-Export und Datenbank-Sicherung (Backup)",
+              "values": {
+                "standard": "ja"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Energie & Solar anbinden (optional, standardmäßig aus)",
+          "items": [
+            {
+              "name": "Solaranlage über ENPAL (InfluxDB) einbinden",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Reine Verbindung im eigenen Heimnetz – die Daten verlassen das lokale Netz nicht."
+            },
+            {
+              "name": "Stromzähler über PowerFox/poweropti auslesen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Der poweropti-Lesekopf am Zähler, per PowerFox-Cloud-API 2.0 oder direkt lokal; mit den eigenen Zugangsdaten, das Passwort bleibt im Windows-Anmeldespeicher."
+            },
+            {
+              "name": "Wetterdaten über Open-Meteo (wetterbereinigte Auswertung)",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Sendet nur die gewählten Koordinaten, ohne Schlüssel oder Konto."
+            },
+            {
+              "name": "Weitere Anbieter/Datenquellen auf Wunsch – über Updates",
+              "values": {
+                "standard": "geplant"
+              },
+              "note": "Sag mir, welcher Anbieter (z. B. Wechselrichter, Speicher, Energieportal) und auf welche Art – ich prüfe die Anbindung und liefere sie per Update nach. PowerFox/poweropti und ENPAL sind Marken der jeweiligen Anbieter."
+            }
+          ]
+        }
+      ],
+      "theme": {
+        "modus": "hell",
+        "akzent": "#5E8717"
+      },
+      "media": {
+        "lockup": {
+          "src": "/img/lockups/haushaltsmanager.svg",
+          "alt": "HaushaltsManager – von FehlerFuchs",
+          "width": 2350,
+          "height": 372
+        },
+        "platzhalter": 4
+      },
+      "links": {
+        "checkout": "https://www.checkout-ds24.com/product/721203",
+        "contact": "/kontakt.html?app=HaushaltsManager&topic=interesse"
+      },
+      "notes": "Öffentliche Produktfassung (sauberer Fork) des privaten HaushaltsManagers; Produkt-Code 36_HaushaltsManager Markt. Der private Ordner HaushaltsManager_PRIVAT (echte Daten) bleibt gesperrt und wird nie veröffentlicht. Slug und geprueft_von sind projektseitig geklärt (Eigentümer _Markt). Vertriebsmodell wie MobileReport: freier öffentlicher Download der signierten .exe (GitHub-Release, 1.0.0 eingetragen), Lizenzschlüssel (20 €, 5 Arbeitsplätze) über Digistore24 (Produkt 721203). Testkauf und „Aktiv = Ja“ sind abgeschlossen; offen bleiben echte Screenshots aus dem Projekt."
     },
     {
       "slug": "mobilereport",
@@ -4447,257 +4710,6 @@
         "contact": "/kontakt.html?app=BelegWerk&topic=interesse"
       },
       "notes": "Anbindung an Paperless bedeutet, dass Daten an ein selbst betriebenes Archiv gehen. Das Merkmal „keine-cloud“ ist deshalb bewusst nicht gesetzt – es hängt davon ab, wo der Nutzer sein Paperless betreibt."
-    },
-    {
-      "slug": "haushaltsmanager",
-      "name": "HaushaltsManager",
-      "fullName": "FehlerFuchs HaushaltsManager",
-      "seoTitel": "HaushaltsManager – Haushaltsbuch & Zählerstände (Windows)",
-      "seoBeschreibung": "Windows-Programm für den Haushalt: Zählerstände, Verträge, Haushaltsbuch, Solar & Energie (ENPAL, PowerFox), Auswertungen, PDF – ohne Konto, ohne Tracking.",
-      "tags": [
-        "Haushaltsbuch",
-        "Zählerstände",
-        "Verträge",
-        "Kündigungsfristen",
-        "Energieverbrauch",
-        "Solar",
-        "Photovoltaik",
-        "ENPAL",
-        "PowerFox",
-        "poweropti",
-        "Windows",
-        "offline",
-        "ohne Konto"
-      ],
-      "kind": "produkt",
-      "tagline": "Lokales Windows-Werkzeug für den ganzen Haushalt: Zählerstände, Verträge mit Kündigungsfristen, Haushaltsbuch, Auswertungen. Alle Daten bleiben auf deinem Gerät – kein Konto, kein Tracking.",
-      "description": "HaushaltsManager bündelt die Haushaltsverwaltung auf dem eigenen Rechner: Zählerstände für Strom, Gas und Wasser, Verträge samt Kündigungsfristen, ein vollständiges Haushaltsbuch, Vorhaben und Auswertungen mit Diagrammen. Ein Schwerpunkt sind die Energiedaten: Die Solaranlage lässt sich über ENPAL (InfluxDB im Heimnetz) einbinden, der Stromzähler über PowerFox/poweropti – beides optional und nur auf Wunsch. Aus den Daten entstehen Schreiben und PDF-Berichte, dazu Export und Backup. Alle Daten liegen lokal – kein Konto, kein Tracking, keine Werbung.",
-      "audience": [
-        "privat",
-        "selbststaendige"
-      ],
-      "accent": "#6F9E1B",
-      "status": "entwicklung",
-      "vorabSichtbar": true,
-      "statusGrund": {
-        "wenn": "entwicklung",
-        "text": "Derzeit nicht verfügbar. Eine neue Fassung ist in Vorbereitung."
-      },
-      "platforms": [
-        {
-          "os": "windows",
-          "status": "entwicklung",
-          "since": "2026-08-12",
-          "requirements": "Windows 10/11 (64-bit)",
-          "distribution": "github-release",
-          "hinweis": {
-            "wenn": "entwicklung",
-            "text": "Derzeit nicht verfügbar. Eine neue Fassung ist in Vorbereitung."
-          }
-        }
-      ],
-      "privacy": [
-        "inhalte-lokal",
-        "kein-konto",
-        "kein-tracking",
-        "werbefrei",
-        "offline-faehig"
-      ],
-      "windowsDisplayNames": [
-        "FehlerFuchs HaushaltsManager"
-      ],
-      "editions": [
-        {
-          "id": "standard",
-          "name": "FehlerFuchs HaushaltsManager",
-          "public": true,
-          "summary": "Voller Funktionsumfang in einer Edition: Zählerstände, Verträge, Haushaltsbuch, Vorhaben/Projekte, Auswertungen, Solar & Speicher, PDF-Kommunikation und -Berichte, Export und Sicherung.",
-          "price": {
-            "model": "einmalig",
-            "amount": 20,
-            "currency": "EUR",
-            "vatIncluded": true
-          }
-        }
-      ],
-      "releases": [
-        {
-          "version": "1.1.1",
-          "date": "2026-10-08",
-          "channel": "stable",
-          "os": "windows",
-          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.1/FehlerFuchs_HaushaltsManager_Setup_1.1.1.exe",
-          "filename": "FehlerFuchs_HaushaltsManager_Setup_1.1.1.exe",
-          "size": {
-            "bytes": 20663944,
-            "label": "19,7 MB",
-            "source": "GitHub-Release-Asset"
-          },
-          "sha256": "d2f39081c1003dd74c2d6913613885e1bc0e005f2da9dad76cf2318cbef444c2",
-          "signed": true,
-          "notes": "HaushaltsManager 1.1.1 – Fehlerbehebung Auswertungen\n- Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt von Hand erfasste Strom-Zählerstände (vorher wurde ohne PowerFox oder ENPAL 0 kWh angezeigt). Bereits erfasste Stände erscheinen sofort.\n- Haushaltsbuch: Nachträglich eingetragene ältere Monate werden in „Alle Jahre“ nicht mehr mehrfach gezählt.\n- Datenschutzhinweis zum Lizenzserver präzisiert (welche Angaben übertragen werden); Lizenzvereinbarung typografisch an die Webseite angeglichen.\n- Installer: Texte der Laufzeit-Seite mit korrekten Umlauten."
-        },
-        {
-          "version": "1.1.0",
-          "date": "2026-10-06",
-          "channel": "stable",
-          "os": "windows",
-          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.0/FehlerFuchs_HaushaltsManager_Setup_1.1.0.exe",
-          "filename": "FehlerFuchs_HaushaltsManager_Setup_1.1.0.exe",
-          "size": {
-            "bytes": 20665632,
-            "label": "19,7 MB",
-            "source": "GitHub-Release-Asset"
-          },
-          "sha256": "1434938f6adf7923b218cd624174dd8ab10e21250c83bee06e59b1c2a4bf1719",
-          "signed": true,
-          "notes": "HaushaltsManager 1.1.0 – Stabilität, Datenschutz und Rechtstexte\n- Kein Absturz mehr beim Beenden der App.\n- Die kostenlose Testphase läuft volle 30 Tage; eine zurückgestellte Systemuhr verlängert sie nicht mehr.\n- Berechnungen über die Sommer- und Winterzeitumstellung sind korrigiert; einmalige Zahlungen werden nur noch einmal gezählt.\n- Der lesbare JSON-Export enthält jetzt alle Daten; die Sicherung (SQLite) ist klar davon getrennt.\n- Datenschutzhinweise und die Lizenzvereinbarung (EULA) sind jetzt in der App nachlesbar."
-        },
-        {
-          "version": "1.0.0",
-          "date": "2026-08-12",
-          "channel": "stable",
-          "os": "windows",
-          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.0.0/FehlerFuchs_HaushaltsManager_Setup_1.0.0.exe",
-          "filename": "FehlerFuchs_HaushaltsManager_Setup_1.0.0.exe",
-          "size": {
-            "bytes": 21072744,
-            "label": "20,1 MB",
-            "source": "GitHub-Release-Asset"
-          },
-          "sha256": "a9a420a77fd7990275872f7a225dde77fef55e91eb628f00a3ca3e9829d4589b",
-          "signed": true,
-          "notes": "Erste öffentliche, signierte Windows-Fassung (Herausgeber FehlerFuchs). Kaufprodukt über Digistore24 (Einmalkauf 20 €, 5 Arbeitsplätze, kein Abo): Download frei mit enthaltener Testphase, Vollnutzung per Lizenzschlüssel. EULA im Setup."
-        }
-      ],
-      "features": [
-        {
-          "group": "Erfassen und verwalten",
-          "items": [
-            {
-              "name": "Zählerstände für Strom, Gas und Wasser erfassen und Verbrauch nachverfolgen",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Verträge verwalten inkl. Kündigungsfristen",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Vollständiges Haushaltsbuch (Einnahmen und Ausgaben)",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Vorhaben und Projekte planen",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Optionale anonyme Beispieldaten zum Ausprobieren",
-              "values": {
-                "standard": "ja"
-              }
-            }
-          ]
-        },
-        {
-          "group": "Auswerten",
-          "items": [
-            {
-              "name": "Auswertungen mit Linien- und Balkendiagrammen und Von-bis-Filter",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Solar und Speicher einbeziehen (Solarertrag und Speicherdaten)",
-              "values": {
-                "standard": "ja"
-              }
-            }
-          ]
-        },
-        {
-          "group": "Ausgeben",
-          "items": [
-            {
-              "name": "Vertrags- und Kündigungsschreiben als PDF erzeugen",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "Monats- und Jahresberichte als PDF",
-              "values": {
-                "standard": "ja"
-              }
-            },
-            {
-              "name": "JSON-Export und Datenbank-Sicherung (Backup)",
-              "values": {
-                "standard": "ja"
-              }
-            }
-          ]
-        },
-        {
-          "group": "Energie & Solar anbinden (optional, standardmäßig aus)",
-          "items": [
-            {
-              "name": "Solaranlage über ENPAL (InfluxDB) einbinden",
-              "values": {
-                "standard": "ja"
-              },
-              "note": "Reine Verbindung im eigenen Heimnetz – die Daten verlassen das lokale Netz nicht."
-            },
-            {
-              "name": "Stromzähler über PowerFox/poweropti auslesen",
-              "values": {
-                "standard": "ja"
-              },
-              "note": "Der poweropti-Lesekopf am Zähler, per PowerFox-Cloud-API 2.0 oder direkt lokal; mit den eigenen Zugangsdaten, das Passwort bleibt im Windows-Anmeldespeicher."
-            },
-            {
-              "name": "Wetterdaten über Open-Meteo (wetterbereinigte Auswertung)",
-              "values": {
-                "standard": "ja"
-              },
-              "note": "Sendet nur die gewählten Koordinaten, ohne Schlüssel oder Konto."
-            },
-            {
-              "name": "Weitere Anbieter/Datenquellen auf Wunsch – über Updates",
-              "values": {
-                "standard": "geplant"
-              },
-              "note": "Sag mir, welcher Anbieter (z. B. Wechselrichter, Speicher, Energieportal) und auf welche Art – ich prüfe die Anbindung und liefere sie per Update nach. PowerFox/poweropti und ENPAL sind Marken der jeweiligen Anbieter."
-            }
-          ]
-        }
-      ],
-      "theme": {
-        "modus": "hell",
-        "akzent": "#5E8717"
-      },
-      "media": {
-        "lockup": {
-          "src": "/img/lockups/haushaltsmanager.svg",
-          "alt": "HaushaltsManager – von FehlerFuchs",
-          "width": 2350,
-          "height": 372
-        },
-        "platzhalter": 4
-      },
-      "links": {
-        "checkout": "https://www.checkout-ds24.com/product/721203",
-        "contact": "/kontakt.html?app=HaushaltsManager&topic=interesse"
-      },
-      "notes": "Öffentliche Produktfassung (sauberer Fork) des privaten HaushaltsManagers; Produkt-Code 36_HaushaltsManager Markt. Der private Ordner HaushaltsManager_PRIVAT (echte Daten) bleibt gesperrt und wird nie veröffentlicht. Slug und geprueft_von sind projektseitig geklärt (Eigentümer _Markt). Vertriebsmodell wie MobileReport: freier öffentlicher Download der signierten .exe (GitHub-Release, 1.0.0 eingetragen), Lizenzschlüssel (20 €, 5 Arbeitsplätze) über Digistore24 (Produkt 721203). Testkauf und „Aktiv = Ja“ sind abgeschlossen; offen bleiben echte Screenshots aus dem Projekt."
     }
   ]
 }

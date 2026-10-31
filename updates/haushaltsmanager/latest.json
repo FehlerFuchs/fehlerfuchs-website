@@ -1,6 +1,6 @@
 {
-  "version": "1.1.1",
-  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.1/FehlerFuchs_HaushaltsManager_Setup_1.1.1.exe",
-  "sha256": "d2f39081c1003dd74c2d6913613885e1bc0e005f2da9dad76cf2318cbef444c2",
-  "notes": "HaushaltsManager 1.1.1 – Fehlerbehebung Auswertungen\n- Auswertungen, Übersicht, Vorjahresvergleich und PDF-Bericht berücksichtigen jetzt von Hand erfasste Strom-Zählerstände (vorher wurde ohne PowerFox oder ENPAL 0 kWh angezeigt). Bereits erfasste Stände erscheinen sofort.\n- Haushaltsbuch: Nachträglich eingetragene ältere Monate werden in „Alle Jahre“ nicht mehr mehrfach gezählt.\n- Datenschutzhinweis zum Lizenzserver präzisiert (welche Angaben übertragen werden); Lizenzvereinbarung typografisch an die Webseite angeglichen.\n- Installer: Texte der Laufzeit-Seite mit korrekten Umlauten."
+  "version": "1.1.2",
+  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.2/FehlerFuchs_HaushaltsManager_Setup_1.1.2.exe",
+  "sha256": "533b2ad32465f8bef8d18032338a58eb7b410cbe3375acb9cc447888f4a8e0aa",
+  "notes": "HaushaltsManager 1.1.2 – Hintergrunddienst, Lizenz, Lizenzhinweise\n- Behoben: Das Symbol im Infobereich der Taskleiste (Tray) mit dem Menü „Öffnen“ und „Beenden“ und das Schließen-Kreuz arbeiten wieder wie vorgesehen.\n- Das Programm startet nur noch einmal je Windows-Benutzer.\n- Neu: Die Lizenz meldet das Gerät beim Online-Prüfen bei Bedarf selbst neu an.\n- Neu: „Alle Lizenzen anzeigen“ zeigt offline die Lizenzen der Fremdbausteine.\n- Die App speichert ihre Daten jetzt in einem eigenen Ordner; Daten einer früheren Installation werden nicht übernommen."
 }
