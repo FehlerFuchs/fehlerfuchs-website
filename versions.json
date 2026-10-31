@@ -82,11 +82,11 @@
       "os": "windows",
       "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/pdfuchs-v1.0.0/FehlerFuchs_PDFuchs_Setup_1.0.0.exe",
       "filename": "FehlerFuchs_PDFuchs_Setup_1.0.0.exe",
-      "sizeLabel": "496 MB",
-      "sha256": "ce63e500db8dc1e4ad797de46d31270236bf07625ce67d3ad879310ff9a3949f",
+      "sizeLabel": "461 MB",
+      "sha256": "d6464d4f2272118e8dc1f80e40fbdff20249cd0ad29e39088de10d4370bb7261",
       "signed": true,
       "page": "https://fehlerfuchs.eu/produkte/pdfuchs/",
-      "notes": "PDFuchs 1.0.0 – die erste Fassung. Komplett kostenlos, ohne Konto und ohne Abo.\n- Mehr als 60 Werkzeuge: Seiten ordnen, Text und Bilder ändern, Formulare, endgültig Schwärzen, Passwortschutz, Umwandeln.\n- Kommentieren, Signatur als Stempel, eigener Druckdialog mit Vorschau, E-Mail mit Textbausteinen.\n- Arbeitet auf deinem Rechner und baut von sich aus keine Verbindung ins Internet auf.",
+      "notes": "PDFuchs 1.0.0 (Stand 25) – Korrekturen aus der unabhängigen Prüfung: sicherer Schwärzen, Anhänge bleiben erhalten, bessere Formulare, klarere Meldungen, nichts geht beim Dateiwechsel verloren, aktualisierte Bausteine. Weiter komplett kostenlos, lokal, ohne Konto.\n- Mehr als 60 Werkzeuge: Seiten ordnen, Text und Bilder ändern, Formulare, endgültiges Schwärzen, Passwortschutz, Umwandeln.\n- Arbeitet auf deinem Rechner und baut von sich aus keine Verbindung ins Internet auf.",
       "windowsDisplayNames": [
         "PDFuchs 1.0.0"
       ]
