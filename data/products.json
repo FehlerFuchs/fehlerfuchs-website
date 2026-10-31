@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-31T13:43:05+01:00",
+  "generiert": "2026-10-31T21:50:54+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1066,7 +1066,6 @@
           },
           "sha256": "c008987843c07a94c826c4ecb2287f5c7320291cd13f186e7919095fedcfe706",
           "signed": true,
-          "ohne_meldung": "Keine Aktuelles-Meldung (Wort FF_00 31.10.2026, Logbuch #8713); Release-Text steht auf der GitHub-Release-Seite.",
           "notes": "GewerbePro 1.1.4 – Lizenz und Datenbank\n- Lizenz: Meldet der Lizenzserver, dass dein Gerät der Lizenz nicht mehr zugeordnet ist, meldet GewerbePro es einmal selbstständig neu an, statt eine Sperre zu zeigen.\n- Datenbank robuster: GewerbePro wartet bei einer gerade gesperrten Datenbank kurz, statt sofort mit einem Fehler abzubrechen; Sicherungen enthalten den neuesten Stand.\n- Löschen mit Aufbewahrungsschutz (Vorbereitung): Rechnungen, die du noch aufbewahren musst, bleiben beim vollständigen Löschen erhalten; die Oberfläche folgt später."
         },
         {
@@ -1450,6 +1449,10 @@
           ]
         }
       ],
+      "weiterlesen": {
+        "text": "Checkliste: Was muss auf die erste Rechnung?",
+        "url": "/ratgeber/erste-rechnung/"
+      },
       "faq": [
         {
           "question": "Was kostet das Programm?",
@@ -3252,7 +3255,7 @@
       "releases": [
         {
           "version": "1.0.0",
-          "date": "2026-10-20",
+          "date": "2026-10-31",
           "channel": "stable",
           "os": "windows",
           "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/pdfuchs-v1.0.0/FehlerFuchs_PDFuchs_Setup_1.0.0.exe",
@@ -3264,6 +3267,7 @@
           },
           "sha256": "d6464d4f2272118e8dc1f80e40fbdff20249cd0ad29e39088de10d4370bb7261",
           "signed": true,
+          "ohne_meldung": "Die Ankündigung „PDFuchs ist da“ (20.10.2026) gilt für diese Fassung weiter; der Dateiaustausch am 31.10.2026 (Stand 25) bekommt keine eigene Meldung (Wort Matthias über [FF_00] 31.10.2026).",
           "notes": "PDFuchs 1.0.0 (Stand 25) – Korrekturen aus der unabhängigen Prüfung: sicherer Schwärzen, Anhänge bleiben erhalten, bessere Formulare, klarere Meldungen, nichts geht beim Dateiwechsel verloren, aktualisierte Bausteine. Weiter komplett kostenlos, lokal, ohne Konto.\n- Mehr als 60 Werkzeuge: Seiten ordnen, Text und Bilder ändern, Formulare, endgültiges Schwärzen, Passwortschutz, Umwandeln.\n- Arbeitet auf deinem Rechner und baut von sich aus keine Verbindung ins Internet auf."
         }
       ],

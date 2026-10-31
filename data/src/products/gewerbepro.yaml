@@ -88,7 +88,7 @@ releases:
   # HTTP 200, Content-Length 116.212.296; sha256 und Signatur laut [FF_16] am öffentlichen Download gemessen. Wort FF_00
   # (ENTSCHEIDUNG A, Logbuch #8713; Update-Dateien ausdrücklich genannt). notes aus dem Release-Text von [FF_29]/[FF_16],
   # Auswahl und Kürzung auf die Prüfgrenze von 600 Zeichen (kein neuer Inhalt, nichts erfunden, P8). Companion-Mindestfassung
-  # unverändert 1.0.1. Keine Aktuelles-Meldung (ohne_meldung); Datenschutz-Kurzfassung bewusst unverändert (Vorlage FF_29 bei Matthias).
+  # unverändert 1.0.1. Aktuelles-Meldung gewerbepro-1-1-4 (Wort Matthias über [FF_00] 31.10.2026, Sichtung); Datenschutz-Kurzfassung bewusst unverändert (Vorlage FF_29 bei Matthias).
   - version: "1.1.4"
     date: "2026-10-31"
     channel: stable
@@ -101,7 +101,6 @@ releases:
       source: GitHub-Release-Asset
     sha256: "c008987843c07a94c826c4ecb2287f5c7320291cd13f186e7919095fedcfe706"
     signed: true
-    ohne_meldung: "Keine Aktuelles-Meldung (Wort FF_00 31.10.2026, Logbuch #8713); Release-Text steht auf der GitHub-Release-Seite."
     notes: |-
       GewerbePro 1.1.4 – Lizenz und Datenbank
       - Lizenz: Meldet der Lizenzserver, dass dein Gerät der Lizenz nicht mehr zugeordnet ist, meldet GewerbePro es einmal selbstständig neu an, statt eine Sperre zu zeigen.
@@ -358,6 +357,11 @@ features:
           USB-Kabel oder als verschlüsselte Datei.
       - name: Voll editierbar, Entwickler-Werkzeuge und Selbsttest
         values: { free: nein, pro: nein, vather: ja }
+
+# Weiterführender Link zum Ratgeber (Sichtung 31.10.2026, S1; Wort Matthias über [FF_00]).
+weiterlesen:
+  text: "Checkliste: Was muss auf die erste Rechnung?"
+  url: /ratgeber/erste-rechnung/
 
 faq:
   - question: Was kostet das Programm?

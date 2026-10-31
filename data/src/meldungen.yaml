@@ -106,10 +106,13 @@ meldungen:
   # PDFuchs 1.0.0 (Windows-Release 20.10.2026 17:39, signiert, Meldung [FF_16] P5 17:44). 'version: 1.0.0'
   # bindet die Meldung an den releases-Eintrag. Text aus „Was ist neu“ der Release-Seite (freigegeben von
   # Matthias 20.10.2026), nichts erfunden (P8). Erste veröffentlichte Fassung: als Ankündigung geschrieben (was ist PDFuchs, was habe ich davon), nicht als Liste von Neuerungen (Hinweis Matthias 20.10.2026 18:58).
+  # Änderung 31.10.2026 (Sichtung, Befund 6): Der Release-Eintrag 1.0.0 trägt jetzt das Datum des Dateiaustauschs
+  # (31.10.2026). Damit die Ankündigung nicht auf dieses Datum rutscht (und im Feed als neu erscheint), ist sie von
+  # der Version gelöst und trägt ihr eigenes Datum; „Zum Produkt“ bleibt; der Download-Knopf entfällt, weil er nur an einer Version hängt.
   - id: pdfuchs-1-0-0
     typ: veroeffentlichung
     produkt: pdfuchs
-    version: "1.0.0"
+    datum: "2026-10-20"
     titel: "PDFuchs ist da: das kostenlose PDF-Programm für Windows"
     text: >-
       PDFuchs ist ab sofort für Windows erhältlich – komplett kostenlos, ohne Konto und ohne Abo.
@@ -145,6 +148,22 @@ meldungen:
       Sicherung überschreibt keinen neueren Stand mehr (der volle Schutz gilt mit der
       Companion-App 1.0.2). Bei „Handy suchen“ siehst du zuerst nur die Namen der USB-Geräte;
       GewerbePro liest erst das Gerät, das du ausgewählt hast.
+
+  # GewerbePro 1.1.4 (Build 11) – Release 31.10.2026 13:27 (signiert, Meldung [FF_16] P5 13:28). 'version: 1.1.4'
+  # bindet die Meldung an den releases-Eintrag. Text aus den Versionshinweisen des Releases, nichts erfunden (P8),
+  # für Besucher gekürzt. Wort Matthias über [FF_00] 31.10.2026 (Sichtung, Befund 2): eine Meldung, kein Facebook-Beitrag.
+  - id: gewerbepro-1-1-4
+    typ: update
+    produkt: gewerbepro
+    version: "1.1.4"
+    titel: "GewerbePro 1.1.4: Lizenz und Datenbank robuster"
+    text: >-
+      GewerbePro 1.1.4 macht Lizenz und Datenbank robuster. Meldet der Lizenzserver, dass dein Gerät
+      der Lizenz nicht mehr zugeordnet ist, meldet GewerbePro es einmal selbstständig neu an, statt
+      eine Sperre zu zeigen. Ist die Datenbank gerade gesperrt, wartet GewerbePro kurz, statt sofort
+      mit einem Fehler abzubrechen, und Sicherungen enthalten den neuesten Stand. Außerdem bereitet
+      1.1.4 vor, dass Rechnungen, die du noch aufbewahren musst, beim vollständigen Löschen erhalten
+      bleiben; die Oberfläche dazu folgt später.
 
   # OrgaFuchs 1.11.0 – Windows-Release 20.10.2026 10:01 (signiert, Meldung [FF_16] P5 10:02);
   # Android 1.11.0 im Play Store seit 09.10.2026 15:44 (P5 von [FF_13]). 'version: 1.11.0' bindet die

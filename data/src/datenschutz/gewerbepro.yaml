@@ -190,14 +190,14 @@ loeschung: >-
   Alle Daten liegen auf dem Gerät. In den Einstellungen löscht „Alle Geschäftsdaten löschen“ Kunden, Angebote,
   Aufträge, Belege, Termine, Aufgaben, Notizen, Projekte, Artikel- und
   Leistungsvorlagen und das Logbuch sowie Rechnungsentwürfe und Rechnungen, die
-  nicht mehr aufbewahrt werden müssen. Rechnungen, die Sie gesetzlich
-  aufbewahren müssen, bleiben dabei erhalten: jede ausgestellte Rechnung, auch
+  nicht mehr aufbewahrt werden müssen. Rechnungen, die du gesetzlich
+  aufbewahren musst, bleiben dabei erhalten: jede ausgestellte Rechnung, auch
   eine stornierte, bis zum Ende des achten Jahres nach dem Rechnungsjahr (§ 147
   AO, § 14b UStG), samt Positionen, Zahlungen, Mahnungen, Gutschriften,
   zugehörigen Buchungen und den Kunden, Aufträgen und Projekten, die zu diesen
-  Rechnungen gehören. Ihre Stammdaten und Einstellungen, Anlagen, Fahrtenbuch,
+  Rechnungen gehören. Deine Stammdaten und Einstellungen, Anlagen, Fahrtenbuch,
   Postfach-Konten sowie Exporte, Sicherungen und die Belegablage löscht diese
-  Funktion nicht; sie bleiben im Datenordner, bis Sie sie selbst löschen.
+  Funktion nicht; sie bleiben im Datenordner, bis du sie selbst löschst.
   Die Deinstallation
   entfernt das Programm; der Datenordner (%APPDATA%\FehlerFuchs\GewerbePro\Daten)
   mit Datenbank, Exporten und Backups bleibt bestehen und kann vom Nutzer

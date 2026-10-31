@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-30T19:41:03+01:00",
+  "generiert": "2026-10-31T21:50:54+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "rechtstexte": [
     {
@@ -61,7 +61,7 @@
           {
             "titel": "6a. Aktualisierungen gegenüber Verbrauchern",
             "absaetze": [
-              "Bei entgeltlich erworbenen digitalen Produkten stellt der Anbieter Verbrauchern nach §§ 327f BGB für den Zeitraum, den der Verbraucher aufgrund der Art und des Zwecks des Produkts erwarten kann, Aktualisierungen einschließlich Sicherheitsaktualisierungen bereit und informiert über deren Verfügbarkeit."
+              "Bei entgeltlich erworbenen digitalen Produkten stellt der Anbieter Verbrauchern nach § 327f BGB für den Zeitraum, den der Verbraucher aufgrund der Art und des Zwecks des Produkts erwarten kann, Aktualisierungen einschließlich Sicherheitsaktualisierungen bereit und informiert über deren Verfügbarkeit."
             ]
           },
           {

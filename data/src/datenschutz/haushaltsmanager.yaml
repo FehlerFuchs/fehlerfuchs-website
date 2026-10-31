@@ -114,7 +114,7 @@ loeschung: >-
   Beispieldaten) lassen sich in der App einzeln löschen; die Datenbank sowie erzeugte PDFs, Exporte und Sicherungen
   kann der Nutzer jederzeit selbst löschen. Der Deinstaller entfernt das Programm und fragt, ob auch der Datenordner
   (und eine vom Nutzer verlegte Datenbank) entfernt werden soll – Standard ist „behalten“. Zugangsdaten (PowerFox,
-  ENPAL) und Lizenzangaben stehen verschlüsselt in einer Datei im Datenordner (`flutter_secure_storage.dat`); den
+  ENPAL) und Lizenzangaben stehen verschlüsselt in einer Datei im Datenordner (flutter_secure_storage.dat); den
   Schutz übernimmt Windows für dein Benutzerkonto. Sie werden entfernt, wenn du den Datenordner löschst oder der
   Deinstaller ihn entfernt. Die Löschung
   der beim Lizenzserver gespeicherten Lizenzdaten (E-Mail-Adresse und Geräteaktivierungen) kann unter
