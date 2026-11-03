@@ -78,6 +78,29 @@ editions:
 # Erste öffentliche, signierte Windows-Fassung. sha256/Bytes lokal am signierten
 # Artefakt UND gegen das GitHub-Asset gegengeprüft (byte-identisch, signtool /pa OK).
 releases:
+  # 1.1.3 (03.11.2026, App 1.1.3+44): Meldung [FF_16] Code Signing (18:32, veröffentlicht 18:32:37 auf „push haushaltsmanager“ von
+  # Matthias 18:24:41, schriftliches Wort [FF_00] 18:31). Von [FF_10] gegen GitHub nachgemessen 18:35: kein Entwurf, keine
+  # Vorabversion, ein Asset 20.739.624 B, GitHub-Prüfsumme sha256:3a4ab8ad…5ead = Angabe [FF_16]; öffentliche URL HTTP 200,
+  # Content-Length 20.739.624. Signatur laut [FF_16] am öffentlichen Download gemessen (signtool /pa Valid). notes wortgleich aus dem
+  # freigegebenen Release-Text A (Entscheidung [FF_00] an [FF_36] 03.11.2026), nichts erfunden (P8).
+  - version: "1.1.3"
+    date: "2026-11-03"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.3/FehlerFuchs_HaushaltsManager_Setup_1.1.3.exe
+    filename: FehlerFuchs_HaushaltsManager_Setup_1.1.3.exe
+    size:
+      bytes: 20739624
+      label: "19,8 MB"
+      source: GitHub-Release-Asset
+    sha256: "3a4ab8ad702a836f1eef8026a85a5f770b7809fd0dd681e140b5f0f9625d5ead"
+    signed: true
+    ohne_meldung: "Keine Aktuelles-Meldung (Wort FF_00 03.11.2026 18:37, wie bei 1.1.2, solange Matthias nichts anderes sagt); Release-Text steht auf der GitHub-Release-Seite."
+    notes: |-
+      HaushaltsManager 1.1.3 – Ladefehler des geschützten Speichers
+      - Behoben: Lässt sich der geschützte Speicher des Programms (Testphase und Lizenz) nicht lesen oder schreiben, zeigt das Programm jetzt einen Hinweis statt „Testphase abgelaufen“. Die Testphase läuft weiter, und die beschädigte Datei bleibt im Datenordner zur Ansicht erhalten.
+      - Behoben: Die Deinstallation entfernt alle Programmdateien auch dann, wenn Windows sie nach dem Beenden noch kurz festhält.
+      - Neu: Bei der Installation wird die Prüfsumme der Programmdatei festgehalten (Datei „installiert.sha256“ im Programmordner).
   # 1.1.2 (31.10.2026, App 1.1.2+41): Meldung [FF_16] Code Signing (13:23, veröffentlicht auf „push haushaltsmanager“ von
   # Matthias 13:21). Von [FF_10] gegen GitHub nachgemessen 13:24: öffentliche URL HTTP 200, Content-Length 20.733.544;
   # sha256 und Signatur laut [FF_16] am öffentlichen Download gemessen (signtool /pa Valid). notes aus dem von Matthias

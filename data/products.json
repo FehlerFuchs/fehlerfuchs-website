@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-31T21:56:13+01:00",
+  "generiert": "2026-11-03T18:36:12+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1938,6 +1938,23 @@
         }
       ],
       "releases": [
+        {
+          "version": "1.1.3",
+          "date": "2026-11-03",
+          "channel": "stable",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.3/FehlerFuchs_HaushaltsManager_Setup_1.1.3.exe",
+          "filename": "FehlerFuchs_HaushaltsManager_Setup_1.1.3.exe",
+          "size": {
+            "bytes": 20739624,
+            "label": "19,8 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "3a4ab8ad702a836f1eef8026a85a5f770b7809fd0dd681e140b5f0f9625d5ead",
+          "signed": true,
+          "ohne_meldung": "Keine Aktuelles-Meldung (Wort FF_00 03.11.2026 18:37, wie bei 1.1.2, solange Matthias nichts anderes sagt); Release-Text steht auf der GitHub-Release-Seite.",
+          "notes": "HaushaltsManager 1.1.3 – Ladefehler des geschützten Speichers\n- Behoben: Lässt sich der geschützte Speicher des Programms (Testphase und Lizenz) nicht lesen oder schreiben, zeigt das Programm jetzt einen Hinweis statt „Testphase abgelaufen“. Die Testphase läuft weiter, und die beschädigte Datei bleibt im Datenordner zur Ansicht erhalten.\n- Behoben: Die Deinstallation entfernt alle Programmdateien auch dann, wenn Windows sie nach dem Beenden noch kurz festhält.\n- Neu: Bei der Installation wird die Prüfsumme der Programmdatei festgehalten (Datei „installiert.sha256“ im Programmordner)."
+        },
         {
           "version": "1.1.2",
           "date": "2026-10-31",

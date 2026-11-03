@@ -1,6 +1,6 @@
 {
-  "version": "1.1.2",
-  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.2/FehlerFuchs_HaushaltsManager_Setup_1.1.2.exe",
-  "sha256": "533b2ad32465f8bef8d18032338a58eb7b410cbe3375acb9cc447888f4a8e0aa",
-  "notes": "HaushaltsManager 1.1.2 – Hintergrunddienst, Lizenz, Lizenzhinweise\n- Behoben: Das Symbol im Infobereich der Taskleiste (Tray) mit dem Menü „Öffnen“ und „Beenden“ und das Schließen-Kreuz arbeiten wieder wie vorgesehen.\n- Das Programm startet nur noch einmal je Windows-Benutzer.\n- Neu: Die Lizenz meldet das Gerät beim Online-Prüfen bei Bedarf selbst neu an.\n- Neu: „Alle Lizenzen anzeigen“ zeigt offline die Lizenzen der Fremdbausteine.\n- Die App speichert ihre Daten jetzt in einem eigenen Ordner; Daten einer früheren Installation werden nicht übernommen."
+  "version": "1.1.3",
+  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.3/FehlerFuchs_HaushaltsManager_Setup_1.1.3.exe",
+  "sha256": "3a4ab8ad702a836f1eef8026a85a5f770b7809fd0dd681e140b5f0f9625d5ead",
+  "notes": "HaushaltsManager 1.1.3 – Ladefehler des geschützten Speichers\n- Behoben: Lässt sich der geschützte Speicher des Programms (Testphase und Lizenz) nicht lesen oder schreiben, zeigt das Programm jetzt einen Hinweis statt „Testphase abgelaufen“. Die Testphase läuft weiter, und die beschädigte Datei bleibt im Datenordner zur Ansicht erhalten.\n- Behoben: Die Deinstallation entfernt alle Programmdateien auch dann, wenn Windows sie nach dem Beenden noch kurz festhält.\n- Neu: Bei der Installation wird die Prüfsumme der Programmdatei festgehalten (Datei „installiert.sha256“ im Programmordner)."
 }
