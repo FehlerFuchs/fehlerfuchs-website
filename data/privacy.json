@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-31T21:50:54+01:00",
+  "generiert": "2026-11-03T18:27:45+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -888,9 +888,9 @@
       "slug": "haushaltsmanager",
       "slug_vorschlag": false,
       "name": "HaushaltsManager",
-      "stand": "2026-10-31",
+      "stand": "2026-11-03",
       "geprueft_von": "36_HaushaltsManager Markt",
-      "fassung": "Am gebauten und veröffentlichten Produkt 1.1.2 geprüft (Produktfassung ohne private Daten, sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Installer, Programmdatei, Deinstaller und alle mitgelieferten Programmbibliotheken sind mit der FehlerFuchs-Signatur versehen (zweistufig signiert). Neu ggü. 1.1.1: eigener Datenordner (%APPDATA%\\FehlerFuchs\\HaushaltsManager\\) mit eigenem verschlüsselten Speicher, Knopf „Alle Lizenzen anzeigen“ in der App, Tray-Symbol mit Menü und Schließen-Kreuz arbeiten wieder wie vorgesehen, nur eine Programminstanz je Benutzer, automatische Neuanmeldung des Geräts beim Online-Prüfen der Lizenz (keine zusätzlichen Angaben).",
+      "fassung": "Am gebauten und signierten Produkt 1.1.3 geprüft (Produktfassung ohne private Daten, sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Installer, Programmdatei, Deinstaller und alle mitgelieferten Programmbibliotheken sind mit der FehlerFuchs-Signatur versehen (zweistufig signiert). Neu ggü. 1.1.1: eigener Datenordner (%APPDATA%\\FehlerFuchs\\HaushaltsManager\\) mit eigenem verschlüsselten Speicher, Knopf „Alle Lizenzen anzeigen“ in der App, Tray-Symbol mit Menü und Schließen-Kreuz arbeiten wieder wie vorgesehen, nur eine Programminstanz je Benutzer, automatische Neuanmeldung des Geräts beim Online-Prüfen der Lizenz (keine zusätzlichen Angaben). Neu ggü. 1.1.2: Lässt sich der verschlüsselte Speicher nicht lesen, zeigt die App einen Hinweis; die beschädigte Datei bleibt als Kopie im Datenordner erhalten (keine neuen Datenarten, keine Übermittlung).",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -912,6 +912,10 @@
         {
           "was": "Support-Paket (Protokoll und Systemangaben, ohne Zugangsdaten)",
           "wo": "lokal, nur wenn der Nutzer es erzeugt; versendet wird es nur durch den Nutzer selbst"
+        },
+        {
+          "was": "Kopie einer beschädigten verschlüsselten Ablage – nur wenn die Ablage (Zugangsdaten, Lizenzangaben) einmal nicht lesbar war; sie behält ihren verschlüsselten Inhalt (nur Windows kann ihn für dein Benutzerkonto entschlüsseln) und liegt zur Ansicht neben der neuen Ablage",
+          "wo": "lokal, im Datenordner (%APPDATA%\\FehlerFuchs\\HaushaltsManager\\), Dateiname flutter_secure_storage.dat.beschaedigt-<Datum>-<Zeit>"
         }
       ],
       "berechtigungen": [
@@ -979,7 +983,7 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen ausschließlich lokal in der SQLite-Datenbank unter %APPDATA%\\FehlerFuchs\\HaushaltsManager\\HaushaltsManager\\ (sofern du in der App keinen anderen Speicherort gewählt hast). Es werden keine Haushaltsdaten an FehlerFuchs oder Dritte übertragen. Einträge (auch die optionalen Beispieldaten) lassen sich in der App einzeln löschen; die Datenbank sowie erzeugte PDFs, Exporte und Sicherungen kann der Nutzer jederzeit selbst löschen. Der Deinstaller entfernt das Programm und fragt, ob auch der Datenordner (und eine vom Nutzer verlegte Datenbank) entfernt werden soll – Standard ist „behalten“. Zugangsdaten (PowerFox, ENPAL) und Lizenzangaben stehen verschlüsselt in einer Datei im Datenordner (flutter_secure_storage.dat); den Schutz übernimmt Windows für dein Benutzerkonto. Sie werden entfernt, wenn du den Datenordner löschst oder der Deinstaller ihn entfernt. Die Löschung der beim Lizenzserver gespeicherten Lizenzdaten (E-Mail-Adresse und Geräteaktivierungen) kann unter https://fehlerfuchs.eu/datenschutz/loeschantrag/ beantragt werden.",
+      "loeschung": "Alle Daten liegen ausschließlich lokal in der SQLite-Datenbank unter %APPDATA%\\FehlerFuchs\\HaushaltsManager\\HaushaltsManager\\ (sofern du in der App keinen anderen Speicherort gewählt hast). Es werden keine Haushaltsdaten an FehlerFuchs oder Dritte übertragen. Einträge (auch die optionalen Beispieldaten) lassen sich in der App einzeln löschen; die Datenbank sowie erzeugte PDFs, Exporte und Sicherungen kann der Nutzer jederzeit selbst löschen. Der Deinstaller entfernt das Programm und fragt, ob auch der Datenordner (und eine vom Nutzer verlegte Datenbank) entfernt werden soll – Standard ist „behalten“. Zugangsdaten (PowerFox, ENPAL) und Lizenzangaben stehen verschlüsselt in einer Datei im Datenordner (`flutter_secure_storage.dat`); den Schutz übernimmt Windows für dein Benutzerkonto. Sie werden entfernt, wenn du den Datenordner löschst oder der Deinstaller ihn entfernt. War die Ablage einmal nicht lesbar, bleibt eine Kopie der beschädigten, verschlüsselten Datei (`flutter_secure_storage.dat.beschaedigt-<Datum>-<Zeit>`) im Datenordner liegen; sie wird zusammen mit dem Datenordner entfernt. Die Löschung der beim Lizenzserver gespeicherten Lizenzdaten (E-Mail-Adresse und Geräteaktivierungen) kann unter https://fehlerfuchs.eu/datenschutz/loeschantrag/ beantragt werden.",
       "besonderheiten": "Kernversprechen: „Alle Daten bleiben auf diesem Gerät.“ HaushaltsManager ist privacy-first und offline-first – kein Konto, kein Tracking, keine Werbung, keine Telemetrie, keine automatischen Absturzberichte. Die drei Datenverbindungen (Open-Meteo, PowerFox-Cloud, ENPAL/InfluxDB) sind standardmäßig AUS und einzeln zuschalt- bzw. abschaltbar. Ein optionaler Hintergrunddienst (Tray-Symbol, standardmäßig aus) hält – nur wenn der Nutzer ihn und die jeweilige Verbindung aktiviert – die aktivierten Abrufe (PowerFox/Wetter/ENPAL) auch bei geschlossenem Fenster und auf Wunsch ab Windows-Start am Laufen; ohne Aktivierung bestehen keinerlei Hintergrundverbindungen. Das Komponenten-Update läuft ausschließlich über eine lokal vom Nutzer ausgewählte JSON-Datei ohne jede Netzverbindung; es ändert nur ausdrücklich erlaubte Einstellungen in geprüften Wertebereichen, Zugangsdaten in solchen Paketen sind verboten. Zugangsdaten (PowerFox-Passwort, ENPAL-Token, Lizenzschlüssel und Offline-Token) liegen ausschließlich verschlüsselt im Datenordner (Schutz durch Windows); der Lizenzschlüssel wird nicht protokolliert. Kaufabsicherung: Nach einer kostenlosen Testphase von 30 Tagen wird die App mit einem Lizenzschlüssel aktiviert. Dabei verlassen nur Schlüssel, eine anonyme, zufällige Geräte-Kennung, Produktkennung und Plattform das Gerät (Ziel: license.fehlerfuchs.eu, EU); es werden keinerlei Haushaltsdaten übertragen. Der Server stellt ein Ed25519-signiertes Offline-Token aus, sodass die App anschließend offline läuft und nur in größeren Abständen kurz online prüft. Eine Lizenz gilt für bis zu fünf Geräte; ein Gerät kann in der App wieder freigegeben werden. Der App-Update-Check ist nutzerinitiiert und liest nur eine öffentliche Versionsliste (keine Telemetrie). Die Lizenzvereinbarung (EULA) und die Datenschutzhinweise sind offline in der App nachlesbar („Hilfe & Recht“). Anbieterkennzeichnung in der App (Impressum): FehlerFuchs, Geschäftsbezeichnung/Marke von Matthias Schacht, Susanne-Bohl-Straße 8, 07747 Jena, E-Mail admin@fehlerfuchs.eu.",
       "vorhandener_text": "",
       "offene_fragen": "1) Monetarisierung entschieden: Einmalkauf 20,00 € (Brutto) über Digistore24, Lizenzaktivierung über den FehlerFuchs-Lizenzserver, fünf Arbeitsplätze je Lizenz. 2) Serverseitig zu bestätigen (nicht am Programm prüfbar): Produktkennung „HaushaltsManager“ (App-Feld) und 30-Tage-Offline-Karenz je Produkt.",

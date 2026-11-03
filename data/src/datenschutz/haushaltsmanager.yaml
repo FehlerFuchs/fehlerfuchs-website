@@ -1,18 +1,21 @@
-# Geprüft gegen HaushaltsManager 1.1.2 (Quellstand 468acd9, veröffentlicht 31.10.2026 13:22) von [FF_36] am 31.10.2026.
-# Ausgangspunkt: Master bei [FF_00-1] vom 23.10.2026 (Wortlaut Lizenzserver-Satz bestätigt); nur Änderungen für 1.1.2 und die Speicherangaben berichtigt (am Code nachgesehen).
+# Geprüft gegen HaushaltsManager 1.1.3 (App 1.1.3+44, Quellstand 876f47d, signiert 03.11.2026, noch nicht veröffentlicht) von [FF_36] am 03.11.2026.
+# Ausgangspunkt: Steckbrief 1.1.2 vom 31.10.2026 (Master bei [FF_00-1] vom 23.10.2026). Gegenüber 1.1.2 ändert sich genau ein Punkt (Kopie der beschädigten Ablage); alle Stellen sind unten mit "NEU 1.1.3" markiert.
 slug: haushaltsmanager
 slug_vorschlag: false
 name: HaushaltsManager
-stand: "2026-10-31"
+stand: "2026-11-03"
 geprueft_von: 36_HaushaltsManager Markt
+# NEU 1.1.3: Fassung nennt 1.1.3, Satz "Neu gegenüber 1.1.2" am Ende ergänzt.
 fassung: >-
-  Am gebauten und veröffentlichten Produkt 1.1.2 geprüft (Produktfassung ohne private Daten,
+  Am gebauten und signierten Produkt 1.1.3 geprüft (Produktfassung ohne private Daten,
   sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Installer, Programmdatei,
   Deinstaller und alle mitgelieferten Programmbibliotheken sind mit der FehlerFuchs-Signatur versehen
   (zweistufig signiert). Neu ggü. 1.1.1: eigener Datenordner (%APPDATA%\FehlerFuchs\HaushaltsManager\)
   mit eigenem verschlüsselten Speicher, Knopf „Alle Lizenzen anzeigen“ in der App, Tray-Symbol mit
   Menü und Schließen-Kreuz arbeiten wieder wie vorgesehen, nur eine Programminstanz je Benutzer,
   automatische Neuanmeldung des Geräts beim Online-Prüfen der Lizenz (keine zusätzlichen Angaben).
+  Neu ggü. 1.1.2: Lässt sich der verschlüsselte Speicher nicht lesen, zeigt die App einen Hinweis; die
+  beschädigte Datei bleibt als Kopie im Datenordner erhalten (keine neuen Datenarten, keine Übermittlung).
 
 lokal_only: false   # optionale, standardmäßig ausgeschaltete Datenverbindungen + eine minimale Lizenzprüfung, siehe uebertragungen
 
@@ -30,6 +33,11 @@ auf_dem_geraet:
   wo: lokal, in der Datenbank; sie werden wie eigene Einträge einzeln in der App gelöscht
 - was: Support-Paket (Protokoll und Systemangaben, ohne Zugangsdaten)
   wo: lokal, nur wenn der Nutzer es erzeugt; versendet wird es nur durch den Nutzer selbst
+# NEU 1.1.3: der folgende Eintrag (Kopie der beschädigten Ablage).
+- was: Kopie einer beschädigten verschlüsselten Ablage – nur wenn die Ablage (Zugangsdaten, Lizenzangaben) einmal
+    nicht lesbar war; sie behält ihren verschlüsselten Inhalt (nur Windows kann ihn für dein Benutzerkonto
+    entschlüsseln) und liegt zur Ansicht neben der neuen Ablage
+  wo: lokal, im Datenordner (%APPDATA%\FehlerFuchs\HaushaltsManager\), Dateiname flutter_secure_storage.dat.beschaedigt-<Datum>-<Zeit>
 
 berechtigungen:
 - name: Lesen/Schreiben der eigenen SQLite-Datenbank und der vom Nutzer gewählten Export-/PDF-/Backup-Ordner
@@ -107,6 +115,7 @@ werbung: false
 absturzberichte: false
 daten_an_dritte_verkauft: false
 
+# NEU 1.1.3: in loeschung der Satz zur Kopie der beschädigten Ablage (nach "Sie werden entfernt, wenn du den Datenordner löschst oder der Deinstaller ihn entfernt.").
 loeschung: >-
   Alle Daten liegen ausschließlich lokal in der SQLite-Datenbank unter
   %APPDATA%\FehlerFuchs\HaushaltsManager\HaushaltsManager\ (sofern du in der App keinen anderen Speicherort
@@ -114,9 +123,11 @@ loeschung: >-
   Beispieldaten) lassen sich in der App einzeln löschen; die Datenbank sowie erzeugte PDFs, Exporte und Sicherungen
   kann der Nutzer jederzeit selbst löschen. Der Deinstaller entfernt das Programm und fragt, ob auch der Datenordner
   (und eine vom Nutzer verlegte Datenbank) entfernt werden soll – Standard ist „behalten“. Zugangsdaten (PowerFox,
-  ENPAL) und Lizenzangaben stehen verschlüsselt in einer Datei im Datenordner (flutter_secure_storage.dat); den
+  ENPAL) und Lizenzangaben stehen verschlüsselt in einer Datei im Datenordner (`flutter_secure_storage.dat`); den
   Schutz übernimmt Windows für dein Benutzerkonto. Sie werden entfernt, wenn du den Datenordner löschst oder der
-  Deinstaller ihn entfernt. Die Löschung
+  Deinstaller ihn entfernt. War die Ablage einmal nicht lesbar, bleibt eine Kopie der beschädigten, verschlüsselten
+  Datei (`flutter_secure_storage.dat.beschaedigt-<Datum>-<Zeit>`) im Datenordner liegen; sie wird zusammen mit
+  dem Datenordner entfernt. Die Löschung
   der beim Lizenzserver gespeicherten Lizenzdaten (E-Mail-Adresse und Geräteaktivierungen) kann unter
   https://fehlerfuchs.eu/datenschutz/loeschantrag/ beantragt werden.
 
