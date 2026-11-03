@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-31T21:56:13+01:00",
+  "generiert": "2026-11-03T06:48:20+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "appinsight-1-0-3",
+      "typ": "update",
+      "produkt": "appinsight",
+      "datum": "2026-11-01",
+      "titel": "AppInsight 1.0.3: Die Internetsperre ist ehrlicher",
+      "text": "AppInsight 1.0.3 ist im Play Store und macht die Internetsperre ehrlicher. Übernimmt eine andere VPN, zeigt AppInsight „Sperre unterbrochen“ statt „Gesperrt“ und meldet es. Ist eine andere VPN durchgehend aktiv, erklärt AppInsight, warum Android die Sperre nicht zulässt. Und vor dem Sperren warnt AppInsight, wenn dafür eine laufende VPN getrennt wird.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.appinsight"
+      }
+    },
     {
       "id": "gewerbepro-1-1-4",
       "typ": "update",

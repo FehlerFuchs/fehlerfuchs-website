@@ -103,6 +103,22 @@ meldungen:
       AppInsight 1.0.2 ist im Play Store. Unter „Info“ zeigt der neue Punkt „Lizenzen“, welche
       Bausteine AppInsight nutzt und unter welchen Lizenzen – vollständig und ohne Internet.
 
+  # AppInsight 1.0.3 (versionCode 7). Play-Store-App, kein Release im Modell, kein 'version'. Im öffentlichen Store
+  # gesehen am 01.11.2026 09:50 (P5 von [FF_13]; Store zeigt „Aktualisiert am 30.10.2026“, Livezeitpunkt in der Console
+  # nicht belegt, deshalb das belegte Datum 01.11.2026). Text nach „Was ist neu“ von [FF_22] (Stand 30.10.2026, 339 Zeichen,
+  # im Store wortgleich gelesen 03.11.2026), nichts erfunden (P8), für Besucher geschrieben. KEINE Buildnummer.
+  # Wort Matthias über [FF_00] 03.11.2026 (Wahl A): Meldung, kein Facebook-Beitrag.
+  - id: appinsight-1-0-3
+    typ: update
+    produkt: appinsight
+    datum: "2026-11-01"
+    titel: "AppInsight 1.0.3: Die Internetsperre ist ehrlicher"
+    text: >-
+      AppInsight 1.0.3 ist im Play Store und macht die Internetsperre ehrlicher. Übernimmt eine
+      andere VPN, zeigt AppInsight „Sperre unterbrochen“ statt „Gesperrt“ und meldet es. Ist eine
+      andere VPN durchgehend aktiv, erklärt AppInsight, warum Android die Sperre nicht zulässt. Und
+      vor dem Sperren warnt AppInsight, wenn dafür eine laufende VPN getrennt wird.
+
   # PDFuchs 1.0.0 (Windows-Release 20.10.2026 17:39, signiert, Meldung [FF_16] P5 17:44). 'version: 1.0.0'
   # bindet die Meldung an den releases-Eintrag. Text aus „Was ist neu“ der Release-Seite (freigegeben von
   # Matthias 20.10.2026), nichts erfunden (P8). Erste veröffentlichte Fassung: als Ankündigung geschrieben (was ist PDFuchs, was habe ich davon), nicht als Liste von Neuerungen (Hinweis Matthias 20.10.2026 18:58).
