@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-03T06:48:20+01:00",
+  "generiert": "2026-11-04T06:21:01+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
     {
@@ -106,14 +106,10 @@
       "id": "pdfuchs-1-0-0",
       "typ": "veroeffentlichung",
       "produkt": "pdfuchs",
-      "version": "1.0.0",
+      "datum": "2026-10-20",
       "titel": "PDFuchs ist da: das kostenlose PDF-Programm für Windows",
       "text": "PDFuchs ist ab sofort für Windows erhältlich – komplett kostenlos, ohne Konto und ohne Abo. Mit mehr als 60 Werkzeugen liest, kommentierst und bearbeitest du PDFs: Seiten ordnen und zusammenführen, Text und Bilder ändern, Formulare ausfüllen, Inhalte endgültig schwärzen, mit Passwort schützen, mit einem Klick unterschreiben und in andere Formate umwandeln. Alles läuft auf deinem Rechner, deine Dokumente bleiben bei dir. Wer mag, unterstützt FehlerFuchs freiwillig.",
-      "datum": "2026-10-20",
-      "datumQuelle": "Release 1.0.0",
-      "wege": {
-        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/pdfuchs-v1.0.0/FehlerFuchs_PDFuchs_Setup_1.0.0.exe"
-      }
+      "datumQuelle": "eigene Angabe"
     },
     {
       "id": "gewerbepro-companion-1-0-2",

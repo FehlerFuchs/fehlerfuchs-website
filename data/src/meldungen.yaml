@@ -122,10 +122,13 @@ meldungen:
   # PDFuchs 1.0.0 (Windows-Release 20.10.2026 17:39, signiert, Meldung [FF_16] P5 17:44). 'version: 1.0.0'
   # bindet die Meldung an den releases-Eintrag. Text aus „Was ist neu“ der Release-Seite (freigegeben von
   # Matthias 20.10.2026), nichts erfunden (P8). Erste veröffentlichte Fassung: als Ankündigung geschrieben (was ist PDFuchs, was habe ich davon), nicht als Liste von Neuerungen (Hinweis Matthias 20.10.2026 18:58).
+  # Änderung 04.11.2026 (Entscheidung FF_00, Downloaddatum PDFuchs 31.10.): Der Release-Eintrag 1.0.0 trägt jetzt das
+  # Datum des Dateiaustauschs (31.10.2026). Damit die Ankündigung nicht auf dieses Datum rutscht (und im Feed als neu
+  # erscheint), ist sie von der Version gelöst und behält ihr Datum; „Zum Produkt“ bleibt, der Download-Knopf entfällt.
   - id: pdfuchs-1-0-0
     typ: veroeffentlichung
     produkt: pdfuchs
-    version: "1.0.0"
+    datum: "2026-10-20"
     titel: "PDFuchs ist da: das kostenlose PDF-Programm für Windows"
     text: >-
       PDFuchs ist ab sofort für Windows erhältlich – komplett kostenlos, ohne Konto und ohne Abo.

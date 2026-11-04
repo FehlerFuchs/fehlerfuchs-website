@@ -45,9 +45,9 @@ releases:
   # 1.0.0 (Stand +25), Datei im Tag pdfuchs-v1.0.0 ersetzt 31.10.2026 13:32 (Meldung [FF_16] P5 13:33, Logbuch #8722; Entscheidung
   # Matthias „Tag A“ und „Wortlaut A“ über [FF_00], 13:25: [FF_10] ändert Größe, Prüfsumme und Text). Von [FF_10] nachgemessen
   # (öffentliche URL HTTP 200, Content-Length 483.837.480). notes: freigegebene Kurzfassung des Release-Textes plus die zwei
-  # bestehenden Sätze, Auswahl wegen der Prüfgrenze von 600 Zeichen. Datum = Tag der Veröffentlichung der Version (20.10.2026); der Austausch der Datei (Stand 25) am 31.10.2026 steht im Text („Stand 25 vom 31.10.2026“) und im Hinweis der Plattform (ANTWORT [FF_00] 31.10.2026 21:48, Ergänzung zu Befund 6; kein Update-Client, kein 1.0.1).
+  # bestehenden Sätze, Auswahl wegen der Prüfgrenze von 600 Zeichen. Datum = Tag des Austauschs der Datei (Stand 25, 31.10.2026; GitHub-API: Asset aktualisiert 2026-10-31T12:32:09Z). Entscheidung [FF_00] 04.11.2026 (Wort Matthias 06:16, Sichtung 03.11., Hinweis 3 „A“); davor 20.10.2026 (ANTWORT [FF_00] 31.10.2026 21:48). Die Ankündigung „PDFuchs ist da“ trägt ihr eigenes Datum 20.10.2026 (siehe meldungen.yaml).
   - version: "1.0.0"
-    date: "2026-10-20"
+    date: "2026-10-31"
     channel: stable
     os: windows
     url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/pdfuchs-v1.0.0/FehlerFuchs_PDFuchs_Setup_1.0.0.exe
@@ -58,6 +58,7 @@ releases:
       source: GitHub-Release-Asset
     sha256: "d6464d4f2272118e8dc1f80e40fbdff20249cd0ad29e39088de10d4370bb7261"
     signed: true
+    ohne_meldung: "Die Ankündigung „PDFuchs ist da“ (20.10.2026) gilt für diese Fassung weiter und trägt ihr eigenes Datum; der Dateiaustausch am 31.10.2026 (Stand 25) bekommt keine eigene Meldung (Entscheidung FF_00 04.11.2026)."
     notes: |-
       PDFuchs 1.0.0 (Stand 25 vom 31.10.2026) – Korrekturen aus der unabhängigen Prüfung: sicherer Schwärzen, Anhänge bleiben erhalten, bessere Formulare, klarere Meldungen, nichts geht beim Dateiwechsel verloren, aktualisierte Bausteine. Weiter komplett kostenlos, lokal, ohne Konto.
       - Mehr als 60 Werkzeuge: Seiten ordnen, Text und Bilder ändern, Formulare, endgültiges Schwärzen, Passwortschutz, Umwandeln.
