@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-04T06:21:01+01:00",
+  "generiert": "2026-11-04T10:27:47+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -2142,13 +2142,70 @@
           "width": 2350,
           "height": 372
         },
-        "platzhalter": 4
+        "screenshots": [
+          {
+            "src": "/img/screenshots/haushaltsmanager/desktop-01-uebersicht.png",
+            "alt": "Bildschirmabzug der Übersicht des HaushaltsManagers: Karten für Strom, Gas, Wasser und aktive Verträge, Hinweise auf anstehende Kündigungsfristen, monatlicher Rahmen und nächstes Vorhaben",
+            "width": 1200,
+            "height": 638,
+            "geraet": "desktop",
+            "titel": "Die Übersicht"
+          },
+          {
+            "src": "/img/screenshots/haushaltsmanager/desktop-02-zaehlerstaende.png",
+            "alt": "Bildschirmabzug der Zählerstände: Strom-Zählerstand, Tagesbezug und Verbrauchsverlauf als Linie",
+            "width": 1200,
+            "height": 638,
+            "geraet": "desktop",
+            "titel": "Zählerstände und Verbrauchsverlauf"
+          },
+          {
+            "src": "/img/screenshots/haushaltsmanager/desktop-03-vertraege.png",
+            "alt": "Bildschirmabzug der Vertragsliste: fünf aktive Verträge mit Preisen und Kündigungsfristen",
+            "width": 1200,
+            "height": 638,
+            "geraet": "desktop",
+            "titel": "Verträge mit Kündigungsfristen"
+          },
+          {
+            "src": "/img/screenshots/haushaltsmanager/desktop-04-haushaltsbuch.png",
+            "alt": "Bildschirmabzug des Haushaltsbuchs: Einnahmen, feste Ausgaben, variables Budget und Kreisdiagramme",
+            "width": 1200,
+            "height": 638,
+            "geraet": "desktop",
+            "titel": "Das Haushaltsbuch"
+          },
+          {
+            "src": "/img/screenshots/haushaltsmanager/desktop-05-vorhaben.png",
+            "alt": "Bildschirmabzug der priorisierten Vorhabenliste mit drei geplanten Anschaffungen",
+            "width": 1200,
+            "height": 638,
+            "geraet": "desktop",
+            "titel": "Vorhaben planen"
+          },
+          {
+            "src": "/img/screenshots/haushaltsmanager/desktop-06-meine-familie.png",
+            "alt": "Bildschirmabzug der Haushaltsmitglieder: drei erfundene Personen und der Hinweis, wofür die Daten verwendet werden",
+            "width": 1200,
+            "height": 638,
+            "geraet": "desktop",
+            "titel": "Meine Familie"
+          },
+          {
+            "src": "/img/screenshots/haushaltsmanager/desktop-07-auswertungen.png",
+            "alt": "Bildschirmabzug der Auswertungen: Kennzahlen zum Stromverbrauch, Säulen für Verbrauch, Kosten und Abschlag",
+            "width": 1200,
+            "height": 638,
+            "geraet": "desktop",
+            "titel": "Auswertungen"
+          }
+        ]
       },
       "links": {
         "checkout": "https://www.checkout-ds24.com/product/721203",
         "contact": "/kontakt.html?app=HaushaltsManager&topic=interesse"
       },
-      "notes": "Öffentliche Produktfassung (sauberer Fork) des privaten HaushaltsManagers; Produkt-Code 36_HaushaltsManager Markt. Der private Ordner HaushaltsManager_PRIVAT (echte Daten) bleibt gesperrt und wird nie veröffentlicht. Slug und geprueft_von sind projektseitig geklärt (Eigentümer _Markt). Vertriebsmodell wie MobileReport: freier öffentlicher Download der signierten .exe (GitHub-Release, 1.0.0 eingetragen), Lizenzschlüssel (20 €, 5 Arbeitsplätze) über Digistore24 (Produkt 721203). Testkauf und „Aktiv = Ja“ sind abgeschlossen; offen bleiben echte Screenshots aus dem Projekt."
+      "notes": "Öffentliche Produktfassung (sauberer Fork) des privaten HaushaltsManagers; Produkt-Code 36_HaushaltsManager Markt. Der private Ordner HaushaltsManager_PRIVAT (echte Daten) bleibt gesperrt und wird nie veröffentlicht. Slug und geprueft_von sind projektseitig geklärt (Eigentümer _Markt). Vertriebsmodell wie MobileReport: freier öffentlicher Download der signierten .exe (GitHub-Release, 1.0.0 eingetragen), Lizenzschlüssel (20 €, 5 Arbeitsplätze) über Digistore24 (Produkt 721203). Testkauf und „Aktiv = Ja“ sind abgeschlossen; Screenshots seit 04.11.2026 auf der Seite."
     },
     {
       "slug": "mobilereport",

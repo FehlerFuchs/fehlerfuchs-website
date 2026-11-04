@@ -247,15 +247,59 @@ theme:
   akzent: "#5E8717"
 
 # Bild-Wortmarke als Seitentitel (Markensatz HaushaltsManager, „von FehlerFuchs“,
-# helle Fassung – passt zum hellen Seiten-Theme). Screenshots folgen vom Projekt;
-# bis dahin Platzhalter-Motive in der Galerie.
+# helle Fassung – passt zum hellen Seiten-Theme).
 media:
   lockup:
     src: /img/lockups/haushaltsmanager.svg
     alt: HaushaltsManager – von FehlerFuchs
     width: 2350
     height: 372
-  platzhalter: 4
+  # Aufnahmen HaushaltsManager 1.1.3 (App 1.1.3+44, Rohbilder [FF_36], aufbereitet von [FF_01], erfundene Daten).
+  # Freigabe Matthias 04.11.2026 (#8948) mit weichgezeichneten Drittanbieter-Angaben in Bild 01 und 02;
+  # Ausliefern-Wort [FF_00] 04.11.2026. Alt-Texte von [FF_01], nur was zu sehen ist; Prüfsummen gegen _SHA256.txt gleich.
+  screenshots:
+    - src: /img/screenshots/haushaltsmanager/desktop-01-uebersicht.png
+      alt: "Bildschirmabzug der Übersicht des HaushaltsManagers: Karten für Strom, Gas, Wasser und aktive Verträge, Hinweise auf anstehende Kündigungsfristen, monatlicher Rahmen und nächstes Vorhaben"
+      width: 1200
+      height: 638
+      geraet: desktop
+      titel: "Die Übersicht"
+    - src: /img/screenshots/haushaltsmanager/desktop-02-zaehlerstaende.png
+      alt: "Bildschirmabzug der Zählerstände: Strom-Zählerstand, Tagesbezug und Verbrauchsverlauf als Linie"
+      width: 1200
+      height: 638
+      geraet: desktop
+      titel: "Zählerstände und Verbrauchsverlauf"
+    - src: /img/screenshots/haushaltsmanager/desktop-03-vertraege.png
+      alt: "Bildschirmabzug der Vertragsliste: fünf aktive Verträge mit Preisen und Kündigungsfristen"
+      width: 1200
+      height: 638
+      geraet: desktop
+      titel: "Verträge mit Kündigungsfristen"
+    - src: /img/screenshots/haushaltsmanager/desktop-04-haushaltsbuch.png
+      alt: "Bildschirmabzug des Haushaltsbuchs: Einnahmen, feste Ausgaben, variables Budget und Kreisdiagramme"
+      width: 1200
+      height: 638
+      geraet: desktop
+      titel: "Das Haushaltsbuch"
+    - src: /img/screenshots/haushaltsmanager/desktop-05-vorhaben.png
+      alt: "Bildschirmabzug der priorisierten Vorhabenliste mit drei geplanten Anschaffungen"
+      width: 1200
+      height: 638
+      geraet: desktop
+      titel: "Vorhaben planen"
+    - src: /img/screenshots/haushaltsmanager/desktop-06-meine-familie.png
+      alt: "Bildschirmabzug der Haushaltsmitglieder: drei erfundene Personen und der Hinweis, wofür die Daten verwendet werden"
+      width: 1200
+      height: 638
+      geraet: desktop
+      titel: "Meine Familie"
+    - src: /img/screenshots/haushaltsmanager/desktop-07-auswertungen.png
+      alt: "Bildschirmabzug der Auswertungen: Kennzahlen zum Stromverbrauch, Säulen für Verbrauch, Kosten und Abschlag"
+      width: 1200
+      height: 638
+      geraet: desktop
+      titel: "Auswertungen"
 
 links:
   # Digistore24-Kasse, Produkt 721203 (Einmalkauf 20 €). Speist den „Kaufen“-Knopf
@@ -273,4 +317,4 @@ notes: >-
   _Markt). Vertriebsmodell wie MobileReport: freier öffentlicher Download der
   signierten .exe (GitHub-Release, 1.0.0 eingetragen), Lizenzschlüssel (20 €,
   5 Arbeitsplätze) über Digistore24 (Produkt 721203). Testkauf und „Aktiv = Ja“
-  sind abgeschlossen; offen bleiben echte Screenshots aus dem Projekt.
+  sind abgeschlossen; Screenshots seit 04.11.2026 auf der Seite.
