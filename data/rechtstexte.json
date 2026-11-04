@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-04T20:04:08+01:00",
+  "generiert": "2026-11-04T20:35:56+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "rechtstexte": [
     {
@@ -421,7 +421,7 @@
       "vollstaendig": true,
       "ausstehend": [],
       "felder": {
-        "beschreibung": "Android-Anwendung, ein Schicht- und Dienstplaner für Wechseldienst und Familie",
+        "beschreibung": "Anwendung für Windows und Android, ein Schicht- und Dienstplaner für Wechseldienst und Familie",
         "drittanbieter_pfad_11": "in der App unter Einstellungen → Info & Rechtliches → Info, Impressum & Unterstützen → Transparenz → „Open Source & Datenquellen“ einsehbar"
       }
     },

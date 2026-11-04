@@ -493,7 +493,7 @@ rechtstexte:
     vollstaendig: true
     ausstehend: []
     felder:
-      beschreibung: "Android-Anwendung, ein Schicht- und Dienstplaner für Wechseldienst und Familie"
+      beschreibung: "Anwendung für Windows und Android, ein Schicht- und Dienstplaner für Wechseldienst und Familie"
       drittanbieter_pfad_11: "in der App unter Einstellungen → Info & Rechtliches → Info, Impressum & Unterstützen → Transparenz → „Open Source & Datenquellen“ einsehbar"   # Beleg: [FF_32], Fassung 1.11.1
   - slug: pdfuchsreader
     produktname: "PDFuchs Reader"
