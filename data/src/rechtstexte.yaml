@@ -387,3 +387,120 @@ rechtstexte:
         Daten; die Anwendung führt kein Cloud-Backup durch.
       drittanbieter_pfad_11: 'in der Anwendung unter Impressum / Rechtliches → „Lizenzen Dritter anzeigen“ einsehbar'
       vsbg_15: "nicht bereit und nicht verpflichtet"
+
+  # --- Sammelseite für die Google-Play-Erklärung (Wort Matthias 04.11.2026, Logbuch #9004) ---
+  # SnapFuchs: Wortlaut aus der App (assets/rechtstexte/eula_snapfuchs.md, Stand 05.10.2026, bytegleich mit dem
+  # veröffentlichten APK 1.2.3, Bestätigung [FF_30] 04.11.2026), Wort für Wort. Weggelassen: die Stand-Zeile
+  # (steht im Kopf des Abschnitts) und die kursive interne Notiz 'Produktabweichung von der Hausvorlage'.
+  - slug: snapfuchs
+    produktname: SnapFuchs
+    stand: "05.10.2026"
+    vollstaendig: true
+    ausstehend: []
+    app_volltext:
+      kopf:
+        - "Vertragspartner/Anbieter: Matthias Schacht, handelnd unter der Geschäftsbezeichnung FehlerFuchs, Susanne-Bohl-Straße 8, 07747 Jena · E-Mail: admin@fehlerfuchs.eu · USt-IdNr.: DE463451160."
+        - "Diese Endnutzer-Lizenzvereinbarung regelt die Nutzung der Software SnapFuchs."
+      kern:
+        - titel: "1. Vertragsgegenstand und Editionen"
+          absaetze:
+            - "1.1 SnapFuchs ist eine offline-first arbeitende Android-Anwendung zum Scannen von Dokumenten mit der Gerätekamera und deren Aufbereitung zu (durchsuchbaren) PDF-Dateien."
+            - "1.2 Die Software wird in den Editionen SnapFuchs (kostenlos) und SnapFuchs Pro bereitgestellt. Der jeweilige Funktionsumfang ergibt sich aus der Produktbeschreibung. Die kostenpflichtigen Pro-Funktionen (u. a. PDFs ohne Wasserzeichen, durchsuchbare PDFs, Tabellenexport nach Excel/CSV, digitale Unterschrift, PDF-Werkzeuge) werden durch einen einmaligen In-App-Kauf über Google Play freigeschaltet."
+            - "1.3 Die Bezeichnung Software umfasst die zum Zeitpunkt der Bereitstellung ausgelieferte Fassung. Aktualisierungen richten sich nach Abschnitt 6; ein Anspruch auf künftige neue Hauptversionen oder zusätzliche Funktionen ergibt sich hieraus nicht."
+        - titel: "2. Zielgruppe"
+          absaetze:
+            - "Das Angebot richtet sich an Verbraucher (§ 13 BGB) und Unternehmer (§ 14 BGB)."
+        - titel: "3. Lizenzeinräumung und Lizenzumfang"
+          absaetze:
+            - "3.1 Der Anbieter räumt dem Nutzer ein einfaches, nicht ausschließliches Recht ein, die Software gemäß dieser Vereinbarung zu installieren und zu nutzen."
+            - "3.2 Der konkrete Lizenzumfang ergibt sich aus der Produktbeschreibung. Die Pro-Freischaltung wird als einmaliger Kauf erworben und ist zeitlich unbefristet; sie ist an das Google-Konto des Käufers gebunden."
+            - "3.3 Ein Gerätewechsel ist zulässig. Die Pro-Freischaltung kann über Google Play auf Geräten wiederhergestellt werden, die mit demselben Google-Konto angemeldet sind."
+            - "3.4 Ein Lizenzschlüssel wird nicht verwendet; die Freischaltung ist an das Google-Konto gebunden."
+        - titel: "4. Übertragung der Lizenz"
+          absaetze:
+            - "Die Pro-Freischaltung ist an das Google-Konto des Käufers gebunden und richtet sich im Übrigen nach den Bedingungen von Google Play; eine hiervon losgelöste Weitergabe ist nicht vorgesehen."
+        - titel: "5. Nutzungsbeschränkungen"
+          absaetze:
+            - "Untersagt sind insbesondere: Zurückentwickeln, Dekompilieren und Disassemblieren über den gesetzlich zulässigen Rahmen hinaus; Umgehen technischer Schutzmaßnahmen; Entfernen von Herstellerangaben."
+        - titel: "6. Aktualisierungen"
+          absaetze:
+            - "Soweit vertraglich vereinbart oder gesetzlich vorgeschrieben, stellt der Anbieter Aktualisierungen einschließlich erforderlicher Sicherheitsaktualisierungen für den maßgeblichen Zeitraum bereit; die Auslieferung erfolgt über Google Play. Ein Anspruch auf neue Hauptversionen, Funktionserweiterungen oder Upgrades besteht nur, wenn dies ausdrücklich vereinbart wurde. Zu den mit einer Aktualisierung verbundenen Datenverarbeitungen siehe die Datenschutzhinweise."
+        - titel: "6a. Aktualisierungen gegenüber Verbrauchern"
+          absaetze:
+            - "Bei entgeltlich erworbenen digitalen Produkten stellt der Anbieter Verbrauchern nach §§ 327f BGB für den Zeitraum, den der Verbraucher aufgrund der Art und des Zwecks des Produkts erwarten kann, Aktualisierungen einschließlich Sicherheitsaktualisierungen bereit und informiert über deren Verfügbarkeit."
+        - titel: "7. Daten, Sicherung und Verantwortung des Nutzers"
+          absaetze:
+            - "7.1 Die Software speichert die Daten des Nutzers lokal auf dessen Gerät. Der Nutzer ist für die Sicherung seiner Daten selbst verantwortlich; empfohlen werden regelmäßige, verschlüsselte Sicherungen auf einem physisch oder logisch getrennten Speichermedium."
+        - titel: "8. Gewährleistung"
+          absaetze:
+            - "8.1 Kostenfreie Editionen: Für unentgeltlich bereitgestellte Software gelten die gesetzlichen Vorschriften. Soweit gesetzlich zulässig, haftet der Anbieter für Mängel nur bei Vorsatz, grober Fahrlässigkeit und arglistigem Verschweigen eines Mangels."
+            - "8.2 Entgeltliche Editionen: Es gelten die gesetzlichen Mängelrechte. Eine darüber hinausgehende Garantie wird nur übernommen, wenn sie ausdrücklich als Garantie bezeichnet wurde. Für besondere, vom Nutzer beabsichtigte Einsatzzwecke, die weder vertraglich vereinbart wurden noch bei Software dieser Art üblicherweise vorausgesetzt werden können, übernimmt der Anbieter keine Gewähr. Nach dem Stand der Technik kann nicht jeder Softwarefehler ausgeschlossen werden; zwingende gesetzliche Mängelrechte bleiben unberührt."
+        - titel: "9. Haftung"
+          absaetze:
+            - "9.1 Der Anbieter haftet unbeschränkt bei Vorsatz und grober Fahrlässigkeit, für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit, bei arglistig verschwiegenem Mangel oder übernommener Garantie, nach dem Produkthaftungsgesetz sowie in allen anderen Fällen zwingender gesetzlicher Haftung."
+            - "9.2 Bei leicht fahrlässiger Verletzung einer wesentlichen Vertragspflicht haftet der Anbieter nur für den vertragstypischen, bei Vertragsschluss vorhersehbaren Schaden. Eine wesentliche Vertragspflicht ist eine Pflicht, deren Erfüllung die ordnungsgemäße Durchführung des Vertrags überhaupt erst ermöglicht und auf deren Einhaltung der Nutzer regelmäßig vertrauen darf. Im Übrigen ist die Haftung für leichte Fahrlässigkeit ausgeschlossen."
+            - "9.3 Bei leicht fahrlässig verursachtem Datenverlust ist die Haftung auf den typischen Wiederherstellungsaufwand begrenzt, der bei ordnungsgemäßer und regelmäßiger Datensicherung entstanden wäre; Ziffer 9.1 bleibt unberührt."
+            - "9.4 Die Haftungsbeschränkungen gelten entsprechend zugunsten der gesetzlichen Vertreter und Erfüllungsgehilfen des Anbieters."
+        - titel: "10. Geistiges Eigentum"
+          absaetze:
+            - "Der Nutzer erhält nach Maßgabe dieser Vereinbarung ein Nutzungsrecht. Urheber- und sonstige Schutzrechte an der Software verbleiben beim Anbieter bzw. beim jeweiligen Rechteinhaber."
+        - titel: "11. Drittanbieter-Komponenten"
+          absaetze:
+            - "Die Software enthält Komponenten Dritter, die eigenen Lizenzbedingungen unterliegen. Diese sind in der Anwendung unter „Einstellungen → Transparenz“ einsehbar und gehen dieser Vereinbarung für die jeweilige Komponente vor."
+        - titel: "12. Laufzeit und Beendigung"
+          absaetze:
+            - "12.1 Ein entgeltlich erworbenes, zeitlich unbefristetes Nutzungsrecht kann nicht ordentlich gekündigt werden. Das Recht beider Parteien zur außerordentlichen Kündigung aus wichtigem Grund bleibt unberührt."
+            - "12.2 Soweit der wichtige Grund in einer behebbaren Vertragsverletzung besteht, ist die Kündigung grundsätzlich erst nach erfolgloser Abmahnung oder Ablauf einer angemessenen Abhilfefrist zulässig. Eine Fristsetzung ist nicht erforderlich, wenn sie gesetzlich entbehrlich ist."
+            - "12.3 Nach Beendigung ist die Nutzung einzustellen und die Software zu deinstallieren; erstellte eigene Daten verbleiben beim Nutzer. Dem Nutzer ist zuvor ein angemessener Zeitraum zum Export seiner Daten einzuräumen."
+        - titel: "13. Schlussbestimmungen"
+          absaetze:
+            - "13.1 Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts. Gegenüber Verbrauchern gilt diese Rechtswahl nur insoweit, als ihnen dadurch nicht der Schutz zwingender Bestimmungen des Staates ihres gewöhnlichen Aufenthalts entzogen wird."
+            - "13.2 Ausschließlicher Gerichtsstand ist Jena, wenn der Nutzer Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen ist oder keinen allgemeinen Gerichtsstand in Deutschland hat. Im Übrigen gelten die gesetzlichen Gerichtsstände."
+            - "13.3 Rangfolge: Individuelle Vereinbarungen gehen dieser Vereinbarung vor. Die Bestellbestätigung ist hinsichtlich der erworbenen Edition maßgeblich. Die Produktbeschreibung bestimmt die vertraglich vereinbarte Funktionalität. Im Übrigen gilt diese Vereinbarung."
+            - "13.4 Sollten einzelne Bestimmungen unwirksam sein, bleibt die Wirksamkeit der übrigen unberührt."
+        - titel: "14. Widerruf"
+          absaetze:
+            - "Der Kaufvertrag über die Software kommt mit dem jeweiligen Verkäufer zustande, über den Sie die Software erworben haben. Für den Widerruf gelten dessen Bedingungen und dessen Widerrufsbelehrung; sie werden Ihnen im Bestellvorgang zur Verfügung gestellt. Diese Vereinbarung regelt ausschließlich die Nutzung der Software."
+        - titel: "15. Verbraucherstreitbeilegung"
+          absaetze:
+            - "Der Anbieter ist zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle nicht bereit und nicht verpflichtet."
+
+  # Kostenlose Apps ohne Kauf: schlanke Nutzungsbedingungen, ausdrücklich keine EULA (Festlegung Matthias 15.09.2026).
+  # Rechtssätze stehen als Vorlage in rechtstexte.astro (variante: nutzungsbedingungen), Wortlaut freigegeben von
+  # Matthias am 04.11.2026 (Logbuch #9004). Menüwege der Lizenzhinweise von den App-Projekten bestätigt 04.11.2026.
+  - slug: appinsight
+    produktname: "AppInsight"
+    variante: nutzungsbedingungen
+    stand: "04.11.2026"
+    vollstaendig: true
+    ausstehend: []
+    felder:
+      beschreibung: "Android-Anwendung, die verständlich anzeigt, was installierte Apps anfordern (Berechtigungen, Tracker-Hinweise, Speicher und Nutzung)"
+      drittanbieter_pfad_11: "in der App unter Info → Rechtliches → Lizenzen einsehbar"   # Beleg: [FF_22], gelesen im Quelltext
+  - slug: checkin-vita
+    produktname: "CheckInVita"
+    variante: nutzungsbedingungen
+    stand: "04.11.2026"
+    vollstaendig: true
+    ausstehend: []
+    felder:
+      beschreibung: "Android-Anwendung, ein persönliches Gesundheits-Tagebuch für eigene Werte, Medikamente und Arzttermine"
+      drittanbieter_pfad_11: "in der App unter Mehr → Über CheckInVita → Open-Source-Lizenzen einsehbar"   # Beleg: [FF_23], Store-Fassung 1.0.1
+  - slug: orgafuchs
+    produktname: "OrgaFuchs"
+    variante: nutzungsbedingungen
+    stand: "04.11.2026"
+    vollstaendig: true
+    ausstehend: []
+    felder:
+      beschreibung: "Android-Anwendung, ein Schicht- und Dienstplaner für Wechseldienst und Familie"
+      drittanbieter_pfad_11: "in der App unter Einstellungen → Info & Rechtliches → Info, Impressum & Unterstützen → Transparenz → „Open Source & Datenquellen“ einsehbar"   # Beleg: [FF_32], Fassung 1.11.1
+  - slug: pdfuchsreader
+    produktname: "PDFuchs Reader"
+    variante: nutzungsbedingungen
+    stand: "04.11.2026"
+    vollstaendig: true
+    ausstehend: []
+    felder:
+      beschreibung: "Android-Anwendung, ein PDF- und E-Book-Reader"
+      drittanbieter_pfad_11: "in der App unter Einstellungen → Rechtliches & Support → Open-Source-Lizenzen einsehbar"   # Beleg: [FF_26-1], Fassung 1.3.2+8
