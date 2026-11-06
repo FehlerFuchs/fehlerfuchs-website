@@ -1,12 +1,9 @@
 # NACHTRAG 10.10.2026 ([FF_10], Entscheidung Matthias über [FF_00], Webseiten-Sichtung 09.10.): Backticks bei „.defekt-…“ durch typografische Anführungszeichen ersetzt.
-# NACHTRAG 20.10.2026 ([FF_10], Entscheidung [FF_00] zur Webseiten-Sichtung 20.10., Nr. 1 A): drei interne Freigabevermerke
-# in Klammern (Wortlaut Matthias …) aus den Texten gestrichen; der Wortlaut selbst ist unverändert. Bei der nächsten Fassung
-# von [FF_26] in der Quelle in 00-1 ebenfalls entfernen, sonst kommen sie beim Spiegeln zurück.
-# NACHTRAG 27.10.2026 ([FF_10], Entscheidung Matthias über [FF_00], Logbuch #7987, Webseiten-Sichtung L6): V1 (Kurzsatz in besonderheiten: die drei vom Nutzer
-# ausgelösten Verbindungen) und V2 (Ansichtswahl „im Lese- und E-Book-Modus“) wörtlich aus der Einreich-Kopie in 00-1 (SHA-256 BCA7ACD8…2E81) übernommen; die Freigabevermerke in Klammern bleiben gestrichen.
+# NACHTRAG 06.11.2026 ([FF_10]): Die drei internen Freigabevermerke in Klammern (Wortlaut Matthias …) sind nach der Einreichung von [FF_26] wieder aus den Texten gestrichen (wie am 20.10.2026, Entscheidung [FF_00] Nr. 1 A); der Wortlaut selbst ist unverändert. In der Quelle in 00-1 bei der nächsten Fassung ebenfalls entfernen.
 slug: pdfuchs
 name: PDFuchs
-stand: "2026-10-27"
+# NACHTRAG 27.10.2026 ([FF_26], Entscheidung Matthias über [FF_00], Logbuch #7987, Webseiten-Sichtung L6): Kurzsatz in besonderheiten auf die drei vom Nutzer ausgelösten Verbindungen erweitert (V1); Sprachstelle in der Ansichtswahl „im Lese- und E-Book-Modus“ (V2).
+stand: "2026-11-06"
 geprueft_von: 26_PDFuchs
 fassung: "1.0.0 (veröffentlicht am 20.10.2026)"
 # 0.2.0: Ergänzungen im Wortlaut freigegeben von Matthias am 15.10.2026, 20:59:23
@@ -159,7 +156,7 @@ besonderheiten: >-
   license.fehlerfuchs.eu, EU/IONOS), beim Werkzeug „Webseite in PDF“ (Microsoft
   Edge lädt die eingegebene Adresse) und beim Signieren mit einer eingetragenen
   Zeitstempelstelle (nur ein Prüfwert, kein Dokument). Was dabei wohin geht,
-  steht oben unter „Übertragungen“. Ein Konto oder eine Anmeldung gibt es
+  steht oben unter „Was das Gerät verlässt“. Ein Konto oder eine Anmeldung gibt es
   nicht. PDFuchs ist kostenlos und zählt nichts. Die Links „Unterstützen“ und
   „Per PayPal unterstützen“ sowie die Quell-Links der Open-Source-Seite öffnen
   erst auf Klick den Browser; PDFuchs sendet dabei nichts.

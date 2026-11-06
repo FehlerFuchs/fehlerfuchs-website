@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-03T18:32:10+01:00",
+  "generiert": "2026-11-07T00:12:47+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1484,7 +1484,7 @@
     {
       "slug": "pdfuchs",
       "name": "PDFuchs",
-      "stand": "2026-10-27",
+      "stand": "2026-11-06",
       "geprueft_von": "26_PDFuchs",
       "fassung": "1.0.0 (veröffentlicht am 20.10.2026)",
       "lokal_only": false,
@@ -1624,7 +1624,7 @@
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
       "loeschung": "Alle Daten liegen auf dem Gerät. Selbst erzeugte oder bearbeitete PDFs liegen dort, wo der Nutzer sie gespeichert hat, und lassen sich wie jede andere Datei löschen. Beim Deinstallieren wird das Programm entfernt; eigene Dokumente bleiben erhalten. Eine von früheren Fassungen angelegte Datei license_state.json im Anwendungsdatenordner des Benutzers (Testphase) wird von PDFuchs 1.0.0 nicht mehr geschrieben oder gelesen; sie bleibt beim Deinstallieren liegen und kann jederzeit von Hand gelöscht werden. Das gilt auch für die lokale Einstellungsdatei unter %APPDATA%\\PDFuchs; erkennt PDFuchs dort unlesbares JSON, wird diese Fassung vor dem nächsten Speichern als Datei mit dem Zusatz „.defekt-…“ bewahrt (höchstens drei). Ebenso bleiben die verschlüsselte Stammdaten-Datei %LOCALAPPDATA%\\PDFuchs\\stammdaten.dat (unlesbar: ebenso als „.defekt-…“, höchstens drei), der Ordner %APPDATA%\\PDFuchs\\scanner mit Scannerangaben und Scanprofilen sowie der Ordner Dokumente\\PDFuchs mit den Ergebnissen nach dem Deinstallieren erhalten und können von Hand gelöscht werden. Der Zwischenspeicher unter %LOCALAPPDATA%\\PDFuchs\\Umwandlung bleibt beim Deinstallieren ebenfalls erhalten; Einträge, die älter als sieben Tage sind, löscht PDFuchs selbst, der Rest lässt sich jederzeit von Hand löschen. Ebenso bleiben die Ordner %APPDATA%\\PDFuchs\\stempel und %APPDATA%\\PDFuchs\\sticker mit den eigenen Stempeln und Stickern erhalten.",
-      "besonderheiten": "PDFuchs verarbeitet Dokumente vollständig auf dem eigenen Rechner. Die Anwendung stellt von sich aus keine Verbindung ins Internet her. Eine Verbindung entsteht nur, wenn der Nutzer sie selbst auslöst: beim ausdrücklichen Absenden des Support-/Kontaktformulars (dann gehen die Nachricht, die dort eingegebenen freiwilligen Angaben sowie App-Version und Windows-Version per HTTPS an die FehlerFuchs-Kontakt-Bridge, license.fehlerfuchs.eu, EU/IONOS), beim Werkzeug „Webseite in PDF“ (Microsoft Edge lädt die eingegebene Adresse) und beim Signieren mit einer eingetragenen Zeitstempelstelle (nur ein Prüfwert, kein Dokument). Was dabei wohin geht, steht oben unter „Übertragungen“. Ein Konto oder eine Anmeldung gibt es nicht. PDFuchs ist kostenlos und zählt nichts. Die Links „Unterstützen“ und „Per PayPal unterstützen“ sowie die Quell-Links der Open-Source-Seite öffnen erst auf Klick den Browser; PDFuchs sendet dabei nichts. Wird ein Scanner benutzt, werden Angaben zum angeschlossenen Gerät lokal gespeichert, damit die Scanprofile dazu passen. Der beschriebene Stand ist die veröffentlichte Fassung 1.0.0. Für die Anzeige „Offline-Status“ prüft PDFuchs nur auf dem Rechner mit dem Windows-Befehl netstat, ob PDFuchs selbst Verbindungen offen hat; dabei wird nichts übertragen.",
+      "besonderheiten": "PDFuchs verarbeitet Dokumente vollständig auf dem eigenen Rechner. Die Anwendung stellt von sich aus keine Verbindung ins Internet her. Eine Verbindung entsteht nur, wenn der Nutzer sie selbst auslöst: beim ausdrücklichen Absenden des Support-/Kontaktformulars (dann gehen die Nachricht, die dort eingegebenen freiwilligen Angaben sowie App-Version und Windows-Version per HTTPS an die FehlerFuchs-Kontakt-Bridge, license.fehlerfuchs.eu, EU/IONOS), beim Werkzeug „Webseite in PDF“ (Microsoft Edge lädt die eingegebene Adresse) und beim Signieren mit einer eingetragenen Zeitstempelstelle (nur ein Prüfwert, kein Dokument). Was dabei wohin geht, steht oben unter „Was das Gerät verlässt“. Ein Konto oder eine Anmeldung gibt es nicht. PDFuchs ist kostenlos und zählt nichts. Die Links „Unterstützen“ und „Per PayPal unterstützen“ sowie die Quell-Links der Open-Source-Seite öffnen erst auf Klick den Browser; PDFuchs sendet dabei nichts. Wird ein Scanner benutzt, werden Angaben zum angeschlossenen Gerät lokal gespeichert, damit die Scanprofile dazu passen. Der beschriebene Stand ist die veröffentlichte Fassung 1.0.0. Für die Anzeige „Offline-Status“ prüft PDFuchs nur auf dem Rechner mit dem Windows-Befehl netstat, ob PDFuchs selbst Verbindungen offen hat; dabei wird nichts übertragen.",
       "vorhandener_text": "09_Releases/Datenschutz_Lokalhinweis_01072026.md",
       "offene_fragen": "1. Ob die mitgelieferten Zusatzwerkzeuge LibreOffice und Tesseract bei ihrer Ausführung von sich aus Netzverbindungen aufbauen (etwa eine Updateprüfung von LibreOffice): PDFuchs löst nichts dergleichen aus. Seit 0.2.0 startet PDFuchs LibreOffice mit einem eigenen Profil, in dem Updateprüfung, Nutzungsdaten und Absturzberichte abgeschaltet sind (#6335). Ein Netzmitschnitt ist für die VM-Testrunde 0.2.0 vorgesehen. 2. Ob die beim Einrichten gesetzte Windows-Dateizuordnung über die Systemeinträge hinaus etwas nach außen meldet: dafür wurde kein Hinweis gefunden, es wurde aber nicht abschließend geprüft.",
       "art": "anwendung"
@@ -1632,9 +1632,9 @@
     {
       "slug": "pdfuchsreader",
       "name": "PDFuchs Reader",
-      "stand": "2026-10-23",
-      "geprueft_von": "26_PDFuchs (Slug-Eigentümer seit 18.08.2026; führt Android- und Windows-Teil). Windows-Teil am 19.08.2026 gegen den aktuellen Quellstand gegengeprüft und korrigiert: (a) das Netzverhalten ist nicht mehr netzwerkfrei, sondern hat einen NUTZERINITIIERTEN Support-/Kontaktweg (seit 25.07.2026); (b) es gibt inzwischen eine lokale Einstellungsdatei (settings.json) inkl. „Zuletzt geöffnet“; (c) Installer ist Inno Setup (installer_flutter.iss), nicht mehr NSIS. Frühere Angaben entsprechend berichtigt.",
-      "fassung": "Zweite Fassung vom 19.07.2026 – gegenüber der ersten Einreichung desselben Tages ist der Windows-Teil nicht mehr nur übernommen, sondern geprüft belegt. Zwei Fassungen tragen heute diesen Slug. (A) Android-Fassung 1.3.1 (versionCode 7, Paket eu.fehlerfuchs.pdfuchsreader): seit 20.10.2026 21:31 in Google Play veröffentlicht, voller Rollout (Meldung [FF_13] nach P5). Vorher im Emulator, auf einem Fire HD 10 und einem Galaxy S8+ geprüft. Geprüft am aktuellen Code und Manifest. 1.3.1 ändert am Datenfluss und an den Berechtigungen nichts: Das Manifest ist gegenüber 1.3.0 unverändert (nur INTERNET). Neu sind zwei Fehlerbehebungen (E-Book-Kapiteltext ohne den Titel aus dem HTML-Kopf; „Seiten bearbeiten“ setzt die Kopie aus den gewählten Seiten zusammen, gelöschte Seiten fehlen jetzt zuverlässig) und die aktualisierte PDF-Bibliothek pdfrx 2.6.5 mit PDFium (lokal, ohne Netz). Der Datenschutztext in der App ist unverändert (nach den sechs Fragen, A-11.6, von Matthias bestätigt, P10, 30.09.2026; Stand September 2026). (B) Windows-Fassung v0.1.0_dev im PDFuchs-Windows-Paket (Pre-Release, nicht veröffentlicht). Geprüft wurde der echte Quellstand statisch: Imports und Aufrufe im Python-Core, Abhängigkeiten der Flutter-Shell, Inno-Setup-Skript (installer_flutter.iss). Kein Laufzeit-Mitschnitt des Netzwerkverkehrs – siehe offene Frage 4. Windows-Teil am 19.08.2026 gegen den aktuellen Stand gegengeprüft und berichtigt (Netzverhalten, Einstellungsdatei, Installer).",
+      "stand": "2026-11-06",
+      "geprueft_von": "26_PDFuchs (Slug-Eigentümer seit 18.08.2026). Windows-Teil am 06.11.2026 entfernt (Auftrag [FF_00], Befund 2 der Webseiten-Sichtung, LogBuch #9228): Unter Windows gibt es seit 20.10.2026 kein eigenes Reader-Programm mehr, die Nutzungsbedingungen nennen nur Android. Der Steckbrief beschreibt jetzt allein die Android-App.",
+      "fassung": "Android-Fassung 1.3.1 (versionCode 7, Paket eu.fehlerfuchs.pdfuchsreader): seit 20.10.2026 21:31 in Google Play veröffentlicht, voller Rollout (Meldung [FF_13] nach P5). Vorher im Emulator, auf einem Fire HD 10 und einem Galaxy S8+ geprüft. Geprüft am aktuellen Code und Manifest. 1.3.1 ändert am Datenfluss und an den Berechtigungen nichts: Das Manifest ist gegenüber 1.3.0 unverändert (nur INTERNET). Neu sind zwei Fehlerbehebungen (E-Book-Kapiteltext ohne den Titel aus dem HTML-Kopf; „Seiten bearbeiten“ setzt die Kopie aus den gewählten Seiten zusammen, gelöschte Seiten fehlen jetzt zuverlässig) und die aktualisierte PDF-Bibliothek pdfrx 2.6.5 mit PDFium (lokal, ohne Netz). Der Datenschutztext in der App ist unverändert (nach den sechs Fragen, A-11.6, von Matthias bestätigt, P10, 30.09.2026; Stand September 2026).",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -1666,31 +1666,6 @@
           "was": "Eigene Lesezeichen (Seite beziehungsweise Kapitel je Dokument) und Wiederleseposition",
           "wo": "im Einstellungsspeicher der App auf dem Gerät",
           "beleg": "05_App/pdfuchsreader_mobile/lib/core/marken/marken_store.dart; lib/core/recent/recent_store.dart"
-        },
-        {
-          "was": "Vom Nutzer geöffnete PDFs und daraus erzeugte Ausgaben",
-          "wo": "der vom Nutzer gewählte Speicherort",
-          "beleg": "(Windows) 05_Engine/pdfuchs_core/pdfuchs_core/config.py:61"
-        },
-        {
-          "was": "Vom Nutzer erzeugte Ergebnisse (bearbeitete PDFs, korrigierte Scans, ausfüllbare Formulare, Ergebnisse der Texterkennung); jedes Ergebnis als neue Datei, nichts wird überschrieben",
-          "wo": "Ordner Dokumente\\PDFuchs des Benutzers",
-          "beleg": "(Windows) 05_Engine/pdfuchs_core/pdfuchs_core/config.py:85-99"
-        },
-        {
-          "was": "Temporäre Dateien während Anzeige und Verarbeitung",
-          "wo": "im Temp-Ordner von Windows; sie werden nach Gebrauch automatisch wieder entfernt",
-          "beleg": "(Windows) 05_Engine/pdfuchs_core/pdfuchs_core/render.py:29 (TemporaryDirectory)"
-        },
-        {
-          "was": "Vom Nutzer gesetzter Alias, Ablageordner und zuletzt geöffnete Dokumentpfade",
-          "wo": "Lokale Einstellungsdatei %APPDATA%\\PDFuchs\\settings.json",
-          "beleg": "(Windows) 11_App_Flutter/pdfuchs_desktop/lib/settings/app_settings.dart"
-        },
-        {
-          "was": "Optionale Stammdaten (Name, Anschrift, E-Mail, Telefon, IBAN, BIC)",
-          "wo": "%LOCALAPPDATA%\\PDFuchs\\stammdaten.dat, verschlüsselt mit dem Windows-Datenschutz (DPAPI) des Benutzerkontos; bis 0.2.0 im Klartext in settings.json, beim ersten Start von 1.0.0 übernommen und dort entfernt",
-          "beleg": "(Windows) 11_App_Flutter/pdfuchs_desktop/lib/settings/stammdaten_tresor.dart, app_settings.dart (_stammdatenLaden); AUDIT#05 F-029, Entscheidung Matthias 16.10.2026 „B: Jetzt vor dem RC“"
         }
       ],
       "berechtigungen": [
@@ -1711,25 +1686,13 @@
           "wofuer": "Die App fordert keine weiteren Berechtigungen an – insbesondere keinen Zugriff auf Speicher, Kamera, Standort, Kontakte oder Mikrofon.",
           "pflicht": false,
           "beleg": "Release-Manifest von 1.0.0 vollständig ausgelesen; aktuelles Manifest und Abhängigkeiten statisch geprüft. Für 1.3.1 gegen 1.3.0 verglichen (22.10.2026): Manifest unverändert; [FF_13] bestätigte im AAB 1.3.1 (7) dieselben zwei Einträge (INTERNET und die AndroidX-Schutzberechtigung). Sie enthalten weiterhin keine fachliche Berechtigung außer INTERNET. Das ungenutzte Paket permission_handler ist seit 07.08.2026 entfernt."
-        },
-        {
-          "name": "(Windows) Zugriff auf lokale Dateien",
-          "wofuer": "Öffnen und Speichern der vom Nutzer gewählten PDF-Dateien",
-          "pflicht": true,
-          "beleg": "(Windows) Desktopanwendung ohne Manifest-Berechtigungsmodell"
-        },
-        {
-          "name": "(Windows) Registrierung als PDF-Anwendung („Öffnen mit“), optional",
-          "wofuer": "Nur wenn der Nutzer diese Option bei der Installation wählt. Der Reader wird dann als mögliche Anwendung zum Öffnen von PDF-Dateien eingetragen; welches Programm der Standard ist, entscheidet der Nutzer weiterhin selbst in den Windows-Einstellungen. Die Einträge gelten nur für das angemeldete Benutzerkonto, nicht für den ganzen Rechner, und werden beim Deinstallieren wieder entfernt.",
-          "pflicht": false,
-          "beleg": "(Windows) 92_Tools/installer_flutter.iss (Komponente „assoc“: HKCU Software\\Classes\\Applications\\PDFuchsReader.exe; nur angemeldetes Benutzerkonto; beim Deinstallieren entfernt)"
         }
       ],
       "uebertragungen": [
         {
           "wohin": "license.fehlerfuchs.eu",
           "was": "Nachrichtentext, freiwillig Name und E-Mail-Adresse, Ziel (Support/Kontakt), Betreff, Thema, App-Name, Edition „Free“, App-Version, Android-Version, Gerätehersteller und Modell. Keine Dateianhänge – das dafür vorgesehene Feld wird vom Support-Formular nicht befüllt.",
-          "wann": "Nur wenn der Nutzer das Support-/Kontaktformular ausfüllt und „Senden“ drückt (nur Android-Fassung)",
+          "wann": "Nur wenn der Nutzer das Support-/Kontaktformular ausfüllt und „Senden“ drückt",
           "freiwillig": true,
           "beleg": "05_App/pdfuchsreader_mobile/lib/core/kontakt/kontakt_service.dart (Zeile 19, 37-56) und lib/core/kontakt/kontext.dart"
         },
@@ -1753,27 +1716,6 @@
           "wann": "Nur wenn der Nutzer „Teilen“ oder „Drucken“ auslöst; wohin sie geht, bestimmt der Nutzer",
           "freiwillig": true,
           "beleg": "05_App/pdfuchsreader_mobile/lib/features/viewer/viewer_screen.dart (Zeile 53, 62)"
-        },
-        {
-          "wohin": "license.fehlerfuchs.eu (FehlerFuchs-Kontakt-Bridge, EU/IONOS), per HTTPS",
-          "was": "Nachrichtentext, freiwillig Name und E-Mail, App-Name, App-Version und Betriebssystem-Angabe; optional vom Nutzer gewählte Dateianhänge. Kein Konto, kein Token.",
-          "wann": "Nur beim ausdrücklichen Absenden des Support-/Kontaktformulars (Windows-Shell)",
-          "freiwillig": true,
-          "beleg": "(Windows) 11_App_Flutter/pdfuchs_desktop/lib/support/kontakt_service.dart; lib/support/support_screen.dart"
-        },
-        {
-          "wohin": "E-Mail-App bzw. Browser des Nutzers (mailto / externe fehlerfuchs.eu-Seiten)",
-          "was": "Vorausgefüllte E-Mail bzw. normaler Seitenaufruf; die App selbst überträgt dabei nichts",
-          "wann": "Nur wenn der Nutzer Impressum-/Kontakt-/Support-Links antippt oder der Versand fehlschlägt (mailto-Ausweichweg)",
-          "freiwillig": true,
-          "beleg": "(Windows) 11_App_Flutter/pdfuchs_desktop/lib/legal/impressum_screen.dart; lib/support/support_screen.dart"
-        },
-        {
-          "wohin": "download.pytorch.org (offizieller PyTorch-Paketindex)",
-          "was": "CUDA-Pakete für die optionale GPU-Beschleunigung; betrifft nur den Installer, nicht die laufende App",
-          "wann": "NUR wenn der Nutzer die optionale Installer-Komponente „GPU-Beschleunigung“ wählt (Standard ist CPU, kein Download)",
-          "freiwillig": true,
-          "beleg": "(Windows) 92_Tools/enable_cuda.ps1; 92_Tools/installer_flutter.iss (Komponente „ffdetr“, nicht vorausgewählt)"
         }
       ],
       "fremde_dienste": [
@@ -1786,16 +1728,6 @@
           "name": "Android-Teilen- und Druck-Framework",
           "wofuer": "Weitergabe bzw. Ausdruck einer PDF-Datei",
           "wann": "Nur auf Auslösung durch den Nutzer"
-        },
-        {
-          "name": "(Windows) Tesseract OCR, mitgeliefert",
-          "wofuer": "Texterkennung, wenn der Nutzer OCR auslöst",
-          "wann": "Lokal, nur auf Auslösung durch den Nutzer. Tesseract wird ausschließlich als lokaler Unterprozess gestartet; Sprachdaten liegen lokal daneben, es werden keine Adressen, Proxys oder Onlinedienste übergeben. Gilt NUR für die Windows-Fassung – die Android-Fassung enthält bewusst kein OCR."
-        },
-        {
-          "name": "(Windows) PDFium über pypdfium2",
-          "wofuer": "Darstellung der PDF-Seiten",
-          "wann": "Lokal, bei jeder Anzeige"
         }
       ],
       "konto_noetig": false,
@@ -1803,10 +1735,10 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Android: Alle Daten liegen auf dem Gerät. Einträge der Liste „Zuletzt geöffnet“ lassen sich einzeln entfernen oder komplett leeren. Beim Deinstallieren verschwinden App-Einstellungen, Zuletzt-Liste, Handbuch-Kopie, Lesezeichen, Wiederlesepositionen, im App-Ordner erzeugte bearbeitete Kopien und der Zwischenspeicher. Windows: Das Deinstallieren entfernt das Programmverzeichnis, die Desktop- und Startmenü-Verknüpfungen sowie die bei der Installation gesetzten Einträge. Alle Daten liegen auf dem Gerät. Selbst erzeugte oder bearbeitete PDFs liegen dort, wo der Nutzer sie gespeichert hat, und lassen sich wie jede andere Datei löschen. Beim Deinstallieren wird das Programm entfernt; eigene Dokumente bleiben erhalten. Eine von früheren Fassungen angelegte Datei license_state.json im Anwendungsdatenordner des Benutzers (Testphase) wird von PDFuchs 1.0.0 nicht mehr geschrieben oder gelesen; sie bleibt beim Deinstallieren liegen und kann jederzeit von Hand gelöscht werden. Das gilt auch für die lokale Einstellungsdatei unter %APPDATA%\\PDFuchs; erkennt PDFuchs dort unlesbares JSON, wird diese Fassung vor dem nächsten Speichern als Datei mit dem Zusatz „.defekt-…“ bewahrt (höchstens drei). Ebenso bleiben die verschlüsselte Stammdaten-Datei %LOCALAPPDATA%\\PDFuchs\\stammdaten.dat (unlesbar: ebenso als „.defekt-…“, höchstens drei), der Ordner %APPDATA%\\PDFuchs\\scanner mit Scannerangaben und Scanprofilen sowie der Ordner Dokumente\\PDFuchs mit den Ergebnissen nach dem Deinstallieren erhalten und können von Hand gelöscht werden. Der Zwischenspeicher unter %LOCALAPPDATA%\\PDFuchs\\Umwandlung bleibt beim Deinstallieren ebenfalls erhalten; Einträge, die älter als sieben Tage sind, löscht PDFuchs selbst, der Rest lässt sich jederzeit von Hand löschen. Ebenso bleiben die Ordner %APPDATA%\\PDFuchs\\stempel und %APPDATA%\\PDFuchs\\sticker mit den eigenen Stempeln und Stickern erhalten. In beiden Fassungen bleiben die eigenen Dokumente des Nutzers unangetastet – Originale werden nie überschrieben.",
-      "besonderheiten": "Beide Fassungen sind offline voll benutzbar; ohne Zutun des Nutzers entsteht keine Verbindung nach draußen und keine automatische Update-Prüfung. Es gibt kein Konto, keine Anmeldung, keine Werbung, keine Nutzungsmessung und keine In-App-Käufe. In BEIDEN Fassungen entsteht eine Verbindung nur, wenn der Nutzer sie selbst auslöst – vor allem beim Absenden des Support-/Kontaktformulars (an license.fehlerfuchs.eu) sowie beim Öffnen externer Links. Beim Windows-Installer kann der Nutzer optional eine GPU-Komponente wählen, die dann CUDA-Pakete aus dem offiziellen PyTorch-Index nachlädt (Standard: aus). Bearbeitete PDF-Dateien werden immer als neue Kopie gespeichert, die Ursprungsdatei bleibt unverändert. Die Android-Fassung wird über Google Play vertrieben; Google erhält dabei die üblichen Installations- und Kontodaten des Store-Vorgangs, worauf die App selbst keinen Einfluss hat.",
-      "vorhandener_text": "Android: 05_App/pdfuchsreader_mobile/lib/features/legal/datenschutz_screen.dart (Datenschutztext in der App nach den sechs Fragen, verweist auf https://fehlerfuchs.eu/datenschutz/). Windows: 09_Releases/Datenschutz_Lokalhinweis_01072026.md",
-      "offene_fragen": "1. (erledigt) Windows- und Android-Reader teilen bewusst den Slug „pdfuchsreader“; Eigentümer und gemeinsame Pflege liegen bei [26] PDFuchs. 2. (geklärt, Beleg [11] Lizenzserver via [26-1], 23.08.2026) Der Kontakt-Endpunkt /v1/contact auf license.fehlerfuchs.eu speichert den Nachrichteninhalt NICHT in der Datenbank; die IP dient nur als kurzlebiger Redis-Schlüssel der Missbrauchsbremse (Stunde/Tag), es wird kein User-Agent übernommen, und bei Erfolg protokolliert der Dienst weder Anfrageinhalt noch IP. Offen bleibt allein die Aufbewahrung im E-Mail-Postfach, an das der Supportinhalt weitergeleitet wird – sie richtet sich nach dem Postfach. 3. (erledigt) Das ungenutzte Paket permission_handler wurde mit Version 1.0.1 (07.08.2026) entfernt; es hatte ohnehin keine Datenschutzwirkung. 4. (aus der Windows-Zulieferung) Das Netzverhalten der mitgelieferten Tesseract-Binary selbst wurde nicht per Mitschnitt geprüft; geprüft wurde nur, was PDFuchs aufruft und übergibt. 5. (aus der Windows-Zulieferung) Ob Aktionen, die im Reader ausgelöst werden, den lokalen Zähler in license_state.json mitschreiben, wurde nicht abschließend geprüft: Reader und Suite nutzen denselben Programmkern, ein reader-eigener Schreibzugriff wurde jedoch nicht gefunden.",
+      "loeschung": "Alle Daten liegen auf dem Gerät. Einträge der Liste „Zuletzt geöffnet“ lassen sich einzeln entfernen oder komplett leeren. Beim Deinstallieren verschwinden App-Einstellungen, Zuletzt-Liste, Handbuch-Kopie, Lesezeichen, Wiederlesepositionen, im App-Ordner erzeugte bearbeitete Kopien und der Zwischenspeicher. Die eigenen Dokumente des Nutzers bleiben unangetastet – Originale werden nie überschrieben.",
+      "besonderheiten": "Die App ist offline voll benutzbar; ohne Zutun des Nutzers entsteht keine Verbindung nach draußen und keine automatische Update-Prüfung. Es gibt kein Konto, keine Anmeldung, keine Werbung, keine Nutzungsmessung und keine In-App-Käufe. Eine Verbindung entsteht nur, wenn der Nutzer sie selbst auslöst – vor allem beim Absenden des Support-/Kontaktformulars (an license.fehlerfuchs.eu) sowie beim Öffnen externer Links. Bearbeitete PDF-Dateien werden immer als neue Kopie gespeichert, die Ursprungsdatei bleibt unverändert. Die App wird über Google Play vertrieben; Google erhält dabei die üblichen Installations- und Kontodaten des Store-Vorgangs, worauf die App selbst keinen Einfluss hat.",
+      "vorhandener_text": "Android: 05_App/pdfuchsreader_mobile/lib/features/legal/datenschutz_screen.dart (Datenschutztext in der App nach den sechs Fragen, verweist auf https://fehlerfuchs.eu/datenschutz/).",
+      "offene_fragen": "1. (erledigt) Der Slug „pdfuchsreader“ gehört [26] PDFuchs. Die frühere Windows-Fassung ist seit 20.10.2026 entfallen, der Slug beschreibt nur noch die Android-App. 2. (geklärt, Beleg [11] Lizenzserver via [26-1], 23.08.2026) Der Kontakt-Endpunkt /v1/contact auf license.fehlerfuchs.eu speichert den Nachrichteninhalt NICHT in der Datenbank; die IP dient nur als kurzlebiger Redis-Schlüssel der Missbrauchsbremse (Stunde/Tag), es wird kein User-Agent übernommen, und bei Erfolg protokolliert der Dienst weder Anfrageinhalt noch IP. Offen bleibt allein die Aufbewahrung im E-Mail-Postfach, an das der Supportinhalt weitergeleitet wird – sie richtet sich nach dem Postfach. 3. (erledigt) Das ungenutzte Paket permission_handler wurde mit Version 1.0.1 (07.08.2026) entfernt; es hatte ohnehin keine Datenschutzwirkung. 4. (entfallen am 06.11.2026) Die früheren Fragen zur Windows-Fassung (Netzverhalten der mitgelieferten Tesseract-Binary, Zähler in license_state.json) betrafen nur die Windows-Fassung und gelten nicht mehr.",
       "art": "anwendung"
     },
     {
