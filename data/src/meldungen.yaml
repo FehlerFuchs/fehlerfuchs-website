@@ -114,10 +114,10 @@ meldungen:
     datum: "2026-11-01"
     titel: "AppInsight 1.0.3: Die Internetsperre ist ehrlicher"
     text: >-
-      AppInsight 1.0.3 ist im Play Store und macht die Internetsperre ehrlicher. Übernimmt eine
-      andere VPN, zeigt AppInsight „Sperre unterbrochen“ statt „Gesperrt“ und meldet es. Ist eine
-      andere VPN durchgehend aktiv, erklärt AppInsight, warum Android die Sperre nicht zulässt. Und
-      vor dem Sperren warnt AppInsight, wenn dafür eine laufende VPN getrennt wird.
+      AppInsight 1.0.3 ist im Play Store und macht die Internetsperre ehrlicher. Übernimmt ein
+      anderes VPN, zeigt AppInsight „Sperre unterbrochen“ statt „Gesperrt“ und meldet es. Ist ein
+      anderes VPN durchgehend aktiv, erklärt AppInsight, warum Android die Sperre nicht zulässt. Und
+      vor dem Sperren warnt AppInsight, wenn dafür ein laufendes VPN getrennt wird.
 
   # PDFuchs 1.0.0 (Windows-Release 20.10.2026 17:39, signiert, Meldung [FF_16] P5 17:44). 'version: 1.0.0'
   # bindet die Meldung an den releases-Eintrag. Text aus „Was ist neu“ der Release-Seite (freigegeben von
