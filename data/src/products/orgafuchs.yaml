@@ -112,6 +112,32 @@ editions:
 # (ältere Releases bleiben im Downloads-Repo). sha256/Bytes gegen das GitHub-Asset
 # gegengeprüft (gh: 17.548.488 B, sha256 a068bfbe…d76b).
 releases:
+  # 1.12.0 (07.11.2026): Meldung [FF_16] Code Signing P5 (00:29, veröffentlicht auf „push orgafuchs“ von Matthias
+  # im Chat von [FF_16] 00:26, Release 00:28, zweistufig signiert). Von [FF_10] gegen GitHub geprüft
+  # (gh release view orgafuchs-v1.12.0: kein Entwurf, keine Vorabversion, ein Asset 18.085.296 B,
+  # sha256 05915c79…a43a – stimmen mit der Meldung überein). notes aus „Was ist neu“ der Release-Seite ([FF_16]),
+  # nichts erfunden (P8). Freigabe Release-Eintrag, Update-Dateien und Meldung: ENTSCHEIDUNG [FF_00] 07.11.2026 00:37
+  # (Wort Matthias A, Update-Dateien namentlich genannt), Logbuch #9284.
+  - version: "1.12.0"
+    date: "2026-11-07"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.12.0/FehlerFuchs_OrgaFuchs_Setup_1.12.0.exe
+    filename: FehlerFuchs_OrgaFuchs_Setup_1.12.0.exe
+    size:
+      bytes: 18085296
+      label: "17,2 MB"
+      source: GitHub-Release-Asset
+    sha256: "05915c798797004f688f43b7380879e807289cdd03b57d846c1977c71945a43a"
+    signed: true
+    notes: |-
+      OrgaFuchs 1.12.0 – Erinnerungen mit eigenem Ton
+      - Erinnerung und eigener Ton je Termin und je Notiz, jederzeit änderbar: von „zum Beginn“ bis „1 Tag vorher“ oder eine Uhrzeit. Sechs eigene Töne, „Standard“ oder „Stumm“.
+      - Notizen lassen sich jetzt bearbeiten.
+      - Eigene Benachrichtigungstöne je Art von Meldung und Ton beim manuellen Abgleich.
+      - Einrichtungen können an Feiertagen geöffnet sein.
+      - Korrekturen: Beschriftung „Benachrichtigungsdienst“, das Hauptgerät legt Personen an.
+      - Neues Programmsymbol, auch im Installationsassistenten.
   # 1.11.0 (20.10.2026): Meldung [FF_16] Code Signing P5 (10:02, veröffentlicht auf „push orgafuchs“
   # von Matthias 10:00, Release 10:01, zweistufig signiert). Von [FF_10] gegen GitHub geprüft
   # (gh release view orgafuchs-v1.11.0: kein Entwurf, keine Vorabversion, ein Asset 17.999.152 B,

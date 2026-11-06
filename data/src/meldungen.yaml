@@ -76,6 +76,20 @@ meldungen:
       gewählten Reihenfolge. Beim Speichern einer Kopie kommt kein Fehler mehr. In E-Books steht
       der Titel nicht mehr doppelt am Kapitelanfang.
 
+  # OrgaFuchs 1.12.0: Android (versionCode 44) im Play Store live seit 06.11.2026 23:06 (P5 von [FF_13]), Windows
+  # veröffentlicht 07.11.2026 00:28 (P5 von [FF_16]). Eine gemeinsame Meldung, an den releases-Eintrag gebunden
+  # (Datum 07.11.2026). Wortlaut: Entwurf [FF_10], freigegeben von Matthias über [FF_00] (ENTSCHEIDUNG 07.11.2026
+  # 00:37, Nr. 3: „A: Ja, so“), wörtlich übernommen. KEINE Buildnummer.
+  - id: orgafuchs-1-12-0
+    typ: update
+    produkt: orgafuchs
+    version: "1.12.0"
+    titel: "OrgaFuchs 1.12.0: Erinnerungen mit eigenem Ton"
+    text: >-
+      OrgaFuchs 1.12.0 ist für Android und Windows da. Zu jedem Termin und jeder Notiz lässt sich
+      jetzt eine Erinnerung einstellen, mit einem eigenen Ton (sechs Töne zur Wahl). Außerdem können
+      Einrichtungen an Feiertagen geöffnet sein, und OrgaFuchs hat ein neues Symbol.
+
   # OrgaFuchs 1.11.1 (versionCode 33). Nur Android: im Play Store live seit 20.10.2026 19:26 (P5 von [FF_13]
   # 19:5x). Text nach „Was ist neu“ im Store, nichts erfunden (P8), für Besucher geschrieben. KEINE
   # Buildnummer. Kein 'version' (Windows-Stand ist 1.11.0).

@@ -1,8 +1,22 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-06T22:56:14+01:00",
+  "generiert": "2026-11-07T00:41:31+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "orgafuchs-1-12-0",
+      "typ": "update",
+      "produkt": "orgafuchs",
+      "version": "1.12.0",
+      "titel": "OrgaFuchs 1.12.0: Erinnerungen mit eigenem Ton",
+      "text": "OrgaFuchs 1.12.0 ist für Android und Windows da. Zu jedem Termin und jeder Notiz lässt sich jetzt eine Erinnerung einstellen, mit einem eigenen Ton (sechs Töne zur Wahl). Außerdem können Einrichtungen an Feiertagen geöffnet sein, und OrgaFuchs hat ein neues Symbol.",
+      "datum": "2026-11-07",
+      "datumQuelle": "Release 1.12.0",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.12.0/FehlerFuchs_OrgaFuchs_Setup_1.12.0.exe",
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.orgafuchs"
+      }
+    },
     {
       "id": "appinsight-1-0-3",
       "typ": "update",

@@ -1,6 +1,6 @@
 {
-  "version": "1.11.0",
-  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.11.0/FehlerFuchs_OrgaFuchs_Setup_1.11.0.exe",
-  "sha256": "86e0f384bb24d149ea344c0e99b308890987200b8fe40972badbc35270df984d",
-  "notes": "OrgaFuchs 1.11.0 – neue Startseite und Schnelleintrag\n- Neue Startseite: Heute und Morgen auf einen Blick, dazu Kacheln zu allen Bereichen.\n- Monatsansicht: Jede Person hat in jeder Tageskachel ihre feste Zeile.\n- Neu: Raster · Schnelleintrag mit Planungsmodus; erst „Senden“ überträgt.\n- Datum oben anklicken: direkt zu Jahr, Monat und Tag springen.\n- Jeden Tag eine Sicherung (die letzten 14 bleiben), alles im Ordner „OrgaFuchs“.\n- PDF: alle Dienste im Ausdruck, Einrichtungen als Farbpunkt, Sonderzeichen richtig.\n- Regionale Feiertage einschaltbar; Updates und Deinstallation zuverlässiger."
+  "version": "1.12.0",
+  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/orgafuchs-v1.12.0/FehlerFuchs_OrgaFuchs_Setup_1.12.0.exe",
+  "sha256": "05915c798797004f688f43b7380879e807289cdd03b57d846c1977c71945a43a",
+  "notes": "OrgaFuchs 1.12.0 – Erinnerungen mit eigenem Ton\n- Erinnerung und eigener Ton je Termin und je Notiz, jederzeit änderbar: von „zum Beginn“ bis „1 Tag vorher“ oder eine Uhrzeit. Sechs eigene Töne, „Standard“ oder „Stumm“.\n- Notizen lassen sich jetzt bearbeiten.\n- Eigene Benachrichtigungstöne je Art von Meldung und Ton beim manuellen Abgleich.\n- Einrichtungen können an Feiertagen geöffnet sein.\n- Korrekturen: Beschriftung „Benachrichtigungsdienst“, das Hauptgerät legt Personen an.\n- Neues Programmsymbol, auch im Installationsassistenten."
 }
