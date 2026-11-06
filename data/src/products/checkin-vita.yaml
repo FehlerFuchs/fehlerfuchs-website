@@ -39,7 +39,7 @@ platforms:
     since: "2026-10-11"
   - os: windows
     status: entwicklung
-    requirements: Windows 10/11 (64-bit)
+    requirements: Windows 10/11, 64-Bit
     distribution: keiner
     hinweis:
       wenn: entwicklung

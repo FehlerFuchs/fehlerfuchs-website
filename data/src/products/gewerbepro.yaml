@@ -21,7 +21,7 @@ status: verfuegbar
 platforms:
   - os: windows
     status: verfuegbar
-    requirements: Windows 10 / 11 (64-bit), keine Administratorrechte nötig
+    requirements: Windows 10/11, 64-Bit, keine Administratorrechte nötig
     distribution: github-release
     since: "2026-08-17"        # 1.0.0 – erstes Stable-Release (Beta lief ab 15.07.)
   # Companion-App „GewerbePro Companion“ (G4: „GewerbePro Mobil“ war ein Arbeitsname): in der
@@ -436,7 +436,7 @@ faq:
       Zusatz-App, sondern der mobile Arm deiner Vollversion.
   - question: Welche Systemvoraussetzungen hat GewerbePro?
     answer: >-
-      Windows 10 oder 11 (64-bit). Die Installation läuft im Benutzerprofil und braucht
+      Windows 10 oder 11 (64-Bit). Die Installation läuft im Benutzerprofil und braucht
       keine Administratorrechte. Zusätzliche Software ist nicht nötig: Die erforderliche
       Visual-C++-Runtime ist im Installer enthalten (auf frischem Windows getestet). Für die tägliche Arbeit ist kein Internet nötig; die Pro-Lizenz meldet sich nur spätestens alle 30 Tage einmal kurz beim Lizenzserver. Der Installer ist rund 110 MB groß; deine Daten liegen lokal in deinem
       Benutzerprofil. Das Programm ist digital signiert (Herausgeber

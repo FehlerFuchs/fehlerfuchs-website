@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-04T10:27:47+01:00",
+  "generiert": "2026-11-06T23:01:30+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -336,7 +336,7 @@
         {
           "os": "windows",
           "status": "entwicklung",
-          "requirements": "Windows 10/11 (64-bit)",
+          "requirements": "Windows 10/11, 64-Bit",
           "distribution": "keiner",
           "hinweis": {
             "wenn": "entwicklung",
@@ -657,7 +657,7 @@
         {
           "os": "windows",
           "status": "verfuegbar",
-          "requirements": "Windows 10/11 (64-bit)",
+          "requirements": "Windows 10/11, 64-Bit",
           "distribution": "auf-anfrage"
         },
         {
@@ -964,7 +964,7 @@
         {
           "os": "windows",
           "status": "verfuegbar",
-          "requirements": "Windows 10 / 11 (64-bit), keine Administratorrechte nötig",
+          "requirements": "Windows 10/11, 64-Bit, keine Administratorrechte nötig",
           "distribution": "github-release",
           "since": "2026-08-17"
         },
@@ -1496,7 +1496,7 @@
         },
         {
           "question": "Welche Systemvoraussetzungen hat GewerbePro?",
-          "answer": "Windows 10 oder 11 (64-bit). Die Installation läuft im Benutzerprofil und braucht keine Administratorrechte. Zusätzliche Software ist nicht nötig: Die erforderliche Visual-C++-Runtime ist im Installer enthalten (auf frischem Windows getestet). Für die tägliche Arbeit ist kein Internet nötig; die Pro-Lizenz meldet sich nur spätestens alle 30 Tage einmal kurz beim Lizenzserver. Der Installer ist rund 110 MB groß; deine Daten liegen lokal in deinem Benutzerprofil. Das Programm ist digital signiert (Herausgeber FehlerFuchs); bei einem neuen Download kann Windows SmartScreen anfangs trotzdem warnen, bis sich die Bekanntheit aufgebaut hat."
+          "answer": "Windows 10 oder 11 (64-Bit). Die Installation läuft im Benutzerprofil und braucht keine Administratorrechte. Zusätzliche Software ist nicht nötig: Die erforderliche Visual-C++-Runtime ist im Installer enthalten (auf frischem Windows getestet). Für die tägliche Arbeit ist kein Internet nötig; die Pro-Lizenz meldet sich nur spätestens alle 30 Tage einmal kurz beim Lizenzserver. Der Installer ist rund 110 MB groß; deine Daten liegen lokal in deinem Benutzerprofil. Das Programm ist digital signiert (Herausgeber FehlerFuchs); bei einem neuen Download kann Windows SmartScreen anfangs trotzdem warnen, bis sich die Bekanntheit aufgebaut hat."
         }
       ],
       "media": {
@@ -1905,7 +1905,7 @@
           "os": "windows",
           "status": "verfuegbar",
           "since": "2026-08-12",
-          "requirements": "Windows 10/11 (64-bit)",
+          "requirements": "Windows 10/11, 64-Bit",
           "distribution": "github-release",
           "hinweis": {
             "wenn": "verfuegbar",
@@ -2873,7 +2873,7 @@
           "os": "windows",
           "status": "verfuegbar",
           "since": "2026-08-08",
-          "requirements": "Windows 10/11 (64-bit)",
+          "requirements": "Windows 10/11, 64-Bit",
           "distribution": "github-release"
         },
         {
@@ -3299,7 +3299,7 @@
         {
           "os": "windows",
           "status": "verfuegbar",
-          "requirements": "Windows, 64-bit",
+          "requirements": "Windows 10/11, 64-Bit",
           "distribution": "github-release",
           "since": "2026-10-20",
           "hinweis": {

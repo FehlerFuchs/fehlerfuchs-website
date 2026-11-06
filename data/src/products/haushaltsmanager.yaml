@@ -42,7 +42,7 @@ platforms:
     # Veröffentlicht mit 1.0.0 am 12.08.2026 (Release-Eintrag unten); nachgetragen
     # nach Sichtung 29.09., Befund 4 (ENTSCHEIDUNG A, #3787).
     since: "2026-08-12"
-    requirements: Windows 10/11 (64-bit)
+    requirements: Windows 10/11, 64-Bit
     distribution: github-release
     hinweis:
       wenn: verfuegbar

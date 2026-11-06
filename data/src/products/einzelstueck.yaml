@@ -42,7 +42,7 @@ status: verfuegbar
 platforms:
   - os: windows
     status: verfuegbar
-    requirements: Windows 10/11 (64-bit)
+    requirements: Windows 10/11, 64-Bit
     distribution: auf-anfrage
   - os: web
     status: verfuegbar

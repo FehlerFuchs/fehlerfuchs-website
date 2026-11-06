@@ -32,7 +32,7 @@ platforms:
   - os: windows
     status: verfuegbar
     since: "2026-08-08"
-    requirements: Windows 10/11 (64-bit)
+    requirements: Windows 10/11, 64-Bit
     distribution: github-release
   - os: android
     # Zweimal von der Play-Prüfsoftware abgelehnt (18.07. + 24.07., siehe umwege),
