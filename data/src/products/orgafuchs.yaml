@@ -302,6 +302,9 @@ features:
         values: { standard: ja }
       - name: Notizen und Termine mit Personenbezug
         values: { standard: ja }
+      - name: Erinnerung mit eigenem Ton je Termin und Notiz
+        values: { standard: ja }
+        note: Unter Windows kommt die Erinnerung nur, solange das Programm läuft.
 
   - group: Ausgeben
     items:

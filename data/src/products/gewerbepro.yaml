@@ -355,8 +355,6 @@ features:
           In der Vollversion enthalten. Kostenlos über Google Play, freigeschaltet mit deinem
           Lizenzschlüssel (belegt einen der 3 Arbeitsplätze). Datenabgleich mit dem PC per
           USB-Kabel oder als verschlüsselte Datei.
-      - name: Voll editierbar, Entwickler-Werkzeuge und Selbsttest
-        values: { free: nein, pro: nein, vather: ja }
 
 # Weiterführender Link zum Ratgeber (Sichtung 31.10.2026, S1; Wort Matthias über [FF_00]).
 weiterlesen:

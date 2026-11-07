@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-23T13:14:31+02:00",
+  "generiert": "2026-11-07T20:56:09+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "wuensche": [
     {
@@ -54,7 +54,7 @@
       "titel": "Betreff für Meldungen",
       "text": "Wenn ich eine Meldung als Mail rausschicke, steht im Betreff immer dasselbe. Ich hätte gern einen eigenen Betreff je Meldung, damit man in der Mailflut erkennt, worum es geht.",
       "status": "umgesetzt",
-      "ergebnis": "mobilereport-enterprise",
+      "ergebnis": "mobilereport",
       "kommentar": {
         "datum": "2026-07-09",
         "text": "Ist drin seit Version 1.0.1. Danke – das war eine dieser Kleinigkeiten, die im eigenen Gebrauch nie auffallen und im echten sofort."

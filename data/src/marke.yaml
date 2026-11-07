@@ -253,8 +253,7 @@ werte_artikel:
       - '**Die Helfer funktionieren offline.** Im Keller ohne Empfang, im Funkloch auf dem Land, im Flugzeug. Keine
         Verbindung ist bei FehlerFuchs kein Fehler, sondern der Normalfall.'
       - '**Sie sind schnell**, weil nichts erst über das Internet hin- und hergeschickt wird.'
-      - '**Sie hängen an keinem Server.** Eine lokale App läuft auch dann noch, wenn es mich in zehn Jahren nicht
-        mehr gäbe.'
+      - '**Deine Daten hängen an keinem Server.** Sie liegen bei dir, nicht bei mir. Nur die Lizenz einzelner Bezahlfassungen meldet sich ab und zu kurz, und OrgaFuchs gleicht Geräte über ein Relais ab.'
 - titel: Fair
   anker: wert-fair
   unterzeile: Wo es eine kostenlose Fassung gibt, bleibt das Grundlegende frei. Wirklich. Für immer.
