@@ -36,6 +36,7 @@ Aufruf (PowerShell). 'py -3' statt 'python' - auf diesem Rechner zeigt
 import re
 import sys
 from datetime import date
+from zeit_berlin import heute_berlin
 from pathlib import Path
 
 import yaml
@@ -261,7 +262,7 @@ def pruefe(text, daten, erlaubte_kennungen):
             )
 
     stand = str(daten.get("stand", ""))
-    if stand > date.today().isoformat():
+    if stand > heute_berlin().isoformat():
         funde.append(f"'stand' liegt in der Zukunft ({stand})")
 
     return funde, hinweise

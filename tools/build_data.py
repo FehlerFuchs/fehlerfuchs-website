@@ -27,6 +27,7 @@ import sys
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from typografie import funde as typo_funde    # Regeln: tools/typografie.py (eine Quelle)
+from zeit_berlin import heute_berlin              # Datumsprüfungen in Berliner Zeit (der Runner rechnet in UTC)
 
 try:
     import yaml
@@ -288,7 +289,7 @@ def pruefe_inhalt(p, statuses, alle_slugs, alle_produkte):
     if daten_liste != sorted(daten_liste, reverse=True):
         melde(warnungen, slug, "Releases sind nicht nach Datum absteigend sortiert (neuestes zuerst)")
     for r in p.get("releases", []):
-        if datetime.strptime(r["date"], "%Y-%m-%d").date() > date.today():
+        if datetime.strptime(r["date"], "%Y-%m-%d").date() > heute_berlin():
             melde(fehler, slug, f"Release {r['version']} hat ein Datum in der Zukunft ({r['date']})")
         if r["os"] not in [pl["os"] for pl in p["platforms"]]:
             melde(fehler, slug, f"Release {r['version']} ist für '{r['os']}', "
@@ -641,7 +642,7 @@ def pruefe_inhalt(p, statuses, alle_slugs, alle_produkte):
     #     aktuellen Stand behauptet. Deshalb wird hier vor allem geprüft, ob
     #     ein Umweg mit dem abgeleiteten Weg zusammenpasst.
     plattform_nach_os = {pl["os"]: pl for pl in p["platforms"]}
-    heute_iso = date.today().isoformat()
+    heute_iso = heute_berlin().isoformat()
     vorher = {}
     for u in p.get("umwege", []):
         wo = f"Umweg {u['datum']}"
@@ -835,7 +836,7 @@ def pruefe_meldungen(meldungen, produkte, schema):
     damit jeder Verbraucher der Daten dieselben Werte sieht.
     """
     nach_slug = {p["slug"]: p for p in produkte}
-    heute = date.today().isoformat()
+    heute = heute_berlin().isoformat()
     gesehen = {}
     ergebnis = []
 
@@ -978,7 +979,7 @@ def pruefe_dienste(dienste, produkte):
     """
     slugs = {p["slug"] for p in produkte}
     gesehen = set()
-    heute_iso = date.today().isoformat()
+    heute_iso = heute_berlin().isoformat()
     # Grob, aber ausreichend: vier Zahlengruppen mit Punkten. Eine IP in einem
     # oeffentlich ausgelieferten Ordner ist genau die Sorte Angabe, die man
     # einmal eintraegt und nie wieder anschaut.
@@ -1047,8 +1048,8 @@ def pruefe_steckbriefe(produkte, dienste):
         "kein-konto": ("konto_noetig", False),
     }
 
-    heute = date.today().isoformat()
-    lange_her = (date.today() - timedelta(days=180)).isoformat()
+    heute = heute_berlin().isoformat()
+    lange_her = (heute_berlin() - timedelta(days=180)).isoformat()
     nach_slug = {p["slug"]: p for p in produkte}
     dienst_ids = {d["id"] for d in dienste}
 
@@ -1524,7 +1525,7 @@ def pruefe_aktionen(eintraege, produkte):
     solange sie liegt.
     """
     slugs = {p["slug"] for p in produkte}
-    heute = date.today().isoformat()
+    heute = heute_berlin().isoformat()
     gesehen = set()
 
     for a in eintraege:
@@ -1734,7 +1735,7 @@ def meldungen_aus_aktionen(aktionen, meldungen):
             "id": f"aktion-{a['id']}",
             "typ": "hinweis",
             "produkt": a.get("produkt"),
-            "datum": str(a.get("start") or date.today().isoformat()),
+            "datum": str(a.get("start") or heute_berlin().isoformat()),
             "datumQuelle": "Start der Aktion",
             "titel": m["titel"],
             "text": m["text"],
