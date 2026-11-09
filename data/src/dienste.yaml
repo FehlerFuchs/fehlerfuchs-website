@@ -59,8 +59,8 @@ dienste:
     # Kontakt-, Support-, Wunsch- und Aktionsformulare laufen ebenfalls über den Dienst.
     # Einzige Abweichung vom Wortlaut: „ — “ → „ – “ (Hausschreibweise, Befund 16).
     zweck: >-
-      Stellt Lizenzschlüssel für kostenpflichtige Ausbaustufen aus und prüft
-      sie. Außerdem nimmt er entgegen, was du über ein Formular abschickst:
+      Stellt Lizenzschlüssel für die Ausbaustufen aus, die nicht über Google Play
+      laufen, und prüft sie. Außerdem nimmt er entgegen, was du über ein Formular abschickst:
       Kontakt- und Supportanfragen aus den Apps und von der Website,
       Einsendungen an den Wunscherfüller und die Teilnahme an Aktionen, dazu
       Tester-Registrierungen, Löschanträge und die Kaufmeldungen des Zahlungsanbieters samt Weiterleitung auf die Danke-Seite nach dem Kauf.
@@ -242,7 +242,8 @@ dienste:
       Übermittlungen finden laut Erklärung nur bei geeigneten Garantien,
       Standardvertragsklauseln oder einem Angemessenheitsbeschluss statt.
     zweck: >-
-      Wickelt den Kauf kostenpflichtiger Ausbaustufen ab. Digistore24 ist
+      Wickelt den Kauf der Ausbaustufen ab, die nicht über Google Play laufen.
+      Digistore24 ist
       dabei der Verkäufer gegenüber dem Kunden; FehlerFuchs erhält den Kauf
       gemeldet und stellt daraufhin die Lizenz aus.
     betreiber: fremd
@@ -256,7 +257,7 @@ dienste:
       und die Angaben, die zur Ausstellung der Lizenz nötig sind.
     produkte: [mobilereport, mobilereport-enterprise, gewerbepro]
     hinweis: >-
-      Solange keine kostenpflichtige Stufe gekauft wird, entsteht dort kein
+      Solange nichts über Digistore24 gekauft wird, entsteht dort kein
       Vorgang.
 
 # ---------------------------------------------------------------------------

@@ -1,13 +1,13 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-10-20T10:03:25+02:00",
+  "generiert": "2026-11-09T04:27:36+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "dienste": [
     {
       "id": "lizenzserver",
       "name": "Lizenzserver",
       "adresse": "license.fehlerfuchs.eu",
-      "zweck": "Stellt Lizenzschlüssel für kostenpflichtige Ausbaustufen aus und prüft sie. Außerdem nimmt er entgegen, was du über ein Formular abschickst: Kontakt- und Supportanfragen aus den Apps und von der Website, Einsendungen an den Wunscherfüller und die Teilnahme an Aktionen, dazu Tester-Registrierungen, Löschanträge und die Kaufmeldungen des Zahlungsanbieters samt Weiterleitung auf die Danke-Seite nach dem Kauf.",
+      "zweck": "Stellt Lizenzschlüssel für die Ausbaustufen aus, die nicht über Google Play laufen, und prüft sie. Außerdem nimmt er entgegen, was du über ein Formular abschickst: Kontakt- und Supportanfragen aus den Apps und von der Website, Einsendungen an den Wunscherfüller und die Teilnahme an Aktionen, dazu Tester-Registrierungen, Löschanträge und die Kaufmeldungen des Zahlungsanbieters samt Weiterleitung auf die Danke-Seite nach dem Kauf.",
       "betreiber": "eigen",
       "standort": "Deutschland",
       "stand": "2026-10-06",
@@ -106,7 +106,7 @@
       "rolle": "eigener-verantwortlicher",
       "einbindung": "orderform-bei-digistore24",
       "drittland": "Übermittlungen finden laut Erklärung nur bei geeigneten Garantien, Standardvertragsklauseln oder einem Angemessenheitsbeschluss statt.",
-      "zweck": "Wickelt den Kauf kostenpflichtiger Ausbaustufen ab. Digistore24 ist dabei der Verkäufer gegenüber dem Kunden; FehlerFuchs erhält den Kauf gemeldet und stellt daraufhin die Lizenz aus.",
+      "zweck": "Wickelt den Kauf der Ausbaustufen ab, die nicht über Google Play laufen. Digistore24 ist dabei der Verkäufer gegenüber dem Kunden; FehlerFuchs erhält den Kauf gemeldet und stellt daraufhin die Lizenz aus.",
       "betreiber": "fremd",
       "standort": "Deutschland",
       "stand": "2026-07-19",
@@ -120,7 +120,7 @@
         "mobilereport-enterprise",
         "gewerbepro"
       ],
-      "hinweis": "Solange keine kostenpflichtige Stufe gekauft wird, entsteht dort kein Vorgang."
+      "hinweis": "Solange nichts über Digistore24 gekauft wird, entsteht dort kein Vorgang."
     }
   ],
   "auftragsverarbeiter": [

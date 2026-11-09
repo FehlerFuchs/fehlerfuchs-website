@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-07T20:56:09+01:00",
+  "generiert": "2026-11-09T04:27:36+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "name": "FehlerFuchs",
   "slogan": "Einfach kleine Helfer.",
@@ -237,7 +237,7 @@
             {
               "liste": [
                 "**Die Helfer funktionieren offline.** Im Keller ohne Empfang, im Funkloch auf dem Land, im Flugzeug. Keine Verbindung ist bei FehlerFuchs kein Fehler, sondern der Normalfall.",
-                "**Sie sind schnell**, weil nichts erst über das Internet hin- und hergeschickt wird.",
+                "**Sie sind schnell**, weil deine Daten nicht erst über das Internet hin- und hergeschickt werden.",
                 "**Deine Daten hängen an keinem Server.** Sie liegen bei dir, nicht bei mir. Nur die Lizenz einzelner Bezahlfassungen meldet sich ab und zu kurz, und OrgaFuchs gleicht Geräte über ein Relais ab."
               ]
             }
