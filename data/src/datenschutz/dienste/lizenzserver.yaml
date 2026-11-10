@@ -1,6 +1,6 @@
 slug: lizenzserver
 name: FehlerFuchs Lizenzserver
-stand: "2026-10-24"
+stand: "2026-11-10"
 geprueft_von: 11_Lizenzserver
 fassung: "Adapter-Stand 20.07.2026 (kein Versionsschema); Admin-API 1.0; mit Löschlauf, Wunscherfüller und Löschantrag (live seit 01.10.2026; Weg „nur E-Mail“ und Frist für Ereignis-Kennungen seit 03.10.2026; Datensicherung mit Löschjournal seit 06.10.2026; Roh-Aufrufe nur technische Angaben seit 13.10.2026)"
 
@@ -64,6 +64,18 @@ auf_dem_geraet:
 
 # JEDE Verbindung. Eingehend = jemand ruft den Dienst auf; ausgehend = der Dienst ruft.
 uebertragungen:
+  - wohin: license.fehlerfuchs.eu (eingehend, von der Website fehlerfuchs.eu)
+    was: >-
+      Zählung der Seitenaufrufe: nur der Name der aufgerufenen Seite (Pfad, z. B. /produkte/orgafuchs/) und ob es ein
+      Prüflauf des Hauses ist. Gespeichert wird je Berliner Datum, Seite und Gruppe nur eine Zahl. Die Gruppe ist ein
+      fester Name (Besucher, Prüflauf des Hauses, Name einer bekannten Crawler-Gruppe oder „sonstige Crawler“); von der
+      Browserkennung wird nur dieser Gruppenname abgeleitet, nicht gespeichert. KEINE IP-Adresse, KEINE Kennung,
+      KEINE Uhrzeit, keine Cookies, nichts auf dem Gerät. Nur bekannte Pfadformen werden angenommen; der Webserver
+      schreibt kein Zugriffsprotokoll; die Begrenzung gegen Fluten hält nur eine Zahl je Minute im Arbeitsspeicher.
+      Abruf der Zahlen nur mit Schlüssel (sonst 404); Tagessummen zusätzlich im internen Lagebild (dash) des Hauses.
+    wann: einmal je Seitenaufruf der Website (nur mit JavaScript)
+    freiwillig: false
+    beleg: adapter/app/besuche.py, adapter/app/main.py (Endpunkte /v1/besuch, /v1/besuch/zahlen), adapter/app/migrationen.py (0002, Tabelle besuche), Entscheidung Matthias 10.11.2026 (LogBuch #9641, #9643, #9644)
   - wohin: license.fehlerfuchs.eu (eingehend, von den FehlerFuchs-Apps)
     was: Lizenzschlüssel, Gerätekennung, optional Gerätename und Plattform
     wann: beim Freischalten, Prüfen und Abmelden einer Lizenz
@@ -144,6 +156,7 @@ absturzberichte: false
 daten_an_dritte_verkauft: false
 
 loeschung: >-
+  Die Tageszahlen der Seitenaufrufe (nur Seite, Tag, Gruppe, Zahl) werden nach 400 Tagen gelöscht.
   Ein täglicher Aufräumlauf setzt feste Fristen um. Von den Aufrufen des
   Zahlungsanbieters werden nur technische Angaben ohne Personenbezug gespeichert und nach
   30 Tagen endgültig gelöscht. Die Ereignis-Kennungen (Bestellnummer, Ereignisart,

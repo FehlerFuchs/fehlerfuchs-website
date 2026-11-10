@@ -1,22 +1,23 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-09T04:27:36+01:00",
+  "generiert": "2026-11-10T21:19:04+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "dienste": [
     {
       "id": "lizenzserver",
       "name": "Lizenzserver",
       "adresse": "license.fehlerfuchs.eu",
-      "zweck": "Stellt Lizenzschlüssel für die Ausbaustufen aus, die nicht über Google Play laufen, und prüft sie. Außerdem nimmt er entgegen, was du über ein Formular abschickst: Kontakt- und Supportanfragen aus den Apps und von der Website, Einsendungen an den Wunscherfüller und die Teilnahme an Aktionen, dazu Tester-Registrierungen, Löschanträge und die Kaufmeldungen des Zahlungsanbieters samt Weiterleitung auf die Danke-Seite nach dem Kauf.",
+      "zweck": "Stellt Lizenzschlüssel für die Ausbaustufen aus, die nicht über Google Play laufen, und prüft sie. Außerdem nimmt er entgegen, was du über ein Formular abschickst: Kontakt- und Supportanfragen aus den Apps und von der Website, Einsendungen an den Wunscherfüller und die Teilnahme an Aktionen, dazu Tester-Registrierungen, Löschanträge und die Kaufmeldungen des Zahlungsanbieters samt Weiterleitung auf die Danke-Seite nach dem Kauf. Außerdem zählt er, wie oft welche Seite dieser Website aufgerufen wird.",
       "betreiber": "eigen",
       "standort": "Deutschland",
-      "stand": "2026-10-06",
+      "stand": "2026-11-10",
       "uebermittelt": [
         "Lizenzschlüssel",
         "Kennung des Geräts, auf dem freigeschaltet wird",
-        "Angaben aus Formularen, die du abschickst (Name, E-Mail, Nachricht, Anhänge)"
+        "Angaben aus Formularen, die du abschickst (Name, E-Mail, Nachricht, Anhänge)",
+        "Name der aufgerufenen Seite dieser Website (nur zum Zählen)"
       ],
-      "aufbewahrung": "Lizenz und zugehörige Gerätekennung, solange die Lizenz gilt. Kaufabwicklung und Rechnungsdaten liegen beim Zahlungsdienstleister, nicht hier. Wunsch-Einsendungen 90 Tage; Aktionsteilnahme: Anzeigename und E-Mail 90 Tage nach der Vergabe. Zur Sicherheit erstellen wir jeden Tag eine verschlüsselte Sicherung der Datenbank unseres Lizenzservers. Wir bewahren sie 14 Tage auf dem Server und 30 Tage als verschlüsselte Kopie auf unserem eigenen Speicher auf. Löschen wir deine Daten, sind sie spätestens nach 30 Tagen auch aus allen Sicherungen verschwunden. Müssten wir einmal eine Sicherung zurückspielen, löschen wir deine Daten dabei sofort erneut.",
+      "aufbewahrung": "Lizenz und zugehörige Gerätekennung, solange die Lizenz gilt. Kaufabwicklung und Rechnungsdaten liegen beim Zahlungsdienstleister, nicht hier. Wunsch-Einsendungen 90 Tage; Aktionsteilnahme: Anzeigename und E-Mail 90 Tage nach der Vergabe. Seitenaufrufe: je Seite und Tag nur eine Zahl, ohne IP-Adresse und ohne Kennung, 400 Tage. Zur Sicherheit erstellen wir jeden Tag eine verschlüsselte Sicherung der Datenbank unseres Lizenzservers. Wir bewahren sie 14 Tage auf dem Server und 30 Tage als verschlüsselte Kopie auf unserem eigenen Speicher auf. Löschen wir deine Daten, sind sie spätestens nach 30 Tagen auch aus allen Sicherungen verschwunden. Müssten wir einmal eine Sicherung zurückspielen, löschen wir deine Daten dabei sofort erneut.",
       "produkte": [
         "mobilereport",
         "mobilereport-enterprise",
@@ -29,7 +30,7 @@
         "belegwerk",
         "checkin-vita"
       ],
-      "hinweis": "Beim Öffnen der Wunscherfüller- und der Aktionsseite fragt die Website nur einen Zählerstand ab – ohne Angaben von dir. Kontakt- und Supportanfragen werden als E-Mail weitergeleitet und nicht gespeichert. Wunsch-Einsendungen werden nach 90 Tagen gelöscht; bei Aktionen werden Anzeigename und E-Mail-Adresse 90 Tage nach der Vergabe entfernt."
+      "hinweis": "Beim Öffnen einer Seite meldet die Website nur deren Namen zum Zählen – ohne deine IP-Adresse zu speichern und ohne Kennung von dir. Beim Öffnen der Wunscherfüller- und der Aktionsseite fragt die Website außerdem nur einen Zählerstand ab – ohne Angaben von dir. Kontakt- und Supportanfragen werden als E-Mail weitergeleitet und nicht gespeichert. Wunsch-Einsendungen werden nach 90 Tagen gelöscht; bei Aktionen werden Anzeigename und E-Mail-Adresse 90 Tage nach der Vergabe entfernt."
     },
     {
       "id": "relaisserver",

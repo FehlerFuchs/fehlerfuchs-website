@@ -64,9 +64,12 @@ dienste:
       Kontakt- und Supportanfragen aus den Apps und von der Website,
       Einsendungen an den Wunscherfüller und die Teilnahme an Aktionen, dazu
       Tester-Registrierungen, Löschanträge und die Kaufmeldungen des Zahlungsanbieters samt Weiterleitung auf die Danke-Seite nach dem Kauf.
+      Außerdem zählt er, wie oft welche Seite dieser Website aufgerufen wird.
     betreiber: eigen
     standort: Deutschland
-    stand: "2026-10-06"
+    # Zählung der Seitenaufrufe nachgeführt 10.11.2026 (Vorgang #V_0022, Wort Matthias LogBuch #9641, #9644,
+    # #9656; Auftrag von [FF_00], Regel B8). Sachverhalt aus dem Steckbrief von [FF_11] (in Kraft 10.11.2026).
+    stand: "2026-11-10"
     # Satz zur Datensicherung in der Aufbewahrung: von Matthias freigegeben am 06.10.2026
     # (P10, Logbuch #4869), wortgleich übernommen auf Auftrag von [FF_00] (12:56:17).
     # Nur was die APP oder der BROWSER dorthin sendet. Was der Dienst
@@ -75,11 +78,13 @@ dienste:
       - Lizenzschlüssel
       - Kennung des Geräts, auf dem freigeschaltet wird
       - Angaben aus Formularen, die du abschickst (Name, E-Mail, Nachricht, Anhänge)
+      - Name der aufgerufenen Seite dieser Website (nur zum Zählen)
     aufbewahrung: >-
       Lizenz und zugehörige Gerätekennung, solange die Lizenz gilt.
       Kaufabwicklung und Rechnungsdaten liegen beim Zahlungsdienstleister,
       nicht hier. Wunsch-Einsendungen 90 Tage; Aktionsteilnahme: Anzeigename und
-      E-Mail 90 Tage nach der Vergabe.
+      E-Mail 90 Tage nach der Vergabe. Seitenaufrufe: je Seite und Tag nur eine
+      Zahl, ohne IP-Adresse und ohne Kennung, 400 Tage.
       Zur Sicherheit erstellen wir jeden Tag eine verschlüsselte Sicherung der
       Datenbank unseres Lizenzservers. Wir bewahren sie 14 Tage auf dem Server und
       30 Tage als verschlüsselte Kopie auf unserem eigenen Speicher auf. Löschen
@@ -97,8 +102,10 @@ dienste:
     # einmal stimmte und nie nachgezogen wurde: genau der Fall, für den es den
     # Steckbrief-Umlauf gibt.
     hinweis: >-
+      Beim Öffnen einer Seite meldet die Website nur deren Namen zum Zählen –
+      ohne deine IP-Adresse zu speichern und ohne Kennung von dir.
       Beim Öffnen der Wunscherfüller- und der Aktionsseite fragt die Website
-      nur einen Zählerstand ab – ohne Angaben von dir. Kontakt- und
+      außerdem nur einen Zählerstand ab – ohne Angaben von dir. Kontakt- und
       Supportanfragen werden als E-Mail weitergeleitet und nicht gespeichert.
       Wunsch-Einsendungen werden nach 90 Tagen gelöscht; bei Aktionen werden
       Anzeigename und E-Mail-Adresse 90 Tage nach der Vergabe entfernt.
