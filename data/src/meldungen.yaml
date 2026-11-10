@@ -29,6 +29,20 @@
 
 meldungen:
 
+  # GewerbePro Companion 1.0.3 (versionCode 4). Play-Store-App: kein Release im Modell, Livegang 09.11.2026
+  # 19:10 laut Console (P5 von [FF_13], MELDUNG 10.11.2026 05:06). Text nach „Was ist neu“ im Store,
+  # für Besucher geschrieben, nichts erfunden (P8). KEINE Buildnummer nennen (versionCode 4).
+  - id: gewerbepro-companion-1-0-3
+    typ: update
+    produkt: gewerbepro-companion
+    datum: "2026-11-09"
+    titel: "GewerbePro Companion 1.0.3: Termine mit Kunde"
+    text: >-
+      GewerbePro Companion 1.0.3 ist im Play Store. Termine lassen sich jetzt einem Kunden
+      zuordnen, und der Kundenname steht in der Terminliste. Auf Android 15 und neuer liegen die
+      Eingabemasken über der Navigationsleiste. Die Prüfung der Offline-Lizenz ist verstärkt.
+      Dazu kommen Verbesserungen im Hintergrund.
+
   # MobileReport 1.5.1. Play-Store-App: kein Release im Modell (versionsagnostisch), Datum =
   # Livegang im Play Store (30.10.2026, 21:10 laut Console, P5 von [FF_13]). Wort Matthias
   # 30.10.2026 (Wahl B der Vorlage Logbuch #8603: nur Consumer, Enterprise bleibt ohne Meldung).

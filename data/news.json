@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-07T00:41:31+01:00",
+  "generiert": "2026-11-10T05:08:49+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "gewerbepro-companion-1-0-3",
+      "typ": "update",
+      "produkt": "gewerbepro-companion",
+      "datum": "2026-11-09",
+      "titel": "GewerbePro Companion 1.0.3: Termine mit Kunde",
+      "text": "GewerbePro Companion 1.0.3 ist im Play Store. Termine lassen sich jetzt einem Kunden zuordnen, und der Kundenname steht in der Terminliste. Auf Android 15 und neuer liegen die Eingabemasken über der Navigationsleiste. Die Prüfung der Offline-Lizenz ist verstärkt. Dazu kommen Verbesserungen im Hintergrund.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.gewerbepro_companion"
+      }
+    },
     {
       "id": "orgafuchs-1-12-0",
       "typ": "update",
