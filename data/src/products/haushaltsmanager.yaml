@@ -125,7 +125,7 @@ releases:
       - Das Programm startet nur noch einmal je Windows-Benutzer.
       - Neu: Die Lizenz meldet das Gerät beim Online-Prüfen bei Bedarf selbst neu an.
       - Neu: „Alle Lizenzen anzeigen“ zeigt offline die Lizenzen der Fremdbausteine.
-      - Die App speichert ihre Daten jetzt in einem eigenen Ordner; Daten einer früheren Installation werden nicht übernommen.
+      - Die App speichert ihre Daten jetzt in einem eigenen Ordner (%APPDATA%\FehlerFuchs\HaushaltsManager). Daten einer früheren Installation werden nicht automatisch übernommen; sie bleiben unverändert im alten Ordner (%APPDATA%\eu.fehlerfuchs.privat\HaushaltsManager) erhalten.
   # 1.1.1 (08.10.2026): Meldung [FF_16] Code Signing (14:28, veröffentlicht auf „push“ von
   # Matthias 14:27:29). Von [FF_10] gegen GitHub geprüft (gh release view haushaltsmanager-v1.1.1:
   # kein Entwurf, keine Vorabversion, ein Asset 20.663.944 B, sha256 d2f39081…44c2 – stimmen).

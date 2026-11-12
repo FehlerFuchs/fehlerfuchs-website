@@ -519,7 +519,7 @@
           },
           "notes": {
             "type": "string",
-            "maxLength": 600
+            "maxLength": 800
           },
           "ohne_meldung": {
             "type": "string",
