@@ -121,11 +121,13 @@ releases:
     ohne_meldung: "Aktuelles-Meldung nur auf eigenen Auftrag (öffentlicher Text); Release-Text steht auf der GitHub-Release-Seite."
     notes: |-
       HaushaltsManager 1.1.2 – Hintergrunddienst, Lizenz, Lizenzhinweise
-      - Behoben: Das Symbol im Infobereich der Taskleiste (Tray) mit dem Menü „Öffnen“ und „Beenden“ und das Schließen-Kreuz arbeiten wieder wie vorgesehen.
-      - Das Programm startet nur noch einmal je Windows-Benutzer.
-      - Neu: Die Lizenz meldet das Gerät beim Online-Prüfen bei Bedarf selbst neu an.
-      - Neu: „Alle Lizenzen anzeigen“ zeigt offline die Lizenzen der Fremdbausteine.
-      - Die App speichert ihre Daten jetzt in einem eigenen Ordner (%APPDATA%\FehlerFuchs\HaushaltsManager). Daten einer früheren Installation werden nicht automatisch übernommen; sie bleiben unverändert im alten Ordner (%APPDATA%\eu.fehlerfuchs.privat\HaushaltsManager) erhalten.
+      - Behoben: Das Symbol im Infobereich der Taskleiste (Tray) mit dem Menü „Öffnen“ und „Beenden“ und das Schließen-Kreuz arbeiten wieder wie vorgesehen. Ist der Hintergrunddienst eingeschaltet, läuft das Programm nach dem Schließen im Hintergrund weiter.
+      - Das Programm startet nur noch einmal je Windows-Benutzer; ein zweiter Start bringt das vorhandene Fenster nach vorn.
+      - Neu: Meldet der Lizenzserver, dass dieses Gerät nicht mehr angemeldet ist, meldet sich das Programm beim Online-Prüfen der Lizenz automatisch wieder an.
+      - Neu unter „Hilfe & Recht“ › „Lizenzen & Hinweise“: Der Knopf „Alle Lizenzen anzeigen“ zeigt offline die Lizenzen aller enthaltenen Fremdbausteine.
+      - Alle mitgelieferten Programmbibliotheken sind jetzt ebenfalls digital signiert.
+      - Entfallen: Der Tray-Menüpunkt „Jetzt synchronisieren“.
+      - Die App speichert ihre Daten jetzt in einem eigenen Ordner (%APPDATA%\FehlerFuchs\HaushaltsManager). Daten einer früheren Installation werden nicht übernommen und bleiben im alten Ordner liegen.
   # 1.1.1 (08.10.2026): Meldung [FF_16] Code Signing (14:28, veröffentlicht auf „push“ von
   # Matthias 14:27:29). Von [FF_10] gegen GitHub geprüft (gh release view haushaltsmanager-v1.1.1:
   # kein Entwurf, keine Vorabversion, ein Asset 20.663.944 B, sha256 d2f39081…44c2 – stimmen).

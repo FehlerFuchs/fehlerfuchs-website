@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-12T19:43:57+01:00",
+  "generiert": "2026-11-12T20:15:41+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1962,7 +1962,7 @@
           "sha256": "533b2ad32465f8bef8d18032338a58eb7b410cbe3375acb9cc447888f4a8e0aa",
           "signed": true,
           "ohne_meldung": "Aktuelles-Meldung nur auf eigenen Auftrag (öffentlicher Text); Release-Text steht auf der GitHub-Release-Seite.",
-          "notes": "HaushaltsManager 1.1.2 – Hintergrunddienst, Lizenz, Lizenzhinweise\n- Behoben: Das Symbol im Infobereich der Taskleiste (Tray) mit dem Menü „Öffnen“ und „Beenden“ und das Schließen-Kreuz arbeiten wieder wie vorgesehen.\n- Das Programm startet nur noch einmal je Windows-Benutzer.\n- Neu: Die Lizenz meldet das Gerät beim Online-Prüfen bei Bedarf selbst neu an.\n- Neu: „Alle Lizenzen anzeigen“ zeigt offline die Lizenzen der Fremdbausteine.\n- Die App speichert ihre Daten jetzt in einem eigenen Ordner (%APPDATA%\\FehlerFuchs\\HaushaltsManager). Daten einer früheren Installation werden nicht automatisch übernommen; sie bleiben unverändert im alten Ordner (%APPDATA%\\eu.fehlerfuchs.privat\\HaushaltsManager) erhalten."
+          "notes": "HaushaltsManager 1.1.2 – Hintergrunddienst, Lizenz, Lizenzhinweise\n- Behoben: Das Symbol im Infobereich der Taskleiste (Tray) mit dem Menü „Öffnen“ und „Beenden“ und das Schließen-Kreuz arbeiten wieder wie vorgesehen. Ist der Hintergrunddienst eingeschaltet, läuft das Programm nach dem Schließen im Hintergrund weiter.\n- Das Programm startet nur noch einmal je Windows-Benutzer; ein zweiter Start bringt das vorhandene Fenster nach vorn.\n- Neu: Meldet der Lizenzserver, dass dieses Gerät nicht mehr angemeldet ist, meldet sich das Programm beim Online-Prüfen der Lizenz automatisch wieder an.\n- Neu unter „Hilfe & Recht“ › „Lizenzen & Hinweise“: Der Knopf „Alle Lizenzen anzeigen“ zeigt offline die Lizenzen aller enthaltenen Fremdbausteine.\n- Alle mitgelieferten Programmbibliotheken sind jetzt ebenfalls digital signiert.\n- Entfallen: Der Tray-Menüpunkt „Jetzt synchronisieren“.\n- Die App speichert ihre Daten jetzt in einem eigenen Ordner (%APPDATA%\\FehlerFuchs\\HaushaltsManager). Daten einer früheren Installation werden nicht übernommen und bleiben im alten Ordner liegen."
         },
         {
           "version": "1.1.1",
