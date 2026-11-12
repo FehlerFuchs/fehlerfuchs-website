@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-10T21:19:04+01:00",
+  "generiert": "2026-11-12T19:30:41+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "name": "FehlerFuchs",
   "slogan": "Einfach kleine Helfer.",
@@ -43,7 +43,6 @@
     "emailKontakt": "info@fehlerfuchs.eu",
     "telefon": "+49 176 44 79 89 21",
     "duns": "317270302",
-    "googleBewertung": "https://g.page/r/CXbBr2WtMwoCECE/review",
     "ustId": "DE463451160",
     "kleinunternehmer": true,
     "domain": "fehlerfuchs.eu"
@@ -187,7 +186,7 @@
           "titel": "Auch diese Webseite",
           "bloecke": [
             {
-              "absatz": "Das gilt übrigens auch für diese Webseite. Sie zählt dich nicht, sie legt kein Profil von dir an, und die Crawler großer KI-Firmen sind in ihrer robots.txt ausdrücklich ausgesperrt: Die Texte hier sind für Menschen geschrieben, nicht als Futter für Trainingsdaten."
+              "absatz": "Das gilt übrigens auch für diese Webseite. Sie zählt nur, wie oft eine Seite aufgerufen wird – nicht dich, sie legt kein Profil von dir an, und die Crawler großer KI-Firmen sind in ihrer robots.txt ausdrücklich ausgesperrt: Die Texte hier sind für Menschen geschrieben, nicht als Futter für Trainingsdaten."
             }
           ]
         }

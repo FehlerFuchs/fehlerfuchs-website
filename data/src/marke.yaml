@@ -45,9 +45,8 @@ anbieter:
   emailKontakt: info@fehlerfuchs.eu
   telefon: +49 176 44 79 89 21
   duns: "317270302"
-  # Bewertungslink des Google-Unternehmensprofils (aus dem Profil, 30.09.2026). Steht auf /kontakt/ –
-  # Entscheidung Matthias 30.09.2026 18:0x (Profil-Verbesserungen, Möglichkeit D). Kein Tracking-Parameter.
-  googleBewertung: https://g.page/r/CXbBr2WtMwoCECE/review
+  # Bewertungslink des Google-Unternehmensprofils entfernt 12.11.2026: Das Profil wurde am 05.11.2026
+  # gelöscht (Logbuch #9040), der Link führte ins Leere. Wort Matthias 12.11.2026 („A: Entfernen“, #9678).
   ustId: DE463451160
   kleinunternehmer: true
   domain: fehlerfuchs.eu
@@ -215,7 +214,7 @@ werte_artikel:
     typ: randnotiz
     titel: Auch diese Webseite
     bloecke:
-    - absatz: 'Das gilt übrigens auch für diese Webseite. Sie zählt dich nicht, sie legt kein Profil von dir an,
+    - absatz: 'Das gilt übrigens auch für diese Webseite. Sie zählt nur, wie oft eine Seite aufgerufen wird – nicht dich, sie legt kein Profil von dir an,
         und die Crawler großer KI-Firmen sind in ihrer robots.txt ausdrücklich ausgesperrt: Die Texte hier sind
         für Menschen geschrieben, nicht als Futter für Trainingsdaten.'
 - titel: Lokal

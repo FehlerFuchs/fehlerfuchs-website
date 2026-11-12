@@ -40,7 +40,7 @@ meldungen:
     text: >-
       GewerbePro Companion 1.0.3 ist im Play Store. Termine lassen sich jetzt einem Kunden
       zuordnen, und der Kundenname steht in der Terminliste. Auf Android 15 und neuer liegen die
-      Eingabemasken über der Navigationsleiste. Die Prüfung der Offline-Lizenz ist verstärkt.
+      Eingabemasken nicht mehr unter der Navigationsleiste. Die Prüfung der Offline-Lizenz ist verstärkt.
       Dazu kommen Verbesserungen im Hintergrund.
 
   # MobileReport 1.5.1. Play-Store-App: kein Release im Modell (versionsagnostisch), Datum =

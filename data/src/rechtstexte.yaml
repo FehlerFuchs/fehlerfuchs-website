@@ -322,7 +322,7 @@ rechtstexte:
     editionen: "Vollversion (einmaliger Kauf)"
     edition_einzahl: true   # „in der Edition“ – Befund 3, Entscheidung Matthias A (26.09.2026)
     lizenzschluessel: true
-    stand: "28.10.2026"     # Ziffer 14 in du-Form (Wort Matthias 28.10., #8129); davor 26.09.2026 (Ziffer 1.2 „in der Edition“, Sichtung 26.09., Befund 3), vorher 03.09.2026
+    stand: "12.11.2026"     # Ziffer 3.3 klargestellt (Wort Matthias 12.11., #9678); davor 28.10.2026 (Ziffer 14 in du-Form, #8129); davor 26.09.2026 (Ziffer 1.2 „in der Edition“, Sichtung 26.09., Befund 3), vorher 03.09.2026
     vollstaendig: true
     ausstehend: []
     felder:
@@ -333,9 +333,12 @@ rechtstexte:
         die Software erworben hast. Für den Widerruf gelten dessen Bedingungen und dessen
         Widerrufsbelehrung; sie werden dir im Bestellvorgang zur Verfügung gestellt. Diese
         Vereinbarung regelt ausschließlich die Nutzung der Software.
-      erweiterung_3_3: >-
-        Die im selben Haushalt des Nutzers lebenden Angehörigen dürfen die Software im Rahmen der
-        lizenzierten Gerätezahl (bis zu fünf Geräte) mitnutzen.
+      # Ziffer 3.3 vollständig - Wortlaut freigegeben von Matthias am 12.11.2026 (Webseiten-Sichtung,
+      # Klick-Dialog bei [FF_00], „A: Klarstellen“, Logbuch #9678). Ersetzt erweiterung_3_3. Wort für Wort.
+      abschnitt_3_3: >-
+        Ein Gerätewechsel ist zulässig; das bisherige Gerät zählt dann nicht mehr zur lizenzierten
+        Gerätezahl. Die im selben Haushalt des Nutzers lebenden Angehörigen dürfen die Software im
+        Rahmen der lizenzierten Gerätezahl (bis zu fünf Geräte) mitnutzen.
       uebertragung_4: >-
         Einmalkauf mit dauerhafter Lizenz. Eine Weitergabe ist nur zulässig, soweit gesetzlich
         gestattet; Voraussetzung ist, dass der bisherige Nutzer die Nutzung vollständig einstellt,
