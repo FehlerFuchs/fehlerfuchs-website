@@ -1,8 +1,8 @@
 slug: lizenzserver
 name: FehlerFuchs Lizenzserver
-stand: "2026-11-10"
+stand: "2026-11-13"
 geprueft_von: 11_Lizenzserver
-fassung: "Adapter-Stand 20.07.2026 (kein Versionsschema); Admin-API 1.0; mit Löschlauf, Wunscherfüller und Löschantrag (live seit 01.10.2026; Weg „nur E-Mail“ und Frist für Ereignis-Kennungen seit 03.10.2026; Datensicherung mit Löschjournal seit 06.10.2026; Roh-Aufrufe nur technische Angaben seit 13.10.2026)"
+fassung: "Adapter mit Schemaschritten 0001 (Zustandsabläufe, live seit 04.11.2026) und 0002 (Zählung der Seitenaufrufe, live seit 10.11.2026), Code-Stand Commit 3155f63; Admin-API 1.0; mit Löschlauf, Wunscherfüller und Löschantrag (live seit 01.10.2026; Weg „nur E-Mail“ und Frist für Ereignis-Kennungen seit 03.10.2026; Datensicherung mit Löschjournal seit 06.10.2026; Roh-Aufrufe nur technische Angaben seit 13.10.2026; Protokollfristen seit 05.11.2026)"
 
 # Kein Endnutzer-Programm, sondern ein Server-Dienst. Daten verlassen das Gerät
 # des Nutzers zwangsläufig, sobald eine App den Dienst anspricht.
@@ -26,6 +26,9 @@ auf_dem_geraet:
   - was: Ereignis-Kennungen zum Schutz vor doppelter Verarbeitung (Bestellnummer, Ereignisart, Vorgangsnummer)
     wo: Datenbank auf dem Server; Löschung nach 90 Tagen, beim Löschantrag zur Lizenz sofort
     beleg: Tabelle provider_events; adapter/app/db.py, record_event, cleanup und dsgvo_interne_daten_loeschen
+  - was: Kaufaufträge zum Schutz vor doppelter oder verlorener Lizenzausgabe (Produkt, Bestellnummer, Bearbeitungsstand, Lizenz-Kennung, Stand des Versands der Lizenz-Mail, Zeitpunkte); keine E-Mail-Adresse, kein Name, kein Lizenzschlüssel
+    wo: Datenbank auf dem Server; Löschung 90 Tage nach der letzten Änderung, ein noch nicht zugestellter Mailversand bleibt bis zur Erledigung; beim Löschantrag zur Lizenz sofort
+    beleg: Tabelle kauf_auftraege; adapter/migrations/0001_w2b_zustandsablaeufe.up.sql; adapter/app/db.py, kauf_reservieren, kauf_mail_setzen, cleanup und dsgvo_interne_daten_loeschen
   - was: Beta-Tester-Registrierungen (Name, E-Mail, Kundenbereich, Freitext-Beschreibung, Einwilligung, Lizenzbezug, IP-Adresse, Zeitpunkt)
     wo: Datenbank auf dem Server; IP-Adresse nach 7 Tagen entfernt, übrige Angaben nach 90 Tagen gelöscht bzw. die E-Mail durch eine gesalzene Einweg-Kennung ersetzt (pseudonym, nicht anonym)
     beleg: Tabelle tester_registrations; adapter/app/db.py, record_tester und cleanup; adapter/app/main.py, tester_gewerbepro
@@ -35,6 +38,12 @@ auf_dem_geraet:
   - was: Zustand des Tagesberichts (Zeitpunkt des letzten Laufs, Zähler)
     wo: Datenbank auf dem Server
     beleg: Tabelle report_state; adapter/app/db.py, set_last_run
+  - was: Stand der Datenbankstruktur (Nummer und Bezeichnung jedes eingespielten Schemaschritts, Zeitpunkt); keine Angaben zu Personen
+    wo: Datenbank auf dem Server; dauerhaft
+    beleg: Tabelle adapter_schema_versionen; adapter/app/migrationen.py, VERSIONSTABELLE und anwenden
+  - was: Tageszahlen der Seitenaufrufe der Website (Berliner Datum, Seite, Gruppe, Zahl); keine IP-Adresse, keine Kennung, keine Uhrzeit
+    wo: Datenbank auf dem Server; Löschung nach 400 Tagen
+    beleg: Tabelle besuche; adapter/migrations/0002_besuche.up.sql; adapter/app/besuche.py; adapter/app/db.py, cleanup
   - was: Einsendungen aus dem Wunscherfüller (Titel, Wunschtext, Thema, ggf. betroffenes Produkt, Anzeigename; nur bei gewünschter Antwort zusätzlich Name und E-Mail-Adresse)
     wo: Datenbank auf dem Server; Löschung nach 90 Tagen. Es wird keine IP-Adresse gespeichert
     beleg: Tabelle wuensche; adapter/app/db.py, record_wunsch und cleanup; adapter/app/main.py, wunsch_einreichen
@@ -59,6 +68,9 @@ auf_dem_geraet:
   - was: Löschjournal (Zeitpunkt, zufällige Antragskennung, Lizenz-Kennung, Bestellnummer, E-Mail nur als gesalzener Prüfwert)
     wo: auf dem Server außerhalb der Datenbank, 31 Tage
     beleg: adapter/app/loeschjournal.py
+  - was: offener Löschnachweis, falls die Zeile im Löschjournal nicht geschrieben werden konnte (dieselben Angaben wie die Journalzeile – zufällige Antragskennung, Lizenz-Kennungen, Bestellnummern, E-Mail nur als gesalzener Prüfwert – sowie der Grund); nie Adresse, Name oder Schlüssel
+    wo: Datenbank auf dem Server; gelöscht, sobald die Journalzeile nachgeholt ist
+    beleg: Tabelle loesch_nachweis_offen; adapter/migrations/0001_w2b_zustandsablaeufe.up.sql; adapter/app/db.py, loesch_nachweis_vormerken und loesch_nachweis_erledigt; adapter/app/nachholen.py
 
 # Berechtigungen: entfällt — Server-Dienst, kein Manifest, keine Geräteberechtigungen.
 
@@ -160,7 +172,9 @@ loeschung: >-
   Ein täglicher Aufräumlauf setzt feste Fristen um. Von den Aufrufen des
   Zahlungsanbieters werden nur technische Angaben ohne Personenbezug gespeichert und nach
   30 Tagen endgültig gelöscht. Die Ereignis-Kennungen (Bestellnummer, Ereignisart,
-  Vorgangsnummer) werden nach 90 Tagen gelöscht. Bei Tester-Registrierungen
+  Vorgangsnummer) werden nach 90 Tagen gelöscht, ebenso die Kaufaufträge (Produkt,
+  Bestellnummer, Bearbeitungsstand) 90 Tage nach ihrer letzten Änderung; ein noch nicht
+  zugestellter Mailversand bleibt bis zur Erledigung stehen. Bei Tester-Registrierungen
   wird die IP-Adresse bereits nach 7 Tagen entfernt; nach 90 Tagen werden Name,
   Kundenbereich, Freitext und der Bezug zur Lizenz gelöscht und die E-Mail-Adresse durch
   eine gesalzene Einweg-Kennung ersetzt. Das Salz ist ein Zufallsgeheimnis, das
@@ -171,18 +185,20 @@ loeschung: >-
   an Aktionen werden Anzeigename und E-Mail-Adresse 90 Tage nach der Vergabe entfernt,
   der Code bleibt nur noch als „vergeben“ vermerkt. Die
   Zählschlüssel mit IP-Adressen im Zwischenspeicher löschen sich selbst nach längstens
-  24 Stunden. Die Betriebsprotokolle des Servers sind auf höchstens drei Dateien à 10 MB
+  24 Stunden. Die Protokolle der einzelnen Dienste sind auf höchstens drei Dateien à 10 MB
   je Dienst begrenzt und werden danach überschrieben; sie enthalten keine
-  Besucher-IP-Adressen. Lizenzdaten und Geräte-/Aktivierungseinträge bleiben
+  Besucher-IP-Adressen. Die Protokolle des Wartungszugangs und der Datensicherung werden
+  12 Monate aufbewahrt, die des Aufräumlaufs und des Tagesberichts 8 Wochen; das
+  Systemprotokoll des Servers ist auf 500 MB begrenzt. Lizenzdaten und Geräte-/Aktivierungseinträge bleiben
   bestehen, solange die Lizenz gilt – sonst würde das Produkt nicht mehr funktionieren;
   sie lassen sich jederzeit gezielt endgültig löschen, einzelne Plätze auch freigeben.
   Auf Antrag (Löschformular der Website, bestätigt über einen Link an die beim Kauf
   hinterlegte Adresse) werden E-Mail-Adresse und alle Geräteaktivierungen der Lizenz
   gelöscht; die Lizenz wird gesperrt und bleibt nur noch mit Schlüssel und Bestellnummer
   bis zum Ende der Regelverjährung (31.12. des dritten Jahres nach dem Jahr der
-  Löschung) gespeichert, danach wird sie automatisch gelöscht. Ereignis-Kennungen und
-  technische Roh-Aufrufe zu den Bestellnummern der Lizenz werden dabei sofort mit
-  gelöscht. Ohne Lizenzschlüssel gibt es den Weg „nur E-Mail“: Der
+  Löschung) gespeichert, danach wird sie automatisch gelöscht. Ereignis-Kennungen,
+  Kaufaufträge und technische Roh-Aufrufe zu den Bestellnummern der Lizenz werden dabei
+  sofort mit gelöscht. Ohne Lizenzschlüssel gibt es den Weg „nur E-Mail“: Der
   Bestätigungslink geht an genau die eingegebene Adresse; nach Bestätigung werden
   Tester-Eintrag und Wunsch-Einsendungen zu dieser Adresse gelöscht und bei Aktionen
   Anzeigename und E-Mail-Adresse entfernt. Eine
