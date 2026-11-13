@@ -146,42 +146,44 @@ media:
     alt: MobileReport – von FehlerFuchs
     width: 1739
     height: 365
-  # Aus dem Play-Store-Satz des Projekts übernommen und auf Webgröße
-  # gerechnet. Es sind Werbebilder mit Überschrift, keine nackten
-  # Bildschirmabzüge - der Alternativtext sagt das auch so.
+  # App-Bildschirme von MobileReport 1.5.1 (55), Free. Lieferung [FF_01] vom 13.11.2026
+  # (Freigabe Matthias „A: Alle 12 freigeben“, LogBuch #9794; Bestellung #9784), 620 Pixel
+  # breit, Status- und Navigationsleiste abgeschnitten, sonst unverändert (SHA-256 gegen
+  # _SHA256.txt der Marke gemessen). Es sind nackte Bildschirmabzüge ohne Überschrift; die
+  # Alternativtexte beschreiben, was auf dem Bildschirm zu sehen ist. Es gibt keine Pro-Motive:
+  # [FF_20] hat 1.5.1 nur als Free aufgenommen. Bisherige Bilder 1.4.0 (Orte anlegen, Admin-Bereich)
+  # entfallen; ersetzte Dateien liegen in 00_Steuerung\90_Archiv\Ersetzte_Webbilder_2026-11-13.
   screenshots:
-    # 1.4.0-Webbilder von [01] Marke und Identität (23.09.2026, Web-Satz [10],
-    # ~620 breit, Statusleiste weggeschnitten). Motive spiegeln den 1.4.0-Stand.
     - src: /img/screenshots/mobilereport/handy-01-start.png
-      alt: "Werbebild „Schnell melden“ mit dem Startbildschirm von MobileReport"
+      alt: "Startbildschirm von MobileReport Free mit „Neue Meldung“, „Logbuch“, Einstellungen, Hinweise und Datenschutz, Support und Kontakt, Impressum und Nutzungsbedingungen."
       width: 620
-      height: 1257
+      height: 1133
       geraet: handy
-      titel: "Schnell melden"
+      titel: "Startseite mit Neue Meldung und Logbuch"
     - src: /img/screenshots/mobilereport/handy-02-neue-meldung.png
-      alt: "Werbebild „Neue Meldung“: erst den Bereich wählen, dann dessen Räume"
+      alt: "Formular „Neue Meldung“: Bereich „Werkstatt“ gewählt, darunter die Raumliste mit zwei Orten, unten der Knopf „PDF erstellen“."
       width: 620
-      height: 1257
+      height: 1133
       geraet: handy
-      titel: "Neue Meldung"
-    - src: /img/screenshots/mobilereport/handy-03-orte-anlegen.png
-      alt: "Werbebild „Orte anlegen“: Bereich, Gebäude, Ebene, Raum und Bezeichnung an einer Stelle"
+      titel: "Neue Meldung: erst den Bereich, dann den Raum"
+    - src: /img/screenshots/mobilereport/handy-03-pdf-bericht.png
+      alt: "PDF-Vorschau einer Meldung mit Kopfzeile, Angaben zu Ort und Person, Meldeart „Beschädigung“ und Beschreibung, unten der Knopf „E-Mail vorbereiten“."
       width: 620
-      height: 1257
+      height: 1133
       geraet: handy
-      titel: "Orte anlegen"
-    - src: /img/screenshots/mobilereport/handy-04-pdf-bericht.png
-      alt: "Werbebild „PDF-Bericht“ mit der fertigen PDF-Vorschau einer Meldung"
+      titel: "PDF-Bericht mit Vorschau"
+    - src: /img/screenshots/mobilereport/handy-04-logbuch.png
+      alt: "Logbuch mit fünf auf dem Gerät erstellten Meldungen und einem Suchfeld; zwei Einträge tragen einen grünen Haken für „Als versendet markiert“."
       width: 620
-      height: 1257
+      height: 1133
       geraet: handy
-      titel: "PDF-Bericht"
-    - src: /img/screenshots/mobilereport/handy-05-admin-klappkarten.png
-      alt: "Werbebild „Admin-Bereich“ mit den Einstellungen in übersichtlichen Klappkarten"
+      titel: "Logbuch der Meldungen auf dem Gerät"
+    - src: /img/screenshots/mobilereport/handy-05-meldung-detail.png
+      alt: "Eine gespeicherte Meldung im Detail mit Betreff, Datum, Ort, meldender Person, Beschreibung und einem Foto, unten der Knopf „PDF & E-Mail öffnen“."
       width: 620
-      height: 1257
+      height: 1133
       geraet: handy
-      titel: "Admin-Bereich"
+      titel: "Eine gespeicherte Meldung mit Foto"
 # Farben der Produktseite, 1:1 aus dem Quelltext der App übernommen.
 # Was dort nicht steht, steht auch hier nicht – dann greift der Standard.
 # Alle Kontraste rechnet das Prüfskript, sie sind nicht geschätzt.
