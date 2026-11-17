@@ -1,13 +1,14 @@
 # Geprüft gegen HaushaltsManager 1.1.3 (App 1.1.3+44, Quellstand 876f47d, signiert 03.11.2026, noch nicht veröffentlicht) von [FF_36] am 03.11.2026.
 # Ausgangspunkt: Steckbrief 1.1.2 vom 31.10.2026 (Master bei [FF_00-1] vom 23.10.2026). Gegenüber 1.1.2 ändert sich genau ein Punkt (Kopie der beschädigten Ablage); alle Stellen sind unten mit "NEU 1.1.3" markiert.
+# NEU 1.1.4 (Wort Matthias 13.11.2026, bestätigt über [FF_00]): Eintrag Lizenzserver (Programmversion beim Lizenzabgleich), Kurzzeile in der Liste der Dienste, stand auf 2026-11-13, fassung nennt 1.1.4 mit dem Satz "Neu ggü. 1.1.3". Geprüft von [FF_36] am signierten Bau 1.1.4+45 (Quellstand 343bde3, 13.11.2026, noch nicht veröffentlicht).
 slug: haushaltsmanager
 slug_vorschlag: false
 name: HaushaltsManager
-stand: "2026-11-03"
+stand: "2026-11-13"
 geprueft_von: 36_HaushaltsManager Markt
-# NEU 1.1.3: Fassung nennt 1.1.3, Satz "Neu gegenüber 1.1.2" am Ende ergänzt.
+# NEU 1.1.3: Fassung nennt 1.1.3, Satz "Neu gegenüber 1.1.2" am Ende ergänzt. NEU 1.1.4: Fassung nennt 1.1.4, Satz "Neu ggü. 1.1.3" am Ende ergänzt.
 fassung: >-
-  Am gebauten und signierten Produkt 1.1.3 geprüft (Produktfassung ohne private Daten,
+  Am gebauten und signierten Produkt 1.1.4 geprüft (Produktfassung ohne private Daten,
   sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Installer, Programmdatei,
   Deinstaller und alle mitgelieferten Programmbibliotheken sind mit der FehlerFuchs-Signatur versehen
   (zweistufig signiert). Neu ggü. 1.1.1: eigener Datenordner (%APPDATA%\FehlerFuchs\HaushaltsManager\)
@@ -16,6 +17,8 @@ fassung: >-
   automatische Neuanmeldung des Geräts beim Online-Prüfen der Lizenz (keine zusätzlichen Angaben).
   Neu ggü. 1.1.2: Lässt sich der verschlüsselte Speicher nicht lesen, zeigt die App einen Hinweis; die
   beschädigte Datei bleibt als Kopie im Datenordner erhalten (keine neuen Datenarten, keine Übermittlung).
+  Neu ggü. 1.1.3: Beim Lizenzabgleich wird die Programmversion mitgesendet. Findet die App im früheren
+  Datenordner noch Daten, zeigt sie einen Hinweis; sie liest diese Daten nicht aus und überträgt nichts.
 
 lokal_only: false   # optionale, standardmäßig ausgeschaltete Datenverbindungen + eine minimale Lizenzprüfung, siehe uebertragungen
 
@@ -78,9 +81,10 @@ uebertragungen:
   beleg: Standardmäßig aus (enpal_auto_sync = 0), opt-in; keine Verbindung zu Enpal-Servern
 - wohin: FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU/Deutschland, HTTPS)
   was: 'Lizenzaktivierung, -prüfung und Freigabe eines Geräts (Kaufschutz nach der kostenlosen Testphase): Übertragen
-    werden der Lizenzschlüssel, eine anonyme, zufällig erzeugte Geräte-Kennung, die Produktkennung „HaushaltsManager“
-    und bei der Aktivierung die Plattform „Windows“. KEINE Haushalts-, Zähler-, Vertrags- oder sonstigen Nutzerdaten.
-    Nach der Aktivierung läuft die App offline weiter; nur in größeren Abständen ist eine kurze Online-Prüfung nötig.
+    werden der Lizenzschlüssel, eine anonyme, zufällig erzeugte Geräte-Kennung, die Produktkennung „HaushaltsManager“,
+    die Programmversion und bei der Aktivierung die Plattform „Windows“. KEINE Haushalts-, Zähler-, Vertrags- oder sonstigen Nutzerdaten.
+    Die Programmversion wird mitgesendet, damit der Anbieter erkennen kann, wie weit neue Versionen verbreitet sind.
+    Eine Person ist daran nicht erkennbar. Nach der Aktivierung läuft die App offline weiter; nur in größeren Abständen ist eine kurze Online-Prüfung nötig.
     IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.'
   wann: bei der Aktivierung, bei der Freigabe eines Geräts sowie in größeren Abständen zur Gültigkeitsprüfung
   freiwillig: false
@@ -103,7 +107,7 @@ uebertragungen:
 fremde_dienste:
   - "Open-Meteo – genutzter Wetterdienst (nur bei aktivierter Wetterfunktion; ohne Schlüssel/Konto, es werden nur die gewählten Koordinaten und der Zeitraum gesendet)"
   - "PowerFox Cloud – vom Nutzer beauftragte Verbindung zu seinem EIGENEN PowerFox-Konto (offizielle Kunden-API 2.0, mit den eigenen Zugangsdaten des Nutzers)"
-  - "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU) – Lizenzaktivierung/-prüfung/-freigabe; überträgt nur Lizenzschlüssel, anonyme Geräte-Kennung, Produktkennung und Plattform, keine Nutzerdaten"
+  - "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU) – Lizenzaktivierung/-prüfung/-freigabe; überträgt nur Lizenzschlüssel, anonyme Geräte-Kennung, Produktkennung, Programmversion und Plattform, keine Nutzerdaten"
   - "Digistore24 – Wiederverkäufer beim Kauf der Lizenz (Merchant of Record); die App selbst spricht nicht mit Digistore, sondern nur mit dem Lizenzserver"
   - "Microsoft – Download der Visual-C++-Laufzeit durch den Installer, nur wenn sie fehlt"
   # ENPAL/InfluxDB ist kein fremder Cloud-Dienst, sondern eine Verbindung zur vom Nutzer eingetragenen Adresse.

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-17T12:53:31+01:00",
+  "generiert": "2026-11-17T21:28:37+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -888,9 +888,9 @@
       "slug": "haushaltsmanager",
       "slug_vorschlag": false,
       "name": "HaushaltsManager",
-      "stand": "2026-11-03",
+      "stand": "2026-11-13",
       "geprueft_von": "36_HaushaltsManager Markt",
-      "fassung": "Am gebauten und signierten Produkt 1.1.3 geprüft (Produktfassung ohne private Daten, sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Installer, Programmdatei, Deinstaller und alle mitgelieferten Programmbibliotheken sind mit der FehlerFuchs-Signatur versehen (zweistufig signiert). Neu ggü. 1.1.1: eigener Datenordner (%APPDATA%\\FehlerFuchs\\HaushaltsManager\\) mit eigenem verschlüsselten Speicher, Knopf „Alle Lizenzen anzeigen“ in der App, Tray-Symbol mit Menü und Schließen-Kreuz arbeiten wieder wie vorgesehen, nur eine Programminstanz je Benutzer, automatische Neuanmeldung des Geräts beim Online-Prüfen der Lizenz (keine zusätzlichen Angaben). Neu ggü. 1.1.2: Lässt sich der verschlüsselte Speicher nicht lesen, zeigt die App einen Hinweis; die beschädigte Datei bleibt als Kopie im Datenordner erhalten (keine neuen Datenarten, keine Übermittlung).",
+      "fassung": "Am gebauten und signierten Produkt 1.1.4 geprüft (Produktfassung ohne private Daten, sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Installer, Programmdatei, Deinstaller und alle mitgelieferten Programmbibliotheken sind mit der FehlerFuchs-Signatur versehen (zweistufig signiert). Neu ggü. 1.1.1: eigener Datenordner (%APPDATA%\\FehlerFuchs\\HaushaltsManager\\) mit eigenem verschlüsselten Speicher, Knopf „Alle Lizenzen anzeigen“ in der App, Tray-Symbol mit Menü und Schließen-Kreuz arbeiten wieder wie vorgesehen, nur eine Programminstanz je Benutzer, automatische Neuanmeldung des Geräts beim Online-Prüfen der Lizenz (keine zusätzlichen Angaben). Neu ggü. 1.1.2: Lässt sich der verschlüsselte Speicher nicht lesen, zeigt die App einen Hinweis; die beschädigte Datei bleibt als Kopie im Datenordner erhalten (keine neuen Datenarten, keine Übermittlung). Neu ggü. 1.1.3: Beim Lizenzabgleich wird die Programmversion mitgesendet. Findet die App im früheren Datenordner noch Daten, zeigt sie einen Hinweis; sie liest diese Daten nicht aus und überträgt nichts.",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -951,7 +951,7 @@
         },
         {
           "wohin": "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU/Deutschland, HTTPS)",
-          "was": "Lizenzaktivierung, -prüfung und Freigabe eines Geräts (Kaufschutz nach der kostenlosen Testphase): Übertragen werden der Lizenzschlüssel, eine anonyme, zufällig erzeugte Geräte-Kennung, die Produktkennung „HaushaltsManager“ und bei der Aktivierung die Plattform „Windows“. KEINE Haushalts-, Zähler-, Vertrags- oder sonstigen Nutzerdaten. Nach der Aktivierung läuft die App offline weiter; nur in größeren Abständen ist eine kurze Online-Prüfung nötig. IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.",
+          "was": "Lizenzaktivierung, -prüfung und Freigabe eines Geräts (Kaufschutz nach der kostenlosen Testphase): Übertragen werden der Lizenzschlüssel, eine anonyme, zufällig erzeugte Geräte-Kennung, die Produktkennung „HaushaltsManager“, die Programmversion und bei der Aktivierung die Plattform „Windows“. KEINE Haushalts-, Zähler-, Vertrags- oder sonstigen Nutzerdaten. Die Programmversion wird mitgesendet, damit der Anbieter erkennen kann, wie weit neue Versionen verbreitet sind. Eine Person ist daran nicht erkennbar. Nach der Aktivierung läuft die App offline weiter; nur in größeren Abständen ist eine kurze Online-Prüfung nötig. IP-Adresse und Zeitpunkt fallen wie bei jedem Web-Abruf technisch an.",
           "wann": "bei der Aktivierung, bei der Freigabe eines Geräts sowie in größeren Abständen zur Gültigkeitsprüfung",
           "freiwillig": false,
           "beleg": "Notwendige Kaufabsicherung nach der Testphase; minimaler Datenumfang"
@@ -974,7 +974,7 @@
       "fremde_dienste": [
         "Open-Meteo – genutzter Wetterdienst (nur bei aktivierter Wetterfunktion; ohne Schlüssel/Konto, es werden nur die gewählten Koordinaten und der Zeitraum gesendet)",
         "PowerFox Cloud – vom Nutzer beauftragte Verbindung zu seinem EIGENEN PowerFox-Konto (offizielle Kunden-API 2.0, mit den eigenen Zugangsdaten des Nutzers)",
-        "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU) – Lizenzaktivierung/-prüfung/-freigabe; überträgt nur Lizenzschlüssel, anonyme Geräte-Kennung, Produktkennung und Plattform, keine Nutzerdaten",
+        "FehlerFuchs-Lizenzserver (license.fehlerfuchs.eu, EU) – Lizenzaktivierung/-prüfung/-freigabe; überträgt nur Lizenzschlüssel, anonyme Geräte-Kennung, Produktkennung, Programmversion und Plattform, keine Nutzerdaten",
         "Digistore24 – Wiederverkäufer beim Kauf der Lizenz (Merchant of Record); die App selbst spricht nicht mit Digistore, sondern nur mit dem Lizenzserver",
         "Microsoft – Download der Visual-C++-Laufzeit durch den Installer, nur wenn sie fehlt"
       ],
