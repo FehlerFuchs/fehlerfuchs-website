@@ -1,8 +1,20 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-13T19:24:04+01:00",
+  "generiert": "2026-11-17T12:53:31+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "mobilereport-1-5-2",
+      "typ": "update",
+      "produkt": "mobilereport",
+      "datum": "2026-11-17",
+      "titel": "MobileReport 1.5.2: Fotos zusätzlich in deinem Foto-Ordner",
+      "text": "MobileReport 1.5.2 legt von jedem Foto zusätzlich eine Kopie in einem Ordner ab, den du selbst wählst: im Foto-Ordner deines Geräts (DCIM) oder in einem eigenen Ordner. So siehst du die Fotos auch in der Galerie. In den Einstellungen änderst du den Ordner und kopierst vorhandene Bilder einmalig dorthin. Die Kopien löscht die App nie; das erledigst du selbst. Eine Foto-Sicherung, die du am Gerät eingerichtet hast, kann die Kopien mitnehmen.",
+      "datumQuelle": "eigene Angabe",
+      "wege": {
+        "store": "https://play.google.com/store/apps/details?id=eu.fehlerfuchs.mobilereport"
+      }
+    },
     {
       "id": "gewerbepro-companion-1-0-3",
       "typ": "update",

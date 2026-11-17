@@ -30,12 +30,12 @@ rechtstexte:
   # ============================================================================================
   - slug: mobilereport
     produktname: MobileReport
-    stand: "30.10.2026"
+    stand: "17.11.2026"
     vollstaendig: true
     ausstehend: []
     app_volltext:
       quelle: D:\Claude-Projekte\FehlerFuchs\20_MobileReport\MobileReport_Master\01_App\lib\features\legal\eula_page.dart
-      sha256: 9f0be208648644dd37a5b0da9a3c6162df885b7a86c5cb5c873ab6df93fc8f4e
+      sha256: 442e032cd3147367ff5a0548e82ca99612a1aa85ff77083cd69d6da2a1b3831b
       kopf:
       - 'Vertragspartner/Anbieter: Matthias Schacht, handelnd unter der Geschäftsbezeichnung FehlerFuchs,
         Susanne-Bohl-Straße 8, 07747 Jena · E-Mail: admin@fehlerfuchs.eu · USt-IdNr.: DE463451160.'
@@ -61,9 +61,9 @@ rechtstexte:
         - 3.2 Der konkrete Lizenzumfang ergibt sich aus der Produktbeschreibung und der Bestellbestätigung.
           Bei der dauerhaft erworbenen Pro-Freischaltung besteht das Nutzungsrecht grundsätzlich zeitlich
           unbefristet.
-        - 3.3 Ein Gerätewechsel ist zulässig, sofern die Software auf dem bisherigen Gerät nicht weiter
-          genutzt wird. Die Pro-Freischaltung ist an das Google-Konto des Nutzers gebunden und gilt auf
-          dessen Geräten mit demselben Google-Konto.
+        - 3.3 Ein Gerätewechsel ist zulässig. Die Pro-Freischaltung ist an das Google-Konto des Nutzers
+          gebunden und kann über Google Play auf dessen Geräten mit demselben Google-Konto wiederhergestellt
+          werden.
         - 3.4 Die Pro-Freischaltung wird über Google Play verwaltet; ein gesonderter Lizenzschlüssel wird
           nicht ausgegeben.
       - titel: 4. Übertragung der Lizenz
@@ -352,7 +352,7 @@ rechtstexte:
       vsbg_15: "nicht bereit und nicht verpflichtet"
 
   - slug: mobilereport-enterprise
-    verweis: mobilereport   # steht als Zusatzartikel im gemeinsamen MobileReport-Text (Stand 30.10.2026)
+    verweis: mobilereport   # steht als Zusatzartikel im gemeinsamen MobileReport-Text (Stand 17.11.2026)
     produktname: MobileReport Enterprise
     variante: verbraucher
     merchant_of_record: true

@@ -1,8 +1,30 @@
 slug: mobilereport-enterprise
 name: MobileReport Enterprise
-stand: "2026-09-26"
+stand: "2026-11-17"
 geprueft_von: 20_MobileReport
-fassung: "1.5.0+54 (ausgeliefert seit 26.09.2026 auf zwei Wegen: Direkt-Download als APK über das GitHub-Release UND Managed Google Play, privat an die Kundenorganisation gebunden – öffentlich nicht gelistet). Vorgänger 1.4.0+53 vom 23.09.2026."
+fassung: "1.5.2+57 (gebaut am 17.11.2026 mit Flutter 3.50.0; Matthias hat sie am 17.11.2026 um 12:04 bei Managed Google Play eingereicht; Status „Veröffentlicht“ um 12:05 (Console, gemessen von [FF_15] um 12:47: Track Produktion aktiv, Release 57 (1.5.2), 0 Installationen; Meldung [FF_15] 12:48, Wort Matthias 12:44:56, LogBuch [FF_00] #10258); die Direkt-APK ist nicht Teil dieser Fassung, +56 vom 13.11.2026 wurde nie ausgeliefert). Davor ausgeliefert: 1.5.1+55 (ausgeliefert seit 30.10.2026 auf zwei Wegen: Direkt-Download als APK über das GitHub-Release (20:50) UND Managed Google Play (20:37), privat an die Kundenorganisation gebunden – öffentlich nicht gelistet). Vorgänger 1.5.0+54 vom 26.09.2026."
+
+# Nachgezogen am 13.11.2026 auf 1.5.2+56 (Bilder-Ablage, Meldung #7310; Baufreigabe Matthias
+# 13.11.2026 über [FF_00], Logbuch #9784/#9794; Wortlaut freigegeben 06.11.2026, E1, Logbuch #9218;
+# Weisung [FF_00] 13.11.2026 „Steckbriefe jetzt nachziehen“). Geändert: auf_dem_geraet (Fotos),
+# neuer Eintrag berechtigungen „Ordnerzugriff für die Bilder-Ablage“, loeschung, besonderheiten,
+# im Consumer-Steckbrief außerdem der Satz zu „Kamera und Fotos“. Gemessen am gebauten AAB
+# 1.5.2+57 (Manifest im Bundle): dieselben Berechtigungen wie 1.5.1+55, keine neue; android/
+# Nachgezogen am 17.11.2026 auf 1.5.2+57 (Neubau mit EULA-Stand 17.11.2026, Flutter 3.50.0, Gradle 9.5.0, AGP 9.1.1): Berechtigungen der Probelauf-APK mit aapt2 gelesen, gleich wie 1.5.1+55 (Consumer INTERNET, BILLING, ACCESS_NETWORK_STATE; Enterprise INTERNET).
+# gegenüber dem Stand 1.5.1+55 (Commit 63a67aa) nur MainActivity.kt (+185 Zeilen), pubspec.lock
+# unverändert. Am Emulator geprüft (17.11.2026, ohne echtes Gerät). Am 17.11.2026 auf Bitte von [FF_10] auch im Einreichordner abgelegt; die Webseite zieht erst
+# mit der Veröffentlichung von 1.5.2 nach.
+
+# Nachgezogen am 30.10.2026 auf 1.5.1+55 (Freigabe [FF_00] 30.10.2026 20:53, Logbuch #8567):
+# Datenschutzseitig keine Änderung. Neu ist nur die Lizenz-Neuanmeldung: Erkennt der
+# Lizenzserver das Gerät nicht mehr, wiederholt die App einmal den Aktivierungsaufruf der
+# Erstaktivierung (Lizenzschlüssel und anonyme Geräte-Kennung, keine Meldungsdaten).
+# Gemessen an der APK 1.5.1+55 (aapt2, Suche in classes.dex): einzige Nutzerberechtigung
+# INTERNET (dazu die eigene Hilfsberechtigung DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION);
+# kein Billing, keine DataTransport-Telemetrie, kein Firebase, kein Play-Core (0 Treffer
+# in classes.dex); android/ gegenüber 1.5.0+54 unverändert (git diff); im pubspec.lock
+# nur Nebenversionen von matcher, meta, test_api und vector_math angehoben, keine neue
+# Abhängigkeit.
 
 # Nachgezogen am 26.09.2026 auf 1.5.0+54 (Runbook-Schritt 6.4, Logbuch #3221):
 # Datenschutzseitig keine Änderung. Neu ist ein Empfänger-Vorschlag nach Gebäude,
@@ -29,9 +51,15 @@ auf_dem_geraet:
   - was: Meldungen (Gerät, Bereich, Kategorie, Priorität, Beschreibung, Melder-Name)
     wo: lokale Datenbank (SQLite)
     beleg: lib/data/local/app_database.dart
-  - was: Fotos zu Meldungen und erzeugte PDF-Dateien
-    wo: app-eigener Dokumentenordner auf dem Gerät
-    beleg: lib/services/image_service.dart
+  - was: Fotos zu Meldungen (verkleinert, ohne EXIF- und Standortdaten) und erzeugte PDF-Dateien
+    wo: >-
+      app-eigener Dokumentenordner auf dem Gerät (Arbeitskopie der App). Zusätzlich
+      liegt von jedem Foto eine Kopie in der Bilder-Ablage: in dem Ordner, den der
+      Nutzer beim ersten Foto selbst wählt (DCIM, der Foto-Ordner des Geräts, oder
+      ein eigener Ordner). Dort sehen die Kopien auch andere Apps, zum Beispiel die
+      Galerie, und eine Foto-Sicherung des Geräts kann sie mitnehmen. Die App selbst
+      sendet sie nicht. Die Kopien gehören nicht zur verschlüsselten Datensicherung.
+    beleg: lib/services/image_service.dart, lib/services/bild_ablage.dart, lib/widgets/bild_ablage_widgets.dart
   - was: Einstellungen und Firmen-Branding (Logo, Farben, Name aus einer .mrbrand-Datei)
     wo: Geräteeinstellungen der App
     beleg: lib/domain/models/brand_theme.dart
@@ -60,7 +88,16 @@ berechtigungen:
       Fassung. Zum Erfassen von Meldungen, zum Erzeugen der PDF-Berichte und fürs
       Logbuch wird sie nicht benötigt.
     pflicht: false
-    beleg: gebautes Manifest 1.5.0+54 (aapt2, wie 1.4.0+53) – einzige Nutzerberechtigung ist INTERNET; kein Billing, keine Kamera, keine Kontakte, kein Speicher
+    beleg: gebautes Manifest 1.5.2+57 (AAB, wie 1.5.1+55) – einzige Nutzerberechtigung ist INTERNET; kein Billing, keine Kamera, keine Kontakte, kein Speicher
+  - name: Ordnerzugriff für die Bilder-Ablage
+    wofuer: >-
+      Die App legt von jedem Foto eine Kopie in dem Ordner ab, den der Nutzer in der
+      Ordnerauswahl des Systems selbst wählt. Das System gibt der App Lese- und
+      Schreibzugriff auf genau diesen Ordner; wählt der Nutzer DCIM, ist das der
+      ganze Foto-Ordner des Geräts. Die App legt dort nur ihre eigenen Kopien an und
+      liest keine anderen Bilder. Eine Berechtigung im Manifest ist dafür nicht nötig.
+    pflicht: false
+    beleg: MainActivity.kt (Ordnerauswahl ACTION_OPEN_DOCUMENT_TREE, dauerhafte Freigabe); gebautes Manifest 1.5.2+57 unverändert gegenüber 1.5.1+55
 
 uebertragungen:
   - wohin: license.fehlerfuchs.eu
@@ -124,7 +161,9 @@ daten_an_dritte_verkauft: false
 
 loeschung: >-
   Meldungen, Bilder und Einstellungen liegen auf dem Gerät und lassen sich dort
-  einzeln löschen; mit der Deinstallation verschwinden sie vollständig. Der
+  einzeln löschen; mit der Deinstallation verschwinden sie, bis auf die Kopien der
+  Fotos in der Bilder-Ablage; die bleiben liegen und lassen sich in der Galerie oder
+  im Dateimanager löschen. Der
   belegte Arbeitsplatz lässt sich in der App wieder freigeben, damit die Lizenz
   auf einem anderen Gerät genutzt werden kann.
 
@@ -139,7 +178,9 @@ besonderheiten: >-
   Firmen-Branding wird als Datei auf dem Gerät eingelesen und nicht aus dem Netz
   geladen. Eine Datensicherung wird mit einem eigenen Passwort verschlüsselt;
   wer sie wieder einspielt, braucht dieses Passwort und zusätzlich das
-  Master-Passwort des Geräts, sofern eines gesetzt ist.
+  Master-Passwort des Geräts, sofern eines gesetzt ist. Eine Foto-Sicherung, die der
+  Nutzer am Gerät selbst eingerichtet hat, kann die Kopien in der Bilder-Ablage
+  zusätzlich mitnehmen; das geht nicht von der App aus.
 
 # Datenschutzrelevante Verbesserungen aus der externen Prüfung FF-MR-AUDIT-2026-07-30,
 # ausgeliefert mit 1.0.2 (18.08.2026):
@@ -197,9 +238,10 @@ auslieferung: >-
 vorhandener_text: lib/features/privacy/privacy_page.dart (In-App, gemeinsam mit der Consumer-Ausgabe; im Router ohne Ausgaben-Bedingung eingebunden, also auch in Enterprise erreichbar); Website fehlerfuchs.eu/datenschutz.html
 
 entwicklungsstand: >-
-  Der veröffentlichte Datenschutzstand ist seit dem 26.09.2026 1.5.0+54 – auf
-  beiden Wegen aus demselben App-Stand 61cb618f, datenschutzseitig unverändert
-  gegenüber 1.4.0+53 (23.09.2026, Commit c6faf2b3). Die früher hier genannte
+  Der veröffentlichte Datenschutzstand ist seit dem 30.10.2026 1.5.1+55 – auf
+  beiden Wegen aus demselben App-Stand 63a67aaa, datenschutzseitig unverändert
+  gegenüber 1.5.0+54 (26.09.2026, Commit 61cb618f; davor 1.4.0+53, 23.09.2026,
+  Commit c6faf2b3). Die früher hier genannte
   1.0.3+7 wurde nie ausgeliefert und ging in 1.4.0 auf.
 
 offene_fragen: >-

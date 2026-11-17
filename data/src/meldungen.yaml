@@ -29,6 +29,24 @@
 
 meldungen:
 
+  # MobileReport 1.5.2. Play-Store-App: kein Release im Modell (versionsagnostisch), Datum = Tag der
+  # Freischaltung (17.11.2026). Livegang selbst gemessen: öffentliche Play-Seite zeigt Version 1.5.2,
+  # „Aktualisiert am 17.11.2026“ (17.11.2026, 12:47). Wortlaut aus der UEBERGABE [FF_20] 17.11.2026 (Wort Matthias
+  # 13.11.2026 „A: So übernehmen“, Logbuch #9907); nur Consumer, Enterprise ohne Meldung. Keine Aussage zu
+  # bestimmten Geräten (offener Punkt: kein echtes Gerät, Ordnerauswahl nur am Emulator geprüft).
+  # KEINE Buildnummer nennen (57) - sichtbar ist 1.5.2.
+  - id: mobilereport-1-5-2
+    typ: update
+    produkt: mobilereport
+    datum: "2026-11-17"
+    titel: "MobileReport 1.5.2: Fotos zusätzlich in deinem Foto-Ordner"
+    text: >-
+      MobileReport 1.5.2 legt von jedem Foto zusätzlich eine Kopie in einem Ordner ab, den du
+      selbst wählst: im Foto-Ordner deines Geräts (DCIM) oder in einem eigenen Ordner. So siehst
+      du die Fotos auch in der Galerie. In den Einstellungen änderst du den Ordner und kopierst
+      vorhandene Bilder einmalig dorthin. Die Kopien löscht die App nie; das erledigst du selbst.
+      Eine Foto-Sicherung, die du am Gerät eingerichtet hast, kann die Kopien mitnehmen.
+
   # GewerbePro Companion 1.0.3 (versionCode 4). Play-Store-App: kein Release im Modell, Livegang 09.11.2026
   # 19:10 laut Console (P5 von [FF_13], MELDUNG 10.11.2026 05:06). Text nach „Was ist neu“ im Store,
   # für Besucher geschrieben, nichts erfunden (P8). KEINE Buildnummer nennen (versionCode 4).
