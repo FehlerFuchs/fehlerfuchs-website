@@ -78,6 +78,30 @@ editions:
 # Erste öffentliche, signierte Windows-Fassung. sha256/Bytes lokal am signierten
 # Artefakt UND gegen das GitHub-Asset gegengeprüft (byte-identisch, signtool /pa OK).
 releases:
+  # 1.1.4 (17.11.2026, App 1.1.4+45): Meldung [FF_16] Code Signing (ERGEBNIS 21:31:07, Release haushaltsmanager-v1.1.4 veröffentlicht
+  # 21:29:09 auf „push haushaltsmanager“ von Matthias, Freigabe [FF_00] 21:19:05 und NACHTRAG 21:32:15). Reihenfolge laut [FF_00]:
+  # Datenschutz-Steckbrief Stand 13.11.2026 zuerst live (Commit 0e80f9b, öffentlich gemessen 21:35:10), dann dieser Eintrag.
+  # Größe 20.754.256 B, sha256 und Signatur laut [FF_16] am öffentlichen Download gemessen (signtool /pa Valid). notes aus dem
+  # von Matthias am 13.11.2026 bestätigten Release-Text, nichts erfunden (P8). Keine Aktuelles-Meldung (kein Auftrag).
+  - version: "1.1.4"
+    date: "2026-11-17"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.4/FehlerFuchs_HaushaltsManager_Setup_1.1.4.exe
+    filename: FehlerFuchs_HaushaltsManager_Setup_1.1.4.exe
+    size:
+      bytes: 20754256
+      label: "19,8 MB"
+      source: GitHub-Release-Asset
+    sha256: "168200a3caeb2c3556a75f584152b775e3d4c08eca7ebb1d8f96b8a46cb5ad2e"
+    signed: true
+    ohne_meldung: "Keine Aktuelles-Meldung (kein Auftrag, wie bei 1.1.2 und 1.1.3); Release-Text steht auf der GitHub-Release-Seite."
+    notes: |-
+      HaushaltsManager 1.1.4 – Hinweis auf alte Daten, genauere Lizenzprüfung
+      - Neu: Hat eine frühere Version (1.1.0 oder 1.1.1) ihre Daten in einem anderen Ordner gespeichert, weist dich das Programm jetzt mit einem Hinweis darauf hin und zeigt dir Schritt für Schritt, wie du sie übernimmst. Das Programm kopiert oder verändert dabei nichts.
+      - Berichtigt: Die Seite „Daten & Export“ beschreibt jetzt genau, wie du eine Sicherung wiederherstellst: Programm beenden und die Sicherungsdatei anstelle der Datei haushaltsmanager.sqlite in den Datenordner kopieren. Eine Funktion zum Zurückspielen gibt es in der App nicht.
+      - Neu: Die Lizenzprüfung ohne Internet ist genauer: Das Programm prüft zusätzlich, ob die Lizenzbestätigung zum HaushaltsManager gehört, und kann künftig Bestätigungen mit einem zweiten Prüfschlüssel lesen.
+      - Neu: Beim Abgleich der Lizenz wird die Programmversion mit übertragen, damit der Anbieter sieht, wie weit neue Versionen verbreitet sind. Eine Person ist daran nicht erkennbar.
   # 1.1.3 (03.11.2026, App 1.1.3+44): Meldung [FF_16] Code Signing (18:32, veröffentlicht 18:32:37 auf „push haushaltsmanager“ von
   # Matthias 18:24:41, schriftliches Wort [FF_00] 18:31). Von [FF_10] gegen GitHub nachgemessen 18:35: kein Entwurf, keine
   # Vorabversion, ein Asset 20.739.624 B, GitHub-Prüfsumme sha256:3a4ab8ad…5ead = Angabe [FF_16]; öffentliche URL HTTP 200,

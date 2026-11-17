@@ -1,6 +1,6 @@
 {
-  "version": "1.1.3",
-  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.3/FehlerFuchs_HaushaltsManager_Setup_1.1.3.exe",
-  "sha256": "3a4ab8ad702a836f1eef8026a85a5f770b7809fd0dd681e140b5f0f9625d5ead",
-  "notes": "HaushaltsManager 1.1.3 – Ladefehler des geschützten Speichers\n- Behoben: Lässt sich der geschützte Speicher des Programms (Testphase und Lizenz) nicht lesen oder schreiben, zeigt das Programm jetzt einen Hinweis statt „Testphase abgelaufen“. Die Testphase läuft weiter, und die beschädigte Datei bleibt im Datenordner zur Ansicht erhalten.\n- Behoben: Die Deinstallation entfernt alle Programmdateien auch dann, wenn Windows sie nach dem Beenden noch kurz festhält.\n- Neu: Bei der Installation wird die Prüfsumme der Programmdatei festgehalten (Datei „installiert.sha256“ im Programmordner)."
+  "version": "1.1.4",
+  "download_url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.4/FehlerFuchs_HaushaltsManager_Setup_1.1.4.exe",
+  "sha256": "168200a3caeb2c3556a75f584152b775e3d4c08eca7ebb1d8f96b8a46cb5ad2e",
+  "notes": "HaushaltsManager 1.1.4 – Hinweis auf alte Daten, genauere Lizenzprüfung\n- Neu: Hat eine frühere Version (1.1.0 oder 1.1.1) ihre Daten in einem anderen Ordner gespeichert, weist dich das Programm jetzt mit einem Hinweis darauf hin und zeigt dir Schritt für Schritt, wie du sie übernimmst. Das Programm kopiert oder verändert dabei nichts.\n- Berichtigt: Die Seite „Daten & Export“ beschreibt jetzt genau, wie du eine Sicherung wiederherstellst: Programm beenden und die Sicherungsdatei anstelle der Datei haushaltsmanager.sqlite in den Datenordner kopieren. Eine Funktion zum Zurückspielen gibt es in der App nicht.\n- Neu: Die Lizenzprüfung ohne Internet ist genauer: Das Programm prüft zusätzlich, ob die Lizenzbestätigung zum HaushaltsManager gehört, und kann künftig Bestätigungen mit einem zweiten Prüfschlüssel lesen.\n- Neu: Beim Abgleich der Lizenz wird die Programmversion mit übertragen, damit der Anbieter sieht, wie weit neue Versionen verbreitet sind. Eine Person ist daran nicht erkennbar."
 }
