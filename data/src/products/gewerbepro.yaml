@@ -89,7 +89,7 @@ releases:
   # Von [FF_10] gegen GitHub nachgemessen 16:2x: kein Entwurf, keine Vorabversion, ein Asset 116.258.096 B, GitHub-Prüfsumme
   # sha256:5ee00279…91bb = Angabe [FF_16]; öffentliche URL HTTP 200. notes: die von Matthias bestätigten Punkte des
   # Release-Texts wörtlich (ENTSCHEIDUNG [FF_00] 14.11.2026), Überschrift aus den Punkten gebildet, nichts erfunden (P8). Wegen der Datengrenze von 1200 Zeichen für notes entfallen der Punkt „Berichtigt: Datenschutz auf einen Blick zum Löschen“ im Punkt „Wenn du dich ausgesperrt hast“ der Beispielsatz und im Punkt „Automatische Sicherung“ die Klammer „zum Beispiel USB-Stick oder Netzlaufwerk“; die Release-Seite bei GitHub hat den vollen Text.
-  # Companion-Mindestfassung unverändert 1.0.1. Keine Aktuelles-Meldung (kein Auftrag).
+  # Companion-Mindestfassung unverändert 1.0.1. Aktuelles-Meldung gewerbepro-1-1-5 (Wort Matthias 19.11.2026 16:52:28, Freigabe [FF_00] 18:30:58).
   - version: "1.1.5"
     date: "2026-11-19"
     channel: stable
@@ -102,7 +102,6 @@ releases:
       source: GitHub-Release-Asset
     sha256: "5ee002793b88039b129a8e758dbfb4a14c99d5bf5a58bc5a93e65bfccd8991bb"
     signed: true
-    ohne_meldung: "Keine Aktuelles-Meldung (kein Auftrag in der Freigabe); der Release-Text steht auf der GitHub-Release-Seite."
     notes: |-
       GewerbePro 1.1.5 – Sicherung und Verschlüsselung
       - Automatische Sicherung. Beim Beenden sichert GewerbePro deine Daten, höchstens einmal am Tag. Eine Kopie liegt im Ordner Backups im Datenordner, auf Wunsch zusätzlich in einem Zusatzordner. Behalten werden die letzten 7 Tage und 4 Wochen.

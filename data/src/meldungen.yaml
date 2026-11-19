@@ -29,6 +29,26 @@
 
 meldungen:
 
+  # GewerbePro 1.1.5 (Build 15) – Release 19.11.2026 16:18:53 (signiert, Meldung [FF_16] P5 16:20, [FF_29] 16:31).
+  # 'version: 1.1.5' bindet die Meldung an den releases-Eintrag. Auftrag: Wort Matthias 19.11.2026 16:52:28
+  # „ja Meldung absetzen“ (Logbuch #10561), Freigabe [FF_00] 19.11.2026 18:30:58. Text aus den von Matthias bestätigten
+  # Versionshinweisen des Releases (Quelle: ERGEBNIS [FF_29] 16:31), für Besucher gekürzt, nichts erfunden (P8).
+  # Keine Preis-, Rechts- oder Datenschutzaussagen über den Release-Text hinaus. Kein Facebook-Beitrag (kein Auftrag).
+  - id: gewerbepro-1-1-5
+    typ: update
+    produkt: gewerbepro
+    version: "1.1.5"
+    titel: "GewerbePro 1.1.5: Automatische Sicherung und Verschlüsselung"
+    text: >-
+      GewerbePro 1.1.5 sichert deine Daten automatisch: Beim Beenden legt GewerbePro höchstens einmal
+      am Tag eine Sicherung im Ordner Backups an, auf Wunsch zusätzlich in einem Zusatzordner;
+      behalten werden die letzten 7 Tage und 4 Wochen. Du kannst deine Datenbank jetzt verschlüsseln,
+      ohne Passwort-Abfrage bei jedem Start oder mit Passwort (mindestens 10 Zeichen, dazu ein
+      Wiederherstellungs-Schlüssel). Das gedruckte Wiederherstellungs-Blatt trägt die Schlüsseldatei
+      jetzt auch als QR-Code. Wer sich ausgesperrt hat, gibt beim Start sein Passwort oder den
+      Wiederherstellungs-Schlüssel ein. „Alle Geschäftsdaten löschen“ zeigt vorher, was gelöscht wird
+      und was bleibt.
+
   # MobileReport 1.5.2. Play-Store-App: kein Release im Modell (versionsagnostisch), Datum = Tag der
   # Freischaltung (17.11.2026). Livegang selbst gemessen: öffentliche Play-Seite zeigt Version 1.5.2,
   # „Aktualisiert am 17.11.2026“ (17.11.2026, 12:47). Wortlaut aus der UEBERGABE [FF_20] 17.11.2026 (Wort Matthias

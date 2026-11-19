@@ -1,8 +1,22 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-19T16:23:50+01:00",
+  "generiert": "2026-11-19T18:32:10+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "gewerbepro-1-1-5",
+      "typ": "update",
+      "produkt": "gewerbepro",
+      "version": "1.1.5",
+      "titel": "GewerbePro 1.1.5: Automatische Sicherung und Verschlüsselung",
+      "text": "GewerbePro 1.1.5 sichert deine Daten automatisch: Beim Beenden legt GewerbePro höchstens einmal am Tag eine Sicherung im Ordner Backups an, auf Wunsch zusätzlich in einem Zusatzordner; behalten werden die letzten 7 Tage und 4 Wochen. Du kannst deine Datenbank jetzt verschlüsseln, ohne Passwort-Abfrage bei jedem Start oder mit Passwort (mindestens 10 Zeichen, dazu ein Wiederherstellungs-Schlüssel). Das gedruckte Wiederherstellungs-Blatt trägt die Schlüsseldatei jetzt auch als QR-Code. Wer sich ausgesperrt hat, gibt beim Start sein Passwort oder den Wiederherstellungs-Schlüssel ein. „Alle Geschäftsdaten löschen“ zeigt vorher, was gelöscht wird und was bleibt.",
+      "datum": "2026-11-19",
+      "datumQuelle": "Release 1.1.5",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.5/FehlerFuchs_GewerbePro_Setup_1.1.5.exe",
+        "kauf": "https://www.checkout-ds24.com/product/723253"
+      }
+    },
     {
       "id": "mobilereport-1-5-2",
       "typ": "update",

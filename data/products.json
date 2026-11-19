@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-19T16:23:50+01:00",
+  "generiert": "2026-11-19T18:32:10+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1066,7 +1066,6 @@
           },
           "sha256": "5ee002793b88039b129a8e758dbfb4a14c99d5bf5a58bc5a93e65bfccd8991bb",
           "signed": true,
-          "ohne_meldung": "Keine Aktuelles-Meldung (kein Auftrag in der Freigabe); der Release-Text steht auf der GitHub-Release-Seite.",
           "notes": "GewerbePro 1.1.5 – Sicherung und Verschlüsselung\n- Automatische Sicherung. Beim Beenden sichert GewerbePro deine Daten, höchstens einmal am Tag. Eine Kopie liegt im Ordner Backups im Datenordner, auf Wunsch zusätzlich in einem Zusatzordner. Behalten werden die letzten 7 Tage und 4 Wochen.\n- Daten verschlüsseln. Du kannst deine Datenbank jetzt wirklich verschlüsseln, ohne Passwort-Abfrage bei jedem Start oder mit Passwort. Das Passwort braucht mindestens 10 Zeichen, dazu bekommst du einen Wiederherstellungs-Schlüssel.\n- Wiederherstellungs-Blatt mit Schlüsseldatei. Das gedruckte Blatt hat jetzt eine zweite Seite mit deiner Schlüsseldatei als Zeichenblock und als QR-Code. Geht die Datei verloren, liest du sie vom Blatt wieder ein.\n- Wenn du dich ausgesperrt hast. Hast du in einer früheren Version „Verschlüsselung einrichten“ gewählt und kommst nicht mehr an deine Daten: GewerbePro 1.1.5 fragt beim Start nach deinem Passwort oder Wiederherstellungs-Schlüssel und öffnet sie wieder.\n- „Alle Geschäftsdaten löschen“ mit Auswahl und Vorschau. Du siehst vorher, was gelöscht wird und was bleibt. Rechnungen, die du gesetzlich aufbewahren musst, bleiben erhalten."
         },
         {
