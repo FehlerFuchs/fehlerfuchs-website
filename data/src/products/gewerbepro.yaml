@@ -83,6 +83,33 @@ editions:
     price: { model: offen }
 
 releases:
+  # 1.1.5 (19.11.2026, App 1.1.5+15): Meldung [FF_16] Code Signing (ERGEBNIS 16:20:23, Release gewerbepro-v1.1.5 veröffentlicht
+  # 16:18:53 auf „push gewerbepro“ von Matthias 16:12:29, Freigabe [FF_00] 16:17:30). Freigabe [FF_00] 16:21:20 nennt Update-Dateien
+  # und Produktseite ausdrücklich. Datenschutztext (Steckbrief 1.1.5, Löschabsatz) vorher live (website 77fdbf6, 15:32).
+  # Von [FF_10] gegen GitHub nachgemessen 16:2x: kein Entwurf, keine Vorabversion, ein Asset 116.258.096 B, GitHub-Prüfsumme
+  # sha256:5ee00279…91bb = Angabe [FF_16]; öffentliche URL HTTP 200. notes: die von Matthias bestätigten Punkte des
+  # Release-Texts wörtlich (ENTSCHEIDUNG [FF_00] 14.11.2026), Überschrift aus den Punkten gebildet, nichts erfunden (P8). Wegen der Datengrenze von 1200 Zeichen für notes entfallen der Punkt „Berichtigt: Datenschutz auf einen Blick zum Löschen“ im Punkt „Wenn du dich ausgesperrt hast“ der Beispielsatz und im Punkt „Automatische Sicherung“ die Klammer „zum Beispiel USB-Stick oder Netzlaufwerk“; die Release-Seite bei GitHub hat den vollen Text.
+  # Companion-Mindestfassung unverändert 1.0.1. Keine Aktuelles-Meldung (kein Auftrag).
+  - version: "1.1.5"
+    date: "2026-11-19"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.5/FehlerFuchs_GewerbePro_Setup_1.1.5.exe
+    filename: FehlerFuchs_GewerbePro_Setup_1.1.5.exe
+    size:
+      bytes: 116258096
+      label: "110,9 MB"
+      source: GitHub-Release-Asset
+    sha256: "5ee002793b88039b129a8e758dbfb4a14c99d5bf5a58bc5a93e65bfccd8991bb"
+    signed: true
+    ohne_meldung: "Keine Aktuelles-Meldung (kein Auftrag in der Freigabe); der Release-Text steht auf der GitHub-Release-Seite."
+    notes: |-
+      GewerbePro 1.1.5 – Sicherung und Verschlüsselung
+      - Automatische Sicherung. Beim Beenden sichert GewerbePro deine Daten, höchstens einmal am Tag. Eine Kopie liegt im Ordner Backups im Datenordner, auf Wunsch zusätzlich in einem Zusatzordner. Behalten werden die letzten 7 Tage und 4 Wochen.
+      - Daten verschlüsseln. Du kannst deine Datenbank jetzt wirklich verschlüsseln, ohne Passwort-Abfrage bei jedem Start oder mit Passwort. Das Passwort braucht mindestens 10 Zeichen, dazu bekommst du einen Wiederherstellungs-Schlüssel.
+      - Wiederherstellungs-Blatt mit Schlüsseldatei. Das gedruckte Blatt hat jetzt eine zweite Seite mit deiner Schlüsseldatei als Zeichenblock und als QR-Code. Geht die Datei verloren, liest du sie vom Blatt wieder ein.
+      - Wenn du dich ausgesperrt hast. Hast du in einer früheren Version „Verschlüsselung einrichten“ gewählt und kommst nicht mehr an deine Daten: GewerbePro 1.1.5 fragt beim Start nach deinem Passwort oder Wiederherstellungs-Schlüssel und öffnet sie wieder.
+      - „Alle Geschäftsdaten löschen“ mit Auswahl und Vorschau. Du siehst vorher, was gelöscht wird und was bleibt. Rechnungen, die du gesetzlich aufbewahren musst, bleiben erhalten.
   # 1.1.4 (31.10.2026, Build 11): Meldung [FF_16] Code Signing P5 (13:28, veröffentlicht auf „push gewerbepro“ von
   # Matthias 13:22, Release 13:27:25, zweistufig signiert). Von [FF_10] gegen GitHub nachgemessen 13:33: öffentliche URL
   # HTTP 200, Content-Length 116.212.296; sha256 und Signatur laut [FF_16] am öffentlichen Download gemessen. Wort FF_00
