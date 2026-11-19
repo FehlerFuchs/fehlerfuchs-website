@@ -1,8 +1,8 @@
 slug: gewerbepro
 name: FehlerFuchs GewerbePro
-stand: "2026-10-19"
+stand: "2026-11-19"
 geprueft_von: 29_GewerbePro
-fassung: "1.1.1"
+fassung: "1.1.5"
 
 # Nein: die Update-Prüfung ist ab Werk eingeschaltet, die Lizenzprüfung ist in
 # der Vollversion nötig. Ohne Vollversion und mit abgeschalteter Update-Prüfung
@@ -16,8 +16,11 @@ auf_dem_geraet:
     wo: lokale Datenbank (SQLite) im Datenordner %APPDATA%\FehlerFuchs\GewerbePro\Daten
       (bis 1.0.0 im Programmordner; beim ersten Start von 1.1.0 einmal umgezogen
       und per Prüfsumme kontrolliert, die alte Kopie wird beim nächsten Start
-      gelöscht, wenn sie der geprüften Übertragung entspricht)
-    beleg: 20_Engine/gewerbepro_core/db.py (_SCHEMA); config.py DB_FILE; datenort.py
+      gelöscht, wenn sie der geprüften Übertragung entspricht). Ab 1.1.5 kann
+      der Nutzer die Datenbank verschlüsseln (256-Bit-Schlüssel, SQLite3 Multiple
+      Ciphers); ohne Einrichtung bleibt sie wie bisher unverschlüsselt
+    beleg: 20_Engine/gewerbepro_core/db.py (_SCHEMA); config.py DB_FILE; datenort.py;
+      db.py (PRAGMA key); krypto.py
   - was: Stammdaten des Betriebs (Firma, Inhaber, Steuernummer, Bankverbindung,
       Fußzeilen) und Programmeinstellungen
     wo: in derselben lokalen Datenbank
@@ -42,6 +45,36 @@ auf_dem_geraet:
       PDFuchs-Ergebnisse), abgelegte Belege und Datenbank-Backups
     wo: Unterordner des Datenordners (Exporte, PDFuchs, Belege, Fallakten)
     beleg: 20_Engine/gewerbepro_core/config.py; engine_api.py _default_pdfuchs_dir
+  - was: automatische Sicherung der Datenbank (ab 1.1.5) – beim Beenden der
+      Anwendung, höchstens einmal pro Tag; behalten werden die letzten 7 täglichen
+      und 4 wöchentlichen Stände. Die Sicherung folgt der Datenbank; ist sie
+      verschlüsselt, ist es auch die Sicherung
+    wo: Ordner Backups im Datenordner (Dateien gewerbepro_auto_<Datum>_<Uhrzeit>.sqlite3);
+      auf Wunsch zusätzlich in einem vom Nutzer gewählten Zusatzordner (zum
+      Beispiel USB-Stick oder Netzlaufwerk; bei einem Netz- oder Cloud-Laufwerk
+      dessen Anbieter). Die Anwendung selbst lädt nichts hoch
+    beleg: 20_Engine/gewerbepro_core/auto_sicherung.py; Einstellungskarte
+      21_App_Flutter/gewerbepro_desktop/lib/ui/ff_auto_sicherung.dart
+  - was: Schlüsseldatei der Verschlüsselung („Hülle“, ab 1.1.5) – enthält nur
+      umschlossene Schlüsselstücke, ohne Passwort oder Wiederherstellungs-Schlüssel
+      wertlos; Passwort und Wiederherstellungs-Schlüssel werden nie im Klartext
+      gespeichert. Das Passwort wird mit scrypt abgeleitet (mindestens 10 Zeichen)
+    wo: gewerbepro.keywrap.json im Datenordner und neben jeder automatischen und
+      jeder verschlüsselten externen Sicherung (.gpcrypt)
+    beleg: 20_Engine/gewerbepro_core/krypto.py (HUELLE_NAME, MIN_PASSWORT, _SCRYPT)
+  - was: Windows-Bindung der Verschlüsselung (ab 1.1.5, Voreinstellung „ohne
+      Passwort-Abfrage“) – der Datenbankschlüssel wird zusätzlich mit Windows DPAPI
+      an das Windows-Benutzerkonto gebunden; bei einem anderen Windows-Konto oder
+      nach Neuinstallation von Windows fragt die Anwendung nach Passwort oder
+      Wiederherstellungs-Schlüssel
+    wo: in der Schlüsseldatei (gewerbepro.keywrap.json)
+    beleg: 20_Engine/gewerbepro_core/krypto.py (wrap_dpapi); secure_store.py
+  - was: Wiederherstellungs-Blatt (ab 1.1.5, nur auf Wunsch) – druckbares PDF mit
+      Wiederherstellungs-Schlüssel und der Schlüsseldatei als Zeichenblock und
+      QR-Code
+    wo: an einem vom Nutzer gewählten Ort außerhalb von Programm- und Datenordner;
+      das PDF wird lokal erzeugt, nichts wird übertragen
+    beleg: 20_Engine/gewerbepro_core/engine_api.py krypto_recovery_pdf
   - was: abgerufene E-Mails samt Anhängen (nur bei eingerichtetem Postfach)
     wo: lokale Datenbank bzw. Datenordner
     beleg: 20_Engine/gewerbepro_core/mail.py
@@ -187,19 +220,20 @@ absturzberichte: false
 daten_an_dritte_verkauft: false
 
 loeschung: >-
-  Alle Daten liegen auf dem Gerät. In den Einstellungen löscht „Alle Geschäftsdaten löschen“ Kunden, Angebote,
+  Alle Daten liegen auf dem Gerät. In den Einstellungen löscht „Alle
+  Geschäftsdaten löschen“ nach deiner Auswahl: standardmäßig Kunden, Angebote,
   Aufträge, Belege, Termine, Aufgaben, Notizen, Projekte, Artikel- und
   Leistungsvorlagen und das Logbuch sowie Rechnungsentwürfe und Rechnungen, die
-  nicht mehr aufbewahrt werden müssen. Rechnungen, die du gesetzlich
-  aufbewahren musst, bleiben dabei erhalten: jede ausgestellte Rechnung, auch
-  eine stornierte, bis zum Ende des achten Jahres nach dem Rechnungsjahr (§ 147
-  AO, § 14b UStG), samt Positionen, Zahlungen, Mahnungen, Gutschriften,
-  zugehörigen Buchungen und den Kunden, Aufträgen und Projekten, die zu diesen
-  Rechnungen gehören. Deine Stammdaten und Einstellungen, Anlagen, Fahrtenbuch,
-  Postfach-Konten sowie Exporte, Sicherungen und die Belegablage löscht diese
-  Funktion nicht; sie bleiben im Datenordner, bis du sie selbst löschst.
-  Die Deinstallation
-  entfernt das Programm; der Datenordner (%APPDATA%\FehlerFuchs\GewerbePro\Daten)
+  nicht mehr aufbewahrt werden müssen. Zusätzlich kannst du Anlagen und
+  Fahrtenbuch, Postfach-Konten, Einstellungen, Exporte, Belegablage und
+  Sicherungen mitlöschen. Rechnungen, die du gesetzlich aufbewahren musst,
+  bleiben dabei erhalten: jede ausgestellte Rechnung, auch eine stornierte, bis
+  zum Ende des achten Jahres nach dem Rechnungsjahr (§ 147 AO, § 14b UStG), samt
+  Positionen, Zahlungen, Mahnungen, Gutschriften, zugehörigen Buchungen und den
+  Kunden, Aufträgen und Projekten, die zu diesen Rechnungen gehören; solange es
+  solche Rechnungen gibt, bleiben auch Exporte, Belegablage und Sicherungen
+  stehen. GewerbePro zeigt dir vorher, was gelöscht wird und was bleibt. Die
+  Deinstallation entfernt das Programm; der Datenordner (%APPDATA%\FehlerFuchs\GewerbePro\Daten)
   mit Datenbank, Exporten und Backups bleibt bestehen und kann vom Nutzer
   gelöscht werden. Nach dem Wechsel von 1.0.0 auf 1.1.0 löscht die Anwendung die
   alte Kopie im Programmordner beim nächsten Start selbst, sofern sie der
@@ -217,7 +251,11 @@ besonderheiten: >-
   verschickt; der „Support-Bericht“ erzeugt lediglich ein PDF auf dem Rechner,
   das der Nutzer selbst versendet. Mit der Begleit-App „GewerbePro Companion“
   tauscht die Anwendung auf Wunsch Daten aus – per USB-Kabel oder über einen vom
-  Nutzer gewählten Ordner, verschlüsselt und ohne FehlerFuchs-Server.
+  Nutzer gewählten Ordner, verschlüsselt und ohne FehlerFuchs-Server. Ab 1.1.5
+  kann der Nutzer seine Datenbank und seine Sicherungen verschlüsseln und
+  sichert beim Beenden automatisch auf dem eigenen Rechner (optional zusätzlich
+  in einen selbst gewählten Ordner); dabei entsteht keine neue Übermittlung, und
+  FehlerFuchs erhält weder Schlüssel noch Passwörter noch Sicherungen.
 
 vorhandener_text: >-
   Datenschutzhinweise, Kurzfassung, EULA und Haftungshinweise liegen im
