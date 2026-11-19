@@ -97,6 +97,29 @@ editions:
 # ACHTUNG: Aus diesen Angaben entstehen die Manifeste, die ausgelieferte
 # Apps lesen. Der Text unter notes erscheint WÖRTLICH im Update-Hinweis.
 releases:
+  # 1.5.3 (58) (19.11.2026): GitHub-Release von [FF_20], veröffentlicht 19.11.2026 21:02:21 (GitHub 20:02:21 UTC),
+  # kein Entwurf, "Latest"-Marker nicht gesetzt (P5-Meldung [FF_20] 21:03). Von [FF_10] am öffentlichen Download
+  # nachgemessen 21:07: HTTP 200, Content-Length 65.449.684, sha256 wie [FF_20] und [FF_00]. Update-Dateien auf
+  # FREIGABE [FF_00] 19.11.2026 21:05 (Worte Matthias, Logbuch #10594, #10597). Die Fassung 1.5.2 (57) wurde im
+  # Direktkanal nie ausgeliefert (kleine Entscheidung [FF_00]) und steht deshalb hier nicht. notes: nur der von
+  # Matthias bestätigte 1.5.3-Text ("A: So lassen", #10594); die Bilder-Ablage aus 1.5.2 ist in dieser Verwendung
+  # noch nicht bestätigt und steht nur im GitHub-Release.
+  - version: "1.5.3"
+    date: "2026-11-19"
+    channel: stable
+    os: android
+    url: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.5.3/FehlerFuchs_MobileReport_Enterprise_v1.5.3_58.apk"
+    filename: FehlerFuchs_MobileReport_Enterprise_v1.5.3_58.apk
+    size: { bytes: 65449684, label: "62,4 MB", source: GitHub-Release-Asset }
+    sha256: 12f5f5d37f940b5fb13daebffab97a219452c98443f35648d0fc21c60c0954e9
+    signed: false
+    ohne_meldung: "Nur die Update-Dateien auf FREIGABE FF_00 19.11.2026 21:05 (Logbuch #10594, #10597); eine Aktuelles-Meldung ist nicht gedeckt, bei Enterprise 1.5.1 und 1.5.2 gab es auch keine."
+    notes: >-
+      1.5.3: Empfänger-Feld in der neuen Meldung korrigiert. Tippst du unter „Empfänger-E-Mail“
+      auf eine zuletzt genutzte Adresse, wird sie jetzt auch als Empfänger gewählt. Bisher stand
+      sie nur im Feld, und „PDF erstellen“ meldete trotzdem „Bitte mindestens einen Empfänger
+      auswählen“. · Das Feld „Empfänger-E-Mail“ prüft jetzt die Form der Adresse. Eine Eingabe
+      ohne gültige Form wird nicht als Empfänger übernommen, das Feld nennt den Fehler.
   # 1.5.1 (55) (30.10.2026): GitHub-Release von [FF_20] (veröffentlicht 20:50:01, P5-Meldung 20:52, Logbuch #8571),
   # Managed Play live 20:37 (P5 [FF_15]). Von [FF_10] nachgemessen 20:53: öffentliche URL HTTP 200,
   # Content-Length 66.310.248; sha256 laut [FF_20] am öffentlichen Download gemessen. Update-Dateien auf

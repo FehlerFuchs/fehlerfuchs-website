@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-19T18:32:10+01:00",
+  "generiert": "2026-11-19T21:08:23+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -2633,6 +2633,23 @@
         }
       ],
       "releases": [
+        {
+          "version": "1.5.3",
+          "date": "2026-11-19",
+          "channel": "stable",
+          "os": "android",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/mobilereport-enterprise-v1.5.3/FehlerFuchs_MobileReport_Enterprise_v1.5.3_58.apk",
+          "filename": "FehlerFuchs_MobileReport_Enterprise_v1.5.3_58.apk",
+          "size": {
+            "bytes": 65449684,
+            "label": "62,4 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "12f5f5d37f940b5fb13daebffab97a219452c98443f35648d0fc21c60c0954e9",
+          "signed": false,
+          "ohne_meldung": "Nur die Update-Dateien auf FREIGABE FF_00 19.11.2026 21:05 (Logbuch #10594, #10597); eine Aktuelles-Meldung ist nicht gedeckt, bei Enterprise 1.5.1 und 1.5.2 gab es auch keine.",
+          "notes": "1.5.3: Empfänger-Feld in der neuen Meldung korrigiert. Tippst du unter „Empfänger-E-Mail“ auf eine zuletzt genutzte Adresse, wird sie jetzt auch als Empfänger gewählt. Bisher stand sie nur im Feld, und „PDF erstellen“ meldete trotzdem „Bitte mindestens einen Empfänger auswählen“. · Das Feld „Empfänger-E-Mail“ prüft jetzt die Form der Adresse. Eine Eingabe ohne gültige Form wird nicht als Empfänger übernommen, das Feld nennt den Fehler."
+        },
         {
           "version": "1.5.1",
           "date": "2026-10-30",
