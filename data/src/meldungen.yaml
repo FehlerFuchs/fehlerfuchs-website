@@ -33,7 +33,7 @@ meldungen:
   # 'version: 1.1.5' bindet die Meldung an den releases-Eintrag. Auftrag: Wort Matthias 19.11.2026 16:52:28
   # „ja Meldung absetzen“ (Logbuch #10561), Freigabe [FF_00] 19.11.2026 18:30:58. Text aus den von Matthias bestätigten
   # Versionshinweisen des Releases (Quelle: ERGEBNIS [FF_29] 16:31), für Besucher gekürzt, nichts erfunden (P8).
-  # Keine Preis-, Rechts- oder Datenschutzaussagen über den Release-Text hinaus. Kein Facebook-Beitrag (kein Auftrag).
+  # Keine Preis-, Rechts- oder Datenschutzaussagen über den Release-Text hinaus. Facebook-Beitrag nur als Entwurf (Entscheidung [FF_00] 21.11.2026, Logbuch #10659), nicht gepostet; Posten erst auf das Ja von Matthias.
   - id: gewerbepro-1-1-5
     typ: update
     produkt: gewerbepro

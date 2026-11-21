@@ -120,6 +120,15 @@ releases:
       sie nur im Feld, und „PDF erstellen“ meldete trotzdem „Bitte mindestens einen Empfänger
       auswählen“. · Das Feld „Empfänger-E-Mail“ prüft jetzt die Form der Adresse. Eine Eingabe
       ohne gültige Form wird nicht als Empfänger übernommen, das Feld nennt den Fehler.
+    # Anzeige auf der Produktseite in der Sie-Form (die Seite siezt, ansprache: sie). Entscheidung FF_00
+    # 21.11.2026 (Logbuch #10659): gleicher Inhalt, nur die Anrede; notes (du) bleibt für die App in
+    # versions.json und den latest.json unverändert, so wie in der App.
+    notes_seite: >-
+      1.5.3: Empfänger-Feld in der neuen Meldung korrigiert. Tippen Sie unter „Empfänger-E-Mail“
+      auf eine zuletzt genutzte Adresse, wird sie jetzt auch als Empfänger gewählt. Bisher stand
+      sie nur im Feld, und „PDF erstellen“ meldete trotzdem „Bitte mindestens einen Empfänger
+      auswählen“. · Das Feld „Empfänger-E-Mail“ prüft jetzt die Form der Adresse. Eine Eingabe
+      ohne gültige Form wird nicht als Empfänger übernommen, das Feld nennt den Fehler.
   # 1.5.1 (55) (30.10.2026): GitHub-Release von [FF_20] (veröffentlicht 20:50:01, P5-Meldung 20:52, Logbuch #8571),
   # Managed Play live 20:37 (P5 [FF_15]). Von [FF_10] nachgemessen 20:53: öffentliche URL HTTP 200,
   # Content-Length 66.310.248; sha256 laut [FF_20] am öffentlichen Download gemessen. Update-Dateien auf
@@ -389,7 +398,9 @@ links:
   # Fehlt das Feld, gab es vorher keine eigene Seite – dann ist auch nichts
   # weiterzuleiten.
   alt_html: /apps/mobilereport-enterprise.html
-  release: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mobilereport-enterprise-v1.5.0"
+  # Release-Seite: Tag der neuesten Fassung (21.11.2026, Entscheidung FF_00, Logbuch #10659; bis dahin stand
+  # hier noch v1.5.0). Beim nächsten Release mit anpassen.
+  release: "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/tag/mobilereport-enterprise-v1.5.3"
   contact: "/kontakt.html?app=MobileReport%20Enterprise&topic=angebot"
 
 manifests:

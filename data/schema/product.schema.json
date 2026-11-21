@@ -521,6 +521,11 @@
             "type": "string",
             "maxLength": 1200
           },
+          "notes_seite": {
+            "type": "string",
+            "maxLength": 1200,
+            "description": "Nur wenn die Produktseite eine andere Anrede braucht als die App (Firmenprodukte siezen, die App-Hinweise duzen): Wortlaut für die Anzeige auf der Produktseite. Gleicher Inhalt wie notes, nur die Anrede. Fehlt das Feld, zeigt die Seite notes. Die Update-Dateien (latest.json, versions.json) tragen immer notes."
+          },
           "ohne_meldung": {
             "type": "string",
             "minLength": 10,
