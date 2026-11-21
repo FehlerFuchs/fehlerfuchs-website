@@ -41,8 +41,13 @@ editions:
 
 
 # Merkmalstabelle (Funktionsuebersicht) - wortgleich von [22] AppInsight, ANTWORT vom
-# 24.09.2026; Quelle dort: Store-Beschreibung 1.0.0. Der ADB-Assistent fehlt mit Absicht:
-# in der Play-Ausgabe abgeschaltet. Grenze: AppInsight zeigt, was eine App darf und
+# 24.09.2026; Quelle dort: Store-Beschreibung 1.0.0. Nachgezogen 22.11.2026 gegen die
+# Produkteinschreibung 1.0.2 bei 00-1 (Produkteinschreibung_Webseite/appinsight.yaml, SHA-256
+# 0fa001cd…fd5a, Freigabe [FF_00] 22.11.2026, Logbuch #10685): Merkmal Lizenzhinweise (seit 1.0.2)
+# und ADB-Assistent als 'nein' (in der Play-Ausgabe abgeschaltet), je mit dem Wortlaut aus 00-1.
+# Einen Zweitweg-Satz (F-Droid, zurueckgestellt am 20.10.2026) nennt die Seite bewusst nicht: Es
+# gibt keinen Direkt-Download und kein Quell-Repo; ein Satz dazu waere eine Ankuendigung ohne
+# Beschluss zur Veroeffentlichung. Grenze: AppInsight zeigt, was eine App darf und
 # mitliefert - nicht, was sie gerade tut.
 features:
   - group: "Verstehen, was Apps dürfen"
@@ -80,6 +85,9 @@ features:
       - name: "Direkt zu den Einstellungen"
         values: { standard: ja }
         note: "Zu jeder App führt eine Anleitung genau an die Stelle in Android, an der du Rechte entziehst, Speicher leerst oder sie deinstallierst."
+      - name: "ADB-Assistent zum Entfernen systemnaher Apps"
+        values: { standard: nein }
+        note: "In der Play-Ausgabe abgeschaltet; zeigt sonst nur den fertigen Befehl für den PC."
       - name: "Verbrauch je App"
         values: { standard: ja }
         note: "Speicher, Nutzungszeit und Datenverbrauch je App – wenn du den Zugriff „Nutzungsdaten“ selbst freigibst."
@@ -92,9 +100,9 @@ features:
       - name: "Ohne Internet"
         values: { standard: ja }
         note: "AppInsight hat keine Internet-Berechtigung, kein Konto und keinen Server – es kann nichts senden und nichts abrufen."
-      - name: "Lizenzen der verwendeten Bausteine"
+      - name: "Lizenzhinweise der verwendeten Bausteine in der App"
         values: { standard: ja }
-        note: "Unter „Info“ zeigt die App die Lizenzen der Bausteine, die AppInsight nutzt – vollständig und ohne Internet."
+        note: "Seit Version 1.0.2, unter Info › Lizenzen."
 
 releases: []
 

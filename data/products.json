@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-21T23:42:52+01:00",
+  "generiert": "2026-11-22T00:19:02+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -129,6 +129,13 @@
               "note": "Zu jeder App führt eine Anleitung genau an die Stelle in Android, an der du Rechte entziehst, Speicher leerst oder sie deinstallierst."
             },
             {
+              "name": "ADB-Assistent zum Entfernen systemnaher Apps",
+              "values": {
+                "standard": "nein"
+              },
+              "note": "In der Play-Ausgabe abgeschaltet; zeigt sonst nur den fertigen Befehl für den PC."
+            },
+            {
               "name": "Verbrauch je App",
               "values": {
                 "standard": "ja"
@@ -155,11 +162,11 @@
               "note": "AppInsight hat keine Internet-Berechtigung, kein Konto und keinen Server – es kann nichts senden und nichts abrufen."
             },
             {
-              "name": "Lizenzen der verwendeten Bausteine",
+              "name": "Lizenzhinweise der verwendeten Bausteine in der App",
               "values": {
                 "standard": "ja"
               },
-              "note": "Unter „Info“ zeigt die App die Lizenzen der Bausteine, die AppInsight nutzt – vollständig und ohne Internet."
+              "note": "Seit Version 1.0.2, unter Info › Lizenzen."
             }
           ]
         }

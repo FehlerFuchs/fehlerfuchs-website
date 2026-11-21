@@ -152,8 +152,6 @@ fremde_dienste:
   - name: Postfach-/SMTP-Anbieter (IONOS)
     wofuer: Versand aller E-Mails des Dienstes
     wann: bei jedem Mailversand
-  # Intern, nicht zur Veröffentlichung: Tarif IONOS VPS Linux M+, Host license.fehlerfuchs.eu,
-  # der Server wird von FehlerFuchs selbst betrieben. Stand des AVV siehe offene_fragen (1).
   - name: IONOS SE (Hosting, virtueller Server) – Elgendorfer Straße 57, 56410 Montabaur, Deutschland
     wofuer: Betrieb des Servers, auf dem alle genannten Daten liegen; Standort Deutschland (EWR), keine Drittlandübermittlung
     wann: dauerhaft
