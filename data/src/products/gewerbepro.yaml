@@ -83,6 +83,35 @@ editions:
     price: { model: offen }
 
 releases:
+  # 1.1.6 (22.11.2026, App 1.1.6+17, Build 17): Meldung [FF_16] Code Signing (ERGEBNIS 16:59:19, Release gewerbepro-v1.1.6
+  # veröffentlicht 16:58:10 auf „push gewerbepro“ von Matthias 16:56:21, Freigabe [FF_00] 16:54:30). AUFTRAG [FF_00] 22.11.2026 17:06
+  # nennt latest.json, versions.json und Produktseite ausdrücklich (Wort Matthias „A: Text passt, freigeben“). Von [FF_10] am öffentlichen
+  # Download nachgemessen 17:07: HTTP 200, 116.192.584 B, sha256 bd377d88…3568 = Angabe [FF_16] und [FF_00]. notes: der von Matthias
+  # freigegebene Abschnitt „Text für Release-Seite und Update-Hinweis“ (RELEASE-INFO_GewerbePro_1.1.6.md) wörtlich, mit der Zeile „Hinweis“,
+  # ohne Fettdruck-Zeichen (1004 Zeichen mit Hinweis, Grenze 1200). Datenschutz: keine neue Verarbeitung, Steckbrief bleibt Fassung 1.1.5.
+  # Companion-Mindestfassung unverändert 1.0.1. Keine Aktuelles-Meldung (nicht gedeckt, nur auf neue Frage).
+  - version: "1.1.6"
+    date: "2026-11-22"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.6/FehlerFuchs_GewerbePro_Setup_1.1.6.exe
+    filename: FehlerFuchs_GewerbePro_Setup_1.1.6.exe
+    size:
+      bytes: 116192584
+      label: "110,8 MB"
+      source: GitHub-Release-Asset
+    sha256: "bd377d88473cc39c494dbe2ad223512f9788b58bb976007d30840d93e79d3568"
+    signed: true
+    ohne_meldung: "Nur die Update-Dateien und die Produktseite auf AUFTRAG FF_00 22.11.2026; eine Aktuelles-Meldung ist nicht gedeckt und nur auf neue Frage."
+    notes: |-
+      Neu in GewerbePro 1.1.6
+      - Sicherung zurückspielen: klarere Meldungen. Gibst du ein falsches Passwort ein, sagt GewerbePro jetzt „Das Passwort stimmt nicht“ und nicht mehr etwas zum Wiederherstellungs-Schlüssel. Bei einem falschen Schlüssel sagt es das ebenfalls klar.
+      - Nichts bleibt zurück. Misslingt das Zurückspielen, bleibt dein Datenordner unverändert. Eine spätere, richtige Sicherung lässt sich danach wie gewohnt zurückspielen.
+      - Rückfrage vor dem Ersetzen. Beim Speichern einer verschlüsselten Sicherung fragt GewerbePro nach, bevor es eine vorhandene Datei mit demselben Namen ersetzt, auch wenn du den Namen ohne Endung getippt hast.
+      - Fehlermeldungen bleiben stehen. Meldungen zu Sicherungen bleiben unten sichtbar, bis du sie schließt oder eine neue Meldung kommt.
+      - Kundenliste. Kann GewerbePro die Kunden nicht lesen, steht jetzt eine Meldung da und nicht mehr „Noch keine Kunden“.
+
+      Hinweis: Deine Daten bleiben erhalten; es sind keine neuen Datenfelder nötig.
   # 1.1.5 (19.11.2026, App 1.1.5+15): Meldung [FF_16] Code Signing (ERGEBNIS 16:20:23, Release gewerbepro-v1.1.5 veröffentlicht
   # 16:18:53 auf „push gewerbepro“ von Matthias 16:12:29, Freigabe [FF_00] 16:17:30). Freigabe [FF_00] 16:21:20 nennt Update-Dateien
   # und Produktseite ausdrücklich. Datenschutztext (Steckbrief 1.1.5, Löschabsatz) vorher live (website 77fdbf6, 15:32).

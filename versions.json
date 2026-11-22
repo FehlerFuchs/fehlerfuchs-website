@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-22",
   "products": [
     {
       "slug": "gewerbepro",
       "name": "FehlerFuchs GewerbePro",
-      "version": "1.1.5",
-      "date": "2026-11-19",
+      "version": "1.1.6",
+      "date": "2026-11-22",
       "channel": "stable",
       "os": "windows",
-      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.5/FehlerFuchs_GewerbePro_Setup_1.1.5.exe",
-      "filename": "FehlerFuchs_GewerbePro_Setup_1.1.5.exe",
-      "sizeLabel": "110,9 MB",
-      "sha256": "5ee002793b88039b129a8e758dbfb4a14c99d5bf5a58bc5a93e65bfccd8991bb",
+      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.6/FehlerFuchs_GewerbePro_Setup_1.1.6.exe",
+      "filename": "FehlerFuchs_GewerbePro_Setup_1.1.6.exe",
+      "sizeLabel": "110,8 MB",
+      "sha256": "bd377d88473cc39c494dbe2ad223512f9788b58bb976007d30840d93e79d3568",
       "signed": true,
       "page": "https://fehlerfuchs.eu/produkte/gewerbepro/",
-      "notes": "GewerbePro 1.1.5 – Sicherung und Verschlüsselung\n- Automatische Sicherung. Beim Beenden sichert GewerbePro deine Daten, höchstens einmal am Tag. Eine Kopie liegt im Ordner Backups im Datenordner, auf Wunsch zusätzlich in einem Zusatzordner. Behalten werden die letzten 7 Tage und 4 Wochen.\n- Daten verschlüsseln. Du kannst deine Datenbank jetzt wirklich verschlüsseln, ohne Passwort-Abfrage bei jedem Start oder mit Passwort. Das Passwort braucht mindestens 10 Zeichen, dazu bekommst du einen Wiederherstellungs-Schlüssel.\n- Wiederherstellungs-Blatt mit Schlüsseldatei. Das gedruckte Blatt hat jetzt eine zweite Seite mit deiner Schlüsseldatei als Zeichenblock und als QR-Code. Geht die Datei verloren, liest du sie vom Blatt wieder ein.\n- Wenn du dich ausgesperrt hast. Hast du in einer früheren Version „Verschlüsselung einrichten“ gewählt und kommst nicht mehr an deine Daten: GewerbePro 1.1.5 fragt beim Start nach deinem Passwort oder Wiederherstellungs-Schlüssel und öffnet sie wieder.\n- „Alle Geschäftsdaten löschen“ mit Auswahl und Vorschau. Du siehst vorher, was gelöscht wird und was bleibt. Rechnungen, die du gesetzlich aufbewahren musst, bleiben erhalten.",
+      "notes": "Neu in GewerbePro 1.1.6\n- Sicherung zurückspielen: klarere Meldungen. Gibst du ein falsches Passwort ein, sagt GewerbePro jetzt „Das Passwort stimmt nicht“ und nicht mehr etwas zum Wiederherstellungs-Schlüssel. Bei einem falschen Schlüssel sagt es das ebenfalls klar.\n- Nichts bleibt zurück. Misslingt das Zurückspielen, bleibt dein Datenordner unverändert. Eine spätere, richtige Sicherung lässt sich danach wie gewohnt zurückspielen.\n- Rückfrage vor dem Ersetzen. Beim Speichern einer verschlüsselten Sicherung fragt GewerbePro nach, bevor es eine vorhandene Datei mit demselben Namen ersetzt, auch wenn du den Namen ohne Endung getippt hast.\n- Fehlermeldungen bleiben stehen. Meldungen zu Sicherungen bleiben unten sichtbar, bis du sie schließt oder eine neue Meldung kommt.\n- Kundenliste. Kann GewerbePro die Kunden nicht lesen, steht jetzt eine Meldung da und nicht mehr „Noch keine Kunden“.\n\nHinweis: Deine Daten bleiben erhalten; es sind keine neuen Datenfelder nötig.",
       "windowsDisplayNames": [
         "FehlerFuchs GewerbePro",
         "FehlerFuchs Gewerbe"

@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-22T00:19:02+01:00",
+  "generiert": "2026-11-22T17:07:35+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1059,6 +1059,23 @@
         }
       ],
       "releases": [
+        {
+          "version": "1.1.6",
+          "date": "2026-11-22",
+          "channel": "stable",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/gewerbepro-v1.1.6/FehlerFuchs_GewerbePro_Setup_1.1.6.exe",
+          "filename": "FehlerFuchs_GewerbePro_Setup_1.1.6.exe",
+          "size": {
+            "bytes": 116192584,
+            "label": "110,8 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "bd377d88473cc39c494dbe2ad223512f9788b58bb976007d30840d93e79d3568",
+          "signed": true,
+          "ohne_meldung": "Nur die Update-Dateien und die Produktseite auf AUFTRAG FF_00 22.11.2026; eine Aktuelles-Meldung ist nicht gedeckt und nur auf neue Frage.",
+          "notes": "Neu in GewerbePro 1.1.6\n- Sicherung zurückspielen: klarere Meldungen. Gibst du ein falsches Passwort ein, sagt GewerbePro jetzt „Das Passwort stimmt nicht“ und nicht mehr etwas zum Wiederherstellungs-Schlüssel. Bei einem falschen Schlüssel sagt es das ebenfalls klar.\n- Nichts bleibt zurück. Misslingt das Zurückspielen, bleibt dein Datenordner unverändert. Eine spätere, richtige Sicherung lässt sich danach wie gewohnt zurückspielen.\n- Rückfrage vor dem Ersetzen. Beim Speichern einer verschlüsselten Sicherung fragt GewerbePro nach, bevor es eine vorhandene Datei mit demselben Namen ersetzt, auch wenn du den Namen ohne Endung getippt hast.\n- Fehlermeldungen bleiben stehen. Meldungen zu Sicherungen bleiben unten sichtbar, bis du sie schließt oder eine neue Meldung kommt.\n- Kundenliste. Kann GewerbePro die Kunden nicht lesen, steht jetzt eine Meldung da und nicht mehr „Noch keine Kunden“.\n\nHinweis: Deine Daten bleiben erhalten; es sind keine neuen Datenfelder nötig."
+        },
         {
           "version": "1.1.5",
           "date": "2026-11-19",
