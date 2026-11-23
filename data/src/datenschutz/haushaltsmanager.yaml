@@ -7,8 +7,9 @@ name: HaushaltsManager
 stand: "2026-11-13"
 geprueft_von: 36_HaushaltsManager Markt
 # NEU 1.1.3: Fassung nennt 1.1.3, Satz "Neu gegenüber 1.1.2" am Ende ergänzt. NEU 1.1.4: Fassung nennt 1.1.4, Satz "Neu ggü. 1.1.3" am Ende ergänzt.
+# NEU 1.1.5 (23.11.2026, Freigabe [FF_00]): Fassung nennt 1.1.5, Satz "Neu ggü. 1.1.4" am Ende ergänzt; stand und Verarbeitung unverändert.
 fassung: >-
-  Am gebauten und signierten Produkt 1.1.4 geprüft (Produktfassung ohne private Daten,
+  Am gebauten und signierten Produkt 1.1.5 geprüft (Produktfassung ohne private Daten,
   sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Installer, Programmdatei,
   Deinstaller und alle mitgelieferten Programmbibliotheken sind mit der FehlerFuchs-Signatur versehen
   (zweistufig signiert). Neu ggü. 1.1.1: eigener Datenordner (%APPDATA%\FehlerFuchs\HaushaltsManager\)
@@ -19,6 +20,9 @@ fassung: >-
   beschädigte Datei bleibt als Kopie im Datenordner erhalten (keine neuen Datenarten, keine Übermittlung).
   Neu ggü. 1.1.3: Beim Lizenzabgleich wird die Programmversion mitgesendet. Findet die App im früheren
   Datenordner noch Daten, zeigt sie einen Hinweis; sie liest diese Daten nicht aus und überträgt nichts.
+  Neu ggü. 1.1.4: Das Setup erklärt vorher, was bei fehlender Laufzeitbibliothek und bei der Abfrage nach
+  Administratorrechten geschieht (keine neue Verarbeitung, keine Übermittlung). Drei Texte in der App nennen
+  die Ablage der Zugangsdaten jetzt richtig: verschlüsselt in einer geschützten Datei im Programmdatenordner.
 
 lokal_only: false   # optionale, standardmäßig ausgeschaltete Datenverbindungen + eine minimale Lizenzprüfung, siehe uebertragungen
 

@@ -78,6 +78,28 @@ editions:
 # Erste öffentliche, signierte Windows-Fassung. sha256/Bytes lokal am signierten
 # Artefakt UND gegen das GitHub-Asset gegengeprüft (byte-identisch, signtool /pa OK).
 releases:
+  # 1.1.5 (23.11.2026, App 1.1.5+46): Meldung [FF_16] Code Signing (ERGEBNIS 04:14:08, Release haushaltsmanager-v1.1.5 veröffentlicht
+  # 04:12:01 auf „push haushaltsmanager“ von Matthias 04:10:08, Beschluss Matthias A 03:40:41). Freigabe [FF_00] 04:15:02 nennt Produktseite,
+  # Update-Angabe, Steckbrief-Version und Zeile „Passwort“ ausdrücklich. Von [FF_10] am öffentlichen Download nachgemessen 04:16:
+  # HTTP 200, 20.688.744 B, sha256 54d45f40…2e73e = Angabe [FF_16] und [FF_00]; GitHub-Digest gleich, kein Entwurf, keine Vorabversion.
+  # notes wortgleich aus dem von Matthias beschlossenen Release-Text (Möglichkeit A), nichts erfunden (P8). Keine Aktuelles-Meldung (nicht gedeckt).
+  - version: "1.1.5"
+    date: "2026-11-23"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.5/FehlerFuchs_HaushaltsManager_Setup_1.1.5.exe
+    filename: FehlerFuchs_HaushaltsManager_Setup_1.1.5.exe
+    size:
+      bytes: 20688744
+      label: "19,7 MB"
+      source: GitHub-Release-Asset
+    sha256: "54d45f40e7e47641c03a10b8d4bfecec2649ea456a0303c28ab4acf578e2e73e"
+    signed: true
+    ohne_meldung: "Keine Aktuelles-Meldung (nicht gedeckt, wie bei 1.1.2 bis 1.1.4); Release-Text steht auf der GitHub-Release-Seite."
+    notes: |-
+      HaushaltsManager 1.1.5 – verständlichere Hinweise bei der Installation, berichtigte Angaben zur Ablage der Zugangsdaten
+      - Neu: Fehlt auf deinem Computer die Microsoft Visual C++ Runtime, sagt dir das Setup jetzt vorher, was passiert und was du tun kannst, wenn Windows nach Administratorrechten fragt oder du keine hast. Lehnst du die Abfrage ab, erklärt das Setup, wie es weitergeht, und nennt einen Fehlercode, den du dem Support angeben kannst.
+      - Berichtigt: Drei Texte in der App nannten den „Windows-Anmeldespeicher“ als Ablage für dein PowerFox-Passwort und Zugriffstoken. Richtig ist: Sie liegen verschlüsselt in einer geschützten Datei im Programmdatenordner (Windows-Datenschutz). Am Programm und an deinen Daten ändert sich dadurch nichts.
   # 1.1.4 (17.11.2026, App 1.1.4+45): Meldung [FF_16] Code Signing (ERGEBNIS 21:31:07, Release haushaltsmanager-v1.1.4 veröffentlicht
   # 21:29:09 auf „push haushaltsmanager“ von Matthias, Freigabe [FF_00] 21:19:05 und NACHTRAG 21:32:15). Reihenfolge laut [FF_00]:
   # Datenschutz-Steckbrief Stand 13.11.2026 zuerst live (Commit 0e80f9b, öffentlich gemessen 21:35:10), dann dieser Eintrag.
@@ -255,7 +277,7 @@ features:
         note: Reine Verbindung im eigenen Heimnetz – die Daten verlassen das lokale Netz nicht.
       - name: Stromzähler über PowerFox/poweropti auslesen
         values: { standard: ja }
-        note: Der poweropti-Lesekopf am Zähler, per PowerFox-Cloud-API 2.0 oder direkt lokal; mit den eigenen Zugangsdaten, das Passwort bleibt im Windows-Anmeldespeicher.
+        note: Der poweropti-Lesekopf am Zähler, per PowerFox-Cloud-API 2.0 oder direkt lokal; mit den eigenen Zugangsdaten; Passwort und Zugriffstoken liegen verschlüsselt in einer geschützten Datei im Programmdatenordner (Windows-Datenschutz).
       - name: Wetterdaten über Open-Meteo (wetterbereinigte Auswertung)
         values: { standard: ja }
         note: Sendet nur die gewählten Koordinaten, ohne Schlüssel oder Konto.

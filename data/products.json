@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-23T03:58:24+01:00",
+  "generiert": "2026-11-23T04:17:14+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1981,6 +1981,23 @@
       ],
       "releases": [
         {
+          "version": "1.1.5",
+          "date": "2026-11-23",
+          "channel": "stable",
+          "os": "windows",
+          "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.5/FehlerFuchs_HaushaltsManager_Setup_1.1.5.exe",
+          "filename": "FehlerFuchs_HaushaltsManager_Setup_1.1.5.exe",
+          "size": {
+            "bytes": 20688744,
+            "label": "19,7 MB",
+            "source": "GitHub-Release-Asset"
+          },
+          "sha256": "54d45f40e7e47641c03a10b8d4bfecec2649ea456a0303c28ab4acf578e2e73e",
+          "signed": true,
+          "ohne_meldung": "Keine Aktuelles-Meldung (nicht gedeckt, wie bei 1.1.2 bis 1.1.4); Release-Text steht auf der GitHub-Release-Seite.",
+          "notes": "HaushaltsManager 1.1.5 – verständlichere Hinweise bei der Installation, berichtigte Angaben zur Ablage der Zugangsdaten\n- Neu: Fehlt auf deinem Computer die Microsoft Visual C++ Runtime, sagt dir das Setup jetzt vorher, was passiert und was du tun kannst, wenn Windows nach Administratorrechten fragt oder du keine hast. Lehnst du die Abfrage ab, erklärt das Setup, wie es weitergeht, und nennt einen Fehlercode, den du dem Support angeben kannst.\n- Berichtigt: Drei Texte in der App nannten den „Windows-Anmeldespeicher“ als Ablage für dein PowerFox-Passwort und Zugriffstoken. Richtig ist: Sie liegen verschlüsselt in einer geschützten Datei im Programmdatenordner (Windows-Datenschutz). Am Programm und an deinen Daten ändert sich dadurch nichts."
+        },
+        {
           "version": "1.1.4",
           "date": "2026-11-17",
           "channel": "stable",
@@ -2171,7 +2188,7 @@
               "values": {
                 "standard": "ja"
               },
-              "note": "Der poweropti-Lesekopf am Zähler, per PowerFox-Cloud-API 2.0 oder direkt lokal; mit den eigenen Zugangsdaten, das Passwort bleibt im Windows-Anmeldespeicher."
+              "note": "Der poweropti-Lesekopf am Zähler, per PowerFox-Cloud-API 2.0 oder direkt lokal; mit den eigenen Zugangsdaten; Passwort und Zugriffstoken liegen verschlüsselt in einer geschützten Datei im Programmdatenordner (Windows-Datenschutz)."
             },
             {
               "name": "Wetterdaten über Open-Meteo (wetterbereinigte Auswertung)",

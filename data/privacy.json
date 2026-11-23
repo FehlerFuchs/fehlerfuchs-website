@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-23T03:58:24+01:00",
+  "generiert": "2026-11-23T04:17:14+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -910,7 +910,7 @@
       "name": "HaushaltsManager",
       "stand": "2026-11-13",
       "geprueft_von": "36_HaushaltsManager Markt",
-      "fassung": "Am gebauten und signierten Produkt 1.1.4 geprüft (Produktfassung ohne private Daten, sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Installer, Programmdatei, Deinstaller und alle mitgelieferten Programmbibliotheken sind mit der FehlerFuchs-Signatur versehen (zweistufig signiert). Neu ggü. 1.1.1: eigener Datenordner (%APPDATA%\\FehlerFuchs\\HaushaltsManager\\) mit eigenem verschlüsselten Speicher, Knopf „Alle Lizenzen anzeigen“ in der App, Tray-Symbol mit Menü und Schließen-Kreuz arbeiten wieder wie vorgesehen, nur eine Programminstanz je Benutzer, automatische Neuanmeldung des Geräts beim Online-Prüfen der Lizenz (keine zusätzlichen Angaben). Neu ggü. 1.1.2: Lässt sich der verschlüsselte Speicher nicht lesen, zeigt die App einen Hinweis; die beschädigte Datei bleibt als Kopie im Datenordner erhalten (keine neuen Datenarten, keine Übermittlung). Neu ggü. 1.1.3: Beim Lizenzabgleich wird die Programmversion mitgesendet. Findet die App im früheren Datenordner noch Daten, zeigt sie einen Hinweis; sie liest diese Daten nicht aus und überträgt nichts.",
+      "fassung": "Am gebauten und signierten Produkt 1.1.5 geprüft (Produktfassung ohne private Daten, sauberer Vermarktungs-Fork). Windows-Desktop-Tool (Flutter/Dart), lokal. Installer, Programmdatei, Deinstaller und alle mitgelieferten Programmbibliotheken sind mit der FehlerFuchs-Signatur versehen (zweistufig signiert). Neu ggü. 1.1.1: eigener Datenordner (%APPDATA%\\FehlerFuchs\\HaushaltsManager\\) mit eigenem verschlüsselten Speicher, Knopf „Alle Lizenzen anzeigen“ in der App, Tray-Symbol mit Menü und Schließen-Kreuz arbeiten wieder wie vorgesehen, nur eine Programminstanz je Benutzer, automatische Neuanmeldung des Geräts beim Online-Prüfen der Lizenz (keine zusätzlichen Angaben). Neu ggü. 1.1.2: Lässt sich der verschlüsselte Speicher nicht lesen, zeigt die App einen Hinweis; die beschädigte Datei bleibt als Kopie im Datenordner erhalten (keine neuen Datenarten, keine Übermittlung). Neu ggü. 1.1.3: Beim Lizenzabgleich wird die Programmversion mitgesendet. Findet die App im früheren Datenordner noch Daten, zeigt sie einen Hinweis; sie liest diese Daten nicht aus und überträgt nichts. Neu ggü. 1.1.4: Das Setup erklärt vorher, was bei fehlender Laufzeitbibliothek und bei der Abfrage nach Administratorrechten geschieht (keine neue Verarbeitung, keine Übermittlung). Drei Texte in der App nennen die Ablage der Zugangsdaten jetzt richtig: verschlüsselt in einer geschützten Datei im Programmdatenordner.",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
