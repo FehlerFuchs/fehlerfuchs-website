@@ -1,8 +1,8 @@
 slug: checkin-vita
 name: CheckInVita
-stand: "2026-10-11"
+stand: "2026-11-22"
 geprueft_von: 23_CheckInVita
-fassung: "Ausgeliefert: Android 1.0.0 (versionCode 4) bei Google Play seit 11.10.2026 (05:22), erste öffentliche Fassung. Windows wird nicht ausgeliefert."
+fassung: "Ausgeliefert: Android 1.0.2 (versionCode 6) bei Google Play seit 17.11.2026 (erste öffentliche Fassung 1.0.0 seit 11.10.2026, 05:22). Fassung 1.1.0 (versionCode 7) ist zur Einreichung vorbereitet und noch nicht ausgeliefert; der Text unten gilt ab Version 1.1.0. Windows wird nicht ausgeliefert."
 
 # Ohne aktives Zutun des Nutzers verlässt kein Datum das Gerät.
 # Das Support-Formular sendet auf Wunsch an license.fehlerfuchs.eu; deshalb false
@@ -13,25 +13,25 @@ auf_dem_geraet:
   - was: Tagebuch-Einträge (Gewicht, Blutdruck, Puls, Blutzucker, HbA1c, SpO2, Temperatur, Atemfrequenz, Schritte, Schlaf, Notizen)
     wo: lokale Datenbank (SQLite)
     beleg: lib/data/database/app_database.dart
-  - was: Medikamente (auf Wunsch mit PZN und EAN der Packung), Medikationsplan, Injektionstherapien und Injektionsprotokoll
+  - was: Medikamente (auf Wunsch mit PZN und EAN der Packung), Medikationsplan, Injektionstherapien und Injektionsprotokoll, dazu auf Wunsch Injektionspackungen (Zahl der Spritzen, Dosen, mg und Klicks je Dosis, optional der Preis der Packung) und die Zuordnung der Gaben zu den Spritzen (Klicks je Gabe, verworfener Rest)
     wo: lokale Datenbank (SQLite)
-    beleg: lib/data/database/tables/
+    beleg: lib/data/database/tables/injection.dart (InjectionPacks, InjectionLogParts)
   - was: Behandler-Kontakte, Rezeptanfragen, Mail-Verlauf, Kostenübernahmen
     wo: lokale Datenbank (SQLite)
     beleg: lib/data/database/app_database.dart
   - was: Rauchverhalten (Profil und Änderungen)
     wo: lokale Datenbank (SQLite)
     beleg: lib/data/database/tables/
-  - was: Stammdaten (Name, Geburtsdatum, Geschlecht, Größe, Start-/Zielgewicht) und App-Einstellungen
+  - was: Stammdaten (Name, Geburtsdatum, Geschlecht, Größe, Start-/Zielgewicht) und App-Einstellungen (dazu die Bestätigung des Rechner-Hinweises mit Fassung und Zeitpunkt)
     wo: lokale Schlüssel-Wert-Ablage (Hive)
-    beleg: lib/data/hive/app_config.dart
+    beleg: lib/data/hive/app_config.dart (rechnerAnsageFassung, rechnerAnsageAt)
   - was: selbst aufgenommene oder ausgewählte Fotos (Fortschrittsfotos in vier Ansichten, an keinen Tageseintrag gebunden)
     wo: app-privates Dateiverzeichnis
     beleg: lib/data/documents/document_service.dart
   - was: erzeugte PDF-Übersichten (Werte-Zusammenfassung, Medikamenten-Plan)
     wo: app-privates Dateiverzeichnis
     beleg: lib/data/documents/document_service.dart
-  - was: vom Nutzer selbst erzeugte Export- und Backup-Dateien (CSV, JSON, Excel-Tabelle, ZIP-Backup mit Einträgen, Einstellungen, Fotos und PDFs; einzelne Bereiche über „Daten austauschen“)
+  - was: vom Nutzer selbst erzeugte Export- und Backup-Dateien (CSV, JSON, Excel-Tabelle, ZIP-Backup (Format 4) mit Einträgen, Einstellungen, Injektionspackungen, Gabe-Zuordnungen, Fotos und PDFs; einzelne Bereiche über „Daten austauschen“; das Protokoll im Austausch (CSV/JSON) trägt eine optionale Spalte „clicks“)
     wo: vom Nutzer gewählter Speicherort
     beleg: lib/shared/utils/file_share.dart, lib/data/backup/backup_service.dart (buildArchive), lib/data/exchange/exchange_service.dart
   - was: Dateien im Austauschordner des Entwicklerzugriffs (JSON, CSV; Gesundheitsdaten im Klartext möglich), nur solange der Schalter an ist
@@ -131,7 +131,7 @@ besonderheiten: >-
   neues Gerät ausgenommen. Wer das Gerät wechselt,
   nutzt das ZIP-Backup; einen Abgleich zwischen zwei Geräten gibt es nicht
   (seit 02.10.2026 aus der App entfernt). Das ZIP-Backup enthält Einträge,
-  Einstellungen, Fotos und PDFs und ist unverschlüsselt. Die App-Sperre
+  Einstellungen, Injektionspackungen mit der Zuordnung der Gaben, Fotos und PDFs und ist unverschlüsselt. Die App-Sperre
   (Biometrie/Geräte-PIN) öffnet nur bei erfolgreicher Prüfung; bei Abbruch oder
   Fehler bleibt die App gesperrt. CheckInVita ist für Erwachsene ab 18 Jahren
   bestimmt. Rechtsgrundlagen: Für die Daten auf dem Gerät verarbeitet der Anbieter nichts. Das
@@ -154,6 +154,8 @@ besonderheiten: >-
   geleert. Die App lässt sich nicht von außen untersuchen und öffnet keine Schnittstelle für andere
   Apps. PZN und EAN stehen nur in der lokalen Datenbank und – nur bei gesetztem
   Haken, anfangs aus – im Text der Rezeptmail und der Rezept-Erinnerung.
+  Spritzenrechner (ab Version 1.1.0): Er rechnet nur nach, was der Nutzer eingibt, gibt keine Dosis vor und prüft nichts. Die Packungsdaten und die Zuordnung der Gaben liegen ausschließlich lokal; der Rechner stellt keine Verbindung her. Vor der ersten Benutzung erscheint eine einmalige Ansage („Gelesen und verstanden“); gespeichert werden nur Fassung und Zeitpunkt der Bestätigung, gerätegebunden, nicht in der Sicherung. Ältere App-Fassungen lehnen eine Sicherung im Format 4 ab; Sicherungen der Formate 1 bis 3 lassen sich weiter einspielen.
+  Der Datenschutztext der App sagt dazu wörtlich: Der Haftungshinweis endet mit „Nutzung auf eigene Verantwortung. Das gilt auch für den Spritzenrechner: Er rechnet nur nach, was du eingibst, und gibt keine Dosis vor.“ Der Abschnitt zu den Gesundheitsdaten nennt „Medikamente (auf Wunsch mit der Pharmazentralnummer PZN und dem EAN-Code der Packung), Medikationsplan, Injektionstherapie und -protokoll, auf Wunsch deine Injektionspackungen (Spritzen, Dosen, mg und Klicks je Dosis, wenn du magst der Preis) und die Zuordnung deiner Gaben zu den Spritzen, Rezeptanfragen, Kostenübernahmen“. Der Abschnitt „Kein Medizinprodukt“ schließt mit „Der Spritzenrechner rechnet nur nach, was du eingibst, und gibt keine Dosis vor. Du nutzt ihn auf eigene Verantwortung.“
 
 besonderheiten_beleg: >-
   android/app/src/main/AndroidManifest.xml und android/app/src/main/res/xml/*. 
