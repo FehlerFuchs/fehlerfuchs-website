@@ -483,12 +483,16 @@ rechtstexte:
   - slug: checkin-vita
     produktname: "CheckInVita"
     variante: nutzungsbedingungen
-    stand: "04.11.2026"
+    stand: "23.11.2026"     # Ziffer 1.3 neu (Beschluss Matthias 23.11.2026, Freigabe [FF_00] 03:43); davor 04.11.2026
     vollstaendig: true
     ausstehend: []
     felder:
       beschreibung: "Android-Anwendung, ein persönliches Gesundheits-Tagebuch für eigene Werte, Medikamente und Arzttermine"
       drittanbieter_pfad_11: "in der App unter Mehr → Über CheckInVita → Open-Source-Lizenzen einsehbar"   # Beleg: [FF_23], Store-Fassung 1.0.1
+      # Ziffer 1.3 (Beschluss Matthias 23.11.2026 03:39, Entscheidung E-FF_10-1795380882622198-8a2ffb, Möglichkeit A;
+      # Halbsatz „Ziffer 6.2 bleibt unberührt“ bleibt, Notiz [FF_00] 23.11. 03:40). Wortlaut aus Abschnitt 9 der App.
+      # Ausgeliefert nach Freigabe [FF_00] 23.11.2026 03:43 (Deploy vor der Einreichung von 1.1.0).
+      ziffer_1_3: "CheckInVita ist ein Tagebuch zum Erfassen, Verstehen und Dokumentieren. Es ist kein Medizinprodukt nach MDR 2017/745, bewertet nichts und stellt keine Diagnose. Der Spritzenrechner rechnet nur nach, was du eingibst, und gibt keine Dosis vor. Bei gesundheitlichen Fragen wende dich an medizinisches Fachpersonal. Du nutzt die App auf eigene Verantwortung; Ziffer 6.2 bleibt unberührt."
   - slug: orgafuchs
     produktname: "OrgaFuchs"
     variante: nutzungsbedingungen

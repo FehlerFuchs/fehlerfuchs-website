@@ -101,8 +101,9 @@ features:
       - name: Erinnerungen an Injektion und Rezeptbestellung
         values: { standard: ja }
         note: Uhrzeit, „Einen Tag vorher“ und Ausschalter sind einstellbar; die Mitteilung nennt keinen Präparatnamen. Bisher nur in der Android-Fassung.
-      - name: Reichweitenrechnung aus Packungsgröße und Verbrauch
+      - name: "Spritzenrechner: Packungen, Klicks je Dosis, Vorrat und Reichweite, auf Wunsch mit Preis"
         values: { standard: ja }
+        note: Rechnet nur nach, was du eingibst, und gibt keine Dosis vor. Ab Version 1.1.0.
 
   - group: Mit der Praxis kommunizieren
     items:

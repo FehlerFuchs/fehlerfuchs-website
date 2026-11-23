@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-22T17:07:35+01:00",
+  "generiert": "2026-11-23T03:47:58+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -474,10 +474,11 @@
               "note": "Uhrzeit, „Einen Tag vorher“ und Ausschalter sind einstellbar; die Mitteilung nennt keinen Präparatnamen. Bisher nur in der Android-Fassung."
             },
             {
-              "name": "Reichweitenrechnung aus Packungsgröße und Verbrauch",
+              "name": "Spritzenrechner: Packungen, Klicks je Dosis, Vorrat und Reichweite, auf Wunsch mit Preis",
               "values": {
                 "standard": "ja"
-              }
+              },
+              "note": "Rechnet nur nach, was du eingibst, und gibt keine Dosis vor. Ab Version 1.1.0."
             }
           ]
         },
@@ -1282,7 +1283,16 @@
               }
             },
             {
-              "name": "Datenimport (Stammdaten und Bestände)",
+              "name": "Datenimport – Kontakte (vCard), Standardkatalog, Belege über den Dokumenteneingang",
+              "values": {
+                "free": "ja",
+                "pro": "ja",
+                "vather": "ja"
+              },
+              "note": "Kontakte per vCard, ein Kontakt je Datei. CSV-Import und CSV-Export gibt es in keiner Edition."
+            },
+            {
+              "name": "Übernahme aus der Companion-App",
               "values": {
                 "free": "nein",
                 "pro": "ja",

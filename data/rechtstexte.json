@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-22T17:07:35+01:00",
+  "generiert": "2026-11-23T03:47:58+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "rechtstexte": [
     {
@@ -405,12 +405,13 @@
       "slug": "checkin-vita",
       "produktname": "CheckInVita",
       "variante": "nutzungsbedingungen",
-      "stand": "04.11.2026",
+      "stand": "23.11.2026",
       "vollstaendig": true,
       "ausstehend": [],
       "felder": {
         "beschreibung": "Android-Anwendung, ein persönliches Gesundheits-Tagebuch für eigene Werte, Medikamente und Arzttermine",
-        "drittanbieter_pfad_11": "in der App unter Mehr → Über CheckInVita → Open-Source-Lizenzen einsehbar"
+        "drittanbieter_pfad_11": "in der App unter Mehr → Über CheckInVita → Open-Source-Lizenzen einsehbar",
+        "ziffer_1_3": "CheckInVita ist ein Tagebuch zum Erfassen, Verstehen und Dokumentieren. Es ist kein Medizinprodukt nach MDR 2017/745, bewertet nichts und stellt keine Diagnose. Der Spritzenrechner rechnet nur nach, was du eingibst, und gibt keine Dosis vor. Bei gesundheitlichen Fragen wende dich an medizinisches Fachpersonal. Du nutzt die App auf eigene Verantwortung; Ziffer 6.2 bleibt unberührt."
       }
     },
     {

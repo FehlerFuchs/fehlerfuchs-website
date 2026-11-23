@@ -342,7 +342,12 @@ features:
         values: { free: ja, pro: ja, vather: ja }
       - name: Projekte, Gutschriften und Stornos
         values: { free: ja, pro: ja, vather: ja }
-      - name: Datenimport (Stammdaten und Bestände)
+      # Beschluss Matthias 23.11.2026 03:39:59 (E-FF_10-1795380882965861-2e9ad2, A), Wortlaut belegt von [FF_29] am Code 1.1.6
+      # (Antwort 22.11.2026 21:26); Freigabe [FF_00] 23.11.2026 03:43. Vorher: eine Zeile „Datenimport (Stammdaten und Bestände)“, Gewerbe nein.
+      - name: Datenimport – Kontakte (vCard), Standardkatalog, Belege über den Dokumenteneingang
+        values: { free: ja, pro: ja, vather: ja }
+        note: Kontakte per vCard, ein Kontakt je Datei. CSV-Import und CSV-Export gibt es in keiner Edition.
+      - name: Übernahme aus der Companion-App
         values: { free: nein, pro: ja, vather: ja }
 
   - group: Steuern und Auswertung
