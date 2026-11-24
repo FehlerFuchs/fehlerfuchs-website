@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-23T04:17:14+01:00",
+  "generiert": "2026-11-24T04:08:02+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "steckbriefe": [
     {
@@ -1680,9 +1680,9 @@
     {
       "slug": "pdfuchsreader",
       "name": "PDFuchs Reader",
-      "stand": "2026-11-06",
+      "stand": "2026-11-24",
       "geprueft_von": "26_PDFuchs (Slug-Eigentümer seit 18.08.2026). Windows-Teil am 06.11.2026 entfernt (Auftrag [FF_00], Befund 2 der Webseiten-Sichtung, LogBuch #9228): Unter Windows gibt es seit 20.10.2026 kein eigenes Reader-Programm mehr, die Nutzungsbedingungen nennen nur Android. Der Steckbrief beschreibt jetzt allein die Android-App.",
-      "fassung": "Android-Fassung 1.3.1 (versionCode 7, Paket eu.fehlerfuchs.pdfuchsreader): seit 20.10.2026 21:31 in Google Play veröffentlicht, voller Rollout (Meldung [FF_13] nach P5). Vorher im Emulator, auf einem Fire HD 10 und einem Galaxy S8+ geprüft. Geprüft am aktuellen Code und Manifest. 1.3.1 ändert am Datenfluss und an den Berechtigungen nichts: Das Manifest ist gegenüber 1.3.0 unverändert (nur INTERNET). Neu sind zwei Fehlerbehebungen (E-Book-Kapiteltext ohne den Titel aus dem HTML-Kopf; „Seiten bearbeiten“ setzt die Kopie aus den gewählten Seiten zusammen, gelöschte Seiten fehlen jetzt zuverlässig) und die aktualisierte PDF-Bibliothek pdfrx 2.6.5 mit PDFium (lokal, ohne Netz). Der Datenschutztext in der App ist unverändert (nach den sechs Fragen, A-11.6, von Matthias bestätigt, P10, 30.09.2026; Stand September 2026).",
+      "fassung": "Android-Fassung 1.4.0 (versionCode 9, Paket eu.fehlerfuchs.pdfuchsreader): seit 24.11.2026 in Google Play veröffentlicht, voller Rollout. Vorher im Release-Gate auf einem Galaxy S8+ und einem Fire HD 10 geprüft. Geprüft am aktuellen Code und Manifest. 1.4.0 ändert an den Berechtigungen und an den Übertragungen nichts: Das Manifest ist gegenüber 1.3.2 unverändert (nur INTERNET und die AndroidX-Schutzberechtigung, im Release-APK ausgelesen). Neu sind ausschließlich lokale Funktionen: Blätterarten (Scrollen, seitenweise, Buch, quer als Doppelseite), ein Mini-Editor für Anmerkungen (Stift, Pinsel, Textfeld, Markieren, Stempel, Unterschrift), eine englische Oberfläche mit Sprachwahl und ein neues Handbuch. Anmerkungen werden in eine Kopie geschrieben, nie ins Original; die Unterschrift wird nur in diese Kopie gezeichnet und nicht gesondert gespeichert. Für den Editor kommt die Bibliothek pdfium_dart hinzu (dieselbe PDFium-Engine, lokal, ohne Netz). Der Datenschutztext in der App ist inhaltlich unverändert (nach den sechs Fragen, A-11.6, von Matthias bestätigt, P10, 30.09.2026; Stand September 2026); neu ist nur der Hinweis „Legal texts are provided in German.“ über dem Text, wenn die App englisch eingestellt ist.",
       "lokal_only": false,
       "auf_dem_geraet": [
         {
@@ -1691,9 +1691,9 @@
           "beleg": "05_App/pdfuchsreader_mobile/lib/core/recent/recent_store.dart"
         },
         {
-          "was": "Einstellung Anzeigemodus (Hell/Dunkel/System)",
+          "was": "Einstellungen: Anzeigemodus (Hell/Dunkel/System), Sprache der Oberfläche, Blätterart, Doppelseite im Querformat; dazu die Kennzeichen „Anleitung zum Blättern gesehen“ und „Fassung des Handbuchs“",
           "wo": "im Einstellungsspeicher der App auf dem Gerät",
-          "beleg": "05_App/pdfuchsreader_mobile/lib/features/settings/settings_controller.dart"
+          "beleg": "05_App/pdfuchsreader_mobile/lib/features/settings/settings_controller.dart; lib/features/viewer/blaettern_anleitung.dart; lib/core/onboarding/handbook_seeder.dart"
         },
         {
           "was": "Kopie des mitgelieferten Handbuch-PDFs + einmaliges Onboarding-Kennzeichen",
@@ -1701,9 +1701,14 @@
           "beleg": "05_App/pdfuchsreader_mobile/lib/core/onboarding/handbook_seeder.dart"
         },
         {
-          "was": "Vom Nutzer erzeugte bearbeitete PDF-Kopien (<name>_bearbeitet[_N].pdf)",
-          "wo": "Dokumentenordner der App; Originale und vorhandene Kopien werden nie überschrieben",
-          "beleg": "05_App/pdfuchsreader_mobile/lib/features/editor/seiten_editor_screen.dart; lib/features/editor/seiten_zusammenstellen.dart"
+          "was": "Vom Nutzer erzeugte bearbeitete PDF-Kopien (<name>_bearbeitet[_N].pdf): aus „Seiten bearbeiten“ sowie mit Anmerkungen aus dem Mini-Editor (Striche, Textfelder, Markierungen, Stempel, Unterschrift als Zeichnung)",
+          "wo": "Dokumentenordner der App. Originale werden nie überschrieben. „Seiten bearbeiten“ legt immer eine neue Kopie an. Anmerkungen legen beim ersten Speichern eine neue Kopie an (Arbeitskopie); weiteres Speichern in dieser vom Reader selbst angelegten Arbeitskopie schreibt sie fort, statt jedes Mal eine weitere Datei anzulegen.",
+          "beleg": "05_App/pdfuchsreader_mobile/lib/features/editor/seiten_editor_screen.dart; lib/features/editor/seiten_zusammenstellen.dart; lib/core/anmerkungen/arbeitskopie.dart; lib/core/anmerkungen/pdf_anmerkungen.dart"
+        },
+        {
+          "was": "Verzeichnis der Arbeitskopien: Pfad, Dateigröße und Änderungszeit der Kopien, die der Reader selbst angelegt hat (damit nie ein Original als Arbeitskopie beschrieben wird)",
+          "wo": "im Einstellungsspeicher der App auf dem Gerät",
+          "beleg": "05_App/pdfuchsreader_mobile/lib/core/anmerkungen/arbeitskopie.dart"
         },
         {
           "was": "Per „Öffnen mit“/Teilen hereingereichte PDFs und EPUBs (größenbegrenzte Arbeitskopie)",
@@ -1733,7 +1738,7 @@
           "name": "(Android – keine weiteren)",
           "wofuer": "Die App fordert keine weiteren Berechtigungen an – insbesondere keinen Zugriff auf Speicher, Kamera, Standort, Kontakte oder Mikrofon.",
           "pflicht": false,
-          "beleg": "Release-Manifest von 1.0.0 vollständig ausgelesen; aktuelles Manifest und Abhängigkeiten statisch geprüft. Für 1.3.1 gegen 1.3.0 verglichen (22.10.2026): Manifest unverändert; [FF_13] bestätigte im AAB 1.3.1 (7) dieselben zwei Einträge (INTERNET und die AndroidX-Schutzberechtigung). Sie enthalten weiterhin keine fachliche Berechtigung außer INTERNET. Das ungenutzte Paket permission_handler ist seit 07.08.2026 entfernt."
+          "beleg": "Release-Manifest von 1.0.0 vollständig ausgelesen; aktuelles Manifest und Abhängigkeiten statisch geprüft. Für 1.3.1 gegen 1.3.0 verglichen (22.10.2026): Manifest unverändert; [FF_13] bestätigte im AAB 1.3.1 (7) dieselben zwei Einträge (INTERNET und die AndroidX-Schutzberechtigung). Für 1.4.0 gegen 1.3.2 verglichen (23.11.2026, aapt am Release-APK 1.4.0 (9) und 1.3.2 (8)): dieselben zwei Einträge. Sie enthalten weiterhin keine fachliche Berechtigung außer INTERNET. Das ungenutzte Paket permission_handler ist seit 07.08.2026 entfernt."
         }
       ],
       "uebertragungen": [
@@ -1749,27 +1754,27 @@
           "was": "Betreff und Nachrichtentext als vorausgefüllte E-Mail",
           "wann": "Nur als Ausweichweg, wenn der Versand oben fehlschlägt; der Nutzer muss die Mail selbst abschicken",
           "freiwillig": true,
-          "beleg": "05_App/pdfuchsreader_mobile/lib/features/support/support_screen.dart (Zeile 95)"
+          "beleg": "05_App/pdfuchsreader_mobile/lib/features/support/support_screen.dart (Zeile 77, 99)"
         },
         {
           "wohin": "fehlerfuchs.eu (Seiten /unterstuetzen/, /impressum/, /kontakt/, /datenschutz/)",
           "was": "Normaler Seitenaufruf im externen Browser; die App selbst sendet dabei keine Inhalte",
           "wann": "Nur wenn der Nutzer den jeweiligen Verweis antippt",
           "freiwillig": true,
-          "beleg": "lib/features/home/support_dialog.dart (Zeile 7), lib/features/legal/impressum_screen.dart (Zeile 65, 71), lib/features/legal/datenschutz_screen.dart (Zeile 136)"
+          "beleg": "lib/features/home/support_dialog.dart (Zeile 8), lib/features/legal/impressum_screen.dart (Zeile 68, 74), lib/features/legal/datenschutz_screen.dart (Zeile 139)"
         },
         {
           "wohin": "Vom Nutzer gewählte fremde App bzw. Android-Druckdienst",
           "was": "Die geöffnete PDF-Datei",
           "wann": "Nur wenn der Nutzer „Teilen“ oder „Drucken“ auslöst; wohin sie geht, bestimmt der Nutzer",
           "freiwillig": true,
-          "beleg": "05_App/pdfuchsreader_mobile/lib/features/viewer/viewer_screen.dart (Zeile 53, 62)"
+          "beleg": "05_App/pdfuchsreader_mobile/lib/features/viewer/viewer_screen.dart (Zeile 164, 177)"
         }
       ],
       "fremde_dienste": [
         {
-          "name": "PDFium (über die Bibliothek pdfrx)",
-          "wofuer": "Darstellung, Textsuche und verlustfreies Speichern der PDF-Seiten",
+          "name": "PDFium (über die Bibliotheken pdfrx und pdfium_dart)",
+          "wofuer": "Darstellung, Textsuche, verlustfreies Speichern der PDF-Seiten und Schreiben der Anmerkungen",
           "wann": "Ausschließlich lokal auf dem Gerät, ohne Netzverbindung"
         },
         {
@@ -1783,8 +1788,8 @@
       "werbung": false,
       "absturzberichte": false,
       "daten_an_dritte_verkauft": false,
-      "loeschung": "Alle Daten liegen auf dem Gerät. Einträge der Liste „Zuletzt geöffnet“ lassen sich einzeln entfernen oder komplett leeren. Beim Deinstallieren verschwinden App-Einstellungen, Zuletzt-Liste, Handbuch-Kopie, Lesezeichen, Wiederlesepositionen, im App-Ordner erzeugte bearbeitete Kopien und der Zwischenspeicher. Die eigenen Dokumente des Nutzers bleiben unangetastet – Originale werden nie überschrieben.",
-      "besonderheiten": "Die App ist offline voll benutzbar; ohne Zutun des Nutzers entsteht keine Verbindung nach draußen und keine automatische Update-Prüfung. Es gibt kein Konto, keine Anmeldung, keine Werbung, keine Nutzungsmessung und keine In-App-Käufe. Eine Verbindung entsteht nur, wenn der Nutzer sie selbst auslöst – vor allem beim Absenden des Support-/Kontaktformulars (an license.fehlerfuchs.eu) sowie beim Öffnen externer Links. Bearbeitete PDF-Dateien werden immer als neue Kopie gespeichert, die Ursprungsdatei bleibt unverändert. Die App wird über Google Play vertrieben; Google erhält dabei die üblichen Installations- und Kontodaten des Store-Vorgangs, worauf die App selbst keinen Einfluss hat.",
+      "loeschung": "Alle Daten liegen auf dem Gerät. Einträge der Liste „Zuletzt geöffnet“ lassen sich einzeln entfernen oder komplett leeren. Beim Deinstallieren verschwinden App-Einstellungen, Zuletzt-Liste, Handbuch-Kopie, Lesezeichen, Wiederlesepositionen, im App-Ordner erzeugte bearbeitete Kopien samt dem Verzeichnis der Arbeitskopien und der Zwischenspeicher. Die eigenen Dokumente des Nutzers bleiben unangetastet – Originale werden nie überschrieben.",
+      "besonderheiten": "Die App ist offline voll benutzbar; ohne Zutun des Nutzers entsteht keine Verbindung nach draußen und keine automatische Update-Prüfung. Es gibt kein Konto, keine Anmeldung, keine Werbung, keine Nutzungsmessung und keine In-App-Käufe. Eine Verbindung entsteht nur, wenn der Nutzer sie selbst auslöst – vor allem beim Absenden des Support-/Kontaktformulars (an license.fehlerfuchs.eu) sowie beim Öffnen externer Links. Bearbeitete PDF-Dateien und Anmerkungen werden als Kopie gespeichert, die Ursprungsdatei bleibt unverändert; nur eine vom Reader selbst angelegte Arbeitskopie wird beim erneuten Speichern fortgeschrieben. Die App wird über Google Play vertrieben; Google erhält dabei die üblichen Installations- und Kontodaten des Store-Vorgangs, worauf die App selbst keinen Einfluss hat.",
       "vorhandener_text": "Android: 05_App/pdfuchsreader_mobile/lib/features/legal/datenschutz_screen.dart (Datenschutztext in der App nach den sechs Fragen, verweist auf https://fehlerfuchs.eu/datenschutz/).",
       "offene_fragen": "1. (erledigt) Der Slug „pdfuchsreader“ gehört [26] PDFuchs. Die frühere Windows-Fassung ist seit 20.10.2026 entfallen, der Slug beschreibt nur noch die Android-App. 2. (geklärt, Beleg [11] Lizenzserver via [26-1], 23.08.2026) Der Kontakt-Endpunkt /v1/contact auf license.fehlerfuchs.eu speichert den Nachrichteninhalt NICHT in der Datenbank; die IP dient nur als kurzlebiger Redis-Schlüssel der Missbrauchsbremse (Stunde/Tag), es wird kein User-Agent übernommen, und bei Erfolg protokolliert der Dienst weder Anfrageinhalt noch IP. Offen bleibt allein die Aufbewahrung im E-Mail-Postfach, an das der Supportinhalt weitergeleitet wird – sie richtet sich nach dem Postfach. 3. (erledigt) Das ungenutzte Paket permission_handler wurde mit Version 1.0.1 (07.08.2026) entfernt; es hatte ohnehin keine Datenschutzwirkung. 4. (entfallen am 06.11.2026) Die früheren Fragen zur Windows-Fassung (Netzverhalten der mitgelieferten Tesseract-Binary, Zähler in license_state.json) betrafen nur die Windows-Fassung und gelten nicht mehr.",
       "art": "anwendung"
