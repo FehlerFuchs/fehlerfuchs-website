@@ -29,6 +29,43 @@
 
 meldungen:
 
+  # ENTWURF, NICHT FREIGEGEBEN (Zweig entwurf-aktuelles-2026-11-24, nicht auf main; Auftrag [FF_00] 24.11.2026,
+  # Entscheidung Matthias „A: Entwürfe schreiben“, Vorgang #V_0027). Erst nach Matthias' Ja zum fertigen
+  # Wortlaut auf main.
+  # PDFuchs Reader 1.4.0 (versionCode 9). Play-Store-App: kein Release im Modell. Live seit 24.11.2026 03:52
+  # (Console), belegt durch die P5-Meldung von [FF_13] 04:05. Text nach „Was ist neu“ im Store (fünf Punkte),
+  # nichts erfunden (P8), für Besucher geschrieben, KEINE Buildnummer (vc 9). „Doppelseite (Beta)“ so aus dem Store.
+  - id: pdfuchsreader-1-4-0
+    typ: update
+    produkt: pdfuchsreader
+    datum: "2026-11-24"
+    titel: "PDFuchs Reader 1.4.0: PDFs bearbeiten, blättern wie in einem Buch, jetzt auch auf Englisch"
+    text: >-
+      PDFuchs Reader 1.4.0 ist im Play Store. Neu ist ein Mini-Editor für PDFs: Stift, Pinsel, Textfeld,
+      Markieren, Stempel und Unterschrift. Gespeichert wird als Kopie, das Original bleibt unverändert.
+      Beim Blättern hast du die Wahl: scrollen, seitenweise oder als Buch mit Umblätter-Animation, quer
+      auch als Doppelseite (Beta). Auf Nutzerwunsch über das Support-Formular blättert jetzt auch ein
+      Tippen auf den Seitenrand um. Die App gibt es jetzt auch auf Englisch, und ein neues Handbuch
+      erklärt alle Funktionen.
+
+  # ENTWURF, NICHT FREIGEGEBEN (wie oben).
+  # CheckInVita 1.1.0 (versionCode 7). Play-Store-App: kein Release im Modell. Live seit 23.11.2026 04:31
+  # (Console), belegt durch die P5-Meldung von [FF_13] 04:50. Text nach „Was ist neu“ im Store, nichts erfunden
+  # (P8), für Besucher geschrieben, KEINE Buildnummer (vc 7). „Packungsdaten bleiben auf deinem Gerät“ trägt der
+  # Steckbrief (Spritzenrechner, Abschnitt „ab Version 1.1.0“); ein allgemeines „alles lokal“ steht bewusst NICHT
+  # da (Steckbrief: lokal_only false).
+  - id: checkin-vita-1-1-0
+    typ: update
+    produkt: checkin-vita
+    datum: "2026-11-23"
+    titel: "CheckInVita 1.1.0: der Spritzenrechner"
+    text: >-
+      CheckInVita 1.1.0 ist im Play Store. Neu ist der Spritzenrechner: Du trägst deine Packung ein
+      (Spritzen, Dosen, Klicks, auf Wunsch den Preis) und siehst bei jeder Injektion, was in der Spritze
+      bleibt und wie weit dein Vorrat reicht. Das Protokoll zählt deine Gaben mit, und die Packungsdaten
+      bleiben auf deinem Gerät. Der Rechner rechnet nur nach, was du eingibst, und gibt keine Dosis vor.
+      Hinweis: Neue Sicherungen (Format 4) lassen sich nur mit dieser Version einspielen.
+
   # GewerbePro 1.1.5 (Build 15) – Release 19.11.2026 16:18:53 (signiert, Meldung [FF_16] P5 16:20, [FF_29] 16:31).
   # 'version: 1.1.5' bindet die Meldung an den releases-Eintrag. Auftrag: Wort Matthias 19.11.2026 16:52:28
   # „ja Meldung absetzen“ (Logbuch #10561), Freigabe [FF_00] 19.11.2026 18:30:58. Text aus den von Matthias bestätigten
