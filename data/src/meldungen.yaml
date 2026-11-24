@@ -29,9 +29,8 @@
 
 meldungen:
 
-  # ENTWURF, NICHT FREIGEGEBEN (Zweig entwurf-aktuelles-2026-11-24, nicht auf main; Auftrag [FF_00] 24.11.2026,
-  # Entscheidung Matthias „A: Entwürfe schreiben“, Vorgang #V_0027). Erst nach Matthias' Ja zum fertigen
-  # Wortlaut auf main.
+  # Freigegeben: Wort Matthias 24.11.2026 „A: Alles so“ (Wortlaut unverändert, über [FF_00], FREIGABE 04:28:59,
+  # Vorgang #V_0027).
   # PDFuchs Reader 1.4.0 (versionCode 9). Play-Store-App: kein Release im Modell. Live seit 24.11.2026 03:52
   # (Console), belegt durch die P5-Meldung von [FF_13] 04:05. Text nach „Was ist neu“ im Store (fünf Punkte),
   # nichts erfunden (P8), für Besucher geschrieben, KEINE Buildnummer (vc 9). „Doppelseite (Beta)“ so aus dem Store.
@@ -48,7 +47,6 @@ meldungen:
       Tippen auf den Seitenrand um. Die App gibt es jetzt auch auf Englisch, und ein neues Handbuch
       erklärt alle Funktionen.
 
-  # ENTWURF, NICHT FREIGEGEBEN (wie oben).
   # CheckInVita 1.1.0 (versionCode 7). Play-Store-App: kein Release im Modell. Live seit 23.11.2026 04:31
   # (Console), belegt durch die P5-Meldung von [FF_13] 04:50. Text nach „Was ist neu“ im Store, nichts erfunden
   # (P8), für Besucher geschrieben, KEINE Buildnummer (vc 7). „Packungsdaten bleiben auf deinem Gerät“ trägt der
