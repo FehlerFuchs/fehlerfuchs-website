@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-23",
+  "updatedAt": "2026-11-25",
   "products": [
     {
       "slug": "gewerbepro",
@@ -24,17 +24,17 @@
     {
       "slug": "haushaltsmanager",
       "name": "FehlerFuchs HaushaltsManager",
-      "version": "1.1.5",
-      "date": "2026-11-23",
+      "version": "1.1.6",
+      "date": "2026-11-25",
       "channel": "stable",
       "os": "windows",
-      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.5/FehlerFuchs_HaushaltsManager_Setup_1.1.5.exe",
-      "filename": "FehlerFuchs_HaushaltsManager_Setup_1.1.5.exe",
-      "sizeLabel": "19,7 MB",
-      "sha256": "54d45f40e7e47641c03a10b8d4bfecec2649ea456a0303c28ab4acf578e2e73e",
+      "url": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.6/FehlerFuchs_HaushaltsManager_Setup_1.1.6.exe",
+      "filename": "FehlerFuchs_HaushaltsManager_Setup_1.1.6.exe",
+      "sizeLabel": "19,9 MB",
+      "sha256": "58ea1db2a7fb2649954eae243d2dbc4898c1e2cc56648082f87edf86e2546a9a",
       "signed": true,
       "page": "https://fehlerfuchs.eu/produkte/haushaltsmanager/",
-      "notes": "HaushaltsManager 1.1.5 – verständlichere Hinweise bei der Installation, berichtigte Angaben zur Ablage der Zugangsdaten\n- Neu: Fehlt auf deinem Computer die Microsoft Visual C++ Runtime, sagt dir das Setup jetzt vorher, was passiert und was du tun kannst, wenn Windows nach Administratorrechten fragt oder du keine hast. Lehnst du die Abfrage ab, erklärt das Setup, wie es weitergeht, und nennt einen Fehlercode, den du dem Support angeben kannst.\n- Berichtigt: Drei Texte in der App nannten den „Windows-Anmeldespeicher“ als Ablage für dein PowerFox-Passwort und Zugriffstoken. Richtig ist: Sie liegen verschlüsselt in einer geschützten Datei im Programmdatenordner (Windows-Datenschutz). Am Programm und an deinen Daten ändert sich dadurch nichts.",
+      "notes": "HaushaltsManager 1.1.6 – Installation ohne Rechteabfrage\n- Neu: Das Setup bringt die Microsoft Visual C++ Runtime jetzt selbst mit. Es lädt nichts mehr von Microsoft nach, und Windows fragt dabei nicht mehr nach Administratorrechten. Die Installation läuft damit auch auf Computern ohne diese Runtime ohne Administratorrechte durch.\n- Neu: Unter „Alle Lizenzen anzeigen“ steht jetzt auch die mitgelieferte Microsoft-Laufzeit.\n- An deinen Daten und am Programmablauf ändert sich nichts.",
       "windowsDisplayNames": [
         "FehlerFuchs HaushaltsManager"
       ]

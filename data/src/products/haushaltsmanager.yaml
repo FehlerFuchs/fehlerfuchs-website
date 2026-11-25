@@ -78,6 +78,30 @@ editions:
 # Erste öffentliche, signierte Windows-Fassung. sha256/Bytes lokal am signierten
 # Artefakt UND gegen das GitHub-Asset gegengeprüft (byte-identisch, signtool /pa OK).
 releases:
+  # 1.1.6 (25.11.2026, App 1.1.6+47): Meldung [FF_16] Code Signing (ERGEBNIS 04:12:45, Release haushaltsmanager-v1.1.6 veröffentlicht
+  # 04:11:14 auf „push haushaltsmanager“ von Matthias, Wort „A: Text so, push“, Logbuch [FF_00] #11253). Freigabe [FF_00] 04:31:40 (#11277)
+  # nennt Update-Dateien und Produktseite. Reihenfolge eingehalten: Datenschutztext 1.1.6 vorher live (website 38c6e45, 04:30). Von [FF_10]
+  # gegen GitHub nachgemessen (nur Metadaten): kein Entwurf, keine Vorabversion, ein Asset 20.894.872 B, GitHub-Digest sha256 58ea1db2…6a9a =
+  # Angabe [FF_16] und [FF_00]; öffentliche URL antwortet (302 auf das Asset). notes wortgleich aus dem bestätigten Release-Text, nichts erfunden (P8).
+  # Aktuelles-Meldung: erst Vorlage an [FF_00] (Wortlaut), nicht gedeckt.
+  - version: "1.1.6"
+    date: "2026-11-25"
+    channel: stable
+    os: windows
+    url: https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.6/FehlerFuchs_HaushaltsManager_Setup_1.1.6.exe
+    filename: FehlerFuchs_HaushaltsManager_Setup_1.1.6.exe
+    size:
+      bytes: 20894872
+      label: "19,9 MB"
+      source: GitHub-Release-Asset
+    sha256: "58ea1db2a7fb2649954eae243d2dbc4898c1e2cc56648082f87edf86e2546a9a"
+    signed: true
+    ohne_meldung: "Aktuelles-Meldung noch nicht freigegeben (Vorlage an [FF_00]); Release-Text steht auf der GitHub-Release-Seite."
+    notes: |-
+      HaushaltsManager 1.1.6 – Installation ohne Rechteabfrage
+      - Neu: Das Setup bringt die Microsoft Visual C++ Runtime jetzt selbst mit. Es lädt nichts mehr von Microsoft nach, und Windows fragt dabei nicht mehr nach Administratorrechten. Die Installation läuft damit auch auf Computern ohne diese Runtime ohne Administratorrechte durch.
+      - Neu: Unter „Alle Lizenzen anzeigen“ steht jetzt auch die mitgelieferte Microsoft-Laufzeit.
+      - An deinen Daten und am Programmablauf ändert sich nichts.
   # 1.1.5 (23.11.2026, App 1.1.5+46): Meldung [FF_16] Code Signing (ERGEBNIS 04:14:08, Release haushaltsmanager-v1.1.5 veröffentlicht
   # 04:12:01 auf „push haushaltsmanager“ von Matthias 04:10:08, Beschluss Matthias A 03:40:41). Freigabe [FF_00] 04:15:02 nennt Produktseite,
   # Update-Angabe, Steckbrief-Version und Zeile „Passwort“ ausdrücklich. Von [FF_10] am öffentlichen Download nachgemessen 04:16:
