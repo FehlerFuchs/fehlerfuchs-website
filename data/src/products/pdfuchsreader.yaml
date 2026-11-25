@@ -6,10 +6,10 @@ seoTitel: "PDFuchs Reader – PDF- & EPUB-Reader für Android, werbefrei"
 seoBeschreibung: "Kostenloser, werbefreier PDF- & E-Book-Reader für Android: PDF und EPUB lesen, Lesezeichen, Volltextsuche, teilen, drucken – ohne Konto, alles auf dem Gerät."
 tags: ["PDF-Reader", "E-Book-Reader", "EPUB", "PDF-Viewer", "Android", "werbefrei", "kostenlos", "ohne Konto"]
 kind: produkt
-tagline: Der kostenlose, werbefreie PDF- & E-Book-Reader für Android – PDFs und EPUBs lesen, mit Lesezeichen, Suche und Seitenbearbeitung.
+tagline: Der kostenlose, werbefreie PDF- & E-Book-Reader für Android – PDFs und EPUBs lesen, mit Lesezeichen, Suche, Seitenbearbeitung und Mini-Editor.
 description: >-
   PDF- und E-Book-Reader für Android, der ohne Konto und ohne Werbung auskommt: PDFs lesen,
-  durchsuchen, teilen, drucken und Seiten bearbeiten – und EPUB-E-Books mit anpassbarem
+  durchsuchen, teilen, drucken, Seiten bearbeiten und mit dem Mini-Editor Anmerkungen setzen – und EPUB-E-Books mit anpassbarem
   Textfluss, Schriftgröße, Lesethema und Lesezeichen. Alles passiert lokal auf dem Gerät.
   Der mobile Zwilling der PDFuchs-Familie. Unter Windows gibt es kein eigenes Reader-Programm:
   PDFuchs öffnet PDFs direkt in der Leseansicht.
@@ -57,6 +57,12 @@ features:
         values: { standard: ja }
       - name: Lesezeichen im PDF setzen und die Stelle wiederfinden
         values: { standard: ja }
+      - name: "Blättern nach Wahl: scrollen, seitenweise oder als Buch mit Umblätter-Animation"
+        values: { standard: ja }
+        note: Quer auch als Doppelseite (Beta). Ab Version 1.4.0.
+      - name: Tippen auf den Seitenrand blättert um
+        values: { standard: ja }
+        note: Ein Wunsch aus dem Support-Formular. Ab Version 1.4.0.
 
   - group: E-Books (EPUB)
     items:
@@ -87,9 +93,21 @@ features:
     items:
       - name: Seiten drehen, löschen und neu ordnen
         values: { standard: ja }
+      - name: "Mini-Editor: Stift, Pinsel, Textfeld, Markieren, Stempel und Unterschrift"
+        values: { standard: ja }
+        note: Die Unterschrift wird gezeichnet. Ab Version 1.4.0.
       - name: Als Kopie speichern – das Original bleibt unverändert
         values: { standard: ja }
         note: Verlustfrei; die Ausgangsdatei wird nie überschrieben.
+
+  - group: Sprache und Hilfe
+    items:
+      - name: Die App gibt es auch auf Englisch
+        values: { standard: ja }
+        note: Ab Version 1.4.0.
+      - name: Handbuch in der App erklärt alle Funktionen
+        values: { standard: ja }
+        note: Ab Version 1.4.0.
 
   - group: Bewusst nicht dabei
     items:
@@ -104,7 +122,7 @@ features:
 
   - group: Geplant
     items:
-      - name: Formularfelder ausfüllen und unterschreiben
+      - name: Formularfelder ausfüllen
         values: { standard: geplant }
 
 # Bild-Wortmarke. Ist sie gesetzt, ist SIE der sichtbare Titel und die

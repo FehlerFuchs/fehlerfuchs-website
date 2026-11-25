@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-24T04:29:40+01:00",
+  "generiert": "2026-11-25T04:13:39+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -3771,8 +3771,8 @@
         "ohne Konto"
       ],
       "kind": "produkt",
-      "tagline": "Der kostenlose, werbefreie PDF- & E-Book-Reader für Android – PDFs und EPUBs lesen, mit Lesezeichen, Suche und Seitenbearbeitung.",
-      "description": "PDF- und E-Book-Reader für Android, der ohne Konto und ohne Werbung auskommt: PDFs lesen, durchsuchen, teilen, drucken und Seiten bearbeiten – und EPUB-E-Books mit anpassbarem Textfluss, Schriftgröße, Lesethema und Lesezeichen. Alles passiert lokal auf dem Gerät. Der mobile Zwilling der PDFuchs-Familie. Unter Windows gibt es kein eigenes Reader-Programm: PDFuchs öffnet PDFs direkt in der Leseansicht.",
+      "tagline": "Der kostenlose, werbefreie PDF- & E-Book-Reader für Android – PDFs und EPUBs lesen, mit Lesezeichen, Suche, Seitenbearbeitung und Mini-Editor.",
+      "description": "PDF- und E-Book-Reader für Android, der ohne Konto und ohne Werbung auskommt: PDFs lesen, durchsuchen, teilen, drucken, Seiten bearbeiten und mit dem Mini-Editor Anmerkungen setzen – und EPUB-E-Books mit anpassbarem Textfluss, Schriftgröße, Lesethema und Lesezeichen. Alles passiert lokal auf dem Gerät. Der mobile Zwilling der PDFuchs-Familie. Unter Windows gibt es kein eigenes Reader-Programm: PDFuchs öffnet PDFs direkt in der Leseansicht.",
       "audience": [
         "privat",
         "selbststaendige",
@@ -3843,6 +3843,20 @@
               "values": {
                 "standard": "ja"
               }
+            },
+            {
+              "name": "Blättern nach Wahl: scrollen, seitenweise oder als Buch mit Umblätter-Animation",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Quer auch als Doppelseite (Beta). Ab Version 1.4.0."
+            },
+            {
+              "name": "Tippen auf den Seitenrand blättert um",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Ein Wunsch aus dem Support-Formular. Ab Version 1.4.0."
             }
           ]
         },
@@ -3921,11 +3935,37 @@
               }
             },
             {
+              "name": "Mini-Editor: Stift, Pinsel, Textfeld, Markieren, Stempel und Unterschrift",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Die Unterschrift wird gezeichnet. Ab Version 1.4.0."
+            },
+            {
               "name": "Als Kopie speichern – das Original bleibt unverändert",
               "values": {
                 "standard": "ja"
               },
               "note": "Verlustfrei; die Ausgangsdatei wird nie überschrieben."
+            }
+          ]
+        },
+        {
+          "group": "Sprache und Hilfe",
+          "items": [
+            {
+              "name": "Die App gibt es auch auf Englisch",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Ab Version 1.4.0."
+            },
+            {
+              "name": "Handbuch in der App erklärt alle Funktionen",
+              "values": {
+                "standard": "ja"
+              },
+              "note": "Ab Version 1.4.0."
             }
           ]
         },
@@ -3958,7 +3998,7 @@
           "group": "Geplant",
           "items": [
             {
-              "name": "Formularfelder ausfüllen und unterschreiben",
+              "name": "Formularfelder ausfüllen",
               "values": {
                 "standard": "geplant"
               }
