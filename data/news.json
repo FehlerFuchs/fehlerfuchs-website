@@ -1,8 +1,22 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-25T04:32:47+01:00",
+  "generiert": "2026-11-25T04:49:51+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "meldungen": [
+    {
+      "id": "haushaltsmanager-1-1-6",
+      "typ": "update",
+      "produkt": "haushaltsmanager",
+      "version": "1.1.6",
+      "titel": "HaushaltsManager 1.1.6: Installation ohne Administrator-Abfrage",
+      "text": "HaushaltsManager 1.1.6 ist da. Das Setup bringt jetzt alles mit, was es braucht, und lädt nichts mehr von Microsoft nach. Windows fragt bei der Installation deshalb nicht mehr nach Administratorrechten, auch nicht auf Computern, auf denen noch eine Programmbibliothek von Microsoft fehlt. An deinen Daten und am Programm ändert sich nichts.",
+      "datum": "2026-11-25",
+      "datumQuelle": "Release 1.1.6",
+      "wege": {
+        "download": "https://github.com/FehlerFuchs/fehlerfuchs-downloads/releases/download/haushaltsmanager-v1.1.6/FehlerFuchs_HaushaltsManager_Setup_1.1.6.exe",
+        "kauf": "https://www.checkout-ds24.com/product/721203"
+      }
+    },
     {
       "id": "pdfuchsreader-1-4-0",
       "typ": "update",

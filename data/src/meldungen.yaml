@@ -29,6 +29,21 @@
 
 meldungen:
 
+  # Freigegeben: Wort Matthias 25.11.2026 „A: So, Deploy“ (Wortlaut unverändert, über [FF_00], ENTSCHEIDUNG 04:48:49,
+  # Logbuch #11281). HaushaltsManager 1.1.6 (Windows-Release 25.11.2026 04:11, signiert, Meldung [FF_16] 04:12:45).
+  # 'version: 1.1.6' bindet die Meldung an den releases-Eintrag. Aus den ersten drei Punkten des bestätigten Release-Texts
+  # gekürzt (Wort Matthias „A: Text so, push“, #11253), für Besucher geschrieben, nichts erfunden (P8). Kein Facebook-Beitrag.
+  - id: haushaltsmanager-1-1-6
+    typ: update
+    produkt: haushaltsmanager
+    version: "1.1.6"
+    titel: "HaushaltsManager 1.1.6: Installation ohne Administrator-Abfrage"
+    text: >-
+      HaushaltsManager 1.1.6 ist da. Das Setup bringt jetzt alles mit, was es braucht, und lädt nichts mehr
+      von Microsoft nach. Windows fragt bei der Installation deshalb nicht mehr nach Administratorrechten,
+      auch nicht auf Computern, auf denen noch eine Programmbibliothek von Microsoft fehlt. An deinen Daten
+      und am Programm ändert sich nichts.
+
   # Freigegeben: Wort Matthias 24.11.2026 „A: Alles so“ (Wortlaut unverändert, über [FF_00], FREIGABE 04:28:59,
   # Vorgang #V_0027).
   # PDFuchs Reader 1.4.0 (versionCode 9). Play-Store-App: kein Release im Modell. Live seit 24.11.2026 03:52

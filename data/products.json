@@ -1,6 +1,6 @@
 {
   "_hinweis": "ERZEUGTE DATEI – nicht von Hand bearbeiten. Quelle: data/src/. Neu erzeugen mit: python tools/build_data.py",
-  "generiert": "2026-11-25T04:32:47+01:00",
+  "generiert": "2026-11-25T04:49:51+01:00",
   "schema": "https://fehlerfuchs.eu/data/schema/product.schema.json",
   "produkte": [
     {
@@ -1994,7 +1994,6 @@
           },
           "sha256": "58ea1db2a7fb2649954eae243d2dbc4898c1e2cc56648082f87edf86e2546a9a",
           "signed": true,
-          "ohne_meldung": "Aktuelles-Meldung noch nicht freigegeben (Vorlage an [FF_00]); Release-Text steht auf der GitHub-Release-Seite.",
           "notes": "HaushaltsManager 1.1.6 – Installation ohne Rechteabfrage\n- Neu: Das Setup bringt die Microsoft Visual C++ Runtime jetzt selbst mit. Es lädt nichts mehr von Microsoft nach, und Windows fragt dabei nicht mehr nach Administratorrechten. Die Installation läuft damit auch auf Computern ohne diese Runtime ohne Administratorrechte durch.\n- Neu: Unter „Alle Lizenzen anzeigen“ steht jetzt auch die mitgelieferte Microsoft-Laufzeit.\n- An deinen Daten und am Programmablauf ändert sich nichts."
         },
         {

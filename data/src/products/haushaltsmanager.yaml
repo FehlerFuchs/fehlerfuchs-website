@@ -83,7 +83,7 @@ releases:
   # nennt Update-Dateien und Produktseite. Reihenfolge eingehalten: Datenschutztext 1.1.6 vorher live (website 38c6e45, 04:30). Von [FF_10]
   # gegen GitHub nachgemessen (nur Metadaten): kein Entwurf, keine Vorabversion, ein Asset 20.894.872 B, GitHub-Digest sha256 58ea1db2…6a9a =
   # Angabe [FF_16] und [FF_00]; öffentliche URL antwortet (302 auf das Asset). notes wortgleich aus dem bestätigten Release-Text, nichts erfunden (P8).
-  # Aktuelles-Meldung: erst Vorlage an [FF_00] (Wortlaut), nicht gedeckt.
+  # Aktuelles-Meldung haushaltsmanager-1-1-6: Wortlaut freigegeben, Wort Matthias „A: So, Deploy“ (#11281).
   - version: "1.1.6"
     date: "2026-11-25"
     channel: stable
@@ -96,7 +96,6 @@ releases:
       source: GitHub-Release-Asset
     sha256: "58ea1db2a7fb2649954eae243d2dbc4898c1e2cc56648082f87edf86e2546a9a"
     signed: true
-    ohne_meldung: "Aktuelles-Meldung noch nicht freigegeben (Vorlage an [FF_00]); Release-Text steht auf der GitHub-Release-Seite."
     notes: |-
       HaushaltsManager 1.1.6 – Installation ohne Rechteabfrage
       - Neu: Das Setup bringt die Microsoft Visual C++ Runtime jetzt selbst mit. Es lädt nichts mehr von Microsoft nach, und Windows fragt dabei nicht mehr nach Administratorrechten. Die Installation läuft damit auch auf Computern ohne diese Runtime ohne Administratorrechte durch.
